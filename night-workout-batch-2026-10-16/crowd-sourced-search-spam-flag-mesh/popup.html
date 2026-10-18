@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="head">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+      </svg>
+      <div>
+        <h1>My Spam Flags</h1>
+        <p class="sub">Your personal flagged-domain list</p>
+      </div>
+    </header>
+
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <span><b>YOUR flags only</b> — no crowd, no server, nothing shared. Your choice, reversible.</span>
+    </div>
+
+    <div class="field">
+      <span>Flag a domain</span>
+      <div class="addrow">
+        <input id="domainInput" type="text" placeholder="e.g. spammy-deals.example" autocomplete="off">
+        <button id="addBtn" class="primary small">Add</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <span>Flagged domains (<b id="flagCount">0</b>)</span>
+      <div id="flagList" class="flaglist"></div>
+    </div>
+
+    <div class="modes" role="radiogroup" aria-label="Display mode">
+      <label class="mode"><input type="radio" name="mode" value="dim" checked><span>Dim flagged</span></label>
+      <label class="mode"><input type="radio" name="mode" value="collapse"><span>Collapse flagged</span></label>
+    </div>
+
+    <div class="row">
+      <button id="filterBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+        Filter this page
+      </button>
+      <button id="restoreBtn" class="ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+        Restore
+      </button>
+    </div>
+
+    <div class="row">
+      <button id="exportBtn" class="ghost smallbtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Export list
+      </button>
+      <label class="ghost smallbtn filebtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+        Import list
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </label>
+    </div>
+
+    <div id="stats" class="stats" hidden></div>
+    <div id="status" class="status" role="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

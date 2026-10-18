@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Text Signals — Heuristic Pattern Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <span class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>
+  <h1>AI Text Signals</h1>
+  <span class="ver">1.0</span>
+</header>
+<p class="honest">Heuristic signals — not real detection. These are writing-pattern flags only; a high score does not prove AI authorship, and a low score does not prove a human wrote it.</p>
+
+<label class="lbl" for="textIn">Paste text to scan (min 40 words for a stable score):</label>
+<textarea id="textIn" rows="6" placeholder="Paste an article, essay, or comment here…"></textarea>
+<div class="row">
+  <button id="scanBtn">Scan text</button>
+  <button id="clearBtn" class="ghost">Clear</button>
+</div>
+
+<div id="result" class="hidden">
+  <div class="score-ring"><span id="scoreNum">0</span><small>/100</small></div>
+  <p id="verdict" class="verdict"></p>
+  <div id="signals"></div>
+  <div class="stats">
+    <div><span>Words</span><b id="statWords">0</b></div>
+    <div><span>Sentences</span><b id="statSents">0</b></div>
+    <div><span>Burstiness</span><b id="statBurst">—</b></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg> What these signals mean</h2>
+  <ul>
+    <li><b>Repetitive phrasing</b> — the same sentence openers or phrases appear far more often than in typical human writing.</li>
+    <li><b>Low burstiness</b> — sentence lengths barely vary; humans usually mix short punchy lines with longer ones.</li>
+    <li><b>Generic transitions</b> — filler scaffolding ("Furthermore", "In conclusion", "It is important to note") used repeatedly.</li>
+    <li><b>Perfectly uniform tone</b> — no slang, asides, or personality shifts across a long text.</li>
+  </ul>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

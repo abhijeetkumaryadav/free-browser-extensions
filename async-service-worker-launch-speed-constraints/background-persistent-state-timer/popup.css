@@ -1,0 +1,140 @@
+/* EverTimer popup — deep-dark glassmorphism, one amber accent. */
+:root {
+  --accent: #f59e0b;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  padding: 16px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 12px;
+  color: var(--accent);
+}
+.logo svg { width: 22px; height: 22px; }
+
+h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.01em; }
+.subtitle { font-size: 12px; color: var(--muted); }
+
+main { display: flex; flex-direction: column; gap: 12px; }
+
+.card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.section-title { font-size: 13px; font-weight: 700; }
+
+.new-row { display: flex; align-items: center; gap: 8px; }
+
+input[type="text"], input[type="number"] {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 10px;
+  outline: none;
+}
+input[type="text"] { flex: 1; min-width: 0; }
+input[type="number"] { width: 70px; }
+input:focus { border-color: rgba(245,158,11,0.5); }
+
+.unit { color: var(--muted); font-size: 12px; }
+
+.seg { display: flex; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg-btn {
+  background: transparent; border: none; color: var(--muted);
+  font-size: 12px; font-weight: 600; padding: 8px 10px; cursor: pointer;
+}
+.seg-btn.active { background: var(--accent-soft); color: var(--accent); }
+
+.quick { display: flex; gap: 4px; margin-left: auto; }
+.quick button {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px; font-weight: 600;
+  padding: 5px 8px; border-radius: 6px; cursor: pointer;
+}
+.quick button:hover { color: var(--text); background: rgba(255,255,255,0.1); }
+
+.add-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent); color: #1a1005;
+  border: none; border-radius: 10px;
+  font-size: 14px; font-weight: 700;
+  padding: 11px; cursor: pointer;
+  transition: transform 0.08s ease;
+}
+.add-btn svg { width: 18px; height: 18px; }
+.add-btn:active { transform: scale(0.98); }
+.add-btn:hover { background: #fbbf24; }
+
+.timer-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.timer {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.timer.done { opacity: 0.75; border-color: rgba(245,158,11,0.35); }
+
+.timer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.timer-name { font-weight: 600; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.timer-kind { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.timer-time { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.timer-time.done { color: var(--accent); }
+
+.progress { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.progress > div { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.5s linear; }
+
+.timer-actions { display: flex; gap: 6px; }
+.timer-actions button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px; font-weight: 600;
+  padding: 5px 12px; border-radius: 7px; cursor: pointer;
+}
+.timer-actions button:hover { background: rgba(255,255,255,0.08); }
+.timer-actions .danger:hover { color: #fca5a5; border-color: rgba(239,68,68,0.4); }
+
+.empty { font-size: 12px; color: var(--muted); }
+
+.scope-note {
+  font-size: 11px; color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}

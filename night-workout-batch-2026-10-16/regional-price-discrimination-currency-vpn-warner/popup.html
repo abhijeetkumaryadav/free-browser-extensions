@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regional Price Gap Watcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <div>
+      <h1>Regional Price Gap Watcher</h1>
+      <p class="sub">Price-awareness logbook</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><b>Educational awareness only.</b> Logs prices <i>you</i> observe — it never fetches regional prices and never advises evading geo-blocking or store terms.</span>
+  </div>
+
+  <section class="form" aria-label="Log a price">
+    <h2>Log a price you saw</h2>
+    <label>Product <input id="product" type="text" placeholder="e.g. App subscription"></label>
+    <div class="duo">
+      <label>Region / country <input id="region" type="text" placeholder="e.g. US, IN"></label>
+      <label>Currency <select id="currency"></select></label>
+    </div>
+    <label>Price <input id="price" type="number" min="0" step="0.01" placeholder="9.99"></label>
+    <button id="add" class="cta">Add entry</button>
+  </section>
+
+  <section aria-label="Comparisons">
+    <h2>Comparisons (base: USD)</h2>
+    <div id="list" class="list"><p class="empty">No entries yet. Log two prices for the same product to compare.</p></div>
+  </section>
+
+  <section aria-label="FX table">
+    <h2>FX reference table</h2>
+    <p class="hint">Approximate rates you maintain yourself (1 unit → USD). Educational estimates only.</p>
+    <div id="fx" class="fx"></div>
+    <div class="duo">
+      <label>Code <input id="fxCode" type="text" maxlength="3" placeholder="EUR"></label>
+      <label>Rate → USD <input id="fxRate" type="number" min="0" step="0.0001" placeholder="1.09"></label>
+    </div>
+    <button id="fxAdd" class="ghost">Save rate</button>
+    <button id="clearAll" class="ghost danger">Clear all entries</button>
+  </section>
+
+  <details class="why">
+    <summary>Why do regional prices differ?</summary>
+    <p>Taxes, local purchasing power, licensing, shipping, currency swings, and
+    distributor agreements all shift prices. Seeing a gap is normal market
+    information — this tool does not suggest ways to circumvent regional
+    pricing or store terms.</p>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deep Work Friction Blocker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Honest scope banner -->
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Friction, not a lock — <b>you</b> control every override. 10-second breathing pause on distracting sites.</span>
+  </div>
+
+  <!-- Session status card -->
+  <section class="card session-card">
+    <div class="session-row">
+      <div class="session-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><polyline points="12 9 12 13 15 15"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+      </div>
+      <div class="session-info">
+        <div id="sessionState" class="session-state">No session active</div>
+        <div id="sessionDetail" class="session-detail">Start a focus session below</div>
+      </div>
+    </div>
+    <div class="duration-row">
+      <label for="duration">Session length</label>
+      <div class="duration-pills" id="durationPills">
+        <button data-min="15">15m</button>
+        <button data-min="25" class="active">25m</button>
+        <button data-min="50">50m</button>
+        <button data-min="90">90m</button>
+      </div>
+    </div>
+    <button id="sessionToggle" class="primary-btn">Start focus session</button>
+  </section>
+
+  <!-- Site list card -->
+  <section class="card">
+    <div class="card-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <h2>Friction sites</h2>
+    </div>
+    <ul id="siteList" class="site-list"></ul>
+    <div class="add-row">
+      <input id="siteInput" type="text" placeholder="example.com" spellcheck="false">
+      <button id="addSite" class="ghost-btn" title="Add site">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+    <p class="hint">Matches any subdomain (e.g. <code>mobile.x.com</code> matches <code>x.com</code>).</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

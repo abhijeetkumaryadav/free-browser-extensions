@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caption Styler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 13h4M7 16h7"/></svg></span>
+    <div>
+      <h1>Caption Styler</h1>
+      <p class="tagline">System fonts only — no downloads</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    Uses fonts <strong>installed on your device</strong>. Nothing is downloaded or uploaded — everything happens locally.
+  </div>
+
+  <!-- Step 1: inputs -->
+  <section class="card">
+    <h2>1 · Media</h2>
+    <label class="file-row">Video <input type="file" id="videoFile" accept="video/*"></label>
+    <label class="file-row">SRT (optional) <input type="file" id="srtFile" accept=".srt,text/plain"></label>
+    <label class="file-row">Or paste SRT <textarea id="srtText" rows="3" placeholder="1&#10;00:00:01,000 --> 00:00:04,000&#10;Hello world"></textarea></label>
+    <div class="hint" id="cueHint">No captions loaded. Type a caption below or load an SRT.</div>
+    <input type="text" id="manualCaption" placeholder="Type caption to preview…">
+  </section>
+
+  <!-- Step 2: style -->
+  <section class="card">
+    <h2>2 · Style</h2>
+    <label>Font family <select id="fontFamily"></select></label>
+    <div class="row">
+      <label>Size <input type="range" id="fontSize" min="14" max="72" value="34"><span id="fontSizeVal">34px</span></label>
+    </div>
+    <div class="row2">
+      <label>Text color <input type="color" id="textColor" value="#ffffff"></label>
+      <label>Background <input type="color" id="bgColor" value="#000000"></label>
+      <label class="check"><input type="checkbox" id="bgOn" checked> bg box</label>
+    </div>
+    <label>Position <select id="position">
+      <option value="bottom">Bottom</option>
+      <option value="top">Top</option>
+      <option value="center">Center</option>
+    </select></label>
+    <div class="row">
+      <label>Export width <input type="range" id="outWidth" min="320" max="1280" step="10" value="720"><span id="outWidthVal">720px</span></label>
+    </div>
+  </section>
+
+  <!-- Step 3: preview + export -->
+  <section class="card">
+    <h2>3 · Preview &amp; export</h2>
+    <div class="preview-wrap">
+      <video id="previewVideo" controls muted playsinline></video>
+      <canvas id="burnCanvas"></canvas>
+    </div>
+    <div class="btnrow">
+      <button id="toggleBurn" class="ghost">Live caption preview</button>
+      <button id="exportBtn" class="primary">Burn in &amp; export WebM</button>
+    </div>
+    <div class="progress" id="progressWrap" hidden>
+      <div class="bar"><div id="progressBar"></div></div>
+      <span id="progressText"></span>
+    </div>
+    <a id="downloadLink" class="ghost dl" hidden>Download video</a>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

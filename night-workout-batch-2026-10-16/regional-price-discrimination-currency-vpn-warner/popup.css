@@ -1,0 +1,56 @@
+/* Regional Price Gap Watcher — deep-dark glassmorphism, single sky accent */
+:root{
+  --accent:#38bdf8;
+  --bg:rgba(20,20,26,.72);
+  --panel:rgba(255,255,255,.045);
+  --border:rgba(255,255,255,.09);
+  --text:#f4f4f5;
+  --muted:#a1a1aa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:#101014}
+.card{
+  width:380px;padding:16px;background:var(--bg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:16px;
+}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.logo{width:40px;height:40px;flex:0 0 40px;display:flex;align-items:center;justify-content:center;
+  border-radius:12px;color:var(--accent);background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35)}
+.logo svg{width:24px;height:24px}
+h1{font-size:16px;font-weight:700}
+.sub{font-size:12px;color:var(--muted);margin-top:2px}
+h2{font-size:13px;margin:14px 0 8px}
+.banner{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;line-height:1.45;color:#fcd34d;
+  background:rgba(252,211,77,.08);border:1px solid rgba(252,211,77,.28);border-radius:10px;padding:8px 10px;margin-bottom:4px}
+.banner svg{width:16px;height:16px;flex:0 0 16px;margin-top:1px}
+.banner b{color:#fde68a}
+.form label{font-size:12px;color:var(--muted);display:grid;gap:4px;margin-bottom:8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+input,select{width:100%;padding:8px 10px;font-size:13px;color:var(--text);
+  background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+select option{background:#1b1b22}
+.cta{width:100%;padding:10px;font-size:14px;font-weight:700;cursor:pointer;color:#06222e;
+  background:var(--accent);border:none;border-radius:10px;margin:4px 0 8px}
+.cta:hover{filter:brightness(1.08)}
+.ghost{display:block;width:100%;padding:8px;margin:6px 0;font-size:12.5px;cursor:pointer;
+  color:var(--accent);background:transparent;border:1px solid rgba(56,189,248,.4);border-radius:8px}
+.ghost.danger{color:#f87171;border-color:rgba(248,113,113,.4)}
+.list{display:grid;gap:8px}
+.empty{font-size:12px;color:var(--muted)}
+.group{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px}
+.group h3{font-size:13px;margin-bottom:6px}
+.entry{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:6px 0;border-top:1px solid var(--border)}
+.entry:first-of-type{border-top:none}
+.entry .del{cursor:pointer;background:none;border:none;color:#f87171;font-size:14px;padding:2px 6px}
+.gap{font-size:11.5px;color:#fcd34d;margin-top:6px;line-height:1.5}
+.hint{font-size:11.5px;color:var(--muted);margin-bottom:8px}
+.fx{display:grid;gap:6px;margin-bottom:8px}
+.fxrow{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;
+  background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:7px 10px}
+.fxrow button{background:none;border:none;color:#f87171;cursor:pointer;font-size:14px}
+.why{margin-top:12px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px}
+.why summary{cursor:pointer;color:var(--text);font-weight:600;margin-bottom:6px}
+.why p{line-height:1.5}

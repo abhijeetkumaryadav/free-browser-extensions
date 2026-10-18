@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Walk Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <svg class="logo" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/>
+      <path d="M10 12v.01"/><path d="M13 16v.01"/><path d="M14 20v.01"/>
+      <path d="M14 8v.01"/><path d="M17 16v.01"/><path d="M17 12v.01"/><path d="M17 8v.01"/>
+    </svg>
+    <div>
+      <h1>Walk Converter</h1>
+      <p class="sub">km &middot; mi &middot; steps &middot; time</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Estimates &mdash; stride length and walking pace vary by person.</span>
+  </div>
+
+  <section class="card">
+    <h2>Distance</h2>
+    <div class="row">
+      <input id="distInput" type="number" min="0" step="any" placeholder="e.g. 5" aria-label="Distance value">
+      <select id="distUnit" aria-label="Distance unit">
+        <option value="km">km</option>
+        <option value="mi">mi</option>
+      </select>
+    </div>
+    <div class="results">
+      <div class="result"><span class="label">Kilometres</span><span class="value" id="outKm">&ndash;</span></div>
+      <div class="result"><span class="label">Miles</span><span class="value" id="outMi">&ndash;</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Steps &harr; distance</h2>
+    <div class="row">
+      <input id="stepsInput" type="number" min="0" step="1" placeholder="Steps" aria-label="Steps">
+      <span class="arrow" aria-hidden="true">&harr;</span>
+      <input id="stepsKmInput" type="number" min="0" step="any" placeholder="km" aria-label="Distance in kilometres">
+    </div>
+    <label class="setting">
+      <span>Stride length</span>
+      <span class="setting-input"><input id="strideInput" type="number" min="30" max="150" step="1" aria-label="Stride length in centimetres"><em>cm</em></span>
+    </label>
+  </section>
+
+  <section class="card">
+    <h2>Walking time</h2>
+    <div class="row">
+      <input id="timeDistInput" type="number" min="0" step="any" placeholder="Distance (km)" aria-label="Distance in kilometres">
+    </div>
+    <label class="setting">
+      <span>Walking pace</span>
+      <span class="setting-input"><input id="paceInput" type="number" min="1" max="15" step="0.5" aria-label="Walking pace in kilometres per hour"><em>km/h</em></span>
+    </label>
+    <div class="results">
+      <div class="result"><span class="label">Time</span><span class="value" id="outTime">&ndash;</span></div>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

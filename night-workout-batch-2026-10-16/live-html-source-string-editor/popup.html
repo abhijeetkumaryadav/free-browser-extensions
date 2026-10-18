@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Live HTML Editor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg>
+    <h1>Live HTML Editor</h1>
+  </header>
+
+  <p class="notice">Edits the <strong>live page copy</strong> in your tab only — not the server. Changes are lost on reload.</p>
+
+  <div class="row">
+    <button id="grabBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+      Grab tab HTML
+    </button>
+    <button id="applyBtn" class="btn" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      Apply
+    </button>
+    <button id="downloadBtn" class="btn" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
+      Download
+    </button>
+  </div>
+
+  <div class="meta"><span id="srcInfo">No source loaded.</span><span id="sizeInfo"></span></div>
+  <textarea id="editor" spellcheck="false" placeholder="Click “Grab tab HTML” to load the current page's source here, then edit and Apply."></textarea>
+
+  <div id="status" class="status" aria-live="polite"></div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Interview Theme Grouper</title>
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="title-row">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <div>
+        <h1>Interview Theme Grouper</h1>
+        <p class="sub">Tag quotes by theme + sentiment</p>
+      </div>
+    </div>
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>You tag everything — <strong>no automatic sentiment detection</strong>. This tool only organizes what you paste and label.</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="add">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add quote</button>
+    <button class="tab" data-tab="themes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.83z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+      Themes</button>
+    <button class="tab" data-tab="manage">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Manage</button>
+  </nav>
+
+  <!-- ADD TAB -->
+  <section id="tab-add" class="panel">
+    <label class="field">
+      <span>Quote / note</span>
+      <textarea id="quoteText" rows="4" placeholder="Paste a quote or note from the interview…"></textarea>
+    </label>
+    <label class="field">
+      <span>Speaker (optional)</span>
+      <input type="text" id="speaker" placeholder="e.g. Participant 3">
+    </label>
+    <label class="field">
+      <span>Themes (click to toggle)</span>
+      <div id="themeChips" class="chips"></div>
+    </label>
+    <label class="field">
+      <span>Your sentiment rating</span>
+      <div class="seg" id="sentimentSeg">
+        <button data-sent="positive" class="active">Positive</button>
+        <button data-sent="neutral">Neutral</button>
+        <button data-sent="negative">Negative</button>
+      </div>
+    </label>
+    <button id="saveQuote" class="btn primary">Save quote</button>
+  </section>
+
+  <!-- THEMES TAB -->
+  <section id="tab-themes" class="panel hidden">
+    <div class="filter-row">
+      <label class="field grow">
+        <span>Filter by theme</span>
+        <select id="themeFilter"></select>
+      </label>
+      <label class="field">
+        <span>Sentiment</span>
+        <select id="sentFilter">
+          <option value="all">All</option>
+          <option value="positive">Positive</option>
+          <option value="neutral">Neutral</option>
+          <option value="negative">Negative</option>
+        </select>
+      </label>
+    </div>
+    <div id="themeSummary" class="summary"></div>
+    <div id="quoteList" class="quote-list"></div>
+  </section>
+
+  <!-- MANAGE TAB -->
+  <section id="tab-manage" class="panel hidden">
+    <div class="row-inline">
+      <input type="text" id="newTheme" placeholder="New theme name…" class="grow">
+      <button id="addTheme" class="btn">Add</button>
+    </div>
+    <div id="themeManager" class="manage-list"></div>
+    <hr class="sep">
+    <div class="btn-row">
+      <button id="exportCsv" class="btn">Export CSV</button>
+      <button id="exportJson" class="btn">Export JSON</button>
+      <button id="clearAll" class="btn danger">Delete all</button>
+    </div>
+    <p class="stats" id="statsLine"></p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

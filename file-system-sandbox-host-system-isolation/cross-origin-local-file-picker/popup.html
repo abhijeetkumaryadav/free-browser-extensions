@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FileScope — Local File Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="logo">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <circle cx="12" cy="14" r="3"/>
+          <line x1="14.1" y1="16.1" x2="16.5" y2="18.5"/>
+        </svg>
+        <div>
+          <h1>FileScope</h1>
+          <p>Local files only · picked by you · never uploaded</p>
+        </div>
+      </div>
+    </header>
+
+    <label class="dropzone" id="dropzone">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="17 8 12 3 7 8"/>
+        <line x1="12" y1="3" x2="12" y2="15"/>
+      </svg>
+      <span>Drop files here or <strong>browse</strong></span>
+      <input id="fileInput" type="file" multiple hidden>
+    </label>
+
+    <section class="card">
+      <h2>Inspected files <span id="fileCount" class="count"></span></h2>
+      <div id="fileList" class="files"><p class="empty">No files yet — pick some above.</p></div>
+    </section>
+
+    <section class="card" id="previewCard" hidden>
+      <h2>Preview <span id="previewName" class="pname"></span></h2>
+      <div id="previewBody" class="preview"></div>
+    </section>
+
+    <section class="card">
+      <h2>History</h2>
+      <p class="note">Metadata + hashes of previously inspected files (contents are never stored).</p>
+      <div id="historyList" class="files"></div>
+      <button id="clearHistory" class="btn-ghost full">Clear history</button>
+    </section>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

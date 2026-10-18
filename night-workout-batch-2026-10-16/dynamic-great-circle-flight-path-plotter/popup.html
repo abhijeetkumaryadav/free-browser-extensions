@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
+    <div>
+      <h1>Great-Circle Plotter</h1>
+      <p class="sub">Flight path between two points</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <label>From lat <input id="lat1" type="number" step="any" min="-90" max="90" placeholder="40.6413"></label>
+    <label>From lon <input id="lon1" type="number" step="any" min="-180" max="180" placeholder="-73.7781"></label>
+    <label>To lat <input id="lat2" type="number" step="any" min="-90" max="90" placeholder="51.4700"></label>
+    <label>To lon <input id="lon2" type="number" step="any" min="-180" max="180" placeholder="-0.4543"></label>
+  </div>
+  <button id="plot" class="btn">Plot route</button>
+  <p id="err" class="err" hidden></p>
+
+  <div class="results" id="results" hidden>
+    <div class="stat"><span>Distance</span><strong id="dist">–</strong></div>
+    <div class="stat"><span>Initial bearing</span><strong id="brg">–</strong></div>
+  </div>
+
+  <canvas id="map" width="348" height="200"></canvas>
+
+  <footer class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>Great-circle math — educational only. Not for navigation.</p>
+  </footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

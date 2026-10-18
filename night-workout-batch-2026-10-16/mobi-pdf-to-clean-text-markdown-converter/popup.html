@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <svg viewBox="0 0 24 24" class="logo" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+    <div>
+      <h1>Text Cleaner → Markdown</h1>
+      <p class="tag">paste or load text → cleaned Markdown</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Text-only cleanup. Does not parse PDF or MOBI files — those need a dedicated converter.</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="convert">Convert</button>
+    <button class="tab" data-tab="notes">Notes</button>
+  </div>
+
+  <section class="tabpane active" id="tab-convert">
+    <label class="field-label" for="src">Source text</label>
+    <textarea id="src" rows="6" placeholder="Paste messy text here…"></textarea>
+    <div class="row">
+      <label class="btn ghost filebtn">Load .txt<input type="file" id="file" accept=".txt,text/plain" hidden></label>
+      <button class="btn" id="convertBtn">Convert to Markdown</button>
+    </div>
+    <div class="stats" id="stats"></div>
+    <label class="field-label" for="out">Markdown preview</label>
+    <textarea id="out" rows="6" readonly placeholder="Converted Markdown appears here…"></textarea>
+    <div class="row">
+      <button class="btn accent" id="copyBtn">Copy Markdown</button>
+      <button class="btn" id="dlBtn">Download .md</button>
+    </div>
+  </section>
+
+  <section class="tabpane" id="tab-notes">
+    <p class="hint">Local scratch notes — e.g. cleanup presets you like. Saved on this device only.</p>
+    <input id="noteTitle" maxlength="80" placeholder="Note title">
+    <textarea id="noteBody" rows="3" maxlength="2000" placeholder="Note…"></textarea>
+    <button class="btn accent full" id="addNote">Add note</button>
+    <ul id="noteList"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

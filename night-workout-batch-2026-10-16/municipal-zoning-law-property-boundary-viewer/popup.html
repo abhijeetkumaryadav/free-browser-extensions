@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property Notes</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <!-- house icon (lucide-style stroke) -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="app-icon"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+    <div>
+      <h1>Property Notes</h1>
+      <p class="subtitle">Zoning notes &amp; boundary sketch</p>
+    </div>
+  </header>
+
+  <!-- Honest scope banner: no live municipal data exists -->
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="mini-icon"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Your own notes only — <strong>NOT</strong> official zoning records. Verify anything important with your municipality.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="properties">Properties</button>
+    <button class="tab" data-tab="sketch">Sketch</button>
+  </nav>
+
+  <!-- ============ PROPERTIES TAB ============ -->
+  <section id="tab-properties" class="tab-pane active">
+    <form id="property-form" class="card">
+      <h2 id="form-title">Add property</h2>
+      <label>Address / label
+        <input type="text" id="f-address" placeholder="e.g. 24 Rosewood Lane" required maxlength="120">
+      </label>
+      <label>Lot details
+        <textarea id="f-lot" rows="2" placeholder="Lot no., area, dimensions…" maxlength="500"></textarea>
+      </label>
+      <label>Zoning notes (your own research)
+        <textarea id="f-zoning" rows="2" placeholder="Zone type, setbacks, permitted uses…" maxlength="500"></textarea>
+      </label>
+      <fieldset class="checklist">
+        <legend>Documents checklist</legend>
+        <div id="doc-checklist"></div>
+        <div class="doc-add-row">
+          <input type="text" id="f-doc-custom" placeholder="Add custom document…" maxlength="80">
+          <button type="button" id="btn-add-doc" class="btn small">Add</button>
+        </div>
+      </fieldset>
+      <div class="row">
+        <button type="submit" class="btn primary" id="btn-save-prop">Save property</button>
+        <button type="button" class="btn hidden" id="btn-cancel-edit">Cancel</button>
+      </div>
+    </form>
+
+    <div id="property-list"></div>
+    <p class="empty" id="props-empty">No properties yet. Add your first one above.</p>
+  </section>
+
+  <!-- ============ SKETCH TAB ============ -->
+  <section id="tab-sketch" class="tab-pane">
+    <div class="card">
+      <h2>Boundary sketch</h2>
+      <p class="hint">Draw the lot boundary freehand for the selected property. This is a rough sketch, not a survey.</p>
+      <label>Property
+        <select id="sketch-prop"></select>
+      </label>
+      <canvas id="sketch-canvas" width="340" height="200"></canvas>
+      <div class="row">
+        <button class="btn small" id="btn-sketch-clear">Clear</button>
+        <button class="btn small primary" id="btn-sketch-save">Save sketch</button>
+      </div>
+      <p class="saved-note hidden" id="sketch-saved-note">Sketch saved.</p>
+    </div>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

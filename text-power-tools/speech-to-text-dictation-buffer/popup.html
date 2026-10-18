@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DictatePad</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="9" y="2" width="6" height="12" rx="3"/>
+        <path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/>
+      </svg>
+      <div>
+        <h1>DictatePad</h1>
+        <p class="sub">Speech-to-text buffer</p>
+      </div>
+    </div>
+    <div id="status" class="status idle" title="Recognition state">
+      <span class="pulse"></span><span id="statusText">Idle</span>
+    </div>
+  </header>
+
+  <div id="warn" class="warn" hidden>
+    Speech recognition isn't available in this browser. DictatePad needs
+    Chrome or Edge (it uses the browser's built-in Web Speech API).
+  </div>
+
+  <textarea id="buffer" class="editor" placeholder="Your dictated text lands here. You can also type or paste…"></textarea>
+
+  <p id="interim" class="interim" hidden></p>
+
+  <button id="talkBtn" class="talk" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="2" width="6" height="12" rx="3"/>
+      <path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/>
+    </svg>
+    <span>Hold to dictate</span>
+  </button>
+
+  <div class="toolbar">
+    <button id="copyBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+      Copy
+    </button>
+    <button id="clearBtn" class="btn ghost danger">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+      </svg>
+      Clear
+    </button>
+  </div>
+
+  <div class="meta">
+    <span><span id="wordCount">0</span> words</span>
+    <span id="toast" class="toast" aria-live="polite"></span>
+  </div>
+
+  <footer class="foot">
+    <span class="dot"></span>
+    Mic is on only while the button is held. Uses Chrome/Edge built-in speech
+    recognition (may use the browser vendor's online speech service).
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

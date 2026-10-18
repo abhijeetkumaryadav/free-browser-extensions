@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dictation Pad</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"></div>
+    <div>
+      <h1>Dictation Pad</h1>
+      <p class="sub">Browser speech recognition → editable buffer</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <span class="banner-icon">!</span>
+    <span>Uses your <b>browser's built-in speech service</b> (Chrome: needs mic permission + internet). Not a private local engine — audio goes to your browser's recognizer.</span>
+  </div>
+
+  <section class="card">
+    <div class="row-between">
+      <h2>Microphone</h2>
+      <span id="recState" class="rec-off">● Idle</span>
+    </div>
+    <div class="btn-row">
+      <button id="startBtn" class="primary">Start dictating</button>
+      <button id="stopBtn" class="ghost" disabled>Stop</button>
+    </div>
+    <div class="row-toggles">
+      <label class="toggle"><input type="checkbox" id="punctCmds" checked> Punctuation commands ("period", "comma", "new paragraph")</label>
+      <label class="toggle"><input type="checkbox" id="interimChk" checked> Show interim results</label>
+    </div>
+    <div class="lang-row">
+      <label for="langSel">Language</label>
+      <select id="langSel">
+        <option value="en-US">English (US)</option>
+        <option value="en-GB">English (UK)</option>
+        <option value="es-ES">Español</option>
+        <option value="fr-FR">Français</option>
+        <option value="de-DE">Deutsch</option>
+        <option value="it-IT">Italiano</option>
+        <option value="pt-BR">Português (BR)</option>
+        <option value="hi-IN">हिन्दी</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="zh-CN">中文 (简体)</option>
+      </select>
+    </div>
+    <p id="interim" class="interim" aria-live="polite"></p>
+  </section>
+
+  <section class="card">
+    <div class="row-between">
+      <h2>Text buffer</h2>
+      <button id="clearBuf" class="ghost">Clear</button>
+    </div>
+    <textarea id="buffer" rows="6" placeholder="Dictated text appears here — or type directly…"></textarea>
+    <div class="btn-row btn-row-3">
+      <button id="copyBtn" class="ghost">Copy</button>
+      <button id="dlBtn" class="ghost">Export .txt</button>
+      <button id="saveBtn" class="primary">Save draft</button>
+    </div>
+    <p id="status" class="status"></p>
+  </section>
+
+  <footer>Drafts are stored locally only. Nothing leaves your browser except audio sent to its own speech service.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

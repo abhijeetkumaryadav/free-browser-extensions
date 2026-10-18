@@ -1,0 +1,40 @@
+/* Leak Credential Scanner — deep dark glassmorphism, single red accent. */
+:root{
+  --accent:#ef4444; --accent-soft:rgba(239,68,68,.14);
+  --bg:#0c0c10; --panel:rgba(20,20,26,.72);
+  --text:#f2f2f5; --muted:#9a9aa5; --line:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;min-height:120px;background:var(--bg);color:var(--text);
+  font:13px/1.5 -apple-system,"Segoe UI",Inter,Roboto,sans-serif;padding:16px}
+.hdr{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.logo{width:30px;height:30px;color:var(--accent);flex:none}
+.hdr h1{font-size:15px;font-weight:650;letter-spacing:.2px}
+.sub{font-size:11px;color:var(--muted);margin-top:2px}
+.badge{margin-left:auto;min-width:26px;height:26px;padding:0 8px;border-radius:13px;
+  background:var(--accent);color:#fff;font-weight:700;font-size:12px;
+  display:flex;align-items:center;justify-content:center}
+.badge.hidden{display:none}
+.controls{display:flex;gap:8px;margin-bottom:12px}
+button{flex:1;padding:9px 12px;border-radius:10px;border:1px solid var(--line);
+  font-size:12.5px;font-weight:600;cursor:pointer;transition:filter .15s}
+button:disabled{opacity:.45;cursor:default}
+.primary{background:var(--accent);border-color:transparent;color:#fff}
+.primary:hover:not(:disabled){filter:brightness(1.1)}
+.ghost{background:var(--panel);backdrop-filter:blur(12px);color:var(--text)}
+.ghost:hover:not(:disabled){filter:brightness(1.25)}
+.status{font-size:12px;color:var(--muted);margin-bottom:8px}
+.results{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto}
+.card{background:var(--panel);backdrop-filter:blur(12px);border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px}
+.card .top{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.sev{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:8px;text-transform:uppercase;letter-spacing:.4px}
+.sev.high{background:var(--accent-soft);color:var(--accent)}
+.sev.medium{background:rgba(245,158,11,.16);color:#f59e0b}
+.sev.low{background:rgba(148,163,184,.16);color:#94a3b8}
+.kind{font-size:12px;font-weight:650}
+.ctx{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;color:var(--muted);
+  background:rgba(0,0,0,.35);border-radius:8px;padding:6px 8px;margin-top:6px;
+  word-break:break-all;cursor:pointer}
+.ctx .hint{color:var(--accent);font-family:inherit}
+.foot{margin-top:12px;font-size:10.5px;color:var(--muted);text-align:center}

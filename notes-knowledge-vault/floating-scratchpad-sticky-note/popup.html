@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StickyPad</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/><path d="M15 3v6h6"/></svg>
+      <div>
+        <h1>StickyPad</h1>
+        <p class="subtitle">Floating notes, right on the page</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="row between">
+      <span class="page-label" id="pageLabel">This page</span>
+      <span class="badge" id="noteCount">0 notes</span>
+    </div>
+    <div class="btn-row">
+      <button id="toggleBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        New note on this page
+      </button>
+      <button id="refreshBtn" class="btn ghost" title="Reload notes from this page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      </button>
+    </div>
+    <p class="hint">Drag notes by their header · drag the corner to resize · notes save automatically.</p>
+  </section>
+
+  <section class="panel">
+    <div class="row between">
+      <h2>All notes</h2>
+      <button id="clearPageBtn" class="link danger" title="Delete all notes on this page">Clear page</button>
+    </div>
+    <div id="notesList" class="notes-list"><p class="empty">No notes anywhere yet.</p></div>
+  </section>
+
+  <footer class="foot">
+    <span>Notes stay on your device — nothing leaves the browser.</span>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

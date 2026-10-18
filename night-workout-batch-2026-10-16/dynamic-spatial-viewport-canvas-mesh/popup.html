@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spatial Viewport Grid</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+  <div>
+    <h1>Viewport Grid</h1>
+    <p class="sub">spatial canvas mesh</p>
+  </div>
+</header>
+
+<div class="notice">Grid overlay only — not AR. No spatial API exists.</div>
+
+<button id="toggle" class="btn primary">Toggle overlay</button>
+<button id="recalc" class="btn">Redraw grid</button>
+
+<section class="card">
+  <h2>Breakpoints shown</h2>
+  <ul id="bps"></ul>
+</section>
+
+<section class="card">
+  <h2>Current viewport</h2>
+  <p id="vp" class="vp">—</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

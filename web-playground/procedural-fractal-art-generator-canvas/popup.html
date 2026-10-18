@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FractalForge — Procedural Fractal Art</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 3l4.5 8H7.5z"/><path d="M9.75 11L12 7.5 14.25 11z"/></svg>
+      <div class="title-wrap">
+        <h1>FractalForge</h1>
+        <p class="subtitle">Procedural fractal art toy · rendered on-device</p>
+      </div>
+    </header>
+
+    <main class="panel">
+      <div class="mode-tabs" role="tablist" aria-label="Fractal type">
+        <button class="tab active" data-mode="mandelbrot" type="button">Mandelbrot</button>
+        <button class="tab" data-mode="julia" type="button">Julia</button>
+        <button class="tab" data-mode="fern" type="button">Fern</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="art" width="640" height="640" aria-label="Fractal artwork"></canvas>
+        <div class="progress" id="progress"><div class="bar" id="bar"></div></div>
+      </div>
+
+      <div class="control-row">
+        <label for="palette">Palette</label>
+        <select id="palette">
+          <option value="sunset">Sunset</option>
+          <option value="ocean">Ocean</option>
+          <option value="neon">Neon</option>
+          <option value="ember">Ember</option>
+          <option value="mono">Mono</option>
+        </select>
+      </div>
+
+      <div class="control-row">
+        <label for="detail">Detail</label>
+        <input type="range" id="detail" min="60" max="400" step="20" value="160" aria-label="Iteration detail">
+        <span class="val" id="detailVal">160</span>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn primary" id="shuffleBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 8h.01M8 8h.01M8 16h.01M16 16h.01M12 12h.01"/></svg>
+          Surprise me
+        </button>
+        <button class="btn secondary" id="resetBtn" type="button">Reset view</button>
+        <button class="btn secondary" id="downloadBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          PNG
+        </button>
+      </div>
+
+      <p class="hint" id="modeHint">Click the artwork to zoom in · Shift+click to zoom out. Every render is unique — hit “Surprise me” for a fresh piece. Just a fun toy, nothing leaves your device.</p>
+    </main>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

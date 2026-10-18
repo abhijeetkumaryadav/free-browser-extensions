@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Lottie Preview Studio</title>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><polygon points="10,8.5 15.5,12 10,15.5" fill="#8b5cf6" stroke="none"/>
+        </svg>
+        <div>
+          <h1>Lottie Preview</h1>
+          <p class="subtitle">Offline animation studio</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Input section -->
+    <section id="inputSection" class="panel">
+      <label class="field-label" for="jsonInput">Paste Lottie JSON</label>
+      <textarea id="jsonInput" placeholder='{"v":"5.7.4","fr":60, ... }' spellcheck="false"></textarea>
+      <div class="row">
+        <button id="loadBtn" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6,4 20,12 6,20"/></svg>
+          Load animation
+        </button>
+        <label class="btn btn-ghost file-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Drop .json
+          <input type="file" id="fileInput" accept=".json,application/json" hidden>
+        </label>
+      </div>
+      <p id="errorMsg" class="error hidden"></p>
+    </section>
+
+    <!-- Player section -->
+    <section id="playerSection" class="panel hidden">
+      <div id="stageWrap">
+        <div id="stage"></div>
+      </div>
+
+      <!-- Transport controls -->
+      <div class="transport">
+        <button id="playBtn" class="icon-btn" title="Play/Pause">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+        <input type="range" id="scrubber" min="0" max="1000" value="0" aria-label="Frame scrubber">
+        <span id="frameLabel" class="mono">0 / 0</span>
+      </div>
+
+      <!-- Speed + loop -->
+      <div class="row controls-row">
+        <div class="speed-group" role="group" aria-label="Playback speed">
+          <button class="chip" data-speed="0.5">0.5×</button>
+          <button class="chip active" data-speed="1">1×</button>
+          <button class="chip" data-speed="1.5">1.5×</button>
+          <button class="chip" data-speed="2">2×</button>
+        </div>
+        <button id="loopBtn" class="chip toggle active" title="Loop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          Loop
+        </button>
+      </div>
+
+      <!-- Metadata -->
+      <div class="meta-grid">
+        <div class="meta"><span class="meta-k">Frames</span><span class="meta-v mono" id="metaFrames">–</span></div>
+        <div class="meta"><span class="meta-k">FPS</span><span class="meta-v mono" id="metaFps">–</span></div>
+        <div class="meta"><span class="meta-k">Duration</span><span class="meta-v mono" id="metaDur">–</span></div>
+        <div class="meta"><span class="meta-k">Layers</span><span class="meta-v mono" id="metaLayers">–</span></div>
+        <div class="meta"><span class="meta-k">Size</span><span class="meta-v mono" id="metaSize">–</span></div>
+        <div class="meta"><span class="meta-k">Version</span><span class="meta-v mono" id="metaVer">–</span></div>
+      </div>
+
+      <div class="row">
+        <button id="copyBtn" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy JSON
+        </button>
+        <button id="newBtn" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New animation
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">Renderer bundled locally · works fully offline</footer>
+  </div>
+  <script src="lottie.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* Retention Risk Grapher — deep-dark glassmorphism, one accent (#f472b6) */
+:root { --accent: #f472b6; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  min-height: 240px;
+  max-height: 600px;
+  overflow-y: auto;
+  background: #0b0b10;
+  color: #eceaf2;
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  font-size: 13px;
+  padding: 16px;
+}
+
+.header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+
+.logo {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: rgba(20, 20, 26, .72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+
+h1 { font-size: 15px; font-weight: 700; }
+.sub { font-size: 11px; color: #9a97a8; }
+
+.notice {
+  background: rgba(244, 114, 182, .08);
+  border: 1px solid rgba(244, 114, 182, .35);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #f2b8d4;
+  margin-bottom: 12px;
+}
+
+textarea {
+  width: 100%; height: 110px;
+  background: rgba(20, 20, 26, .72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 10px;
+  color: #eceaf2;
+  padding: 10px;
+  font-size: 12px;
+  font-family: inherit;
+  resize: vertical;
+}
+textarea:focus { outline: none; border-color: var(--accent); }
+textarea::placeholder { color: #6b6880; }
+
+.btn-row { display: flex; gap: 8px; margin: 10px 0 4px; }
+
+button {
+  font-family: inherit; font-size: 12px; font-weight: 600;
+  border-radius: 10px; padding: 9px 12px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid transparent;
+}
+button.primary {
+  background: var(--accent); color: #1d0a13; flex: 1; justify-content: center;
+}
+button.primary:hover { filter: brightness(1.08); }
+button.ghost {
+  background: rgba(20, 20, 26, .72); color: #cfcbe0;
+  border-color: rgba(255, 255, 255, .12);
+}
+button.ghost:hover { border-color: var(--accent); }
+
+.card {
+  background: rgba(20, 20, 26, .72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.verdict { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.verdict .avg { font-size: 22px; font-weight: 700; color: var(--accent); }
+.verdict .lbl { font-size: 11px; color: #9a97a8; }
+.pill {
+  font-size: 11px; font-weight: 700; border-radius: 999px; padding: 4px 12px;
+}
+.pill.low { background: rgba(52, 211, 153, .15); color: #34d399; }
+.pill.mod { background: rgba(251, 191, 36, .15); color: #fbbf24; }
+.pill.high { background: rgba(248, 113, 113, .15); color: #f87171; }
+
+canvas { width: 100%; height: 130px; display: block; margin-top: 4px; }
+.legend { display: flex; gap: 12px; font-size: 10px; color: #9a97a8; margin-top: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 4px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.risky { margin-top: 10px; }
+.risky h3 { font-size: 12px; margin-bottom: 8px; }
+.risk-item {
+  background: rgba(255,255,255,.04);
+  border-left: 3px solid #f87171;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.risk-item .score { font-weight: 700; color: #f87171; }
+.risk-item .factors { color: #9a97a8; font-size: 10px; margin-top: 4px; }
+
+.empty { text-align: center; color: #6b6880; font-size: 12px; padding: 20px 0; }

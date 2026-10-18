@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bullet Hell — DOM Shooter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span>
+  <div><h1>Bullet Hell</h1><p class="sub">canvas game overlay — your page is never touched</p></div>
+</header>
+
+<div class="scope">A harmless mini game drawn on a separate overlay layer.
+Move with your mouse, click to shoot, dodge the falling blocks. 100% local.</div>
+
+<div class="field">
+  <div class="row"><label for="diff">Difficulty</label><output id="diffOut">Normal</output></div>
+  <select id="diff">
+    <option value="easy">Easy</option>
+    <option value="normal" selected>Normal</option>
+    <option value="hard">Hard</option>
+  </select>
+</div>
+
+<div class="btnrow">
+  <button id="start" class="primary">Start game</button>
+  <button id="stop" class="ghost" disabled>End game</button>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="k">High score</span><span class="v" id="high">0</span></div>
+  <div class="stat"><span class="k">Status</span><span class="v" id="status">idle</span></div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M19.1 4.9l-4.2 4.2M9.1 14.9l-4.2 4.2"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Cursor Fireworks</h1>
+      <p class="sub">Sparkling particles follow your cursor</p>
+    </div>
+  </header>
+
+  <button id="toggle" class="power" aria-pressed="false">
+    <span class="dot"></span><span id="toggleLabel">Start on this page</span>
+  </button>
+
+  <section class="group">
+    <h2>Style</h2>
+    <div class="styles" role="radiogroup" aria-label="Particle style">
+      <button class="style active" data-style="sparkle" role="radio" aria-checked="true">Sparkle</button>
+      <button class="style" data-style="embers" role="radio" aria-checked="false">Embers</button>
+      <button class="style" data-style="bubbles" role="radio" aria-checked="false">Bubbles</button>
+    </div>
+  </section>
+
+  <section class="group">
+    <h2>Density <span id="densityVal" class="val">5</span></h2>
+    <input id="density" type="range" min="1" max="10" value="5" aria-label="Particle density">
+  </section>
+
+  <p class="note">Runs only when you start it, on the current tab. No tracking, no network.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

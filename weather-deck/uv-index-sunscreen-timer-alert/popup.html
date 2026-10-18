@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr glass">
+    <span class="logo" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/>
+      </svg>
+    </span>
+    <div>
+      <h1>UVGuard</h1>
+      <p class="sub">UV index &amp; sunscreen timer</p>
+    </div>
+  </header>
+
+  <section class="card glass">
+    <label class="lbl" for="cityInput">City</label>
+    <div id="searchWrap">
+      <input id="cityInput" class="input" type="text" placeholder="Type a city name…" autocomplete="off">
+      <div id="cityResults" class="results hidden"></div>
+    </div>
+    <div id="cityCurrent" class="city-current hidden">
+      <span id="cityName"></span>
+      <button id="changeCity" class="linkbtn" type="button">change</button>
+    </div>
+  </section>
+
+  <section id="uvCard" class="card glass hidden">
+    <div class="uv-top">
+      <div>
+        <div class="lbl">UV index now</div>
+        <div class="uv-num"><span id="uvValue">–</span></div>
+        <div id="uvBand" class="band"></div>
+      </div>
+      <div id="uvRing" class="ring" aria-hidden="true"><span id="uvRingVal">–</span></div>
+    </div>
+    <p id="uvAdvice" class="advice"></p>
+    <div class="lbl">Next 12 hours</div>
+    <canvas id="uvChart" width="328" height="96"></canvas>
+  </section>
+
+  <section class="card glass">
+    <div class="lbl">Sunscreen reapply timer</div>
+    <div class="timer-row">
+      <input id="timerMinutes" class="input num" type="number" min="5" max="480" step="5" value="120">
+      <span class="unit">min</span>
+      <button id="timerStart" class="btn accent" type="button">Start</button>
+      <button id="timerCancel" class="btn ghost hidden" type="button">Cancel</button>
+    </div>
+    <div id="timerStatus" class="timer-status">Keeps running even when the popup is closed.</div>
+  </section>
+
+  <div id="errorBox" class="error hidden" role="alert"></div>
+
+  <footer class="foot">
+    <span>Data: Open-Meteo</span>
+    <span class="dot">·</span>
+    <span>General guidance only — not medical advice.</span>
+  </footer>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

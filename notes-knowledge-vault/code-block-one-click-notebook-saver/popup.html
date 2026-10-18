@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div>
+        <h1>CodeVault</h1>
+        <p class="subtitle" id="pageHost">Code block notebook saver</p>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="scan">Scan page</button>
+      <button class="tab" data-tab="books">Notebooks <span id="bookCount" class="badge">0</span></button>
+    </div>
+
+    <div id="unsupported" class="notice hidden">Can't scan this page (browser pages like chrome:// are off-limits).</div>
+
+    <!-- Scan tab -->
+    <section id="tab-scan" class="tab-page active">
+      <div class="panel">
+        <button id="scanBtn" class="btn primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Scan page for code blocks
+        </button>
+        <div id="scanResults" class="block-list"></div>
+        <div id="scanEmpty" class="empty">Click scan — every &lt;pre&gt; block on the page will be listed with its language.</div>
+      </div>
+    </section>
+
+    <!-- Notebooks tab -->
+    <section id="tab-books" class="tab-page">
+      <div class="panel">
+        <div class="row">
+          <input id="newBookName" class="input" type="text" placeholder="New notebook name…" maxlength="60">
+          <button id="addBookBtn" class="btn">Add</button>
+        </div>
+        <div id="bookList" class="book-list"></div>
+        <div id="bookEmpty" class="empty">No notebooks yet. Create one, then save code blocks into it.</div>
+      </div>
+      <div id="bookDetail" class="panel hidden">
+        <div class="panel-head">
+          <span class="row-label" id="detailTitle">Notebook</span>
+          <button id="backBtn" class="mini">← Back</button>
+        </div>
+        <div id="snippetList" class="snippet-list"></div>
+        <div class="row">
+          <button id="exportBookBtn" class="btn ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Export Markdown
+          </button>
+          <button id="deleteBookBtn" class="btn ghost danger">Delete</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

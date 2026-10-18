@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cadence Profiler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <svg class="brand-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3l3-7 4 14 3-9 2 2h3"/></svg>
+    <div>
+      <h1>Cadence Profiler</h1>
+      <p class="tagline">Speech-rate graph from captions</p>
+    </div>
+  </header>
+
+  <p class="banner" role="note">
+    <strong>Caption-timing only.</strong> This measures words-per-minute from captions the page exposes — <strong>not</strong> audio analysis or speech recognition. No captions found = no graph.
+  </p>
+
+  <button id="scan" class="btn primary wide">Analyze captions on this page</button>
+
+  <div id="empty" class="empty-state">No scan yet — press the button above while a video page is open.</div>
+
+  <div id="results" hidden>
+    <div class="stats">
+      <div class="stat"><span class="num" id="stWpm">–</span><span class="lab">avg WPM</span></div>
+      <div class="stat"><span class="num" id="stSeg">–</span><span class="lab">segments</span></div>
+      <div class="stat"><span class="num" id="stFast">–</span><span class="lab">fastest window</span></div>
+      <div class="stat"><span class="num" id="stSlow">–</span><span class="lab">slowest window</span></div>
+    </div>
+    <canvas id="graph" width="348" height="150"></canvas>
+    <div class="legend">
+      <span><i class="dot fast"></i>fast (&gt;170 WPM)</span>
+      <span><i class="dot normal"></i>normal (120–170)</span>
+      <span><i class="dot slow"></i>slow (&lt;120)</span>
+    </div>
+    <ul id="windows"></ul>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

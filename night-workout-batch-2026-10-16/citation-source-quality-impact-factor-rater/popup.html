@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citation Quality Checklist</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l-2 2 2 2"/><path d="M15 13l2-2-2-2"/></svg>
+  <div>
+    <h1>Source Rater</h1>
+    <p class="subtitle">Heuristic citation checklist</p>
+  </div>
+</header>
+
+<p class="honest-banner">Your checklist — <strong>not real impact factors</strong>. Heuristics only; you judge the source.</p>
+
+<section class="card">
+  <label class="field-label" for="citation">Paste a citation</label>
+  <textarea id="citation" rows="3" placeholder="Author, Year. Title. Journal / Publisher…"></textarea>
+</section>
+
+<section class="card">
+  <h2>Quality checklist</h2>
+  <div id="checklist" class="checklist"></div>
+</section>
+
+<section class="card score-card">
+  <div class="score-row">
+    <div class="score-ring" id="scoreRing" style="--score:0"><span id="scoreNum">0</span></div>
+    <div>
+      <div class="verdict" id="verdict">Not scored yet</div>
+      <p class="hint" id="hint">Tick the checks that apply to your citation.</p>
+    </div>
+  </div>
+  <label class="field-label" for="notes">Your notes</label>
+  <textarea id="notes" rows="2" placeholder="Why you trust or doubt this source…"></textarea>
+  <button id="saveBtn" class="primary-btn" disabled>Save rating</button>
+</section>
+
+<section class="card">
+  <h2>My rated citations <span class="count" id="count">0</span></h2>
+  <div id="entries" class="entries"><p class="empty">No saved ratings yet.</p></div>
+  <button id="clearBtn" class="ghost-btn danger">Clear all</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

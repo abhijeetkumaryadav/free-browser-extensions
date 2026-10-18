@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="top">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h4M7 13h7M7 17h5"/></svg>
+    </span>
+    <div>
+      <h1>Cloze Generator</h1>
+      <p class="sub">Fill-in-the-blank study aid</p>
+    </div>
+  </header>
+
+  <p class="notice">Study aid — paste your own text. Everything stays in this popup, nothing is uploaded.</p>
+
+  <!-- Step 1: input -->
+  <section id="step-input">
+    <label class="lbl" for="src">Source text</label>
+    <textarea id="src" rows="5" placeholder="Paste the text you want to study…"></textarea>
+    <div class="row">
+      <div class="field">
+        <label class="lbl" for="nth">Blank every Nth word</label>
+        <input id="nth" type="number" min="2" max="20" value="5">
+      </div>
+      <div class="field grow">
+        <label class="lbl">&nbsp;</label>
+        <div class="btnrow">
+          <button id="btn-nth" class="btn primary">Blank every Nth</button>
+          <button id="btn-pick" class="btn ghost">Pick words myself</button>
+        </div>
+      </div>
+    </div>
+    <p class="hint">Pick-words mode: click any word below to blank or unblank it, then start the quiz.</p>
+  </section>
+
+  <!-- Step 2: word picker -->
+  <section id="step-pick" hidden>
+    <div class="bar">
+      <span class="lbl">Tap words to blank them (<span id="blank-count">0</span> blanked)</span>
+      <button id="btn-back" class="btn tiny ghost">Back</button>
+    </div>
+    <div id="wordwall" class="wordwall"></div>
+    <button id="btn-start" class="btn primary wide">Start quiz</button>
+  </section>
+
+  <!-- Step 3: quiz -->
+  <section id="step-quiz" hidden>
+    <div class="bar">
+      <span class="lbl">Type the missing words</span>
+      <span id="score" class="score"></span>
+    </div>
+    <div id="quiz" class="quiz"></div>
+    <div class="btnrow">
+      <button id="btn-check" class="btn primary">Check answers</button>
+      <button id="btn-reveal" class="btn ghost">Reveal</button>
+      <button id="btn-new" class="btn tiny ghost">New text</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

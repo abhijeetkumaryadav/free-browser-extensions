@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MV3 Compatibility Linter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+    <div><h1>MV3 Linter</h1><p>On-device manifest check</p></div>
+    <button id="sample" class="ghost small">Sample v2</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Paste manifest.json
+        <textarea id="input" rows="7" spellcheck="false" placeholder='{"manifest_version": 2, ...}'></textarea>
+      </label>
+      <button id="lint" class="primary">Lint manifest</button>
+    </section>
+    <section id="results" class="glass card" hidden>
+      <div class="score-row">
+        <div class="score-ring"><b id="scoreNum">–</b></div>
+        <div><h2 id="grade">—</h2><p id="scoreSub" class="note">—</p></div>
+        <button id="copy" class="ghost small">Copy report</button>
+      </div>
+      <div id="findings"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

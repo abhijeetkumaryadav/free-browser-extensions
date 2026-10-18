@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirLens — Air Quality</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 13.9a4.5 4.5 0 0 0-8.4-1.6A4 4 0 0 0 6 16h11.7z"/><path d="M4 20h6M12 20h8"/></svg>
+    <div class="title-block">
+      <h1>AirLens</h1>
+      <p>Real-time air quality</p>
+    </div>
+    <button id="refreshBtn" class="icon-btn" title="Refresh" aria-label="Refresh">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <!-- City search -->
+  <form id="searchForm" class="search-row" autocomplete="off">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="cityInput" type="text" placeholder="Type a city…" aria-label="City">
+    <button type="submit" class="go-btn">Go</button>
+  </form>
+  <div id="suggestList" class="suggest-list hidden"></div>
+
+  <!-- Main content -->
+  <main id="content">
+    <div id="emptyState" class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 13.9a4.5 4.5 0 0 0-8.4-1.6A4 4 0 0 0 6 16h11.7z"/><path d="M4 20h6M12 20h8"/></svg>
+      <p>Search a city to see its live air quality.</p>
+    </div>
+
+    <div id="errorState" class="error-state hidden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p id="errorMsg">Could not load air quality.</p>
+    </div>
+
+    <div id="loadingState" class="loading-state hidden">
+      <div class="spinner"></div>
+      <p>Fetching live data…</p>
+    </div>
+
+    <div id="resultPanel" class="hidden">
+      <div class="place-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="placeName">—</span>
+        <span id="updatedAt" class="updated"></span>
+      </div>
+
+      <div class="aqi-grid">
+        <section class="aqi-card">
+          <span class="aqi-label">US AQI</span>
+          <span id="usAqi" class="aqi-value">–</span>
+          <span id="usBand" class="band-badge">–</span>
+          <p id="usAdvice" class="advice"></p>
+        </section>
+        <section class="aqi-card">
+          <span class="aqi-label">European AQI</span>
+          <span id="euAqi" class="aqi-value">–</span>
+          <span id="euBand" class="band-badge">–</span>
+          <p id="euAdvice" class="advice"></p>
+        </section>
+      </div>
+
+      <section class="pollutants">
+        <h2>Pollutants <span class="unit">(µg/m³)</span></h2>
+        <div class="pollutant-row">
+          <div class="pollutant"><span class="p-name">PM2.5</span><span id="pm25" class="p-val">–</span></div>
+          <div class="pollutant"><span class="p-name">PM10</span><span id="pm10" class="p-val">–</span></div>
+        </div>
+        <div class="pollutant-row">
+          <div class="pollutant"><span class="p-name">O₃</span><span id="o3" class="p-val">–</span></div>
+          <div class="pollutant"><span class="p-name">NO₂</span><span id="no2" class="p-val">–</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">Data: Open-Meteo · no API key needed</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

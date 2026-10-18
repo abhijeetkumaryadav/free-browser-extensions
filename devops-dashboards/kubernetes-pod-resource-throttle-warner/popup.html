@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThrottleWatch — Pod Resource Throttle Warner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <!-- Lucide-style gauge stroke icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 14 4-4"/>
+        <path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+      </svg>
+    </div>
+    <div class="title">
+      <h1>ThrottleWatch</h1>
+      <p>Pod resource throttle warner</p>
+    </div>
+  </header>
+
+  <!-- Honest-scope notice: no cluster access -->
+  <div class="scope">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Manual-paste analyzer only — it never connects to a cluster. Paste <code>kubectl top pods</code> output or CSV below.</span>
+  </div>
+
+  <!-- Limits & thresholds -->
+  <div class="panel">
+    <div class="grid2">
+      <div>
+        <label class="lbl" for="cpuLimit">CPU limit (m)</label>
+        <input id="cpuLimit" class="inp" type="number" min="1" value="1000" title="Per-pod CPU limit in millicores">
+      </div>
+      <div>
+        <label class="lbl" for="memLimit">Memory limit (Mi)</label>
+        <input id="memLimit" class="inp" type="number" min="1" value="1024" title="Per-pod memory limit in MiB">
+      </div>
+      <div>
+        <label class="lbl" for="warnPct">Warn at %</label>
+        <input id="warnPct" class="inp" type="number" min="1" max="99" value="70">
+      </div>
+      <div>
+        <label class="lbl" for="critPct">Critical at %</label>
+        <input id="critPct" class="inp" type="number" min="2" max="100" value="90">
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="panel">
+    <div class="lblrow">
+      <label class="lbl" for="input">Pod metrics</label>
+      <div class="tabs">
+        <button id="tabKubectl" class="tab active">kubectl</button>
+        <button id="tabCsv" class="tab">CSV</button>
+      </div>
+    </div>
+    <textarea id="input" class="inp ta" rows="6" spellcheck="false" placeholder="NAME&#10;api-7d9c8f…&#10;worker-5b6a…"></textarea>
+    <div id="fmtHint" class="hint">kubectl top pods format: NAME, CPU(cores), MEMORY(bytes)</div>
+    <div class="row actions">
+      <button id="analyze" class="btn primary grow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Analyze
+      </button>
+      <button id="sample" class="btn ghost" title="Load sample data">Sample</button>
+      <button id="export" class="btn ghost" title="Download report as .txt">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Status -->
+  <div id="status" class="status idle">Paste metrics above, set limits, then Analyze.</div>
+
+  <!-- Summary + results -->
+  <div id="summary" class="summary hidden"></div>
+  <div id="results" class="results"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

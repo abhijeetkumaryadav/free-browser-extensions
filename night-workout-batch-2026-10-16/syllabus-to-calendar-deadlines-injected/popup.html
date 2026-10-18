@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <h1>Syllabus Deadline Extractor</h1>
+    </div>
+    <p class="notice">Heuristic extraction — verify every date. Nothing is added to your calendar automatically; export an .ics and import it yourself.</p>
+  </header>
+
+  <section class="panel">
+    <label for="syllabus">Paste syllabus text</label>
+    <textarea id="syllabus" placeholder="Paste your course syllabus here — assignments, exams, due dates…"></textarea>
+    <div class="row">
+      <input id="course" type="text" placeholder="Course name (e.g. CS 301)">
+      <button id="extract" class="primary">Extract deadlines</button>
+    </div>
+  </section>
+
+  <section class="panel" id="results-panel" hidden>
+    <div class="panel-head">
+      <h2>Found deadlines <span id="count"></span></h2>
+      <button id="clear-all" class="ghost">Clear</button>
+    </div>
+    <ul id="results"></ul>
+    <div class="row export-row">
+      <button id="export-ics" class="primary">Export .ics</button>
+      <button id="copy-events" class="secondary">Copy as text</button>
+    </div>
+    <p class="hint">Double-check each date before importing into your calendar.</p>
+  </section>
+
+  <footer>Made for rdx's extension marathon · 100% local</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

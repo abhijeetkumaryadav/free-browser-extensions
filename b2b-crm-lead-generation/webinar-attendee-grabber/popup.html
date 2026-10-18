@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinar Attendee Grabber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <!-- Lucide-style "users" stroke icon -->
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div>
+      <h1>Attendee Grabber</h1>
+      <p>Pull visible names into a clean list</p>
+    </div>
+  </header>
+
+  <main>
+    <button id="extractBtn" class="primary">Extract attendees from this page</button>
+    <p class="note">Best-effort: reads only the names already visible to you on the current tab. Open the participants panel first for the best results.</p>
+
+    <section id="results" class="glass card" hidden>
+      <div class="result-head">
+        <h2><span id="count">0</span> attendees</h2>
+        <div class="actions">
+          <button id="copyBtn" class="tool" title="Copy all names">Copy</button>
+          <button id="csvBtn" class="tool" title="Download as CSV">CSV</button>
+          <button id="clearBtn" class="tool danger" title="Clear list">Clear</button>
+        </div>
+      </div>
+      <ul id="list" class="names"></ul>
+    </section>
+
+    <div id="emptyState" class="empty" hidden>No attendee list detected. Open the participants panel on the page and try again.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hook Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Hook Analyzer</h1>
+      <p>TikTok script hook scorer</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="field-label" for="script">Your script</label>
+    <textarea id="script" rows="6" placeholder="Paste your video script here — the opening lines matter most…"></textarea>
+    <div class="btn-row">
+      <button id="analyze" class="btn primary">Analyze hook</button>
+      <button id="sample" class="btn ghost" title="Load an example script">Sample</button>
+      <button id="clear" class="btn ghost" title="Clear everything">Clear</button>
+    </div>
+  </section>
+
+  <section class="panel result hidden" id="result">
+    <div class="score-wrap">
+      <svg class="ring" viewBox="0 0 120 120">
+        <circle class="ring-bg" cx="60" cy="60" r="52"/>
+        <circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52"/>
+      </svg>
+      <div class="score-text">
+        <span class="score-num" id="scoreNum">0</span>
+        <span class="score-max">/ 100</span>
+      </div>
+    </div>
+    <div class="verdict" id="verdict">—</div>
+    <p class="hook-quote" id="hookQuote"></p>
+
+    <h2 class="section-title">Factor breakdown</h2>
+    <ul class="factors" id="factors"></ul>
+
+    <h2 class="section-title">Suggestions</h2>
+    <ul class="suggestions" id="suggestions"></ul>
+
+    <p class="disclaimer">Heuristic analysis — scores patterns, not virality. All processing happens on your device.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

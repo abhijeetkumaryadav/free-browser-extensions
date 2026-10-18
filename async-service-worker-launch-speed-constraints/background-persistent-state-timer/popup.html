@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div>
+      <h1>EverTimer</h1>
+      <p class="subtitle">Timers that survive restarts</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <span class="section-title">New timer</span>
+      <div class="new-row">
+        <input id="nameInput" type="text" maxlength="40" placeholder="Name (e.g. Pasta)">
+        <div class="seg">
+          <button id="modeCountdown" class="seg-btn active">Countdown</button>
+          <button id="modeStopwatch" class="seg-btn">Stopwatch</button>
+        </div>
+      </div>
+      <div id="durationRow" class="new-row">
+        <input id="minInput" type="number" min="1" max="9999" value="25" aria-label="Minutes">
+        <span class="unit">min</span>
+        <div class="quick">
+          <button data-min="5">5</button>
+          <button data-min="10">10</button>
+          <button data-min="25">25</button>
+          <button data-min="60">60</button>
+        </div>
+      </div>
+      <button id="addBtn" class="add-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Start timer</span>
+      </button>
+    </section>
+
+    <section class="card">
+      <span class="section-title">Timers</span>
+      <ul id="timerList" class="timer-list"></ul>
+      <p class="empty" id="timerEmpty">No timers yet. Start one above.</p>
+    </section>
+
+    <p class="scope-note">
+      Timers persist through browser restarts and fire while backgrounded.
+      Background ticks are alarm-granular (~1 min); completion alarms fire on time.
+    </p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

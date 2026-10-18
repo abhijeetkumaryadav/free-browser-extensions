@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cable Radar</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="hicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l5-4"/>
+  </svg>
+  <div>
+    <h1>Cable Radar</h1>
+    <p class="sub">Undersea cable explainer &amp; notes</p>
+  </div>
+</header>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/>
+  </svg>
+  <span>Educational only — simulated radar, no live backbone or traffic data.</span>
+</div>
+
+<canvas id="radar" width="348" height="190" aria-label="Simulated radar doodle"></canvas>
+<p class="hint">A radar doodle with simulated blips — for fun, not data.</p>
+
+<section class="learn">
+  <h2>How undersea cables work</h2>
+  <ul id="facts"></ul>
+</section>
+
+<section class="notes">
+  <h2>My notes <span id="count" class="pill">0</span></h2>
+  <input id="titleIn" type="text" placeholder="Note title" maxlength="80">
+  <textarea id="bodyIn" placeholder="Your note about cables, routes, landing points…" maxlength="2000" rows="3"></textarea>
+  <button id="addBtn">Save note</button>
+  <p id="err" class="err" hidden></p>
+  <input id="searchIn" type="search" placeholder="Search notes…">
+  <ul id="noteList"></ul>
+  <button id="clearBtn" class="ghost">Clear all notes</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

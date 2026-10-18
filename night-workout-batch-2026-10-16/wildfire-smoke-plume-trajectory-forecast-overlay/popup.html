@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoke Safety</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3c1 3-2 4.5-2 7.5 0 1.2.8 2 1.8 2.4C11 11.6 10.6 9 12 6.5c1 1.5 3.6 2.6 3.6 6A4.6 4.6 0 0 1 12 17a4.6 4.6 0 0 1-4.6-4.6C7.4 8.4 10.4 6.6 12 3z"/>
+      <path d="M5 21h14"/>
+    </svg>
+    <div>
+      <h1>Smoke Safety</h1>
+      <p class="sub">Wildfire smoke explainer + observation log</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    Educational only — not a live forecast. No fire or smoke data is fetched.
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">My Log</button>
+    <button class="tab" data-tab="learn">Learn</button>
+  </nav>
+
+  <section class="pane active" id="pane-log">
+    <div class="card">
+      <h2>Log a smoke observation</h2>
+      <div class="row">
+        <label>Smoke level
+          <select id="levelSel">
+            <option value="0">0 — None</option>
+            <option value="1">1 — Faint</option>
+            <option value="2">2 — Light</option>
+            <option value="3">3 — Moderate</option>
+            <option value="4">4 — Heavy</option>
+            <option value="5">5 — Severe</option>
+          </select>
+        </label>
+        <label>Wind (optional)
+          <input type="text" id="windInput" maxlength="40" placeholder="e.g. NE 15 km/h">
+        </label>
+      </div>
+      <label>Notes
+        <input type="text" id="noteInput" maxlength="140" placeholder="Odor, visibility, ash falling...">
+      </label>
+      <button id="addBtn" class="btn primary">Save observation</button>
+    </div>
+
+    <div class="card">
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num" id="statCount">0</span><span class="stat-lbl">observations</span></div>
+        <div class="stat"><span class="stat-num" id="statLatest">—</span><span class="stat-lbl">latest level</span></div>
+        <div class="stat"><span class="stat-num" id="statAvg">—</span><span class="stat-lbl">avg 7d</span></div>
+      </div>
+      <h2>History</h2>
+      <ul id="history" class="history"></ul>
+      <button id="clearBtn" class="btn ghost danger">Clear all</button>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-learn">
+    <div class="card">
+      <h2>How smoke behaves</h2>
+      <ul class="facts">
+        <li><b>Travels far.</b> Wildfire smoke can drift hundreds of kilometres — hazy skies far from any fire are common.</li>
+        <li><b>Sinks at night.</b> Cool evening air traps smoke near the ground; mornings are often the worst.</li>
+        <li><b>Wind shifts it.</b> A wind change can clear or worsen smoke within an hour — note the wind direction when you log.</li>
+        <li><b>Fine particles.</b> Smoke is mostly PM2.5, which can travel deep into lungs. Cloth masks do not stop it; N95/P2 respirators help when fitted.</li>
+      </ul>
+      <h2>On smoky days</h2>
+      <ul class="facts">
+        <li>Keep windows and doors closed; run air-conditioning on recirculate if you can.</li>
+        <li>Avoid strenuous outdoor exercise when smoke is heavy.</li>
+        <li>People with asthma, heart conditions, the elderly and young children are most sensitive — check on them.</li>
+        <li>Never rely on this extension for emergency decisions. Follow local fire and health authorities.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

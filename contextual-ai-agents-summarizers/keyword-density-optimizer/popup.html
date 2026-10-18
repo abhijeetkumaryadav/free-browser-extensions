@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyword Density Optimizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="9"/><line x1="18" y1="20" x2="18" y2="4"/></svg>
+    <div><h1>Keyword Density</h1><p>SEO text analyzer</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Target keyword
+        <input id="kw" type="text" placeholder="e.g. running shoes" maxlength="60" autocomplete="off">
+      </label>
+      <label class="fld">Your text
+        <textarea id="text" rows="6" placeholder="Paste your article or page copy here…"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="analyze" class="primary">Analyze</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+    <section id="results" class="glass card" hidden>
+      <div class="gauge">
+        <div class="ring" id="ring"><div class="hole"><b id="pct">0%</b><span>density</span></div></div>
+        <div class="gaugemeta">
+          <div><b id="occ">0</b><span>occurrences</span></div>
+          <div><b id="words">0</b><span>words</span></div>
+        </div>
+      </div>
+      <p id="verdict" class="verdict"></p>
+      <h2>Distribution across text</h2>
+      <div class="dist">
+        <div class="drow"><span>Beginning</span><div class="bar"><i id="barB"></i></div><b id="nB">0</b></div>
+        <div class="drow"><span>Middle</span><div class="bar"><i id="barM"></i></div><b id="nM">0</b></div>
+        <div class="drow"><span>End</span><div class="bar"><i id="barE"></i></div><b id="nE">0</b></div>
+      </div>
+      <h2>SEO checklist</h2>
+      <div id="checklist"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

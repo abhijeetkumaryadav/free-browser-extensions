@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parallelo</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6"/><path d="M4 9h6"/><path d="M4 13h4"/><path d="M14 5h6"/><path d="M14 9h6"/><path d="M14 13h4"/></svg>
+      <div>
+        <h1>Parallelo</h1>
+        <p class="subtitle">Bilingual parallel text reader</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Editor view -->
+  <main id="editorView">
+    <p class="hint">Paste two texts (e.g. original + translation). Paragraphs are aligned by index — separate paragraphs with a blank line.</p>
+    <div class="saved-row">
+      <select id="savedSelect" aria-label="Saved text pairs">
+        <option value="">Saved pairs…</option>
+      </select>
+      <button class="btn ghost icon-btn" id="deletePairBtn" title="Delete selected pair">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      </button>
+    </div>
+    <label class="field">
+      <span class="field-label">Text A <input class="lang-input" id="langA" placeholder="Language" value="English"></span>
+      <textarea id="textA" rows="5" placeholder="Paste the original text here…"></textarea>
+    </label>
+    <label class="field">
+      <span class="field-label">Text B <input class="lang-input" id="langB" placeholder="Language" value="Español"></span>
+      <textarea id="textB" rows="5" placeholder="Paste the translation here…"></textarea>
+    </label>
+    <div class="row">
+      <input id="pairName" placeholder="Pair name (to save)">
+      <button class="btn ghost" id="savePairBtn">Save</button>
+    </div>
+    <button class="btn primary full" id="readBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      Start reading
+    </button>
+  </main>
+
+  <!-- Reader view -->
+  <main id="readerView" hidden>
+    <div class="reader-toolbar">
+      <button class="btn ghost small" id="backBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Edit texts
+      </button>
+      <div class="pair-count" id="pairCount"></div>
+    </div>
+    <div class="controls">
+      <label class="slider-opt">Split
+        <input type="range" id="splitRange" min="30" max="70" value="50">
+      </label>
+      <label class="slider-opt">Font
+        <input type="range" id="fontRange" min="12" max="20" value="14">
+      </label>
+      <label class="check-opt">
+        <input type="checkbox" id="syncScroll" checked> Synced scroll
+      </label>
+    </div>
+    <div class="panes" id="panes">
+      <div class="pane" id="paneA"><div class="pane-title" id="titleA">A</div><div class="pane-body" id="bodyA"></div></div>
+      <div class="pane" id="paneB"><div class="pane-title" id="titleB">B</div><div class="pane-body" id="bodyB"></div></div>
+    </div>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="3"/>
+          <path d="M10 10.5a2.5 2.5 0 0 0-4 2 2.5 2.5 0 0 0 4 2"/>
+          <path d="M18 10.5a2.5 2.5 0 0 0-4 2 2.5 2.5 0 0 0 4 2"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>Caption Font Styler</h1>
+        <p class="subtitle">Style HTML5 captions your way</p>
+      </div>
+      <label class="switch" title="Master on/off">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="track"><span class="knob"></span></span>
+      </label>
+    </header>
+
+    <!-- Site context -->
+    <div class="context-bar" id="contextBar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M2 12h20"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      <span id="contextLabel">Global settings</span>
+      <button class="link-btn" id="resetSiteBtn" hidden>Use global</button>
+    </div>
+
+    <!-- Live preview -->
+    <section class="card preview-card">
+      <div class="preview-stage">
+        <span id="previewText">Sample caption text</span>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="card">
+      <div class="control">
+        <div class="control-head">
+          <label for="fontSize">Font size</label>
+          <span class="value" id="fontSizeValue">24px</span>
+        </div>
+        <input type="range" id="fontSize" min="12" max="48" step="1" value="24">
+      </div>
+
+      <div class="control">
+        <label class="field-label" for="fontFamily">Font family</label>
+        <select id="fontFamily">
+          <option value="system-ui, sans-serif">System Sans</option>
+          <option value="Arial, Helvetica, sans-serif">Arial</option>
+          <option value="Verdana, Geneva, sans-serif">Verdana</option>
+          <option value="Georgia, 'Times New Roman', serif">Georgia (Serif)</option>
+          <option value="'Courier New', Courier, monospace">Courier New (Mono)</option>
+        </select>
+      </div>
+
+      <div class="row-2">
+        <div class="control">
+          <label class="field-label" for="textColor">Text color</label>
+          <input type="color" id="textColor" value="#ffffff">
+        </div>
+        <div class="control">
+          <label class="field-label" for="bgColor">Background</label>
+          <input type="color" id="bgColor" value="#000000">
+        </div>
+      </div>
+
+      <div class="control">
+        <div class="control-head">
+          <label for="bgOpacity">Background opacity</label>
+          <span class="value" id="bgOpacityValue">80%</span>
+        </div>
+        <input type="range" id="bgOpacity" min="0" max="100" step="5" value="80">
+      </div>
+
+      <div class="control">
+        <label class="field-label" for="edgeStyle">Edge style</label>
+        <select id="edgeStyle">
+          <option value="none">None</option>
+          <option value="outline">Outline</option>
+          <option value="drop">Drop shadow</option>
+          <option value="raised">Raised</option>
+          <option value="depressed">Depressed</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="card actions">
+      <button class="btn primary" id="saveSiteBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+          <path d="M17 21v-8H7v8"/>
+          <path d="M7 3v5h8"/>
+        </svg>
+        Save for this site
+      </button>
+      <div class="btn-row">
+        <button class="btn ghost" id="copyCssBtn">Copy CSS</button>
+        <button class="btn ghost" id="resetAllBtn">Reset all</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4"/>
+        <path d="M12 8h.01"/>
+      </svg>
+      <span>Styles native &lt;video&gt; captions (::cue). Sites with custom caption renderers (e.g. YouTube) are unaffected.</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 10h.01M15 10h.01"/>
+      <path d="M10 4a7 7 0 0 0-7 7v9l2.5-2 2.5 2 2.5-2 2.5 2 2.5-2 2-1.6V11a7 7 0 0 0-7-7z"/>
+    </svg>
+    <div>
+      <h1>GhostBlock</h1>
+      <p class="sub">Silent tracker blocker</p>
+    </div>
+    <label class="switch" title="Enable / disable blocking">
+      <input type="checkbox" id="enabledToggle" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <section class="card stats">
+    <div class="stat">
+      <div class="num" id="todayCount">0</div>
+      <div class="lbl">blocked today</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="totalCount">0</div>
+      <div class="lbl">blocked total</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="domainCount">0</div>
+      <div class="lbl">domains listed</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Blocked domains</h2>
+    <p class="hint">Requests to these domains (and subdomains) are silently blocked. Sample starter list — edit freely.</p>
+    <div class="add-row">
+      <input id="domainInput" type="text" placeholder="example-tracker.com" spellcheck="false">
+      <button id="addBtn" class="primary">Add</button>
+    </div>
+    <ul id="domainList" class="domain-list"></ul>
+    <button id="resetBtn" class="ghost full">Reset to sample list</button>
+  </section>
+
+  <footer class="footnote">
+    Blocks only the domains you list — never touches first-party content.
+    Powered by declarativeNetRequest. 100% local.
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

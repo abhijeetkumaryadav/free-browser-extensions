@@ -1,0 +1,98 @@
+/* Ghost Town Forums — deep-dark glassmorphism, single violet accent */
+:root{
+  --bg:#0d0d12;
+  --glass:rgba(20,20,26,.72);
+  --stroke:rgba(167,139,250,.18);
+  --text:#eceaf4;
+  --muted:#a7a3bd;
+  --accent:#a78bfa;
+  --danger:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;max-height:600px;overflow-y:auto;
+  background:var(--bg);color:var(--text);
+  font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.brand{
+  display:flex;gap:12px;align-items:center;
+  padding:16px 16px 12px;
+  background:linear-gradient(135deg,rgba(167,139,250,.14),transparent 60%);
+  position:sticky;top:0;z-index:2;backdrop-filter:blur(12px);
+}
+.brand .logo{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:0 0 40px;
+  background:var(--glass);border:1px solid var(--stroke);color:var(--accent);
+  backdrop-filter:blur(12px);
+}
+.brand .logo svg{width:24px;height:24px}
+.brand h1{font-size:16px;font-weight:650;letter-spacing:.2px}
+.brand .sub{font-size:12px;color:var(--muted)}
+.notice{
+  display:flex;gap:10px;align-items:flex-start;margin:0 16px 4px;
+  padding:10px 12px;border-radius:12px;font-size:12.5px;color:var(--muted);
+  background:rgba(167,139,250,.08);border:1px solid var(--stroke);
+}
+.notice svg{width:18px;height:18px;color:var(--accent);flex:0 0 18px;margin-top:1px}
+main{padding:12px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.card{
+  background:var(--glass);border:1px solid var(--stroke);border-radius:16px;
+  padding:14px;backdrop-filter:blur(12px);
+}
+.card h2{font-size:13.5px;font-weight:650;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.pill{
+  font-size:11px;font-weight:600;color:var(--accent);
+  background:rgba(167,139,250,.14);border:1px solid var(--stroke);
+  padding:2px 9px;border-radius:999px;
+}
+label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:10px}
+label.check{display:flex;align-items:center;gap:8px;margin:0;color:var(--text)}
+input[type=text],input[type=url],input[type=date],input[type=search],textarea{
+  width:100%;margin-top:6px;padding:9px 11px;border-radius:10px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:var(--text);font:inherit;font-size:13px;
+}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(167,139,250,.25)}
+textarea{resize:vertical}
+input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent)}
+.row{display:flex;gap:10px;align-items:flex-end}
+.row>*{flex:1}
+.row .btn{flex:0 0 auto}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:9px 16px;border-radius:11px;border:1px solid transparent;cursor:pointer;
+  background:var(--accent);color:#17131f;font-weight:650;font-size:13px;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.06);color:var(--text);border-color:rgba(255,255,255,.12)}
+.btn.danger{background:rgba(248,113,113,.14);color:var(--danger);border-color:rgba(248,113,113,.3)}
+.btn.file{cursor:pointer}
+#add-form .btn{width:100%;margin-top:2px}
+.list-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.list-head input{width:170px;margin:0}
+.forum-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.forum{
+  padding:11px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+}
+.forum .top{display:flex;align-items:center;gap:8px}
+.forum .name{font-weight:650;font-size:13.5px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.quiet-tag{
+  font-size:10.5px;font-weight:700;letter-spacing:.4px;color:#fbbf24;
+  background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35);
+  padding:2px 8px;border-radius:999px;text-transform:uppercase;
+}
+.forum .url{font-size:12px;color:var(--accent);word-break:break-all}
+.forum .visit{font-size:12px;color:var(--muted);margin-top:4px}
+.forum .notes{font-size:12.5px;color:var(--text);opacity:.85;margin-top:6px;white-space:pre-wrap}
+.forum .actions{display:flex;gap:8px;margin-top:9px}
+.forum .actions a,.forum .actions button{
+  font-size:12px;font-weight:600;padding:6px 11px;border-radius:9px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--text);cursor:pointer;
+}
+.forum .actions a{color:var(--accent);border-color:var(--stroke)}
+.forum .actions .del{color:var(--danger)}
+.empty{text-align:center;color:var(--muted);font-size:13px;padding:14px 0}
+.foot .row{justify-content:space-between}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-thumb{background:rgba(167,139,250,.3);border-radius:8px}

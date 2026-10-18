@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>ReadGauge</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    <h1>ReadGauge</h1>
+  </div>
+  <p class="sub">Reading time &amp; difficulty — heuristic estimates, not exact.</p>
+</header>
+
+<main>
+  <button id="btn-analyze" class="primary">Analyze this page</button>
+
+  <div id="results" class="results hidden">
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 120 66" class="gauge">
+        <path d="M8 60 A52 52 0 0 1 112 60" fill="none" stroke="#2a2a34" stroke-width="10" stroke-linecap="round"/>
+        <path id="gauge-arc" d="M8 60 A52 52 0 0 1 112 60" fill="none" stroke="#22d3ee" stroke-width="10" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4"/>
+        <text id="gauge-num" x="60" y="52" text-anchor="middle" fill="#f1f1f4" font-size="20" font-weight="700">0</text>
+        <text x="60" y="63" text-anchor="middle" fill="#a7a7b3" font-size="8">EASE SCORE</text>
+      </svg>
+    </div>
+    <div class="verdict" id="verdict"></div>
+    <div class="stat-grid">
+      <div class="stat"><span class="s-label">Reading time</span><span class="s-value" id="st-time">–</span></div>
+      <div class="stat"><span class="s-label">Words</span><span class="s-value" id="st-words">–</span></div>
+      <div class="stat"><span class="s-label">Sentences</span><span class="s-value" id="st-sent">–</span></div>
+      <div class="stat"><span class="s-label">Avg words / sentence</span><span class="s-value" id="st-asl">–</span></div>
+    </div>
+    <p class="source-line" id="source-line"></p>
+  </div>
+
+  <div id="error" class="error hidden"></div>
+
+  <div class="how">
+    <h2>How it works</h2>
+    <p>Flesch-style Reading Ease: <code>206.835 − 1.015×(words/sentence) − 84.6×(syllables/word)</code>.
+    Reading time assumes 225 words/min. Right-click selected text → <i>Analyze reading time of selection</i> to measure just that passage.</p>
+  </div>
+</main>
+
+<footer class="foot">100% local — text never leaves this device.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

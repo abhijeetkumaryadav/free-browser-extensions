@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallel Reader</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Honest scope banner -->
+  <div class="banner">
+    <svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>You supply both texts — no machine translation. Paragraphs align by order.</span>
+  </div>
+
+  <!-- Tab bar -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="read">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M12 6.5C10.6 4.8 8.6 4 6 4c-1.2 0-2.4.2-3.5.6v14c1.1-.4 2.3-.6 3.5-.6 2.6 0 4.6.8 6 2.5 1.4-1.7 3.4-2.5 6-2.5 1.2 0 2.4.2 3.5.6v-14c-1.1-.4-2.3-.6-3.5-.6-2.6 0-4.6.8-6 2.5z"/><path d="M12 6.5v14"/></svg>
+      Read
+    </button>
+    <button class="tab" data-tab="edit">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      Edit
+    </button>
+    <button class="tab" data-tab="docs">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      Docs
+    </button>
+  </nav>
+
+  <!-- READ panel: side-by-side reader -->
+  <section class="panel active" id="panel-read">
+    <div class="read-controls">
+      <button class="btn small" id="sync-toggle" aria-pressed="true">Sync scroll: on</button>
+      <span class="pair-count" id="pair-count"></span>
+    </div>
+    <div class="columns">
+      <div class="column" id="col-a"></div>
+      <div class="column" id="col-b"></div>
+    </div>
+    <p class="empty" id="read-empty">No document yet. Paste your two texts in the <b>Edit</b> tab — blank lines split paragraphs.</p>
+  </section>
+
+  <!-- EDIT panel: input both texts -->
+  <section class="panel" id="panel-edit">
+    <label class="field">
+      <span class="label">Document name</span>
+      <input type="text" id="doc-name" placeholder="e.g. Chapter 1 — FR/EN" maxlength="60">
+    </label>
+    <div class="langs">
+      <label class="field"><span class="label">Left label</span><input type="text" id="label-a" placeholder="Original" maxlength="24"></label>
+      <label class="field"><span class="label">Right label</span><input type="text" id="label-b" placeholder="Translation" maxlength="24"></label>
+    </div>
+    <label class="field">
+      <span class="label">Text A (left column) — blank line = new paragraph</span>
+      <textarea id="text-a" rows="6" placeholder="Paste the first version here…"></textarea>
+    </label>
+    <label class="field">
+      <span class="label">Text B (right column) — blank line = new paragraph</span>
+      <textarea id="text-b" rows="6" placeholder="Paste the second version here…"></textarea>
+    </label>
+    <button class="btn primary" id="save-doc">Save document</button>
+    <p class="hint">Both texts stay on this device — nothing is sent anywhere.</p>
+  </section>
+
+  <!-- DOCS panel: saved documents -->
+  <section class="panel" id="panel-docs">
+    <ul class="doc-list" id="doc-list"></ul>
+    <p class="empty" id="docs-empty">No saved documents.</p>
+  </section>
+
+  <!-- Note editor dialog -->
+  <div class="note-overlay hidden" id="note-overlay">
+    <div class="note-card">
+      <h3>Note for pair <span id="note-index"></span></h3>
+      <textarea id="note-text" rows="4" placeholder="Write a note about this paragraph pair…"></textarea>
+      <div class="note-actions">
+        <button class="btn small" id="note-save">Save</button>
+        <button class="btn small ghost" id="note-clear">Clear</button>
+        <button class="btn small ghost" id="note-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/><path d="M2 18h20"/></svg>
+    <div><h1>Pacing Timer</h1><p>Shot-boundary duration counter</p></div>
+  </header>
+
+  <p class="notice">Heuristic markers only — luminance-delta scene detection, not AI. Everything runs locally on your video file.</p>
+
+  <!-- Video stage -->
+  <div class="stage">
+    <video id="vid" playsinline controlsList="nodownload" preload="auto"></video>
+    <div class="stage-empty" id="stageEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+      <p>Drop a video file or</p>
+      <label class="btn" for="file">Choose video</label>
+      <input type="file" id="file" accept="video/*" hidden>
+    </div>
+    <!-- boundary markers pinned at top of the stage -->
+    <div class="markers" id="markers"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button id="tapMark" class="btn primary" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Mark boundary <span class="kbd">M</span>
+    </button>
+    <button id="autoDetect" class="btn" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      Auto-detect
+    </button>
+    <button id="clearAll" class="btn ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+      Clear
+    </button>
+  </div>
+
+  <details class="advanced">
+    <summary>Detection settings</summary>
+    <label>Sensitivity
+      <input type="range" id="sensitivity" min="5" max="60" value="25">
+      <span id="sensVal">25</span>
+    </label>
+    <label>Sample every
+      <select id="sampleStep">
+        <option value="0.15">0.15s</option>
+        <option value="0.25" selected>0.25s</option>
+        <option value="0.5">0.5s</option>
+      </select>
+    </label>
+  </details>
+
+  <!-- Stats -->
+  <div class="stats" id="stats" hidden>
+    <div class="stat"><span class="num" id="shotCount">0</span><span class="lbl">shots</span></div>
+    <div class="stat"><span class="num" id="avgShot">–</span><span class="lbl">avg shot</span></div>
+    <div class="stat"><span class="num" id="minShot">–</span><span class="lbl">shortest</span></div>
+    <div class="stat"><span class="num" id="maxShot">–</span><span class="lbl">longest</span></div>
+  </div>
+
+  <!-- Shot list -->
+  <div class="shots" id="shotList"></div>
+</div>
+<canvas id="sampler" width="32" height="18" hidden></canvas>
+<script src="popup.js"></script>
+</body>
+</html>

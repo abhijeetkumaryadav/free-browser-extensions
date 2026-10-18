@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pressure & Migraine Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18 5.6l-2.1 2.1M21 12h-3M8 21a4 4 0 0 1 8 0"/><path d="M12 12l4-4"/></svg>
+    <div>
+      <h1>Pressure &amp; Migraine Journal</h1>
+      <p class="sub">Barometric pressure logbook</p>
+    </div>
+  </header>
+
+  <div class="notice">Your logs — <b>not medical advice</b>. No live data; log pressure readings yourself and track patterns with your clinician.</div>
+
+  <section>
+    <h2>Log a reading</h2>
+    <label>Pressure (hPa)
+      <input id="pressure" type="number" min="800" max="1100" step="0.5" placeholder="e.g. 1013.2">
+    </label>
+    <label>Migraine? 
+      <select id="migraine">
+        <option value="none">No episode</option>
+        <option value="mild">Mild</option>
+        <option value="moderate">Moderate</option>
+        <option value="severe">Severe</option>
+      </select>
+    </label>
+    <label>Note (optional)
+      <input id="note" type="text" maxlength="120" placeholder="weather, stress, sleep…">
+    </label>
+    <button id="logBtn">Log reading</button>
+  </section>
+
+  <section>
+    <h2>Your pattern (last 30 days)</h2>
+    <div id="corr" class="corr">No data yet.</div>
+  </section>
+
+  <section>
+    <h2>History</h2>
+    <div id="history" class="history"></div>
+    <button id="clearBtn" class="ghost">Clear all</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

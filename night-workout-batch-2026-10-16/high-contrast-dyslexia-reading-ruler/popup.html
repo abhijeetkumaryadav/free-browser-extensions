@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadRuler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="header">
+      <span class="icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 17 3l4 4L7 21l-4-4z"/><path d="m8 16 1.5 1.5M11 13l1.5 1.5M14 10l1.5 1.5M17 7l1.5 1.5"/></svg>
+      </span>
+      <div>
+        <h1>ReadRuler</h1>
+        <p class="sub">Reading ruler + dyslexia-friendly text</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="row between">
+        <label class="label" for="rulerToggle">Reading ruler</label>
+        <button id="rulerToggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle reading ruler"><span class="knob"></span></button>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="rulerHeight">Height <span id="rulerHeightVal" class="val">44px</span></label>
+          <input type="range" id="rulerHeight" min="20" max="120" step="2" value="44">
+        </div>
+        <div class="field">
+          <label for="rulerOpacity">Opacity <span id="rulerOpacityVal" class="val">35%</span></label>
+          <input type="range" id="rulerOpacity" min="10" max="80" step="5" value="35">
+        </div>
+      </div>
+      <div class="field">
+        <label>Ruler color</label>
+        <div class="swatches" id="rulerColors">
+          <button class="swatch" data-color="#22d3ee" style="--c:#22d3ee" aria-label="Cyan"></button>
+          <button class="swatch" data-color="#facc15" style="--c:#facc15" aria-label="Yellow"></button>
+          <button class="swatch" data-color="#f472b6" style="--c:#f472b6" aria-label="Pink"></button>
+          <button class="swatch" data-color="#a3e635" style="--c:#a3e635" aria-label="Lime"></button>
+          <button class="swatch" data-color="#f8fafc" style="--c:#f8fafc" aria-label="White"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <label class="label" for="dysToggle">Dyslexia-friendly text</label>
+        <button id="dysToggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle dyslexia-friendly text"><span class="knob"></span></button>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="letterSpacing">Letter spacing <span id="letterSpacingVal" class="val">0.08em</span></label>
+          <input type="range" id="letterSpacing" min="0" max="0.25" step="0.01" value="0.08">
+        </div>
+        <div class="field">
+          <label for="wordSpacing">Word spacing <span id="wordSpacingVal" class="val">0.16em</span></label>
+          <input type="range" id="wordSpacing" min="0" max="0.5" step="0.02" value="0.16">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="lineHeight">Line height <span id="lineHeightVal" class="val">1.8</span></label>
+          <input type="range" id="lineHeight" min="1.2" max="2.6" step="0.1" value="1.8">
+        </div>
+        <div class="field">
+          <label for="fontStack">Font</label>
+          <select id="fontStack">
+            <option value="readable">Readable stack (system)</option>
+            <option value="verdana">Verdana-like</option>
+            <option value="none">Keep page fonts</option>
+          </select>
+        </div>
+      </div>
+      <p class="hint">Uses system fonts only — no font files are bundled or downloaded.</p>
+    </section>
+
+    <div class="actions">
+      <button id="applyBtn" class="primary">Apply to this page</button>
+      <button id="removeBtn" class="ghost">Remove</button>
+    </div>
+    <p id="status" class="status" role="status"></p>
+    <p class="foot">On-demand, per tab. “Remove” restores the page exactly.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

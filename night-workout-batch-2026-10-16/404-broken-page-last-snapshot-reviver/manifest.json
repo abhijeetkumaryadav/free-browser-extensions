@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"404 Snapshot Log"},"description":"Your broken-link log — save dead URLs with notes and open archive.org lookups in a new tab.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"404 Snapshot Log — Broken-Link Reviver","permissions":["storage"],"version":"1.0.0"}

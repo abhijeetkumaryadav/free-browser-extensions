@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hallucination Risk Gauge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 1 8-8"/><path d="M12 12l5-5"/><path d="M17 20h5v-5"/></svg>
+    <div>
+      <h1>Hallucination Risk Gauge</h1>
+      <p class="sub">Heuristic AI-text signal scanner</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Heuristic signals only — this is NOT a real hallucination probability. Verify every claim yourself against primary sources.</span>
+  </div>
+
+  <section class="card">
+    <h2>Paste AI-generated text</h2>
+    <textarea id="input" rows="4" placeholder="Paste the AI-generated text you want to check…"></textarea>
+    <button id="scan" class="btn primary">Scan risk signals</button>
+  </section>
+
+  <section class="card hidden" id="resultCard">
+    <div class="scoreRow">
+      <div class="gauge"><div class="needle" id="needle"></div><div class="hub"></div></div>
+      <div>
+        <div class="riskScore" id="riskScore">0</div>
+        <div class="verdict" id="verdict">Low risk signals</div>
+        <div class="verdictSub" id="verdictSub">signals found</div>
+      </div>
+    </div>
+    <ul class="signals" id="signals"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Signals that raise risk</h2>
+    <div class="pattern"><strong>Hedge words</strong><span>"may", "might", "some studies suggest" — models hedge where they lack grounded facts.</span></div>
+    <div class="pattern"><strong>Citation-shaped text</strong><span>"Smith et al., 2023" or "according to a study" with no verifiable reference — classic fabricated-citation tell.</span></div>
+    <div class="pattern"><strong>Overconfident absolutes</strong><span>"Always", "never", "100% guaranteed", "proven" — confident language on shaky ground.</span></div>
+    <div class="pattern"><strong>Precision without sourcing</strong><span>Suspiciously exact figures, dates, or statistics with no source attached.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>My verification notes</h2>
+    <textarea id="notes" rows="3" placeholder="What did you actually verify?…"></textarea>
+    <p class="hint">Saved locally, automatically.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

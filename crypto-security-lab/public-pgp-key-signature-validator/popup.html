@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KeyInspect — PGP Public Key Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.9 12.1 21 2"/><path d="M15 5l3 3"/><path d="M18 8l2 2"/></svg>
+    <div>
+      <h1>KeyInspect</h1>
+      <p class="sub">PGP public key inspector</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Parsing &amp; inspection only — this does <b>not</b> verify signatures. Nothing leaves your device.</span>
+  </div>
+
+  <label class="lbl" for="armor">Armored public key block</label>
+  <textarea id="armor" rows="6" spellcheck="false" placeholder="-----BEGIN PGP PUBLIC KEY BLOCK-----&#10;...&#10;-----END PGP PUBLIC KEY BLOCK-----"></textarea>
+
+  <div class="row">
+    <button id="analyze" class="primary">Inspect key</button>
+    <button id="clear" class="ghost">Clear</button>
+  </div>
+
+  <div id="error" class="error hidden"></div>
+
+  <section id="results" class="hidden">
+    <div class="card ok" id="crcCard">
+      <div class="kv"><span>Armor checksum (CRC24)</span><b id="crcState">—</b></div>
+    </div>
+
+    <div class="card">
+      <h2>Primary key</h2>
+      <div class="kv"><span>Fingerprint</span><b class="mono" id="fpr">—</b></div>
+      <div class="kv"><span>Key ID</span><b class="mono" id="keyid">—</b></div>
+      <div class="kv"><span>Algorithm</span><b id="algo">—</b></div>
+      <div class="kv"><span>Key size</span><b id="ksize">—</b></div>
+      <div class="kv"><span>Created</span><b id="created">—</b></div>
+      <div class="kv"><span>Expires</span><b id="expires">—</b></div>
+      <div class="kv"><span>Version</span><b id="ver">—</b></div>
+    </div>
+
+    <div class="card">
+      <h2>User IDs <span class="count" id="uidCount"></span></h2>
+      <ul id="uids" class="uids"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Subkeys <span class="count" id="subCount"></span></h2>
+      <ul id="subs" class="uids"></ul>
+    </div>
+
+    <div class="card">
+      <h2>Signatures <span class="count" id="sigCount"></span></h2>
+      <ul id="sigs" class="uids"></ul>
+    </div>
+
+    <div class="row">
+      <button id="copyFpr" class="ghost sm">Copy fingerprint</button>
+      <button id="copyJson" class="ghost sm">Copy report (JSON)</button>
+    </div>
+  </section>
+
+  <footer>100% local · no network · MV3</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

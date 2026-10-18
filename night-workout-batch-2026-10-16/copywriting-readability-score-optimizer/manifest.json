@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Readability Scorer"},"description":"Computes Flesch Reading Ease and Flesch-Kincaid grade with heuristic suggestions. Formula-based, not AI.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Readability Scorer","permissions":["storage"],"version":"1.0.0"}

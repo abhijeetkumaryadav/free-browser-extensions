@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Feed List</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="banner">Your feed list — not a live reader. Feeds are saved but never auto-fetched; you track articles yourself.</div>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/><path d="M3 13a9 9 0 0 1 9 9"/><path d="M3 7a15 15 0 0 1 15 15"/></svg>
+  <div class="titles"><h1>Feed List</h1><p>Your personal RSS / JSON feeds</p></div>
+  <button id="btnExport" class="icon-btn" title="Export JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></button>
+  <button id="btnImport" class="icon-btn" title="Import JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg></button>
+  <input type="file" id="fileInput" accept="application/json,.json" hidden>
+</header>
+
+<section class="add">
+  <h2>Add feed</h2>
+  <input id="fName" type="text" placeholder="Feed name *" maxlength="120">
+  <div class="row">
+    <input id="fUrl" type="url" placeholder="Feed URL (http/https) *" maxlength="500">
+    <select id="fType">
+      <option value="rss">RSS</option>
+      <option value="json">JSON</option>
+    </select>
+  </div>
+  <button id="btnAdd" class="primary">Add feed</button>
+  <p id="formMsg" class="msg"></p>
+</section>
+
+<section class="list">
+  <div class="list-head">
+    <h2>Feeds <span id="count" class="count">0</span></h2>
+    <input id="q" type="search" placeholder="Search feeds or notes…">
+  </div>
+  <div id="feeds" class="feeds"></div>
+  <button id="btnClear" class="danger-ghost">Clear all feeds</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

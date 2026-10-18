@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Broker Opt-Out Scanner</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="m17 8 2 2 4-4"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Opt-Out Scanner</h1>
+      <p class="subtitle">Data broker checklist tracker</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Progress -->
+    <section class="card">
+      <div class="progress-head">
+        <span class="progress-label">Opt-outs confirmed</span>
+        <span class="progress-count" id="progressCount">0 / 0</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num" id="statNotStarted">0</span><span class="stat-label">Not started</span></div>
+        <div class="stat"><span class="stat-num" id="statSubmitted">0</span><span class="stat-label">Submitted</span></div>
+        <div class="stat"><span class="stat-num" id="statConfirmed">0</span><span class="stat-label">Confirmed</span></div>
+        <div class="stat"><span class="stat-num" id="statDue">0</span><span class="stat-label">Reminder due</span></div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Search brokers…" autocomplete="off">
+      </div>
+      <button class="btn btn-ghost btn-sm" id="addBtn" title="Add a custom broker">+ Add</button>
+    </section>
+
+    <p class="disclaimer">A personal tracker — opt-outs are submitted manually on each broker's official page. This extension never scrapes broker sites.</p>
+
+    <!-- Broker list -->
+    <section class="broker-list" id="brokerList"></section>
+  </main>
+
+  <!-- Add / edit dialog -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modalTitle">Add broker</h3>
+      <label>Name<input type="text" id="brokerName" placeholder="Broker name"></label>
+      <label>Opt-out URL<input type="url" id="brokerUrl" placeholder="https://…"></label>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="modalCancel">Cancel</button>
+        <button class="btn btn-primary" id="modalSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

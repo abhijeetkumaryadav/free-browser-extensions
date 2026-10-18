@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seismic Page Shake</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2 0 2-3 4-3s2 6 4 6 2-9 4-9 2 6 4 6"/><path d="M3 18h18"/></svg>
+    <div>
+      <h1>Seismic Page Shake</h1>
+      <p class="tag">toy &middot; click-triggered &middot; reversible</p>
+    </div>
+  </header>
+
+  <p class="notice">Playful visual toy. Shakes the page with CSS transforms only — the page content is never changed, and one click restores it exactly.</p>
+
+  <div class="row">
+    <button id="start" class="btn primary">Start shaking</button>
+    <button id="stop" class="btn ghost">Stop &amp; restore</button>
+  </div>
+
+  <div class="field">
+    <label for="intensity">Shake intensity <span id="intensityVal">5</span></label>
+    <input type="range" id="intensity" min="1" max="10" value="5">
+  </div>
+
+  <p id="status" class="status">Idle — page is steady.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* SnapDiff — deep-dark glassmorphism, single rose accent (#fb7185) */
+:root{
+  --accent:#fb7185;
+  --accent-soft:rgba(251,113,133,.14);
+  --bg:#0c0d12;
+  --panel:rgba(20,20,26,.72);
+  --border:rgba(255,255,255,.08);
+  --text:#e8e9ef;
+  --muted:#9a9ba8;
+  --radius:12px;
+  --green:#34d399;
+  --red:#f87171;
+  --amber:#fbbf24;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;max-height:600px;background:var(--bg);color:var(--text);
+  font-family:-apple-system,"Segoe UI",Inter,Roboto,sans-serif;font-size:13px;
+  overflow-y:auto;
+}
+.app{padding:14px;display:flex;flex-direction:column;gap:12px}
+.topbar{display:flex;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-icon{width:30px;height:30px;color:var(--accent);flex-shrink:0}
+.brand h1{font-size:15px;font-weight:700;letter-spacing:.2px}
+.sub{font-size:11px;color:var(--muted)}
+.card{
+  background:var(--panel);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);padding:14px;
+}
+.hidden{display:none!important}
+.snap-grid{display:flex;flex-direction:column;gap:10px}
+.snap label{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px}
+.snap textarea{
+  width:100%;height:92px;resize:vertical;background:rgba(255,255,255,.05);
+  border:1px solid var(--border);border-radius:8px;color:var(--text);
+  font-size:11.5px;font-family:ui-monospace,Menlo,Consolas,monospace;padding:8px;outline:none;
+}
+.snap textarea:focus{border-color:var(--accent)}
+.controls{display:flex;align-items:flex-end;gap:10px;margin-top:10px;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
+.field label{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.field select{
+  background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);font-size:12.5px;padding:7px 9px;outline:none;max-width:100%;
+}
+.check{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer}
+.check input{accent-color:var(--accent)}
+button{
+  background:var(--accent);border:none;color:#fff;border-radius:8px;
+  padding:8px 14px;font-size:12.5px;font-weight:600;cursor:pointer;
+}
+button:hover{filter:brightness(1.1)}
+button.ghost{background:rgba(255,255,255,.07);color:var(--muted);font-weight:500;padding:6px 10px;font-size:11.5px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.stat{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:11px;color:var(--muted)}
+.stat b{font-size:12.5px;margin-left:4px}
+.stat.added b{color:var(--green)} .stat.removed b{color:var(--red)} .stat.changed b{color:var(--amber)}
+.legend{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.pill{font-size:10.5px;border-radius:20px;padding:3px 10px;border:1px solid var(--border);color:var(--muted)}
+.pill.added{color:var(--green);border-color:rgba(52,211,153,.4)}
+.pill.removed{color:var(--red);border-color:rgba(248,113,113,.4)}
+.pill.changed{color:var(--amber);border-color:rgba(251,191,36,.4)}
+.toolbar-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px}
+.filters{display:flex;gap:6px}
+.fbtn{background:rgba(255,255,255,.06);color:var(--muted);padding:5px 10px;font-size:11px;font-weight:500}
+.fbtn.active{background:var(--accent-soft);color:var(--text);border:1px solid rgba(251,113,133,.4)}
+.diff-list{display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto}
+.drow{border:1px solid var(--border);border-radius:8px;padding:8px 10px;font-size:11.5px}
+.drow.added{border-left:3px solid var(--green)}
+.drow.removed{border-left:3px solid var(--red)}
+.drow.changed{border-left:3px solid var(--amber)}
+.dkey{font-weight:700;margin-bottom:4px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px}
+.dcells{display:flex;flex-direction:column;gap:2px}
+.dcell{display:flex;gap:6px;align-items:baseline}
+.dcell .col{color:var(--muted);min-width:90px;max-width:90px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10.5px}
+.dcell .old{color:var(--red);text-decoration:line-through;word-break:break-word}
+.dcell .new{color:var(--green);word-break:break-word}
+.dcell .arrow{color:var(--muted)}
+.dcell .val{word-break:break-word}
+.empty{color:var(--muted);font-size:12px;text-align:center;padding:12px}
+.note{font-size:10.5px;color:var(--muted);text-align:center;line-height:1.5}

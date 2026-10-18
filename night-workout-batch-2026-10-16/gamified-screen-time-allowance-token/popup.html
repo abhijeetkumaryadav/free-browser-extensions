@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" class="logo" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 7.5v9M9.5 9.5h5"/></svg>
+    <div><h1>TokenTime</h1><p class="sub">Screen-time token economy</p></div>
+  </div>
+  <nav class="tabs">
+    <button id="tabKid" class="tab active">Kid</button>
+    <button id="tabParent" class="tab">Parent</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Kid dashboard -->
+  <section id="viewKid" class="view">
+    <div class="balance-card">
+      <div class="balance-row">
+        <svg viewBox="0 0 24 24" class="coin" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.2c0-1 1.3-1.7 3-1.7s3 .7 3 1.7-1 1.6-3 2-3 1-3 2 1.3 1.7 3 1.7 3-.7 3-1.7"/></svg>
+        <div><div id="kidBalance" class="balance-num">–</div><div class="label">tokens left today</div></div>
+      </div>
+      <div class="progress"><div id="kidProgress" class="progress-fill"></div></div>
+      <div id="kidStatus" class="status">Loading…</div>
+    </div>
+    <h2>Today's usage</h2>
+    <div id="kidUsage" class="usage-list"><p class="muted">No tracked sites visited yet today.</p></div>
+    <h2>Rewards earned</h2>
+    <div id="kidRewards" class="usage-list"><p class="muted">No rewards yet — do something awesome!</p></div>
+  </section>
+
+  <!-- Parent gate -->
+  <section id="viewPin" class="view hidden">
+    <div class="pin-card">
+      <svg viewBox="0 0 24 24" class="lock" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+      <h2>Parent access</h2>
+      <p class="muted" id="pinHint">Enter your 4-digit parent PIN.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+      <button id="pinBtn" class="btn primary">Unlock</button>
+      <p id="pinError" class="error hidden"></p>
+    </div>
+  </section>
+
+  <!-- Parent dashboard -->
+  <section id="viewParent" class="view hidden">
+    <h2>Daily allowance</h2>
+    <div class="row">
+      <input id="allowanceInput" type="number" min="1" max="9999" placeholder="Tokens per day">
+      <button id="allowanceBtn" class="btn primary">Save</button>
+    </div>
+    <h2>Site costs <span class="hint">(tokens per minute)</span></h2>
+    <div class="row">
+      <input id="siteDomain" type="text" placeholder="example.com">
+      <input id="siteCost" type="number" min="1" max="100" placeholder="1" class="narrow">
+      <button id="siteAddBtn" class="btn primary">Add</button>
+    </div>
+    <div id="siteList" class="usage-list"></div>
+    <h2>Grant reward</h2>
+    <div class="row">
+      <input id="rewardTokens" type="number" min="1" max="999" placeholder="Tokens">
+      <input id="rewardReason" type="text" placeholder="Reason (e.g. homework)">
+      <button id="rewardBtn" class="btn primary">Grant</button>
+    </div>
+    <h2>Day controls</h2>
+    <div class="row">
+      <button id="resetDayBtn" class="btn">Reset day</button>
+      <button id="changePinBtn" class="btn">Change PIN</button>
+    </div>
+    <p class="muted small">Honest scope: time is tracked per minute on the active tab only, 100% locally. Alarms may be throttled by the browser. Tokens are a family agreement, not a lock — a tech-savvy kid can bypass this.</p>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syllabus Schedule Parser</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+    <div><h1>Schedule Parser</h1><p>Paste syllabus → get a calendar</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Syllabus text
+        <textarea id="input" rows="6" placeholder="Paste your syllabus here… e.g.&#10;Jan 20 — Homework 1 due&#10;Feb 5: Midterm exam&#10;Reading: Chapter 4 by 02/12"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="parse" class="primary">Parse schedule</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+    <section class="glass card" id="results" hidden>
+      <h2 id="countTitle">Schedule</h2>
+      <div id="rows"></div>
+      <div class="btnrow">
+        <button id="ics" class="accent-btn">⬇ ICS file</button>
+        <button id="csv" class="accent-btn">⬇ CSV file</button>
+      </div>
+      <p class="note">Best-effort parsing — dates are detected from text patterns. Always verify against the original syllabus.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

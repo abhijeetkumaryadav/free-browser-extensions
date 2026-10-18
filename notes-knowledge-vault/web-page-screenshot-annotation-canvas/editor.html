@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapMark — Annotate Screenshot</title>
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="tool-group" role="toolbar" aria-label="Annotation tools">
+      <button class="tool active" data-tool="pen" title="Freehand pen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      </button>
+      <button class="tool" data-tool="arrow" title="Arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </button>
+      <button class="tool" data-tool="rect" title="Rectangle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="1"/></svg>
+      </button>
+      <button class="tool" data-tool="text" title="Text label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14"/><path d="M12 6v12"/></svg>
+      </button>
+      <button class="tool" data-tool="blur" title="Blur / pixelate region">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h.01M12 12h.01M15 9h.01M9 15h.01M15 15h.01M12 9h.01M9 12h.01M15 12h.01"/></svg>
+      </button>
+      <button class="tool" data-tool="crop" title="Crop to region">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>
+      </button>
+    </div>
+
+    <div class="tool-group colors" aria-label="Color">
+      <button class="swatch active" data-color="#f43f5e" style="--c:#f43f5e" title="Rose"></button>
+      <button class="swatch" data-color="#ffffff" style="--c:#ffffff" title="White"></button>
+      <button class="swatch" data-color="#facc15" style="--c:#facc15" title="Yellow"></button>
+      <button class="swatch" data-color="#22d3ee" style="--c:#22d3ee" title="Cyan"></button>
+      <button class="swatch" data-color="#4ade80" style="--c:#4ade80" title="Green"></button>
+      <button class="swatch" data-color="#111111" style="--c:#111111" title="Black"></button>
+    </div>
+
+    <div class="tool-group width-group">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16"/></svg>
+      <input id="widthRange" type="range" min="2" max="14" value="5" title="Line width">
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="tool-group">
+      <button class="tool" id="undoBtn" title="Undo last stroke">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
+      </button>
+      <button class="tool" id="clearBtn" title="Remove all annotations (restore screenshot)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      </button>
+      <button class="tool primary" id="downloadBtn" title="Download annotated PNG">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+        <span>Download PNG</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <div class="canvas-wrap" id="canvasWrap">
+      <canvas id="board"></canvas>
+      <textarea id="textInput" class="text-input" rows="2" placeholder="Type label, Enter to place"></textarea>
+    </div>
+    <div class="no-shot" id="noShot" hidden>
+      <p><strong>No screenshot found.</strong></p>
+      <p>Open the SnapMark popup on any page and click “Capture visible tab”.</p>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="editor.js"></script>
+</body>
+</html>

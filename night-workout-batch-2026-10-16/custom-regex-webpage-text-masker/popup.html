@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Regex Text Masker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><circle cx="8.5" cy="15" r="1.2"/><circle cx="15.5" cy="15" r="1.2"/></svg>
+    <div>
+      <h1>Regex Masker</h1>
+      <p class="sub">Mask matching text on this page</p>
+    </div>
+  </header>
+
+  <section class="toggle-row">
+    <button id="maskBtn" class="btn primary">Mask on this page</button>
+  </section>
+  <label class="remember"><input type="checkbox" id="rememberSite"> Remember masking for this site</label>
+
+  <section class="add-pattern">
+    <h2>New pattern</h2>
+    <input id="pName" type="text" placeholder="Name (e.g. Email)" maxlength="40">
+    <input id="pRegex" type="text" placeholder="Regex (e.g. [\w.-]+@[\w.-]+\.\w+)">
+    <div class="row">
+      <select id="pMode">
+        <option value="blur">Blur</option>
+        <option value="replace">Replace</option>
+      </select>
+      <input id="pReplace" type="text" placeholder="Replacement (e.g. █████)" maxlength="30">
+    </div>
+    <p id="pError" class="error hidden"></p>
+    <button id="addBtn" class="btn secondary">Add pattern</button>
+  </section>
+
+  <section class="patterns">
+    <h2>Patterns <span id="pCount" class="count"></span></h2>
+    <ul id="patternList"></ul>
+    <p id="noPatterns" class="muted">No patterns yet — add one above, or try the starter set.</p>
+    <button id="startersBtn" class="btn ghost">Add starter patterns</button>
+  </section>
+
+  <footer class="note">
+    Patterns live only in this browser · masking is visual only — the page source is unchanged · 100% local.
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

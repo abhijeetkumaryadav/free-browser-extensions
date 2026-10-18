@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </div>
+  <div>
+    <h1>Circadian Dimmer</h1>
+    <p class="sub">Warm wind-down overlay</p>
+  </div>
+</header>
+
+<div class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <span>Comfort dimming — not medical advice.</span>
+</div>
+
+<section class="card">
+  <label class="row switch-row">
+    <span>Wind-down schedule</span>
+    <input type="checkbox" id="scheduleOn" class="switch">
+  </label>
+  <div class="row">
+    <label for="startTime">Start</label>
+    <input type="time" id="startTime" value="21:00">
+  </div>
+  <div class="row">
+    <label for="endTime">End</label>
+    <input type="time" id="endTime" value="07:00">
+  </div>
+  <p class="status" id="windowStatus">Checking schedule…</p>
+</section>
+
+<section class="card">
+  <div class="row">
+    <label for="opacity">Overlay strength</label>
+    <span id="opacityVal">30%</span>
+  </div>
+  <input type="range" id="opacity" min="5" max="80" value="30">
+  <div class="btn-row">
+    <button id="dimBtn" class="primary">Dim this tab</button>
+    <button id="undimBtn" class="ghost">Remove</button>
+  </div>
+</section>
+
+<footer>r dx marathon · local only</footer>
+<script src="popup.js"></script>
+</body>
+</html>

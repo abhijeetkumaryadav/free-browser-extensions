@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sunspot Counter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><circle cx="13.4" cy="11" r="1.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3L19 19M19 5l-1.7 1.7M6.7 17.3L5 19"/></svg>
+    <div>
+      <h1>Sunspot Counter</h1>
+      <p class="sub">Solar cycle logbook — your observations</p>
+    </div>
+  </header>
+
+  <div class="notice">Educational only. Wolf number <b>R = 10·g + s</b> where g = groups, s = individual spots. Counts are yours — no live solar data.</div>
+
+  <details class="guide">
+    <summary>Sunspot &amp; solar-cycle guide</summary>
+    <ul>
+      <li><b>Wolf number:</b> R = 10g + s — the classic daily sunspot index (Rudolf Wolf, 1848).</li>
+      <li><b>Solar cycle:</b> ~11 years. We are in <b>Cycle 25</b> (began Dec 2019), near its maximum — expect counts of 100+ on active days.</li>
+      <li><b>Groups vs spots:</b> a cluster = 1 group; count each dark umbra as 1 spot.</li>
+      <li><b>Observe safely:</b> never look at the Sun directly — use a filtered telescope or solar-projection only.</li>
+    </ul>
+  </details>
+
+  <section class="logform">
+    <h2>Log an observation</h2>
+    <div class="grid">
+      <label>Date <input id="obsDate" type="date"></label>
+      <label>Groups (g) <input id="obsGroups" type="number" min="0" max="50" value="0"></label>
+      <label>Spots (s) <input id="obsSpots" type="number" min="0" max="300" value="0"></label>
+    </div>
+    <button id="addObs" class="btn" type="button">Add observation</button>
+    <div id="preview" class="preview"></div>
+  </section>
+
+  <section>
+    <h2>History</h2>
+    <canvas id="chart" width="348" height="110"></canvas>
+    <div id="hist" class="hist"></div>
+  </section>
+
+  <footer>Your observations — educational. Not affiliated with any observatory.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

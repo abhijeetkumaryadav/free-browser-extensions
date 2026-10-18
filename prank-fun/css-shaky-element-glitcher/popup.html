@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>
+    </div>
+    <div>
+      <h1>WobblePage</h1>
+      <p class="sub">Harmless prank &middot; fully reversible</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="row between">
+      <div class="label">Wobble this page</div>
+      <button id="toggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle wobble"><span class="knob"></span></button>
+    </div>
+    <p class="hint">Shakes page elements with a CSS animation. Turning it off restores the page instantly.</p>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <label for="intensity" class="label">Intensity</label>
+      <span id="intensityVal" class="val">5</span>
+    </div>
+    <input id="intensity" type="range" min="1" max="10" value="5" step="1">
+    <div class="ticks"><span>Gentle</span><span>Chaos</span></div>
+  </section>
+
+  <section class="card">
+    <div class="label">Targets</div>
+    <div class="chips">
+      <button class="chip active" data-target="all">Everything</button>
+      <button class="chip" data-target="images">Images</button>
+      <button class="chip" data-target="text">Text</button>
+      <button class="chip" data-target="buttons">Buttons</button>
+    </div>
+  </section>
+
+  <button id="restore" class="ghost-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+    Restore page now
+  </button>
+
+  <footer class="foot">A joke extension. Nothing is damaged &mdash; the page is never modified permanently.</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

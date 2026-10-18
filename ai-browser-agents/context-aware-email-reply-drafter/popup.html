@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReplySmith</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+      <span>ReplySmith</span>
+    </div>
+    <span class="badge">template-based</span>
+  </header>
+
+  <label class="lbl">Incoming email (paste)</label>
+  <textarea id="source" placeholder="Paste the email you want to reply to…"></textarea>
+
+  <div class="row2">
+    <div>
+      <label class="lbl">Tone</label>
+      <select id="tone">
+        <option value="professional">Professional</option>
+        <option value="friendly">Friendly</option>
+        <option value="firm">Firm</option>
+        <option value="apologetic">Apologetic</option>
+      </select>
+    </div>
+    <div>
+      <label class="lbl">Intent</label>
+      <select id="intent">
+        <option value="accept">Accept</option>
+        <option value="decline">Decline</option>
+        <option value="followup">Follow up</option>
+        <option value="thank">Thank you</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="build" class="primary">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+    Draft reply
+  </button>
+
+  <div class="blocks" id="blocks" hidden>
+    <label class="lbl">Reply blocks — edit anything before copying</label>
+    <div class="blk"><div class="blk-h">Greeting</div><textarea id="bGreet" rows="2"></textarea></div>
+    <div class="blk"><div class="blk-h">Body</div><textarea id="bBody" rows="5"></textarea></div>
+    <div class="blk"><div class="blk-h">Closing</div><textarea id="bClose" rows="2"></textarea></div>
+    <div class="row2">
+      <button id="copy" class="ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy reply
+      </button>
+      <button id="save" class="ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+        Save draft
+      </button>
+    </div>
+    <div id="saved" class="saved"></div>
+  </div>
+
+  <p class="fine">Template-based drafting — no AI, no network. Review and edit every reply before sending.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

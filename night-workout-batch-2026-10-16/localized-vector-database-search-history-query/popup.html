@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local History Search</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <div>
+      <h1>Local History Search</h1>
+      <p class="sub">Fuzzy full-text history lookup</p>
+    </div>
+  </div>
+  <span id="indexCount" class="pill" title="History entries indexed locally">…</span>
+</header>
+
+<div class="scope-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <span>Keyword + fuzzy trigram matching on your own history. <b>Not</b> semantic or vector search — there are no AI embeddings here. 100% local.</span>
+</div>
+
+<main>
+  <input id="query" type="search" placeholder="Type to search title or URL… (e.g. docs spreadseet)" autocomplete="off" autofocus>
+
+  <div class="filters">
+    <label class="field">
+      <span>When</span>
+      <select id="range">
+        <option value="all">Any time</option>
+        <option value="day">Last 24 hours</option>
+        <option value="week">Last 7 days</option>
+        <option value="month">Last 30 days</option>
+      </select>
+    </label>
+    <label class="field">
+      <span>Domain</span>
+      <input id="domain" type="text" placeholder="e.g. github.com" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Sort</span>
+      <select id="sort">
+        <option value="relevance">Relevance</option>
+        <option value="recent">Most recent</option>
+        <option value="visits">Most visited</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="status" class="status">Indexing your local history…</div>
+  <div id="results" class="results"></div>
+</main>
+
+<footer>
+  <span>v1.0.0 · 100% local · no network</span>
+</footer>
+<script src="popup.js"></script>
+</body>
+</html>

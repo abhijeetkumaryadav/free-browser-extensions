@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>
+  <div>
+    <h1>HookPace</h1>
+    <p class="tagline">Video pacing timeline</p>
+  </div>
+</header>
+
+<div class="scope-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <span>Manual analysis aid — <b>you</b> log the beats; patterns are your own observations, not a platform signal.</span>
+</div>
+
+<section class="card">
+  <label class="field-label" for="titleInput">Video / session title</label>
+  <input id="titleInput" class="text-input" placeholder="e.g. Festive Edit Ep.1" maxlength="80">
+  <div class="row">
+    <div class="grow">
+      <label class="field-label" for="durationInput">Video length (sec)</label>
+      <input id="durationInput" class="text-input" type="number" min="5" max="86400" placeholder="e.g. 45">
+    </div>
+    <div class="grow">
+      <label class="field-label">Session clock</label>
+      <div id="clock" class="clock">00:00</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button id="startBtn" class="btn primary">Start session</button>
+    <button id="resetBtn" class="btn ghost">Reset</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Log a beat</h2>
+  <p class="hint">Watch the video, tap a beat type when it happens.</p>
+  <div class="beat-grid">
+    <button class="btn beat" data-type="hook"><span class="dot" style="background:#f472b6"></span>Hook</button>
+    <button class="btn beat" data-type="build"><span class="dot" style="background:#38bdf8"></span>Build</button>
+    <button class="btn beat" data-type="payoff"><span class="dot" style="background:#4ade80"></span>Payoff</button>
+    <button class="btn beat" data-type="cta"><span class="dot" style="background:#fbbf24"></span>CTA</button>
+    <button class="btn beat" data-type="note"><span class="dot" style="background:#a78bfa"></span>Note</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Timeline</h2>
+  <div id="timeline" class="timeline"><div class="tl-empty">No beats yet — start a session and log them.</div></div>
+  <div id="guidance" class="guidance"></div>
+</section>
+
+<section class="card">
+  <h2>Beats <span id="beatCount" class="pill">0</span></h2>
+  <ul id="beatList" class="beat-list"><li class="empty">Nothing logged yet.</li></ul>
+</section>
+
+<section class="card btn-col">
+  <button id="overlayBtn" class="btn primary">Draw timeline overlay on this page</button>
+  <div class="btn-row">
+    <button id="exportBtn" class="btn ghost">Export JSON</button>
+    <button id="clearBeatsBtn" class="btn ghost danger">Clear beats</button>
+  </div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

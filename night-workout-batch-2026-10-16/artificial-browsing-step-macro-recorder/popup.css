@@ -1,0 +1,67 @@
+/* Macro Recorder — deep-dark glassmorphism, 380px, single rose accent */
+:root{
+  --accent:#fb7185;
+  --bg:#0b0d12;
+  --surface:rgba(20,20,26,.72);
+  --stroke:rgba(255,255,255,.09);
+  --text:#e8eaf0;
+  --muted:#9aa0b4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;max-height:600px;overflow-y:auto;
+  font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--text);
+  background:var(--bg) radial-gradient(600px 300px at 50% -80px,rgba(251,113,133,.12),transparent);
+}
+.app{background:var(--surface);backdrop-filter:blur(12px);padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.topbar{display:flex;align-items:center;gap:10px}
+.logo{width:26px;height:26px;color:var(--accent)}
+.titles h1{font-size:15px;font-weight:650}
+.titles p{font-size:11px;color:var(--muted)}
+.banner{
+  display:flex;gap:8px;align-items:flex-start;
+  background:rgba(251,113,133,.07);border:1px solid rgba(251,113,133,.3);
+  border-radius:10px;padding:8px 10px;font-size:11px;color:var(--muted);
+}
+.banner svg{width:15px;height:15px;flex:none;color:var(--accent);margin-top:1px}
+.banner strong{color:var(--text)}
+.recbar{display:flex;align-items:center;gap:10px}
+button.rec{
+  display:flex;align-items:center;gap:8px;flex:1;
+  border-radius:10px;border:1px solid var(--stroke);
+  font-size:13px;font-weight:600;padding:10px 12px;cursor:pointer;color:var(--text);
+  background:rgba(255,255,255,.05);
+}
+button.rec .dot{width:10px;height:10px;border-radius:50%;background:#6b7280}
+button.rec.live{border-color:var(--accent);color:#fff}
+button.rec.live .dot{background:var(--accent);animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.count{font-size:12px;color:var(--muted)}
+.save{display:flex;gap:8px}
+.save input{
+  flex:1;background:rgba(255,255,255,.05);border:1px solid var(--stroke);
+  border-radius:10px;color:var(--text);padding:9px 12px;font-size:13px;min-width:0;
+}
+button.primary{
+  display:flex;align-items:center;gap:8px;background:var(--accent);border:1px solid var(--accent);
+  color:#1c0b0e;border-radius:10px;font-size:13px;font-weight:600;padding:9px 12px;cursor:pointer;
+}
+button.primary svg{width:15px;height:15px}
+button.primary:disabled{opacity:.4;cursor:default}
+button.icon{
+  background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:8px;
+  color:var(--text);padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer;
+}
+button.icon.danger{color:var(--accent);border-color:rgba(251,113,133,.4)}
+.macros{display:flex;flex-direction:column;gap:8px;max-height:260px;overflow-y:auto}
+.macro{
+  background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:10px;
+  padding:9px 10px;display:flex;flex-direction:column;gap:6px;
+}
+.macro .head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.macro .name{font-weight:650;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.macro .meta{font-size:11px;color:var(--muted)}
+.macro .actions{display:flex;gap:6px}
+.foot .status{font-size:11px;color:var(--accent)}
+.empty{font-size:12px;color:var(--muted);text-align:center;padding:14px 0}

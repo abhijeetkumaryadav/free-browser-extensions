@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FullShot — Full-Page Screenshot Grabber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    </span>
+    <div>
+      <h1>FullShot</h1>
+      <p class="tagline">Full-page screenshot grabber</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="row">
+      <label class="field">
+        <span>Settle delay</span>
+        <select id="delay">
+          <option value="250">250 ms</option>
+          <option value="500" selected>500 ms</option>
+          <option value="1000">1000 ms</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Format</span>
+        <select id="format">
+          <option value="png" selected>PNG</option>
+          <option value="jpeg">JPEG</option>
+        </select>
+      </label>
+    </div>
+    <button id="capture" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      Capture full page
+    </button>
+    <div class="progress hidden" id="progress">
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <p id="status">Preparing…</p>
+    </div>
+  </section>
+
+  <section class="panel result hidden" id="result">
+    <img id="thumb" alt="Screenshot thumbnail">
+    <div class="meta" id="meta"></div>
+    <button id="download" class="primary ghost">Download PNG</button>
+  </section>
+
+  <footer class="limits">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p>Scroll-and-stitch: fixed headers may repeat in the output, and cross-origin iframes capture as blank areas. Everything happens locally — nothing is uploaded.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

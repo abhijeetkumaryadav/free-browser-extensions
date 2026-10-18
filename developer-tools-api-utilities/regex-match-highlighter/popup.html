@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex Match Highlighter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4z"/></svg>
+    <div><h1>Regex Highlighter</h1><p id="pageHost">Highlight matches on this page</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Pattern
+        <input id="pattern" type="text" placeholder="\b\w+@\w+\.\w+\b" spellcheck="false" autocomplete="off">
+      </label>
+      <div class="flags" role="group" aria-label="Regex flags">
+        <label class="chip"><input type="checkbox" id="fg" checked><span>g</span></label>
+        <label class="chip"><input type="checkbox" id="fi"><span>i</span></label>
+        <label class="chip"><input type="checkbox" id="fm"><span>m</span></label>
+        <label class="chip"><input type="checkbox" id="fs"><span>s</span></label>
+      </div>
+      <div id="error" class="error" hidden></div>
+      <div class="btnrow">
+        <button id="highlight" class="primary">Highlight</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+      <div id="count" class="count" hidden><b id="countNum">0</b> matches on this page</div>
+    </section>
+    <section class="glass card">
+      <h2>Quick patterns</h2>
+      <div id="quick" class="quick"></div>
+    </section>
+  </main>
+<script src="content.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

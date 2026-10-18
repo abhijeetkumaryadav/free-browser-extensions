@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <div>
+      <h1>NetLock</h1>
+      <p class="subtitle">Tab network lockout</p>
+    </div>
+    <span id="statusPill" class="pill">…</span>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="row">
+        <div class="tab-info">
+          <span class="label">Current tab</span>
+          <span id="domainLabel" class="domain">—</span>
+        </div>
+      </div>
+      <button id="lockBtn" class="big-btn lock" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Lock network</span>
+      </button>
+      <button id="unlockBtn" class="big-btn unlock hidden" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+        <span>Unlock network</span>
+      </button>
+      <p id="hint" class="hint"></p>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <div class="toggle-label">
+          <span class="toggle-title">Deep block</span>
+          <span class="toggle-desc">Also block the site's own resources at the network layer (asks permission per site)</span>
+        </div>
+        <button id="deepToggle" class="switch" role="switch" aria-checked="false"><span class="knob"></span></button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <span class="section-title">Auto-lock domains</span>
+        <button id="addDomainBtn" class="ghost-btn">+ This site</button>
+      </div>
+      <ul id="domainList" class="domain-list"></ul>
+      <p class="empty" id="domainEmpty">No auto-lock domains yet.</p>
+    </section>
+
+    <p class="scope-note">
+      Tab/site-scoped only — never system-wide. The lock freezes this tab's
+      network calls and shows a banner on the page. Locks do not survive a
+      browser restart.
+    </p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

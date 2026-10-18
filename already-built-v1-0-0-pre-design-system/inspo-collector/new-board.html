@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New board — Inspo Collector</title>
+<style>
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #14101a; color: #f3ecf7;
+    font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .box {
+    background: #1e1826; border: 1px solid #2c2337; border-radius: 14px;
+    padding: 28px; width: 340px; text-align: center;
+  }
+  h1 { font-size: 17px; margin: 0 0 6px; }
+  p { color: #a89bb5; font-size: 13px; margin: 0 0 16px; }
+  input {
+    width: 100%; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid #2c2337; background: #14101a; color: #f3ecf7;
+    outline: none; margin-bottom: 12px; font-size: 14px;
+  }
+  input:focus { border-color: #8e4a5e; }
+  button {
+    width: 100%; padding: 10px; border: 0; border-radius: 8px; cursor: pointer;
+    background: #8e4a5e; color: #fff; font-size: 14px; font-weight: 600;
+  }
+  button:hover { background: #a55a6e; }
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>◈ New inspiration board</h1>
+    <p>Name it after a project, mood, or client. You can rename the idea later by making a fresh one.</p>
+    <input id="name" maxlength="40" placeholder="e.g. Festive Edit, Glow Routine…" autofocus>
+    <button id="create">Create board</button>
+  </div>
+<script src="new-board.js"></script>
+</body>
+</html>

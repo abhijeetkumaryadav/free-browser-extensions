@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="glass header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round">
+      <path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/>
+    </svg>
+    <div>
+      <h1>Waveform Visualizer</h1>
+      <p class="sub">Drop audio · see the wave · export PNG</p>
+    </div>
+  </header>
+
+  <section id="dropzone" class="glass dropzone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 16V4m0 0 4 4m-4-4L8 8"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>
+    </svg>
+    <p><strong>Drop an audio file here</strong><br><span>or click to browse · 100% on-device</span></p>
+    <input type="file" id="fileInput" accept="audio/*" hidden>
+  </section>
+
+  <section id="viewer" class="hidden">
+    <div class="glass trackbar">
+      <div class="filemeta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+        <div><div id="fileName" class="fname">—</div><div id="fileInfo" class="finfo">—</div></div>
+        <button id="newFile" class="ghost" title="Load a different file">New</button>
+      </div>
+      <div class="controls">
+        <button id="playBtn" class="play" title="Play / pause">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span id="timeLabel" class="time">0:00 / 0:00</span>
+        <label class="zoom">Zoom
+          <input type="range" id="zoom" min="1" max="40" value="1" step="1">
+        </label>
+      </div>
+    </div>
+
+    <div class="glass canvaswrap">
+      <canvas id="wave"></canvas>
+      <div id="hint" class="hint">Drag to scroll · wheel to zoom</div>
+    </div>
+
+    <div class="glass export">
+      <h2>Export PNG</h2>
+      <div class="row">
+        <label>Wave <input type="color" id="waveColor" value="#22d3ee"></label>
+        <label>Background <input type="color" id="bgColor" value="#0b0b10"></label>
+        <label class="check"><input type="checkbox" id="transparent"> Transparent bg</label>
+      </div>
+      <div class="row">
+        <label>Width <input type="number" id="expW" value="1600" min="320" max="4000" step="80"></label>
+        <label>Height <input type="number" id="expH" value="400" min="100" max="1200" step="40"></label>
+        <button id="exportBtn" class="primary">Export PNG</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="status" class="status hidden"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

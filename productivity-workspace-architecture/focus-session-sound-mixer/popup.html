@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focus Session Sound Mixer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>
+    <div><h1>Focus Mixer</h1><p>Pomodoro timer + ambient sound</p></div>
+  </header>
+  <main>
+    <section class="glass card timer-card">
+      <div id="phasePill" class="pill idle">Ready</div>
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" class="ring">
+          <circle cx="60" cy="60" r="52" class="ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="ring-fg" id="ringFg"/>
+        </svg>
+        <div class="time" id="time">25:00</div>
+      </div>
+      <div class="controls">
+        <button id="mainBtn" class="primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="mainIcon"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          <span id="mainLabel">Start focus</span>
+        </button>
+        <button id="skipBtn" class="ghost" title="Skip to next phase">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+        </button>
+        <button id="resetBtn" class="ghost" title="Reset timer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>
+        </button>
+      </div>
+      <div class="presets">
+        <button class="chip" data-f="25" data-b="5">25 / 5</button>
+        <button class="chip" data-f="50" data-b="10">50 / 10</button>
+        <button class="chip" data-f="15" data-b="3">15 / 3</button>
+      </div>
+      <div class="custom">
+        <input id="cFocus" type="number" min="1" max="180" placeholder="Focus min">
+        <input id="cBreak" type="number" min="1" max="60" placeholder="Break min">
+        <button id="cApply" class="ghost">Apply</button>
+      </div>
+      <div class="stats" id="stats">—</div>
+    </section>
+    <section class="glass card">
+      <h2>Ambient mixer</h2>
+      <div class="master-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mini-ico"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.5 9.5 0 0 1 0 13"/></svg>
+        <input type="range" id="masterVol" min="0" max="100" value="80">
+      </div>
+      <div id="soundRows"></div>
+      <p class="note">Sounds keep playing when the popup closes. Generated live — no audio files, no network.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

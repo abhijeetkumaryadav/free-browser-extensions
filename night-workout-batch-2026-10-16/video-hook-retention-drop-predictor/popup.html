@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hook Signals — Heuristic</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5a5.5 5.5 0 0 1 11 0c0 4-3 5-3 5"/><path d="M3 12a9 9 0 0 1 15-6.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+  <div>
+    <h1>Hook Signals</h1>
+    <p class="sub">Heuristic signals — not prediction</p>
+  </div>
+</header>
+
+<p class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  These are word-list signals only. They cannot predict retention or views.
+</p>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="analyze" role="tab">Analyze</button>
+  <button class="tab" data-tab="guide" role="tab">Signal guide</button>
+  <button class="tab" data-tab="notes" role="tab">Notes</button>
+</nav>
+
+<section id="tab-analyze" class="panel">
+  <label class="lbl" for="text">Your hook script (first ~15 seconds)</label>
+  <textarea id="text" rows="5" placeholder="Paste your hook here…"></textarea>
+  <div class="row">
+    <button id="run" class="btn primary">Scan signals</button>
+    <button id="clear" class="btn ghost">Clear</button>
+  </div>
+  <div id="empty" class="empty">Paste a hook and press Scan signals.</div>
+  <div id="results" class="hidden">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="52" class="track"/>
+        <circle cx="60" cy="60" r="52" class="fill" id="ring-fill"/>
+      </svg>
+      <div class="ring-label"><span id="score">0</span><small>signal score</small></div>
+    </div>
+    <p class="verdict" id="verdict"></p>
+    <h2>Signal breakdown</h2>
+    <div id="signals" class="signals"></div>
+  </div>
+</section>
+
+<section id="tab-guide" class="panel hidden">
+  <div id="guide" class="guide"></div>
+</section>
+
+<section id="tab-notes" class="panel hidden">
+  <label class="lbl" for="note-title">Notes</label>
+  <input id="note-title" type="text" placeholder="Note title…" maxlength="120">
+  <textarea id="note-body" rows="4" placeholder="Your observation…"></textarea>
+  <div class="row"><button id="note-add" class="btn primary">Save note</button></div>
+  <div id="note-list" class="notes"></div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

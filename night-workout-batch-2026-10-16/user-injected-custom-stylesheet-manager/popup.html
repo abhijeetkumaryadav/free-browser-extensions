@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.6H22l-6.2 4.5 2.4 7.6-6.2-4.6-6.2 4.6 2.4-7.6L2 9.6h7.6z"/></svg>
+    <div>
+      <h1>StyleForge</h1>
+      <p class="sub">Custom stylesheet manager</p>
+    </div>
+  </header>
+
+  <div id="ruleList" class="rule-list"></div>
+
+  <div class="editor-card">
+    <div class="label">New rule</div>
+    <input id="ruleName" type="text" placeholder="Rule name (e.g. Dark news)">
+    <div class="row2">
+      <select id="ruleScope">
+        <option value="global">Global</option>
+        <option value="site">This site</option>
+      </select>
+      <input id="ruleDomain" type="text" placeholder="example.com" disabled>
+    </div>
+    <textarea id="ruleCss" rows="5" placeholder="body { background: #111 !important; }"></textarea>
+    <div class="btn-row">
+      <button id="addRule" class="btn primary">Add rule</button>
+      <button id="exportBtn" class="btn">Export</button>
+      <button id="importBtn" class="btn">Import</button>
+      <input id="importFile" type="file" accept="application/json" hidden>
+    </div>
+  </div>
+
+  <footer>Your CSS is applied only on sites you configure. Rules inject a &lt;style&gt; node — nothing is read or sent anywhere. All data stays in local storage.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

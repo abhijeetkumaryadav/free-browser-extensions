@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hdr">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+      <div>
+        <h1>Ad Spend ROI Forecaster</h1>
+        <p class="sub">Math model — <strong>not</strong> a prediction</p>
+      </div>
+    </header>
+
+    <div class="banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span>Educational estimates from your assumptions only. Real auctions, seasonality, and creative quality will differ.</span>
+    </div>
+
+    <div class="seg" role="radiogroup" aria-label="Cost model">
+      <button id="mCpc" class="seg-btn active">CPC</button>
+      <button id="mCpm" class="seg-btn">CPM</button>
+    </div>
+
+    <div class="grid">
+      <label>Ad spend ($)<input id="inSpend" type="number" min="0" step="any" value="1000"></label>
+      <label id="cpcWrap">CPC ($)<input id="inCpc" type="number" min="0" step="any" value="1.50"></label>
+      <label id="cpmWrap" class="hidden">CPM ($)<input id="inCpm" type="number" min="0" step="any" value="12"></label>
+      <label>CTR (%)<input id="inCtr" type="number" min="0" max="100" step="any" value="2"></label>
+      <label>Conversion rate (%)<input id="inCvr" type="number" min="0" max="100" step="any" value="3"></label>
+      <label>Avg. order value ($)<input id="inAov" type="number" min="0" step="any" value="80"></label>
+      <label>Margin (%)<input id="inMargin" type="number" min="0" max="100" step="any" value="40"></label>
+    </div>
+
+    <div class="slider-row">
+      <span>What-if: conversion rate</span>
+      <input id="whatif" type="range" min="0.5" max="10" step="0.5" value="3">
+      <strong id="whatifVal">3%</strong>
+    </div>
+
+    <div id="results" class="results"></div>
+
+    <details class="how">
+      <summary>How the math works</summary>
+      <p>Clicks = spend ÷ CPC (or impressions × CTR for CPM). Conversions = clicks × conversion rate. Revenue = conversions × AOV. Gross profit = revenue × margin. Net = gross − spend. Break-even CPC = conversion rate × AOV × margin. All local — no network, no tracking.</p>
+    </details>
+  </div>
+  <script src="roi.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

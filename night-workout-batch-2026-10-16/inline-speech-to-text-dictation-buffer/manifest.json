@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Dictation Pad"},"description":"Dictate using your browser's built-in speech recognition into an editable text buffer.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Dictation Pad — Speech to Text","permissions":["storage"],"version":"1.0.0"}

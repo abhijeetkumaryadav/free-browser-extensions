@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mode-S Hex Decoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg>
+  <div>
+    <h1>Mode-S Hex Decoder</h1>
+    <p class="sub">ICAO 24-bit aircraft code → country block</p>
+  </div>
+</header>
+
+<section class="card input-card">
+  <label for="hexInput">Hex code</label>
+  <div class="row">
+    <input id="hexInput" type="text" maxlength="8" placeholder="e.g. A4B5C6" autocomplete="off" spellcheck="false">
+    <button id="decodeBtn" class="primary">Decode</button>
+  </div>
+  <p class="hint">6 hex digits (0–9, A–F). Live-decodes as you type.</p>
+</section>
+
+<section class="card result-card hidden" id="resultCard">
+  <div class="code-line"><span class="code" id="resultCode">—</span><span class="flag" id="resultCountry">—</span></div>
+  <p class="detail" id="resultDetail">—</p>
+</section>
+
+<section class="card info-card">
+  <h2>What is a Mode-S hex code?</h2>
+  <p>A 24-bit ICAO address permanently assigned to an aircraft's transponder. Unlike a flight number, it doesn't change between flights. ICAO allocates address <strong>blocks by country</strong>, so the first hex digits tell you where the aircraft is registered.</p>
+  <ul>
+    <li>Codes start with <code>A</code> → United States block</li>
+    <li>Codes starting <code>4</code> → mostly European blocks</li>
+    <li>Codes starting <code>7</code> → Asia–Pacific blocks</li>
+  </ul>
+  <p class="fine">Educational only — no live tracking, no receiver, no positions. This extension never contacts the network; the prefix table is bundled in the code.</p>
+</section>
+
+<section class="card log-card">
+  <h2>Code log</h2>
+  <div class="row">
+    <input id="noteInput" type="text" placeholder="Optional note…" maxlength="80">
+    <button id="saveBtn" class="ghost">Save</button>
+  </div>
+  <ul id="logList" class="log-list"></ul>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

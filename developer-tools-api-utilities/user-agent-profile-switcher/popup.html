@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User-Agent Profile Switcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M21 8l-2-2M21 4v4h-4"/></svg>
+    <div><h1>UA Profile Switcher</h1><p id="status">Off</p></div>
+    <label class="switch"><input type="checkbox" id="master"><span></span></label>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Profile</h2>
+      <div id="profiles"></div>
+      <div class="custom-row">
+        <input id="customUa" placeholder="Custom User-Agent string…" maxlength="600" spellcheck="false">
+        <button id="saveCustom" class="ghost">Use</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Enabled sites</h2>
+      <p class="note">The profile applies to main-frame requests on these sites only. Per-site permission is requested on add.</p>
+      <div id="sites"></div>
+      <button id="addSite" class="ghost">＋ Enable current site</button>
+    </section>
+    <button id="reset" class="danger">Reset &amp; disable</button>
+    <p class="foot">Dev/testing tool. Only touches sites you enable; nothing is sent anywhere.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

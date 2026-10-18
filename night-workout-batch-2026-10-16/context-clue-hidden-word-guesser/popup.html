@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Clue Word Guesser</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <!-- Lucide-style book-open icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>Word Guesser</h1>
+        <p class="subtitle">Read the clue. Guess the word.</p>
+      </div>
+    </header>
+
+    <!-- Stats bar -->
+    <div class="stats" id="stats">
+      <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="statScore">0</span></div>
+      <div class="stat"><span class="stat-label">Streak</span><span class="stat-value" id="statStreak">0</span></div>
+      <div class="stat"><span class="stat-label">Round</span><span class="stat-value" id="statRound">1</span></div>
+      <div class="stat"><span class="stat-label">Best</span><span class="stat-value" id="statBest">0</span></div>
+    </div>
+
+    <!-- Game screen -->
+    <section class="screen" id="screenGame">
+      <div class="lives" id="lives" aria-label="Lives remaining"></div>
+      <p class="clue" id="clue">Loading clue…</p>
+      <div class="word" id="wordDisplay" aria-label="Hidden word progress"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+
+      <div class="alphabet" id="alphabet"></div>
+
+      <div class="controls">
+        <button class="btn btn-secondary" id="btnHint" title="Reveal one letter (costs 15 points)">
+          <!-- lightbulb icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+          Hint
+        </button>
+        <button class="btn btn-secondary" id="btnSkip" title="Skip this word (resets streak)">
+          <!-- skip-forward icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+          Skip
+        </button>
+        <button class="btn btn-secondary" id="btnNewGame" title="Start a fresh game">
+          <!-- refresh icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.4L3 16"/><path d="M3 21v-5h5"/></svg>
+          New
+        </button>
+      </div>
+    </section>
+
+    <!-- Reveal screen -->
+    <section class="screen hidden" id="screenReveal">
+      <div class="reveal-card">
+        <div class="reveal-emoji" id="revealEmoji">🎉</div>
+        <h2 id="revealTitle">You got it!</h2>
+        <p class="reveal-word" id="revealWord">word</p>
+        <p class="reveal-points" id="revealPoints">+100 points</p>
+        <button class="btn btn-primary" id="btnNext">Next word →</button>
+      </div>
+    </section>
+
+    <!-- Honest scope footer -->
+    <footer class="scope">
+      <span class="scope-dot"></span>
+      Game only — runs fully offline in this popup. Your best score is stored locally.
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

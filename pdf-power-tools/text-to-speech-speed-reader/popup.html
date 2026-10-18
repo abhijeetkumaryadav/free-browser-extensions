@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReadAloud</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.6 5.4a9 9 0 0 1 0 13.2"/></svg>
+    <div class="title-block">
+      <h1>ReadAloud</h1>
+      <p>Text-to-speech speed reader</p>
+    </div>
+  </header>
+
+  <!-- Source selector -->
+  <div class="segmented" role="tablist" aria-label="Reading source">
+    <button id="src-article" class="seg active" role="tab">Article</button>
+    <button id="src-selection" class="seg" role="tab">Selected text</button>
+  </div>
+
+  <!-- Transport -->
+  <div class="transport panel">
+    <button id="btn-play" class="tbtn primary" title="Read aloud">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button id="btn-pause" class="tbtn" title="Pause" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <button id="btn-stop" class="tbtn" title="Stop" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+    </button>
+    <div class="status">
+      <div id="status-text" class="status-text">Ready</div>
+      <div class="progress"><div id="progress-fill" class="progress-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Voice -->
+  <div class="panel field">
+    <label for="voice-select">Voice <span class="hint">browser built-in</span></label>
+    <select id="voice-select"></select>
+  </div>
+
+  <!-- Rate -->
+  <div class="panel field">
+    <div class="field-head">
+      <label for="rate">Speed</label>
+      <span id="rate-val" class="val">1.0×</span>
+    </div>
+    <input type="range" id="rate" min="0.5" max="2.5" step="0.1" value="1">
+    <div class="ticks"><span>0.5×</span><span>1.5×</span><span>2.5×</span></div>
+  </div>
+
+  <!-- Pitch -->
+  <div class="panel field">
+    <div class="field-head">
+      <label for="pitch">Pitch</label>
+      <span id="pitch-val" class="val">1.0</span>
+    </div>
+    <input type="range" id="pitch" min="0.5" max="2" step="0.1" value="1">
+    <div class="ticks"><span>0.5</span><span>1.25</span><span>2.0</span></div>
+  </div>
+
+  <label class="check panel">
+    <input type="checkbox" id="highlight" checked>
+    <span>Highlight words as they are read</span>
+  </label>
+
+  <p class="foot-note">Reading runs in the tab, so it keeps going if you close this popup. Uses your browser's built-in voices — nothing is sent anywhere.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

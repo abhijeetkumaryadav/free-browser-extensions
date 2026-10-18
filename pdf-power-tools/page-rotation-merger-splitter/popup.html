@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PageForge — PDF Rotate, Merge &amp; Split</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </div>
+    <div>
+      <h1>PageForge</h1>
+      <p class="subtitle">PDF rotate · merge · split</p>
+    </div>
+  </header>
+
+  <!-- Files section -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Source PDFs
+      </h2>
+      <label class="btn btn-sm" for="fileInput">+ Add PDFs</label>
+      <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden>
+    </div>
+    <div id="fileList" class="file-list">
+      <div class="empty-note">No PDFs yet — add files to begin.<br>Everything is processed locally on your device.</div>
+    </div>
+    <p class="hint">Merge order follows the list order — use the arrows to reorder.</p>
+  </section>
+
+  <!-- Operation tabs -->
+  <section class="panel">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-op="merge" role="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+        Merge
+      </button>
+      <button class="tab" data-op="rotate" role="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Rotate
+      </button>
+      <button class="tab" data-op="split" role="tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        Split
+      </button>
+    </div>
+
+    <!-- Merge panel -->
+    <div class="op-panel active" id="op-merge">
+      <p class="op-desc">Combine all PDFs in list order into a single document.</p>
+      <div class="field">
+        <label for="mergeName">Output filename</label>
+        <input type="text" id="mergeName" value="merged.pdf" spellcheck="false">
+      </div>
+      <button class="btn btn-primary" id="mergeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Merge &amp; download
+      </button>
+    </div>
+
+    <!-- Rotate panel -->
+    <div class="op-panel" id="op-rotate">
+      <p class="op-desc">Rotate pages of one PDF. Rotation adds to any existing rotation.</p>
+      <div class="field">
+        <label for="rotateFile">PDF</label>
+        <select id="rotateFile"></select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="rotateRange">Pages <span class="dim">(e.g. 1-3, 5)</span></label>
+          <input type="text" id="rotateRange" value="1-" spellcheck="false">
+        </div>
+        <div class="field">
+          <label for="rotateDeg">Degrees</label>
+          <select id="rotateDeg">
+            <option value="90" selected>90°</option>
+            <option value="180">180°</option>
+            <option value="270">270°</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="rotateName">Output filename</label>
+        <input type="text" id="rotateName" value="rotated.pdf" spellcheck="false">
+      </div>
+      <button class="btn btn-primary" id="rotateBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Rotate &amp; download
+      </button>
+    </div>
+
+    <!-- Split panel -->
+    <div class="op-panel" id="op-split">
+      <p class="op-desc">Extract a page range from one PDF into a new document.</p>
+      <div class="field">
+        <label for="splitFile">PDF</label>
+        <select id="splitFile"></select>
+      </div>
+      <div class="field">
+        <label for="splitRange">Pages <span class="dim">(e.g. 1-3, 5)</span></label>
+        <input type="text" id="splitRange" value="1-" spellcheck="false">
+      </div>
+      <div class="field">
+        <label for="splitName">Output filename</label>
+        <input type="text" id="splitName" value="extracted.pdf" spellcheck="false">
+      </div>
+      <button class="btn btn-primary" id="splitBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+        Extract &amp; download
+      </button>
+    </div>
+
+    <div id="status" class="status" role="status"></div>
+  </section>
+
+  <footer class="app-footer">
+    <span>Files never leave your device</span>
+  </footer>
+</div>
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

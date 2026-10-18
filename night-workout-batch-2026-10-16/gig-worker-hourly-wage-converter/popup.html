@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gig Wage Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Gig Wage Converter</h1>
+      <p>Your <strong>true hourly wage</strong> — after expenses, wait time &amp; miles.</p>
+    </div>
+  </header>
+
+  <section class="card verdict-card">
+    <div class="verdict-top">
+      <span class="label">True hourly wage</span>
+      <span class="currency-wrap">$ <input id="currencyNote" class="inline-note" type="text" value="" placeholder="USD" maxlength="4" title="Currency label (display only)"></span>
+    </div>
+    <div class="verdict-value" id="wageValue">—</div>
+    <p class="verdict-sub" id="wageSub">Add a shift to see your real rate.</p>
+    <div class="verdict-note">Estimate only — not tax or payroll advice.</div>
+  </section>
+
+  <section class="card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Log a shift</h2>
+    <div class="grid2">
+      <label>Gig type
+        <select id="gigType">
+          <option value="delivery">Delivery</option>
+          <option value="rideshare">Rideshare</option>
+          <option value="task">Task / project</option>
+          <option value="freelance">Freelance hour</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>Date <input id="date" type="date"></label>
+    </div>
+    <div class="grid2">
+      <label>Gross earnings <input id="earnings" type="number" min="0" step="0.01" placeholder="e.g. 85.50"></label>
+      <label>Active hours <input id="hours" type="number" min="0" step="0.25" placeholder="e.g. 5.5"></label>
+    </div>
+    <div class="grid2">
+      <label>Wait / unpaid hrs <input id="waitHours" type="number" min="0" step="0.25" placeholder="0" value="0"></label>
+      <label>Miles driven <input id="miles" type="number" min="0" step="0.1" placeholder="0" value="0"></label>
+    </div>
+    <div class="grid2">
+      <label>Fuel &amp; expenses <input id="expenses" type="number" min="0" step="0.01" placeholder="0" value="0"></label>
+      <label>Rate / mile (auto) <input id="mileRate" type="number" min="0" step="0.01" placeholder="0.67"></label>
+    </div>
+    <button id="addBtn" class="btn-primary">Add shift</button>
+    <p class="hint">Tip: leave the mile rate at your local standard mileage rate to auto-count vehicle cost.</p>
+  </section>
+
+  <section class="card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 4-7"/></svg>Summaries</h2>
+    <div class="tabs">
+      <button class="tab active" data-range="day">Today</button>
+      <button class="tab" data-range="week">This week</button>
+      <button class="tab" data-range="all">All time</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-num" id="statWage">—</span><span class="stat-cap">True $/hr</span></div>
+      <div class="stat"><span class="stat-num" id="statNet">—</span><span class="stat-cap">Net earned</span></div>
+      <div class="stat"><span class="stat-num" id="statHours">—</span><span class="stat-cap">Paid hrs</span></div>
+      <div class="stat"><span class="stat-num" id="statShifts">—</span><span class="stat-cap">Shifts</span></div>
+    </div>
+    <div class="compare">
+      <label>Compare vs target $/hr <input id="target" type="number" min="0" step="0.5" placeholder="e.g. 20"></label>
+      <p class="compare-out" id="compareOut"></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>Recent shifts</h2>
+    <ul id="shiftList" class="shift-list"></ul>
+    <button id="clearBtn" class="btn-ghost">Clear all data</button>
+  </section>
+
+  <footer class="foot">All data stays on this device · estimates only</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

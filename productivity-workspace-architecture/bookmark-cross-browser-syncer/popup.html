@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookmark Cross-Browser Syncer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    <div><h1>Bookmark Syncer</h1><p>Backup · portable everywhere</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="stats">
+        <div><span>Bookmarks</span><b id="stCount">—</b></div>
+        <div><span>Folders</span><b id="stFolders">—</b></div>
+        <div><span>Empty folders</span><b id="stEmpty">—</b></div>
+      </div>
+      <div id="emptyList" class="empty-list" hidden></div>
+    </section>
+    <section class="glass card">
+      <h2>Export</h2>
+      <p class="note">Portable formats any browser can import.</p>
+      <div class="btn-row">
+        <button id="expJson" class="primary">Export JSON</button>
+        <button id="expHtml" class="primary">Export HTML</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Import</h2>
+      <p class="note">Imports into a new dated folder. Duplicates (same URL) are skipped automatically.</p>
+      <button id="importBtn" class="ghost">Import backup file…</button>
+      <input type="file" id="file" accept=".json,.html,.htm" hidden>
+      <div id="report" class="report" hidden></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

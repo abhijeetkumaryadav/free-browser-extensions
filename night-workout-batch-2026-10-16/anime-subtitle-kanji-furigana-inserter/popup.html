@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="top">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M8 3v2c0 4-2.5 7-5 9M16 3v2c0 4 2.5 7 5 9"/><path d="M12 14v7M8 21h8"/></svg>
+    </span>
+    <div>
+      <h1>Furigana Inserter</h1>
+      <p class="sub">Your kanji → reading pairs</p>
+    </div>
+  </header>
+
+  <p class="notice">Inserts furigana only for the pairs <b>you</b> add below — it is <b>not automatic furigana</b>. Page text is never modified, only wrapped in &lt;ruby&gt; tags.</p>
+
+  <div class="addrow">
+    <input id="in-kanji" type="text" placeholder="漢字" aria-label="Kanji">
+    <input id="in-reading" type="text" placeholder="かんじ" aria-label="Reading">
+    <button id="btn-add" class="btn primary">Add</button>
+  </div>
+
+  <div class="bar">
+    <span class="lbl">Your pairs (<span id="pair-count">0</span>)</span>
+  </div>
+  <ul id="pairs" class="pairs"></ul>
+  <p id="empty" class="hint">No pairs yet — add your first kanji and its reading above.</p>
+
+  <div class="btnrow">
+    <button id="btn-insert" class="btn primary">Insert on this tab</button>
+    <button id="btn-remove" class="btn ghost">Remove</button>
+  </div>
+  <p id="status" class="status" role="status"></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

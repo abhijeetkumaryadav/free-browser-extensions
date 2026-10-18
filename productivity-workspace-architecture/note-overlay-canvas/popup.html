@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Note Overlay Canvas</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/><path d="M15 3v6h6"/></svg>
+    <div>
+      <h1>Note Canvas</h1>
+      <p id="siteLabel">Detecting site…</p>
+    </div>
+    <button id="newNote" class="primary sm">＋ Note</button>
+  </header>
+
+  <main>
+    <section class="glass card" id="listCard">
+      <h2>Notes on this site <span id="count" class="count"></span></h2>
+      <div id="notes"></div>
+      <div id="emptyNotes" class="empty" hidden>No notes here yet — hit <b>＋ Note</b> to stick one on this page.</div>
+    </section>
+
+    <button id="clearAll" class="ghost">Delete all notes on this site</button>
+    <p id="hint" class="hint" hidden></p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

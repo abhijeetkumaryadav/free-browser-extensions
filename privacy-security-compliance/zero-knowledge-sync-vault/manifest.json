@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Zero Knowledge Vault"},"description":"AES-256 encrypted notes vault. 100% client-side — your password never leaves this device.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Zero Knowledge Sync Vault","permissions":["storage"],"version":"1.0.0"}

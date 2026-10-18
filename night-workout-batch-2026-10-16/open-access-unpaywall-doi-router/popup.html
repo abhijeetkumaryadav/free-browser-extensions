@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>DOI Wishlist</title>
+</head>
+<body>
+<header class="hdr">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  <div>
+    <h1>DOI Wishlist</h1>
+    <p class="sub">Your list — not live routing</p>
+  </div>
+  <span class="count" id="count">0</span>
+</header>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>No live lookups. Links open Unpaywall / OpenAlex search pages for you to read.</span>
+</div>
+
+<form id="addForm" class="card">
+  <input id="doi" placeholder="DOI e.g. 10.1038/nature12373" maxlength="100" spellcheck="false">
+  <input id="title" placeholder="Title (optional)" maxlength="200">
+  <input id="note" placeholder="Note (optional)" maxlength="300">
+  <button type="submit">Add DOI</button>
+  <p class="err" id="err" hidden></p>
+</form>
+
+<input id="q" class="search" placeholder="Search DOI / title / notes…" maxlength="100">
+
+<div id="list" class="list"></div>
+
+<div class="foot">
+  <button id="clearAll" class="ghost">Clear all</button>
+  <span class="hint">Stored locally only</span>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

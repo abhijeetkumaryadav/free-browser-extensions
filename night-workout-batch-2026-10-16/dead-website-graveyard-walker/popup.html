@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dead Website Graveyard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <svg class="logo" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 21V11a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10"/><path d="M3 21h18"/>
+      <path d="M12 9v4M10 12h4"/>
+    </svg>
+    <div>
+      <h1>Dead Website Graveyard</h1>
+      <p class="sub">A memorial for websites that died</p>
+    </div>
+  </header>
+
+  <div class="banner">Your memorial list — manual. Nothing is checked automatically; you record the deaths yourself.</div>
+
+  <canvas id="yard" width="348" height="220"></canvas>
+  <p class="hint" id="eulogyHint">Click a tombstone to read its eulogy.</p>
+
+  <section>
+    <h2>Lay to rest</h2>
+    <div class="form">
+      <input id="gName" type="text" maxlength="60" placeholder="Site name (required)">
+      <input id="gUrl" type="text" maxlength="300" placeholder="URL, e.g. https://example.com (optional)">
+      <input id="gDied" type="text" maxlength="20" placeholder="Died (optional, e.g. 2019)">
+      <textarea id="gEulogy" rows="2" maxlength="500" placeholder="Eulogy — a few words of remembrance…"></textarea>
+      <button id="addGrave" class="btn">Bury it 🪦</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>The fallen <span class="mini" id="graveCount"></span></h2>
+    <input id="search" type="text" maxlength="60" placeholder="Search the fallen…">
+    <ul id="graveList" class="list"></ul>
+  </section>
+
+  <section>
+    <h2>Groundskeeper notes</h2>
+    <textarea id="notes" rows="2" maxlength="1000" placeholder="Your notes about the graveyard…"></textarea>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

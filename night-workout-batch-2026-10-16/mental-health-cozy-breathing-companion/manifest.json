@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Breathing Companion"},"description":"A cozy guided breathing pacer with rhythms and a private mood check-in log. Not medical advice.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Breathing Companion","permissions":["storage"],"version":"1.0.0"}

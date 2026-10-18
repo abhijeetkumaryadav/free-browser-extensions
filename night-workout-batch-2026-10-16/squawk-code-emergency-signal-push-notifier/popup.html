@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="3"/></svg>
+    <div>
+      <h1>Squawk Code Reference</h1>
+      <p class="sub">Emergency transponder codes, decoded</p>
+    </div>
+  </header>
+
+  <section class="emergency">
+    <h2>Emergency codes</h2>
+    <article class="code danger">
+      <div class="num">7500</div>
+      <div><h3>Unlawful interference</h3><p>Hijack — controller initiates special handling and may ask "verify you are squawking 7500".</p></div>
+    </article>
+    <article class="code warn">
+      <div class="num">7600</div>
+      <div><h3>Radio failure</h3><p>Lost comms — follow radio-failure procedures (routes, altitudes, timing) for your airspace.</p></div>
+    </article>
+    <article class="code alert">
+      <div class="num">7700</div>
+      <div><h3>Emergency</h3><p>General emergency — declares an urgent situation; ATC gives priority handling.</p></div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Common code table</h2>
+    <table class="tbl">
+      <thead><tr><th>Code</th><th>Meaning</th></tr></thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>My notes</h2>
+    <textarea id="notes" rows="4" placeholder="Personal notes — e.g. codes your club uses…"></textarea>
+    <p class="hint">Saved locally in your browser only.</p>
+  </section>
+
+  <footer class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>Reference only — educational. Not live data, no notifications. Always use official procedures and charts in real flight.</p>
+  </footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* Twitch Chat Sentiment Ticker — deep-dark glassmorphism, single violet accent */
+:root {
+  --accent: #8b5cf6;
+  --accent-soft: rgba(139, 92, 246, .16);
+  --bg: #0c0c11;
+  --panel: rgba(22, 22, 30, .72);
+  --border: rgba(255, 255, 255, .08);
+  --txt: #f4f4f6;
+  --mut: #9a9aad;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  min-height: 200px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--txt);
+  font: 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  background: radial-gradient(130% 100% at 50% 0%, #171722 0%, var(--bg) 62%);
+}
+.hdr { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 40px; height: 40px; flex: 0 0 40px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #6d28d9);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, .35);
+}
+.logo svg { width: 22px; height: 22px; color: #fff; }
+.titles { flex: 1; min-width: 0; }
+h1 { font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+.sub { color: var(--mut); font-size: 11.5px; }
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #3a3a44; flex: 0 0 10px;
+  transition: background .25s, box-shadow .25s;
+}
+.dot.on { background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.card h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--mut); margin-bottom: 8px; }
+.status { color: var(--mut); font-size: 12.5px; margin-bottom: 10px; }
+.status.ok { color: var(--txt); }
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px; font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #6d28d9);
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s, opacity .12s;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, .3);
+}
+.btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(139, 92, 246, .45); }
+.btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.btn.stop { background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 4px 16px rgba(239, 68, 68, .3); }
+.stats { display: flex; gap: 10px; }
+.stat {
+  flex: 1;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.stat .lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--mut); }
+.stat strong { font-size: 19px; font-weight: 700; color: var(--accent); }
+.bar { height: 10px; border-radius: 6px; background: rgba(239, 68, 68, .25); overflow: hidden; }
+.fill {
+  height: 100%; width: 50%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ef4444, var(--accent));
+  transition: width .6s ease;
+}
+.barlbl { display: flex; justify-content: space-between; color: var(--mut); font-size: 11px; margin-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(139, 92, 246, .35);
+  font-size: 12px;
+  color: #d9ccff;
+}
+.muted { color: var(--mut); font-size: 12px; }
+footer { color: var(--mut); font-size: 11px; text-align: center; line-height: 1.6; }

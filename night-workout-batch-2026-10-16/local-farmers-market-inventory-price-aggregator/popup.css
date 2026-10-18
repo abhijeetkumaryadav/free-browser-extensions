@@ -1,0 +1,142 @@
+/* Farmers Market Price Log — deep-dark glassmorphism, single emerald accent */
+:root {
+  --accent: #34d399;
+  --bg0: #0b0d12;
+  --bg1: rgba(20, 20, 26, 0.72);
+  --stroke: rgba(255, 255, 255, 0.09);
+  --text: #eef2f6;
+  --muted: #9aa3b2;
+  --danger: #f87171;
+  --warn: #fbbf24;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 380px; }
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg0);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.app {
+  background: var(--bg1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  margin: 12px;
+  padding: 16px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+header { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+header h1 { font-size: 16px; font-weight: 650; }
+.sub { color: var(--muted); font-size: 12px; }
+
+.scope-banner {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(52, 211, 153, 0.10);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 10px; padding: 10px 12px;
+  font-size: 12px; color: var(--muted); margin-bottom: 12px;
+}
+.scope-banner svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.tab {
+  flex: 1; padding: 8px 4px; border-radius: 10px;
+  background: transparent; border: 1px solid var(--stroke);
+  color: var(--muted); font-size: 13px; cursor: pointer;
+}
+.tab.active { background: rgba(52, 211, 153, 0.14); border-color: rgba(52, 211, 153, 0.5); color: var(--text); font-weight: 600; }
+
+.pane { display: none; }
+.pane.active { display: block; }
+
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.field input, .field select {
+  width: 100%; padding: 9px 11px; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--stroke);
+  color: var(--text); font-size: 14px; outline: none;
+}
+.field input:focus, .field select:focus { border-color: var(--accent); }
+.field select option { background: #14161c; }
+
+.row { display: flex; gap: 10px; }
+.row .field { flex: 1; }
+
+button.primary {
+  width: 100%; padding: 11px; border-radius: 12px; border: none;
+  background: var(--accent); color: #06281c; font-weight: 700; font-size: 14px; cursor: pointer;
+}
+button.primary:hover { filter: brightness(1.08); }
+
+button.danger {
+  width: 100%; padding: 10px; border-radius: 12px; margin-top: 12px;
+  background: transparent; border: 1px solid rgba(248, 113, 113, 0.5);
+  color: var(--danger); font-weight: 600; cursor: pointer;
+}
+button.danger:hover { background: rgba(248, 113, 113, 0.10); }
+
+.msg { font-size: 12px; margin-top: 8px; min-height: 16px; color: var(--muted); }
+.msg.ok { color: var(--accent); }
+.msg.err { color: var(--danger); }
+
+.stat-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.stat {
+  flex: 1; text-align: center; padding: 10px 4px; border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--stroke);
+}
+.stat-num { display: block; font-size: 20px; font-weight: 700; color: var(--accent); }
+.stat-label { font-size: 11px; color: var(--muted); }
+
+h3 { font-size: 13px; margin: 14px 0 8px; color: var(--text); }
+
+.compare-card {
+  border: 1px solid var(--stroke); border-radius: 12px;
+  padding: 10px 12px; margin-bottom: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+.compare-card.best { border-color: rgba(52, 211, 153, 0.55); background: rgba(52, 211, 153, 0.07); }
+.c-market { font-weight: 600; font-size: 13px; }
+.c-stall { font-size: 11px; color: var(--muted); }
+.c-price { font-size: 16px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.c-avg { font-size: 11px; color: var(--muted); }
+.best-tag {
+  font-size: 10px; font-weight: 700; color: #06281c; background: var(--accent);
+  border-radius: 6px; padding: 2px 6px; margin-left: 6px;
+}
+.delta-up { color: var(--danger); font-size: 11px; }
+.delta-down { color: var(--accent); font-size: 11px; }
+
+#trend-bars { display: flex; align-items: flex-end; gap: 6px; height: 90px; padding-top: 8px; }
+.trend-bar { flex: 1; background: rgba(52, 211, 153, 0.55); border-radius: 4px 4px 0 0; min-height: 4px; position: relative; }
+.trend-x { display: flex; gap: 6px; margin-top: 4px; }
+.trend-x span { flex: 1; font-size: 9px; color: var(--muted); text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.entry {
+  border: 1px solid var(--stroke); border-radius: 12px;
+  padding: 10px 12px; margin-bottom: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255, 255, 255, 0.03); font-size: 13px;
+}
+.entry .e-item { font-weight: 600; }
+.entry .e-meta { font-size: 11px; color: var(--muted); }
+.entry .e-price { color: var(--accent); font-weight: 700; white-space: nowrap; margin-left: 8px; }
+.del { background: none; border: none; color: var(--muted); cursor: pointer; padding: 4px; }
+.del:hover { color: var(--danger); }
+.del svg { width: 15px; height: 15px; display: block; }
+
+.empty { color: var(--muted); font-size: 13px; text-align: center; padding: 18px 6px; }
+.hidden { display: none; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 8px; }

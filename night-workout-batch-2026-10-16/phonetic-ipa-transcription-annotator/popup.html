@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPA Annotator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="bar">
+  <div class="title">IPA Annotator</div>
+  <div class="sub">your pairs — not automatic transcription</div>
+</header>
+
+<main>
+  <section class="card">
+    <h3>Word → IPA pairs</h3>
+    <div class="row">
+      <input id="word" type="text" placeholder="word (e.g. through)">
+      <input id="ipa" type="text" placeholder="IPA (e.g. θruː)">
+    </div>
+    <div class="row">
+      <button id="add" class="primary">Add pair</button>
+      <button id="clearAll" class="ghost">Clear all</button>
+    </div>
+    <div id="pairList" class="pairList"></div>
+    <p class="note">Longest word wins when pairs overlap. Click “Annotate this tab”
+    to wrap matches in <code>&lt;ruby&gt;</code> tags; “Remove” restores the page exactly.</p>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <button id="annotate" class="primary">Annotate this tab</button>
+      <button id="remove" class="ghost">Remove</button>
+    </div>
+    <div id="status" class="status"></div>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

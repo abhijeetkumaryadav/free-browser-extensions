@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ScratchCode</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+      </span>
+      <div>
+        <h1>ScratchCode</h1>
+        <p class="tag">Distraction-free code scratchpad</p>
+      </div>
+    </header>
+
+    <div class="stats glass">
+      <div class="stat"><span class="label">Scratchpads</span><span class="value" id="padCount">–</span></div>
+      <div class="stat"><span class="label">Last edited</span><span class="value" id="lastEdited">–</span></div>
+    </div>
+
+    <button class="btn primary" id="openPad">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+      Open scratchpad
+    </button>
+    <button class="btn ghost" id="newPad">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      New scratchpad
+    </button>
+
+    <p class="hint">Autosaves on this device only. Nothing leaves your browser.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

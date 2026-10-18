@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Price Standardizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <div><h1>Unit Prices</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="product" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div class="prod-price" id="prodPrice">—</div>
+      <div class="qty-line">Detected quantity: <b id="qtyVal">—</b></div>
+      <div id="confNote" class="conf" hidden></div>
+      <div id="unitRows"></div>
+    </section>
+    <section class="glass card" id="compareCard" hidden>
+      <h2>Compare another listing</h2>
+      <div class="cmp-grid">
+        <input id="cPrice" type="number" min="0" step="0.01" placeholder="Price">
+        <input id="cQty" placeholder="Qty (e.g. 500g, 2L, 12 pcs)">
+      </div>
+      <div id="cmpResult" class="cmp-result" hidden></div>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan page</b> on a product page to detect its price and pack size.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

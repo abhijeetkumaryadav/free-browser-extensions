@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jargon Highlighter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+    <div>
+      <h1>Jargon Highlighter</h1>
+      <p class="sub">My glossary — heuristic only</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Your glossary — not AI. Terms you define are highlighted in pasted text. Nothing is "simplified" for you.</span>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="scan" role="tab">Scan</button>
+    <button class="tab" data-tab="glossary" role="tab">Glossary</button>
+    <button class="tab" data-tab="add" role="tab">+ Term</button>
+  </div>
+
+  <!-- Scan tab -->
+  <section id="tab-scan" class="panel active">
+    <textarea id="scanText" rows="5" maxlength="20000" placeholder="Paste text here — jargon terms from your glossary will be highlighted…"></textarea>
+    <div class="row gap">
+      <button id="scanBtn" class="btn primary">Highlight jargon</button>
+    </div>
+    <div id="scanOut" class="scan-out" aria-live="polite"></div>
+    <div id="matchList" class="list"></div>
+  </section>
+
+  <!-- Glossary tab -->
+  <section id="tab-glossary" class="panel">
+    <input id="search" type="search" placeholder="Search terms, definitions, notes…" autocomplete="off">
+    <div id="termList" class="list"></div>
+    <div class="row gap">
+      <button id="exportBtn" class="btn ghost">Export JSON</button>
+      <button id="importBtn" class="btn ghost">Import JSON</button>
+      <input id="importFile" type="file" accept="application/json" hidden>
+    </div>
+    <div class="row gap">
+      <button id="seedBtn" class="btn ghost">Load starter glossary</button>
+      <button id="clearBtn" class="btn danger-ghost">Clear all</button>
+    </div>
+  </section>
+
+  <!-- Add tab -->
+  <section id="tab-add" class="panel">
+    <label>Term *
+      <input id="fTerm" type="text" maxlength="80" placeholder="e.g. epistemology">
+    </label>
+    <label>Plain-language definition *
+      <textarea id="fDef" rows="2" maxlength="300" placeholder="What it means, in your own words…"></textarea>
+    </label>
+    <label>Your note
+      <input id="fNote" type="text" maxlength="200" placeholder="e.g. chapter 2 uses this">
+    </label>
+    <button id="saveBtn" class="btn primary">Save term</button>
+    <p id="formMsg" class="msg" role="status"></p>
+  </section>
+
+  <footer>
+    <span id="count">0 terms</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

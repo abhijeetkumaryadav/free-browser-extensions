@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Z-Index Layer Debugger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+    <div><h1>Z-Index Debugger</h1><p id="pageHost">—</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="btn-row">
+        <button id="scan" class="primary">Scan page</button>
+        <button id="overlay" class="ghost" disabled>Show overlay</button>
+      </div>
+      <div id="error" class="error" hidden></div>
+      <div id="count" class="count" hidden></div>
+      <div id="rows"></div>
+      <p class="note">The overlay is fully non-destructive — it floats above the page and never modifies your DOM.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

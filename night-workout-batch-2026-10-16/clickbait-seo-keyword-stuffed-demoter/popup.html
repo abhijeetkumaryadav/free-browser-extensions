@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <h1>Clickbait Demoter</h1>
+      <p class="sub">Heuristic checker · your click only · reversible</p>
+    </div>
+  </header>
+  <p class="banner">⚠ Heuristic only — misses and misfires possible. Nothing runs automatically; you choose.</p>
+  <div class="actions">
+    <button id="scan" class="btn primary">Scan &amp; demote clickbait</button>
+    <button id="restore" class="btn ghost">Restore page</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="num" id="demoted">0</span><span class="lbl">demoted</span></div>
+    <div class="stat"><span class="num" id="lifetime">0</span><span class="lbl">all-time</span></div>
+  </div>
+  <p class="note">Signals: all-caps titles, excessive punctuation (!!?, ???), phrases like “you won’t believe”, list-bait numbers, keyword-stuffed repeats.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

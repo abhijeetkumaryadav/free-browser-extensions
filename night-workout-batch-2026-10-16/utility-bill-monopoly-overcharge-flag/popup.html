@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bill Overcharge Flag</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+    <div>
+      <h1>Bill Overcharge Flag</h1>
+      <p class="sub">Manual bill analyzer</p>
+    </div>
+  </header>
+
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Educational flagger only — compares your typed bills to <strong>approximate reference rates</strong>. <strong>Not proof of overcharging.</strong></span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="bill">Add bill</button>
+    <button class="tab" data-tab="results">Results</button>
+    <button class="tab" data-tab="rates">Ref rates</button>
+  </nav>
+
+  <!-- BILL TAB -->
+  <section id="tab-bill" class="pane active">
+    <div class="field">
+      <label for="provider">Provider</label>
+      <input id="provider" type="text" placeholder="e.g. City Power & Light" autocomplete="off">
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="utility">Utility type</label>
+        <select id="utility">
+          <option value="electricity">Electricity</option>
+          <option value="water">Water</option>
+          <option value="gas">Natural gas</option>
+          <option value="internet">Internet</option>
+          <option value="trash">Trash / sewer</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="month">Billing month</label>
+        <input id="month" type="month">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="usage">Usage (kWh / gal / therm / Mbps)</label>
+        <input id="usage" type="number" min="0" step="any" placeholder="850">
+      </div>
+      <div class="field">
+        <label for="total">Bill total ($)</label>
+        <input id="total" type="number" min="0" step="0.01" placeholder="142.30">
+      </div>
+    </div>
+    <div class="field">
+      <label for="fixed">Fixed fees included in total ($, optional)</label>
+      <input id="fixed" type="number" min="0" step="0.01" placeholder="12.00">
+    </div>
+    <button id="analyze-btn" class="primary">Analyze bill</button>
+    <p id="bill-msg" class="msg"></p>
+  </section>
+
+  <!-- RESULTS TAB -->
+  <section id="tab-results" class="pane">
+    <div id="latest"></div>
+    <h3>History</h3>
+    <div id="bill-list"></div>
+    <button id="clear-btn" class="danger">Clear all bills</button>
+  </section>
+
+  <!-- RATES TAB -->
+  <section id="tab-rates" class="pane">
+    <p class="hint">Reference rates are <strong>approximate national averages</strong>, editable by you. Adjust them to your region for better flags.</p>
+    <div id="rate-list"></div>
+    <button id="reset-rates" class="secondary">Reset to defaults</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

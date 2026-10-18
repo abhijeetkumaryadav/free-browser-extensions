@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SRT Shift</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/><path d="M4 18h16M4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"/><path d="M8 22l-2-2 2-2M16 22l2-2-2-2"/></svg>
+  <div>
+    <h1>SRT Shift</h1>
+    <p class="subtitle">Bulk subtitle timestamp shifter — your files, local only.</p>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <label class="field-label" for="fileInput">SRT files</label>
+    <input type="file" id="fileInput" accept=".srt,text/plain" multiple>
+    <label class="field-label" for="pasteArea">…or paste SRT text</label>
+    <textarea id="pasteArea" rows="5" placeholder="1&#10;00:00:01,000 --> 00:00:04,000&#10;Hello&#10;"></textarea>
+    <button id="addPaste" class="btn secondary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Add pasted text as file
+    </button>
+  </section>
+
+  <section class="card">
+    <label class="field-label">Shift offset</label>
+    <div class="offset-row">
+      <button id="signBtn" class="btn sign" title="Toggle shift direction">+</button>
+      <input type="number" id="seconds" value="2" min="0" max="3600" step="1">
+      <span class="unit">s</span>
+      <input type="number" id="millis" value="0" min="0" max="999" step="1">
+      <span class="unit">ms</span>
+    </div>
+    <label class="check-row"><input type="checkbox" id="sameOffset" checked> Same offset for all files</label>
+    <button id="shiftBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></svg>
+      Shift timestamps
+    </button>
+  </section>
+
+  <section class="card hidden" id="resultsCard">
+    <h2>Preview &amp; download</h2>
+    <div id="fileList"></div>
+  </section>
+
+  <p class="honest-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    Honest scope: shifts SRT timestamps only. Nothing is uploaded — everything runs on your machine.
+  </p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

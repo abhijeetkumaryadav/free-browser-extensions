@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Tab</title>
+<link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <main class="wrap">
+    <div class="topbar">
+      <button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <button id="settingsBtn" class="icon-btn" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+
+    <section class="hero">
+      <div id="clock" class="clock">00:00</div>
+      <div id="dateLine" class="date-line">—</div>
+      <form id="searchForm" class="search" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="searchInput" type="text" placeholder="Search or type a URL" aria-label="Search">
+      </form>
+    </section>
+
+    <section>
+      <div id="shortcutGrid" class="grid"></div>
+    </section>
+
+    <div id="settingsPanel" class="settings hidden">
+      <div class="settings-card">
+        <h2>Settings</h2>
+
+        <label class="field-label">Search engine</label>
+        <select id="engineSelect" class="field">
+          <option value="https://www.google.com/search?q=%s">Google</option>
+          <option value="https://www.bing.com/search?q=%s">Bing</option>
+          <option value="https://duckduckgo.com/?q=%s">DuckDuckGo</option>
+          <option value="https://search.brave.com/search?q=%s">Brave</option>
+          <option value="https://www.ecosia.org/search?q=%s">Ecosia</option>
+        </select>
+
+        <label class="field-label">Show clock</label>
+        <label class="switch"><input id="clockToggle" type="checkbox" checked><span class="slider"></span></label>
+
+        <h3>Shortcuts</h3>
+        <div id="shortcutEditor" class="shortcut-editor"></div>
+        <div class="add-row">
+          <input id="newName" class="field" type="text" placeholder="Name" maxlength="24">
+          <input id="newUrl" class="field" type="text" placeholder="https://…" maxlength="300">
+          <button id="addShortcutBtn" class="primary-btn" type="button">Add</button>
+        </div>
+
+        <button id="resetBtn" class="ghost-btn" type="button">Reset to defaults</button>
+        <button id="closeSettingsBtn" class="primary-btn full" type="button">Done</button>
+      </div>
+    </div>
+  </main>
+  <script src="newtab.js"></script>
+</body>
+</html>

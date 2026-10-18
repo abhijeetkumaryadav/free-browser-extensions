@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+    </span>
+    <div>
+      <h1>FaceBlur</h1>
+      <p class="sub">Manual image blur &middot; <span class="ok">no auto-detection</span></p>
+    </div>
+  </header>
+
+  <p class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    This tool does <b>not</b> detect faces. You pick the images to hide — great for screenshots.
+  </p>
+
+  <section class="card">
+    <div class="row label-row">
+      <span class="label">Effect</span>
+      <div class="seg" role="tablist" aria-label="Effect mode">
+        <button id="modeBlur" class="seg-btn active" type="button">Blur</button>
+        <button id="modePixel" class="seg-btn" type="button">Pixelate</button>
+      </div>
+    </div>
+    <div class="row label-row">
+      <span class="label">Intensity <b id="intVal">12px</b></span>
+    </div>
+    <input id="intensity" type="range" min="2" max="40" value="12" aria-label="Blur intensity">
+  </section>
+
+  <section class="card">
+    <button id="pickBtn" class="btn primary" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 9 5 12 1.8-5.2L21 14Z"/><path d="M7.2 2.2 8 5.1"/><path d="M5.1 8 2.2 7.2"/><path d="M14 4.1 12 6"/><path d="m6 12-1.9 2"/></svg>
+      Pick images on page
+    </button>
+    <p class="hint" id="pickHint">Click images to toggle blur. Press Esc to stop picking.</p>
+    <div class="btn-row">
+      <button id="blurAllBtn" class="btn" type="button">Blur all images</button>
+      <button id="restoreBtn" class="btn ghost" type="button">Restore all</button>
+    </div>
+  </section>
+
+  <footer class="status">
+    <span class="dot" id="dot"></span>
+    <span id="statusText">Ready</span>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

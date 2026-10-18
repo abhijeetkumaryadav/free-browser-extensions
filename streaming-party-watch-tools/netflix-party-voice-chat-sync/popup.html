@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  </div>
+  <div>
+    <h1>PartySync</h1>
+    <p class="sub">Manual watch-party coordinator</p>
+  </div>
+</header>
+
+<main>
+  <!-- Party picker -->
+  <section class="card" id="partyCard">
+    <div class="row">
+      <select id="partySelect" aria-label="Choose party"></select>
+      <button class="ghost" id="newPartyBtn" title="New party">+ New</button>
+    </div>
+    <div class="row" id="newPartyRow" hidden>
+      <input id="newPartyName" type="text" placeholder="Party name, e.g. Friday Movie Night" maxlength="60">
+      <button class="primary" id="createPartyBtn">Create</button>
+    </div>
+    <button class="danger-link" id="deletePartyBtn">Delete this party</button>
+  </section>
+
+  <!-- Countdown -->
+  <section class="card">
+    <h2>3-2-1 PLAY countdown</h2>
+    <p class="hint">Everyone opens the same video, the host starts the countdown, and all press play on zero.</p>
+    <div class="countdown" id="countdownDisplay">Ready</div>
+    <div class="row">
+      <select id="countFrom" aria-label="Countdown from">
+        <option value="3">3 sec</option>
+        <option value="5" selected>5 sec</option>
+        <option value="10">10 sec</option>
+        <option value="30">30 sec</option>
+      </select>
+      <button class="primary" id="startCountBtn">Start</button>
+      <button class="ghost" id="stopCountBtn">Stop</button>
+    </div>
+    <button class="ghost wide" id="copyInviteBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy invite text
+    </button>
+  </section>
+
+  <!-- Notes -->
+  <section class="card">
+    <h2>Party notes</h2>
+    <div class="row">
+      <input id="noteInput" type="text" placeholder="e.g. We're watching Episode 7" maxlength="140">
+      <button class="primary" id="addNoteBtn">Add</button>
+    </div>
+    <ul class="list" id="noteList"></ul>
+  </section>
+
+  <!-- Timestamps -->
+  <section class="card">
+    <h2>Timestamps</h2>
+    <div class="row">
+      <input id="tsLabel" type="text" placeholder="Label, e.g. Plot twist!" maxlength="80">
+      <button class="primary" id="addTsBtn">Log now</button>
+    </div>
+    <p class="hint">Logs the current time-of-day so everyone can note moments to revisit.</p>
+    <ul class="list" id="tsList"></ul>
+  </section>
+
+  <section class="card warn">
+    <p>Scope: manual coordination only. There is no real-time sync, no voice chat, and no connection to Netflix or any streaming account.</p>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

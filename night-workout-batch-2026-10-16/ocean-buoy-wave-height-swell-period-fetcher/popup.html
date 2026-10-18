@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wave Watcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0"/><path d="M2 17c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0"/><path d="M2 7c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0"/></svg>
+    <div>
+      <h1>Wave Watcher</h1>
+      <p class="sub">Sea-state guide &amp; observation log</p>
+    </div>
+  </header>
+
+  <div class="notice">Educational only — <b>not live buoy data</b>. No data is fetched; you log what you observe.</div>
+
+  <div class="tabs">
+    <button class="tab on" data-tab="guide">Guide</button>
+    <button class="tab" data-tab="log">My log</button>
+  </div>
+
+  <section id="tab-guide">
+    <h2>Reading the sea</h2>
+    <ul class="guide">
+      <li><b>Significant wave height (Hs)</b> — average of the highest third of waves. Individual waves can reach ~2× Hs.</li>
+      <li><b>Period</b> — seconds between wave crests. Long period (10s+) = swell that traveled far; short period = local chop.</li>
+      <li><b>Direction</b> — where waves come <i>from</i>, in degrees.</li>
+      <li><b>Swell vs wind waves</b> — swell is smooth and long-period; wind waves are steep, short-period, and whitecapped.</li>
+    </ul>
+    <h2>Sea-state bands (Douglas-ish)</h2>
+    <div id="bands"></div>
+  </section>
+
+  <section id="tab-log" hidden>
+    <div class="form">
+      <div class="row">
+        <label>Height (m)<input id="fHeight" type="number" step="0.1" min="0" inputmode="decimal"></label>
+        <label>Period (s)<input id="fPeriod" type="number" step="0.5" min="0" inputmode="decimal"></label>
+      </div>
+      <label>Direction (°)<input id="fDir" type="number" min="0" max="360" inputmode="numeric"></label>
+      <label>Note<input id="fNote" type="text" maxlength="120" placeholder="e.g. glassy morning, offshore breeze"></label>
+      <button id="addBtn" class="primary">Log observation</button>
+    </div>
+    <div class="stats"><span id="statCount">0 logged</span><span id="statMax">max —</span></div>
+    <div id="list"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

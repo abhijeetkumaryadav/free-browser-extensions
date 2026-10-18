@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parked Domain Spotter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    </div>
+    <div class="title-block">
+      <h1>Parked Domain Spotter</h1>
+      <p class="sub">Red flags of abandoned / parked domains</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Educational only — not detection.</strong> This tool cannot check whether a domain is parked; it teaches you what to look for.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="guide">Red-flag guide</button>
+    <button class="tab" data-tab="notes">My notes <span id="noteCount" class="badge">0</span></button>
+  </nav>
+
+  <main>
+    <section id="tab-guide" class="panel">
+      <div id="flags"></div>
+      <div class="card tip-card">
+        <h3>Quick habits before you trust a site</h3>
+        <ul class="habits">
+          <li>Check the <em>real</em> address bar host — squatters use look-alike domains.</li>
+          <li>Try one link: parked pages usually have no working navigation.</li>
+          <li>Search the domain name plus "reviews" — squats rarely have any.</li>
+          <li>Parked pages almost never have real contact details or an about page.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="tab-notes" class="panel hidden">
+      <div class="form card">
+        <input id="noteDomain" type="text" placeholder="Suspicious domain, e.g. cheap-brand-deals.example" maxlength="120">
+        <input id="noteTitle" type="text" placeholder="Short note title (optional)" maxlength="80">
+        <textarea id="noteBody" rows="3" placeholder="What looked parked about it? (ads, for-sale banner, no nav…)" maxlength="1000"></textarea>
+        <button id="addNote" class="btn-primary">Add note</button>
+      </div>
+      <div class="search-row">
+        <input id="noteSearch" type="text" placeholder="Search your notes…">
+      </div>
+      <div id="notes"></div>
+      <button id="clearNotes" class="btn-ghost">Clear all notes</button>
+    </section>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

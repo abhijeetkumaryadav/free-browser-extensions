@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Clear Sky Readiness</title>
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.5 1.5A4 4 0 0 0 7 19h10.5z"/><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <div>
+      <h1>Clear Sky Readiness</h1>
+      <p class="sub">Astrophotography journal</p>
+    </div>
+  </header>
+
+  <!-- Factor guide -->
+  <section class="guide">
+    <h2>What makes a good night</h2>
+    <div class="factors" id="factors"></div>
+  </section>
+
+  <!-- New log form -->
+  <section class="form">
+    <h2>Log tonight</h2>
+    <label>Cloud cover
+      <select id="cloud">
+        <option value="0">Clear (0/8)</option>
+        <option value="1">Few (1–2/8)</option>
+        <option value="2">Scattered (3–4/8)</option>
+        <option value="3">Broken (5–7/8)</option>
+        <option value="4">Overcast (8/8)</option>
+      </select>
+    </label>
+    <label>Moon interference
+      <select id="moon">
+        <option value="0">New / dark</option>
+        <option value="1">Crescent</option>
+        <option value="2">Quarter</option>
+        <option value="3">Gibbous</option>
+        <option value="4">Full</option>
+      </select>
+    </label>
+    <label>Transparency / seeing
+      <select id="transp">
+        <option value="0">Excellent</option>
+        <option value="1">Good</option>
+        <option value="2">Average</option>
+        <option value="3">Poor</option>
+        <option value="4">Terrible</option>
+      </select>
+    </label>
+    <label>Notes (optional)
+      <input id="notes" type="text" placeholder="e.g. Orion from the backyard" maxlength="120">
+    </label>
+    <div class="score-line">Readiness score: <span id="scorePreview">—</span></div>
+    <button id="save" class="primary">Save tonight's log</button>
+  </section>
+
+  <!-- History -->
+  <section class="history">
+    <h2>History</h2>
+    <div id="list" class="list"></div>
+    <button id="clear" class="ghost danger">Clear history</button>
+  </section>
+
+  <p class="notice">Your logs — not a live forecast. No sky data is fetched; this scores only what you record.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

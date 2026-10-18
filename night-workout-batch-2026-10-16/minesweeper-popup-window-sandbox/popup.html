@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minesweeper Sandbox</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+    <div>
+      <h1>Minesweeper</h1>
+      <p class="sub">offline game · zero network</p>
+    </div>
+    <button id="newGame" class="icon-btn" title="New game (N)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <div class="diffs" id="diffs">
+    <button data-diff="easy" class="diff active">Easy 9×9·10</button>
+    <button data-diff="medium" class="diff">Medium 16×16·40</button>
+    <button data-diff="hard" class="diff">Hard 16×30·99</button>
+  </div>
+
+  <div class="hud">
+    <div class="stat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+      <span id="mineCount">10</span>
+    </div>
+    <div class="stat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <span id="timer">0</span>
+    </div>
+    <button id="flagToggle" class="flag-btn" title="Toggle flag mode (F)">🚩 Flag</button>
+  </div>
+
+  <div class="board-wrap"><div id="board" class="board"></div></div>
+
+  <div id="banner" class="banner hidden"></div>
+
+  <footer class="foot">
+    <span>Best: <b id="best">–</b></span>
+    <span class="hint">left-click reveal · right-click flag</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

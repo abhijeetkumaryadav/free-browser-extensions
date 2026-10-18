@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NetCheck</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18"/>
+          <path d="M12 3a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <div>
+          <h1>NetCheck</h1>
+          <p class="subtitle">IP address validator &amp; classifier</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Input -->
+    <section class="panel">
+      <label class="field-label" for="ipInput">IP address <span class="hint">(optional /prefix for CIDR)</span></label>
+      <div class="input-row">
+        <input id="ipInput" type="text" spellcheck="false" autocomplete="off"
+               placeholder="e.g. 192.168.1.1  ·  10.0.0.0/8  ·  2001:db8::1" />
+        <button id="checkBtn" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+          Check
+        </button>
+      </div>
+      <div class="examples">
+        <span>Try:</span>
+        <button class="chip" data-ip="192.168.0.1">192.168.0.1</button>
+        <button class="chip" data-ip="8.8.8.8">8.8.8.8</button>
+        <button class="chip" data-ip="127.0.0.1">127.0.0.1</button>
+        <button class="chip" data-ip="fe80::1">fe80::1</button>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section class="panel result" id="resultPanel" hidden>
+      <div class="result-head">
+        <span class="verdict" id="verdict">—</span>
+        <span class="version-tag" id="versionTag">—</span>
+      </div>
+      <div class="class-row">
+        <span class="class-label">Classification</span>
+        <span class="class-value" id="classValue">—</span>
+      </div>
+      <p class="class-desc" id="classDesc"></p>
+      <dl class="details" id="detailsList"></dl>
+    </section>
+
+    <!-- Error -->
+    <section class="panel error" id="errorPanel" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4"/>
+        <path d="M12 16h.01"/>
+      </svg>
+      <p id="errorText">Invalid IP address.</p>
+    </section>
+
+    <!-- Honest scope -->
+    <p class="scope">
+      NetCheck is a <b>pure string validator</b>. It never touches the network,
+      never scans hosts, never probes ports, and never looks up anything online —
+      everything is computed locally from the text you type.
+    </p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

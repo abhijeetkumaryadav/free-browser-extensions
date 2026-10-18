@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header>
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+      </span>
+      <div>
+        <h1>3D Layer Exploder</h1>
+        <p class="sub">Visual toy &mdash; exploded 3D view of page layers</p>
+      </div>
+    </header>
+
+    <div class="banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      <span>Harmless visual toy. Page DOM is never modified &mdash; layers are clones on an overlay. One click restores everything.</span>
+    </div>
+
+    <div class="row">
+      <label for="tilt">Tilt angle</label>
+      <input type="range" id="tilt" min="20" max="75" value="55">
+      <span class="val" id="tiltVal">55&deg;</span>
+    </div>
+    <div class="row">
+      <label for="spread">Layer spread</label>
+      <input type="range" id="spread" min="10" max="120" value="55">
+      <span class="val" id="spreadVal">55px</span>
+    </div>
+    <div class="row toggle-row">
+      <label for="spin">Auto-rotate</label>
+      <button id="spin" class="switch" role="switch" aria-checked="true" aria-label="Auto-rotate"><span class="knob"></span></button>
+    </div>
+
+    <button id="explode" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+      Explode 3D view
+    </button>
+    <button id="restore" class="ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      Restore page
+    </button>
+    <p class="hint">Drag the exploded view to spin it. Press <kbd>Esc</kbd> to restore.</p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

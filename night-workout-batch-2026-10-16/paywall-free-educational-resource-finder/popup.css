@@ -1,0 +1,28 @@
+:root { --accent: #34d399; --bg: rgba(20,20,26,.72); --ink: #f3f4f6; --muted: #9ca3af; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 380px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #0b0b10; color: var(--ink); }
+.panel { background: var(--bg); backdrop-filter: blur(12px); padding: 16px; display: flex; flex-direction: column; gap: 12px; max-height: 560px; }
+.hdr { display: flex; gap: 12px; align-items: center; }
+.logo { width: 28px; height: 28px; color: var(--accent); flex: none; }
+h1 { font-size: 16px; font-weight: 700; }
+.sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.banner { font-size: 11px; background: rgba(52,211,153,.10); border: 1px solid rgba(52,211,153,.35); border-radius: 10px; padding: 10px 12px; line-height: 1.5; }
+.bar { display: flex; gap: 8px; }
+input, select { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: var(--ink); border-radius: 8px; padding: 8px 10px; font-size: 12px; width: 100%; }
+.bar input { flex: 2; } .bar select { flex: 1; }
+.list { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+.card { background: rgba(255,255,255,.05); border-radius: 10px; padding: 10px 12px; }
+.card .t { font-size: 13px; font-weight: 600; }
+.card .t a { color: var(--ink); text-decoration: none; }
+.card .t a:hover { color: var(--accent); }
+.card .meta { font-size: 10px; color: var(--muted); margin-top: 4px; display: flex; gap: 8px; align-items: center; }
+.tag { background: rgba(52,211,153,.15); color: var(--accent); border-radius: 20px; padding: 2px 8px; }
+.del { margin-left: auto; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 14px; }
+.del:hover { color: #ef4444; }
+.empty { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+.add { background: rgba(255,255,255,.04); border-radius: 10px; padding: 10px 12px; }
+.add summary { cursor: pointer; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.add input, .add select { margin-bottom: 8px; }
+.row { display: flex; gap: 8px; }
+.btn { width: 100%; padding: 10px; border-radius: 10px; border: 0; font-size: 13px; font-weight: 600; cursor: pointer; }
+.btn.primary { background: var(--accent); color: #06281c; }

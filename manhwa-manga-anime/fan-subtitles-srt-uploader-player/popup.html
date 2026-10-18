@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 14h4M6 17h7M14 14h4"/></svg>
+  </div>
+  <div>
+    <h1>SubOverlay</h1>
+    <p class="sub">Your .srt files, on any video</p>
+  </div>
+</header>
+
+<main>
+  <section class="card" id="fileCard">
+    <label class="file-btn" for="srtFile">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      <span>Load .srt file</span>
+    </label>
+    <input type="file" id="srtFile" accept=".srt,.sub,text/plain" hidden>
+    <p class="file-name" id="fileName">No file loaded</p>
+    <p class="hint">Subtitles come only from files you choose — nothing is fetched or downloaded.</p>
+  </section>
+
+  <section class="card" id="controlCard" hidden>
+    <div class="row between">
+      <span class="label">Overlay enabled</span>
+      <button class="switch on" id="enableSwitch" aria-label="Toggle subtitles"><span class="knob"></span></button>
+    </div>
+    <div class="row">
+      <span class="label">Sync offset</span>
+      <div class="offset">
+        <button id="offsetMinus" title="-100 ms">−100ms</button>
+        <span id="offsetVal">0ms</span>
+        <button id="offsetPlus" title="+100 ms">+100ms</button>
+      </div>
+    </div>
+    <div class="row">
+      <span class="label">Text size</span>
+      <input type="range" id="fontSize" min="14" max="40" step="1" value="24">
+    </div>
+    <div class="row">
+      <span class="label">Background</span>
+      <input type="range" id="bgOpacity" min="0" max="90" step="5" value="60">
+    </div>
+    <div class="cue-count" id="cueCount"></div>
+  </section>
+
+  <section class="card warn">
+    <p>Scope: plays back subtitle files you provide, overlaid on the active tab's video. It cannot fetch, translate, or auto-generate subtitles.</p>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

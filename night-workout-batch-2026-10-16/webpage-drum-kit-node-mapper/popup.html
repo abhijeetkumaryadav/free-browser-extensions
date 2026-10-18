@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Drum Kit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><path d="M5 13h14M12 6v14"/><path d="M9.5 10.5h5"/></svg>
+    <div>
+      <h1>Page Drum Kit</h1>
+      <p class="tag">toy &middot; click-triggered &middot; reversible</p>
+    </div>
+  </header>
+
+  <p class="notice">Playful art toy. Page elements become clickable drum pads on an overlay — the page itself is never changed, and everything is removed when you stop.</p>
+
+  <div class="row">
+    <button id="start" class="btn primary">Start drum kit</button>
+    <button id="stop" class="btn ghost">Stop &amp; clear</button>
+  </div>
+
+  <div class="field">
+    <label for="pads">Drum pads <span id="padsVal">8</span></label>
+    <input type="range" id="pads" min="4" max="24" value="8">
+  </div>
+  <div class="field">
+    <label for="vol">Volume <span id="volVal">70%</span></label>
+    <input type="range" id="vol" min="10" max="100" value="70">
+  </div>
+
+  <p id="status" class="status">Idle — nothing on the page.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

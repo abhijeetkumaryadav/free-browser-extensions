@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu Price Log</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+        </span>
+        <div>
+          <h1>Menu Price Log</h1>
+          <p class="sub">Price history · manual log · no scraping</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="rests" role="tab">Restaurants</button>
+      <button class="tab" data-tab="log" role="tab">Log price</button>
+      <button class="tab" data-tab="report" role="tab">Report</button>
+    </nav>
+
+    <!-- Restaurants + items -->
+    <section class="panel active" id="panel-rests">
+      <form id="restForm" class="card form" autocomplete="off">
+        <div class="form-title">Add a restaurant</div>
+        <input id="restName" placeholder="Restaurant name" required maxlength="80">
+        <input id="restLoc" placeholder="Location (optional)" maxlength="120">
+        <button type="submit" class="btn primary">Add restaurant</button>
+      </form>
+      <form id="itemForm" class="card form" autocomplete="off">
+        <div class="form-title">Add a menu item</div>
+        <label class="lbl">Restaurant
+          <select id="itemRest"></select>
+        </label>
+        <input id="itemName" placeholder="Item name (e.g. Margherita Pizza)" required maxlength="80">
+        <input id="itemCat" placeholder="Category (optional)" maxlength="40">
+        <button type="submit" class="btn primary">Add item</button>
+      </form>
+      <div id="restList" class="stack"></div>
+    </section>
+
+    <!-- Log price -->
+    <section class="panel" id="panel-log">
+      <form id="priceForm" class="card form" autocomplete="off">
+        <div class="form-title">Log a price</div>
+        <label class="lbl">Restaurant
+          <select id="priceRest"></select>
+        </label>
+        <label class="lbl">Menu item
+          <select id="priceItem"></select>
+        </label>
+        <div class="row gap">
+          <label class="lbl grow">Date
+            <input type="date" id="priceDate">
+          </label>
+          <label class="lbl grow">Price
+            <input type="number" id="priceVal" placeholder="0.00" min="0" step="0.01" required>
+          </label>
+        </div>
+        <button type="submit" class="btn primary">Save price</button>
+      </form>
+      <div class="hint card">Prices are typed in by hand. This extension never reads Yelp or any menu site.</div>
+    </section>
+
+    <!-- Report -->
+    <section class="panel" id="panel-report">
+      <div class="card">
+        <div class="row between">
+          <div class="form-title">Inflation report</div>
+          <select id="repRest" class="mini"></select>
+        </div>
+        <div id="movers" class="stack"></div>
+      </div>
+      <div id="repItems" class="stack"></div>
+      <div class="card">
+        <button id="exportCsv" class="btn ghost" style="width:100%">Export CSV</button>
+      </div>
+    </section>
+
+    <footer class="foot">Manual tracker · all data stays on this device</footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RainScape</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15a4.5 4.5 0 1 1 .8-8.9A5.5 5.5 0 0 1 18.5 7 4 4 0 0 1 18 15H7z"/><path d="M8 18l-1 2.5M12.5 18l-1 2.5M17 18l-1 2.5"/></svg>
+    </span>
+    <div class="titles">
+      <h1>RainScape</h1>
+      <p>Synthesized rain &amp; thunder</p>
+    </div>
+    <span class="status" id="statusDot" aria-label="Stopped"></span>
+  </header>
+
+  <section class="panel hero">
+    <button id="playBtn" class="play">
+      <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      <span id="playLabel">Play ambience</span>
+    </button>
+    <div class="sleep-row">
+      <label class="label" for="sleep">Sleep timer</label>
+      <select id="sleep" aria-label="Sleep timer">
+        <option value="0" selected>Off</option>
+        <option value="15">15 min</option>
+        <option value="30">30 min</option>
+        <option value="45">45 min</option>
+        <option value="60">60 min</option>
+      </select>
+    </div>
+    <p class="hint center" id="countdown" hidden>Stopping in --:--</p>
+  </section>
+
+  <section class="panel">
+    <div class="slider-row">
+      <label class="label" for="master">Master volume</label>
+      <span class="value" id="masterVal">70%</span>
+    </div>
+    <input type="range" id="master" min="0" max="100" value="70" aria-label="Master volume">
+  </section>
+
+  <section class="panel">
+    <div class="slider-row">
+      <label class="label" for="rain">Rain</label>
+      <span class="value" id="rainVal">60%</span>
+    </div>
+    <input type="range" id="rain" min="0" max="100" value="60" aria-label="Rain intensity">
+    <div class="slider-row">
+      <label class="label" for="wind">Wind</label>
+      <span class="value" id="windVal">30%</span>
+    </div>
+    <input type="range" id="wind" min="0" max="100" value="30" aria-label="Wind intensity">
+    <div class="slider-row">
+      <label class="label" for="thunder">Thunder</label>
+      <span class="value" id="thunderVal">50%</span>
+    </div>
+    <input type="range" id="thunder" min="0" max="100" value="50" aria-label="Thunder frequency">
+    <p class="hint">Thunder controls how often distant rumbles roll through. Set to 0 for rain only.</p>
+  </section>
+
+  <p class="foot">100% synthesized in your browser with Web Audio — no audio files, no network, nothing leaves this device. Keeps playing with the popup closed.</p>
+  <p class="err" id="err" hidden></p>
+
+<script src="popup.js"></script>
+</body>
+</html>

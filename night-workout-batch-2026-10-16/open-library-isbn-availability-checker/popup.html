@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>ISBN Wishlist</title>
+</head>
+<body>
+<header class="top">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  <div>
+    <h1>ISBN Wishlist</h1>
+    <p class="sub">Your book list — not live availability</p>
+  </div>
+</header>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>No live availability checks. You save ISBNs yourself; links just open an Open Library search for you to read.</span>
+</div>
+
+<section class="card add">
+  <h2>Add a book</h2>
+  <label>ISBN <input id="f-isbn" inputmode="numeric" placeholder="9780140449136" maxlength="17"></label>
+  <label>Title <input id="f-title" placeholder="The Odyssey" maxlength="120"></label>
+  <label>Author <input id="f-author" placeholder="Homer" maxlength="120"></label>
+  <label>Notes <input id="f-notes" placeholder="Want the Fagles translation" maxlength="200"></label>
+  <button id="btn-add" class="primary">Save book</button>
+  <p class="err" id="err" hidden></p>
+</section>
+
+<section class="card list">
+  <div class="list-head">
+    <h2>Your books <span class="count" id="count">0</span></h2>
+    <input id="f-search" placeholder="Search title, author, ISBN…">
+  </div>
+  <ul id="books"></ul>
+  <p class="empty" id="empty" hidden>No books yet — add your first ISBN above.</p>
+  <button id="btn-clear" class="ghost">Clear all</button>
+</section>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hiring Budget Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4M6 18h7"/></svg>
+    <div><h1>Hiring Budget</h1><p>Fully-loaded cost per hire</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="grid">
+        <label class="fld full">Role title
+          <input id="fTitle" placeholder="e.g. Senior Backend Engineer" maxlength="60">
+        </label>
+        <label class="fld">Base salary
+          <input id="fBase" type="number" min="0" step="100" placeholder="100000">
+        </label>
+        <label class="fld">Benefits %
+          <input id="fBenefits" type="number" min="0" max="100" step="0.5" value="25">
+        </label>
+        <label class="fld">Payroll tax %
+          <input id="fTax" type="number" min="0" max="100" step="0.5" value="8">
+        </label>
+        <label class="fld">Recruiting fee %
+          <input id="fFee" type="number" min="0" max="100" step="0.5" value="20">
+        </label>
+        <label class="fld">Equipment (one-off)
+          <input id="fEquip" type="number" min="0" step="100" value="2000">
+        </label>
+        <label class="fld">Onboarding (one-off)
+          <input id="fOnboard" type="number" min="0" step="100" value="1500">
+        </label>
+      </div>
+      <button id="calcBtn" class="primary">Calculate &amp; add role</button>
+    </section>
+
+    <section id="result" class="glass card accent-card" hidden>
+      <h2 id="rTitle">This hire</h2>
+      <div class="hero" id="rAnnual">—</div>
+      <div class="hero-sub">year one · <b id="rMonthly">—</b>/mo run-rate</div>
+      <div class="break">
+        <div class="brow"><span>Base salary</span><b id="bBase">—</b></div>
+        <div class="brow"><span>Benefits</span><b id="bBen">—</b></div>
+        <div class="brow"><span>Payroll tax</span><b id="bTax">—</b></div>
+        <div class="brow"><span>Recruiting fee</span><b id="bFee">—</b></div>
+        <div class="brow"><span>Equipment + onboarding</span><b id="bOne">—</b></div>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <div class="sec-head">
+        <h2>Team rollup <span id="rollCount" class="count">0</span></h2>
+        <button id="clearBtn" class="ghost sm">Clear</button>
+      </div>
+      <div class="roll-stats">
+        <div><span>Year one total</span><b id="tAnnual">—</b></div>
+        <div><span>Monthly run-rate</span><b id="tMonthly">—</b></div>
+        <div><span>Avg per hire</span><b id="tAvg">—</b></div>
+      </div>
+      <div id="roles"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

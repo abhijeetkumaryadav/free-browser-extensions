@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SitemapForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="6" cy="6" r="2.5"/>
+        <circle cx="6" cy="18" r="2.5"/>
+        <circle cx="18" cy="12" r="2.5"/>
+        <path d="M8 7l7.5 4M8 17l7.5-4"/>
+      </svg>
+    </div>
+    <div>
+      <h1>SitemapForge</h1>
+      <p class="sub">visual sitemap builder · 100% local</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+      <span>Load source</span>
+    </div>
+    <div class="row">
+      <input id="urlInput" type="url" placeholder="https://mysite.com/sitemap.xml" spellcheck="false">
+      <button id="loadUrlBtn" class="primary sm">Load</button>
+    </div>
+    <div class="row">
+      <button id="pageBtn" class="ghost grow">Build from this page's links</button>
+    </div>
+    <details class="pastebox">
+      <summary>…or paste sitemap.xml content</summary>
+      <textarea id="pasteArea" rows="4" placeholder="&lt;urlset&gt;&lt;url&gt;…&lt;/url&gt;&lt;/urlset&gt;" spellcheck="false"></textarea>
+      <button id="parseBtn" class="ghost sm">Parse pasted XML</button>
+    </details>
+    <p class="note" id="loadNote"></p>
+  </section>
+
+  <section class="card" id="treeCard" hidden>
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span>Sitemap tree</span>
+      <span class="count" id="urlCount"></span>
+    </div>
+    <ul class="tree" id="tree"></ul>
+    <div class="row">
+      <input id="addInput" type="url" placeholder="https://mysite.com/new-page" spellcheck="false">
+      <button id="addBtn" class="ghost sm">Add URL</button>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="exportBtn" class="primary" disabled>Export sitemap.xml</button>
+    <button id="clearBtn" class="ghost" disabled>Clear</button>
+  </div>
+
+  <footer class="foot">Edits stay in your browser. Paste a sitemap from your own site or load its same-origin sitemap.xml; nothing is uploaded or submitted anywhere.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

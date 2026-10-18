@@ -1,0 +1,59 @@
+/* VoiceNav — deep dark glassmorphism, violet accent */
+:root {
+  --accent: #8b5cf6;
+  --bg: #0b0c10;
+  --panel: rgba(20, 20, 26, .72);
+  --line: rgba(255, 255, 255, .09);
+  --txt: #e8eaf0;
+  --mut: #9aa0ae;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--txt);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.hdr { display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+.badge {
+  font-size: 10px; color: var(--accent); border: 1px solid var(--accent);
+  border-radius: 20px; padding: 2px 8px; text-transform: uppercase; letter-spacing: .06em;
+}
+.lbl { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .05em; }
+.talk {
+  position: relative; background: var(--panel); backdrop-filter: blur(12px);
+  border: 2px solid var(--line); border-radius: 16px; color: var(--txt);
+  padding: 18px; display: flex; align-items: center; justify-content: center; gap: 10px;
+  font: inherit; font-weight: 600; cursor: pointer; user-select: none;
+}
+.talk:hover { border-color: var(--accent); }
+.talk.listening { border-color: var(--accent); color: var(--accent); }
+.talk.listening .ring {
+  position: absolute; inset: -2px; border-radius: 18px;
+  border: 2px solid var(--accent); animation: pulse 1.2s ease-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: .8; }
+  100% { transform: scale(1.06); opacity: 0; }
+}
+.heard {
+  background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--accent); border-radius: 10px; padding: 8px 12px;
+  font-style: italic; color: var(--txt);
+}
+.status { font-size: 12px; color: var(--mut); text-align: center; min-height: 18px; }
+.status.ok { color: var(--accent); }
+.cmds {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  max-height: 180px; overflow-y: auto;
+}
+.cmd {
+  background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px;
+  font-size: 12px; color: var(--mut);
+}
+.cmd b { color: var(--txt); font-weight: 600; }
+.fine { font-size: 11px; color: var(--mut); margin: 0; text-align: center; }

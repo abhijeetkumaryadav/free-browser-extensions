@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WordBox — Daily Guess Sandbox</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <!-- Header -->
+    <header class="header glass">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="5" height="5" rx="1"/><rect x="9.5" y="4" width="5" height="5" rx="1"/><rect x="16" y="4" width="5" height="5" rx="1"/>
+          <rect x="3" y="10.5" width="5" height="5" rx="1"/><rect x="9.5" y="10.5" width="5" height="5" rx="1"/><rect x="16" y="10.5" width="5" height="5" rx="1"/>
+        </svg>
+        <div>
+          <h1>WordBox</h1>
+          <p class="subtitle">daily guess sandbox</p>
+        </div>
+      </div>
+      <div class="header-btns">
+        <button class="icon-btn" id="new-practice-btn" type="button" title="New practice word">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="stats-btn" type="button" title="Statistics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 5v13"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="help-btn" type="button" title="How to play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mode tabs -->
+    <nav class="tabs glass" role="tablist" aria-label="Game mode">
+      <button class="tab active" id="tab-daily" type="button" role="tab" aria-selected="true">Daily</button>
+      <button class="tab" id="tab-practice" type="button" role="tab" aria-selected="false">Practice</button>
+    </nav>
+
+    <!-- Board -->
+    <section class="board-wrap glass" aria-label="Guess board">
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <div class="board" id="board"></div>
+    </section>
+
+    <!-- Keyboard -->
+    <section class="keyboard" id="keyboard" aria-label="On-screen keyboard"></section>
+
+    <!-- Stats modal -->
+    <div class="modal hidden" id="stats-modal" role="dialog" aria-modal="true" aria-labelledby="stats-title">
+      <div class="modal-card glass">
+        <h2 id="stats-title">Statistics</h2>
+        <div class="stat-grid">
+          <div class="stat"><span class="stat-num" id="st-played">0</span><span class="stat-label">Played</span></div>
+          <div class="stat"><span class="stat-num" id="st-winpct">0</span><span class="stat-label">Win %</span></div>
+          <div class="stat"><span class="stat-num" id="st-streak">0</span><span class="stat-label">Streak</span></div>
+          <div class="stat"><span class="stat-num" id="st-max">0</span><span class="stat-label">Max streak</span></div>
+        </div>
+        <h3>Guess distribution</h3>
+        <div class="dist" id="dist"></div>
+        <button class="btn" id="stats-close" type="button">Close</button>
+      </div>
+    </div>
+
+    <!-- Help modal -->
+    <div class="modal hidden" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <div class="modal-card glass">
+        <h2 id="help-title">How to play</h2>
+        <p>Guess the 5-letter word in 6 tries.</p>
+        <ul class="help-list">
+          <li><span class="mini correct">W</span> — letter is correct and in the right spot.</li>
+          <li><span class="mini present">O</span> — letter is in the word but in the wrong spot.</li>
+          <li><span class="mini absent">R</span> — letter is not in the word.</li>
+        </ul>
+        <p class="muted">Daily mode: one word per day, seeded by the date. Practice mode: unlimited words.</p>
+        <button class="btn" id="help-close" type="button">Got it</button>
+      </div>
+    </div>
+  </main>
+  <script src="words.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

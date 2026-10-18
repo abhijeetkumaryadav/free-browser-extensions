@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>History Price Logger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/><path d="M12 7v5l3 3"/></svg>
+    <div><h1>Price Logger</h1><p id="pageHost">—</p></div>
+    <button id="log" class="primary">Log price</button>
+  </header>
+  <main>
+    <section id="product" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div class="prod-price" id="prodPrice">—</div>
+      <div id="dropBadge" class="drop" hidden></div>
+      <svg id="spark" viewBox="0 0 340 90" class="spark"></svg>
+      <div class="stats">
+        <div><span>Low</span><b id="stLow">—</b></div>
+        <div><span>Avg</span><b id="stAvg">—</b></div>
+        <div><span>High</span><b id="stHigh">—</b></div>
+        <div><span>Logged</span><b id="stN">—</b></div>
+      </div>
+    </section>
+    <section class="glass card" id="histCard" hidden>
+      <h2>Tracked products</h2>
+      <div id="history"></div>
+    </section>
+    <div id="empty" class="empty">Hit <b>Log price</b> on any product page to start tracking it.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

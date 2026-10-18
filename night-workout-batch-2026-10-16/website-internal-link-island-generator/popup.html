@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Island Map</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<header class="bar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 13l2.5 2.5L16 10"/></svg>
+  <h1>Island Map</h1>
+</header>
+
+<p class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>Your links only — nothing here crawls websites or extracts links from pages.</span>
+</p>
+
+<canvas id="map" width="348" height="240"></canvas>
+<p class="hint">Click an island to open its page. Bridges join islands in the same group.</p>
+
+<form id="addForm" autocomplete="off">
+  <input id="fTitle" type="text" maxlength="80" placeholder="Title — e.g. My favorite docs" required />
+  <input id="fUrl" type="url" maxlength="300" placeholder="https://…" required />
+  <input id="fGroup" type="text" maxlength="40" placeholder="Group — e.g. work" />
+  <button class="btn primary" type="submit">Add island</button>
+</form>
+
+<div class="row">
+  <input id="search" type="search" placeholder="Search links and groups…" />
+  <select id="groupFilter"><option value="">All groups</option></select>
+</div>
+
+<ul id="list" class="list"></ul>
+<button id="clearAll" class="btn danger">Clear all islands</button>
+
+<script src="popup.js"></script>
+</body>
+</html>

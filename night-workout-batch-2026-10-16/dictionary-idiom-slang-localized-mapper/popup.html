@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Idiom Mapper</h1>
+      <p class="sub">Personal idiom &amp; slang dictionary</p>
+    </div>
+  </header>
+
+  <!-- Honest scope label -->
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" x2="12" y1="16" y2="12"/>
+      <line x1="12" x2="12.01" y1="8" y2="8"/>
+    </svg>
+    <span>YOUR entries only — this is <b>not</b> a real dictionary.</span>
+  </div>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="browse" role="tab">Browse</button>
+    <button class="tab" data-tab="add" role="tab">Add</button>
+    <button class="tab" data-tab="review" role="tab">Review</button>
+  </nav>
+
+  <!-- Browse tab -->
+  <section id="tab-browse" class="tabpane active">
+    <div class="row">
+      <input id="search" class="input grow" type="search"
+             placeholder="Search phrase, meaning, tag…" aria-label="Search entries">
+      <button id="exportBtn" class="btn" title="Download entries as JSON">Export</button>
+    </div>
+    <div id="tagChips" class="chips" aria-label="Filter by tag"></div>
+    <div id="list" class="list"></div>
+    <p id="emptyMsg" class="muted hidden">No entries yet — add your first idiom in the Add tab.</p>
+  </section>
+
+  <!-- Add tab -->
+  <section id="tab-add" class="tabpane">
+    <label class="lbl">Phrase / idiom / slang
+      <input id="fPhrase" class="input" type="text" placeholder="e.g. spill the beans">
+    </label>
+    <label class="lbl">Meaning (in your own words)
+      <input id="fMeaning" class="input" type="text" placeholder="e.g. reveal a secret">
+    </label>
+    <label class="lbl">Your localized equivalent / translation
+      <input id="fLocalized" class="input" type="text" placeholder="e.g. Hindi: पोल खोलना">
+    </label>
+    <label class="lbl">Tags (comma separated)
+      <input id="fTags" class="input" type="text" placeholder="e.g. slang, office">
+    </label>
+    <button id="saveBtn" class="btn-primary">Save entry</button>
+    <p id="addMsg" class="msg" role="status"></p>
+  </section>
+
+  <!-- Review tab -->
+  <section id="tab-review" class="tabpane">
+    <div id="card" class="card" tabindex="0" role="button" aria-label="Flashcard: activate to flip">
+      <div id="cardFront" class="card-face"></div>
+      <div id="cardBack" class="card-face hidden"></div>
+    </div>
+    <p class="hint">Click the card (or press Space) to flip · ← / → to move</p>
+    <div class="row">
+      <button id="prevBtn" class="btn">← Prev</button>
+      <button id="flipBtn" class="btn">Flip</button>
+      <button id="nextBtn" class="btn">Next →</button>
+      <button id="shuffleBtn" class="btn">Shuffle</button>
+    </div>
+    <p id="deckInfo" class="muted"></p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

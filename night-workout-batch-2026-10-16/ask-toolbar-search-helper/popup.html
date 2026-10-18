@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ask Toolbar — Search Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+  <h1>Ask Toolbar</h1>
+</header>
+<div class="notice">Type once, pick an engine. Opens the engine's search page — it is <b>not</b> an Ask.com revival.</div>
+<div class="searchbar">
+  <input id="q" type="text" placeholder="Search the web…" autocomplete="off">
+  <button id="goAll" title="Open the query in every enabled engine">All</button>
+</div>
+<h2>Search engines</h2>
+<div class="engine-list" id="engines"></div>
+<div class="row">
+  <input id="newName" type="text" placeholder="Engine name (e.g. DuckDuckGo)">
+  <input id="newTpl" type="url" placeholder="URL template with %s">
+</div>
+<div class="row">
+  <button id="add"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add engine</button>
+  <button id="reset" class="ghost">Restore classics</button>
+</div>
+<p class="hint">Use <b>%s</b> where the query goes. Click a row to search with that engine. Toggle the dot to enable/disable an engine for "All".</p>
+<script src="popup.js"></script>
+</body>
+</html>

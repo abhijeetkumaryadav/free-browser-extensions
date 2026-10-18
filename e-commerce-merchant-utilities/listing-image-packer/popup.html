@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listing Image Packer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>
+    <div>
+      <h1>Image Packer</h1>
+      <p id="pageHost">—</p>
+    </div>
+    <button id="collect" class="primary">Collect</button>
+  </header>
+
+  <main>
+    <section id="gallery" class="glass card" hidden>
+      <div class="sec-head">
+        <h2 id="imgCount">0 images</h2>
+        <button id="downloadAll" class="mini">Download all</button>
+      </div>
+      <div id="grid"></div>
+      <div id="dlStatus" class="status"></div>
+    </section>
+
+    <div id="empty" class="empty">Hit <b>Collect</b> on any product page to gather its images.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

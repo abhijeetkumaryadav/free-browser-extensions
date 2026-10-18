@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="0.6" fill="currentColor"/><circle cx="15" cy="10" r="0.6" fill="currentColor"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8"/></svg>
+      </span>
+      <div>
+        <h1>Cageify</h1>
+        <p class="subtitle">Swap every image for a silly face</p>
+      </div>
+      <span id="statusDot" class="dot" title="Status"></span>
+    </header>
+
+    <p class="blurb">Harmless prank: every picture on this tab becomes one of four
+      goofy faces bundled with the extension. Nothing leaves your device, and
+      one click puts everything back.</p>
+
+    <div class="face-row" aria-hidden="true">
+      <img src="faces/face1.png" alt="">
+      <img src="faces/face2.png" alt="">
+      <img src="faces/face3.png" alt="">
+      <img src="faces/face4.png" alt="">
+    </div>
+
+    <button id="toggleBtn" class="btn primary">Cageify this page</button>
+    <button id="restoreBtn" class="btn ghost" disabled>Restore originals</button>
+
+    <p id="hint" class="hint">Tip: leave it on — images that load later get cageified too.</p>
+    <footer class="foot">Joke extension · fully reversible · no network calls</footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

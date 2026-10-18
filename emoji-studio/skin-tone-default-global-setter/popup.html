@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8"/><circle cx="9" cy="9.5" r=".8" fill="currentColor"/><circle cx="15" cy="9.5" r=".8" fill="currentColor"/></svg>
+    <div>
+      <h1>ToneSet</h1>
+      <p class="tagline">Default skin tone for this picker's emoji</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h2>Default skin tone</h2>
+    <div id="toneGrid" class="tone-grid" role="radiogroup" aria-label="Skin tone"></div>
+    <p class="hint">Applies only to emoji you copy from this picker — not system-wide.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Emoji picker</h2>
+    <input id="search" type="search" placeholder="Search emoji…" autocomplete="off">
+    <div id="grid" class="emoji-grid"></div>
+  </section>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

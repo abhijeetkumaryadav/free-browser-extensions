@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Fulfillment Automator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+    <div><h1>Fulfillment</h1><p>Pick → Pack → Ship</p></div>
+    <div class="hacts">
+      <button id="importBtn" class="mini primary">Import CSV</button>
+      <button id="clearBtn" class="mini">Clear</button>
+      <input type="file" id="importFile" accept=".csv,text/csv" hidden>
+    </div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="stats">
+        <div><span>Orders</span><b id="stTotal">0</b></div>
+        <div><span>Picked</span><b id="stPicked">0</b></div>
+        <div><span>Packed</span><b id="stPacked">0</b></div>
+        <div><span>Shipped</span><b id="stShipped">0</b></div>
+      </div>
+      <div class="progress"><i id="progFill"></i></div>
+      <div class="prog-lab" id="progLab">0% shipped</div>
+    </section>
+    <section class="glass card">
+      <h2>Orders</h2>
+      <div id="orders"></div>
+      <div class="empty" id="emptyState">
+        No orders yet. Import a CSV with columns:<br>
+        <code>order_id, customer, items, address</code><br>
+        <span class="dim">Example: <code>1001, Ava Rao, "2x Tee; 1x Mug", 221B Baker St</code></span>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

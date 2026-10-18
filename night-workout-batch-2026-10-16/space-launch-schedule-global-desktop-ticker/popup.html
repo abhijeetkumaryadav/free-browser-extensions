@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Countdown</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+    <div>
+      <h1>Launch Countdown</h1>
+      <p class="sub">Your rocket launches — your entries</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Your entries only — not a live launch schedule.</span>
+  </div>
+
+  <section class="next" id="nextPanel">
+    <p class="label">Next launch</p>
+    <h2 id="nextName">No launches yet</h2>
+    <p class="meta" id="nextMeta">Add one below to start the countdown.</p>
+    <div class="countdown" id="countdown" hidden>
+      <div class="unit"><span id="cdD">0</span><label>days</label></div>
+      <div class="unit"><span id="cdH">0</span><label>hrs</label></div>
+      <div class="unit"><span id="cdM">0</span><label>min</label></div>
+      <div class="unit"><span id="cdS">0</span><label>sec</label></div>
+    </div>
+  </section>
+
+  <section class="add">
+    <p class="label">Add a launch</p>
+    <input id="inName" type="text" placeholder="Mission name *" maxlength="80">
+    <div class="row2">
+      <input id="inDate" type="date">
+      <input id="inTime" type="time">
+    </div>
+    <div class="row2">
+      <input id="inRocket" type="text" placeholder="Rocket (optional)" maxlength="60">
+      <input id="inSite" type="text" placeholder="Site (optional)" maxlength="60">
+    </div>
+    <label class="check"><input id="inNotify" type="checkbox" checked> Notify me 10 min before liftoff</label>
+    <button id="btnAdd" class="primary">Add launch</button>
+  </section>
+
+  <section class="lists">
+    <p class="label">Upcoming</p>
+    <ul id="upcoming" class="launch-list"></ul>
+    <p class="label">Past</p>
+    <ul id="past" class="launch-list"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

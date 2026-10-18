@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Open-Source Directory</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="banner">Your directory — not store filtering. You add the software yourself; nothing here filters any store.</div>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-9 5 1 8 5 8 9a7 7 0 0 1-7 7"/><path d="M12 12v8"/></svg>
+  <div class="titles"><h1>Open-Source Directory</h1><p>Your curated OSS list</p></div>
+  <button id="btnExport" class="icon-btn" title="Export JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></button>
+  <button id="btnImport" class="icon-btn" title="Import JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg></button>
+  <input type="file" id="fileInput" accept="application/json,.json" hidden>
+</header>
+
+<section class="add">
+  <h2>Add software</h2>
+  <input id="fName" type="text" placeholder="Name *" maxlength="120">
+  <div class="row">
+    <input id="fCat" type="text" placeholder="Category" maxlength="60">
+    <input id="fLic" type="text" placeholder="License (e.g. MIT)" maxlength="40">
+  </div>
+  <input id="fUrl" type="url" placeholder="URL" maxlength="500">
+  <textarea id="fNotes" rows="2" placeholder="Your notes" maxlength="1000"></textarea>
+  <button id="btnAdd" class="primary">Add entry</button>
+  <p id="formMsg" class="msg"></p>
+</section>
+
+<section class="list">
+  <div class="list-head">
+    <h2>Entries <span id="count" class="count">0</span></h2>
+    <input id="q" type="search" placeholder="Search name, category, notes…">
+  </div>
+  <div id="entries" class="entries"></div>
+  <button id="btnClear" class="danger-ghost">Clear all entries</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

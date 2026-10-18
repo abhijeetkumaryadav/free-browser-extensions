@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Packing Slip</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f3f4f6; color: #111; }
+  .slip { max-width: 640px; margin: 32px auto; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; }
+  .slip h1 { font-size: 22px; margin: 0 0 4px; }
+  .slip .meta { color: #6b7280; font-size: 13px; margin-bottom: 20px; }
+  .slip h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: #6b7280; margin: 20px 0 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #e5e7eb; font-size: 14px; }
+  th { color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: .6px; }
+  .addr { background: #f9fafb; border-radius: 8px; padding: 12px 14px; font-size: 14px; }
+  .toolbar { max-width: 640px; margin: 0 auto 16px; display: flex; gap: 10px; }
+  .toolbar button { flex: 1; padding: 12px; border: 0; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; background: #0284c7; color: #fff; }
+  .toolbar button:hover { filter: brightness(1.1); }
+  @media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .slip { border: 0; margin: 0; max-width: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="toolbar"><button id="printBtn">Print packing slip</button></div>
+  <div class="slip" id="slip"><p>Loading…</p></div>
+<script src="slip.js"></script>
+</body>
+</html>

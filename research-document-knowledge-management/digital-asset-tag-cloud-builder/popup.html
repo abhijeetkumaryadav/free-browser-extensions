@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TagCloud — Bookmark Tag Explorer</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon" id="brand-icon"></span>
+        <div>
+          <h1>TagCloud</h1>
+          <p class="subtitle">Bookmark tag explorer</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="export-btn" title="Export collection as JSON" aria-label="Export"></button>
+        <button class="icon-btn" id="import-btn" title="Import collection from JSON" aria-label="Import"></button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden />
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="cloud">Cloud</button>
+      <button class="tab" data-tab="links">Links <span class="count-badge" id="link-count">0</span></button>
+      <button class="tab" data-tab="add">Add</button>
+    </nav>
+
+    <!-- Cloud tab -->
+    <section class="panel active" id="tab-cloud">
+      <div class="search-row">
+        <span class="search-icon" id="search-icon"></span>
+        <input type="text" id="search-input" placeholder="Search links…" autocomplete="off" />
+      </div>
+      <div class="cloud" id="tag-cloud" aria-label="Tag cloud"></div>
+      <div class="cloud-hint" id="cloud-hint">Bigger tags = more links</div>
+      <div class="link-list" id="cloud-results"></div>
+    </section>
+
+    <!-- Links tab -->
+    <section class="panel" id="tab-links">
+      <div class="link-list full" id="all-links"></div>
+    </section>
+
+    <!-- Add tab -->
+    <section class="panel" id="tab-add">
+      <form id="add-form" class="add-form">
+        <label class="field">
+          <span>Title</span>
+          <input type="text" id="f-title" placeholder="e.g. Cool design blog" required maxlength="120" />
+        </label>
+        <label class="field">
+          <span>URL</span>
+          <input type="url" id="f-url" placeholder="https://…" required maxlength="2048" />
+        </label>
+        <label class="field">
+          <span>Tags <em>(comma separated)</em></span>
+          <input type="text" id="f-tags" placeholder="design, inspiration, css" maxlength="240" />
+        </label>
+        <button type="submit" class="primary-btn" id="add-submit">Save link</button>
+        <p class="form-note" id="add-note"></p>
+      </form>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

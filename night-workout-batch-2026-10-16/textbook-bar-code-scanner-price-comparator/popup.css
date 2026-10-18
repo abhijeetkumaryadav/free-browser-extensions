@@ -1,0 +1,51 @@
+/* Textbook Price Log — deep-dark glassmorphism, one amber accent */
+:root { --accent:#f59e0b; --ink:#e8e9ee; --dim:#9aa0ae; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  width:380px; max-height:560px; overflow-y:auto;
+  color:var(--ink); font:13px/1.5 system-ui,-apple-system,sans-serif;
+  background:rgba(20,20,26,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  padding:14px;
+}
+.top { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.logo { width:28px; height:28px; color:var(--accent); flex:none; }
+h1 { font-size:16px; font-weight:700; }
+.sub { color:var(--dim); font-size:11px; }
+.banner {
+  display:flex; gap:8px; align-items:flex-start;
+  background:rgba(245,158,11,.10); border:1px solid rgba(245,158,11,.35);
+  border-radius:10px; padding:10px 12px; font-size:12px; margin-bottom:12px;
+}
+.banner svg { width:16px; height:16px; color:var(--accent); flex:none; margin-top:1px; }
+.card {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:12px; margin-bottom:12px;
+}
+.card h2 { font-size:13px; margin-bottom:8px; }
+label { display:block; font-size:11px; color:var(--dim); margin-bottom:8px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+input {
+  width:100%; margin-top:4px; padding:8px 10px; font-size:13px; color:var(--ink);
+  background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); border-radius:8px; outline:none;
+}
+input:focus { border-color:var(--accent); }
+button { cursor:pointer; font-size:13px; border-radius:8px; border:none; }
+.primary { width:100%; padding:10px; background:var(--accent); color:#2a1a02; font-weight:700; }
+.primary:hover { filter:brightness(1.1); }
+.ghost { background:transparent; color:var(--dim); border:1px solid rgba(255,255,255,.14); padding:8px 12px; flex:1; }
+.ghost:hover { color:var(--ink); border-color:var(--accent); }
+.danger { background:transparent; color:#fb7185; border:1px solid rgba(251,113,133,.4); padding:8px 12px; width:100%; margin-top:8px; }
+.err { color:#fb7185; font-size:12px; margin-top:8px; }
+.list-head input { margin:4px 0 10px; }
+#books { list-style:none; }
+.book { background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:10px 12px; margin-bottom:8px; }
+.book .t { font-weight:700; }
+.book .isbn { font-family:ui-monospace,monospace; font-size:11px; color:var(--dim); margin:2px 0; }
+.best { color:var(--accent); font-weight:700; font-size:15px; margin:6px 0 2px; }
+.hist { font-size:12px; color:var(--dim); margin-top:6px; }
+.hist li { list-style:none; padding:3px 0; border-top:1px dashed rgba(255,255,255,.08); display:flex; justify-content:space-between; gap:8px; }
+.hist button { color:#fb7185; background:none; font-size:11px; padding:2px 6px; }
+.book .row { display:flex; gap:8px; margin-top:8px; }
+.row { display:flex; gap:8px; }
+.empty { color:var(--dim); text-align:center; padding:16px 0; font-size:12px; }
+::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-thumb { background:rgba(255,255,255,.15); border-radius:4px; }

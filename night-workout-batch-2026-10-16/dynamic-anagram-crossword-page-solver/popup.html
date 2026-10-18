@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+    </div>
+    <div>
+      <h1>Anagram &amp; Crossword Solver</h1>
+      <p class="sub">100% local algorithm — bundled word list, no network, no AI</p>
+    </div>
+  </header>
+
+  <div class="notice">Real anagram solving on your device only. Uses the bundled ~9,700-word list — obscure words may be missing.</div>
+
+  <label class="field">
+    <span class="label">Letters</span>
+    <input id="letters" type="text" placeholder="e.g. listen" autocomplete="off" spellcheck="false">
+  </label>
+
+  <label class="field">
+    <span class="label">Pattern filter <span class="hint">(optional, _ = any letter, e.g. s_e_t)</span></span>
+    <input id="pattern" type="text" placeholder="optional" autocomplete="off" spellcheck="false">
+  </label>
+
+  <div class="row">
+    <button id="solve" class="primary">Solve</button>
+    <button id="grab" class="ghost" title="Use the selected text on the current page">Grab selected text</button>
+  </div>
+
+  <div id="status" class="status">Type letters and press Solve.</div>
+  <div id="results" class="results"></div>
+</div>
+<script src="words.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

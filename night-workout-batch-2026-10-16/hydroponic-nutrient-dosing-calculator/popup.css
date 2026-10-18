@@ -1,0 +1,80 @@
+/* Hydroponic Nutrient Dosing Calculator — popup styles.
+ * Design system: 380px, deep-dark glass, 12–16px spacing, ONE accent (water cyan).
+ */
+:root {
+  --accent: #38bdf8;
+  --bg: #101014;
+  --panel: rgba(20, 20, 26, 0.72);
+  --line: rgba(255, 255, 255, 0.09);
+  --text: #f2f3f5;
+  --muted: #9aa0ab;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 380px;
+  margin: 0;
+  padding: 14px 14px 12px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.topbar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+.logo { width: 28px; height: 28px; color: var(--accent); flex: none; }
+.topbar h1 { font-size: 15px; margin: 0; }
+.sub { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+
+.card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.card h2 { font-size: 13px; margin: 0 0 8px; display: flex; align-items: center; gap: 6px; }
+.card h2 svg { width: 16px; height: 16px; color: var(--accent); }
+.hidden { display: none; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; margin-bottom: 10px; }
+.field span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.field small { color: var(--muted); font-size: 10px; }
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-size: 13px;
+}
+input:focus, select:focus { outline: none; border-color: rgba(56, 189, 248, 0.6); }
+select option { background: #1a1a20; }
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.14);
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: rgba(56, 189, 248, 0.22); }
+
+.result-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; }
+.result-row:last-child { border-bottom: none; }
+.result-row .k { color: var(--muted); }
+.result-row .v { font-weight: 600; }
+.big { font-size: 15px; color: var(--accent); }
+.warn { color: #fbbf24; }
+.danger { color: #f87171; }
+
+.mix { margin: 0 0 8px; padding-left: 18px; font-size: 12.5px; }
+.mix li { margin-bottom: 4px; }
+.note { font-size: 11.5px; color: var(--muted); margin: 0; }
+.foot { margin-top: 10px; font-size: 10.5px; color: var(--muted); text-align: center; }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GradCraft — CSS Gradient Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 8v8"/><path d="M17 6v12"/></svg>
+      <div>
+        <h1>GradCraft</h1>
+        <p class="sub">CSS gradient builder · 100% local</p>
+      </div>
+    </div>
+    <button id="randomBtn" class="icon-btn" title="Random gradient" aria-label="Random gradient">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>
+    </button>
+  </header>
+
+  <section class="card preview-card">
+    <div id="preview" class="preview" aria-label="Gradient preview"></div>
+  </section>
+
+  <section class="card">
+    <div class="row seg-row">
+      <div class="segmented" role="group" aria-label="Gradient type">
+        <button id="linearBtn" class="seg active" type="button">Linear</button>
+        <button id="radialBtn" class="seg" type="button">Radial</button>
+      </div>
+    </div>
+    <div id="angleWrap" class="row slider-row">
+      <label for="angle">Angle <span id="angleVal">90°</span></label>
+      <input type="range" id="angle" min="0" max="360" value="90">
+    </div>
+    <div id="shapeWrap" class="row slider-row hidden">
+      <label>Shape</label>
+      <div class="segmented small">
+        <button id="circleBtn" class="seg active" type="button">Circle</button>
+        <button id="ellipseBtn" class="seg" type="button">Ellipse</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <h2>Color stops</h2>
+      <button id="addStop" class="pill" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add stop
+      </button>
+    </div>
+    <ul id="stops" class="stops"></ul>
+  </section>
+
+  <section class="card code-card">
+    <div class="section-head">
+      <h2>CSS</h2>
+      <button id="copyBtn" class="pill" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy CSS
+      </button>
+    </div>
+    <pre id="cssOut" class="css-out"></pre>
+    <p id="copyNote" class="note hidden">Copied to clipboard ✓</p>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

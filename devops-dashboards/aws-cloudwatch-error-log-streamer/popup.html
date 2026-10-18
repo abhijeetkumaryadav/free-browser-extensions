@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudTail — AWS CloudWatch Log Streamer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="23" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </span>
+      <div>
+        <h1>CloudTail</h1>
+        <p class="subtitle">AWS CloudWatch log streamer</p>
+      </div>
+    </div>
+    <button id="settings-toggle" class="icon-btn" title="Settings" aria-label="Toggle settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </header>
+
+  <section id="settings-panel" class="panel hidden">
+    <h2>AWS credentials</h2>
+    <p class="hint">Needs an IAM user (or role) key with <code>logs:DescribeLogGroups</code> and <code>logs:FilterLogEvents</code>. Keys are stored only in this browser and sent only to <code>logs.&lt;region&gt;.amazonaws.com</code>, signed locally with SigV4.</p>
+    <label class="field">
+      <span>Access key ID</span>
+      <input type="text" id="access-key" placeholder="AKIA…" autocomplete="off" spellcheck="false">
+    </label>
+    <label class="field">
+      <span>Secret access key</span>
+      <div class="token-row">
+        <input type="password" id="secret-key" placeholder="••••••••" autocomplete="off" spellcheck="false">
+        <button id="secret-visibility" class="icon-btn small" title="Show / hide secret" aria-label="Show or hide secret">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </label>
+    <label class="field">
+      <span>Session token <em>(optional — only for temporary credentials)</em></span>
+      <input type="password" id="session-token" placeholder="Optional" autocomplete="off" spellcheck="false">
+    </label>
+    <label class="field">
+      <span>Region</span>
+      <input type="text" id="region" list="region-list" placeholder="us-east-1" autocomplete="off" spellcheck="false">
+      <datalist id="region-list">
+        <option value="us-east-1"></option><option value="us-east-2"></option>
+        <option value="us-west-1"></option><option value="us-west-2"></option>
+        <option value="eu-west-1"></option><option value="eu-central-1"></option>
+        <option value="eu-north-1"></option><option value="ap-south-1"></option>
+        <option value="ap-southeast-1"></option><option value="ap-southeast-2"></option>
+        <option value="ap-northeast-1"></option><option value="sa-east-1"></option>
+      </datalist>
+    </label>
+    <label class="switch-row">
+      <span>Auto-refresh tail every 2 min (updates toolbar badge)</span>
+      <span class="switch"><input type="checkbox" id="auto-refresh"><span class="slider"></span></span>
+    </label>
+    <div class="btn-row">
+      <button id="save-settings" class="btn primary">Save &amp; connect</button>
+      <button id="clear-settings" class="btn ghost">Forget keys</button>
+    </div>
+    <p id="settings-status" class="status-line" role="status"></p>
+  </section>
+
+  <main id="tail-panel">
+    <div class="group-row">
+      <select id="log-group" aria-label="Log group"></select>
+      <button id="refresh-groups" class="icon-btn" title="Reload log groups" aria-label="Reload log groups">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      </button>
+    </div>
+    <div class="filter-row">
+      <div class="preset-chips" role="group" aria-label="Filter presets">
+        <button class="chip active" data-pattern="?ERROR ?Error ?error ?Exception ?FATAL ?Failed">Errors</button>
+        <button class="chip" data-pattern="?WARN ?Warn ?warn ?WARNING ?Warning">Warnings</button>
+        <button class="chip" data-pattern="">All events</button>
+      </div>
+      <input type="text" id="custom-pattern" placeholder="Custom filter pattern (CloudWatch syntax)" spellcheck="false" autocomplete="off">
+    </div>
+    <div class="tail-toolbar">
+      <span id="event-count" class="event-count"></span>
+      <button id="tail-now" class="btn small primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        Tail logs
+      </button>
+    </div>
+    <div id="events-list" class="events-list"></div>
+    <p id="events-status" class="status-line" role="status"></p>
+  </main>
+
+  <footer class="app-footer">
+    <span id="last-checked">Never checked</span>
+    <span class="dot-sep">·</span>
+    <span>Keys stay on this device</span>
+  </footer>
+
+  <script src="sigv4.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.6 5.4a9 9 0 0 1 0 13.2"/></svg>
+    </div>
+    <div>
+      <h1>Read Aloud</h1>
+      <div class="sub">Page TTS reader</div>
+    </div>
+  </header>
+  <div class="notice">
+    <strong>Scope:</strong> this reads the page aloud with your browser's built-in speech
+    synthesis. It does <strong>NOT translate</strong> anything — no translation engine is available offline.
+    100% local, zero network.
+  </div>
+  <label for="voice">Voice</label>
+  <select id="voice"><option>Loading voices…</option></select>
+  <label>Rate</label>
+  <div class="slider-row"><input type="range" id="rate" min="0.5" max="2" step="0.1" value="1"><span class="val" id="rateVal">1.0×</span></div>
+  <label>Pitch</label>
+  <div class="slider-row"><input type="range" id="pitch" min="0" max="2" step="0.1" value="1"><span class="val" id="pitchVal">1.0</span></div>
+  <label>Source</label>
+  <select id="source">
+    <option value="page">Page main text</option>
+    <option value="selection">Selected text only</option>
+  </select>
+  <div class="btn-row">
+    <button class="btn-primary" id="speak">
+      <svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg><span>Read aloud</span>
+    </button>
+    <button class="btn-ghost" id="pause" disabled>
+      <svg viewBox="0 0 24 24"><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg><span>Pause</span>
+    </button>
+    <button class="btn-ghost" id="stop" disabled>
+      <svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></svg><span>Stop</span>
+    </button>
+  </div>
+  <div class="status" id="status"><span class="dot"></span><span id="statusText">Idle</span></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

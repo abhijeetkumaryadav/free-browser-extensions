@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dew Point Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+    <div>
+      <h1>Dew Point Calculator</h1>
+      <p class="sub">Temp + humidity → dew point &amp; risk</p>
+    </div>
+  </header>
+
+  <div class="notice">Standard Magnus formula — estimates only, not weather advice.</div>
+
+  <label class="field">
+    <span>Air temperature</span>
+    <div class="row">
+      <input id="temp" type="number" step="0.1" value="22" inputmode="decimal">
+      <div class="seg" id="unitSeg">
+        <button class="on" data-unit="C">°C</button>
+        <button data-unit="F">°F</button>
+      </div>
+    </div>
+  </label>
+
+  <label class="field">
+    <span>Relative humidity <b id="rhVal">60%</b></span>
+    <input id="rh" type="range" min="1" max="100" value="60">
+  </label>
+
+  <div class="results">
+    <div class="stat big">
+      <span class="k">Dew point</span>
+      <span class="v accent" id="dewPoint">—</span>
+    </div>
+    <div class="grid">
+      <div class="stat"><span class="k">Dew-point spread</span><span class="v" id="spread">—</span></div>
+      <div class="stat"><span class="k">Frost risk</span><span class="v" id="frost">—</span></div>
+    </div>
+    <div class="risk" id="riskNote">—</div>
+  </div>
+
+  <div class="bar-wrap"><div class="bar" id="gaugeBar"></div></div>
+  <div class="bar-labels"><span>Dry</span><span>Humid</span></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

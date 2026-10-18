@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repo Graveyard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/><path d="M9 2h6"/></svg>
+      <div>
+        <h1>Repo Graveyard</h1>
+        <p class="subtitle">Abandoned-repo memorial</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="honest-banner">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Your memorial — manual. Nothing is mined automatically; you record the repos yourself.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="graves">Graves</button>
+    <button class="tab" data-tab="bury">Bury one</button>
+    <button class="tab" data-tab="notes">Notes</button>
+  </nav>
+
+  <main>
+    <!-- Graves list tab -->
+    <section id="tab-graves" class="tab-panel active">
+      <div class="search-row">
+        <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search" type="text" placeholder="Search graves…" autocomplete="off">
+      </div>
+      <div class="stats-row"><span id="graveCount">0 graves</span></div>
+      <ul id="graveList" class="grave-list"></ul>
+      <div id="emptyGraves" class="empty">No graves yet. Bury your first repo.</div>
+    </section>
+
+    <!-- Bury tab -->
+    <section id="tab-bury" class="tab-panel">
+      <form id="buryForm" class="form">
+        <label>Repo name
+          <input id="fName" type="text" maxlength="120" placeholder="e.g. left-pad" required>
+        </label>
+        <label>Repo URL
+          <input id="fUrl" type="text" maxlength="500" placeholder="https://github.com/owner/repo" required>
+        </label>
+        <label>Eulogy <span class="hint">optional</span>
+          <textarea id="fEulogy" rows="3" maxlength="500" placeholder="What it was, why it mattered…"></textarea>
+        </label>
+        <button type="submit" class="btn primary">Lay it to rest</button>
+        <p id="buryError" class="error" hidden></p>
+      </form>
+    </section>
+
+    <!-- Notes tab -->
+    <section id="tab-notes" class="tab-panel">
+      <form id="noteForm" class="form">
+        <label>Title
+          <input id="nTitle" type="text" maxlength="120" placeholder="Note title" required>
+        </label>
+        <label>Body
+          <textarea id="nBody" rows="3" maxlength="2000" placeholder="Your thoughts…"></textarea>
+        </label>
+        <button type="submit" class="btn primary">Save note</button>
+      </form>
+      <div class="search-row">
+        <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="noteSearch" type="text" placeholder="Search notes…" autocomplete="off">
+      </div>
+      <ul id="noteList" class="note-list"></ul>
+      <button id="clearGraves" class="btn danger ghost">Clear all graves</button>
+    </section>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

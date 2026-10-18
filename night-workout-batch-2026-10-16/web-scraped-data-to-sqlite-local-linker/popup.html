@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <div>
+      <h1>Scrape Export Bridge</h1>
+      <p class="sub">Tables · Lists · JSON-LD → CSV/JSON</p>
+    </div>
+  </header>
+
+  <div class="row presets">
+    <button class="preset active" data-preset="tables">Tables</button>
+    <button class="preset" data-preset="lists">Lists</button>
+    <button class="preset" data-preset="jsonld">JSON-LD</button>
+  </div>
+
+  <div class="row">
+    <input type="text" id="selector" placeholder="Or a custom CSS selector…">
+    <button id="scan" class="primary">Scan</button>
+  </div>
+
+  <div class="meta" id="meta">Click Scan to extract structured data from the current tab.</div>
+
+  <div class="tablewrap">
+    <table id="preview"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+  </div>
+
+  <div class="row export">
+    <button id="csv" class="primary" disabled>Download CSV</button>
+    <button id="json" class="primary" disabled>Download JSON</button>
+  </div>
+
+  <p class="note">Export bridge only — <strong>no SQLite inside a browser extension</strong>. Import the downloaded CSV/JSON into your own database (sqlite3, Excel, Python, …) yourself.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+/* PartySync — deep dark glassmorphism, red accent */
+:root {
+  --accent: #ef4444;
+  --bg: #0d0b0b;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-border: rgba(255, 255, 255, 0.10);
+  --text: #f5f1f1;
+  --muted: #b3a6a6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font: 13px/1.5 -apple-system, "Segoe UI", Inter, sans-serif;
+  color: var(--text);
+  background: radial-gradient(120% 90% at 50% -10%, #3d1010 0%, var(--bg) 60%);
+  padding: 16px;
+}
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; flex: none;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, .45);
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 16px; font-weight: 700; letter-spacing: .2px; }
+.sub { font-size: 11.5px; color: var(--muted); }
+h2 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.hint { font-size: 11px; color: var(--muted); margin: 6px 0; }
+.row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+input[type="text"], select {
+  flex: 1; min-width: 0;
+  background: rgba(255,255,255,.07);
+  border: 1px solid var(--panel-border);
+  border-radius: 9px; color: var(--text);
+  padding: 8px 10px; font-size: 12.5px; outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+select { flex: none; }
+option { background: #1a1515; }
+button { cursor: pointer; font-size: 12.5px; font-weight: 600; border-radius: 9px; border: none; padding: 8px 14px; }
+.primary { background: linear-gradient(135deg, #ef4444, #b91c1c); color: #fff; box-shadow: 0 3px 12px rgba(239,68,68,.35); }
+.primary:hover { filter: brightness(1.08); }
+.ghost { background: rgba(255,255,255,.08); color: var(--text); border: 1px solid var(--panel-border); }
+.ghost:hover { background: rgba(255,255,255,.14); }
+.ghost.wide { width: 100%; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.ghost svg { width: 15px; height: 15px; }
+.danger-link { background: none; color: var(--muted); font-size: 11px; padding: 4px 0; text-decoration: underline; }
+.danger-link:hover { color: var(--accent); }
+.countdown {
+  text-align: center; font-size: 40px; font-weight: 800; letter-spacing: 1px;
+  color: var(--accent); padding: 10px 0; font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 24px rgba(239,68,68,.5);
+}
+.countdown.go { color: #22c55e; text-shadow: 0 0 24px rgba(34,197,94,.6); }
+.list { list-style: none; margin-top: 6px; }
+.list li {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 9px; padding: 7px 10px; margin-bottom: 6px; font-size: 12px;
+}
+.list .ts { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 8px; }
+.list button { background: none; color: var(--muted); padding: 2px 6px; font-size: 13px; }
+.list button:hover { color: var(--accent); }
+.warn { border-color: rgba(239, 68, 68, .25); }
+.warn p { font-size: 11px; color: var(--muted); }
+.empty { font-size: 11.5px; color: var(--muted); padding: 6px 0; }

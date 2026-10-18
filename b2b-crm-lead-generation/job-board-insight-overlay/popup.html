@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Board Insight Overlay</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></svg>
+    <div><h1>Job Board Insights</h1><p id="pageHost">Scan the board you're viewing</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Keyword filter
+        <input id="filter" type="text" placeholder="e.g. react remote senior" autocomplete="off">
+      </label>
+      <div class="statline"><span id="count">No scan yet</span><span id="newCount" class="newpill" hidden></span></div>
+      <div id="rows"></div>
+      <p class="note">Best-effort extraction — layouts vary by board. “New” means first seen by this extension.</p>
+    </section>
+    <button id="export" class="ghost" hidden>Export CSV</button>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

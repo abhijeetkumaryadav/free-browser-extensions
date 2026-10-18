@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>History Visual Journey Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    <div><h1>Today's Journey</h1><p id="dateLine">—</p></div>
+    <button id="clear" class="ghostbtn" title="Clear today's history">Clear</button>
+  </header>
+  <main>
+    <section class="glass card" id="statsCard">
+      <div class="stats">
+        <div><span>Sites</span><b id="stSites">0</b></div>
+        <div><span>Visits</span><b id="stVisits">0</b></div>
+        <div><span>Est. time</span><b id="stTime">0m</b></div>
+      </div>
+    </section>
+    <section id="timeline"></section>
+    <div id="empty" class="empty" hidden>No browsing history recorded today yet.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outline Linter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M8 12h12"/><path d="M12 18h8"/></svg>
+    </div>
+    <div>
+      <h1>Outline Linter</h1>
+      <p class="sub">Heading hierarchy accessibility checker</p>
+    </div>
+  </header>
+
+  <button id="scanBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    Scan heading structure
+  </button>
+
+  <div id="summary" class="summary hidden">
+    <div class="tile good"><span class="num" id="nHeadings">0</span><span class="lbl">Headings</span></div>
+    <div class="tile warn"><span class="num" id="nIssues">0</span><span class="lbl">Issues</span></div>
+    <div class="tile bad"><span class="num" id="nErrors">0</span><span class="lbl">Errors</span></div>
+  </div>
+
+  <div id="issuesWrap" class="hidden">
+    <h2 class="section-title">Issues &amp; fix guidance</h2>
+    <div id="issues" class="issues"></div>
+  </div>
+
+  <div id="outlineWrap" class="hidden">
+    <h2 class="section-title">Document outline <span class="hint">(click a row to jump to it)</span></h2>
+    <div id="outline" class="outline"></div>
+  </div>
+
+  <div id="actions" class="actions hidden">
+    <button id="exportJson" class="ghost">Export JSON</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <p class="honest">Read-only analysis — nothing on the page is changed. Checks structural heading patterns (skipped levels, multiple H1s, empty headings); it cannot judge whether heading <b>wording</b> is meaningful. 100% local, no network.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

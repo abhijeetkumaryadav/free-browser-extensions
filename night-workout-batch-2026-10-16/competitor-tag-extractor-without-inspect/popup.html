@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meta Tag Extractor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+  <div>
+    <h1>Meta Tag Extractor</h1>
+    <p class="sub">On-click page reader</p>
+  </div>
+</header>
+
+<div class="notice" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>Reads only the tab you click from. Nothing is changed on the page — the read is fully reversible.</span>
+</div>
+
+<section class="card">
+  <button id="read" class="primary">Read this page's tags</button>
+  <p class="hint" id="pageurl">No page read yet.</p>
+</section>
+
+<section class="card" id="results" hidden>
+  <div class="row spread">
+    <h2 class="mini">Extracted</h2>
+    <button id="copy" class="ghost">Copy all</button>
+  </div>
+  <dl class="taglist" id="taglist"></dl>
+  <div class="row">
+    <input id="savenote" type="text" placeholder="Note about this page (optional)" maxlength="140">
+    <button id="save" class="ghost">Save</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="mini">Saved snapshots</h2>
+  <ul class="saved" id="saved"></ul>
+  <p class="hint" id="empty" hidden>No snapshots saved yet.</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

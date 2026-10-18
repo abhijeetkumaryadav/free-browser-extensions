@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QRScan</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <!-- Lucide-style stroke icon: scan -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+      <span>QRScan</span>
+    </div>
+    <span class="tag">LOCAL&nbsp;·&nbsp;QR ONLY</span>
+  </header>
+
+  <!-- Drop / browse zone -->
+  <div class="panel">
+    <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Drop an image or click to browse">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <p class="dz-title">Drop a QR image here</p>
+      <p class="dz-sub">or <button id="browseBtn" class="link-btn">browse files</button> · PNG / JPG / WebP</p>
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
+    </div>
+    <button id="pasteBtn" class="btn secondary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+      Paste image from clipboard
+    </button>
+    <p class="hint">Reads the clipboard only when you press this button — never in the background.</p>
+  </div>
+
+  <!-- Preview -->
+  <div class="panel hidden" id="previewPanel">
+    <div class="preview-row">
+      <canvas id="previewCanvas" class="preview"></canvas>
+      <div class="preview-meta">
+        <p class="meta-line" id="imgMeta">—</p>
+        <button id="rescanBtn" class="btn ghost sm">Rescan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="panel hidden" id="resultPanel">
+    <div class="result-head">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <span class="result-title">QR code decoded</span>
+    </div>
+    <div class="result-box" id="resultText"></div>
+    <div class="row">
+      <button id="copyBtn" class="btn primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy text
+      </button>
+      <a id="openLink" class="btn secondary hidden" href="#" target="_blank" rel="noopener">Open link</a>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div class="panel error hidden" id="errorPanel">
+    <p class="err-title">No QR code found</p>
+    <p class="err-sub" id="errorText">The image was scanned but no QR code was detected. Try a clearer or larger image.</p>
+  </div>
+
+  <footer class="footer">
+    <p>Decodes <strong>QR codes only</strong> (not UPC/EAN/CODE-128). Everything runs on your device — no uploads, no network.</p>
+  </footer>
+</div>
+<script src="lib/jsQR.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

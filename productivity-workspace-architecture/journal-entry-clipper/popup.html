@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journal Entry Clipper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <div class="hwrap">
+      <h1>Journal Clipper</h1>
+      <p>Capture thoughts, right from the page</p>
+    </div>
+    <span id="entryCount" class="count">0</span>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>New entry</h2>
+      <button id="clipBtn" class="ghost">⤓ Clip from this page</button>
+      <textarea id="text" rows="4" placeholder="Write something… or clip selected text from the page."></textarea>
+      <input id="tags" type="text" placeholder="tags: comma, separated" maxlength="120">
+      <div class="moods" id="moods" role="radiogroup" aria-label="Mood">
+        <button data-mood="great" title="Great">😊</button>
+        <button data-mood="ok" title="OK">😐</button>
+        <button data-mood="down" title="Down">😟</button>
+        <button data-mood="fired" title="Fired up">😤</button>
+        <button data-mood="tired" title="Tired">😴</button>
+      </div>
+      <button id="save" class="primary">Save entry</button>
+      <p class="src" id="srcLine" hidden>from <b id="srcTitle">—</b></p>
+    </section>
+
+    <section class="glass card">
+      <h2>Entries</h2>
+      <div class="tools">
+        <input id="search" type="text" placeholder="Search entries…" maxlength="80">
+      </div>
+      <div id="entries"></div>
+      <div class="exp-row">
+        <button id="expMd" class="ghost">Export Markdown</button>
+        <button id="expJson" class="ghost">Export JSON</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

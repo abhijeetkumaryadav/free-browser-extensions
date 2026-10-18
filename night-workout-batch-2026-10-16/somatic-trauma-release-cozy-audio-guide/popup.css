@@ -1,0 +1,90 @@
+/* Cozy Audio Guide — deep-dark glassmorphism, single amber accent */
+:root {
+  --accent: #fbbf24;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.10);
+  --text: #eceaf2;
+  --muted: #a7a3b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  background: var(--bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  padding: 14px;
+  font-size: 14px;
+}
+.banner {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(251, 191, 36, 0.10);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 12px; color: var(--text);
+  margin-bottom: 12px;
+}
+.banner svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--accent); margin-top: 1px; }
+header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+.logo { width: 28px; height: 28px; color: var(--accent); }
+h1 { font-size: 16px; font-weight: 650; }
+.sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.phase-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.phase-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.phase-kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 600; }
+.phase-time { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--muted); }
+.phase-card h2 { font-size: 15px; margin-bottom: 6px; }
+.phase-text { font-size: 13px; line-height: 1.55; color: #d6d3e2; min-height: 60px; }
+.progress { height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; margin-top: 10px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 3px; transition: width 0.5s linear; }
+.dots { display: flex; gap: 6px; margin-top: 10px; justify-content: center; }
+.dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+.dots span.active { background: var(--accent); }
+.dots span.done { background: rgba(251,191,36,0.45); }
+.controls { margin-bottom: 12px; }
+button.primary {
+  width: 100%; padding: 11px; border: none; border-radius: 10px;
+  background: var(--accent); color: #1a1405;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+}
+button.primary:hover { filter: brightness(1.08); }
+button.primary.stop { background: rgba(251,191,36,0.15); color: var(--accent); border: 1px solid rgba(251,191,36,0.4); }
+.row { display: flex; gap: 8px; margin-top: 8px; }
+button.ghost {
+  flex: 1; padding: 8px; border-radius: 10px; cursor: pointer;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border); font-size: 13px;
+}
+button.ghost:disabled { opacity: 0.35; cursor: default; }
+button.ghost:not(:disabled):hover { border-color: var(--accent); }
+.audio {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px; margin-bottom: 10px;
+}
+.audio-head { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+.audio-head svg { width: 18px; height: 18px; color: var(--accent); }
+.audio-head .switch { margin-left: auto; }
+.switch { position: relative; display: inline-block; width: 38px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch .slider {
+  position: absolute; inset: 0; cursor: pointer;
+  background: rgba(255,255,255,0.15); border-radius: 22px; transition: 0.2s;
+}
+.switch .slider:before {
+  content: ""; position: absolute; width: 16px; height: 16px; left: 3px; top: 3px;
+  background: #fff; border-radius: 50%; transition: 0.2s;
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider:before { transform: translateX(16px); }
+.vol-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+input[type="range"] { flex: 1; accent-color: var(--accent); }
+footer { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.5; }

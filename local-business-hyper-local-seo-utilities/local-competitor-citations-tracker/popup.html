@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citation Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="hero">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <div>
+          <h1>Citation Tracker</h1>
+          <p class="sub">NAP consistency · manual log · no scraping</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="businesses" role="tab">Businesses</button>
+      <button class="tab" data-tab="log" role="tab">Log listing</button>
+      <button class="tab" data-tab="report" role="tab">Report</button>
+    </nav>
+
+    <!-- Businesses panel -->
+    <section class="panel active" id="panel-businesses">
+      <form id="bizForm" class="card form" autocomplete="off">
+        <div class="form-title">Add a business</div>
+        <input id="bizName" placeholder="Business name (canonical)" required maxlength="80">
+        <input id="bizAddr" placeholder="Address (canonical)" required maxlength="160">
+        <input id="bizPhone" placeholder="Phone (canonical)" required maxlength="30">
+        <button type="submit" class="btn primary">Add business</button>
+      </form>
+      <div id="bizList" class="stack"></div>
+    </section>
+
+    <!-- Log listing panel -->
+    <section class="panel" id="panel-log">
+      <form id="logForm" class="card form" autocomplete="off">
+        <div class="form-title">Log a directory listing</div>
+        <label class="lbl">Business
+          <select id="logBiz"></select>
+        </label>
+        <label class="lbl">Directory
+          <select id="logDir"></select>
+        </label>
+        <label class="lbl rowline">Custom directory
+          <input id="logDirCustom" placeholder="e.g. Local Chamber" maxlength="60">
+        </label>
+        <input id="logName" placeholder="Name as listed" maxlength="80">
+        <input id="logAddr" placeholder="Address as listed" maxlength="160">
+        <input id="logPhone" placeholder="Phone as listed" maxlength="30">
+        <button type="submit" class="btn primary">Save listing</button>
+      </form>
+      <div class="hint card">Fields left blank are skipped in scoring. Everything is entered by hand — this extension never scrapes directories.</div>
+    </section>
+
+    <!-- Report panel -->
+    <section class="panel" id="panel-report">
+      <div class="card">
+        <div class="row between">
+          <div class="form-title">Consistency report</div>
+          <select id="repBiz" class="mini"></select>
+        </div>
+        <div id="repScore" class="scorebox"></div>
+        <div id="repRows" class="stack"></div>
+        <div class="row gap">
+          <button id="exportCsv" class="btn ghost">Export CSV</button>
+          <button id="exportJson" class="btn ghost">Export JSON</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">Manual tracker · all data stays on this device</footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

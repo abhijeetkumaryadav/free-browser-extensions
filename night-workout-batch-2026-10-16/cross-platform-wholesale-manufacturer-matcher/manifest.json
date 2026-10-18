@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html"},"description":"Your own supplier contact book with comparison matrix and search.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Supplier Book","permissions":["storage"],"version":"1.0.0"}

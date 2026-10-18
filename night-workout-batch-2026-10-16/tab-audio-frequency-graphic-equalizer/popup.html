@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+    <div>
+      <h1>Tab Audio Equalizer</h1>
+      <p class="sub">5-band graphic EQ for this tab</p>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="enabled" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <div class="presets">
+    <button class="preset active" data-preset="flat">Flat</button>
+    <button class="preset" data-preset="bass">Bass boost</button>
+    <button class="preset" data-preset="vocal">Vocal clarity</button>
+    <button class="preset" data-preset="treble">Treble cut</button>
+  </div>
+
+  <div class="sliders" id="sliders"><!-- sliders injected by popup.js --></div>
+
+  <p class="note">Works on audio passing through the page's media elements. Some DRM or protected streams won't be affected. Settings are remembered per site.</p>
+  <p class="status" id="status">Loading…</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

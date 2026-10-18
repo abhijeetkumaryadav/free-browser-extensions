@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audiobook Shelf</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Audiobook Shelf</h1>
+    <p class="subtitle">Your audiobook list — you add titles yourself. <strong>This tool matches nothing.</strong></p>
+  </header>
+
+  <section class="add-card">
+    <h2>Add title</h2>
+    <input id="title" type="text" placeholder="Book title" maxlength="200">
+    <input id="author" type="text" placeholder="Author (optional)" maxlength="200">
+    <div class="row">
+      <input id="source" type="url" placeholder="Source URL (optional)" maxlength="2048">
+      <select id="status">
+        <option value="want">Want to listen</option>
+        <option value="listening">Listening</option>
+        <option value="finished">Finished</option>
+      </select>
+    </div>
+    <input id="note" type="text" placeholder="Note (optional)" maxlength="500">
+    <button id="addBtn">Add title</button>
+  </section>
+
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search titles, authors, notes…">
+    <button id="exportBtn">Export</button>
+    <button id="importBtn">Import</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+  </div>
+
+  <ul id="list"></ul>
+  <footer>Data stays in this browser. Gutenberg buttons just open a search.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

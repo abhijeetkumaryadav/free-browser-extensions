@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CertWatch — SSL Expiry Countdown</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg>
+    <div>
+      <h1>CertWatch</h1>
+      <p class="tagline">SSL certificate expiry countdown</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Add domain card -->
+  <section class="card">
+    <h2>Track a domain</h2>
+    <div class="row">
+      <label class="field grow">
+        <span>Domain (e.g. example.com)</span>
+        <input type="text" id="domainInput" placeholder="example.com" autocomplete="off" spellcheck="false">
+      </label>
+      <button id="addBtn" class="btn primary">Add</button>
+    </div>
+    <div id="addError" class="error" hidden></div>
+    <p class="note">Looks up public certificate records via <strong>crt.sh</strong> (certificate transparency logs — free, no key). Browsers can't read a site's TLS certificate directly, so this uses public CT data instead.</p>
+  </section>
+
+  <!-- Watchlist -->
+  <section class="card">
+    <div class="card-head">
+      <h2>Watchlist</h2>
+      <button id="refreshBtn" class="btn small">Refresh all</button>
+    </div>
+    <ul id="watchList" class="watch"></ul>
+  </section>
+
+  <!-- Settings -->
+  <section class="card">
+    <h2>Alerts</h2>
+    <div class="row">
+      <label class="field half">
+        <span>Warn when under (days)</span>
+        <select id="warnDays">
+          <option value="7">7 days</option>
+          <option value="14" selected>14 days</option>
+          <option value="30">30 days</option>
+          <option value="60">60 days</option>
+        </select>
+      </label>
+      <label class="field half checkline">
+        <input type="checkbox" id="alertCheck" checked>
+        <span>Desktop alerts</span>
+      </label>
+    </div>
+    <p class="note small">A daily background check notifies you when any tracked certificate drops under the warning threshold.</p>
+  </section>
+</main>
+
+<!-- Manual entry modal -->
+<div id="manualModal" class="modal" hidden>
+  <div class="modal-box">
+    <h3>Manual expiry entry</h3>
+    <p>crt.sh returned no usable certificate for <strong id="manualDomain"></strong>. Enter the expiry date manually (e.g. from your CA dashboard):</p>
+    <label class="field">
+      <span>Expiry date</span>
+      <input type="date" id="manualDate">
+    </label>
+    <div class="row btns">
+      <button id="manualSave" class="btn primary">Save</button>
+      <button id="manualCancel" class="btn ghost">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

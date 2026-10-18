@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+    <div>
+      <h1>Z-Index Unstacker</h1>
+      <p class="sub">Stacking-order inspector</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    Read-only dev analysis. Lists positioned elements, their z-index values,
+    and which ones create stacking contexts. Click a row to highlight &amp; jump.
+  </div>
+
+  <button id="scan" class="primary">Scan this page</button>
+  <button id="clear" class="ghost">Clear highlight</button>
+
+  <div class="toolbar">
+    <input id="filter" type="text" placeholder="Filter (tag, class, id)…">
+    <label class="chk"><input id="onlyPos" type="checkbox" checked> positioned only</label>
+  </div>
+
+  <div id="stats"></div>
+  <div id="list"></div>
+
+  <footer>Local scan only — the page is never modified except the highlight outline.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

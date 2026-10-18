@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone Airspace Guide</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 8.5 12 3l10 5.5"/>
+        <path d="M12 3v18"/>
+        <rect x="9" y="14" width="6" height="7" rx="1"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Drone Airspace Guide</h1>
+      <p class="sub">No-fly notes · educational</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <span><strong>Educational only — not live TFRs.</strong> This is general information plus your own notes. Always check official sources before flying.</span>
+  </div>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Airspace basics (general info)
+    </h2>
+    <ul class="guide">
+      <li><strong>Controlled airspace</strong> — around airports and busy areas. Drone flights there usually need prior authorization.</li>
+      <li><strong>LAANC concept</strong> — in some countries, a system that lets drone pilots request near-real-time authorization for controlled airspace.</li>
+      <li><strong>Common restrictions</strong> — military bases, national parks, stadiums during events, emergency response areas, critical infrastructure.</li>
+      <li><strong>Height rules</strong> — many jurisdictions cap recreational flights (often ~120 m / 400 ft AGL); always confirm locally.</li>
+      <li><strong>Line of sight</strong> — keep the drone in visual line of sight unless local rules allow otherwise.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      My no-fly notes
+    </h2>
+    <label>Area name
+      <input type="text" id="area" placeholder="e.g. City park, airport 5 km zone" maxlength="80">
+    </label>
+    <label>Why no-fly (optional)
+      <input type="text" id="reason" placeholder="e.g. near airport, event weekend" maxlength="200">
+    </label>
+    <button id="addBtn" class="primary">Add note</button>
+    <p class="err" id="err" hidden></p>
+  </section>
+
+  <section class="card">
+    <div class="statrow">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Notes
+      </h2>
+      <span class="count" id="count">0 notes</span>
+    </div>
+    <input type="text" id="search" placeholder="Search notes…">
+    <ul class="list" id="list"></ul>
+    <button id="clearBtn" class="ghost danger">Clear all</button>
+  </section>
+
+  <footer>Educational only · check official sources</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

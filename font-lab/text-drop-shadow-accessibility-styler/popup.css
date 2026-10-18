@@ -1,0 +1,49 @@
+/* TextShadow — deep-dark glassmorphism, indigo accent (#6366f1) */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  background:linear-gradient(160deg,#0b0b10,#12121a 60%,#0d0d14);
+  color:#e8e8ef;font-size:13px;line-height:1.45;
+}
+.app{padding:16px;display:flex;flex-direction:column;gap:12px}
+.hdr{display:flex;align-items:center;gap:10px}
+.logo{width:30px;height:30px;color:#6366f1;flex:none}
+h1{font-size:16px;font-weight:700;letter-spacing:.2px}
+.sub{font-size:11px;color:#9a9ab0}
+.badge{
+  margin-left:auto;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;
+  padding:4px 10px;border-radius:999px;color:#c7c9ff;
+  background:rgba(99,102,241,.14);border:1px solid rgba(99,102,241,.4);
+}
+.badge.active{color:#0b0b10;background:#6366f1;border-color:#6366f1}
+.card{
+  background:rgba(20,20,26,.72);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.row-label{font-size:12px;font-weight:600;color:#c9c9dc;display:flex;justify-content:space-between;align-items:center}
+.val{color:#a5b4fc;font-variant-numeric:tabular-nums}
+.seg{display:flex;gap:6px}
+.seg button{
+  flex:1;padding:8px 0;border-radius:10px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04);color:#c9c9dc;font-size:12px;font-weight:600;cursor:pointer;
+}
+.seg button.on{background:rgba(99,102,241,.25);border-color:#6366f1;color:#fff}
+.row{display:flex;align-items:center;gap:8px}
+input[type=range]{flex:1;accent-color:#6366f1;cursor:pointer}
+input[type=color]{width:36px;height:28px;border:none;border-radius:8px;background:none;cursor:pointer;padding:0}
+.preview-card p{font-size:15px;font-weight:600;color:#fff}
+.actions{display:flex;gap:8px}
+button.primary{
+  flex:1;padding:11px;border:none;border-radius:12px;background:#6366f1;color:#fff;
+  font-size:13px;font-weight:700;cursor:pointer;
+}
+button.primary:hover{background:#7c83f4}
+button.ghost{
+  padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);
+  background:transparent;color:#c9c9dc;font-size:13px;font-weight:600;cursor:pointer;
+}
+button.ghost:hover{background:rgba(255,255,255,.06)}
+.note{font-size:11px;color:#8f8fa8;min-height:14px;text-align:center}
+.foot{font-size:10px;color:#6b6b84;text-align:center}

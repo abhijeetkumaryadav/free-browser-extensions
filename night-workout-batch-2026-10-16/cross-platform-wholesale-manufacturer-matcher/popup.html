@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Supplier Book</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 8.3L12 13l8.7-4.7M12 13v9"/></svg></div>
+    <div>
+      <h1>Supplier Book</h1>
+      <p class="sub">Your contacts, your comparisons</p>
+    </div>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <p>Your own contact book — <b>not</b> a live supplier directory or matching service.</p>
+  </div>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="num" id="stSup">0</span><span class="lbl">suppliers</span></div>
+    <div class="stat"><span class="num" id="stProd">0</span><span class="lbl">products</span></div>
+    <div class="stat"><span class="num" id="stPlat">0</span><span class="lbl">platforms</span></div>
+  </section>
+
+  <section class="panel">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Add supplier</h2>
+    <input id="fName" placeholder="Supplier / manufacturer name" maxlength="80">
+    <div class="row">
+      <input id="fPlatform" placeholder="Platform (e.g. Alibaba)" maxlength="40">
+      <input id="fProduct" placeholder="Product / category" maxlength="60">
+    </div>
+    <div class="row">
+      <input id="fPrice" placeholder="Unit price (e.g. $4.20)" maxlength="20">
+      <input id="fMoq" placeholder="MOQ (e.g. 500)" maxlength="20">
+    </div>
+    <input id="fContact" placeholder="Contact / email / chat" maxlength="80">
+    <input id="fNotes" placeholder="Notes (lead time, quality…)" maxlength="160">
+    <button id="addBtn" class="primary">Add supplier</button>
+  </section>
+
+  <section class="panel">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> Search &amp; compare</h2>
+    <input id="search" placeholder="Search name, product, platform…">
+    <div id="list" class="list"></div>
+  </section>
+
+  <button id="clearBtn" class="ghost danger">Delete all suppliers</button>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

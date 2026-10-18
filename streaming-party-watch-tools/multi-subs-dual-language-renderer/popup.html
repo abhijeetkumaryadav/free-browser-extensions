@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DualSubs</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="app-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M6 11h6M6 15h9"/></svg>
+    <div>
+      <h1>DualSubs</h1>
+      <p class="subtitle">Dual-language SRT overlay</p>
+    </div>
+    <button id="enableToggle" class="toggle" aria-label="Enable or disable overlay">
+      <span class="knob"></span>
+    </button>
+  </header>
+
+  <section class="card">
+    <h2>Subtitle tracks <span class="hint">your .srt files only</span></h2>
+
+    <div class="track" data-track="primary">
+      <div class="track-head">
+        <span class="dot primary-dot"></span>
+        <label for="primaryFile">Primary <em>(larger)</em></label>
+        <span class="cue-count" id="primaryCount">no file</span>
+      </div>
+      <label class="file-btn" for="primaryFile">Choose .srt file</label>
+      <input type="file" id="primaryFile" accept=".srt,text/plain" hidden>
+      <div class="slider-row">
+        <span>Sync offset</span>
+        <input type="range" id="primaryOffset" min="-2000" max="2000" step="50" value="0">
+        <output id="primaryOffsetVal">0 ms</output>
+      </div>
+    </div>
+
+    <div class="track" data-track="secondary">
+      <div class="track-head">
+        <span class="dot secondary-dot"></span>
+        <label for="secondaryFile">Secondary <em>(smaller)</em></label>
+        <span class="cue-count" id="secondaryCount">no file</span>
+      </div>
+      <label class="file-btn" for="secondaryFile">Choose .srt file</label>
+      <input type="file" id="secondaryFile" accept=".srt,text/plain" hidden>
+      <div class="slider-row">
+        <span>Sync offset</span>
+        <input type="range" id="secondaryOffset" min="-2000" max="2000" step="50" value="0">
+        <output id="secondaryOffsetVal">0 ms</output>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Style</h2>
+    <div class="slider-row">
+      <span>Font size</span>
+      <input type="range" id="fontSize" min="12" max="32" step="1" value="20">
+      <output id="fontSizeVal">20 px</output>
+    </div>
+    <div class="slider-row">
+      <span>Background</span>
+      <input type="range" id="bgOpacity" min="0" max="90" step="5" value="55">
+      <output id="bgOpacityVal">55%</output>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Video</h2>
+    <p class="status-line" id="statusLine">Not attached yet.</p>
+    <div class="btn-row">
+      <button id="attachBtn" class="primary-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Attach to this tab's video
+      </button>
+      <button id="clearBtn" class="ghost-btn">Clear</button>
+    </div>
+  </section>
+
+  <footer class="scope-note">
+    Works with subtitle files you provide. Nothing is fetched, translated, or uploaded.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

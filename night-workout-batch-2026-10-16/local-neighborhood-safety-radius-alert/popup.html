@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafetyRadius — Manual Check-In Buddy</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div>
+        <h1>SafetyRadius</h1>
+        <p class="tagline">Manual check-in buddy</p>
+      </div>
+    </div>
+    <div class="status-pill" id="status-pill">Idle</div>
+  </header>
+
+  <!-- Honest scope notice -->
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Manual companion only — <b>not</b> live crime data, <b>not</b> GPS tracking. Places are names you type.</span>
+  </div>
+
+  <!-- Active check-in timer -->
+  <section class="card timer-card" id="timer-card" hidden>
+    <div class="timer-top">
+      <div>
+        <p class="label">Checking in from</p>
+        <h2 id="timer-place">—</h2>
+      </div>
+      <div class="countdown" id="countdown">--:--</div>
+    </div>
+    <div class="progress"><div class="bar" id="progress-bar"></div></div>
+    <div class="row">
+      <button class="btn primary" id="checkin-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        I'm safe — check in
+      </button>
+      <button class="btn ghost" id="cancel-btn">Cancel</button>
+    </div>
+  </section>
+
+  <!-- Start a check-in -->
+  <section class="card">
+    <h3 class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Start a check-in
+    </h3>
+    <label class="field">
+      <span>Place name</span>
+      <select id="place-select"></select>
+    </label>
+    <label class="field">
+      <span>Check in every</span>
+      <div class="seg" id="interval-seg">
+        <button data-min="15">15m</button>
+        <button data-min="30" class="active">30m</button>
+        <button data-min="60">1h</button>
+        <button data-min="120">2h</button>
+      </div>
+    </label>
+    <button class="btn primary full" id="start-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Start timer
+    </button>
+  </section>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-tab="places">Places</button>
+    <button class="tab" data-tab="contacts">Contacts</button>
+  </div>
+
+  <!-- Places tab -->
+  <div class="tab-pane active" id="pane-places">
+    <section class="card">
+      <div id="place-list" class="list"></div>
+      <div class="add-row">
+        <input type="text" id="new-place-name" placeholder="New place (e.g. Home, Elm St walk)" maxlength="60">
+        <input type="text" id="new-place-note" placeholder="Note (optional)" maxlength="140">
+        <button class="btn primary" id="add-place-btn">Add</button>
+      </div>
+      <p class="hint">A "place" is just a label you invent — the extension never sees your location.</p>
+    </section>
+  </div>
+
+  <!-- Contacts tab -->
+  <div class="tab-pane" id="pane-contacts">
+    <section class="card">
+      <div id="contact-list" class="list"></div>
+      <div class="add-row">
+        <input type="text" id="new-contact-name" placeholder="Contact name" maxlength="60">
+        <input type="text" id="new-contact-phone" placeholder="Phone (optional)" maxlength="40">
+        <button class="btn primary" id="add-contact-btn">Add</button>
+      </div>
+      <p class="hint">Shown to you at a glance if a check-in lapses. The extension never messages anyone.</p>
+    </section>
+  </div>
+
+  <footer class="footer">All data stays in this browser · v1.0.0</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

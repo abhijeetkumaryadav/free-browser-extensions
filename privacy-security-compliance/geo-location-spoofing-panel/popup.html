@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geo Location Spoofing Panel</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="app-titles">
+      <h1>Geo Spoofing Panel</h1>
+      <p>User-controlled location override</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="row-between">
+      <span class="label">Spoofing enabled</span>
+      <label class="switch"><input type="checkbox" id="masterToggle"><span class="slider"></span></label>
+    </div>
+    <p class="hint">When on, pages read your chosen coordinates instead of your real location. Nothing leaves this device.</p>
+  </section>
+
+  <section class="card">
+    <span class="label">Preset city</span>
+    <select id="presetSelect" class="input"></select>
+    <div class="coords">
+      <div>
+        <span class="label small">Latitude</span>
+        <input type="number" id="latInput" class="input" step="any" min="-90" max="90">
+      </div>
+      <div>
+        <span class="label small">Longitude</span>
+        <input type="number" id="lngInput" class="input" step="any" min="-180" max="180">
+      </div>
+    </div>
+    <div class="row-between mt">
+      <span class="label">Accuracy <span id="accValue" class="acc-val">100 m</span></span>
+    </div>
+    <input type="range" id="accRange" min="10" max="5000" step="10" value="100" class="range">
+    <button id="saveBtn" class="btn-primary">Save coordinates</button>
+    <p id="saveMsg" class="hint hidden">Saved ✓</p>
+  </section>
+
+  <section class="card">
+    <div class="row-between">
+      <span class="label">Spoof on this site</span>
+      <label class="switch"><input type="checkbox" id="siteToggle" checked><span class="slider"></span></label>
+    </div>
+    <p class="hint" id="siteHint">Current site: —</p>
+  </section>
+
+  <footer class="footer">
+    <span>Real location is never read. Only your chosen coordinates are served.</span>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

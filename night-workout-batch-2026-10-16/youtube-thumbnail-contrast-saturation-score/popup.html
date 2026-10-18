@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail Pixel Score</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 4-4 5 4"/></svg>
+    <div>
+      <h1>Thumbnail Pixel Score</h1>
+      <p class="tagline">Contrast & saturation, 0–100</p>
+    </div>
+  </header>
+
+  <p class="honest">Pixel math only — not ranking advice. Load a local image; scores come from raw
+  pixel statistics. Nothing is uploaded.</p>
+
+  <div class="drop" id="drop">
+    <input type="file" id="file" accept="image/*" hidden>
+    <p>Click or drop a local image here</p>
+  </div>
+
+  <div id="result" class="hidden">
+    <div class="ringwrap">
+      <svg id="ring" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="52" class="track"/>
+        <circle cx="60" cy="60" r="52" class="fill" id="ringFill"/>
+        <text x="60" y="58" id="scoreNum">–</text>
+        <text x="60" y="78" id="scoreVerdict" class="verdict">–</text>
+      </svg>
+    </div>
+    <div class="bars">
+      <div class="bar-row">
+        <span>Contrast</span>
+        <div class="bar"><div id="barContrast"></div></div>
+        <b id="valContrast">–</b>
+      </div>
+      <div class="bar-row">
+        <span>Saturation</span>
+        <div class="bar"><div id="barSat"></div></div>
+        <b id="valSat">–</b>
+      </div>
+    </div>
+    <div class="notes" id="notes"></div>
+  </div>
+
+  <div class="foot">
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

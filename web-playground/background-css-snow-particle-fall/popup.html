@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SnowFall</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="12" y1="2" x2="12" y2="22"/>
+        <line x1="3.5" y1="7" x2="20.5" y2="17"/>
+        <line x1="20.5" y1="7" x2="3.5" y2="17"/>
+        <line x1="12" y1="2" x2="9.5" y2="4.5"/><line x1="12" y1="2" x2="14.5" y2="4.5"/>
+        <line x1="12" y1="22" x2="9.5" y2="19.5"/><line x1="12" y1="22" x2="14.5" y2="19.5"/>
+      </svg>
+      <div class="title">
+        <h1>SnowFall</h1>
+        <p class="subtitle">Snow over any page — just for fun</p>
+      </div>
+      <button id="toggle" class="toggle" aria-label="Toggle snowfall">
+        <span class="knob"></span>
+      </button>
+    </header>
+
+    <div id="blocked" class="notice hidden">
+      Can't snow here — this page is protected by the browser (e.g. chrome:// pages).
+    </div>
+
+    <div class="panel" id="controls">
+      <div class="slider-row">
+        <div class="slider-head"><span>Density</span><span class="val" id="v-density">120</span></div>
+        <input type="range" id="s-density" min="10" max="300" step="10" value="120">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Flake size</span><span class="val" id="v-size">1.2</span></div>
+        <input type="range" id="s-size" min="0.5" max="3" step="0.1" value="1.2">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Fall speed</span><span class="val" id="v-speed">1.0</span></div>
+        <input type="range" id="s-speed" min="0.2" max="3" step="0.1" value="1">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Wind</span><span class="val" id="v-wind">0</span></div>
+        <input type="range" id="s-wind" min="-50" max="50" step="1" value="0">
+      </div>
+      <div class="hint">Tip: snow stops automatically when the tab closes. Nothing is tracked.</div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

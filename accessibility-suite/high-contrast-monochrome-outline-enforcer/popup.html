@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" stroke="none" opacity=".9"/></svg>
+    <div>
+      <h1>MonoFocus</h1>
+      <p class="subtitle">High-contrast outline enforcer</p>
+    </div>
+  </header>
+
+  <label class="toggle-row">
+    <span>Enforce on this tab</span>
+    <button id="powerToggle" class="switch" role="switch" aria-checked="false"><span class="knob"></span></button>
+  </label>
+
+  <p class="section-label">Preset</p>
+  <div class="presets" id="presets">
+    <button class="preset active" data-p="mono">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 4v16"/></svg>
+      <span>Mono Boost</span><em>Grayscale + contrast</em>
+    </button>
+    <button class="preset" data-p="night">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <span>Night Contrast</span><em>Inverted monochrome</em>
+    </button>
+    <button class="preset" data-p="focus">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+      <span>Focus Rings</span><em>Outlines only</em>
+    </button>
+  </div>
+
+  <div class="slider-row">
+    <span>Outline width <b id="outlineVal">2px</b></span>
+    <input type="range" id="outlineRange" min="1" max="8" value="2" aria-label="Outline width">
+  </div>
+
+  <div id="status" class="status">Pick a preset, then flip the switch. Applies to this tab only.</div>
+
+  <footer class="app-footer">Pure CSS injection — reversible, per-tab, no tracking.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

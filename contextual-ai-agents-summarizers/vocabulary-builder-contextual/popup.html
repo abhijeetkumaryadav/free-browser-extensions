@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocabulary Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <div><h1>Vocabulary</h1><p>Words in context</p></div>
+    <nav>
+      <button data-tab="cards" class="tab active">Cards</button>
+      <button data-tab="quiz" class="tab">Quiz</button>
+      <button data-tab="add" class="tab">Add</button>
+    </nav>
+  </header>
+  <main>
+    <section id="tab-cards" class="glass card">
+      <div class="flip" id="flip">
+        <div class="face front">
+          <div class="word" id="cardWord">—</div>
+          <div class="hint">tap to flip</div>
+        </div>
+        <div class="face back">
+          <div class="meaning" id="cardMeaning">—</div>
+          <div class="context" id="cardContext"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="prev" class="ghost">‹ Prev</button>
+        <button id="shuffle" class="ghost">Shuffle</button>
+        <button id="next" class="ghost">Next ›</button>
+      </div>
+      <div id="cardMeta" class="meta"></div>
+      <div id="emptyCards" class="empty">Add words in the <b>Add</b> tab to start.</div>
+    </section>
+
+    <section id="tab-quiz" class="glass card" hidden>
+      <div class="qword" id="qWord">—</div>
+      <div class="hint">What does it mean? Say it, then reveal.</div>
+      <div id="qAnswer" class="qanswer" hidden>
+        <div class="meaning" id="qMeaning"></div>
+        <div class="context" id="qContext"></div>
+      </div>
+      <div class="controls">
+        <button id="reveal" class="primary">Reveal</button>
+        <button id="knew" class="ghost" hidden>✓ Knew it</button>
+        <button id="learning" class="ghost" hidden>✗ Still learning</button>
+      </div>
+      <div id="quizScore" class="meta"></div>
+    </section>
+
+    <section id="tab-add" class="glass card" hidden>
+      <label class="fld">Word<input id="wWord" maxlength="60" placeholder="serendipity"></label>
+      <label class="fld">Meaning<input id="wMeaning" maxlength="160" placeholder="finding something good without looking for it"></label>
+      <label class="fld">Context sentence<textarea id="wContext" rows="3" maxlength="300" placeholder="The sentence where you found it…"></textarea></label>
+      <label class="fld">Source (optional)<input id="wSource" maxlength="80" placeholder="Book, article, video…"></label>
+      <button id="saveWord" class="primary">Save word</button>
+      <h2 class="listhead">Your words <span id="wcount" class="rcount"></span></h2>
+      <div id="wordList"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

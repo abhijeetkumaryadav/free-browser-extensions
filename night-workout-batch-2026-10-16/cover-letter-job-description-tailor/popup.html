@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cover Letter Kit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <h1><svg viewBox="0 0 24 24" class="ico"><path d="M4 4h16v12H4zM4 4l8 7 8-7M9 20h6"/></svg> Cover Letter Kit</h1>
+  <p class="sub">Templates + keyword checklist — you write the letter</p>
+</header>
+
+<div class="notice">
+  <strong>Honest scope:</strong> template outlines and a heuristic keyword checklist.
+  <strong>No AI tailoring</strong> — you write every word of your letter.
+</div>
+
+<div class="tabs">
+  <button class="tab active" data-tab="outline">Outline</button>
+  <button class="tab" data-tab="keywords">Keywords</button>
+  <button class="tab" data-tab="drafts">Drafts</button>
+</div>
+
+<section id="tab-outline" class="tabpanel">
+  <label class="field">Template
+    <select id="template"></select>
+  </label>
+  <div id="sections"></div>
+  <div class="row">
+    <button id="save-draft" class="primary">Save draft</button>
+    <button id="copy-draft" class="ghost">Copy text</button>
+  </div>
+</section>
+
+<section id="tab-keywords" class="tabpanel hidden">
+  <textarea id="jd" rows="5" placeholder="Paste the job description here…"></textarea>
+  <div class="row">
+    <button id="extract" class="primary">Extract keyword checklist</button>
+  </div>
+  <div id="kw-summary" class="summary hidden"></div>
+  <div id="kw-list" class="kw-list"></div>
+  <p class="hint">Check off each keyword as you address it in your letter. Heuristic extraction — review it yourself.</p>
+</section>
+
+<section id="tab-drafts" class="tabpanel hidden">
+  <div id="draft-list" class="draft-list"></div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

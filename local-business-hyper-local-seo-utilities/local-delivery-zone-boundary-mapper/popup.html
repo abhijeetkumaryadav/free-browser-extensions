@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Delivery Zone Mapper</title>
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Delivery Zone Mapper</h1>
+      <p class="subtitle">Zones, fees &amp; coverage checks</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Check a customer address</h2>
+      <label class="field">Customer address
+        <input id="cAddr" type="text" placeholder="e.g. 221B Baker Street, London" autocomplete="off">
+      </label>
+      <button id="checkBtn" class="primary">Geocode &amp; check zones</button>
+      <div id="checkResult" class="check-result" hidden></div>
+      <p class="note">Geocoded with OpenStreetMap Nominatim only when you click. Nothing else is ever sent anywhere.</p>
+    </section>
+
+    <section class="card">
+      <h2>New delivery zone</h2>
+      <label class="field">Zone name
+        <input id="zName" type="text" placeholder="e.g. Inner city" maxlength="60" autocomplete="off">
+      </label>
+      <label class="field">Center address
+        <input id="zAddr" type="text" placeholder="e.g. restaurant or depot address" autocomplete="off">
+      </label>
+      <div class="row">
+        <label class="field grow">Radius
+          <input id="zRadius" type="number" min="0.1" step="0.1" value="5">
+        </label>
+        <label class="field">Unit
+          <select id="zUnit">
+            <option value="km">km</option>
+            <option value="mi">mi</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label class="field grow">Delivery fee ($)
+          <input id="zFee" type="number" min="0" step="0.01" value="0">
+        </label>
+        <label class="field grow">Min. order ($)
+          <input id="zMin" type="number" min="0" step="0.01" value="0">
+        </label>
+      </div>
+      <button id="addBtn" class="primary">Geocode &amp; add zone</button>
+      <div id="status" class="status" role="status" hidden></div>
+    </section>
+
+    <section class="card">
+      <h2>Zones <span id="count" class="count"></span></h2>
+      <canvas id="map" width="336" height="150" aria-label="Schematic zone overview"></canvas>
+      <ul id="list" class="zone-list"></ul>
+      <div class="row actions">
+        <button id="exportBtn" class="ghost">Export CSV</button>
+        <button id="clearBtn" class="ghost danger">Clear all</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

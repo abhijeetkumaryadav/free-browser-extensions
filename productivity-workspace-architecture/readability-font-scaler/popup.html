@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="glass">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+        <div>
+          <h1>Font Scaler</h1>
+          <p class="site" id="siteLabel">…</p>
+        </div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="enabled">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </header>
+
+    <section class="glass controls" id="controls">
+      <div class="control">
+        <div class="control-head">
+          <label for="fontSize">Font size</label>
+          <span class="value" id="fontSizeVal">16px</span>
+        </div>
+        <input type="range" id="fontSize" min="12" max="28" step="1" value="16">
+      </div>
+
+      <div class="control">
+        <div class="control-head">
+          <label for="lineHeight">Line height</label>
+          <span class="value" id="lineHeightVal">1.6</span>
+        </div>
+        <input type="range" id="lineHeight" min="1.2" max="2.4" step="0.1" value="1.6">
+      </div>
+
+      <div class="control">
+        <div class="control-head"><label>Font family</label></div>
+        <div class="seg" id="fontSeg">
+          <button data-font="serif">Serif</button>
+          <button data-font="sans" class="active">Sans</button>
+          <button data-font="system">System</button>
+        </div>
+      </div>
+
+      <div class="scope-row">
+        <span class="scope-label">Apply to</span>
+        <div class="seg small" id="scopeSeg">
+          <button data-scope="site" class="active">This site</button>
+          <button data-scope="global">Everywhere</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="glass footer">
+      <button id="resetSite" class="ghost-btn">Reset this site</button>
+      <button id="resetAll" class="ghost-btn danger">Reset all</button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

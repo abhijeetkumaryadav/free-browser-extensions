@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ChunkTable</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
+      <div>
+        <h1>ChunkTable</h1>
+        <p class="sub">Large CSV lazy viewer</p>
+      </div>
+    </div>
+    <span class="badge" id="fileBadge">no file</span>
+  </header>
+
+  <!-- Drop zone / file picker -->
+  <section class="card dropzone" id="dropzone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+    <p class="dz-title">Drop a CSV file here</p>
+    <p class="dz-hint">or <button class="link" id="browseBtn" type="button">browse files</button> · parsed in chunks, stays on-device</p>
+    <input type="file" id="fileInput" accept=".csv,.tsv,.txt" hidden>
+    <div class="progress hidden" id="parseProgress">
+      <div class="bar"><div class="fill" id="parseFill"></div></div>
+      <p class="prog-label" id="parseLabel">Parsing…</p>
+    </div>
+  </section>
+
+  <!-- Stats + controls (shown after parse) -->
+  <section class="card hidden" id="viewerCard">
+    <div class="stats" id="statsRow"></div>
+    <div class="controls">
+      <div class="field">
+        <label for="colSelect">Column</label>
+        <select id="colSelect"></select>
+      </div>
+      <div class="field grow">
+        <label for="searchInput">Search / filter</label>
+        <input type="text" id="searchInput" placeholder="type to filter rows…" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="jumpInput">Jump to row</label>
+        <div class="jump-row">
+          <input type="number" id="jumpInput" min="1" placeholder="1">
+          <button id="jumpBtn" type="button">Go</button>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar-row">
+      <label class="check"><input type="checkbox" id="headerToggle" checked> First row is header</label>
+      <button class="ghost" id="clearBtn" type="button">Clear file</button>
+    </div>
+  </section>
+
+  <!-- Virtualized table -->
+  <section class="card table-wrap hidden" id="tableCard">
+    <div class="table-head" id="tableHead"></div>
+    <div class="viewport" id="viewport">
+      <div class="spacer" id="spacer">
+        <div class="rows" id="rows"></div>
+      </div>
+    </div>
+    <p class="foot" id="tableFoot"></p>
+  </section>
+
+  <p class="note">Chunked streaming parse + virtualized rendering: only visible rows live in the DOM. Nothing leaves your device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

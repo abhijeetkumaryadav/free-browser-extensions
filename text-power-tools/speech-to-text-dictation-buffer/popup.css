@@ -1,0 +1,104 @@
+/* DictatePad — deep dark + glassmorphism, rose accent */
+:root {
+  --accent: #f43f5e;
+  --bg: #0b0c10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.app { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+/* Header */
+.head { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo {
+  width: 30px; height: 30px; color: var(--accent);
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 5px; backdrop-filter: blur(12px);
+}
+.head h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { color: var(--muted); font-size: 11px; }
+
+.status {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 11px; backdrop-filter: blur(12px);
+}
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: #555; flex-shrink: 0; }
+.status.listening { color: var(--accent); border-color: rgba(244, 63, 94, 0.4); }
+.status.listening .pulse { background: var(--accent); animation: beat 0.9s ease-in-out infinite; }
+@keyframes beat { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.55; } }
+
+/* Warning */
+.warn {
+  background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: var(--radius); padding: 10px 12px; font-size: 12px; color: #fda4af;
+}
+
+/* Editor */
+.editor {
+  width: 100%; min-height: 130px; resize: vertical;
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); padding: 12px; font-size: 13px; line-height: 1.6;
+  font-family: inherit; backdrop-filter: blur(12px); outline: none;
+  transition: border-color 0.15s;
+}
+.editor:focus { border-color: rgba(244, 63, 94, 0.5); }
+.editor::placeholder { color: var(--muted); }
+
+/* Interim transcript */
+.interim {
+  font-size: 12px; font-style: italic; color: var(--accent);
+  background: rgba(244, 63, 94, 0.07); border: 1px dashed rgba(244, 63, 94, 0.35);
+  border-radius: 10px; padding: 8px 10px; min-height: 20px;
+}
+.interim[hidden] { display: none; }
+
+/* Talk button */
+.talk {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: linear-gradient(135deg, #e11d48, var(--accent));
+  border: none; border-radius: var(--radius); color: #fff;
+  font-size: 14px; font-weight: 700; padding: 14px; cursor: pointer;
+  user-select: none; -webkit-user-select: none; touch-action: none;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 18px rgba(244, 63, 94, 0.25);
+}
+.talk svg { width: 20px; height: 20px; }
+.talk:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.talk.held:not(:disabled) { transform: scale(0.97); box-shadow: 0 0 0 6px rgba(244, 63, 94, 0.18); }
+
+/* Toolbar */
+.toolbar { display: flex; gap: 8px; }
+.btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: transparent; border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text); font-size: 12px; font-weight: 600; padding: 9px;
+  cursor: pointer; transition: border-color 0.15s, color 0.15s;
+}
+.btn svg { width: 14px; height: 14px; }
+.btn:hover { border-color: rgba(244, 63, 94, 0.5); }
+.btn.danger:hover { color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4); }
+
+/* Meta row */
+.meta { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 11px; }
+.toast { color: var(--accent); font-weight: 600; min-height: 14px; }
+
+/* Footer */
+.foot { display: flex; gap: 7px; color: var(--muted); font-size: 11px; align-items: flex-start; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 4px; }

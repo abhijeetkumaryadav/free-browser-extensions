@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    </div>
+    <div>
+      <h1>Reel Matrix</h1>
+      <p class="sub">Reel structure logbook</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Patterns in <strong>your logs</strong> — not Instagram's algorithm.</span>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="log" role="tab">Log</button>
+    <button class="tab" data-tab="matrix" role="tab">Matrix</button>
+    <button class="tab" data-tab="reels" role="tab">Reels <span id="count" class="pill">0</span></button>
+  </nav>
+
+  <section id="tab-log" class="pane active">
+    <form id="logForm" autocomplete="off">
+      <label class="field">Label
+        <input name="label" maxlength="60" placeholder="e.g. Oud attar EP3">
+      </label>
+      <label class="field">Source URL (optional)
+        <input name="url" type="url" maxlength="300" placeholder="https://…">
+      </label>
+      <div class="row">
+        <label class="field">Hook type
+          <select name="hook">
+            <option>Bold statement</option>
+            <option>Question</option>
+            <option>Before / after</option>
+            <option>Teaser</option>
+            <option>Provocation</option>
+            <option>Tutorial start</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="field">CTA
+          <select name="cta">
+            <option>Follow</option>
+            <option>Comment</option>
+            <option>Share / save</option>
+            <option>None</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label class="field">Hook (sec)
+          <input name="hookSecs" type="number" min="0" max="60" value="3">
+        </label>
+        <label class="field">Length (sec)
+          <input name="totalSecs" type="number" min="1" max="600" value="15">
+        </label>
+      </div>
+      <div class="row">
+        <label class="field">Caption
+          <select name="caption">
+            <option>Short</option>
+            <option>Long / story</option>
+            <option>Hashtag-heavy</option>
+            <option>CTA-led</option>
+          </select>
+        </label>
+        <label class="field">Audio
+          <select name="audio">
+            <option>Trending</option>
+            <option>Original</option>
+            <option>Voiceover</option>
+            <option>Music library</option>
+          </select>
+        </label>
+      </div>
+      <label class="field">Views bucket
+        <select name="viewsBucket">
+          <option>&lt;1k</option>
+          <option>1–10k</option>
+          <option>10–100k</option>
+          <option>100k+</option>
+        </select>
+      </label>
+      <label class="field">Notes
+        <textarea name="note" rows="2" maxlength="400" placeholder="What stood out?"></textarea>
+      </label>
+      <button class="cta" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Log reel
+      </button>
+    </form>
+  </section>
+
+  <section id="tab-matrix" class="pane">
+    <div id="matrixEmpty" class="empty">Log at least <strong>2 reels</strong> to build your matrix.</div>
+    <div id="matrixBody" hidden></div>
+  </section>
+
+  <section id="tab-reels" class="pane">
+    <div class="list-head">
+      <button id="exportBtn" class="ghost" type="button">Export JSON</button>
+      <button id="clearBtn" class="ghost danger" type="button">Clear all</button>
+    </div>
+    <div id="reelList" class="list"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

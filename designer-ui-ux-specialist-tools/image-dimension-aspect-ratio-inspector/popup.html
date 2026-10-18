@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Dimension Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <div class="logo">
+        <!-- Lucide-style image icon (stroke only) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+          <circle cx="9" cy="9" r="2"/>
+          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+        </svg>
+      </div>
+      <div class="title-wrap">
+        <h1>Image Inspector</h1>
+        <p class="subtitle">Dimensions, ratios &amp; health</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <button id="scanBtn" class="primary-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+        <span>Scan page images</span>
+      </button>
+      <label class="check-row">
+        <input type="checkbox" id="brokenOnly">
+        <span>Show broken images only</span>
+      </label>
+      <p id="scanError" class="error hidden"></p>
+    </section>
+
+    <section id="statsPanel" class="panel hidden">
+      <h2>Summary</h2>
+      <div class="stats-grid">
+        <div class="stat"><span class="stat-value" id="statTotal">0</span><span class="stat-label">Images</span></div>
+        <div class="stat"><span class="stat-value warn" id="statBroken">0</span><span class="stat-label">Broken</span></div>
+        <div class="stat"><span class="stat-value" id="statLazy">0</span><span class="stat-label">Lazy</span></div>
+        <div class="stat"><span class="stat-value" id="statSize">—</span><span class="stat-label">Transfer</span></div>
+      </div>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="result-head">
+        <h2>Images</h2>
+        <span id="pageHost" class="host"></span>
+      </div>
+      <ul id="imageList" class="image-list">
+        <li class="empty">Press scan to inspect this page.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">Read-only scan — the page is never modified except a brief highlight flash.</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

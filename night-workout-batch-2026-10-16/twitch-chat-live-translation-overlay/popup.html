@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twitch Phrasebook</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l1.5-4h13L20 6H8L6.5 2H3"/><path d="M10 10v4M14 10v4"/></svg>
+      <h1>Twitch Phrasebook</h1>
+    </div>
+    <p class="scope">Your own chat phrasebook in a side panel.<br><strong>NOT live translation</strong> — a manual reference you fill in.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="row header-row">
+        <span class="field-label">My phrases</span>
+        <button id="toggle-panel-btn" class="btn small accent">Open panel on this tab</button>
+      </div>
+      <div id="entry-list"></div>
+    </section>
+
+    <section class="panel">
+      <span class="field-label">Add a phrase</span>
+      <label class="sub-label" for="phrase-input">Phrase (as seen in chat)</label>
+      <input id="phrase-input" type="text" placeholder="e.g. Poggers" autocomplete="off">
+      <label class="sub-label" for="meaning-input">Your translation / meaning</label>
+      <input id="meaning-input" type="text" placeholder="e.g. expression of excitement" autocomplete="off">
+      <div class="row">
+        <button id="add-btn" class="btn primary">Add phrase</button>
+        <button id="clear-btn" class="btn ghost">Clear all</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Manual phrasebook — does not translate chat. 100% local.</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

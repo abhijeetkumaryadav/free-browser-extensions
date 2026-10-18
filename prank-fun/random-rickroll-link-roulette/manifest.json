@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Rickroll Roulette — Link Prank",
+    "short_name": "Rickroll Roulette",
+    "version": "1.0.0",
+    "description": "Harmless joke: replace a few random links on the current page with a famous music video link. Fully reversible.",
+    "action": { "default_popup": "popup.html", "default_title": "Rickroll Roulette" },
+    "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+    "permissions": ["activeTab", "scripting"]
+}

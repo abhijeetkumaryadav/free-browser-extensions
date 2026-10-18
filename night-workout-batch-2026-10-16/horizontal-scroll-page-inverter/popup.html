@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScrollFlip — Horizontal Scroll Inverter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7h13"/><path d="M18 3l4 4-4 4"/><path d="M16 17H3"/><path d="M6 13l-4 4 4 4"/></svg>
+    </span>
+    <div>
+      <h1>ScrollFlip</h1>
+      <p class="sub">Flip horizontal scroll &amp; mirror pages</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <button id="flipBtn" class="big" aria-pressed="false">
+      <span class="big-title">Flip horizontal scroll</span>
+      <span class="big-sub" id="flipState">Currently: normal</span>
+    </button>
+    <button id="mirrorBtn" class="big alt" aria-pressed="false">
+      <span class="big-title">Mirror page layout</span>
+      <span class="big-sub" id="mirrorState">Currently: normal</span>
+    </button>
+  </section>
+
+  <section class="card row between">
+    <div>
+      <div class="switch-label">Remember per site</div>
+      <div class="hint">Re-applies your flip on this domain.</div>
+    </div>
+    <button id="siteToggle" class="switch" role="switch" aria-checked="false" aria-label="Remember this site"><span class="knob"></span></button>
+  </section>
+
+  <div class="actions">
+    <button id="resetBtn" class="ghost">Reset page</button>
+  </div>
+
+  <p class="honest">A harmless toy: it only remaps scroll direction or mirrors layout via CSS. Nothing on the page is modified or broken — one click restores everything.</p>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

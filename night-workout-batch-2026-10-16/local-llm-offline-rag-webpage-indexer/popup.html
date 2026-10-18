@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline Page Indexer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div>
+    <div>
+      <h1>Offline Page Indexer</h1>
+      <p class="sub">Local keyword search over saved pages</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>Honest scope: <b>keyword</b> full-text search over pages <b>you save</b>. <b>Not AI, not RAG, not semantic</b> — no embeddings, no synonyms, 100% offline.</p>
+  </div>
+
+  <div class="searchbar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="query" type="text" placeholder="Search saved pages…" autocomplete="off">
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="pageCount">0</span><span class="lbl">saved pages</span></div>
+    <div class="stat"><span class="num" id="wordCount">0</span><span class="lbl">indexed words</span></div>
+  </div>
+
+  <div class="btns">
+    <button id="savePage" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+      Save this page
+    </button>
+  </div>
+
+  <div id="results" class="results"></div>
+  <div id="empty" class="empty">No saved pages yet.<br>Click <b>Save this page</b> to start your offline library.</div>
+
+  <div class="btns">
+    <button id="exportBtn" class="ghost">Export JSON</button>
+    <button id="clearAll" class="ghost danger">Clear library</button>
+  </div>
+  <p class="foot">No network calls · No AI · Keyword match only</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

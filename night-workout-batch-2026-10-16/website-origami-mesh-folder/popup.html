@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 8l9 6 9-6-9-6z"/><path d="M3 8v8l9 6 9-6V8"/><path d="M12 14v8"/></svg>
+    <div>
+      <h1>Origami Mesh Folder</h1>
+      <p class="sub">A harmless visual toy &mdash; folds page blocks like origami paper. Nothing is deleted; one click unfolds everything.</p>
+    </div>
+  </header>
+
+  <section class="row">
+    <span class="label">Fold style</span>
+    <div class="seg" id="styleSeg">
+      <button data-style="crane" class="on">Crane</button>
+      <button data-style="accordion">Accordion</button>
+      <button data-style="spiral">Spiral</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <span class="label">Fold depth</span>
+    <input type="range" id="depth" min="20" max="100" value="75">
+  </section>
+
+  <section class="row">
+    <span class="label">Fold delay</span>
+    <input type="range" id="delay" min="0" max="60" value="25">
+  </section>
+
+  <div class="actions">
+    <button id="fold" class="primary">Fold this page</button>
+    <button id="unfold" class="ghost">Unfold</button>
+  </div>
+
+  <p class="note">100% local &mdash; visual transforms only, fully reversible. Refresh also restores the page.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

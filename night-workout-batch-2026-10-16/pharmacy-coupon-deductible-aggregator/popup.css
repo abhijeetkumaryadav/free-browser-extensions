@@ -1,0 +1,170 @@
+/* Pharmacy Price Log — deep-dark glassmorphism, single teal accent. */
+:root {
+  --accent: #2dd4bf;
+  --bg: #0c0d10;
+  --card: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --danger: #f87171;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 380px;
+  margin: 0;
+  padding: 14px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.app-header { text-align: center; margin-bottom: 12px; }
+.app-header .logo { width: 26px; height: 26px; color: var(--accent); }
+.app-header h1 { margin: 6px 0 4px; font-size: 17px; font-weight: 700; }
+
+.scope-note {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(45, 212, 191, 0.08);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.scope-note strong { color: var(--accent); }
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 13px;
+}
+
+input:focus { outline: none; border-color: var(--accent); }
+
+input[type="checkbox"] {
+  width: 18px; height: 18px;
+  margin-top: 8px;
+  accent-color: var(--accent);
+}
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+button.primary {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #04211d;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+button.primary:hover { filter: brightness(1.08); }
+
+button.ghost {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+button.ghost:hover { border-color: var(--accent); }
+
+.deductible { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 10px; }
+.deductible label { flex: 1; margin-bottom: 0; }
+
+.progress-wrap { margin-top: 4px; }
+
+.progress {
+  height: 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.muted { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+
+.error { color: var(--danger); font-size: 12px; margin: 8px 0 0; }
+.empty { color: var(--muted); font-size: 12px; text-align: center; margin: 4px 0; }
+
+.med-list { display: grid; gap: 10px; }
+
+.med {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.med-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.med-head strong { font-size: 13px; }
+.med-head .cheapest { font-size: 12px; color: var(--accent); font-weight: 700; }
+.med-head button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12px; }
+.med-head button:hover { color: var(--danger); }
+
+.entries { list-style: none; margin: 0; padding: 0; font-size: 12px; }
+
+.entries li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+}
+
+.entries li .tag {
+  font-size: 10px;
+  color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  border-radius: 6px;
+  padding: 1px 5px;
+  margin-left: 6px;
+}
+
+.entries li .del { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 12px; }
+.entries li .del:hover { color: var(--danger); }

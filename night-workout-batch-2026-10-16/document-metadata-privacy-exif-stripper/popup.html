@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MetaStrip</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hdr">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div>
+        <h1>MetaStrip</h1>
+        <p class="sub">EXIF metadata remover</p>
+      </div>
+    </header>
+
+    <p class="notice">Images only — not documents. Stripping re-encodes the image; expect minor quality loss. Keep originals.</p>
+
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept="image/*" hidden />
+      <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5l5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+      <span id="drop-label">Drop an image or click to choose</span>
+      <span class="hint">JPG · PNG · WebP — strips GPS &amp; camera tags</span>
+    </label>
+
+    <div class="stats hidden" id="stats">
+      <div class="stat"><span>Original</span><b id="orig-size">—</b></div>
+      <div class="stat"><span>Stripped</span><b id="new-size">—</b></div>
+      <div class="stat"><span>EXIF in original</span><b id="exif-flag">—</b></div>
+    </div>
+
+    <div class="row hidden" id="controls">
+      <div class="field">
+        <label for="quality">Output quality <output id="quality-out">0.92</output></label>
+        <input type="range" id="quality" min="0.5" max="1" step="0.02" value="0.92" />
+      </div>
+    </div>
+
+    <div class="btns hidden" id="actions">
+      <button id="download" class="primary">Download stripped copy</button>
+    </div>
+
+    <p class="err hidden" id="err"></p>
+    <p class="foot">100% on-device — your photos are never uploaded.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

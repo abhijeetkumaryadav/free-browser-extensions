@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zen Mode</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"></circle>
+      <line x1="6.5" y1="6.5" x2="17.5" y2="17.5"></line>
+    </svg>
+    <div>
+      <h1>Zen Mode</h1>
+      <p class="sub">Distraction dimmer</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <strong>Heuristic only — not an algorithm blocker.</strong>
+    Dimming applies to the tab you click on, and reverses fully when Zen is off.
+  </div>
+
+  <div class="row">
+    <button id="toggleBtn" class="toggle">Zen on</button>
+    <div class="stat">
+      <span class="num" id="dimmedCount">0</span>
+      <span class="lbl">regions dimmed</span>
+    </div>
+  </div>
+
+  <p class="status" id="status">Zen off — page restored.</p>
+  <p class="notice" id="notice"></p>
+
+  <details class="how">
+    <summary>How it works</summary>
+    <p>Click <b>Zen on</b> to blur-and-fade likely recommendation panels, sidebars and "suggested" sections on the current tab. Click <b>Zen off</b> to remove the dimming — the page is left completely untouched. Nothing is blocked, hidden, or reported anywhere.</p>
+  </details>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

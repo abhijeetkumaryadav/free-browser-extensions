@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contextual Tab Grouper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    <div><h1>Tab Grouper</h1><p id="tabCount">—</p></div>
+    <button id="scan" class="primary">Scan tabs</button>
+  </header>
+  <main>
+    <section id="suggestions" class="glass card" hidden>
+      <h2>Suggested groups</h2>
+      <div id="groups"></div>
+      <button id="create" class="primary wide">Create groups</button>
+    </section>
+    <section class="glass card">
+      <h2>Manage</h2>
+      <div class="row-btns">
+        <button id="ungroup" class="ghost">Ungroup all in window</button>
+      </div>
+      <label class="check"><input type="checkbox" id="collapseNew"> Collapse new groups after creating</label>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan tabs</b> to get smart group suggestions for this window.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

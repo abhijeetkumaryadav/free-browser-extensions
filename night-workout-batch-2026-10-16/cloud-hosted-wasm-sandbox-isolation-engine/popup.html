@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Honest-scope banner: this is a LOCAL sandbox. Nothing cloud-hosted,
+     no WebAssembly, no isolation-engine claims. Your snippets run in a
+     sandboxed <iframe> on this machine; nothing leaves the device. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local Code Sandbox</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <div>
+        <h1>Local Code Sandbox</h1>
+        <p class="subtitle">your snippets, run locally</p>
+      </div>
+    </div>
+    <span class="scope-pill" title="Runs on this machine only. Not cloud-hosted, not WASM, not a security isolation engine.">LOCAL ONLY</span>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p>Sandboxed frame on <strong>this device</strong>. No network access, no page DOM access. Infinite loops may hang the runner — reload to reset.</p>
+  </div>
+
+  <section class="card">
+    <div class="row">
+      <input id="snippetName" type="text" maxlength="60" placeholder="Snippet name (e.g. fibonacci)">
+      <button id="saveBtn" class="btn ghost" title="Save snippet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save
+      </button>
+    </div>
+    <textarea id="editor" spellcheck="false" placeholder="// try it:&#10;const nums = [1,2,3,4,5];&#10;console.log('sum:', nums.reduce((a,b)=>a+b,0));&#10;nums.map(n => n*n);"></textarea>
+    <div class="row actions">
+      <button id="runBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        Run
+      </button>
+      <button id="clearBtn" class="btn ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        Clear output
+      </button>
+      <span id="status" class="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Console output
+    </h2>
+    <div id="output" class="output" aria-live="polite"><div class="empty">Run a snippet to see output here.</div></div>
+  </section>
+
+  <section class="card">
+    <h2 class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Saved snippets
+    </h2>
+    <ul id="snippetList" class="snippets"><li class="empty">No saved snippets yet.</li></ul>
+  </section>
+
+  <footer class="foot">100% local · zero network · your code never leaves this device</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

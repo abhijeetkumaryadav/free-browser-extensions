@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signature Contact Extractor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5.5 16c.5-1.6 1.4-2.5 2.5-2.5s2 1 2.5 2.5"/><path d="M14 9h5M14 13h5"/></svg>
+    <div><h1>Signature Contacts</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <div id="stats" class="stats" hidden>
+      <div><span>Contacts</span><b id="stCount">0</b></div>
+      <div><span>Emails</span><b id="stEmails">0</b></div>
+      <div><span>Phones</span><b id="stPhones">0</b></div>
+    </div>
+    <div id="list"></div>
+    <div id="empty" class="empty">Hit <b>Scan page</b> on an email thread, contact page, or footer to pull out names, titles, emails and phones.</div>
+    <div id="actions" class="actions" hidden>
+      <button id="copyAll" class="ghost">⧉ Copy all (CSV)</button>
+      <button id="exportCsv" class="ghost">⬇ Export CSV</button>
+      <button id="clearAll" class="ghost danger">Clear</button>
+    </div>
+    <p class="note">Best-effort detection from visible text — always verify before outreach.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

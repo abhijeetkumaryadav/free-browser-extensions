@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="head">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        <line x1="8.5" y1="8.5" x2="13.5" y2="13.5"></line>
+      </svg>
+      <div>
+        <h1>Strict Match Filter</h1>
+        <p class="sub">Only cards containing ALL your terms stay bright</p>
+      </div>
+    </header>
+
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <span>Text matching only — your terms. Nothing runs until you click. Fully reversible.</span>
+    </div>
+
+    <label class="field">
+      <span>Query terms</span>
+      <input id="terms" type="text" placeholder="e.g. sourdough starter guide" autocomplete="off">
+    </label>
+
+    <div class="modes" role="radiogroup" aria-label="Display mode">
+      <label class="mode"><input type="radio" name="mode" value="dim" checked><span>Dim non-matches</span></label>
+      <label class="mode"><input type="radio" name="mode" value="collapse"><span>Collapse non-matches</span></label>
+    </div>
+
+    <div class="row">
+      <button id="filterBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+        Filter this page
+      </button>
+      <button id="restoreBtn" class="ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+        Restore
+      </button>
+    </div>
+
+    <div id="stats" class="stats" hidden></div>
+    <div id="status" class="status" role="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

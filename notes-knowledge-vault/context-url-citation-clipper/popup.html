@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CiteClip — Citation Clipper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4"/><path d="M20 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4"/></svg>
+      <div>
+        <h1>CiteClip</h1>
+        <p class="subtitle">Clip selected text with its source</p>
+      </div>
+    </div>
+    <span class="count-badge" id="countBadge" title="Clips saved">0</span>
+  </header>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="text" placeholder="Search quotes, titles, URLs…" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="format-row glass">
+    <span class="format-label">Copy as</span>
+    <div class="segmented" role="group" aria-label="Citation format">
+      <button class="seg active" data-format="markdown">Markdown</button>
+      <button class="seg" data-format="apa">APA-ish</button>
+      <button class="seg" data-format="plain">Plain</button>
+    </div>
+  </div>
+
+  <main id="clipList" class="clip-list" aria-live="polite"></main>
+
+  <div class="empty" id="emptyState">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4"/><path d="M20 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v7a4 4 0 0 1-4 4"/></svg>
+    <p><strong>No clips yet</strong></p>
+    <p class="hint">Select text on any page, right-click and choose <em>“Clip with citation”</em> to save the quote with its title, URL and access date.</p>
+  </div>
+
+  <footer class="actions glass">
+    <button id="exportBtn" class="btn secondary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>
+      Export JSON
+    </button>
+    <button id="clearBtn" class="btn danger-ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      Clear all
+    </button>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

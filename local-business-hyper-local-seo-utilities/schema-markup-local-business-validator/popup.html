@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="glass">
+  <!-- Lucide-style file-json stroke icon -->
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+    <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+    <path d="m10 13-2 2 2 2"/>
+    <path d="m14 17 2-2-2-2"/>
+  </svg>
+  <div>
+    <h1>Schema Markup Validator</h1>
+    <p>LocalBusiness JSON-LD · 100% on-device</p>
+  </div>
+</header>
+
+<main>
+  <!-- Input -->
+  <section class="card glass">
+    <h2>Paste JSON-LD</h2>
+    <textarea id="input" rows="7" spellcheck="false" placeholder='{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "…"
+}'></textarea>
+    <div class="row">
+      <button id="validate" class="primary">Validate markup</button>
+      <button id="scan" class="ghost" title="Read script[type=&quot;application/ld+json&quot;] blocks from the active tab">Scan this page</button>
+    </div>
+    <p class="hint">Tip: “Scan this page” reads only the JSON-LD blocks of the tab you’re viewing — nothing is sent anywhere.</p>
+  </section>
+
+  <!-- Results -->
+  <section class="card glass hidden" id="results">
+    <h2>Validation results</h2>
+    <div id="summary" class="summary"></div>
+    <ul id="issues"></ul>
+    <div class="row">
+      <button id="copy" class="ghost">Copy report</button>
+      <button id="clear" class="ghost">Clear</button>
+    </div>
+  </section>
+
+  <!-- Reference -->
+  <section class="card glass">
+    <h2>What’s checked</h2>
+    <ul class="ref">
+      <li><b>Required:</b> <code>@context</code> (schema.org), <code>@type</code>, <code>name</code></li>
+      <li><b>Recommended:</b> <code>address</code>, <code>telephone</code>, <code>url</code>, <code>image</code>, <code>priceRange</code>, <code>openingHoursSpecification</code>, <code>geo</code></li>
+      <li><b>Shapes:</b> PostalAddress fields, GeoCoordinates ranges, opening-hours day/time formats, aggregateRating bounds</li>
+    </ul>
+  </section>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

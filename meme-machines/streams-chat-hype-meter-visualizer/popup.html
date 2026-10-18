@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </span>
+    <div>
+      <h1>HypeMeter</h1>
+      <p class="sub">Manual hype logging &middot; <span class="ok">no chat API</span></p>
+    </div>
+    <button id="sessionBtn" class="btn small" type="button">Start session</button>
+  </header>
+
+  <p class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    You log the hype — this is <b>not</b> connected to any stream chat. Tap the button (or <kbd>Ctrl+Shift+H</kbd>) when the moment hits.
+  </p>
+
+  <section class="card gauge-card">
+    <svg id="gauge" viewBox="0 0 200 120" aria-label="Hype level gauge">
+      <path d="M 20 105 A 85 85 0 0 1 180 105" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="16" stroke-linecap="round"/>
+      <path id="gaugeArc" d="M 20 105 A 85 85 0 0 1 180 105" fill="none" stroke="#ec4899" stroke-width="16" stroke-linecap="round" stroke-dasharray="267" stroke-dashoffset="267"/>
+      <text id="gaugeText" x="100" y="95" text-anchor="middle" class="gauge-num">0</text>
+      <text x="100" y="112" text-anchor="middle" class="gauge-label">HYPE</text>
+    </svg>
+    <button id="hypeBtn" class="btn primary big" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      LOG HYPE!
+    </button>
+    <div class="stats">
+      <div class="stat"><b id="stEvents">0</b><span>moments</span></div>
+      <div class="stat"><b id="stPeak">0</b><span>peak</span></div>
+      <div class="stat"><b id="stTime">0:00</b><span>session</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row label-row">
+      <span class="label">Hype over time</span>
+      <span class="label dim">last 2 min</span>
+    </div>
+    <canvas id="spark" width="348" height="64"></canvas>
+  </section>
+
+  <section class="card">
+    <div class="row label-row">
+      <span class="label">Session log</span>
+      <button id="clearBtn" class="link" type="button">Clear</button>
+    </div>
+    <ul id="logList" class="log"></ul>
+    <div class="btn-row">
+      <button id="exportBtn" class="btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export JSON
+      </button>
+    </div>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

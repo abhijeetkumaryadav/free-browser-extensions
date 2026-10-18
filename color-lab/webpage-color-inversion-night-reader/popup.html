@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <div>
+      <h1>NightFlip</h1>
+      <p class="subtitle">Page inversion night reader</p>
+    </div>
+    <span class="status-pill" id="statusPill">idle</span>
+  </header>
+
+  <section class="panel">
+    <div class="toggle-row">
+      <div class="toggle-text">
+        <strong>Night mode</strong>
+        <span>Smart invert + hue-rotate on this tab</span>
+      </div>
+      <button class="switch" id="toggle" role="switch" aria-checked="false" aria-label="Toggle night mode"><span class="knob"></span></button>
+    </div>
+    <label class="slider-label" for="intensity">Inversion strength <span id="intensityVal">100%</span></label>
+    <input type="range" id="intensity" min="30" max="100" step="1" value="100">
+    <label class="check"><input type="checkbox" id="protectMedia" checked> <span>Protect images &amp; videos from inversion</span></label>
+    <button class="btn ghost" id="restore">Restore original page</button>
+  </section>
+
+  <section class="panel note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <p>Applies to the <b>current tab only</b>, on your click. Uses a CSS filter layer — the page is never modified. Restore removes it exactly.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

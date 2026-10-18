@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaScrub — Metadata Privacy Stripper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div>
+      <h1>MetaScrub</h1>
+      <p class="subtitle">Metadata privacy stripper</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Strips hidden metadata (author, timestamps, EXIF) from <strong>copies</strong> of your files.
+    Your originals are never modified. Everything runs on-device.</span>
+  </div>
+
+  <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose a file">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="11"/><polyline points="9 14 12 11 15 14"/></svg>
+    <div><strong>Drop a file here</strong> or click to choose</div>
+    <div class="hint">PDF · JPG · PNG · WebP · TXT — processed locally</div>
+    <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.webp,.txt" hidden>
+  </div>
+
+  <div id="fileSection" class="hidden">
+    <div class="doc-bar glass">
+      <div class="doc-info">
+        <div class="doc-name" id="fileName">—</div>
+        <div class="doc-meta" id="fileMeta">—</div>
+      </div>
+      <button class="btn ghost" id="closeBtn">Close</button>
+    </div>
+
+    <div class="meta-card glass">
+      <div class="meta-title">Detected metadata <span class="tag before">BEFORE</span></div>
+      <div id="beforeList" class="meta-list"></div>
+    </div>
+
+    <button class="btn primary wide" id="stripBtn">Strip metadata</button>
+
+    <div id="afterCard" class="meta-card glass hidden">
+      <div class="meta-title">After stripping <span class="tag after">AFTER</span></div>
+      <div id="afterList" class="meta-list"></div>
+    </div>
+
+    <button class="btn primary wide hidden" id="downloadBtn">Download clean copy</button>
+  </div>
+
+  <div id="status" class="status"></div>
+</div>
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

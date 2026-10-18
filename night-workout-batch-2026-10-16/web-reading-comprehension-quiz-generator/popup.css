@@ -1,0 +1,65 @@
+/* Vocab Quiz Generator — deep-dark glassmorphism, one amber accent */
+:root{ --accent:#f59e0b; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  width:380px; max-height:600px; overflow-y:auto;
+  background:rgba(20,20,26,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  color:#e8e8ef; font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+  padding:14px;
+}
+.bar{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.logo{ width:22px; height:22px; color:var(--accent); }
+h1{ font-size:15px; font-weight:650; }
+.notice{
+  background:rgba(245,158,11,.08); border:1px solid rgba(245,158,11,.25);
+  border-radius:10px; padding:10px 12px; font-size:12px; color:#cbb;
+  margin-bottom:12px; color:#d8d4c8;
+}
+.lbl{ font-size:12px; font-weight:600; color:#b9b9c9; display:block; margin-bottom:6px; }
+textarea{
+  width:100%; height:120px; resize:vertical; border-radius:10px; padding:10px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  color:#e8e8ef; font:13px/1.5 inherit; margin-bottom:10px;
+}
+.row{ display:flex; gap:10px; align-items:center; margin-bottom:12px; }
+input[type=number]{
+  width:64px; padding:6px 8px; border-radius:8px; margin-left:6px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:#e8e8ef;
+}
+button{ cursor:pointer; border:none; border-radius:10px; font:inherit; font-weight:600; }
+.primary{
+  width:100%; padding:10px; background:var(--accent); color:#1a1405;
+}
+.primary:hover{ filter:brightness(1.08); }
+.ghost{
+  background:transparent; color:#b9b9c9; border:1px solid rgba(255,255,255,.15);
+  padding:5px 10px; font-size:12px;
+}
+.err{ color:#fb7185; font-size:12px; margin-top:8px; }
+.qhead{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:12px; color:#b9b9c9; }
+.qcard{
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+  border-radius:10px; padding:10px 12px; margin-bottom:10px;
+}
+.qcard .qtype{ font-size:11px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+.qcard p{ margin:6px 0 8px; }
+.blank{ display:inline-block; min-width:70px; border-bottom:2px solid var(--accent); color:#ffd9a0; padding:0 4px; }
+.qcard input.ans{
+  width:100%; padding:8px 10px; border-radius:8px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); color:#e8e8ef;
+}
+.qcard.correct{ border-color:rgba(52,211,153,.6); }
+.qcard.wrong{ border-color:rgba(251,113,133,.6); }
+.feedback{ font-size:12px; margin-top:6px; }
+.feedback.ok{ color:#34d399; } .feedback.no{ color:#fb7185; }
+.matchOpts{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.chip{
+  padding:6px 10px; border-radius:999px; font-size:12px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); color:#e8e8ef;
+}
+.chip.sel{ border-color:var(--accent); background:rgba(245,158,11,.15); }
+.result{
+  margin-top:12px; padding:12px; border-radius:10px; text-align:center;
+  background:rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.3); font-weight:700;
+}
+#score{ margin-top:4px; }

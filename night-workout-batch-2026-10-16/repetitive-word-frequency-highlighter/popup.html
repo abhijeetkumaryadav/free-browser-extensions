@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Frequency Highlighter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 10h10"/><path d="M4 14h14"/><path d="M4 18h7"/></svg>
+    <div>
+      <h1>Word Frequency Highlighter</h1>
+      <p class="sub">Find overused words in your text.</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Honest scope: a <strong>local word-frequency analyzer</strong>. Paste text or grab the active field, and it shows a frequency table, flags overused words, and highlights repeats in a preview. No AI, no grammar judgments — just counts. 100% local.</span>
+  </div>
+
+  <div class="row">
+    <button id="grabBtn" class="primary">Grab active field</button>
+    <button id="analyzeBtn" class="ghost">Analyze text</button>
+  </div>
+  <textarea id="input" placeholder="Paste your text here…"></textarea>
+
+  <div id="stats" class="stats hidden">
+    <div class="stat"><span class="num" id="totalWords">0</span><span class="lbl">words</span></div>
+    <div class="stat"><span class="num" id="uniqueWords">0</span><span class="lbl">unique</span></div>
+    <div class="stat"><span class="num" id="repeatWords">0</span><span class="lbl">repeated</span></div>
+  </div>
+
+  <h2 id="tableHead" class="hidden">Overused words <span class="tiny">(click a row to highlight)</span></h2>
+  <div id="table" class="table"></div>
+
+  <h2 id="prevHead" class="hidden">Preview</h2>
+  <div id="preview" class="preview"></div>
+
+  <footer class="foot">Local only · no text stored or sent</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

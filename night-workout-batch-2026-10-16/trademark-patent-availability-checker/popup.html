@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trademark Search Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9 9.5h4.5A2 2 0 0 1 15.5 12a2 2 0 0 1-2 2.5h-2.2"/><path d="M9 9.5V15.5M11.3 14.5L14.5 15.5"/></svg>
+  <h1>Trademark Search Helper</h1>
+</header>
+
+<!-- Prominent honest-scope banner -->
+<div class="banner">
+  Search links to official trademark offices — <strong>NOT legal clearance</strong>.
+  Consult a trademark attorney before committing to a name.
+</div>
+
+<section class="card">
+  <h2>Candidate name</h2>
+  <input id="candidate" type="text" placeholder="e.g. Acme Widgets" autocomplete="off">
+  <div class="links" id="links">
+    <a id="link-uspto" href="#" target="_blank" rel="noopener">USPTO search</a>
+    <a id="link-euipo" href="#" target="_blank" rel="noopener">EUIPO eSearch</a>
+    <a id="link-wipo" href="#" target="_blank" rel="noopener">WIPO Global Brand</a>
+  </div>
+  <div class="row">
+    <input id="note" type="text" placeholder="Notes for the logbook (optional)">
+    <button id="log-btn" class="primary">Log candidate</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Logbook <span id="count" class="count"></span></h2>
+  <input id="search" type="text" placeholder="Filter logbook…" autocomplete="off">
+  <ul id="log"></ul>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

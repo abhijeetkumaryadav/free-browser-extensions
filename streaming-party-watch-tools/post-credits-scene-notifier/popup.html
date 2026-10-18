@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></svg>
+    </span>
+    <div>
+      <h1>CreditCheck</h1>
+      <p class="sub">Post-credits scene guide</p>
+    </div>
+  </header>
+
+  <div class="search-row">
+    <svg class="search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="search" type="text" placeholder="Search a movie…" autocomplete="off">
+  </div>
+
+  <section id="verdict" class="verdict hidden" aria-live="polite"></section>
+  <section id="results" class="results" aria-live="polite"></section>
+
+  <details class="add-box">
+    <summary>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Add your own title
+    </summary>
+    <div class="add-form">
+      <input id="new-title" type="text" placeholder="Movie title" maxlength="80">
+      <input id="new-year" type="number" placeholder="Year" min="1900" max="2100">
+      <label class="check"><input id="new-mid" type="checkbox"> Mid-credits scene</label>
+      <label class="check"><input id="new-post" type="checkbox"> Post-credits scene</label>
+      <button id="add-btn" class="btn">Save title</button>
+      <ul id="custom-list" class="custom-list"></ul>
+    </div>
+  </details>
+
+  <p class="foot">Static guide · compiled Oct 2026 · no live database · all data stays on this device</p>
+
+  <script src="data.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

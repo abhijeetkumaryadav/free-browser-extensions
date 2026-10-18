@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Desk Yoga Break Notifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    </span>
+    <div>
+      <h1>Desk Yoga Breaks</h1>
+      <p class="sub">Micro-stretch reminders</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <label class="row toggle-row">
+      <span>Break reminders</span>
+      <span class="switch"><input type="checkbox" id="enabled"><span class="knob"></span></span>
+    </label>
+    <label class="row">
+      <span>Remind me every</span>
+      <span class="field"><input type="number" id="interval" min="5" max="240" step="5"><span class="unit">min</span></span>
+    </label>
+    <p class="hint">5–240 minutes. Changes apply immediately.</p>
+  </section>
+
+  <section class="card">
+    <button id="preview" class="btn ghost">Preview a stretch now</button>
+    <div id="stretchCard" class="stretch hidden">
+      <h2 id="stretchName"></h2>
+      <p id="stretchHow"></p>
+    </div>
+  </section>
+
+  <p class="disclaimer">Reminders only — not medical advice. Skip anything that hurts.</p>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Journey Terrain</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<header class="bar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20l2-8 4 3 3-9 5 14"/></svg>
+  <h1>Journey Terrain</h1>
+</header>
+
+<p class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>Your journal — not your browser history. Nothing here reads your history; you log each place by hand.</span>
+</p>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="terrain" role="tab">Terrain</button>
+  <button class="tab" data-tab="log" role="tab">Log</button>
+</nav>
+
+<section id="tab-terrain" class="pane active">
+  <canvas id="terrain" width="348" height="220"></canvas>
+  <p class="hint">Your trail crosses the terrain in visit order — newest last.</p>
+  <div class="row">
+    <button id="exportJson" class="btn ghost">Export JSON</button>
+    <button id="exportMd" class="btn ghost">Export Markdown</button>
+  </div>
+</section>
+
+<section id="tab-log" class="pane">
+  <form id="addForm" autocomplete="off">
+    <input id="fSite" type="text" maxlength="80" placeholder="Site name — e.g. Wikipedia" required />
+    <input id="fUrl" type="url" maxlength="300" placeholder="https://…" />
+    <input id="fNote" type="text" maxlength="140" placeholder="Short note (optional)" />
+    <input id="fDate" type="date" />
+    <button class="btn primary" type="submit">Add to journal</button>
+  </form>
+  <input id="search" type="search" placeholder="Search sites and notes…" />
+  <ul id="list" class="list"></ul>
+  <button id="clearAll" class="btn danger">Clear all entries</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

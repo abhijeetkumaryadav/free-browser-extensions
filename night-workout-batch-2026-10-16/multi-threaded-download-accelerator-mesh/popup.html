@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Queue</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      <span>Download Queue</span>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>Honest label.</strong> This is a simple personal download queue — one download at a time via <code>chrome.downloads</code>. It is <strong>NOT</strong> multi-threaded and <strong>NOT</strong> a mesh. You add the URLs; only you start them.
+  </div>
+
+  <form id="addForm" class="add-form">
+    <input id="urlInput" type="url" placeholder="https://example.com/file.zip" required spellcheck="false">
+    <button type="submit" class="btn primary">Add</button>
+  </form>
+
+  <section class="section">
+    <h2>Queued / active</h2>
+    <div id="activeList" class="list"></div>
+    <div id="activeEmpty" class="empty-sm">Queue is empty. Add a URL above.</div>
+  </section>
+
+  <section class="section">
+    <h2>Completed</h2>
+    <div id="doneList" class="list"></div>
+    <div id="doneEmpty" class="empty-sm">Nothing completed yet.</div>
+    <button id="clearDoneBtn" class="btn ghost small hidden">Clear history</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

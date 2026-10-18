@@ -1,0 +1,23 @@
+/* Tab City — deep-dark glassmorphism, single cyan accent */
+:root{
+  --bg:#101014; --glass:rgba(20,20,26,.72); --line:rgba(255,255,255,.09);
+  --txt:#f4f4f6; --dim:#9d9dab; --accent:#22d3ee; --accent-soft:rgba(34,211,238,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px;background:var(--bg);color:var(--txt);font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.shell{padding:14px;display:flex;flex-direction:column;gap:12px}
+.head{display:flex;gap:10px;align-items:center}
+.head>div{flex:1}
+.logo{width:34px;height:34px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;color:var(--accent);flex:0 0 auto}
+.logo svg{width:20px;height:20px}
+.head h1{font-size:15px;font-weight:650;letter-spacing:.2px}
+.sub{color:var(--dim);font-size:11.5px}
+.iconbtn{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--dim);cursor:pointer;display:grid;place-items:center}
+.iconbtn:hover{color:var(--accent);border-color:var(--accent)}
+.iconbtn svg{width:16px;height:16px}
+.banner{font-size:11.5px;color:var(--dim);background:var(--accent-soft);border:1px solid rgba(34,211,238,.25);border-radius:10px;padding:7px 10px}
+.canvasWrap{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;padding:6px;overflow:hidden}
+canvas{display:block;border-radius:10px;cursor:pointer}
+.status{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--dim);padding:0 2px}
+#tabCount{color:var(--accent);font-weight:650}
+.sep{opacity:.5}

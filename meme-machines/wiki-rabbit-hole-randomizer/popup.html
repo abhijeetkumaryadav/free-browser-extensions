@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RabbitHole — Wiki Randomizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <!-- Lucide-style compass icon -->
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+      <div>
+        <h1>RabbitHole</h1>
+        <p class="subtitle">wiki randomizer</p>
+      </div>
+    </div>
+    <div class="depth" id="depthBadge" title="How deep your current dive goes">
+      <span class="depth-num" id="depthNum">0</span>
+      <span class="depth-label">depth</span>
+    </div>
+  </header>
+
+  <!-- Wiki picker -->
+  <section class="card">
+    <label class="field-label" for="wikiSelect">Choose your wiki</label>
+    <select id="wikiSelect" class="select"></select>
+    <button id="diveBtn" class="dive-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+      Dive in
+    </button>
+    <p class="hint">Opens a random article in a new tab. Each dive is added to your trail below.</p>
+  </section>
+
+  <!-- Trail -->
+  <section class="card trail-card">
+    <div class="trail-head">
+      <h2>Trail</h2>
+      <div class="trail-actions">
+        <button id="backBtn" class="icon-btn" title="Go back to the previous article" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="copyBtn" class="icon-btn" title="Copy trail as shareable text log" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <button id="clearBtn" class="icon-btn danger" title="Clear trail" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </button>
+      </div>
+    </div>
+    <ol id="trailList" class="trail"></ol>
+    <p id="emptyTrail" class="empty">No dives yet — press <b>Dive in</b> to start your rabbit hole.</p>
+  </section>
+
+  <footer class="foot">
+    <span>History stays on this device.</span>
+    <span id="copyToast" class="toast" hidden>Copied ✓</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

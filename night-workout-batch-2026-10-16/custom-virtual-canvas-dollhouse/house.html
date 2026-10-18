@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Dollhouse</title>
+<link rel="stylesheet" href="house.css">
+</head>
+<body>
+<div class="house">
+  <header class="bar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      </span>
+      <h1>Canvas Dollhouse</h1>
+    </div>
+    <nav class="rooms" role="tablist" aria-label="Rooms">
+      <button class="room-tab active" data-room="living" role="tab" aria-selected="true">Living Room</button>
+      <button class="room-tab" data-room="bedroom" role="tab" aria-selected="false">Bedroom</button>
+      <button class="room-tab" data-room="kitchen" role="tab" aria-selected="false">Kitchen</button>
+    </nav>
+    <div class="controls">
+      <label class="wall">Wall <input type="color" id="wallColor" value="#3a3f5c" aria-label="Wall color"></label>
+      <button id="lightsBtn" class="pill" aria-pressed="true" title="Toggle lights">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.5 1 2.5h6c0-1 .2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
+        Lights
+      </button>
+      <button id="resetBtn" class="pill danger" title="Reset this room">Reset room</button>
+    </div>
+  </header>
+
+  <main class="stage-wrap">
+    <div id="stage" class="stage" aria-label="Room canvas. Drag furniture to move it."></div>
+    <div id="dim" class="dim" aria-hidden="true"></div>
+  </main>
+
+  <footer class="palette-wrap">
+    <span class="palette-label">Add furniture:</span>
+    <div id="palette" class="palette"></div>
+    <span class="hint">Drag pieces to move · click a piece, then ✕ to remove</span>
+  </footer>
+</div>
+<script src="house.js"></script>
+</body>
+</html>

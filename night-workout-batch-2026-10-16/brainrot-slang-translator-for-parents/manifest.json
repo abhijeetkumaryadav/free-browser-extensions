@@ -1,0 +1,20 @@
+{
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "SlangSense"
+  },
+  "description": "Decode your kid's slang: paste text or scan the page to highlight youth slang with plain-language definitions. Bundled local dictionary, 100% offline.",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "SlangSense \u2014 Brainrot Slang Translator for Parents",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "version": "1.0.0"
+}

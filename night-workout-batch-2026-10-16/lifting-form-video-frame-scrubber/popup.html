@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Frame Scrubber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 9h5M2 15h5M17 9h5M17 15h5"/></svg>
+    <div>
+      <h1>Form Frame Scrubber</h1>
+      <p class="sub">Review aid — not coaching advice</p>
+    </div>
+  </header>
+
+  <label class="file-btn" for="file">Load video file</label>
+  <input type="file" id="file" accept="video/*" hidden>
+
+  <div class="stage-wrap">
+    <video id="video" playsinline preload="auto"></video>
+    <div id="empty">Drop a video file to start reviewing</div>
+  </div>
+
+  <div class="timebar">
+    <span id="tcur">0:00.00</span>
+    <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek">
+    <span id="tdur">0:00.00</span>
+  </div>
+
+  <div class="row">
+    <button id="prevF" class="btn" title="Previous frame (←)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/><path d="M9 6v12"/></svg>
+      Frame
+    </button>
+    <button id="play" class="btn accent" title="Play/Pause (space)">
+      <svg id="playIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+    </button>
+    <button id="nextF" class="btn" title="Next frame (→)">
+      Frame
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/><path d="M15 6v12"/></svg>
+    </button>
+  </div>
+
+  <div class="row two">
+    <label>FPS <input type="number" id="fps" min="1" max="240" value="30"></label>
+    <label>Speed
+      <select id="speed">
+        <option value="1">1×</option>
+        <option value="0.5">0.5×</option>
+        <option value="0.25" selected>0.25×</option>
+        <option value="0.1">0.1×</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="row two">
+    <button id="setA" class="btn">Set A <span id="aVal">—</span></button>
+    <button id="setB" class="btn">Set B <span id="bVal">—</span></button>
+  </div>
+  <div class="row">
+    <button id="loopT" class="btn wide" disabled>Loop A–B: off</button>
+    <button id="clearAB" class="btn" disabled>Clear</button>
+  </div>
+
+  <p class="hint">←/→ step one frame · Space play/pause · M marks A/B</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

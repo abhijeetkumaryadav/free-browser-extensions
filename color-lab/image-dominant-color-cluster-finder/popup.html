@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ColorMine — Image Dominant Colors</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1.2" fill="currentColor"/><circle cx="14.5" cy="9" r="1.2" fill="currentColor"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>
+      <div>
+        <h1>ColorMine</h1>
+        <p class="sub">Dominant colors · 100% local</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="card">
+    <label id="dropzone" class="dropzone" for="fileInput">
+      <input type="file" id="fileInput" accept="image/*" class="visually-hidden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+      <span><strong>Choose an image</strong> or drag &amp; drop</span>
+      <span class="hint">PNG · JPG · GIF · WebP — stays on your device</span>
+    </label>
+    <canvas id="canvas" class="hidden"></canvas>
+  </section>
+
+  <section id="resultCard" class="card hidden">
+    <div class="section-head">
+      <h2>Dominant colors <span id="imgInfo" class="img-info"></span></h2>
+      <button id="copyAllBtn" class="pill" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy palette
+      </button>
+    </div>
+    <ul id="palette" class="palette"></ul>
+    <div class="row slider-row">
+      <label for="countRange">Colors to show <span id="countVal">8</span></label>
+      <input type="range" id="countRange" min="3" max="12" value="8">
+    </div>
+    <p id="copyNote" class="note hidden">Copied to clipboard ✓</p>
+    <p class="method">Method: downsampled canvas sampling + 12-bit color bucketing — fast local approximation.</p>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

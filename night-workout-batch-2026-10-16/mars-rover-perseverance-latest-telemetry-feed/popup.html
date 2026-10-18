@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perseverance Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M6.5 9.5c1.5-1 4-1.5 6-1.5s4 .5 5.5 1.2"/><path d="M7 13c2-1.5 8-1.5 10 0"/><path d="M8.5 16.5c1.5-.8 5.5-.8 7 0"/></svg>
+    <div>
+      <h1>Perseverance Journal</h1>
+      <p class="sub">Mars milestones + your logbook</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Educational timeline — not live telemetry. No network.</span>
+  </div>
+
+  <nav class="tabs">
+    <button id="tabTimeline" class="tab active">Timeline</button>
+    <button id="tabLogbook" class="tab">My Logbook</button>
+  </nav>
+
+  <section id="viewTimeline">
+    <ul id="timeline" class="timeline"></ul>
+  </section>
+
+  <section id="viewLogbook" hidden>
+    <div class="add">
+      <p class="label">New log entry</p>
+      <input id="logSol" type="text" placeholder="Sol # (optional)" maxlength="12" inputmode="numeric">
+      <textarea id="logText" rows="3" placeholder="Write about Perseverance, Mars, or your space interest..." maxlength="2000"></textarea>
+      <button id="btnLog" class="primary">Save entry</button>
+    </div>
+    <p class="label">Entries</p>
+    <ul id="entries" class="entries"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

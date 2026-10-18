@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Address Permutation Verifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div><h1>Address Verifier</h1><p>Spot duplicate &amp; fraud addresses</p></div>
+    <button id="clear" class="ghost-btn">Clear</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Shipping addresses <span>(one per block, separated by a blank line)</span>
+        <textarea id="input" rows="6" placeholder="221B Baker Street, London NW1 6XE
+
+221b baker st. london nw1 6xe"></textarea>
+      </label>
+      <label class="fld-row">Sensitivity
+        <input type="range" id="thresh" min="70" max="100" value="85">
+        <b id="threshVal">85%</b>
+      </label>
+      <button id="analyze" class="primary">Analyze addresses</button>
+    </section>
+    <section class="glass card" id="results" hidden>
+      <h2 id="summary"></h2>
+      <div id="groups"></div>
+    </section>
+    <p class="note">Normalization: lowercase, St→Street, Ave→Avenue, Rd→Road, punctuation &amp; extra spaces stripped. All processing is on-device.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

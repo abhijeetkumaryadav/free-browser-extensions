@@ -1,0 +1,49 @@
+/* Subtitle Editor — deep-dark glassmorphism, single amber accent */
+:root { --accent: #f59e0b; --bg: rgba(20,20,26,.72); }
+* { box-sizing: border-box; margin: 0; }
+body { width: 380px; font: 13px/1.5 system-ui, sans-serif; color: #e8e8ee;
+  background: linear-gradient(160deg, #14141c, #1c1c28); }
+.card { background: var(--bg); backdrop-filter: blur(12px); padding: 16px;
+  display: flex; flex-direction: column; gap: 12px; }
+header { display: flex; gap: 12px; align-items: center; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex: none; }
+h1 { font-size: 15px; font-weight: 700; }
+.sub { font-size: 11px; color: #9a9ab0; }
+.notice { display: flex; gap: 8px; font-size: 11px; color: #c9c9d8;
+  background: rgba(245,158,11,.08); border: 1px solid rgba(245,158,11,.25);
+  border-radius: 10px; padding: 8px 10px; }
+.notice svg { width: 16px; height: 16px; color: var(--accent); flex: none; margin-top: 1px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.drop { border: 1.5px dashed rgba(245,158,11,.4); border-radius: 10px; padding: 8px 12px;
+  font-size: 12px; color: #c9c9d8; cursor: pointer; }
+.drop:hover { background: rgba(245,158,11,.06); }
+button.ghost { background: none; border: 1px solid rgba(255,255,255,.15); color: #c9c9d8;
+  border-radius: 8px; padding: 7px 10px; font-size: 12px; cursor: pointer; }
+button.ghost:hover { border-color: var(--accent); color: #fff; }
+button.primary { background: var(--accent); color: #2b1a02; border: none; border-radius: 10px;
+  padding: 10px; font-size: 13px; font-weight: 700; cursor: pointer; flex: 1; }
+button.primary:disabled { opacity: .4; cursor: default; }
+#pasteArea { background: #1e1e2a; color: #e8e8ee; border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px; padding: 8px; font: 11px monospace; resize: vertical; }
+.hidden { display: none !important; }
+.preview { background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 8px; }
+#stage { width: 100%; border-radius: 8px; display: block; background: #0a0a10; }
+.scrub { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+.scrub input[type=range] { flex: 1; accent-color: var(--accent); }
+#timeLabel { font-size: 11px; color: #9a9ab0; min-width: 40px; text-align: right; }
+.styleRow { display: flex; gap: 12px; margin-top: 6px; font-size: 11px; color: #9a9ab0; align-items: center; }
+.styleRow label { display: flex; gap: 6px; align-items: center; }
+.styleRow input[type=range] { width: 70px; accent-color: var(--accent); }
+.styleRow input[type=color] { width: 30px; height: 22px; border: none; border-radius: 4px; background: none; padding: 0; }
+.cues { display: flex; flex-direction: column; gap: 8px; max-height: 240px; overflow-y: auto; }
+.empty { color: #6a6a80; font-size: 12px; text-align: center; padding: 8px; }
+.cue { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+.cue .times { display: flex; gap: 6px; align-items: center; }
+.cue .times input { background: #1e1e2a; color: #e8e8ee; border: 1px solid rgba(255,255,255,.12);
+  border-radius: 6px; padding: 5px 6px; font: 11px monospace; width: 120px; }
+.cue .times button { margin-left: auto; background: none; border: none; color: #9a9ab0; cursor: pointer; font-size: 14px; }
+.cue .times button:hover { color: #ff6b6b; }
+.cue textarea { background: #1e1e2a; color: #e8e8ee; border: 1px solid rgba(255,255,255,.12);
+  border-radius: 6px; padding: 6px; font-size: 12px; resize: vertical; min-height: 36px; }
+.err { color: #ff6b6b; font-size: 11px; min-height: 14px; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cancel Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+    <div class="hdr-text">
+      <h1>Cancel Helper</h1>
+      <p class="sub">find the exit door</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16.5h.01"/></svg>
+    <p><strong>Honest scope:</strong> this tool <em>finds</em> cancel/manage links and <em>reminds</em> you. It cannot cancel subscriptions for you — <strong>you do the canceling</strong>, on the merchant's own page.</p>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="scan" role="tab">Scan page</button>
+    <button class="tab" data-tab="check" role="tab">Checklist</button>
+    <button class="tab" data-tab="remind" role="tab">Reminders</button>
+  </nav>
+
+  <!-- SCAN -->
+  <section class="panel active" id="panel-scan">
+    <p class="hint">Open your account / settings / billing page, then scan for cancel links.</p>
+    <button class="btn primary" id="scanBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan this page for cancel links
+    </button>
+    <div class="results" id="scanResults" hidden></div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="panel" id="panel-check">
+    <p class="hint">A generic cancel walkthrough. Tick steps off as you go.</p>
+    <ol class="checklist" id="checklist"></ol>
+    <button class="btn ghost" id="resetCheck">Reset checklist</button>
+  </section>
+
+  <!-- REMINDERS -->
+  <section class="panel" id="panel-remind">
+    <p class="hint">Get a browser notification before a trial renews.</p>
+    <label class="field"><span>Service name</span>
+      <input type="text" id="remName" placeholder="e.g. StreamFlix" maxlength="60">
+    </label>
+    <label class="field"><span>Renewal / trial-end date</span>
+      <input type="date" id="remDate">
+    </label>
+    <label class="field"><span>Remind me</span>
+      <select id="remLead">
+        <option value="1">1 day before</option>
+        <option value="3">3 days before</option>
+        <option value="7">7 days before</option>
+        <option value="14">14 days before</option>
+      </select>
+    </label>
+    <button class="btn primary" id="addRem">Add reminder</button>
+    <ul class="reminders" id="remList"></ul>
+  </section>
+
+  <footer class="foot"><span>v1.0.0 · 100% local</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContrastCheck</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18" fill="currentColor" stroke="none" opacity="0.35"/></svg>
+    <div>
+      <h1>ContrastCheck</h1>
+      <p class="tagline">WCAG contrast ratio checker</p>
+    </div>
+  </header>
+
+  <div class="colors">
+    <div class="color-row">
+      <label for="fgPicker">Text</label>
+      <div class="color-input">
+        <input type="color" id="fgPicker" value="#1a1a1a" aria-label="Foreground color picker">
+        <input type="text" id="fgHex" value="#1a1a1a" maxlength="7" spellcheck="false" aria-label="Foreground hex value">
+      </div>
+    </div>
+    <button id="swapBtn" class="icon-btn" type="button" title="Swap foreground and background" aria-label="Swap colors">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+    </button>
+    <div class="color-row">
+      <label for="bgPicker">Background</label>
+      <div class="color-input">
+        <input type="color" id="bgPicker" value="#ffffff" aria-label="Background color picker">
+        <input type="text" id="bgHex" value="#ffffff" maxlength="7" spellcheck="false" aria-label="Background hex value">
+      </div>
+    </div>
+  </div>
+
+  <section class="ratio-card">
+    <div class="ratio-num" id="ratioNum">--</div>
+    <div class="ratio-label">contrast ratio</div>
+    <div class="badges" id="badges">
+      <div class="badge" data-k="aa-normal"><span class="b-name">AA · Normal</span><span class="b-val">–</span></div>
+      <div class="badge" data-k="aaa-normal"><span class="b-name">AAA · Normal</span><span class="b-val">–</span></div>
+      <div class="badge" data-k="aa-large"><span class="b-name">AA · Large</span><span class="b-val">–</span></div>
+      <div class="badge" data-k="aaa-large"><span class="b-name">AAA · Large</span><span class="b-val">–</span></div>
+    </div>
+  </section>
+
+  <section class="preview-card">
+    <div class="preview-label">Live preview</div>
+    <div class="preview-box" id="previewBox">
+      <p class="pv-normal" id="pvNormal">The quick brown fox jumps over the lazy dog.</p>
+      <p class="pv-large" id="pvLarge">Large text preview (18pt+)</p>
+    </div>
+  </section>
+
+  <section class="suggest-card" id="suggestCard">
+    <div class="suggest-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      Suggestion
+    </div>
+    <p id="suggestText">Enter two colors to check contrast.</p>
+  </section>
+
+  <div class="toolbar">
+    <button id="resetBtn" class="btn ghost" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      Reset
+    </button>
+    <button id="copyBtn" class="btn primary" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy result
+    </button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="foot">
+    <span class="dot"></span> Local calculator — WCAG 2.x relative luminance
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* ISBN Wishlist — deep-dark glassmorphism, one emerald accent */
+:root { --accent:#10b981; --ink:#e8e9ee; --dim:#9aa0ae; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  width:380px; max-height:560px; overflow-y:auto;
+  color:var(--ink); font:13px/1.5 system-ui,-apple-system,sans-serif;
+  background:rgba(20,20,26,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  padding:14px;
+}
+.top { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.logo { width:28px; height:28px; color:var(--accent); flex:none; }
+h1 { font-size:16px; font-weight:700; }
+.sub { color:var(--dim); font-size:11px; }
+.banner {
+  display:flex; gap:8px; align-items:flex-start;
+  background:rgba(16,185,129,.10); border:1px solid rgba(16,185,129,.35);
+  border-radius:10px; padding:10px 12px; font-size:12px; color:var(--ink); margin-bottom:12px;
+}
+.banner svg { width:16px; height:16px; color:var(--accent); flex:none; margin-top:1px; }
+.card {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:12px; padding:12px; margin-bottom:12px;
+}
+.card h2 { font-size:13px; margin-bottom:8px; }
+label { display:block; font-size:11px; color:var(--dim); margin-bottom:8px; }
+input {
+  width:100%; margin-top:4px; padding:8px 10px; font-size:13px; color:var(--ink);
+  background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12); border-radius:8px; outline:none;
+}
+input:focus { border-color:var(--accent); }
+button { cursor:pointer; font-size:13px; border-radius:8px; border:none; }
+.primary { width:100%; padding:10px; background:var(--accent); color:#06281f; font-weight:700; }
+.primary:hover { filter:brightness(1.1); }
+.ghost { background:transparent; color:var(--dim); border:1px solid rgba(255,255,255,.14); padding:8px 12px; width:100%; margin-top:8px; }
+.ghost:hover { color:var(--ink); border-color:var(--accent); }
+.err { color:#fb7185; font-size:12px; margin-top:8px; }
+.list-head h2 { display:flex; justify-content:space-between; align-items:center; }
+.count { color:var(--accent); font-weight:700; }
+.list-head input { margin:4px 0 10px; }
+#books { list-style:none; }
+.book {
+  background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08);
+  border-radius:10px; padding:10px 12px; margin-bottom:8px;
+}
+.book .t { font-weight:700; font-size:13px; }
+.book .a { color:var(--dim); font-size:12px; margin:2px 0; }
+.book .isbn { font-family:ui-monospace,monospace; font-size:11px; color:var(--accent); }
+.book .n { color:var(--dim); font-size:12px; font-style:italic; margin-top:4px; }
+.book .row { display:flex; gap:8px; margin-top:8px; }
+.book .row a, .book .row button { font-size:12px; padding:6px 10px; border-radius:6px; }
+.book .row a { background:rgba(16,185,129,.15); color:var(--accent); text-decoration:none; border:1px solid rgba(16,185,129,.4); }
+.book .row a:hover { background:rgba(16,185,129,.28); }
+.book .row button { background:transparent; color:#fb7185; border:1px solid rgba(251,113,133,.4); }
+.empty { color:var(--dim); text-align:center; padding:16px 0; font-size:12px; }
+::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-thumb { background:rgba(255,255,255,.15); border-radius:4px; }

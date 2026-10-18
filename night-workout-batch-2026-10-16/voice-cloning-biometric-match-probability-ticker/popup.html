@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="icon-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/></svg>
+    </div>
+    <div>
+      <h1>Voice Cloning Awareness</h1>
+      <p>Biometric Match Guide · v1.0.0</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>Educational only — not biometric matching.</strong>
+    This guide explains how voice cloning works, its red flags, and consent norms.
+    It performs no audio analysis and matches nothing. Nothing leaves your browser.
+  </div>
+
+  <div class="tabs">
+    <button class="active" data-tab="how">How It Works</button>
+    <button data-tab="flags">Red Flags</button>
+    <button data-tab="notes">My Notes</button>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="tab-panel active" id="tab-how">
+    <div class="card">
+      <h3>How voice cloning works (plain language)</h3>
+      <p>Modern voice-cloning systems learn a person's vocal identity from a short sample — sometimes just seconds of speech. A speaker-encoder extracts a compact "voice fingerprint" (timbre, pitch range, speaking style), and a synthesis model renders arbitrary text in that voice.</p>
+      <p>Cloning a voice is <b>not the same</b> as verifying a person. Synthesis copies surface acoustics; it does not prove identity, consent, or authenticity.</p>
+    </div>
+    <div class="card">
+      <h3>Consent and misuse</h3>
+      <p>• Cloning someone's voice <b>without their consent</b> — for scams, impersonation, or harassment — can be illegal in many jurisdictions.</p>
+      <p>• "Hi, it's your grandson, I need money urgently" calls are a classic voice-clone scam pattern: urgency + secrecy + a request to act now.</p>
+      <p>• Legitimate uses (accessibility narration, dubbing, voice restoration) all involve <b>explicit consent</b> from the speaker.</p>
+    </div>
+    <div class="card">
+      <h3>Verify before you trust</h3>
+      <p>• Call back on a <b>known number</b>, don't reply to the incoming call.</p>
+      <p>• Agree a <b>family code word</b> for emergencies — a secret phrase only your real family knows.</p>
+      <p>• Be skeptical of urgent money requests from any unexpected voice message.</p>
+    </div>
+  </section>
+
+  <!-- RED FLAGS -->
+  <section class="tab-panel" id="tab-flags">
+    <div id="flags"></div>
+    <div class="card">
+      <h3>Why red flags are only signals</h3>
+      <p>Real recordings can have artifacts too (bad microphones, compression, editing). A flag list raises caution — it never proves a clip is fake, and a clean list never proves it is real.</p>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="tab-panel" id="tab-notes">
+    <input type="text" id="note-title" placeholder="Note title (e.g. Family code word idea)">
+    <textarea id="note-body" placeholder="Write your note…"></textarea>
+    <div class="btn-row">
+      <button class="btn" id="add-note">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Save note
+      </button>
+      <span class="count-pill" id="note-count">0 notes</span>
+    </div>
+    <div class="notes-list" id="notes-list"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Passive Pattern Flagger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <h1><svg viewBox="0 0 24 24" class="ico"><path d="M4 8h13M17 4l4 4-4 4M4 16h13"/></svg> Passive Pattern Flagger</h1>
+  <p class="sub">Rule-based writing helper</p>
+</header>
+
+<div class="notice">
+  <strong>Honest scope:</strong> this flags likely passive-voice <em>patterns</em> using rules —
+  it is <strong>not AI</strong> and it never rewrites for you. You do the rewriting.
+</div>
+
+<textarea id="input" rows="6" placeholder="Paste your text here…"></textarea>
+
+<div class="row">
+  <button id="scan" class="primary">Scan for passive patterns</button>
+  <button id="clear" class="ghost">Clear</button>
+</div>
+
+<div id="summary" class="summary hidden"></div>
+<div id="flags" class="flags"></div>
+
+<details class="tips">
+  <summary>How to rewrite (guidance)</summary>
+  <ul>
+    <li><strong>Find the doer.</strong> Ask "by whom?" — "The report <em>was written by Ana</em>" → "Ana wrote the report."</li>
+    <li><strong>Move the doer to the front.</strong> Subject first, then a strong verb.</li>
+    <li><strong>Some passives are fine.</strong> When the receiver matters most ("The patient was treated"), keep it.</li>
+    <li><strong>Watch "is/are/was/were + verb-ed".</strong> That's the most common signal.</li>
+  </ul>
+</details>
+
+<script src="popup.js"></script>
+</body>
+</html>

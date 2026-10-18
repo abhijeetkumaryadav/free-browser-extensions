@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dark Mode Inverter Engine</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" fill="currentColor" stroke="none" opacity=".9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></svg>
+    <div><h1>Dark Mode</h1><p id="hostLine">—</p></div>
+    <label class="switch"><input type="checkbox" id="toggle"><span class="track"><span class="thumb"></span></span></label>
+  </header>
+  <main>
+    <section class="glass card">
+      <p class="note" id="memNote">Enable to remember this site — dark mode applies automatically on every visit.</p>
+      <label class="slider-row">
+        <span>Dim <b id="dimVal">95%</b></span>
+        <input type="range" id="dim" min="60" max="100" value="95">
+      </label>
+      <label class="slider-row">
+        <span>Contrast <b id="conVal">100%</b></span>
+        <input type="range" id="contrast" min="80" max="130" value="100">
+      </label>
+    </section>
+    <button id="forgetAll" class="ghost">Forget all remembered sites</button>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

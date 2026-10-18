@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pomodoro Walking Breaks</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
+    </svg>
+    <div>
+      <h1>Pomodoro Walk Breaks</h1>
+      <p class="sub">Focus sessions, walking breaks</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Timer only — not medical advice. Walk safely.</span>
+  </div>
+
+  <!-- Phase display -->
+  <div class="phase-wrap">
+    <div class="ring" id="ring"><span id="time">25:00</span></div>
+    <div class="phase-label" id="phaseLabel">Ready</div>
+    <div class="sessions" id="sessions">Sessions today: 0</div>
+  </div>
+
+  <div class="controls">
+    <button id="startBtn" class="primary">Start focus</button>
+    <button id="resetBtn" class="ghost">Reset</button>
+  </div>
+
+  <!-- Settings -->
+  <details class="settings">
+    <summary>Durations</summary>
+    <label>Focus (min) <input type="number" id="focusMin" min="1" max="180" value="25"></label>
+    <label>Break (min) <input type="number" id="breakMin" min="1" max="60" value="5"></label>
+    <label>Long break every <input type="number" id="longEvery" min="1" max="12" value="4"> sessions</label>
+    <label>Long break (min) <input type="number" id="longMin" min="1" max="60" value="15"></label>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

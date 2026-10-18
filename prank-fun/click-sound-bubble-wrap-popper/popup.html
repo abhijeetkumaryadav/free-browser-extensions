@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BubblePop</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/>
+      <circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/>
+    </svg>
+    <div>
+      <h1>BubblePop</h1>
+      <p class="tagline">Infinite bubble wrap therapy</p>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div class="stat">
+      <span class="stat-value" id="totalPops">0</span>
+      <span class="stat-label">Total pops</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" id="bestStreak">0</span>
+      <span class="stat-label">Best streak</span>
+    </div>
+  </section>
+
+  <button class="primary" id="openBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+      <polyline points="15 3 21 3 21 9"/>
+      <line x1="10" y1="14" x2="21" y2="3"/>
+    </svg>
+    Open bubble wrap
+  </button>
+
+  <label class="toggle-row">
+    <span class="toggle-label">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+      Sound
+    </span>
+    <button class="toggle" id="soundToggle" role="switch" aria-checked="true" aria-label="Toggle pop sound"></button>
+  </label>
+
+  <p class="hint">Tip: hold and drag across bubbles for rapid-fire popping.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RegexFind</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M8 11h6M11 8v6"/>
+      </svg>
+      <div>
+        <h1>RegexFind</h1>
+        <p class="tagline">Regex find &amp; replace for tables</p>
+      </div>
+    </div>
+    <span class="badge">on-device</span>
+  </header>
+
+  <main>
+    <!-- Data input -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+        <h2>Data</h2>
+      </div>
+      <textarea id="csvInput" rows="5" placeholder="Paste CSV or TSV data here…&#10;name,email,phone&#10;Jane,(555) 123-4567,1990-05-01"></textarea>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="hasHeader" checked><span>First row is header</span></label>
+        <div class="delim" id="delimNote" title="Auto-detected delimiter">delim: <b>auto</b></div>
+      </div>
+      <div class="row">
+        <button id="loadSample" class="btn ghost">Load sample</button>
+        <button id="clearData" class="btn ghost">Clear</button>
+        <span class="spacer"></span>
+        <span class="stat" id="tableStat">0 rows × 0 cols</span>
+      </div>
+    </section>
+
+    <!-- Regex controls -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+        <h2>Find &amp; replace</h2>
+      </div>
+      <label class="field-label" for="regexInput">Find (regex)</label>
+      <input id="regexInput" type="text" spellcheck="false" placeholder="\((\d{3})\)\s?(\d{3})-(\d{4})" autocomplete="off">
+      <div class="row wrap">
+        <label class="check flag"><input type="checkbox" id="flagG" checked><span>g</span></label>
+        <label class="check flag"><input type="checkbox" id="flagI"><span>i</span></label>
+        <label class="check flag"><input type="checkbox" id="flagM"><span>m</span></label>
+        <span class="regex-status" id="regexStatus">Enter a pattern</span>
+      </div>
+      <label class="field-label" for="replaceInput">Replace with <span class="hint">($1, $2… for capture groups)</span></label>
+      <input id="replaceInput" type="text" spellcheck="false" placeholder="$1-$2-$3" autocomplete="off">
+      <div class="row">
+        <label class="field-label inline" for="scopeSelect">Scope</label>
+        <select id="scopeSelect">
+          <option value="all">Whole table</option>
+        </select>
+      </div>
+      <div class="row stats">
+        <span class="stat"><b id="matchCount">0</b> matches</span>
+        <span class="stat"><b id="cellCount">0</b> cells affected</span>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h2>Preview</h2>
+        <span class="spacer"></span>
+        <div class="seg" role="tablist" aria-label="Preview mode">
+          <button id="viewBefore" class="seg-btn active">Before</button>
+          <button id="viewAfter" class="seg-btn">After</button>
+        </div>
+      </div>
+      <div class="table-wrap"><table id="previewTable"></table></div>
+      <p class="empty-note" id="emptyNote">Paste data above to see a live preview.</p>
+      <div class="row">
+        <button id="applyBtn" class="btn primary" disabled>Apply to data</button>
+        <button id="downloadBtn" class="btn" disabled>Download CSV</button>
+        <button id="copyBtn" class="btn ghost" disabled>Copy</button>
+      </div>
+    </section>
+
+    <!-- Cheat sheet -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        <h2>Regex cheat-sheet</h2>
+      </div>
+      <div class="cheats">
+        <div><code>\d</code><span>digit</span></div>
+        <div><code>\w</code><span>word char</span></div>
+        <div><code>\s</code><span>whitespace</span></div>
+        <div><code>.</code><span>any char</span></div>
+        <div><code>(…)</code><span>capture group</span></div>
+        <div><code>[abc]</code><span>char class</span></div>
+        <div><code>^ $</code><span>anchors</span></div>
+        <div><code>* + ?</code><span>quantifiers</span></div>
+        <div><code>{n,m}</code><span>repeat range</span></div>
+        <div><code>$1</code><span>group in replace</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Nothing leaves your device. Regex runs locally in your browser.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

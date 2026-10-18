@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LineForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>
+      <div>
+        <h1>LineForge</h1>
+        <p class="tagline">Multi-line text appender — local only</p>
+      </div>
+    </div>
+    <button id="btnCopy" class="btn accent" title="Copy the output">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy
+    </button>
+  </header>
+
+  <section class="panel">
+    <label class="field">
+      <span>Input — paste your lines</span>
+      <textarea id="input" rows="6" placeholder="one&#10;two&#10;three" spellcheck="false"></textarea>
+    </label>
+    <div class="row">
+      <label class="field grow">
+        <span>Prefix</span>
+        <input id="prefix" type="text" placeholder="e.g. - ">
+      </label>
+      <label class="field grow">
+        <span>Suffix</span>
+        <input id="suffix" type="text" placeholder="e.g. ;">
+      </label>
+    </div>
+    <div class="row">
+      <label class="field grow">
+        <span>Wrap each line in</span>
+        <select id="wrap">
+          <option value="">None</option>
+          <option value="'">'Single quotes '…'</option>
+          <option value='"'>Double quotes "…"</option>
+          <option value="backtick">Backticks `…`</option>
+          <option value="li">&lt;li&gt;…&lt;/li&gt;</option>
+          <option value="p">&lt;p&gt;…&lt;/p&gt;</option>
+          <option value="span">&lt;span&gt;…&lt;/span&gt;</option>
+          <option value="custom">Custom pair…</option>
+        </select>
+      </label>
+      <label class="field grow hidden" id="customWrapField">
+        <span>Custom wrap (open|close)</span>
+        <input id="customWrap" type="text" placeholder="e.g. [|]">
+      </label>
+    </div>
+    <div class="row toggles">
+      <label class="check"><input type="checkbox" id="numbering"> <span>Number lines</span></label>
+      <label class="check"><input type="checkbox" id="skipEmpty" checked> <span>Skip empty lines</span></label>
+      <label class="check"><input type="checkbox" id="trimLines"> <span>Trim lines</span></label>
+    </div>
+    <div class="row">
+      <label class="field grow">
+        <span>Number style</span>
+        <select id="numberStyle">
+          <option value="1.">1. two. three.</option>
+          <option value="1)">1) 2) 3)</option>
+          <option value="01">01 — zero padded</option>
+          <option value="#1">#1 … #2 …</option>
+          <option value="[1]">[1] [2] [3]</option>
+        </select>
+      </label>
+      <label class="field grow">
+        <span>Join lines with</span>
+        <select id="joiner">
+          <option value="\n">New line</option>
+          <option value=", ">Comma + space</option>
+          <option value="comma">Comma (no space)</option>
+          <option value="space">Space</option>
+          <option value=";">Semicolon</option>
+          <option value="pipe">Pipe |</option>
+          <option value="custom">Custom…</option>
+        </select>
+      </label>
+    </div>
+    <label class="field hidden" id="customJoinField">
+      <span>Custom separator</span>
+      <input id="customJoin" type="text" placeholder="e.g.  |  ">
+    </label>
+  </section>
+
+  <section class="panel output-panel">
+    <div class="output-head">
+      <span>Live preview</span>
+      <span id="lineCount" class="muted">0 lines</span>
+    </div>
+    <pre id="output" class="output"></pre>
+    <div class="actions">
+      <button id="btnClear" class="btn ghost sm">Clear</button>
+      <button id="btnDownload" class="btn ghost sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        .txt
+      </button>
+    </div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

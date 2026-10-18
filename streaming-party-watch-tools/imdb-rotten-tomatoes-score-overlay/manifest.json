@@ -1,0 +1,24 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "One-click IMDb/Rotten Tomatoes searches for the title on any page, plus a manual score log with CSV export. Lookup helper only \u2014 no score APIs.",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "ScoreScout \u2014 IMDb & Rotten Tomatoes Lookup Helper",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "version": "1.0.0"
+}

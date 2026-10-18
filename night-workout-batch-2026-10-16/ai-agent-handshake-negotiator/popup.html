@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handshake Tester</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M8 12h8"/><path d="M12 8v8"/><circle cx="12" cy="12" r="9"/>
+    </svg>
+    <div>
+      <h1>Handshake Tester</h1>
+      <p class="sub">Test YOUR webhook endpoints — not AI negotiation.</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Sends real HTTP requests only to URLs you enter. Nothing is sent anywhere else.</span>
+  </div>
+
+  <section class="card">
+    <h2>Endpoints</h2>
+    <div id="endpointList" class="endpoint-list"></div>
+    <div class="endpoint-form">
+      <input id="epName" type="text" placeholder="Name (e.g. my-bot-hook)" maxlength="60">
+      <input id="epUrl" type="url" placeholder="https://your-server.example/hook" maxlength="500">
+      <div class="row">
+        <select id="epMethod" aria-label="HTTP method">
+          <option>POST</option><option>PUT</option><option>PATCH</option>
+          <option>GET</option><option>DELETE</option>
+        </select>
+        <button id="epAdd" class="btn accent">Save</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Test payload (JSON)</h2>
+    <textarea id="payload" rows="5" spellcheck="false" placeholder='{"type":"handshake","agent":"test"}'></textarea>
+    <div class="row between">
+      <select id="epSelect" aria-label="Endpoint to test"></select>
+      <button id="sendBtn" class="btn accent">Send test</button>
+    </div>
+    <p id="payloadError" class="error" hidden>Payload is not valid JSON.</p>
+  </section>
+
+  <section class="card" id="resultCard" hidden>
+    <h2>Result</h2>
+    <div class="stat-grid">
+      <div class="stat"><span class="k">Status</span><span class="v" id="rStatus">–</span></div>
+      <div class="stat"><span class="k">Latency</span><span class="v" id="rLatency">–</span></div>
+      <div class="stat"><span class="k">OK?</span><span class="v" id="rOk">–</span></div>
+    </div>
+    <h3>Response headers</h3>
+    <pre id="rHeaders" class="code">–</pre>
+    <h3>Response body (first 2 KB)</h3>
+    <pre id="rBody" class="code">–</pre>
+  </section>
+
+  <footer class="foot">Requests go only to endpoints you save. Responses are inspected locally.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

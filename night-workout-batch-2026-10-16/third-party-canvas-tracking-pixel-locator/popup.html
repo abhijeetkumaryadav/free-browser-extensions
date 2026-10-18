@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="popup.css">
+<title>Canvas Pixel Locator</title>
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+    </div>
+    <div>
+      <h1>Canvas Pixel Locator</h1>
+      <p class="sub">Defensive privacy scan</p>
+    </div>
+  </header>
+
+  <div class="scope-banner">
+    <strong>Honest scope:</strong> heuristic detection only — finds <em>signs</em> of canvas
+    fingerprinting, hidden 1px pixels, and requests to well-known tracker domains.
+    Findings are indicators, not proof, and misses are possible. Nothing here blocks
+    anything and nothing leaves your device.
+  </div>
+
+  <button id="scanBtn" class="primary">Scan this page</button>
+
+  <div id="results" class="hidden">
+    <div class="score-row">
+      <div class="score-ring"><span id="scoreNum">0</span></div>
+      <div class="score-meta">
+        <div id="verdict" class="verdict">—</div>
+        <div id="summaryLine" class="muted">—</div>
+      </div>
+    </div>
+    <div id="findings"></div>
+    <div class="actions">
+      <button id="clearBtn" class="ghost">Clear</button>
+    </div>
+  </div>
+
+  <div id="emptyState" class="muted center">Click “Scan this page” to run the privacy scan.</div>
+
+  <section class="tips">
+    <h2>If trackers were found</h2>
+    <ul>
+      <li>Use a content blocker (e.g. uBlock Origin) to stop known tracking endpoints.</li>
+      <li>Disable third-party cookies in your browser settings.</li>
+      <li>Canvas-fingerprinting signals can come from legit fraud-prevention — context matters.</li>
+    </ul>
+  </section>
+
+  <footer class="muted">100% local · no network calls · MV3</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

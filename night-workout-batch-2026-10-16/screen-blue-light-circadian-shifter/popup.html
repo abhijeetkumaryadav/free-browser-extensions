@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circadian Warm Tint</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <span class="icon icon-sun" aria-hidden="true"></span>
+      <div class="titles">
+        <h1>Circadian Warm Tint</h1>
+        <p class="subtitle">Warm tint overlay for this tab</p>
+      </div>
+      <button id="toggle" class="toggle" aria-label="Enable or disable tint" aria-pressed="false">
+        <span class="knob"></span>
+      </button>
+    </header>
+
+    <label class="row" for="strength">
+      <span class="label">Tint strength</span>
+      <span class="value" id="strengthVal">60%</span>
+    </label>
+    <input type="range" id="strength" min="0" max="100" value="60" step="5" aria-label="Tint strength">
+
+    <label class="switch-row" for="circadian">
+      <span class="icon icon-moon" aria-hidden="true"></span>
+      <span class="label">Circadian mode <em>stronger after sunset</em></span>
+      <input type="checkbox" id="circadian" checked>
+    </label>
+
+    <button id="disable" class="btn danger">
+      <span class="icon icon-off" aria-hidden="true"></span> Remove tint now
+    </button>
+
+    <p class="notice">Cosmetic overlay only — it does <strong>not</strong> treat sleep or circadian-rhythm conditions. Zero network, works offline.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

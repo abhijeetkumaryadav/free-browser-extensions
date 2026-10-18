@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WatchSync — Anime Watchlist Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    </div>
+    <div class="brand-text">
+      <h1>WatchSync</h1>
+      <p class="tagline">Manual watchlist tracker</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Manual tracker only — not connected to MyAnimeList or Crunchyroll accounts.</span>
+  </div>
+
+  <div class="controls">
+    <div class="search-row">
+      <input id="search" type="text" placeholder="Search series…" autocomplete="off">
+      <select id="filter-status" aria-label="Filter by status">
+        <option value="all">All</option>
+        <option value="Watching">Watching</option>
+        <option value="Completed">Completed</option>
+        <option value="On Hold">On Hold</option>
+        <option value="Dropped">Dropped</option>
+        <option value="Plan to Watch">Plan to Watch</option>
+      </select>
+    </div>
+    <form id="add-form" class="add-row">
+      <input id="add-title" type="text" placeholder="Series title…" required autocomplete="off" maxlength="120">
+      <input id="add-total" type="number" placeholder="Eps" min="0" max="10000" value="12" aria-label="Total episodes">
+      <button type="submit" class="btn btn-add" aria-label="Add series">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <div id="stats" class="stats"></div>
+
+  <div id="list" class="list"></div>
+
+  <div id="empty" class="empty hidden">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    <p>No series yet. Add your first show above to start tracking.</p>
+  </div>
+
+  <footer class="footer">
+    <button id="export-btn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export
+    </button>
+    <button id="import-btn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Import
+    </button>
+    <input id="import-file" type="file" accept="application/json,.json" class="hidden-input">
+  </footer>
+</div>
+
+<!-- Edit dialog (custom lightweight modal) -->
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <h2>Edit series</h2>
+    <label>Title
+      <input id="edit-title" type="text" maxlength="120">
+    </label>
+    <label>Total episodes
+      <input id="edit-total" type="number" min="0" max="10000">
+    </label>
+    <label>Status
+      <select id="edit-status">
+        <option value="Watching">Watching</option>
+        <option value="Completed">Completed</option>
+        <option value="On Hold">On Hold</option>
+        <option value="Dropped">Dropped</option>
+        <option value="Plan to Watch">Plan to Watch</option>
+      </select>
+    </label>
+    <div class="modal-actions">
+      <button id="edit-delete" class="btn danger">Delete</button>
+      <div class="spacer"></div>
+      <button id="edit-cancel" class="btn ghost">Cancel</button>
+      <button id="edit-save" class="btn primary">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

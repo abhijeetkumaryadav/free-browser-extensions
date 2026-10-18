@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hook Self Scorecard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <h1>Hook Self Scorecard</h1>
+      <p class="sub">Rate your own video hook — <strong>your ratings, not AI analysis</strong>.</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Self-scored only. This extension cannot analyze videos — it records the scores you give.</span>
+  </div>
+
+  <label class="field">
+    <span>Video title</span>
+    <input id="title" type="text" placeholder="e.g. Ep 12 — Festive Edit" maxlength="80">
+  </label>
+
+  <div id="criteria"></div>
+
+  <label class="field">
+    <span>Notes</span>
+    <textarea id="notes" rows="2" placeholder="What worked? What felt weak?" maxlength="400"></textarea>
+  </label>
+
+  <div class="total-card">
+    <div class="total-row">
+      <span class="total-label">Your score</span>
+      <span class="total-value"><span id="score">0</span><span class="total-max">/60</span></span>
+    </div>
+    <div class="grade" id="grade">Rate all six criteria</div>
+    <button id="save" class="btn">Save scorecard</button>
+  </div>
+
+  <section class="history">
+    <div class="history-head">
+      <h2>Saved scorecards</h2>
+      <button id="clear" class="ghost">Clear all</button>
+    </div>
+    <div id="list" class="list"><p class="empty">No scorecards yet.</p></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

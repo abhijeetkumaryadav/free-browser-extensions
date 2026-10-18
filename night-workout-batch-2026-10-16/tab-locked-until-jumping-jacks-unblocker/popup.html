@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Break Gate</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/>
+    </svg>
+    <div>
+      <h1>Break Gate</h1>
+      <p class="sub">Movement break unlocks this tab</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+    <span>Honor system — exercise can't be verified. Pick a break, do your jumping jacks, come back.</span>
+  </div>
+
+  <!-- Idle state -->
+  <section class="card" id="idleCard">
+    <h2>Start a break</h2>
+    <label>Break length
+      <select id="selMins">
+        <option value="1">1 minute</option>
+        <option value="2" selected>2 minutes</option>
+        <option value="3">3 minutes</option>
+        <option value="4">4 minutes</option>
+        <option value="5">5 minutes</option>
+      </select>
+    </label>
+    <button id="btnStart" class="primary">Lock this tab &amp; start break</button>
+    <p id="err" class="err" hidden></p>
+  </section>
+
+  <!-- Active state -->
+  <section class="card" id="activeCard" hidden>
+    <h2>Break in progress</h2>
+    <div class="timer" id="timer">--:--</div>
+    <p class="hint">Tab is locked. Move around — the overlay shows on the page too.</p>
+    <button id="btnCancel" class="ghost">End break early</button>
+  </section>
+
+  <section class="card">
+    <h2>Done breaks</h2>
+    <p class="stat"><strong id="doneCount">0</strong> breaks completed</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

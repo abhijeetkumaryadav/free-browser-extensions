@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="title-row">
+    <svg class="app-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+    <h1>Mailto Templates</h1>
+  </div>
+  <p class="honest">Builds <code>mailto:</code> links from your templates and opens your mail client. <strong>The extension never sends email itself.</strong></p>
+</header>
+
+<main>
+  <section id="listView">
+    <div class="row space">
+      <label class="lbl">Your templates</label>
+      <button id="newBtn" class="small">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        New
+      </button>
+    </div>
+    <ul id="tplList" class="tpls"></ul>
+    <p id="empty" class="mut hidden">No templates yet — create one to get started.</p>
+  </section>
+
+  <section id="editView" class="hidden">
+    <label class="lbl" for="fName">Template name</label>
+    <input id="fName" class="inp" placeholder="e.g. Meeting follow-up">
+    <label class="lbl" for="fTo">To</label>
+    <input id="fTo" class="inp" placeholder="name@example.com">
+    <label class="lbl" for="fCc">Cc (optional)</label>
+    <input id="fCc" class="inp" placeholder="">
+    <label class="lbl" for="fBcc">Bcc (optional)</label>
+    <input id="fBcc" class="inp" placeholder="">
+    <label class="lbl" for="fSubject">Subject — use {{placeholders}}</label>
+    <input id="fSubject" class="inp" placeholder="Follow-up: {{topic}}">
+    <label class="lbl" for="fBody">Body — use {{placeholders}}</label>
+    <textarea id="fBody" rows="5" placeholder="Hi {{name}},&#10;&#10;Thanks for {{topic}}…"></textarea>
+    <p class="hint">Placeholders look like <code>{{name}}</code>. When you use a template you'll fill each one in.</p>
+    <div class="row">
+      <button id="saveBtn" class="primary">Save template</button>
+      <button id="cancelEdit" class="ghost">Cancel</button>
+    </div>
+  </section>
+
+  <section id="useView" class="hidden">
+    <h2 id="useTitle"></h2>
+    <div id="phFields"></div>
+    <label class="lbl">Preview</label>
+    <pre id="preview" class="preview"></pre>
+    <div class="row">
+      <button id="openBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
+        Open in mail client
+      </button>
+      <button id="backBtn" class="ghost">Back</button>
+    </div>
+    <div class="row">
+      <button id="editTpl" class="ghost small">Edit template</button>
+      <button id="delTpl" class="danger small">Delete</button>
+    </div>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

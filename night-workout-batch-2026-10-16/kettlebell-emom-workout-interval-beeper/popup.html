@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMOM Interval Beeper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>
+    <div>
+      <h1>EMOM Interval Beeper</h1>
+      <p class="sub">Timer only — no coaching, no medical advice</p>
+    </div>
+  </header>
+
+  <div id="idleView">
+    <div class="row three">
+      <label>Work (s)<input type="number" id="workSec" min="5" max="600" value="40"></label>
+      <label>Rest (s)<input type="number" id="restSec" min="0" max="600" value="20"></label>
+      <label>Rounds<input type="number" id="rounds" min="1" max="99" value="10"></label>
+    </div>
+    <p class="hint">10s prep countdown, then alternating work / rest.</p>
+    <button id="start" class="btn accent wide">Start workout</button>
+  </div>
+
+  <div id="runView" hidden>
+    <div class="phase" id="phase">PREP</div>
+    <div class="clock" id="clock">10</div>
+    <div class="roundline"><span id="roundLabel">Round 0 / 10</span></div>
+    <div class="bar"><div id="barFill"></div></div>
+    <div class="row">
+      <button id="stop" class="btn wide">Stop</button>
+      <button id="mute" class="btn" aria-label="Mute beeps">🔊</button>
+    </div>
+  </div>
+
+  <p class="hint" id="audioNote">Beeps play while this popup is open; phase-change notifications fire when it's closed.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

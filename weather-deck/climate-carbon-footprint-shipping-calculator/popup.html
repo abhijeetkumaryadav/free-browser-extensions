@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarbonShip</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 17l1.5 3.5h15L21 17l-9-9-9 9z"/><path d="M12 8V3"/><path d="M8 5h8"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>CarbonShip</h1>
+      <p class="subtitle">Freight CO₂e estimator</p>
+    </div>
+  </header>
+
+  <!-- Scope banner -->
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+    </svg>
+    <span><strong>Estimates only.</strong> Representative factors — see README.</span>
+  </div>
+
+  <!-- Inputs -->
+  <section class="panel">
+    <h2>Shipment</h2>
+    <div class="field">
+      <label for="weight">Weight</label>
+      <div class="input-unit"><input type="number" id="weight" value="100" min="0" step="any"><span>kg</span></div>
+    </div>
+    <div class="field">
+      <label for="distance">Distance (one way)</label>
+      <div class="input-unit"><input type="number" id="distance" value="1000" min="0" step="any"><span>km</span></div>
+    </div>
+    <div class="field">
+      <label>Transport mode</label>
+      <div class="modes">
+        <button class="mode" data-mode="air">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5c1.5-1.5 1.5-2.8 0-4.3s-2.8-1.5-4.3 0L11.7 6.6 2.5 4.8c-.7-.2-1.3.3-1.1 1l2 7.2c.2.7.8 1 1.4.8l9.3-2.3 3.7 3.7c.7.7 1.8.2 2-.7z"/></svg>
+          <span>Air</span>
+        </button>
+        <button class="mode" data-mode="road">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h13v8H1z"/><path d="M14 11h4l3 3v2h-7z"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+          <span>Road</span>
+        </button>
+        <button class="mode" data-mode="rail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="13" rx="2"/><path d="M4 10h16"/><path d="M8 20l-2 2M16 20l2 2"/><circle cx="8.5" cy="13.5" r=".5"/><circle cx="15.5" cy="13.5" r=".5"/></svg>
+          <span>Rail</span>
+        </button>
+        <button class="mode" data-mode="sea">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l1.5 3.5h15L21 17l-9-9-9 9z"/><path d="M12 8V3"/><path d="M8 5h8"/></svg>
+          <span>Sea</span>
+        </button>
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="roundTrip"><span>Round trip (×2 distance)</span></label>
+    <button id="calcBtn" class="btn primary full">Calculate CO₂e</button>
+  </section>
+
+  <!-- Result -->
+  <section class="panel result-panel" id="resultPanel" hidden>
+    <h2>Estimate</h2>
+    <div class="big-number"><span id="co2kg">0</span><span class="unit">kg CO₂e</span></div>
+    <p class="tonnes" id="co2tonnes"></p>
+    <div class="equivalents">
+      <div class="equiv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-4l2-5h11v9"/><path d="M16 8h3l2 3v6h-2"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+        <div><strong id="carKm">0</strong><span>km by petrol car</span></div>
+      </div>
+      <div class="equiv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-8"/><path d="M12 14c0-4 3-7 8-7 0 4-3 7-8 7z"/><path d="M12 14c0-4-3-7-8-7 0 4 3 7 8 7z"/></svg>
+        <div><strong id="trees">0</strong><span>tree-years to absorb</span></div>
+      </div>
+    </div>
+    <p class="factor-note" id="factorNote"></p>
+  </section>
+
+  <footer class="footer">100% local · no network · factors in README</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

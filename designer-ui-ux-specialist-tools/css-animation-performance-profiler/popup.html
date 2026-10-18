@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+  <div>
+    <h1>Animation Profiler</h1>
+    <p class="subtitle">CSS animation &amp; transition audit</p>
+  </div>
+</header>
+
+<main>
+  <section class="panel stats-row">
+    <div class="stat"><span class="stat-num" id="statKeyframes">0</span><span class="stat-label">Keyframes</span></div>
+    <div class="stat"><span class="stat-num" id="statAnimations">0</span><span class="stat-label">Animations</span></div>
+    <div class="stat"><span class="stat-num" id="statTransitions">0</span><span class="stat-label">Transitions</span></div>
+    <div class="stat"><span class="stat-num bad" id="statExpensive">0</span><span class="stat-label">Expensive</span></div>
+  </section>
+
+  <button id="scanBtn" class="btn-primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    Scan this page
+  </button>
+  <p class="hint" id="hint">Read-only scan — nothing on the page is modified.</p>
+
+  <section id="results" class="results hidden">
+    <div id="emptyState" class="empty hidden">No animations or transitions found on this page. 🎉</div>
+    <div id="animList" class="anim-list"></div>
+  </section>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory Mesh</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <span class="icon icon-brain" aria-hidden="true"></span>
+    <div class="title-wrap">
+      <h1>Memory Mesh</h1>
+      <p class="subtitle">Shared scratchpad across tabs</p>
+    </div>
+    <button id="clearAllBtn" class="btn btn-ghost" title="Delete all notes">Clear</button>
+  </header>
+
+  <div class="scope-banner">
+    <span class="icon icon-info" aria-hidden="true"></span>
+    <p>Shared memory across <strong>your tabs</strong> — not a distributed mesh. Everything is local.</p>
+  </div>
+
+  <section class="composer">
+    <input id="noteTitle" type="text" placeholder="Note title (optional)" maxlength="80" autocomplete="off">
+    <textarea id="noteBody" rows="3" placeholder="Type a note — it appears in every open tab…"></textarea>
+    <button id="addBtn" class="btn btn-primary">
+      <span class="icon icon-plus" aria-hidden="true"></span> Add note
+    </button>
+  </section>
+
+  <section class="notes-wrap">
+    <div class="notes-head">
+      <h2>Notes <span id="noteCount" class="count">0</span></h2>
+      <input id="search" type="search" placeholder="Search notes…" autocomplete="off">
+    </div>
+    <div id="notesList" class="notes-list" aria-live="polite"></div>
+    <div id="emptyState" class="empty-state">
+      <span class="icon icon-brain-lg" aria-hidden="true"></span>
+      <p>No notes yet.<br>Add one above — it will show up in every tab.</p>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

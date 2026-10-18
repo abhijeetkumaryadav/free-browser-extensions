@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQI Watcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M3 8h9M5 12h11M7 16h9"/><circle cx="18" cy="6" r="2.5"/>
+    </svg>
+    <div>
+      <h1>AQI Watcher</h1>
+      <p class="sub">Air quality scale guide + reading log</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    Educational only — your readings, not live data. No air-quality data is fetched.
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">Log</button>
+    <button class="tab" data-tab="guide">Scale Guide</button>
+  </nav>
+
+  <section class="pane active" id="pane-log">
+    <div class="card">
+      <h2>Log a reading</h2>
+      <div class="row">
+        <label>AQI (0–500)
+          <input type="number" id="aqiInput" min="0" max="500" placeholder="e.g. 68">
+        </label>
+        <label>PM2.5 µg/m³ (optional)
+          <input type="number" id="pmInput" min="0" step="0.1" placeholder="e.g. 18.4">
+        </label>
+      </div>
+      <label>Note (optional)
+        <input type="text" id="noteInput" maxlength="120" placeholder="Where / what you observed">
+      </label>
+      <div id="preview" class="preview"></div>
+      <button id="addBtn" class="btn primary">Save reading</button>
+    </div>
+
+    <div class="card">
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num" id="statCount">0</span><span class="stat-lbl">readings</span></div>
+        <div class="stat"><span class="stat-num" id="statLatest">—</span><span class="stat-lbl">latest AQI</span></div>
+        <div class="stat"><span class="stat-num" id="statWorst">—</span><span class="stat-lbl">worst 7d</span></div>
+      </div>
+      <h2>History</h2>
+      <ul id="history" class="history"></ul>
+      <button id="clearBtn" class="btn ghost danger">Clear all</button>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-guide">
+    <div class="card">
+      <h2>US EPA AQI bands</h2>
+      <ul id="bands" class="bands"></ul>
+      <h2>PM2.5 quick guide</h2>
+      <p class="guide-text">
+        PM2.5 is fine particulate matter ≤ 2.5 µm — the pollutant most often driving
+        AQI near wildfires and cities. Rough mapping: 0–12 µg/m³ ≈ Good,
+        12.1–35.4 ≈ Moderate, 35.5–55.4 ≈ USG, 55.5–150.4 ≈ Unhealthy,
+        150.5–250.4 ≈ Very Unhealthy, 250.5+ ≈ Hazardous.
+      </p>
+      <h2>What AQI means</h2>
+      <p class="guide-text">
+        AQI compresses pollutant concentrations into one 0–500 index.
+        Outdoor exercise guidance changes around band 101+ (sensitive groups)
+        and 151+ (everyone). This is general information, not health advice —
+        follow local health authorities on smoky days.
+      </p>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

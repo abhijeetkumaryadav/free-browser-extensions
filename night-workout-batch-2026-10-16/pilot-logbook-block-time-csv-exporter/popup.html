@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilot Logbook</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M6.5 12V5.5a2 2 0 0 1 4 0V12M13.5 12V4a2.5 2.5 0 0 1 5 0v8"/><path d="M2 12l2.5 5h14L21 12"/></svg>
+    <div>
+      <h1>Pilot Logbook</h1>
+      <p class="sub">Your logbook — <strong>unofficial record</strong></p>
+    </div>
+  </header>
+
+  <section class="totals">
+    <div class="stat"><span class="n" id="tFlights">0</span><span class="l">flights</span></div>
+    <div class="stat"><span class="n" id="tHours">0.0</span><span class="l">hours</span></div>
+    <div class="stat"><span class="n" id="tLand">0</span><span class="l">landings</span></div>
+  </section>
+
+  <form id="form" class="form" autocomplete="off">
+    <div class="grid">
+      <label>Date<input type="date" id="fDate" required></label>
+      <label>Aircraft<input type="text" id="fAc" placeholder="C172" maxlength="12"></label>
+      <label>Route<input type="text" id="fRoute" placeholder="KJFK-KBOS" maxlength="20"></label>
+      <label>Block (h)<input type="number" id="fBlock" step="0.1" min="0.1" max="24" placeholder="1.5" required></label>
+      <label>Landings<input type="number" id="fLand" min="0" max="99" value="1"></label>
+      <label>Notes<input type="text" id="fNotes" placeholder="optional" maxlength="60"></label>
+    </div>
+    <button type="submit" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Log flight
+    </button>
+  </form>
+
+  <div class="row">
+    <button id="export" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>
+      Export CSV
+    </button>
+    <label class="btn ghost file">Import CSV<input type="file" id="import" accept=".csv" hidden></label>
+  </div>
+
+  <section id="list" class="list"></section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

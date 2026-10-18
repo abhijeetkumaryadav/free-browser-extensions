@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Kaleidoscope Camera"},"description":"Turn your camera into a live kaleidoscope. Local-only, camera off by default, snapshot to PNG.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Kaleidoscope — Mirror Camera Filter","version":"1.0.0"}

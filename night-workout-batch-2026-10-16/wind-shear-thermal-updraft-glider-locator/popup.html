@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thermal &amp; Soaring Guide</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 4.5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6.5-6-11z"/><path d="M9 14a3 3 0 0 0 6 0"/></svg>
+    <div>
+      <h1>Thermal &amp; Soaring Guide</h1>
+      <p class="sub">Thermals · Wind shear · Cloud streets</p>
+    </div>
+  </header>
+
+  <div class="banner">Educational only — your notes. <strong>Not live weather.</strong> Always check official aviation weather before flying.</div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="learn">Learn</button>
+    <button class="tab" data-tab="sites">My Sites <span id="siteCount" class="count">0</span></button>
+  </nav>
+
+  <!-- Learn tab: soaring explainer cards -->
+  <section id="tab-learn" class="panel">
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 19V7"/><path d="M5 12l7-7 7 7"/></svg> Thermals</h2>
+      <p>Sun-warmed ground heats the air above it. That bubble of warm air rises — a <strong>thermal</strong>. Glider pilots circle inside it to gain altitude, then glide to the next one.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h9a3 3 0 1 0-3-3"/><path d="M3 12h13a3 3 0 1 1-3 3"/><path d="M3 16h7a2 2 0 1 1-2 2"/></svg> Wind shear</h2>
+      <p><strong>Wind shear</strong> is a sudden change of wind speed or direction with height. Near the ground it can make landings tricky — thermals often release where wind shifts.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.5 1.5A4 4 0 0 0 6.5 19h11z"/></svg> Cloud streets</h2>
+      <p>When thermals line up under rolling horizontal air, cumulus clouds form in long parallel rows — <strong>cloud streets</strong>. Fly along one and climb for kilometres without circling.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Remember</h2>
+      <p>This guide teaches concepts only. Real soaring needs training, briefings and live conditions — none of which this extension provides.</p>
+    </div>
+  </section>
+
+  <!-- Sites tab: user site/thermal notes log -->
+  <section id="tab-sites" class="panel hidden">
+    <div class="stats">
+      <div class="stat"><span id="statCount">0</span><label>sites</label></div>
+      <div class="stat"><span id="statAvg">—</span><label>avg rating</label></div>
+      <div class="stat"><span id="statBest">—</span><label>top site</label></div>
+    </div>
+    <form id="siteForm" class="form" autocomplete="off">
+      <input id="siteName" maxlength="60" placeholder="Site name (e.g. ridge lane)" required>
+      <textarea id="siteNotes" maxlength="500" rows="2" placeholder="Thermal notes — triggers, strength, best time..."></textarea>
+      <div class="row">
+        <select id="siteRating" aria-label="Rating">
+          <option value="5">★★★★★ 5</option>
+          <option value="4">★★★★ 4</option>
+          <option value="3" selected>★★★ 3</option>
+          <option value="2">★★ 2</option>
+          <option value="1">★ 1</option>
+        </select>
+        <button type="submit" class="btn">Log site</button>
+      </div>
+    </form>
+    <input id="search" class="search" placeholder="Search sites or notes…" autocomplete="off">
+    <ul id="siteList" class="list"></ul>
+    <button id="clearAll" class="link danger">Clear all sites</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

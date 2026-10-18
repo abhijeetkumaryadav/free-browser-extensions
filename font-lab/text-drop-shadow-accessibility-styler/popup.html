@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14"/><path d="M12 4v16"/><path d="M19 12l-7 7-7-7"/></svg>
+    <div>
+      <h1>TextShadow</h1>
+      <p class="sub">Accessibility text drop shadow</p>
+    </div>
+    <span class="badge" id="stateBadge">Idle</span>
+  </header>
+
+  <section class="card">
+    <label class="row-label" for="preset">Shadow color</label>
+    <div class="seg" id="presetSeg">
+      <button data-preset="dark" class="on">Dark</button>
+      <button data-preset="light">Light</button>
+      <button data-preset="custom">Custom</button>
+    </div>
+    <div class="row" id="customRow" hidden>
+      <input type="color" id="customColor" value="#000000">
+      <input type="range" id="customAlpha" min="10" max="100" value="55">
+      <span class="val" id="customAlphaVal">55%</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <label class="row-label" for="offset">Offset <span class="val" id="offsetVal">2px</span></label>
+    <input type="range" id="offset" min="0" max="6" step="1" value="2">
+    <label class="row-label" for="blur">Blur <span class="val" id="blurVal">3px</span></label>
+    <input type="range" id="blur" min="0" max="14" step="1" value="3">
+  </section>
+
+  <section class="card preview-card">
+    <span class="row-label">Live preview</span>
+    <p id="preview">The quick brown fox jumps over the lazy dog.</p>
+  </section>
+
+  <div class="actions">
+    <button id="applyBtn" class="primary">Apply shadow</button>
+    <button id="restoreBtn" class="ghost">Restore page</button>
+  </div>
+
+  <p class="note" id="pageNote"></p>
+  <p class="foot">Reversible · nothing is modified permanently · applies to this tab only</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

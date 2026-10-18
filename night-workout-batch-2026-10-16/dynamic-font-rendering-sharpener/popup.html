@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FontSharp — Font Rendering Sharpener</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+    </span>
+    <div>
+      <h1>FontSharp</h1>
+      <p class="sub">Sharpen &amp; tune page typography</p>
+    </div>
+  </header>
+
+  <div class="row presets" role="group" aria-label="Presets">
+    <button class="preset" data-preset="crisp">Crisp</button>
+    <button class="preset" data-preset="soft">Soft</button>
+    <button class="preset" data-preset="reader">Reader</button>
+    <button class="preset" data-preset="off">Off</button>
+  </div>
+
+  <section class="card">
+    <label class="ctl">
+      <span class="ctl-label">Font smoothing <span class="val" id="smoothingVal"></span></span>
+      <input type="range" id="smoothing" min="0" max="2" step="1" value="1" aria-label="Font smoothing mode">
+      <span class="ticks"><span>None</span><span>Auto</span><span>Antialiased</span></span>
+    </label>
+    <label class="ctl">
+      <span class="ctl-label">Letter spacing <span class="val" id="spacingVal">0.00em</span></span>
+      <input type="range" id="spacing" min="0" max="0.25" step="0.01" value="0" aria-label="Letter spacing">
+    </label>
+    <label class="ctl">
+      <span class="ctl-label">Contrast boost <span class="val" id="contrastVal">0%</span></span>
+      <input type="range" id="contrast" min="0" max="60" step="5" value="0" aria-label="Contrast boost">
+    </label>
+  </section>
+
+  <section class="card row between">
+    <div>
+      <div class="switch-label">Apply automatically on this site</div>
+      <div class="hint">Remembers this domain and re-applies on load.</div>
+    </div>
+    <button id="siteToggle" class="switch" role="switch" aria-checked="false" aria-label="Remember this site"><span class="knob"></span></button>
+  </section>
+
+  <div class="actions">
+    <button id="applyBtn" class="primary">Apply to this page</button>
+    <button id="resetBtn" class="ghost">Reset page</button>
+  </div>
+
+  <p class="honest">Honest scope: adjusts CSS rendering hints only. It cannot change your OS font rasterizer or fix broken web fonts.</p>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

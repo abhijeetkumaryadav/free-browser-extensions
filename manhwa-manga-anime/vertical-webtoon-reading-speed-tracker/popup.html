@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=380">
+<title>StripStats</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/><circle cx="19" cy="17.5" r="2.6"/><path d="M19 16v1.6l1.1.7"/></svg></div>
+    <div class="titles"><h1>StripStats</h1><p>Reading speed tracker</p></div>
+    <span class="badge" id="stateBadge">Idle</span>
+  </header>
+
+  <div class="card live">
+    <div class="stat-grid">
+      <div class="stat"><span class="num" id="sPanels">0</span><span class="lbl">panels/min</span></div>
+      <div class="stat"><span class="num" id="sWpm">0</span><span class="lbl">words/min</span></div>
+      <div class="stat"><span class="num" id="sCount">0</span><span class="lbl">panels read</span></div>
+      <div class="stat"><span class="num" id="sTime">0:00</span><span class="lbl">elapsed</span></div>
+    </div>
+    <div class="row">
+      <button class="btn primary" id="toggleBtn">Start tracking</button>
+      <button class="btn" id="hudBtn" title="Toggle the floating HUD on the page">HUD: on</button>
+    </div>
+    <p class="muted small">Estimates only — a "panel" is a large image scrolled past. Words/min = panels/min × words per panel.</p>
+  </div>
+
+  <div class="card">
+    <h2>Settings</h2>
+    <label>Words per panel (estimate)<input type="number" id="wpp" min="1" max="500" value="25"></label>
+    <label>Panel min. height (px)<input type="number" id="minH" min="50" max="2000" value="200"></label>
+  </div>
+
+  <div class="card">
+    <div class="row space"><h2>Session history</h2><button class="mini danger" id="clearHist">Clear</button></div>
+    <ul class="list" id="histList"><li class="empty">No sessions yet.</li></ul>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

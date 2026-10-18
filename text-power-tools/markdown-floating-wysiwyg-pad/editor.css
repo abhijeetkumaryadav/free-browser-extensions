@@ -1,0 +1,136 @@
+/* MarkPad editor — deep dark, glass toolbar, violet accent */
+:root {
+  --accent: #8b5cf6;
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f1f1f4;
+  --muted: #9a9aa5;
+  --code-bg: rgba(139, 92, 246, 0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(139, 92, 246, 0.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  display: flex; flex-direction: column;
+}
+
+.glass {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.toolbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 16px; position: sticky; top: 0; z-index: 10;
+  flex-wrap: wrap;
+}
+
+.brand-mini { display: flex; align-items: center; gap: 8px; }
+.logo {
+  width: 30px; height: 30px; border-radius: 9px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), #6d28d9); color: #fff;
+}
+.logo svg { width: 16px; height: 16px; }
+.name { font-weight: 650; font-size: 14px; }
+
+.tools { display: flex; align-items: center; gap: 4px; flex: 1; flex-wrap: wrap; }
+.tool {
+  width: 32px; height: 32px; border-radius: 9px; border: 1px solid transparent;
+  background: transparent; color: var(--muted); cursor: pointer;
+  display: grid; place-items: center;
+  transition: all 0.12s ease;
+}
+.tool svg { width: 17px; height: 17px; }
+.tool:hover { background: rgba(139, 92, 246, 0.14); color: var(--text); }
+.tool.active { background: rgba(139, 92, 246, 0.22); color: var(--accent); border-color: rgba(139,92,246,.4); }
+.sep { width: 1px; height: 20px; background: var(--border); margin: 0 6px; }
+
+.actions { display: flex; align-items: center; gap: 8px; }
+.view-toggle {
+  display: flex; background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border); border-radius: 10px; padding: 2px;
+}
+.vt {
+  border: none; background: transparent; color: var(--muted);
+  font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; cursor: pointer;
+}
+.vt.active { background: var(--accent); color: #fff; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  border-radius: 10px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05); color: var(--text);
+  font-size: 12px; font-weight: 600; padding: 7px 11px; cursor: pointer;
+  transition: all 0.12s ease;
+}
+.btn svg { width: 14px; height: 14px; }
+.btn:hover { border-color: var(--accent); background: rgba(139,92,246,.12); }
+.btn.danger:hover { border-color: #ef4444; background: rgba(239,68,68,.12); }
+
+.doc-wrap {
+  flex: 1; overflow-y: auto; display: flex; justify-content: center;
+  padding: 32px 16px 64px;
+}
+
+#editor, .mdview {
+  width: 100%; max-width: 760px; min-height: 60vh;
+  outline: none; font-size: 16px; line-height: 1.75; color: var(--text);
+}
+
+/* Placeholder for empty editor */
+#editor.empty::before {
+  content: attr(data-placeholder);
+  color: var(--muted); opacity: 0.55; pointer-events: none;
+}
+
+/* Rich-text typography */
+#editor h1 { font-size: 2em; margin: 0.7em 0 0.4em; font-weight: 700; }
+#editor h2 { font-size: 1.6em; margin: 0.7em 0 0.4em; font-weight: 700; }
+#editor h3 { font-size: 1.3em; margin: 0.7em 0 0.4em; font-weight: 650; }
+#editor p { margin: 0.6em 0; }
+#editor ul, #editor ol { margin: 0.6em 0 0.6em 1.4em; }
+#editor li { margin: 0.25em 0; }
+#editor blockquote {
+  border-left: 3px solid var(--accent); margin: 0.8em 0; padding: 0.2em 0 0.2em 1em;
+  color: var(--muted); font-style: italic;
+}
+#editor pre {
+  background: var(--code-bg); border: 1px solid rgba(139,92,246,.25);
+  border-radius: 10px; padding: 12px 14px; margin: 0.8em 0;
+  font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 13.5px; overflow-x: auto; white-space: pre-wrap;
+}
+#editor code { font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace; font-size: 0.88em; }
+#editor p code {
+  background: var(--code-bg); padding: 2px 6px; border-radius: 6px; color: #c4b5fd;
+}
+#editor a { color: var(--accent); }
+#editor hr { border: none; border-top: 1px solid var(--border); margin: 1.2em 0; }
+
+.mdview {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; resize: vertical;
+  font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 13.5px; line-height: 1.7; color: #c4b5fd;
+}
+
+.statusbar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 16px; font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border); background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.dot { opacity: 0.5; }
+#saveState.saving { color: var(--accent); }
+.local { margin-left: auto; }

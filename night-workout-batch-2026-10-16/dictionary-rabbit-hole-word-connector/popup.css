@@ -1,0 +1,94 @@
+/* Word Rabbit Hole — deep-dark glassmorphism, single accent #a78bfa */
+:root {
+  --bg: #101016;
+  --glass: rgba(20, 20, 26, 0.72);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f2f4f8;
+  --muted: #9aa3b2;
+  --accent: #a78bfa;
+  --accent-dim: rgba(167, 139, 250, 0.14);
+  --danger: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  background: var(--bg); color: var(--text);
+}
+.app {
+  background: var(--glass);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+}
+.head { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo {
+  width: 40px; height: 40px; flex: 0 0 40px;
+  display: grid; place-items: center; border-radius: 12px; color: var(--accent);
+  background: var(--accent-dim); border: 1px solid rgba(167, 139, 250, 0.35);
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 15px; font-weight: 650; letter-spacing: 0.2px; }
+.sub { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+.notice {
+  font-size: 11.5px; color: var(--accent); background: var(--accent-dim);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 10px; padding: 8px 10px; margin-bottom: 12px; line-height: 1.45;
+}
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tabs button {
+  flex: 1; padding: 8px; border-radius: 9px; border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04); color: var(--muted);
+  font-size: 12.5px; font-weight: 650; cursor: pointer;
+}
+.tabs button.active { color: var(--accent); border-color: rgba(167,139,250,0.5); background: var(--accent-dim); }
+.tab { display: none; }
+.tab.active { display: block; }
+.row { display: flex; gap: 8px; margin-bottom: 10px; align-items: center; }
+.row.end { justify-content: flex-end; margin-top: 4px; }
+.arrow { color: var(--muted); font-weight: 700; }
+input[type="text"], select {
+  flex: 1; min-width: 0; padding: 9px 11px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--line);
+  border-radius: 10px; color: var(--text); font-size: 13px; outline: none;
+}
+select option { background: #181822; }
+input[type="text"]:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+button {
+  border: none; border-radius: 10px; font-size: 13px; font-weight: 650;
+  padding: 9px 14px; cursor: pointer; color: var(--text);
+}
+.primary { background: var(--accent); color: #14101f; }
+.primary:hover { filter: brightness(1.08); }
+.primary.full { flex: 1; }
+.ghost { background: rgba(255,255,255,0.06); border: 1px solid var(--line); }
+.ghost:hover { background: rgba(255,255,255,0.1); }
+.ghost.sm { font-size: 12px; padding: 7px 10px; }
+.ghost.danger { color: var(--danger); border-color: rgba(248,113,113,0.35); }
+.toolbar { display: flex; gap: 8px; margin-bottom: 8px; }
+#graph {
+  width: 100%; height: 300px; border-radius: 12px;
+  background: rgba(0,0,0,0.3); border: 1px solid var(--line);
+  cursor: grab; touch-action: none;
+}
+.hint { font-size: 11px; color: var(--muted); margin: 6px 0; }
+.nodeinfo {
+  font-size: 12px; color: var(--text); background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px;
+  min-height: 34px; line-height: 1.5;
+}
+.nodeinfo:empty { display: none; }
+.wordlist, .linklist { display: flex; flex-direction: column; gap: 6px; max-height: 260px; overflow-y: auto; }
+.chip-row {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--line);
+  border-radius: 9px; padding: 7px 10px; font-size: 13px;
+}
+.chip-row .grow { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip-row .meta { font-size: 11px; color: var(--muted); }
+.del { background: none; border: none; color: var(--danger); font-size: 15px; padding: 2px 6px; cursor: pointer; }
+.kind-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-dim); border-radius: 6px; padding: 3px 7px;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }

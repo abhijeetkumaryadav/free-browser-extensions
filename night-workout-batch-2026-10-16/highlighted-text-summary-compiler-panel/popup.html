@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Compiler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <div>
+      <h1>Highlight Compiler</h1>
+      <p class="sub">Heuristic summary — not AI summarization</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Summary is a simple word-frequency ranking of your saved highlights. It is not AI.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="add">Add</button>
+    <button class="tab" data-tab="list">Highlights</button>
+    <button class="tab" data-tab="summary">Summary</button>
+  </nav>
+
+  <section class="pane active" id="pane-add">
+    <label>Source <span class="hint">(optional)</span>
+      <input id="src" type="text" maxlength="120" placeholder="e.g. Article title">
+    </label>
+    <label>Highlight text
+      <textarea id="txt" rows="4" maxlength="4000" placeholder="Paste or type the highlight…"></textarea>
+    </label>
+    <button id="save" class="primary">Save highlight</button>
+    <p class="msg" id="addMsg"></p>
+  </section>
+
+  <section class="pane" id="pane-list">
+    <input id="search" type="search" placeholder="Search highlights…">
+    <p class="count" id="count"></p>
+    <div id="list"></div>
+    <div class="row">
+      <button id="export" class="ghost">Export .md</button>
+      <button id="clear" class="danger">Clear all</button>
+    </div>
+  </section>
+
+  <section class="pane" id="pane-summary">
+    <label>Top sentences
+      <input id="nSent" type="number" min="1" max="10" value="3">
+    </label>
+    <button id="summarize" class="primary">Compile summary</button>
+    <div id="summaryOut" class="summary"></div>
+    <p class="msg" id="sumMsg"></p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

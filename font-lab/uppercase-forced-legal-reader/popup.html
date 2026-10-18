@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CapsRead — Uppercase Page Reader</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 6 H19"/><path d="M12 6 V20"/>
+    </svg>
+    <div class="hero-text">
+      <h1>CapsRead</h1>
+      <p>Uppercase page reader · accessibility</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <span class="field-label">This tab</span>
+      <p class="desc" id="tabDesc">Turn every line of text on the current page into UPPERCASE with a single click. Nothing on the page is modified — it's a display layer only.</p>
+      <button class="primary-btn" id="toggleBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6 H19"/><path d="M12 6 V20"/></svg>
+        <span id="toggleLabel">Make this page UPPERCASE</span>
+      </button>
+      <div class="status-row">
+        <span class="dot" id="statusDot"></span>
+        <span class="stat" id="statusText">Checking page…</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="field-label">Options</span>
+      <label class="switch-row">
+        <div class="switch-text">
+          <strong>Skip form fields</strong>
+          <small>Keep inputs, textareas and code readable as-is</small>
+        </div>
+        <input type="checkbox" id="skipForms" checked>
+        <span class="switch"></span>
+      </label>
+    </section>
+  </main>
+
+  <footer>
+    <p>Display-only: page content is never altered or sent anywhere. Works on user click only.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <div>
+    <h1>Phishing Wallet Blacklist</h1>
+    <p class="sub">Local-only address checker</p>
+  </div>
+</header>
+
+<section class="card">
+  <label class="lbl" for="addr">Wallet address to check</label>
+  <textarea id="addr" rows="2" spellcheck="false" placeholder="0x… or any address string"></textarea>
+  <div class="row">
+    <button id="check" class="btn primary">Check address</button>
+    <button id="add" class="btn ghost" title="Add this address to your blacklist">Add to list</button>
+  </div>
+  <div id="verdict" class="verdict hidden"></div>
+  <p class="note">Checks only against <strong>your own local list</strong>. A "not listed" result does not mean an address is safe.</p>
+</section>
+
+<section class="card">
+  <div class="listhead">
+    <h2>Blacklist <span id="count" class="pill">0</span></h2>
+    <div class="row tight">
+      <button id="export" class="btn tiny">Export</button>
+      <button id="import" class="btn tiny">Import</button>
+      <input type="file" id="file" accept="application/json" hidden>
+    </div>
+  </div>
+  <input id="search" class="search" placeholder="Search list…" spellcheck="false">
+  <ul id="list" class="list"></ul>
+</section>
+
+<footer>Starter entries are clearly-marked sample data. Add real ones yourself.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

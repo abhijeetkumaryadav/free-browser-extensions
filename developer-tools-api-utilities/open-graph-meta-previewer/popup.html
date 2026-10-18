@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Graph Meta Previewer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+    <div><h1>OG Previewer</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="scoreCard" class="glass card" hidden>
+      <div class="score-row">
+        <div class="score-ring"><b id="scoreNum">0</b><span>%</span></div>
+        <div><h2>Meta completeness</h2><p id="scoreSub" class="note">—</p></div>
+      </div>
+      <div id="checks"></div>
+    </section>
+    <section id="cards" class="glass card" hidden>
+      <h2>Social card previews</h2>
+      <div class="net-label"><span class="x-logo">𝕏</span> X / Twitter</div>
+      <div class="scard x"><div class="simg" id="xImg"></div><div class="sbody"><b id="xTitle">—</b><p id="xDesc">—</p><span id="xDomain">—</span></div></div>
+      <div class="net-label"><span class="fb-logo">f</span> Facebook</div>
+      <div class="scard fb"><div class="simg" id="fbImg"></div><div class="sbody"><span id="fbDomain">—</span><b id="fbTitle">—</b><p id="fbDesc">—</p></div></div>
+      <div class="net-label"><span class="in-logo">in</span> LinkedIn</div>
+      <div class="scard li"><div class="simg" id="liImg"></div><div class="sbody"><b id="liTitle">—</b><span id="liDomain">—</span></div></div>
+      <p class="note">Previews are approximations of each network's card renderer.</p>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan page</b> to extract this page's Open Graph and Twitter Card tags.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

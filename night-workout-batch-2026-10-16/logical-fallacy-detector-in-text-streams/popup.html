@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fallacy Signal Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg>
+    </span>
+    <div>
+      <h1>Fallacy Signal Scanner</h1>
+      <p class="subtitle">Paste text, check for fallacy signals</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span>Heuristic signals only — <strong>not real fallacy detection</strong>. Patterns can misfire; use your own judgment.</span>
+  </div>
+
+  <label class="field-label" for="input">Text to scan</label>
+  <textarea id="input" rows="5" placeholder="Paste an argument, comment, or article excerpt…"></textarea>
+
+  <button id="scanBtn" class="primary">Scan for signals</button>
+
+  <section id="results" class="results hidden" aria-live="polite">
+    <div class="score-row">
+      <div class="score-ring"><span id="scoreNum">0</span></div>
+      <div>
+        <div id="verdict" class="verdict">Clean</div>
+        <div id="signalCount" class="muted"></div>
+      </div>
+    </div>
+    <div id="hits"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

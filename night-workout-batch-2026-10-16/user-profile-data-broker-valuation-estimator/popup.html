@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data Broker Value Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <div>
+      <h1>Data Broker Value Estimator</h1>
+      <p class="sub">What might your data be worth?</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Educational tool. Estimates use a bundled <strong>illustrative</strong> rate table — <strong>not a real valuation</strong> and not market prices.</span>
+  </div>
+
+  <section id="questions" class="card">
+    <h2>Your data footprint</h2>
+    <div id="question-list"></div>
+  </section>
+
+  <section id="results" class="card hidden">
+    <h2>Estimated annual value</h2>
+    <div class="total-row">
+      <div class="total" id="total">$0.00<span>/yr</span></div>
+      <div class="tier" id="tier"></div>
+    </div>
+    <p class="tier-blurb" id="tier-blurb"></p>
+    <div id="breakdown"></div>
+  </section>
+
+  <footer>
+    <button id="reset-btn" class="ghost">Reset</button>
+    <span class="foot-note">100% local · nothing leaves your device</span>
+  </footer>
+</div>
+<script src="estimator.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

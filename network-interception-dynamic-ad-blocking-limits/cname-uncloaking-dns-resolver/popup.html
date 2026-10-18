@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CNAME Uncloak — DNS Resolver</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon" id="brand-icon"></span>
+        <div>
+          <h1>CNAME Uncloak</h1>
+          <p class="subtitle">DNS chain resolver · educational</p>
+        </div>
+      </div>
+      <label class="provider-label" title="DNS-over-HTTPS provider">
+        <select id="provider" aria-label="DNS provider">
+          <option value="google">Google DNS</option>
+          <option value="cloudflare">Cloudflare</option>
+        </select>
+      </label>
+    </header>
+
+    <section class="panel">
+      <div class="lookup-row">
+        <input type="text" id="domain-input" placeholder="example.com or use current tab…" autocomplete="off" spellcheck="false" />
+        <button class="primary-btn" id="lookup-btn">Resolve</button>
+      </div>
+      <button class="ghost-btn" id="use-tab-btn">Use current tab's domain</button>
+    </section>
+
+    <section class="panel results" id="results" hidden>
+      <h2 class="results-title">Resolution chain</h2>
+      <div class="chain" id="chain"></div>
+      <div class="verdict" id="verdict"></div>
+      <p class="edu-note" id="edu-note"></p>
+    </section>
+
+    <section class="panel" id="status-panel" hidden>
+      <p class="status" id="status-text"></p>
+    </section>
+
+    <footer class="footer">
+      Read-only DNS-over-HTTPS lookups · no tracking · nothing stored except provider choice
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

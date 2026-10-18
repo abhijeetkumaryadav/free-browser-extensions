@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RDAP Domain Info</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <span class="appicon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+  </span>
+  <div>
+    <h1>RDAP Domain Info</h1>
+    <p class="sub">Public registration data for this tab's domain</p>
+  </div>
+</header>
+
+<p class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span><strong>Public RDAP data only.</strong> Fetched from rdap.org for this tab's domain — may fail or be rate-limited. This is not a substitute for a full WHOIS lookup.</span>
+</p>
+
+<div class="domainrow">
+  <code id="domain">…</code>
+  <button id="lookupBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-2.6-6.4M21 3v6h-6"/></svg>
+    Look up
+  </button>
+</div>
+
+<div id="loading" class="state" hidden>
+  <span class="spinner"></span> Fetching RDAP record…
+</div>
+
+<div id="error" class="state err" hidden></div>
+
+<dl id="results" class="results" hidden></dl>
+
+<a id="fullLink" class="fullink" href="#" target="_blank" rel="noopener" hidden>
+  Open full lookup on rdap.org
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+</a>
+
+<script src="popup.js"></script>
+</body>
+</html>

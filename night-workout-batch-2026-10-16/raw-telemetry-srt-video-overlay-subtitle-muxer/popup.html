@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Telemetry SRT Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M6 19h12M6 11h4M14 11h4M6 14h2"/></svg>
+    <div>
+      <h1>Telemetry SRT Builder</h1>
+      <p class="sub">Timed telemetry lines → .srt file</p>
+    </div>
+  </header>
+
+  <section class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+    <p>Subtitle generator — <b>not video muxing</b>. It produces a standard .srt text file from the lines you type, which you can add to a video in an editor.</p>
+  </section>
+
+  <section class="field">
+    <label for="time">Start time</label>
+    <div class="timerow">
+      <input id="time" type="text" value="00:00:00,000" inputmode="numeric" spellcheck="false">
+      <button id="now" class="ghost" title="Start at 00:00:00,000">↺ 0</button>
+    </div>
+    <p class="hint">Format <b>hh:mm:ss,mmm</b> — also accepts seconds (e.g. <b>75.5</b>) or <b>mm:ss</b>.</p>
+  </section>
+
+  <section class="field">
+    <label for="dur">Duration (seconds)</label>
+    <input id="dur" type="number" step="0.5" min="0.5" max="60" value="3" inputmode="decimal">
+  </section>
+
+  <section class="field">
+    <label for="text">Telemetry text</label>
+    <textarea id="text" rows="2" placeholder="e.g. ALT 120 m · SPD 8.2 m/s · BATT 96%"></textarea>
+  </section>
+
+  <button id="add" class="primary">Add cue</button>
+
+  <section class="listwrap">
+    <div class="listhead"><span>Cues (<b id="count">0</b>)</span><button id="clear" class="ghost">Clear all</button></div>
+    <ul id="cues"></ul>
+  </section>
+
+  <details class="preview">
+    <summary>Preview .srt</summary>
+    <pre id="srtout"></pre>
+  </details>
+
+  <button id="download" class="primary">Download .srt</button>
+
+  <footer class="foot">Fully local · zero network</footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

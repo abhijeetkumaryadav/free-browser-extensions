@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Snippet Expander</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+    <div class="hwrap">
+      <h1>Snippet Expander</h1>
+      <p>Type a trigger → snippet appears</p>
+    </div>
+    <label class="switch" title="Enable expansion">
+      <input type="checkbox" id="enabled" checked>
+      <span class="track"><span class="knob"></span></span>
+    </label>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>Expand when I press</h2>
+      <div class="seg" id="expandOnSeg">
+        <button data-v="tab">Tab</button>
+        <button data-v="space">Space / Enter</button>
+        <button data-v="both">Both</button>
+      </div>
+      <p class="note">Use <code>{cursor}</code> in a snippet to place the caret there after expansion.</p>
+    </section>
+
+    <section class="glass card">
+      <h2>Add snippet</h2>
+      <input type="text" id="trigInput" placeholder="Trigger, e.g. ;sig" maxlength="60" spellcheck="false">
+      <textarea id="snipInput" rows="3" placeholder="Snippet text…" maxlength="2000"></textarea>
+      <button id="addBtn" class="primary">Add snippet</button>
+      <p class="note" id="addError"></p>
+    </section>
+
+    <section class="glass card">
+      <h2>Library <span id="snipCount" class="count">0</span></h2>
+      <div id="snipList"></div>
+    </section>
+
+    <section class="glass card">
+      <h2>Export / import</h2>
+      <div class="btn-row">
+        <button id="exportBtn" class="ghost">Export JSON</button>
+        <button id="importBtn" class="ghost">Import JSON</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

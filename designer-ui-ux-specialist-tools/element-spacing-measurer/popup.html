@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Element Spacing Measurer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <!-- Lucide-style ruler icon (stroke only) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0Z"/>
+          <path d="m14.5 12.5 2-2"/>
+          <path d="m11.5 9.5 2-2"/>
+          <path d="m8.5 6.5 2-2"/>
+          <path d="m17.5 15.5 2-2"/>
+        </svg>
+      </div>
+      <div class="title-wrap">
+        <h1>Spacing Measurer</h1>
+        <p class="subtitle">Pixel distances, live on the page</p>
+      </div>
+    </header>
+
+    <!-- Measure control -->
+    <section class="panel">
+      <button id="measureBtn" class="primary-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12h20"/>
+          <path d="m6 8-4 4 4 4"/>
+          <path d="m18 8 4 4-4 4"/>
+        </svg>
+        <span>Measure elements</span>
+      </button>
+      <p class="hint">Click, then pick <strong>two elements</strong> on the page. Hover highlights targets — <kbd>Esc</kbd> cancels.</p>
+      <div id="statusRow" class="status-row hidden">
+        <span class="pulse"></span>
+        <span id="statusText">Pick the first element…</span>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section id="resultPanel" class="panel hidden">
+      <div class="result-head">
+        <h2>Distance</h2>
+        <button id="clearBtn" class="ghost-btn" title="Clear overlay">Clear</button>
+      </div>
+      <div class="diagonal">
+        <span class="diag-label">Diagonal</span>
+        <span class="diag-value"><span id="diagVal">0</span><span class="unit">px</span></span>
+      </div>
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-label">Horizontal</span>
+          <span class="metric-value"><span id="hVal">0</span> px</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Vertical</span>
+          <span class="metric-value"><span id="vVal">0</span> px</span>
+        </div>
+      </div>
+      <div class="elements">
+        <div class="element-chip" id="elA">—</div>
+        <div class="element-chip" id="elB">—</div>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section class="panel">
+      <div class="result-head">
+        <h2>History</h2>
+        <button id="historyClear" class="ghost-btn" title="Clear history">Clear</button>
+      </div>
+      <ul id="historyList" class="history-list">
+        <li class="empty">No measurements yet.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">Overlay is non-destructive — it never edits the page.</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

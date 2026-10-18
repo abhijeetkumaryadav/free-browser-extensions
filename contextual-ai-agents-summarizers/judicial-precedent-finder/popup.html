@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Judicial Precedent Finder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7l7-4 7 4"/><path d="M3 13l2-6 2 6a3.5 3.5 0 0 1-4 0Z"/><path d="M17 13l2-6 2 6a3.5 3.5 0 0 1-4 0Z"/><path d="M8 21h8"/></svg>
+    <div><h1>Precedent Finder</h1><p>Legal research helper</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Legal topic
+        <input id="topic" placeholder="e.g. anticipatory bail, fair use, adverse possession" maxlength="120">
+      </label>
+      <label class="fld">Jurisdiction
+        <select id="juris">
+          <option value="india">India</option>
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="eu">European Union</option>
+          <option value="intl">International</option>
+        </select>
+      </label>
+      <button id="launch" class="primary wide">Build search launchers</button>
+      <div id="launchers" class="launchers" hidden></div>
+      <p class="note">Free public databases only — no paywalled sources scraped.</p>
+    </section>
+    <section class="glass card">
+      <h2>Case brief template</h2>
+      <input id="bTitle" placeholder="Case name / citation" maxlength="120">
+      <textarea id="bFacts" rows="2" placeholder="Facts"></textarea>
+      <textarea id="bIssue" rows="2" placeholder="Legal issue"></textarea>
+      <textarea id="bHolding" rows="2" placeholder="Holding"></textarea>
+      <textarea id="bReasoning" rows="2" placeholder="Reasoning"></textarea>
+      <button id="saveBrief" class="primary wide">Save brief</button>
+    </section>
+    <section class="glass card" id="briefCard" hidden>
+      <h2>Saved briefs</h2>
+      <div id="briefs"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

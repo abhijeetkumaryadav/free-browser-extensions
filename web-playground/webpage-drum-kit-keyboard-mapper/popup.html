@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BeatPad — Keyboard Drum Kit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><ellipse cx="12" cy="9" rx="8" ry="3"/><line x1="4" y1="3" x2="9" y2="9"/><line x1="20" y1="3" x2="15" y2="9"/></svg>
+      <div class="title-wrap">
+        <h1>BeatPad</h1>
+        <p class="subtitle">Keyboard drum kit · all sounds synthesized live</p>
+      </div>
+    </header>
+
+    <main class="panel">
+      <div class="pad-grid" id="padGrid"></div>
+
+      <div class="controls">
+        <div class="control-row">
+          <label for="volume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.4 9.4 0 0 1 0 13"/></svg>
+            Volume
+          </label>
+          <input type="range" id="volume" min="0" max="100" value="80" aria-label="Volume">
+          <span class="vol-val" id="volVal">80%</span>
+        </div>
+        <div class="control-row">
+          <button class="btn secondary" id="demoBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            Play demo beat
+          </button>
+          <button class="btn secondary" id="stopBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+            Stop
+          </button>
+        </div>
+      </div>
+
+      <p class="hint">Press keys <kbd>A</kbd>–<kbd>K</kbd> or tap the pads. Every sound is synthesized in your browser with the Web Audio API — no audio files, no network, nothing leaves your device. Just a fun toy.</p>
+    </main>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

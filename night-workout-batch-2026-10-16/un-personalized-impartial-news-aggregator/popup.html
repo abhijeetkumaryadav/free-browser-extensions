@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+    <div>
+      <h1>My Feeds</h1>
+      <p class="sub">RSS headlines from <b>feeds you choose</b>. This is not impartial and not a news service — every source here is one you added.</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <button id="refresh" class="btn small">Refresh all</button>
+    <span id="status" class="status"></span>
+  </div>
+
+  <ul id="items" class="items"></ul>
+
+  <details class="add-feed">
+    <summary>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Manage feeds
+    </summary>
+    <div class="add-form">
+      <input id="feed-url" type="text" placeholder="RSS feed URL, e.g. https://…/feed.xml">
+      <button id="feed-add" class="btn">Add feed</button>
+      <ul id="feeds" class="feeds"></ul>
+    </div>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

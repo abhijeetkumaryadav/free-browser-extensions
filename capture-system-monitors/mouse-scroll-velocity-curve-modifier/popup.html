@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmoothGlide — Custom Scroll Curve</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M9 5l3-3 3 3"/><path d="M15 19l-3 3-3-3"/><path d="M19 9l3 3-3 3"/><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+    </div>
+    <div>
+      <h1>SmoothGlide</h1>
+      <p class="subtitle">Custom scroll-curve enhancer</p>
+    </div>
+  </header>
+
+  <div class="panel">
+    <div class="row">
+      <div class="row-label">
+        <span class="label">Smooth scrolling</span>
+        <span class="hint">Applies an easing curve to wheel scrolling on this tab</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="enabled">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </div>
+
+    <div class="row column">
+      <div class="slider-head">
+        <span class="label">Glide intensity</span>
+        <span class="value" id="intensityVal">5</span>
+      </div>
+      <input type="range" id="intensity" min="1" max="10" step="1" value="5">
+      <span class="hint">Higher = longer, softer glide per wheel tick</span>
+    </div>
+
+    <div class="row column">
+      <div class="slider-head">
+        <span class="label">Scroll speed</span>
+        <span class="value" id="speedVal">100%</span>
+      </div>
+      <input type="range" id="speed" min="30" max="250" step="10" value="100">
+      <span class="hint">Multiplier applied to each wheel tick</span>
+    </div>
+  </div>
+
+  <div class="status" id="status">Checking tab…</div>
+
+  <div class="note">
+    Page-scroll only. This extension cannot change your OS mouse settings, trackpad speed,
+    or pointer acceleration — it only smooths in-page wheel scrolling.
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

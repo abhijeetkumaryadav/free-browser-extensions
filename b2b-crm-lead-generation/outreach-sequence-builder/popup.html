@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outreach Sequence Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8 15.7 7.2M8.2 13.2l7.5 3.6"/></svg>
+    <div><h1>Outreach Builder</h1><p>Multi-step sequences</p></div>
+    <button id="copyAll" class="primary" title="Copy whole sequence with sample contact filled in">Copy all</button>
+  </header>
+  <main>
+    <section class="glass card seqbar">
+      <select id="seqSelect" title="Active sequence"></select>
+      <button id="newSeq" class="ghost sm" title="New sequence">＋ New</button>
+      <button id="delSeq" class="ghost sm danger" title="Delete sequence">🗑</button>
+    </section>
+
+    <section class="glass card">
+      <h2>Steps <span id="stepCount" class="count"></span></h2>
+      <div id="steps"></div>
+      <div class="add-form">
+        <div class="row2">
+          <label>Day <input id="fDay" type="number" min="0" max="365" value="1"></label>
+          <label>Channel
+            <select id="fChannel">
+              <option value="email">Email</option>
+              <option value="call">Call</option>
+              <option value="linkedin">LinkedIn</option>
+            </select>
+          </label>
+        </div>
+        <label>Template <span class="hint">use {firstName} {company} {title}</span>
+          <textarea id="fTemplate" rows="3" placeholder="Hi {firstName}, noticed {company}…"></textarea>
+        </label>
+        <button id="saveStep" class="primary wide">Add step</button>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <h2>Preview with sample contact</h2>
+      <div class="row3">
+        <input id="sFirst" placeholder="First name" maxlength="40">
+        <input id="sCompany" placeholder="Company" maxlength="60">
+        <input id="sTitle" placeholder="Title" maxlength="60">
+      </div>
+      <div id="preview"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

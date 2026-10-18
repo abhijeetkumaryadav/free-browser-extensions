@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Relay</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <span class="icon icon-relay" aria-hidden="true"></span>
+    <div class="title-wrap">
+      <h1>Tab Relay</h1>
+      <p class="subtitle">Send text &amp; files between your tabs</p>
+    </div>
+    <button id="clearHistoryBtn" class="btn btn-ghost" title="Clear history">Clear</button>
+  </header>
+
+  <div class="scope-banner">
+    <span class="icon icon-info" aria-hidden="true"></span>
+    <p>Relays between <strong>your own tabs</strong> — not distributed P2P. Files under 2&nbsp;MB, local only.</p>
+  </div>
+
+  <section class="tabs">
+    <button id="tabText" class="tab-btn active" data-tab="text">Text</button>
+    <button id="tabFile" class="tab-btn" data-tab="file">File</button>
+  </section>
+
+  <section id="paneText" class="pane">
+    <textarea id="textInput" rows="4" placeholder="Type text to send to another tab…"></textarea>
+    <div class="row">
+      <button id="sendTextBtn" class="btn btn-primary">
+        <span class="icon icon-send" aria-hidden="true"></span> Send text
+      </button>
+      <button id="copyLatestTextBtn" class="btn" title="Copy most recent received text">Copy latest</button>
+    </div>
+  </section>
+
+  <section id="paneFile" class="pane hidden">
+    <label class="drop" for="fileInput">
+      <span class="icon icon-upload-lg" aria-hidden="true"></span>
+      <span id="dropLabel">Choose a file (max 2 MB)</span>
+      <input id="fileInput" type="file" hidden>
+    </label>
+    <button id="sendFileBtn" class="btn btn-primary" disabled>
+      <span class="icon icon-send" aria-hidden="true"></span> Send file
+    </button>
+  </section>
+
+  <section class="history-wrap">
+    <div class="history-head">
+      <h2>Transfer history <span id="transferCount" class="count">0</span></h2>
+      <span id="liveDot" class="live-dot" title="Listening for incoming transfers">
+        <span class="dot"></span> live
+      </span>
+    </div>
+    <div id="historyList" class="history-list" aria-live="polite"></div>
+    <div id="emptyState" class="empty-state">
+      <span class="icon icon-relay-lg" aria-hidden="true"></span>
+      <p>No transfers yet.<br>Send text or a file — it lands in every open tab.</p>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

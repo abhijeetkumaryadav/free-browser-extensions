@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Context Packager</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 12.5h5"/></svg>
+    </span>
+    <div>
+      <h1>Page Context Packager</h1>
+      <p class="sub">Turn this page into paste-ready LLM context</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Formatter only — <strong>not AI, not RAG</strong>. It extracts text; <em>you</em> paste it into your LLM.</span>
+  </div>
+
+  <section class="controls">
+    <label class="field">
+      <span>Chunk size (chars)</span>
+      <input id="maxChars" type="number" min="1000" max="20000" step="500" value="4000">
+    </label>
+    <label class="field">
+      <span>Overlap (chars)</span>
+      <input id="overlap" type="number" min="0" max="2000" step="50" value="400">
+    </label>
+    <button id="extractBtn" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+      Extract this page
+    </button>
+  </section>
+
+  <section id="result" class="result hidden">
+    <div class="stats">
+      <div class="stat"><strong id="stChars">0</strong><span>chars</span></div>
+      <div class="stat"><strong id="stWords">0</strong><span>words</span></div>
+      <div class="stat"><strong id="stChunks">0</strong><span>chunks</span></div>
+    </div>
+    <div class="chunknav">
+      <button id="prevChunk" class="ghost" aria-label="Previous chunk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <span id="chunkLabel">Chunk 1 of 1</span>
+      <button id="nextChunk" class="ghost" aria-label="Next chunk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <pre id="preview" class="preview"></pre>
+    <div class="actions">
+      <button id="copyChunk" class="primary sm">Copy this chunk</button>
+      <button id="copyAll" class="ghost sm">Copy all</button>
+      <button id="downloadMd" class="ghost sm">Download .md</button>
+    </div>
+    <p id="status" class="status" role="status"></p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

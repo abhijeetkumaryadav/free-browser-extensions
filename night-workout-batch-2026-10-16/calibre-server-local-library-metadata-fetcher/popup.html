@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <svg viewBox="0 0 24 24" class="logo" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <div>
+      <h1>My Library Log</h1>
+      <p class="tag">your books · status · progress · notes</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Your library log — not connected to any Calibre server. You add every book yourself.</span>
+  </div>
+
+  <div class="row counts" id="counts"></div>
+
+  <input id="search" placeholder="Search title, author, notes…">
+
+  <div class="addbox">
+    <input id="bTitle" maxlength="120" placeholder="Title *">
+    <div class="row2">
+      <input id="bAuthor" maxlength="80" placeholder="Author">
+      <select id="bStatus">
+        <option value="want">Want to read</option>
+        <option value="reading">Reading</option>
+        <option value="finished">Finished</option>
+      </select>
+    </div>
+    <div class="row2">
+      <label class="pct">Progress <input id="bProgress" type="number" min="0" max="100" value="0">%</label>
+      <input id="bNotes" maxlength="500" placeholder="Notes (optional)">
+    </div>
+    <button class="btn accent full" id="addBtn">Add book</button>
+  </div>
+
+  <ul id="bookList"></ul>
+
+  <div class="row">
+    <button class="btn" id="expBtn">Export JSON</button>
+    <label class="btn ghost filebtn">Import<input type="file" id="impFile" accept=".json,application/json" hidden></label>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

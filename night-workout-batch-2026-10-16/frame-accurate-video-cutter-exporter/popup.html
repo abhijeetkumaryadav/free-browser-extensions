@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg>
+    <div>
+      <h1>Frame-Accurate Cutter</h1>
+      <p class="sub">cut at exact frames, export</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Exports via MediaRecorder <b>re-encode</b> — cuts at your chosen frames, but is <b>not</b> lossless keyframe cutting.</span>
+  </div>
+
+  <label class="drop" id="drop">
+    <input type="file" id="file" accept="video/*" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+    <span>Drop a video or <b>choose a file</b></span>
+  </label>
+
+  <div id="editor" class="hidden">
+    <video id="video" muted playsinline></video>
+    <div class="timebar">
+      <span id="tc">00:00.00</span>
+      <span id="fr">frame 0</span>
+      <label class="fps">fps
+        <input type="number" id="fps" value="30" min="1" max="120">
+      </label>
+    </div>
+
+    <div class="stepper">
+      <button id="back10" title="-10 frames">⏮</button>
+      <button id="back1" title="-1 frame">◀</button>
+      <button id="play" title="play/pause">▶</button>
+      <button id="fwd1" title="+1 frame">▶</button>
+      <button id="fwd10" title="+10 frames">⏭</button>
+    </div>
+
+    <div class="marks">
+      <button id="setIn" class="mark">Set IN</button>
+      <span id="inLbl">—</span>
+      <button id="setOut" class="mark">Set OUT</button>
+      <span id="outLbl">—</span>
+    </div>
+
+    <input type="range" id="scrub" min="0" max="1000" value="0">
+
+    <div class="actions">
+      <button id="preview" class="ghost">Preview clip</button>
+      <button id="export" class="primary">Export clip</button>
+    </div>
+    <div id="prog" class="prog hidden"><div id="bar"></div></div>
+    <a id="dl" class="hidden">Download clip</a>
+  </div>
+  <p class="foot">100% local — nothing is ever uploaded.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tone Shift</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <h1>Tone Shift</h1>
+  </div>
+  <p class="scope">Tone toolkit, not AI — suggestions are templates, you write the words.</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="draft">Draft</button>
+  <button class="tab" data-tab="saved">Saved</button>
+</nav>
+
+<section id="tab-draft" class="panel">
+  <label class="field">
+    <span>Target tone</span>
+    <div class="tones">
+      <button class="tone active" data-tone="formal">Formal</button>
+      <button class="tone" data-tone="friendly">Friendly</button>
+      <button class="tone" data-tone="firm">Firm</button>
+      <button class="tone" data-tone="apologetic">Apologetic</button>
+    </div>
+  </label>
+  <label class="field">
+    <span>Your draft</span>
+    <textarea id="draft" rows="6" placeholder="Write your email draft here…"></textarea>
+  </label>
+  <button id="analyze" class="primary">Get tone suggestions</button>
+
+  <div id="results" class="results hidden">
+    <h2>Phrase swaps <span class="hint">click to insert</span></h2>
+    <ul id="swaps"></ul>
+    <h2>Tone checklist</h2>
+    <ul id="checklist" class="checklist"></ul>
+  </div>
+
+  <div class="row">
+    <input id="draftTitle" type="text" placeholder="Draft title (optional)" maxlength="60">
+    <button id="saveDraft" class="ghost">Save draft</button>
+  </div>
+</section>
+
+<section id="tab-saved" class="panel hidden">
+  <ul id="savedList" class="saved"></ul>
+  <p id="savedEmpty" class="empty">No saved drafts yet.</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

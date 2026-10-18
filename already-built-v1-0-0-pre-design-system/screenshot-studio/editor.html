@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screenshot Studio — Editor</title>
+<style>
+  :root { --bg:#14101a; --panel:#1e1826; --ink:#f3ecf7; --muted:#a89bb5;
+          --accent:#6fc3e8; --deep:#2c4a5e; --line:#2c2337; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;
+         display:flex; flex-direction:column; height:100vh; }
+  header { display:flex; align-items:center; gap:10px; padding:12px 18px;
+           border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  header h1 { font-size:16px; margin:0 8px 0 0; }
+  header h1 span { color:var(--accent); }
+  .tool { background:var(--panel); color:var(--ink); border:1px solid var(--line);
+          border-radius:9px; padding:8px 14px; cursor:pointer; font-size:13px; }
+  .tool.active { background:var(--deep); border-color:var(--accent); color:#fff; }
+  .tool:hover { border-color:var(--accent); }
+  label.opt { display:flex; align-items:center; gap:8px; color:var(--muted); font-size:13px; }
+  input[type=text] { background:var(--panel); border:1px solid var(--line); color:var(--ink);
+                     border-radius:8px; padding:7px 10px; width:170px; }
+  input[type=color] { background:none; border:1px solid var(--line); border-radius:8px;
+                      width:38px; height:34px; padding:2px; cursor:pointer; }
+  main { flex:1; display:flex; align-items:center; justify-content:center;
+         overflow:auto; padding:18px; }
+  #view { max-width:100%; border:1px solid var(--line); border-radius:8px;
+          cursor:crosshair; background:#0d0a12; }
+  footer { display:flex; align-items:center; gap:10px; padding:12px 18px;
+           border-top:1px solid var(--line); flex-wrap:wrap; }
+  footer .spacer { flex:1; }
+  select { background:var(--panel); color:var(--ink); border:1px solid var(--line);
+           border-radius:8px; padding:8px 10px; }
+  #download { background:var(--deep); color:#fff; border:0; border-radius:9px;
+              padding:9px 20px; font-size:14px; font-weight:600; cursor:pointer; }
+  #download:hover { filter:brightness(1.15); }
+  #hint { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>◈</span> Screenshot Studio</h1>
+  <button class="tool" data-tool="crop">Crop</button>
+  <button class="tool" data-tool="blur">Blur</button>
+  <button class="tool" data-tool="text">Text</button>
+  <label class="opt">Brush <input type="range" id="brush" min="12" max="120" value="48"></label>
+  <label class="opt">Text <input type="text" id="textInput" placeholder="Type caption, then click image…" maxlength="80"></label>
+  <label class="opt">Size <input type="range" id="textSize" min="16" max="120" value="48"></label>
+  <input type="color" id="textColor" value="#ffffff" title="Text color">
+  <button class="tool" id="undo">Undo</button>
+</header>
+<main><canvas id="view"></canvas></main>
+<footer>
+  <span id="hint">Pick a tool, then drag or click on the image.</span>
+  <span class="spacer"></span>
+  <select id="preset">
+    <option value="0x0">Original size</option>
+    <option value="1080x1350">Instagram Post · 1080×1350</option>
+    <option value="1080x1920">Instagram Story · 1080×1920</option>
+    <option value="1080x1080">Square · 1080×1080</option>
+  </select>
+  <button id="download">Download PNG</button>
+</footer>
+<script src="editor.js"></script>
+</body>
+</html>

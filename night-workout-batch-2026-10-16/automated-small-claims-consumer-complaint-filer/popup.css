@@ -1,0 +1,44 @@
+/* Complaint Helper — deep-dark glassmorphism, single teal accent. */
+:root{
+  --bg:rgba(20,20,26,.72); --card:rgba(255,255,255,.05); --border:rgba(255,255,255,.12);
+  --text:#f4f4f5; --muted:#a1a1aa; --accent:#2dd4bf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);
+  background:linear-gradient(160deg,#141419,#1d1d26);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.shell{padding:16px;max-height:600px;overflow-y:auto}
+.app-header{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(135deg,rgba(45,212,191,.28),rgba(45,212,191,.08));border:1px solid rgba(45,212,191,.4)}
+.logo svg{width:22px;height:22px;color:var(--accent)}
+h1{font-size:17px;font-weight:700}
+.sub{font-size:12px;color:var(--muted)}
+.honesty{display:flex;gap:10px;background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.3);
+  border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:12px;color:#99f6e4}
+.honesty svg{width:18px;height:18px;flex:none;color:var(--accent);margin-top:1px}
+.honesty strong{color:#fff}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tab{flex:1;padding:9px 4px;border-radius:10px;border:1px solid var(--border);background:var(--card);
+  color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer}
+.tab.active{background:rgba(45,212,191,.15);border-color:rgba(45,212,191,.5);color:var(--text)}
+.panel label{display:block;font-size:12px;color:var(--muted);margin-bottom:10px}
+.panel input,.panel textarea,.panel select{width:100%;margin-top:4px;padding:9px 10px;border-radius:10px;
+  border:1px solid var(--border);background:rgba(0,0,0,.3);color:var(--text);font-size:13px;font-family:inherit}
+.panel textarea{resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.primary{width:100%;padding:12px;border:0;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;
+  color:#06281f;background:linear-gradient(135deg,#5eead4,#2dd4bf);margin-top:4px;margin-bottom:6px}
+.primary:hover{filter:brightness(1.08)}
+.ghost{width:100%;padding:10px;border-radius:12px;background:transparent;color:var(--muted);
+  border:1px solid var(--border);cursor:pointer;font-size:13px;margin-top:10px}
+.ghost:hover{color:var(--text)}
+.hidden{display:none}
+.letter{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:12px;padding:14px;
+  font-size:12.5px;white-space:pre-wrap;margin-bottom:12px;max-height:340px;overflow-y:auto}
+.checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.check{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;font-size:13px;cursor:pointer}
+.check input{width:16px;height:16px;margin-top:2px;accent-color:var(--accent);flex:none}
+.check.done{opacity:.55}.check.done span{text-decoration:line-through}
+.status-row label{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text)}
+.status-row select{width:auto;flex:1}

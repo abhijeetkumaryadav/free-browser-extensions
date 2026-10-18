@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dotted — Bullet Journal</title>
+<link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.2"/></svg>
+      <span>Dotted</span>
+    </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="search" type="text" placeholder="Search entries…">
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="daily">Daily</button>
+    <button class="tab" data-tab="monthly">Monthly</button>
+    <button class="tab" data-tab="future">Future</button>
+  </nav>
+
+  <!-- Daily log -->
+  <section class="pane active" id="pane-daily">
+    <div class="day-nav">
+      <button id="prevDay" class="icon-btn" aria-label="Previous day">‹</button>
+      <div class="day-title">
+        <strong id="dayLabel"></strong>
+        <span id="daySub"></span>
+      </div>
+      <button id="todayBtn" class="chip">Today</button>
+      <button id="nextDay" class="icon-btn" aria-label="Next day">›</button>
+    </div>
+    <ul id="entryList" class="entries"></ul>
+    <form id="entryForm" class="entry-form">
+      <div class="type-row">
+        <button type="button" class="type-btn active" data-type="task" title="Task (.)">•</button>
+        <button type="button" class="type-btn" data-type="event" title="Event (o)">○</button>
+        <button type="button" class="type-btn" data-type="note" title="Note (-)">—</button>
+      </div>
+      <input id="entryInput" type="text" placeholder="Rapid log…  . task · o event · - note" maxlength="300" autocomplete="off">
+      <button type="submit" class="btn">Add</button>
+    </form>
+    <p class="legend">Prefix shortcuts: <b>.</b> task · <b>o</b> event · <b>-</b> note · click a task's dot to complete it</p>
+  </section>
+
+  <!-- Monthly view -->
+  <section class="pane" id="pane-monthly">
+    <div class="day-nav">
+      <button id="prevMonth" class="icon-btn" aria-label="Previous month">‹</button>
+      <div class="day-title"><strong id="monthLabel"></strong></div>
+      <button id="nextMonth" class="icon-btn" aria-label="Next month">›</button>
+    </div>
+    <div id="monthGrid" class="month-grid"></div>
+    <ul id="monthList" class="entries"></ul>
+  </section>
+
+  <!-- Future log -->
+  <section class="pane" id="pane-future">
+    <form id="futureForm" class="form">
+      <input id="futureText" type="text" placeholder="Future entry (e.g. Dentist appointment)" maxlength="200" required>
+      <div class="row">
+        <input id="futureDate" type="date" required>
+        <button type="submit" class="btn">Add</button>
+      </div>
+    </form>
+    <ul id="futureList" class="entries"></ul>
+  </section>
+
+  <!-- Search results -->
+  <section class="pane" id="pane-search">
+    <ul id="searchList" class="entries"></ul>
+  </section>
+</div>
+<script src="sidepanel.js"></script>
+</body>
+</html>

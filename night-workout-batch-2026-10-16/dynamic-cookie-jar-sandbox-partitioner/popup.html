@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookie Jar</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M9 14.5h.01"/><path d="M13 15.5h.01"/><path d="M11 17.5h.01"/></svg>
+    <h1>Cookie Jar</h1>
+  </div>
+  <span id="domainPill" class="pill" title="Current domain"></span>
+</header>
+
+<div class="banner" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+  <p>Jars are <strong>manual profiles</strong> of cookies per domain. This is <strong>not</strong> true browser container isolation, a VPN, or fingerprint protection. Restoring a jar replaces cookies — you may be logged out or logged in.</p>
+</div>
+
+<section class="card">
+  <h2>Cookies on <span id="domainLabel">this page</span> <span id="cookieCount" class="count"></span></h2>
+  <ul id="cookieList" class="cookie-list"></ul>
+  <p id="emptyCookies" class="muted">No cookies found for this domain.</p>
+</section>
+
+<section class="card">
+  <h2>Jars for this domain</h2>
+  <div class="row">
+    <input id="jarName" type="text" maxlength="60" placeholder="Jar name (e.g. Logged-in)">
+  </div>
+  <div class="row buttons">
+    <button id="snapshotBtn" class="btn primary">Save snapshot</button>
+    <button id="clearBtn" class="btn ghost">Clear cookies</button>
+  </div>
+  <ul id="jarList" class="jar-list"></ul>
+  <p id="emptyJars" class="muted">No jars saved for this domain yet.</p>
+</section>
+
+<section class="card danger-zone">
+  <h2>Danger zone</h2>
+  <div class="row buttons">
+    <button id="wipeJarsBtn" class="btn danger">Delete all jars</button>
+  </div>
+  <p class="muted">Deletes every saved jar for every domain. Current browser cookies are untouched.</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

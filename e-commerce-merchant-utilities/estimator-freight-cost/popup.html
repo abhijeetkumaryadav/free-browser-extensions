@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="glass">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18h-5"/><path d="M15 8h4l3 3v7a1 1 0 0 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+  <div>
+    <h1>Freight Cost Estimator</h1>
+    <p>On-device parcel rate estimates</p>
+  </div>
+</header>
+
+<main>
+  <section class="card glass">
+    <h2>Shipment</h2>
+    <div class="row2">
+      <label>From ZIP
+        <input id="fromZip" type="text" inputmode="numeric" maxlength="5" placeholder="e.g. 10001">
+      </label>
+      <label>To ZIP
+        <input id="toZip" type="text" inputmode="numeric" maxlength="5" placeholder="e.g. 90210">
+      </label>
+    </div>
+    <label>Weight (lbs)
+      <input id="weight" type="number" min="0.1" step="0.1" placeholder="e.g. 12.5">
+    </label>
+    <div class="row3">
+      <label>Length (in)<input id="len" type="number" min="1" step="0.5" placeholder="L"></label>
+      <label>Width (in)<input id="wid" type="number" min="1" step="0.5" placeholder="W"></label>
+      <label>Height (in)<input id="hgt" type="number" min="1" step="0.5" placeholder="H"></label>
+    </div>
+    <div class="seg" role="radiogroup" aria-label="Service speed">
+      <button class="seg-btn" data-speed="economy">Economy</button>
+      <button class="seg-btn active" data-speed="ground">Ground</button>
+      <button class="seg-btn" data-speed="express">Express</button>
+    </div>
+    <div class="toggles">
+      <label class="chk"><input type="checkbox" id="residential"><span class="box"></span>Residential delivery</label>
+      <label class="chk"><input type="checkbox" id="signature"><span class="box"></span>Signature required</label>
+    </div>
+    <button class="primary" id="calc">Estimate cost</button>
+    <p class="err" id="err" hidden></p>
+  </section>
+
+  <section class="card glass" id="resultsCard" hidden>
+    <h2>Estimates <span id="zoneTag" class="tag"></span></h2>
+    <div id="results"></div>
+    <details class="breakdown">
+      <summary>How this was calculated</summary>
+      <div id="breakdownBody"></div>
+    </details>
+    <p class="fine">Rough planning estimates from built-in rate models. Actual carrier quotes will differ.</p>
+  </section>
+
+  <section class="card glass">
+    <h2>History <button class="mini" id="clearHist" title="Clear history">Clear</button></h2>
+    <div id="history"><p class="empty">No estimates yet.</p></div>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

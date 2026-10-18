@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ghost Town Forums</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="brand">
+  <span class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/><circle cx="9" cy="10" r="1"/><circle cx="14.5" cy="10.5" r="1"/><path d="M8.5 14.5c1.2 1 5.6 1 6.8-.2"/></svg>
+  </span>
+  <div>
+    <h1>Ghost Town Forums</h1>
+    <p class="sub">Your forum log — manual</p>
+  </div>
+</header>
+
+<div class="notice" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <span>Manual log only. No live scraping — you record visits yourself.</span>
+</div>
+
+<main>
+  <section class="card">
+    <h2>Add a forum</h2>
+    <form id="add-form" autocomplete="off">
+      <label>Name
+        <input id="f-name" type="text" maxlength="120" placeholder="e.g. Old Tech Boards" required>
+      </label>
+      <label>URL
+        <input id="f-url" type="url" maxlength="500" placeholder="https://example.com/forum">
+      </label>
+      <div class="row">
+        <label>Last visited
+          <input id="f-visit" type="date">
+        </label>
+        <label class="check"><input id="f-quiet" type="checkbox"> Mark as quiet</label>
+      </div>
+      <label>Last-visit notes
+        <textarea id="f-notes" rows="2" maxlength="1000" placeholder="What did you see? Who was posting?"></textarea>
+      </label>
+      <button type="submit" class="btn">Save forum</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="list-head">
+      <h2>Forums <span id="count" class="pill">0</span></h2>
+      <input id="search" type="search" placeholder="Search name, URL, notes…">
+    </div>
+    <ul id="forum-list" class="forum-list"></ul>
+    <p id="empty" class="empty">No forums yet. Add one above.</p>
+  </section>
+
+  <section class="card foot">
+    <div class="row">
+      <button id="export" class="btn ghost" type="button">Export JSON</button>
+      <label class="btn ghost file">Import JSON<input id="import" type="file" accept="application/json" hidden></label>
+      <button id="clear" class="btn danger" type="button">Clear all</button>
+    </div>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnippetStack — Highlight &amp; Summary Compiler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    </div>
+    <div>
+      <h1>SnippetStack</h1>
+      <p class="subtitle">Collect highlights · compile summaries</p>
+    </div>
+  </header>
+
+  <!-- Project bar -->
+  <section class="panel project-bar">
+    <select id="projectSelect" title="Active project"></select>
+    <button class="btn btn-sm" id="newProjectBtn" title="New project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New
+    </button>
+    <button class="icon-btn danger" id="deleteProjectBtn" title="Delete project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+    </button>
+  </section>
+
+  <!-- Capture -->
+  <section class="panel">
+    <div class="capture-row">
+      <button class="btn btn-primary" id="grabBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Save current selection
+      </button>
+    </div>
+    <p class="hint">Tip: select text on any page, then right-click → <b>Save selection to SnippetStack</b>.</p>
+    <div id="captureStatus" class="status" role="status"></div>
+  </section>
+
+  <!-- Snippets -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Snippets <span id="snippetCount" class="count"></span>
+      </h2>
+      <span id="wordTotal" class="word-total"></span>
+    </div>
+    <div id="snippetList" class="snippet-list"></div>
+  </section>
+
+  <!-- Compile / export -->
+  <section class="panel">
+    <h2 class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Compile &amp; export
+    </h2>
+    <div class="export-row">
+      <button class="btn" id="exportMdBtn">Markdown</button>
+      <button class="btn" id="exportTxtBtn">Plain text</button>
+      <button class="btn" id="copyBtn">Copy</button>
+    </div>
+    <div class="field">
+      <label>Sources in this project</label>
+      <div id="sourceList" class="source-list"></div>
+    </div>
+  </section>
+
+  <footer class="app-footer"><span>Everything stays on your device</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

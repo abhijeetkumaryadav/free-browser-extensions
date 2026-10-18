@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PageDiff — Page Change Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 4 2"/><path d="M5 16c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 4-2"/></svg></div>
+  <div>
+    <h1>PageDiff</h1>
+    <p class="subtitle">Page change tracker</p>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Current page</h2>
+    <p class="page-url" id="page-url">…</p>
+    <p class="hint" id="snap-info">No snapshot for this page yet.</p>
+  </section>
+
+  <div class="actions">
+    <button id="btn-snapshot" class="btn secondary">Take snapshot</button>
+    <button id="btn-compare" class="btn primary" disabled>Compare now</button>
+  </div>
+
+  <section class="card hidden" id="diff-card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>Diff summary</h2>
+    <div class="stats">
+      <div class="stat added"><span class="stat-value" id="diff-added">0</span><span class="stat-label">added</span></div>
+      <div class="stat removed"><span class="stat-value" id="diff-removed">0</span><span class="stat-label">removed</span></div>
+      <div class="stat"><span class="stat-value" id="diff-same">0</span><span class="stat-label">unchanged</span></div>
+    </div>
+    <div id="removed-list" class="removed-list"></div>
+    <button id="btn-highlight" class="btn highlight-btn" disabled>Highlight additions on page</button>
+  </section>
+
+  <section class="card">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Snapshot history</h2>
+    <div id="history" class="history"></div>
+  </section>
+
+  <p class="status" id="status" role="status"></p>
+  <p class="honest">Block-level text comparison — reordered paragraphs may show as add+remove. Dynamic pages (feeds, ads) will naturally differ between visits.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

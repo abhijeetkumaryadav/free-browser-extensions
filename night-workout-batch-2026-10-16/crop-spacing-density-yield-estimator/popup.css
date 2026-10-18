@@ -1,0 +1,95 @@
+/* CropCalc — deep-dark glassmorphism, single accent #22c55e */
+:root {
+  --accent: #22c55e;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.05);
+  --panel-border: rgba(255, 255, 255, 0.09);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.head { display: flex; align-items: center; gap: 12px; }
+.head .logo {
+  width: 38px; height: 38px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(34,197,94,.25), rgba(34,197,94,.08));
+  border: 1px solid rgba(34,197,94,.35);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.head .logo svg { width: 22px; height: 22px; }
+.head h1 { font-size: 16px; font-weight: 700; letter-spacing: .2px; }
+.head .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field > span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.field input, .field select {
+  background: var(--panel); border: 1px solid var(--panel-border);
+  border-radius: 8px; padding: 9px 10px; color: var(--text);
+  font-size: 13px; outline: none; width: 100%;
+}
+.field input:focus, .field select:focus { border-color: var(--accent); }
+.field select option { background: #1c1c22; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+button.primary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent); color: #06260f; border: none; border-radius: 10px;
+  padding: 11px; font-size: 13.5px; font-weight: 700; cursor: pointer;
+  transition: filter .15s ease, transform .1s ease;
+}
+button.primary:hover { filter: brightness(1.1); }
+button.primary:active { transform: scale(.98); }
+button.primary svg { width: 16px; height: 16px; }
+
+.results {
+  background: var(--panel); border: 1px solid var(--panel-border);
+  border-radius: 12px; padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.rrow { display: flex; justify-content: space-between; align-items: baseline; font-size: 12.5px; }
+.rrow span { color: var(--muted); }
+.rrow strong { font-size: 13.5px; }
+
+.yield-box {
+  border-top: 1px solid var(--panel-border); padding-top: 10px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.yield-head { font-size: 12px; font-weight: 600; }
+.yield-head em { display: block; font-style: normal; font-weight: 400; font-size: 10.5px; color: var(--muted); }
+
+.yield-bar { display: flex; height: 10px; border-radius: 6px; overflow: hidden; background: rgba(255,255,255,.06); }
+.bar-low { background: rgba(34,197,94,.35); }
+.bar-mid { background: rgba(34,197,94,.7); }
+.bar-high { background: var(--accent); }
+
+.yield-vals { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; text-align: center; }
+.yield-vals label { display: block; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+.yield-vals strong { font-size: 13px; color: var(--accent); }
+.yield-total { font-size: 12px; color: var(--muted); text-align: center; }
+.yield-total strong { color: var(--text); }
+
+.actions { display: flex; gap: 8px; }
+button.ghost {
+  flex: 1; background: transparent; border: 1px solid var(--panel-border);
+  color: var(--text); border-radius: 8px; padding: 8px;
+  font-size: 12px; cursor: pointer;
+}
+button.ghost:hover { background: var(--panel); }
+
+.foot { font-size: 10px; color: var(--muted); text-align: center; opacity: .75; line-height: 1.5; }
+.hidden { display: none !important; }

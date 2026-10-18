@@ -1,0 +1,83 @@
+/* RegexLab — deep-dark glassmorphism, one orange accent */
+:root{
+  --bg:#0b0e17; --panel:rgba(255,255,255,.05); --panel-brd:rgba(255,255,255,.10);
+  --text:#e8ecf5; --muted:#9aa3b5; --accent:#f97316; --accent-soft:rgba(249,115,22,.14);
+  --danger:#f87171; --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px; padding:16px; color:var(--text);
+  background:linear-gradient(160deg,#0b0e17,#181106 60%,#0b0e17);
+  font:13px/1.5 -apple-system,"Segoe UI",Inter,sans-serif;
+}
+header h1{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:650}
+header h1 svg{width:20px;height:20px;color:var(--accent)}
+.tag{color:var(--muted);font-size:11px;margin:2px 0 12px}
+.field{display:block;margin-bottom:12px}
+.field>span,.label{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+textarea,input[type=text],input{
+  width:100%;color:var(--text);background:var(--panel);
+  border:1px solid var(--panel-brd);border-radius:var(--radius);
+  padding:8px 10px;font:inherit;outline:none;
+}
+textarea:focus,input:focus{border-color:var(--accent)}
+textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;resize:vertical}
+.output{
+  background:rgba(0,0,0,.35);border:1px solid var(--panel-brd);border-radius:var(--radius);
+  padding:11px;max-height:180px;overflow:auto;white-space:pre-wrap;word-break:break-word;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+}
+.rules-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.rules-head .label{margin:0}
+#rules{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;max-height:230px;overflow:auto}
+.rule{
+  background:var(--panel);border:1px solid var(--panel-brd);border-radius:var(--radius);
+  padding:10px;display:flex;flex-direction:column;gap:7px;
+}
+.rule-top{display:flex;gap:6px}
+.rule-top input{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.rule-top .arrow{color:var(--muted);align-self:center;flex:none}
+.rule-meta{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+.rule-meta label{display:flex;align-items:center;gap:4px;cursor:pointer}
+.rule-meta input[type=checkbox]{width:auto;accent-color:var(--accent)}
+.count{
+  margin-left:auto;background:var(--accent-soft);color:var(--accent);
+  border-radius:99px;padding:1px 9px;font-weight:650;font-size:11px;white-space:nowrap;
+}
+.count.bad{background:rgba(248,113,113,.14);color:#fca5a5}
+.rule-del{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px}
+.rule-del:hover{color:var(--danger)}
+.rule-del svg{width:14px;height:14px}
+.actions{display:flex;gap:8px;margin-bottom:12px}
+button{font:inherit;cursor:pointer;border-radius:var(--radius);border:1px solid transparent}
+.primary{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--accent);color:#fff;font-weight:650;padding:10px;
+}
+.primary svg{width:16px;height:16px}
+.primary:hover{filter:brightness(1.08)}
+.ghost{background:var(--panel);border-color:var(--panel-brd);color:var(--text);padding:10px 14px}
+.ghost:hover{background:rgba(255,255,255,.09)}
+.mini{
+  display:inline-flex;align-items:center;gap:5px;background:var(--accent-soft);
+  color:var(--accent);border:1px solid rgba(249,115,22,.3);padding:4px 10px;font-size:11px;
+}
+.mini svg{width:12px;height:12px}
+.status{
+  border-radius:var(--radius);padding:8px 11px;margin-bottom:12px;font-size:12px;
+  background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.35);color:#fca5a5;
+}
+.status.ok{background:rgba(52,211,153,.10);border-color:rgba(52,211,153,.35);color:#6ee7b7}
+.sets{margin-bottom:12px}
+.sets .row{display:flex;gap:8px;margin:6px 0}
+.sets .row input{flex:1}
+#setList{display:flex;flex-direction:column;gap:6px}
+.set{
+  display:flex;align-items:center;gap:8px;background:var(--panel);
+  border:1px solid var(--panel-brd);border-radius:var(--radius);padding:7px 10px;font-size:12px;
+}
+.set .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.set button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:11px;font-weight:650;padding:2px 4px}
+.set button.del{color:var(--muted)}
+.set button.del:hover{color:var(--danger)}
+footer{color:var(--muted);font-size:10.5px;text-align:center;margin-top:4px}

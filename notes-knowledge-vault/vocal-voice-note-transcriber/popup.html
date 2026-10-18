@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VocalNote</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/>
+      </svg>
+      <div>
+        <h1>VocalNote</h1>
+        <p class="sub">Record &amp; transcribe voice notes</p>
+      </div>
+    </div>
+    <span class="count-badge" id="countBadge">0</span>
+  </header>
+
+  <!-- Recorder -->
+  <section class="recorder panel">
+    <input id="titleInput" type="text" placeholder="Note title (optional)" maxlength="80" autocomplete="off">
+    <div class="rec-row">
+      <button id="recBtn" class="btn-record">
+        <span class="dot"></span><span id="recLabel">Record</span>
+        <span id="timer" class="timer">0:00</span>
+      </button>
+      <button id="cancelBtn" class="btn-ghost" hidden>Discard</button>
+    </div>
+    <label class="stt-toggle" title="Live transcription uses your browser's built-in speech service (Chrome). Turn off to record offline-only.">
+      <input type="checkbox" id="sttToggle" checked>
+      <span>Live transcription</span>
+    </label>
+    <p id="liveTranscript" class="live-transcript" hidden></p>
+  </section>
+
+  <p class="privacy-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Mic is used only while you record. Audio stays on this device. Live transcription needs Chrome and may use your browser's online speech service.
+  </p>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="searchInput" type="search" placeholder="Search notes…" autocomplete="off">
+    </div>
+    <button id="clearBtn" class="btn-ghost" title="Delete all notes">Clear</button>
+  </div>
+
+  <div id="list" class="list" role="list"></div>
+
+  <div id="emptyState" class="empty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v4"/>
+    </svg>
+    <p>No voice notes yet.<br>Press <strong>Record</strong> and speak.</p>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="db.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Runtime JS Profiler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+    <div>
+      <h1>JS Profiler</h1>
+      <p class="sub">Runtime long-task &amp; FPS overlay</p>
+    </div>
+    <span id="dot" class="dot idle"></span>
+  </header>
+
+  <section class="controls">
+    <button id="startBtn" class="btn primary">Start profiling</button>
+    <button id="stopBtn" class="btn ghost" disabled>Stop</button>
+  </section>
+
+  <section id="empty" class="empty">
+    <p>Inject the profiler into the active tab, then interact with the page. Long tasks (&gt;50&nbsp;ms) and frame rate are measured locally.</p>
+  </section>
+
+  <section id="stats" class="stats hidden">
+    <div class="stat"><span class="label">Long tasks</span><span id="ltCount" class="value">0</span></div>
+    <div class="stat"><span class="label">Worst task</span><span id="ltWorst" class="value">—</span></div>
+    <div class="stat"><span class="label">Total blocked</span><span id="ltTotal" class="value">—</span></div>
+    <div class="stat"><span class="label">FPS (avg)</span><span id="fpsAvg" class="value">—</span></div>
+  </section>
+
+  <section id="offenders" class="offenders hidden">
+    <h2>Top offenders</h2>
+    <ul id="offenderList"></ul>
+  </section>
+
+  <footer class="note">
+    Read-only measurement · runs only on the active tab · no data leaves your device.
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

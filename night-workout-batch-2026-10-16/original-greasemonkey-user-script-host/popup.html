@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snippet Injector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+    <div>
+      <h1>Snippet Injector</h1>
+      <p class="sub">Personal user scripts</p>
+    </div>
+  </header>
+
+  <p class="scope-note">
+    Runs <strong>your</strong> snippets only — review the code before injecting.
+    Injected code runs with page privileges and can read/modify the page.
+  </p>
+
+  <section class="editor-card">
+    <h2 id="editorTitle">New snippet</h2>
+    <input id="nameInput" type="text" placeholder="Snippet name (e.g. highlight-links)" maxlength="60">
+    <textarea id="codeInput" rows="8" spellcheck="false" placeholder="// Your JavaScript here&#10;document.querySelectorAll('a').forEach(a => a.style.outline = '2px solid orange');"></textarea>
+    <div class="row">
+      <button id="saveBtn" class="accent-btn">Save snippet</button>
+      <button id="injectBtn" class="ghost-btn">Inject into this tab</button>
+    </div>
+    <p id="msg" class="msg hidden"></p>
+  </section>
+
+  <section class="list-card">
+    <h2>Saved snippets</h2>
+    <ul id="snippetList" class="snippet-list"></ul>
+    <p id="emptyState" class="empty">No snippets saved yet.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

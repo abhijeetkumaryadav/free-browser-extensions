@@ -1,0 +1,93 @@
+/* Distraction Dog — deep-dark glassmorphism, single amber accent (#f59e0b). */
+:root {
+  --accent: #f59e0b;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .08);
+  --text: #e8e8ec;
+  --muted: #9a9aa5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Inter, sans-serif;
+  padding: 16px;
+}
+
+.app-header { margin-bottom: 14px; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo .lucide { width: 20px; height: 20px; color: var(--accent); }
+.logo h1 { font-size: 16px; font-weight: 700; letter-spacing: .2px; }
+.tagline { color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.panel-head h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+
+/* Dog scene */
+.dog-panel { text-align: center; position: relative; transition: opacity .3s, transform .3s; }
+.dog-panel.hidden-dog { opacity: 0; transform: scale(.9); pointer-events: none; }
+.dog-scene { position: relative; display: inline-block; }
+#dogImg { border-radius: 50%; border: 2px solid rgba(245, 158, 11, .45); background: rgba(0,0,0,.3); }
+#dogImg.bounce { animation: bounce .45s ease; }
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  35% { transform: translateY(-14px) rotate(-4deg); }
+  70% { transform: translateY(2px) rotate(3deg); }
+  100% { transform: translateY(0); }
+}
+.dismiss {
+  position: absolute; top: -6px; right: -6px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(255,255,255,.08); color: var(--muted);
+  border: 1px solid var(--border); cursor: pointer; font-size: 15px; line-height: 1;
+}
+.dismiss:hover { color: var(--accent); border-color: var(--accent); }
+.dog-msg {
+  font-size: 13px; font-style: italic; color: var(--text);
+  min-height: 42px; margin: 8px 4px 10px; display: flex; align-items: center; justify-content: center;
+}
+.dog-msg::before { content: "“"; color: var(--accent); font-size: 18px; margin-right: 2px; }
+.dog-msg::after { content: "”"; color: var(--accent); font-size: 18px; margin-left: 2px; }
+.dog-actions { display: flex; gap: 8px; justify-content: center; }
+.dog-stats { display: flex; gap: 16px; justify-content: center; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.dog-stats b { color: var(--text); }
+
+.ghost-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.06); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 12px; font: inherit; font-size: 12px; cursor: pointer;
+}
+.ghost-btn:hover { background: rgba(255,255,255,.1); border-color: var(--accent); }
+
+.toggle-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font-size: 13px; }
+.toggle-row input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+
+.field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.field span { font-size: 11px; color: var(--muted); }
+select {
+  width: 100%; background: rgba(0,0,0,.35); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text); padding: 7px 8px; font: inherit;
+}
+select:focus { outline: 1px solid var(--accent); }
+
+.primary-btn {
+  width: 100%; background: var(--accent); color: #1a1005; border: none; border-radius: 8px;
+  padding: 9px 12px; font: inherit; font-weight: 700; cursor: pointer;
+}
+.primary-btn:hover { filter: brightness(1.08); }
+
+.disclaimer { font-size: 11px; color: var(--muted); text-align: center; padding: 4px 8px 8px; }

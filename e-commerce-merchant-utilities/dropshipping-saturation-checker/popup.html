@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dropshipping Saturation Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 15a8.5 8.5 0 1 0-16.4 0"/><path d="m12 15 4.5-4.5"/><circle cx="12" cy="15" r="1.2" fill="currentColor"/></svg>
+    <div>
+      <h1>Saturation Checker</h1>
+      <p id="pageHost">—</p>
+    </div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+
+  <main>
+    <section id="report" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div class="score-wrap">
+        <svg class="ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="track"/>
+          <circle cx="60" cy="60" r="52" class="fill" id="ringFill"/>
+          <text x="60" y="58" text-anchor="middle" class="score-num" id="scoreNum">0</text>
+          <text x="60" y="76" text-anchor="middle" class="score-lab">SATURATION</text>
+        </svg>
+        <div id="verdict" class="verdict">—</div>
+      </div>
+      <div id="factors"></div>
+
+      <h2 class="sub">
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+        Evidence found
+      </h2>
+      <div id="evidence" class="chips"></div>
+
+      <h2 class="sub">
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+        What to do
+      </h2>
+      <ul id="tips" class="tips"></ul>
+
+      <div class="row">
+        <button id="saveScan" class="ghost half">Save scan</button>
+        <button id="copySum" class="ghost half">Copy summary</button>
+      </div>
+    </section>
+
+    <section class="glass card" id="histCard" hidden>
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>
+        Scan history
+      </h2>
+      <div id="history"></div>
+    </section>
+
+    <div id="empty" class="empty">Hit <b>Scan page</b> on any product page to score how saturated it is for dropshipping.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

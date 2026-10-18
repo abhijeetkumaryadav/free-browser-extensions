@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Vault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.5"/>
+      </svg>
+    </div>
+    <div class="head-text">
+      <h1>Session Vault</h1>
+      <p class="sub">Zero-knowledge tab sessions</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/>
+    </svg>
+    <span>Security depends on your passphrase strength. <b>Lose the passphrase = lose every session.</b> There is no recovery.</span>
+  </div>
+
+  <!-- Locked state -->
+  <section id="lockedView">
+    <div id="setupBox" class="hidden">
+      <label class="lbl" for="newPass">Create a vault passphrase</label>
+      <input id="newPass" type="password" class="field" placeholder="Strong passphrase…" autocomplete="new-password">
+      <label class="lbl" for="newPass2">Confirm passphrase</label>
+      <input id="newPass2" type="password" class="field" placeholder="Repeat passphrase…" autocomplete="new-password">
+      <button id="createBtn" class="primary">Create vault</button>
+      <p id="setupErr" class="err"></p>
+    </div>
+    <div id="unlockBox" class="hidden">
+      <label class="lbl" for="pass">Vault passphrase</label>
+      <input id="pass" type="password" class="field" placeholder="Enter passphrase…" autocomplete="current-password">
+      <button id="unlockBtn" class="primary">Unlock vault</button>
+      <p id="unlockErr" class="err"></p>
+      <button id="wipeBtn" class="danger-link">Forgot passphrase? Wipe vault &amp; start over</button>
+    </div>
+  </section>
+
+  <!-- Unlocked state -->
+  <section id="vaultView" class="hidden">
+    <div class="row">
+      <input id="sessName" class="field grow" placeholder="Session name (e.g. research-aug)" maxlength="60">
+      <button id="saveBtn" class="primary small">Save current window</button>
+    </div>
+    <p class="hint">Saves all tabs of the current window, encrypted.</p>
+    <div id="sessList" class="sessions"></div>
+    <button id="lockBtn" class="secondary">Lock vault</button>
+  </section>
+</div>
+<script src="crypto.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

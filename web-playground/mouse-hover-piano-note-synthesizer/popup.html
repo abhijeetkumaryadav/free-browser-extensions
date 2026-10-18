@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HoverPiano</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M11 5v8M15 5v8M19 5v14"/></svg>
+    </span>
+    <div class="titles">
+      <h1>HoverPiano</h1>
+      <p>Hover notes, synthesized live</p>
+    </div>
+    <span class="fun-badge">just for fun</span>
+  </header>
+
+  <section class="panel">
+    <div class="row between">
+      <div>
+        <div class="label">Play on this tab</div>
+        <div class="hint" id="tabHint">Enable, then hover page elements</div>
+      </div>
+      <button id="toggle" class="switch" role="switch" aria-checked="false" aria-label="Enable hover piano on this tab">
+        <span class="knob"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="row between">
+      <label class="label" for="volume">Volume</label>
+      <span class="value" id="volumeVal">50%</span>
+    </div>
+    <input type="range" id="volume" min="0" max="100" value="50" aria-label="Volume">
+  </section>
+
+  <section class="panel">
+    <div class="label">Note scale</div>
+    <div class="seg" role="radiogroup" aria-label="Note scale">
+      <button class="seg-btn active" data-scale="penta" role="radio" aria-checked="true">Pentatonic</button>
+      <button class="seg-btn" data-scale="major" role="radio" aria-checked="false">Major</button>
+      <button class="seg-btn" data-scale="chroma" role="radio" aria-checked="false">Chromatic</button>
+    </div>
+    <p class="hint">Pitch follows the element's vertical position — top of the page plays high notes.</p>
+  </section>
+
+  <p class="foot">All sound is synthesized in your browser with Web Audio. No recordings, no network, nothing leaves this device.</p>
+  <p class="err" id="err" hidden></p>
+
+<script src="popup.js"></script>
+</body>
+</html>

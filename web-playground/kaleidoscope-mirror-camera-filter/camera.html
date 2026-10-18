@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kaleidoscope Camera</title>
+<link rel="stylesheet" href="camera.css">
+</head>
+<body>
+  <main class="stage">
+    <canvas id="view" width="960" height="720"></canvas>
+
+    <!-- Idle overlay: camera is OFF until the user starts it -->
+    <div class="overlay" id="idleOverlay">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <h1>Kaleidoscope Camera</h1>
+        <p>Your camera is <strong>off</strong>. Start it to see yourself as a living kaleidoscope. Everything runs on-device — no recording, no uploads.</p>
+        <button class="btn primary" id="startBtn">Start camera</button>
+        <p class="err" id="err" hidden></p>
+      </div>
+    </div>
+  </main>
+
+  <aside class="controls" id="controls" hidden>
+    <div class="ctrl">
+      <label for="segs">Slices <span id="segsVal">12</span></label>
+      <input type="range" id="segs" min="4" max="16" step="1" value="12">
+    </div>
+    <label class="check"><input type="checkbox" id="mirror" checked> Mirror slices</label>
+    <div class="btnrow">
+      <button class="btn primary" id="snapBtn">Snapshot PNG</button>
+      <button class="btn ghost" id="stopBtn">Stop camera</button>
+    </div>
+    <p class="privacy">Local only · nothing leaves this tab</p>
+  </aside>
+
+  <video id="video" playsinline muted hidden></video>
+  <script src="camera.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header>
+  <svg viewBox="0 0 24 24" class="logo"><path d="M3 12h4l3 8 4-16 3 8h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div><h1>Heartbeat Monitor</h1><p class="scope">Monitors <b>this extension only</b> — browsers don't let extensions inspect other extensions' workers.</p></div>
+</header>
+
+<section class="status-card">
+  <div class="status-row"><span class="label">Worker status</span><span id="worker-status" class="pill">—</span></div>
+  <div class="status-row"><span class="label">Last heartbeat</span><span id="last-hb">—</span></div>
+  <div class="status-row"><span class="label">Uptime since install</span><span id="uptime">—</span></div>
+  <div class="status-row"><span class="label">Heartbeats (24 h)</span><span id="hb-count">—</span></div>
+  <div class="status-row"><span class="label">Storage used (est.)</span><span id="storage">—</span></div>
+</section>
+
+<section>
+  <h2>Recent heartbeats</h2>
+  <ul id="hb-list" class="hb-list"><li class="empty">No heartbeats yet — leave the extension enabled and check back.</li></ul>
+</section>
+
+<button id="ping">Ping now</button>
+<footer>Heartbeats fire every minute via chrome.alarms. Workers sleep when idle — that's normal.</footer>
+<script src="popup.js"></script>
+</body></html>

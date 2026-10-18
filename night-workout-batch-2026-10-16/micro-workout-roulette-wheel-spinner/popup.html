@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workout Roulette</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+
+  <header class="top">
+    <div class="brand">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+      <h1>Workout Roulette</h1>
+    </div>
+    <p class="scope">For fun — not coaching. Random picks from a bundled exercise list; nothing is a workout plan.</p>
+  </header>
+
+  <div class="wheel-wrap">
+    <div class="pointer" aria-hidden="true"></div>
+    <canvas id="wheel" width="300" height="300" aria-label="Workout roulette wheel"></canvas>
+  </div>
+
+  <button class="btn primary" id="spinBtn" type="button">Spin the wheel</button>
+
+  <section class="result hidden" id="resultBox">
+    <div class="result-exercise" id="resultExercise">—</div>
+    <div class="result-duration" id="resultDuration">—</div>
+    <button class="btn accent" id="logBtn" type="button">Log this workout</button>
+  </section>
+
+  <section class="history">
+    <div class="history-head">
+      <h2>History</h2>
+      <button class="link" id="clearBtn" type="button">Clear all</button>
+    </div>
+    <ul class="log" id="logList"></ul>
+    <p class="empty hidden" id="emptyNote">No workouts logged yet — spin the wheel!</p>
+  </section>
+
+  <footer class="foot">All data stays in this browser. Nothing is uploaded.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

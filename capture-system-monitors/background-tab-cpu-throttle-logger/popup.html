@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TabState Log — Background Tab Monitor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 22h8"/><path d="M12 18v4"/><path d="M7 9h4"/><path d="M7 12.5h7"/></svg>
+    </div>
+    <div>
+      <h1>TabState Log</h1>
+      <p class="subtitle">Background tab state monitor</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="section-head">
+      <span class="section-title">Tabs right now</span>
+      <button class="btn small" id="refreshTabs">Refresh</button>
+    </div>
+    <div id="tabList" class="tab-list"><div class="empty">Loading…</div></div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <span class="section-title">Event log</span>
+      <div class="btn-group">
+        <button class="btn small" id="exportJson">JSON</button>
+        <button class="btn small" id="exportTxt">TXT</button>
+        <button class="btn small danger" id="clearLog">Clear</button>
+      </div>
+    </div>
+    <div id="logList" class="log-list"><div class="empty">No events yet.</div></div>
+  </section>
+
+  <div class="note">
+    Honest scope: per-tab CPU usage is <strong>not exposed to extensions</strong>,
+    so this tool logs observable tab <em>states</em> (active, audible, discarded,
+    created, removed) — it cannot measure CPU or throttling. The log keeps the
+    latest 500 events, all on-device.
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

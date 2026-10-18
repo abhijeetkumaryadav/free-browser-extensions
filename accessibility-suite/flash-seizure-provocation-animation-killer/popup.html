@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </span>
+    <div>
+      <h1>FlashGuard</h1>
+      <p>Seizure-safe browsing aid</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="row">
+      <div class="row-text">
+        <strong>Kill all animations</strong>
+        <span>Suppress CSS animations &amp; transitions on this tab</span>
+      </div>
+      <button id="killToggle" class="switch" role="switch" aria-checked="false" aria-label="Kill all animations">
+        <span class="knob"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="card">
+    <label class="field-label" for="threshold">Flash threshold <output id="thrOut">500 ms</output></label>
+    <input type="range" id="threshold" min="100" max="2000" step="50" value="500">
+    <p class="hint">Animations cycling faster than this are flagged as risky.</p>
+    <div class="btn-row">
+      <button id="scanBtn" class="primary">Scan this page</button>
+      <button id="pauseBtn" class="ghost" disabled>Pause risky</button>
+    </div>
+    <div id="results" class="results" aria-live="polite"></div>
+  </section>
+
+  <footer class="disclaimer">
+    Heuristic detection only — not a medical device. If you feel unwell, look away immediately.
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

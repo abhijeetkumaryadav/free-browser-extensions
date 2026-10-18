@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OrbitBox — Gravity Physics Sandbox</title>
+<link rel="stylesheet" href="sandbox.css">
+</head>
+<body>
+  <canvas id="world"></canvas>
+
+  <aside class="hud panel">
+    <div class="hud-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="2.4"/>
+        <ellipse cx="12" cy="12" rx="9" ry="4.4" transform="rotate(-24 12 12)"/>
+        <ellipse cx="12" cy="12" rx="10" ry="4.8" transform="rotate(28 12 12)"/>
+      </svg>
+      <h1>OrbitBox</h1>
+      <span class="tag">TOY</span>
+    </div>
+    <p class="hint">Click to drop a ball · drag to fling it</p>
+    <label class="row">
+      <span>Gravity</span>
+      <input id="gravity" type="range" min="0" max="3000" step="50" value="1200">
+      <b id="gravityVal">1200</b>
+    </label>
+    <label class="row">
+      <span>Bounciness</span>
+      <input id="bounce" type="range" min="0" max="100" step="5" value="82">
+      <b id="bounceVal">82%</b>
+    </label>
+    <label class="row check">
+      <span>Trails</span>
+      <input id="trails" type="checkbox" checked>
+    </label>
+    <div class="btns">
+      <button id="pause" title="Pause / resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5v14M15 5v14"/></svg>
+        <span>Pause</span>
+      </button>
+      <button id="clear" title="Remove all balls">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6"/></svg>
+        <span>Clear</span>
+      </button>
+    </div>
+    <div class="stats"><span id="count">0</span> balls</div>
+  </aside>
+
+  <script src="sandbox.js"></script>
+</body>
+</html>

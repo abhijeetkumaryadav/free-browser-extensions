@@ -1,0 +1,94 @@
+/* Deep-dark glassmorphism · single accent: emerald #34d399 · 12–16px spacing */
+:root{
+  --bg:rgba(20,20,26,.72);
+  --panel:rgba(255,255,255,.05);
+  --panel2:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.10);
+  --text:#f2f4f8;
+  --muted:#9aa3b2;
+  --accent:#34d399;
+  --danger:#ff6b6b;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:linear-gradient(160deg,#0d1117,#151a24);
+  font-size:13px;line-height:1.45;
+}
+.shell{
+  background:var(--bg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:16px;display:flex;flex-direction:column;gap:14px;
+  border:1px solid var(--border);border-radius:16px;margin:8px;
+}
+.head{display:flex;gap:12px;align-items:center}
+.logo{
+  width:40px;height:40px;border-radius:10px;flex:none;
+  background:rgba(52,211,153,.12);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(52,211,153,.25);
+}
+.logo svg{width:22px;height:22px}
+h1{font-size:16px;font-weight:700}
+.sub{color:var(--muted);font-size:11.5px}
+.sub strong{color:var(--accent)}
+h2{font-size:13px;font-weight:700}
+.notice{
+  display:flex;gap:10px;padding:10px 12px;border-radius:var(--radius);
+  background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.22);
+  color:#c9f5e2;font-size:12px;
+}
+.notice svg{width:18px;height:18px;flex:none;color:var(--accent)}
+.notice strong{color:#fff}
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:var(--radius);padding:12px;display:flex;flex-direction:column;gap:10px;
+}
+.row{display:flex;align-items:center;gap:8px}
+.between{justify-content:space-between}
+.label{font-size:12px;color:var(--muted);font-weight:600}
+.bench-list{display:flex;flex-direction:column;gap:6px}
+.bench{
+  display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;
+  background:var(--panel2);border:1px solid var(--border);cursor:pointer;user-select:none;
+}
+.bench input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer}
+.bench b{font-size:12.5px}
+.bench small{color:var(--muted);display:block;font-size:11px}
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--accent);color:#06251a;border:none;border-radius:10px;
+  padding:11px;font-weight:700;font-size:13.5px;cursor:pointer;
+}
+.cta svg{width:16px;height:16px}
+.cta:hover:not(:disabled){filter:brightness(1.08)}
+.cta:disabled{opacity:.55;cursor:wait}
+.ghost{
+  background:transparent;border:1px solid var(--border);color:var(--muted);
+  border-radius:8px;padding:5px 10px;font-size:11.5px;cursor:pointer;
+}
+.ghost:hover{color:var(--text);border-color:var(--accent)}
+.ghost.danger:hover{color:var(--danger);border-color:var(--danger)}
+.status{min-height:18px;font-size:12px;color:var(--muted)}
+.status.live{color:var(--accent)}
+.results{display:flex;flex-direction:column;gap:6px}
+.result{display:flex;flex-direction:column;gap:4px}
+.result .top{display:flex;justify-content:space-between;font-size:12px}
+.result .top b{font-weight:600}
+.result .score{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:700}
+.bar{height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .3s}
+.empty{color:var(--muted);font-size:12px}
+.history{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:auto}
+.run{
+  background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:8px 10px;
+}
+.run .top{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-bottom:4px}
+.run .delta{font-weight:700}
+.delta.up{color:var(--accent)} .delta.down{color:var(--danger)} .delta.flat{color:var(--muted)}
+.run ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11px;color:var(--muted)}
+.run li b{color:var(--text);font-variant-numeric:tabular-nums}
+.foot{text-align:center;color:var(--muted);font-size:11px}

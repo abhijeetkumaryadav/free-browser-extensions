@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <div>
+      <h1>Idle Quest Assigner</h1>
+      <p class="sub">Gentle movement quests when you go idle</p>
+    </div>
+  </div>
+
+  <label class="row"><span>Enable idle quests</span><input type="checkbox" id="enabled"></label>
+  <label class="row"><span>Idle threshold (min)</span><input type="number" id="idleMinutes" min="5" max="120"></label>
+
+  <button id="test">Send a quest now</button>
+
+  <h2>Done log</h2>
+  <ul id="log"></ul>
+  <button id="clear" class="ghost">Clear log</button>
+
+  <p class="notice">Reminders only — not medical advice. Stop any movement that causes pain.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

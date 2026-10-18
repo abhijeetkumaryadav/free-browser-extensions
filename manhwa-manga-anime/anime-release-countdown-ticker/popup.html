@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HypeDrop — Anime Release Countdowns</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div>
+        <h1>HypeDrop</h1>
+        <p class="sub">Anime release countdowns</p>
+      </div>
+    </div>
+    <span class="pill" id="count-pill">0 tracked</span>
+  </header>
+
+  <!-- Add / edit form -->
+  <section class="card" aria-label="Add a release">
+    <div class="field">
+      <label for="title-input">Title</label>
+      <input id="title-input" type="text" maxlength="80" placeholder="e.g. Jujutsu Kaisen S3 — Episode 1">
+    </div>
+    <div class="field">
+      <label for="date-input">Release date &amp; time <span class="hint">(your local timezone)</span></label>
+      <input id="date-input" type="datetime-local">
+    </div>
+    <div class="row">
+      <button id="add-btn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        <span id="add-btn-label">Add countdown</span>
+      </button>
+      <button id="cancel-edit-btn" class="btn ghost hidden">Cancel</button>
+    </div>
+  </section>
+
+  <!-- Countdown list -->
+  <section class="list" id="list" aria-live="polite"></section>
+
+  <footer class="footer">
+    <p>Dates are entered by you and stored only on this device. Nothing is synced or sent anywhere.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

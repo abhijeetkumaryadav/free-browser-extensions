@@ -1,0 +1,48 @@
+/* FeeLens — deep-dark glassmorphism, single cyan accent */
+:root{
+  --bg:#101014; --glass:rgba(20,20,26,.72); --border:rgba(255,255,255,.08);
+  --text:#f3f4f6; --muted:#9ca3af; --accent:#22d3ee; --danger:#f87171;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif}
+.app{padding:16px;display:flex;flex-direction:column;gap:14px}
+.header .brand{display:flex;gap:12px;align-items:center}
+.header h1{font-size:17px;font-weight:650}
+.sub{color:var(--muted);font-size:12px}
+.icon{width:26px;height:26px;color:var(--accent);flex:none}
+.icon.sm{width:16px;height:16px}
+.hidden{display:none!important}
+.card{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.card h2{font-size:14px;font-weight:650;margin-bottom:10px}
+.banner{display:flex;gap:8px;align-items:flex-start;background:rgba(34,211,238,.07);
+  border:1px solid rgba(34,211,238,.25);border-radius:var(--radius);padding:10px 12px;
+  font-size:12px;color:#a5f3fc}
+.banner .icon{color:var(--accent)}
+.btn{display:block;width:100%;border:none;border-radius:10px;padding:11px;font-size:14px;
+  font-weight:600;cursor:pointer}
+.btn.primary{background:var(--accent);color:#04262b}
+.btn:hover{filter:brightness(1.08)}
+.msg{font-size:12px;min-height:18px;margin-top:8px;color:var(--muted)}
+.msg.err{color:var(--danger)}
+.totals{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.total{background:rgba(255,255,255,.04);border:1px solid var(--border);
+  border-radius:10px;padding:10px}
+.total span{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
+.total strong{font-size:16px}
+.accent{color:var(--accent)}
+.lines{display:flex;flex-direction:column;gap:8px;max-height:240px;overflow:auto}
+.line{display:flex;justify-content:space-between;gap:10px;background:rgba(255,255,255,.04);
+  border:1px solid var(--border);border-radius:10px;padding:9px 12px}
+.line .label{color:var(--muted);font-size:13px;word-break:break-word}
+.line .amt{font-weight:600;white-space:nowrap}
+.line.fee{border-color:rgba(248,113,113,.4)}
+.line.fee .label{color:#fecaca}
+.flag{display:flex;gap:10px;align-items:flex-start;background:rgba(248,113,113,.08);
+  border:1px solid rgba(248,113,113,.3);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.flag .icon{color:var(--danger)}
+.flag strong{font-size:13px;display:block}
+.flag p{font-size:12px;color:var(--muted)}
+.flag .amtline{font-size:12px;color:#fecaca;margin-top:2px}
+.foot{text-align:center;color:var(--muted);font-size:11px}

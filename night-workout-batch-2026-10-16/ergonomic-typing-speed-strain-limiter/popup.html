@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pace Nudge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main>
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+    <div>
+      <h1>Pace Nudge</h1>
+      <p class="subtitle">Typing-pace helper</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Nudge only — <strong>not medical advice.</strong> Nothing is ever blocked or throttled.</span>
+  </div>
+
+  <section class="card">
+    <h2>Watch this tab</h2>
+    <p class="hint">Starts a keystroke-rate monitor on the current tab. If your sustained pace exceeds the threshold, a gentle banner nudges you to ease off.</p>
+    <div class="row">
+      <label>WPM threshold
+        <input id="threshold" type="number" min="40" max="200" step="5" value="90">
+      </label>
+      <label>Nudge cooldown (s)
+        <input id="cooldown" type="number" min="15" max="600" step="15" value="120">
+      </label>
+    </div>
+    <button id="toggleBtn" class="primary">Start watching</button>
+  </section>
+
+  <section class="card">
+    <h2>Session stats</h2>
+    <div class="stats">
+      <div class="stat"><span class="s-label">Status</span><span class="s-value" id="stStatus">Idle</span></div>
+      <div class="stat"><span class="s-label">Current WPM</span><span class="s-value" id="stWpm">0</span></div>
+      <div class="stat"><span class="s-label">Nudges</span><span class="s-value" id="stNudges">0</span></div>
+      <div class="stat"><span class="s-label">Keystrokes</span><span class="s-value" id="stKeys">0</span></div>
+    </div>
+    <button id="refreshBtn" class="ghost">Refresh stats</button>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

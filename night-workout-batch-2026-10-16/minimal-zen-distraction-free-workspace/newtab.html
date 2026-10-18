@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zen Workspace</title>
+<link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <main class="stage">
+    <section class="clock-block">
+      <div id="clock" class="clock" aria-label="Current time">--:--</div>
+      <div id="dateLine" class="date-line"></div>
+      <p id="greeting" class="greeting"></p>
+    </section>
+
+    <section class="card focus-card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+        <h2>One focus</h2>
+      </div>
+      <div class="focus-row">
+        <input id="focusInput" type="text" maxlength="140" placeholder="What deserves your attention right now?" aria-label="Current focus task">
+        <button id="focusDone" class="check" aria-label="Mark focus complete" title="Mark complete">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </button>
+      </div>
+      <p id="focusDoneMsg" class="done-msg" hidden>Complete. Well done — set your next focus when ready.</p>
+    </section>
+
+    <section class="card breath-card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c2 0 3.5 1.6 3.5 3.5S7 15 5 15M19 8c-2 0-3.5 1.6-3.5 3.5S17 15 19 15"/></svg>
+        <h2>Breathe</h2>
+      </div>
+      <div class="breath-stage">
+        <div id="breathOrb" class="orb" aria-hidden="true"></div>
+        <div id="breathLabel" class="breath-label">Ready</div>
+      </div>
+      <div class="breath-controls">
+        <div class="field">
+          <label for="inhale">Inhale <span id="inhaleVal">4s</span></label>
+          <input type="range" id="inhale" min="2" max="8" step="1" value="4">
+        </div>
+        <div class="field">
+          <label for="hold">Hold <span id="holdVal">4s</span></label>
+          <input type="range" id="hold" min="0" max="8" step="1" value="4">
+        </div>
+        <div class="field">
+          <label for="exhale">Exhale <span id="exhaleVal">6s</span></label>
+          <input type="range" id="exhale" min="2" max="10" step="1" value="6">
+        </div>
+      </div>
+      <button id="breathBtn" class="primary">Begin breathing</button>
+    </section>
+
+    <section class="card notes-card">
+      <div class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <h2>Scratchpad</h2>
+        <span id="saveState" class="save-state">Saved</span>
+      </div>
+      <textarea id="notes" placeholder="A quiet place for thoughts…" aria-label="Scratchpad notes"></textarea>
+      <div class="notes-foot">
+        <span id="wordCount">0 words</span>
+        <button id="clearNotes" class="ghost">Clear</button>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">Zen Workspace · everything stays on this device</footer>
+  <script src="newtab.js"></script>
+</body>
+</html>

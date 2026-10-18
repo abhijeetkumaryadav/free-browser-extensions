@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentence Split Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg>
+    </div>
+    <div>
+      <h1>Sentence Split Helper</h1>
+      <p class="tagline">Long-sentence flagger with splitting guidance</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Flags only — <strong>you</strong> do the splitting. Rule-based heuristics, not AI. 100% local.</span>
+  </div>
+
+  <div class="controls">
+    <label class="field">
+      <span>Paste your text</span>
+      <textarea id="input" rows="5" placeholder="Paste text here…"></textarea>
+    </label>
+    <div class="row">
+      <label class="field grow">
+        <span>Flag sentences over (words)</span>
+        <input id="threshold" type="number" min="10" max="60" value="25">
+      </label>
+      <button id="scan" class="btn primary">Scan sentences</button>
+    </div>
+  </div>
+
+  <div id="summary" class="summary hidden"></div>
+  <div id="results" class="results"></div>
+
+  <footer class="footer">
+    <span>Guidance: split at conjunctions, semicolons, or relative clauses — one idea per sentence.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

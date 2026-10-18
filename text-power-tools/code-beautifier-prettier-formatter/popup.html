@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>Beautify — Code Formatter</title>
+</head>
+<body>
+<header>
+  <h1>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></svg>
+    Beautify
+  </h1>
+  <p class="tag">Own heuristic formatter — not Prettier</p>
+</header>
+
+<div class="row">
+  <label class="field">
+    <span>Language</span>
+    <select id="lang">
+      <option value="js">JavaScript</option>
+      <option value="json">JSON</option>
+      <option value="css">CSS</option>
+    </select>
+  </label>
+  <label class="field">
+    <span>Indent</span>
+    <select id="indent">
+      <option value="2">2 spaces</option>
+      <option value="4">4 spaces</option>
+      <option value="tab">Tabs</option>
+    </select>
+  </label>
+</div>
+
+<label class="field">
+  <span>Input</span>
+  <textarea id="input" rows="9" placeholder="Paste messy code here…" spellcheck="false"></textarea>
+</label>
+
+<div class="actions">
+  <button id="format" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    Beautify
+  </button>
+  <button id="clear" class="ghost">Clear</button>
+</div>
+
+<div id="status" class="status" hidden></div>
+
+<label class="field">
+  <span>Output <button id="copy" class="mini" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    <span id="copyLabel">Copy</span></button>
+  </span>
+  <pre id="output" class="output" aria-live="polite">Formatted code appears here.</pre>
+</label>
+
+<footer>Draft is autosaved locally. Nothing leaves this device.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

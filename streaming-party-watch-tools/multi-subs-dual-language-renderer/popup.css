@@ -1,0 +1,158 @@
+/* DualSubs — deep-dark glassmorphism popup, single violet accent */
+:root {
+  --accent: #8b5cf6;
+  --bg: #0e0e13;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, "Segoe UI", Inter, sans-serif;
+  padding: 14px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.app-logo {
+  width: 30px; height: 30px;
+  color: var(--accent);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 9px;
+  padding: 5px;
+}
+
+.app-header h1 { font-size: 16px; font-weight: 650; }
+.subtitle { color: var(--muted); font-size: 11px; }
+
+.toggle {
+  margin-left: auto;
+  width: 40px; height: 22px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+.toggle .knob {
+  position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #cfcfd8;
+  transition: transform 0.2s, background 0.2s;
+}
+.toggle.on { background: rgba(139, 92, 246, 0.45); border-color: var(--accent); }
+.toggle.on .knob { transform: translateX(18px); background: #fff; }
+
+.card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 12px; font-weight: 650;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.card h2 .hint { text-transform: none; letter-spacing: 0; font-weight: 400; }
+
+.track { margin-bottom: 12px; }
+.track:last-child { margin-bottom: 0; }
+
+.track-head {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13px; font-weight: 600;
+}
+.track-head em { font-style: normal; color: var(--muted); font-weight: 400; font-size: 11px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.primary-dot { background: var(--accent); }
+.secondary-dot { background: #6d6d78; border: 1px solid #9a9aa5; }
+.cue-count { margin-left: auto; color: var(--muted); font-size: 11px; font-weight: 400; }
+.cue-count.loaded { color: #4ade80; }
+
+.file-btn {
+  display: inline-block;
+  border: 1px dashed rgba(139, 92, 246, 0.5);
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background 0.15s;
+}
+.file-btn:hover { background: rgba(139, 92, 246, 0.1); }
+
+.slider-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+  font-size: 12px; color: var(--muted);
+}
+.slider-row:last-child { margin-bottom: 0; }
+.slider-row span { width: 78px; flex-shrink: 0; }
+.slider-row input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+.slider-row output {
+  width: 52px; text-align: right;
+  color: var(--text); font-variant-numeric: tabular-nums;
+}
+
+.status-line { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+.status-line.ok { color: #4ade80; }
+.status-line.warn { color: #fbbf24; }
+
+.btn-row { display: flex; gap: 8px; }
+
+.primary-btn {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent);
+  color: #fff; border: none;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.primary-btn:hover { filter: brightness(1.1); }
+.primary-btn svg { width: 15px; height: 15px; }
+
+.ghost-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 9px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ghost-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+.scope-note {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  padding: 2px 8px 4px;
+}

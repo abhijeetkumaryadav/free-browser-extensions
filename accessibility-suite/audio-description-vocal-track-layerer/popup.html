@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Description Layer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    <div>
+      <h1>Audio Description Layer</h1>
+      <p class="sub">Your cues, spoken over any video</p>
+    </div>
+  </header>
+
+  <div class="section">
+    <label class="lbl" for="videoSel">Video on this page</label>
+    <div class="row">
+      <select id="videoSel" class="input grow"></select>
+      <button id="findBtn" class="btn">Find</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="lbl-row">
+      <label class="lbl">Description cues</label>
+      <button id="addCueBtn" class="btn small">+ Add cue</button>
+    </div>
+    <ul id="cueList" class="cues"></ul>
+    <p class="hint">Time format mm:ss — the line is spoken when playback reaches it.</p>
+  </div>
+
+  <div class="section">
+    <label class="lbl">Voice</label>
+    <div class="sliders">
+      <div class="slider-row"><span>Rate</span><input id="rate" type="range" min="0.5" max="2" step="0.1" value="1"><b id="rateV">1.0</b></div>
+      <div class="slider-row"><span>Pitch</span><input id="pitch" type="range" min="0.5" max="2" step="0.1" value="1"><b id="pitchV">1.0</b></div>
+      <div class="slider-row"><span>Volume</span><input id="vol" type="range" min="0" max="1" step="0.1" value="1"><b id="volV">1.0</b></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="startBtn" class="btn primary">Start description track</button>
+    <button id="stopBtn" class="btn ghost">Stop</button>
+  </div>
+  <div id="status" class="status">Find a video, add cues, then start the track.</div>
+
+  <div class="footer">
+    <div class="row">
+      <button id="saveBtn" class="btn small grow">Save cues for this site</button>
+      <button id="exportBtn" class="btn small grow">Export JSON</button>
+      <label class="btn small grow file-label">Import <input id="importFile" type="file" accept=".json" hidden></label>
+    </div>
+    <p class="note">Cues are <strong>written by you</strong> — this tool does not auto-generate descriptions. Speech is 100% on-device; nothing is uploaded.</p>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

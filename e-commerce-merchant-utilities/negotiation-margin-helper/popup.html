@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Negotiation Margin Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 12h5"/></svg>
+    <div><h1>Negotiation Helper</h1><p>Anchor → 3-round counteroffer ladder</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="grid2">
+        <label>Supplier list price<input id="list" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Your target price<input id="target" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Walk-away price<input id="walk" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Your resale price <em>(optional)</em><input id="resale" type="number" min="0" step="0.01" placeholder="0.00"></label>
+      </div>
+      <div id="warn" class="warn" hidden>Target must be at or below walk-away.</div>
+    </section>
+    <section id="ladderCard" class="glass card" hidden>
+      <h2>Counteroffer ladder</h2>
+      <div id="ladder"></div>
+      <button id="saveBtn" class="ghost">Save scenario</button>
+    </section>
+    <section id="histCard" class="glass card" hidden>
+      <h2>Saved scenarios</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

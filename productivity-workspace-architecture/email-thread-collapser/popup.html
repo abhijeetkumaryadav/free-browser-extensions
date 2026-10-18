@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Thread Collapser</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/><path d="M9 12h6"/></svg>
+    <div><h1>Thread Collapser</h1><p>Tidy Gmail reading</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="switch-row">
+        <span class="switch-label">
+          <b>Collapse quoted history</b>
+          <span class="sub">Hide "Show trimmed content" blocks in open emails</span>
+        </span>
+        <span class="switch"><input type="checkbox" id="enabled"><span class="track"></span></span>
+      </label>
+      <div id="status" class="status">Open a Gmail tab to see the count.</div>
+    </section>
+    <section class="glass card">
+      <h2>How it works</h2>
+      <ul class="how">
+        <li>Quoted blocks get a slim <b>"show quoted history"</b> button — click any one to expand just that thread.</li>
+        <li>Fully reversible. Your emails are never modified, only hidden on screen.</li>
+        <li>Runs only on pages you open in <b>mail.google.com</b>.</li>
+      </ul>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

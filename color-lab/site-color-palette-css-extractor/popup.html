@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="9" cy="10" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="14.5" cy="9" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="10" cy="14.5" r="1.4" fill="currentColor" stroke="none"/>
+        <circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <div class="titles">
+      <h1>PaletteGrab</h1>
+      <p>Site color palette extractor</p>
+    </div>
+  </header>
+
+  <button id="scanBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>
+    </svg>
+    Extract page palette
+  </button>
+
+  <div id="status" class="status hidden"></div>
+
+  <section id="resultsWrap" class="hidden">
+    <div class="toolbar">
+      <span id="countLabel" class="count"></span>
+      <div class="actions">
+        <button id="copyCss" class="ghost">Copy CSS vars</button>
+        <button id="dlCss" class="ghost">.css</button>
+        <button id="dlJson" class="ghost">.json</button>
+      </div>
+    </div>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <footer class="foot">
+    Heuristic extraction from computed styles — images &amp; gradients ignored.
+    Click a swatch to copy its hex.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

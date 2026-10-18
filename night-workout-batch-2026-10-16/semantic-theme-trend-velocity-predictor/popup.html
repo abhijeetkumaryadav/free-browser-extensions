@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Theme Velocity</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+    <div>
+      <h1>Theme Velocity</h1>
+      <p class="sub">Trend tracker · your data only</p>
+    </div>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <p>Manual logbook — <b>your</b> observations only. Not live trend data, not a prediction engine.</p>
+  </div>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="num" id="stThemes">0</span><span class="lbl">themes</span></div>
+    <div class="stat"><span class="num" id="stObs">0</span><span class="lbl">observations</span></div>
+    <div class="stat"><span class="num" id="stTop">—</span><span class="lbl">hottest</span></div>
+  </section>
+
+  <section class="panel">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> Log observation</h2>
+    <input id="themeName" placeholder="Theme name (e.g. cottagecore)" maxlength="60">
+    <div class="row">
+      <input id="obsDate" type="date">
+      <input id="obsCount" type="number" min="1" value="1" title="Mentions this day">
+    </div>
+    <input id="obsNote" placeholder="Note (optional)" maxlength="140">
+    <button id="addBtn" class="primary">Log observation</button>
+  </section>
+
+  <section class="panel">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg> Velocity (mentions / week)</h2>
+    <div id="chart" class="chart"></div>
+    <div id="themes" class="themes"></div>
+  </section>
+
+  <button id="clearBtn" class="ghost danger">Clear all data</button>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

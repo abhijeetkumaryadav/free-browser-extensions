@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Posture Prompt</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="top">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M12 3v18"/><circle cx="12" cy="7" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="17" r="1.6"/>
+    <path d="M20 5a8 8 0 1 0 2 6"/>
+  </svg>
+  <div><h1>Posture Prompt</h1><p class="sub">Pelvic-tilt &amp; desk reset reminders</p></div>
+  <label class="switch"><input type="checkbox" id="enabled"><span class="knob"></span></label>
+</header>
+
+<p class="notice">Reminders only — not medical advice. Stop any movement that causes pain.</p>
+
+<section class="card">
+  <h2>Reminder interval</h2>
+  <div class="row">
+    <input type="range" id="interval" min="10" max="120" step="5" value="45">
+    <span id="intervalLabel" class="val">45 min</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Routines</h2>
+  <div id="routineList"></div>
+</section>
+
+<section class="card">
+  <h2>Last prompt</h2>
+  <div id="lastPrompt" class="empty">No prompts yet. Turn reminders on above.</div>
+  <button id="markDone" class="btn" disabled>Mark done</button>
+  <button id="testNow" class="btn ghost">Test a reminder now</button>
+</section>
+
+<section class="card">
+  <h2>Done log</h2>
+  <div id="log" class="empty">Nothing logged yet.</div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bookmark Dungeon Crawler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg>
+    <div>
+      <h1>Bookmark Dungeon</h1>
+      <p class="sub">A tiny crawler made of your bookmarks</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span><strong>Your bookmarks — not a sitemap crawler.</strong> Each room is one of your bookmarks. Nothing is crawled or downloaded.</span>
+  </div>
+
+  <canvas id="dungeon" width="348" height="260" aria-label="Dungeon map built from bookmarks"></canvas>
+
+  <div id="status" class="status">Loading bookmarks…</div>
+
+  <div class="help">
+    <span><kbd>W A S D</kbd> / arrows to walk</span>
+    <span><kbd>E</kbd> open the door you're standing in</span>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

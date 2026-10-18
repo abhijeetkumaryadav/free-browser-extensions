@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 4 12 9 18"/><polyline points="15 6 20 12 15 18"/><line x1="13" y1="4" x2="11" y2="20"/></svg>
+    <div>
+      <h1>ARIA Lens</h1>
+      <p class="subtitle">Semantic DOM validator</p>
+    </div>
+  </header>
+
+  <div class="controls">
+    <button id="runBtn" class="primary-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Audit this page
+    </button>
+    <label class="toggle-row">
+      <span>Highlight issues on page</span>
+      <button id="hlToggle" class="switch" role="switch" aria-checked="false"><span class="knob"></span></button>
+    </label>
+  </div>
+
+  <div id="status" class="status idle">Run an audit to check ARIA roles, labels &amp; semantics.</div>
+
+  <div id="summary" class="summary hidden">
+    <div class="stat err"><span class="num" id="errCount">0</span><span class="lbl">Errors</span></div>
+    <div class="stat warn"><span class="num" id="warnCount">0</span><span class="lbl">Warnings</span></div>
+    <div class="stat info"><span class="num" id="infoCount">0</span><span class="lbl">Notices</span></div>
+  </div>
+
+  <div class="filters hidden" id="filters">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="error">Errors</button>
+    <button class="chip" data-f="warning">Warnings</button>
+    <button class="chip" data-f="info">Notices</button>
+  </div>
+
+  <ul id="issueList" class="issue-list"></ul>
+
+  <footer class="app-footer">100% local — nothing leaves your browser.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

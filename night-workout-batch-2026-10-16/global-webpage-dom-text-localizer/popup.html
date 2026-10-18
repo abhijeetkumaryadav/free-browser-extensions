@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Localize This Page</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"></div>
+    <div>
+      <h1>Localize This Page</h1>
+      <p class="sub">Your translations — no machine translation</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <span class="banner-icon">!</span>
+    <span>Applies only the find→replace pairs you define below. Nothing is translated automatically.</span>
+  </div>
+
+  <section class="card">
+    <div class="row-between">
+      <h2>Translation pairs</h2>
+      <button id="clearAll" class="ghost" title="Delete all pairs">Clear</button>
+    </div>
+    <div class="add-pair">
+      <input id="findInput" type="text" placeholder="Find text…" maxlength="200">
+      <input id="replaceInput" type="text" placeholder="Replace with…" maxlength="200">
+      <button id="addPair" class="primary" title="Add pair">+</button>
+    </div>
+    <ul id="pairList" class="pairs"></ul>
+    <p id="emptyMsg" class="empty">No pairs yet — add your first find→replace pair above.</p>
+  </section>
+
+  <section class="card">
+    <h2>This page</h2>
+    <div class="btn-row">
+      <button id="applyBtn" class="primary">Apply to this page</button>
+      <button id="restoreBtn" class="ghost">Restore page</button>
+    </div>
+    <p id="status" class="status"></p>
+  </section>
+
+  <footer>Pairs are stored locally only. Page changes revert on restore or reload.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

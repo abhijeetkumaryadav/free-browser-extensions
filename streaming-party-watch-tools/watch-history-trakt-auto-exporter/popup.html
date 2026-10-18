@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>WatchLog</title>
+</head>
+<body>
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="5" width="20" height="14" rx="2"/><polygon points="10 9 15 12 10 15 10 9" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <div>
+      <h1>WatchLog</h1>
+      <p class="sub">Watch history exporter</p>
+    </div>
+    <span class="count" id="entryCount">0</span>
+  </header>
+
+  <section class="card">
+    <button id="logBtn" class="btn primary big">＋ Log this tab</button>
+    <p class="hint">Saves the current tab's title + URL with a timestamp. Manual log — no auto-detection, no Trakt API.</p>
+  </section>
+
+  <section class="card">
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search history…" aria-label="Search history">
+      <button id="exportBtn" class="btn">Export CSV</button>
+    </div>
+    <ul id="entries" class="entries"></ul>
+    <p class="empty" id="empty">Nothing logged yet. Press “Log this tab” when you finish something.</p>
+  </section>
+
+  <footer class="foot">
+    <button id="clearBtn" class="link danger">Clear all</button>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

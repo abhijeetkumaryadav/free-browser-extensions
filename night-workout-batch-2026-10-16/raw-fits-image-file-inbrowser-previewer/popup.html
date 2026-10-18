@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FITS Frame Previewer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header>
+    <svg class="brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14"/><path d="M3 9h18M8 4v5M16 4v5"/><path d="M7 21h10"/></svg>
+    <div>
+      <h1>FITS Frame Previewer</h1>
+      <p class="sub">Synthetic frame &middot; stretch lab</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <p>Demo only — this renders a <b>synthetic</b> test frame. It is <b>not a real FITS parser</b> and reads no files.</p>
+  </div>
+
+  <canvas id="frame" width="340" height="220"></canvas>
+
+  <div class="controls">
+    <div class="row">
+      <label for="vmin">Black level</label>
+      <input id="vmin" type="range" min="0" max="255" value="30">
+      <span id="vminVal">30</span>
+    </div>
+    <div class="row">
+      <label for="vmax">White level</label>
+      <input id="vmax" type="range" min="0" max="255" value="200">
+      <span id="vmaxVal">200</span>
+    </div>
+    <div class="row">
+      <label for="mode">Stretch</label>
+      <div class="seg" id="modeSeg">
+        <button data-mode="linear" class="active">Linear</button>
+        <button data-mode="log">Log</button>
+        <button data-mode="sqrt">Sqrt</button>
+      </div>
+    </div>
+    <div class="row">
+      <button id="regen" class="ghost">Regenerate frame</button>
+    </div>
+  </div>
+
+  <details class="explainer">
+    <summary>FITS concepts (quick guide)</summary>
+    <ul>
+      <li><b>Header + Data Units:</b> a FITS file is a stack of blocks, each with an ASCII header of <code>KEYWORD = value</code> cards plus optional binary image/table data.</li>
+      <li><b>BITPIX:</b> bits per pixel (e.g. 16 or -32 float) — sets the data's numeric range.</li>
+      <li><b>BZERO / BSCALE:</b> physical value = BZERO + BSCALE &times; stored value.</li>
+      <li><b>Stretching:</b> raw frames are mostly near-black; min/max cut levels and log stretches reveal faint signal — exactly what the sliders above do.</li>
+    </ul>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

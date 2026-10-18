@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Query Parameter Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    <div><h1>Query Builder</h1><p>Build &amp; parse URL query strings</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Base URL
+        <input id="base" type="text" placeholder="https://example.com/search" spellcheck="false" autocomplete="off">
+      </label>
+      <h2>Parameters</h2>
+      <div id="rows"></div>
+      <button id="add" class="ghost">＋ Add parameter</button>
+    </section>
+    <section class="glass card">
+      <h2>Live preview</h2>
+      <div id="preview" class="preview" title="URL-encoded output"></div>
+      <div class="btnrow">
+        <button id="copy" class="primary">Copy URL</button>
+        <button id="openUrl" class="ghost">Open in tab</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Parse a URL</h2>
+      <label class="fld">
+        <input id="parseInput" type="text" placeholder="Paste a full URL to load its params" spellcheck="false" autocomplete="off">
+      </label>
+      <button id="parse" class="ghost">Parse into rows</button>
+      <p id="parseNote" class="note"></p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

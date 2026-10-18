@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PhishGuard — Anti-Phishing Domain Checker</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/>
+          <path d="M9.5 9.5l1.5 1.5 3.5-4"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>PhishGuard</h1>
+        <p>Local phishing-signal analysis</p>
+      </div>
+      <span class="privacy-pill">100% local</span>
+    </header>
+
+    <!-- URL card -->
+    <section class="card url-card">
+      <div class="url-label">ANALYZING</div>
+      <div class="url-value" id="urlValue">…</div>
+    </section>
+
+    <!-- Verdict -->
+    <section class="card verdict" id="verdictCard">
+      <div class="verdict-row">
+        <div class="ring" id="scoreRing">
+          <svg viewBox="0 0 72 72">
+            <circle class="ring-bg" cx="36" cy="36" r="30"/>
+            <circle class="ring-fg" id="ringFg" cx="36" cy="36" r="30"/>
+          </svg>
+          <div class="ring-text"><span id="scoreNum">–</span><small>risk</small></div>
+        </div>
+        <div class="verdict-text">
+          <h2 id="verdictTitle">Analyzing…</h2>
+          <p id="verdictSub">Running local heuristics on this URL.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signals -->
+    <section class="card">
+      <div class="section-head">
+        <h3>Signals detected</h3>
+        <span class="count" id="signalCount">0</span>
+      </div>
+      <ul class="signals" id="signalList"></ul>
+      <p class="empty" id="emptyState">No suspicious signals. This looks like a normal URL — stay alert anyway.</p>
+    </section>
+
+    <!-- Actions -->
+    <section class="actions">
+      <button class="btn primary" id="vtBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        Check on VirusTotal
+      </button>
+      <button class="btn ghost" id="recheckBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/>
+        </svg>
+        Re-check
+      </button>
+    </section>
+
+    <p class="foot">Heuristics are hints, not proof. When in doubt, don't log in. VirusTotal opens only when you click.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

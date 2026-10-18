@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Photogrammetry Overlap Planner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <!-- Lucide-style outline camera/grid icon -->
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="6" width="18" height="12" rx="2"/>
+      <path d="M3 10h18M3 14h18M9 6v12M15 6v12"/>
+      <path d="M8 3h8"/>
+    </svg>
+    <div>
+      <h1>Photogrammetry Planner</h1>
+      <p class="sub">GSD, footprint &amp; overlap math</p>
+    </div>
+  </div>
+
+  <div class="notice"><strong>Estimates — verify against your mission software.</strong> Idealized flat-terrain survey math; ignores terrain relief, wind, and camera distortion.</div>
+
+  <div class="grid">
+    <div class="field"><span>Altitude AGL (m)</span><input id="alt" type="number" min="1" value="100"></div>
+    <div class="field"><span>Focal length (mm)</span><input id="foc" type="number" min="0.1" step="0.1" value="24"></div>
+    <div class="field"><span>Sensor width (mm)</span><input id="sw" type="number" min="0.1" step="0.1" value="13.2"></div>
+    <div class="field"><span>Sensor height (mm)</span><input id="sh" type="number" min="0.1" step="0.1" value="8.8"></div>
+    <div class="field"><span>Image width (px)</span><input id="px" type="number" min="1" value="5472"></div>
+    <div class="field"><span>Front overlap (%)</span><input id="fo" type="number" min="0" max="95" value="75"></div>
+    <div class="field"><span>Side overlap (%)</span><input id="so" type="number" min="0" max="95" value="65"></div>
+    <div class="field"><span>Area width (m)</span><input id="aw" type="number" min="1" value="500"></div>
+    <div class="field"><span>Area length (m)</span><input id="al" type="number" min="1" value="500"></div>
+  </div>
+  <button class="btn" id="go">Plan</button>
+
+  <div class="results" id="results" hidden>
+    <div class="result wide"><span class="rlabel">Ground sample distance</span><span class="rvalue" id="rGsd">—</span></div>
+    <div class="result wide"><span class="rlabel">Footprint (W × H)</span><span class="rvalue" id="rFp">—</span></div>
+    <div class="result wide"><span class="rlabel">Photo spacing (front × side)</span><span class="rvalue small" id="rSp">—</span></div>
+    <div class="result wide"><span class="rlabel">Lines × photos per line</span><span class="rvalue small" id="rLines">—</span></div>
+    <div class="result wide"><span class="rlabel">Total photos (estimate)</span><span class="rvalue" id="rTotal">—</span></div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

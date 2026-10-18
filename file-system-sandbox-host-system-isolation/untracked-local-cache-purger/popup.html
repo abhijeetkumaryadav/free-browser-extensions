@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CachePurge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+      <div>
+        <h1>CachePurge</h1>
+        <p>Per-origin data purger</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Current tab card -->
+  <section class="card glass" id="currentCard">
+    <div class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span>Current tab</span>
+    </div>
+    <div class="origin-name" id="currentOrigin">—</div>
+    <div class="usage-row">
+      <div class="usage-bar"><div class="usage-fill" id="currentFill"></div></div>
+      <div class="usage-text" id="currentUsage">Click scan to measure</div>
+    </div>
+    <button class="btn ghost" id="scanCurrent">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan this origin
+    </button>
+  </section>
+
+  <!-- Origin list -->
+  <section class="card glass">
+    <div class="card-title row-between">
+      <div class="title-left">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+        <span>Tracked origins</span>
+      </div>
+      <span class="count" id="originCount">0</span>
+    </div>
+    <div class="add-row">
+      <input type="text" id="originInput" placeholder="https://example.com" spellcheck="false">
+      <button class="btn primary" id="addOrigin">Add</button>
+    </div>
+    <div id="originList" class="origin-list"></div>
+    <div class="empty" id="emptyState">
+      <p>No origins tracked yet.</p>
+      <p class="hint">Add sites you want to inspect, or scan the current tab above.</p>
+    </div>
+  </section>
+
+  <!-- Purge controls -->
+  <section class="card glass">
+    <div class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>What to purge</span>
+    </div>
+    <div class="check-grid" id="dataTypes">
+      <label class="check"><input type="checkbox" data-type="cache" checked><span>Cache</span></label>
+      <label class="check"><input type="checkbox" data-type="cookies" checked><span>Cookies</span></label>
+      <label class="check"><input type="checkbox" data-type="localStorage" checked><span>Local storage</span></label>
+      <label class="check"><input type="checkbox" data-type="indexedDB"><span>IndexedDB</span></label>
+      <label class="check"><input type="checkbox" data-type="serviceWorkers"><span>Service workers</span></label>
+      <label class="check"><input type="checkbox" data-type="cacheStorage"><span>Cache storage</span></label>
+    </div>
+    <button class="btn danger" id="purgeBtn" disabled>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      Purge selected (<span id="selCount">0</span>)
+    </button>
+  </section>
+
+  <p class="footnote">Purging only touches origins you select and confirm. Nothing is scanned or deleted automatically.</p>
+</div>
+
+<!-- Confirm modal -->
+<div class="modal-backdrop hidden" id="modal">
+  <div class="modal glass">
+    <h2>Confirm purge</h2>
+    <p class="modal-sub">The following will be <strong>permanently deleted</strong>:</p>
+    <div class="modal-list" id="modalList"></div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="cancelPurge">Cancel</button>
+      <button class="btn danger" id="confirmPurge">Delete now</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+<script src="popup.js"></script>
+</body>
+</html>

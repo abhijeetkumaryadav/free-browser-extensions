@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Grade Weight Simulator</title>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+      </svg>
+      <div><h1>Grade Weight Simulator</h1><p class="sub">Weighted grades, what-if scenarios</p></div>
+    </div>
+    <div class="notice">Manual entry only — <strong>not connected to Canvas or Blackboard</strong>. You type every assignment, weight, and score.</div>
+  </header>
+
+  <section class="panel summary">
+    <div class="grade-block">
+      <div class="grade" id="gradeLetter">–</div>
+      <div class="grade-num"><span id="gradePct">–</span><span class="lbl">current</span></div>
+    </div>
+    <div class="proj-block">
+      <div class="proj-num"><span id="projPct">–</span><span class="lbl">with guesses</span></div>
+      <div class="wsum"><span id="weightSum">0</span><span class="lbl">% weight</span></div>
+    </div>
+    <div class="wsum-warn" id="weightWarn" hidden>Weights should total 100%. Results are scaled to the entered total.</div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Assignments</h2><button class="primary" id="addBtn">+ Add</button></div>
+    <div id="list"></div>
+  </section>
+
+  <section class="panel" id="editor" hidden>
+    <div class="panel-head"><h2 id="editorTitle">New assignment</h2></div>
+    <div class="form">
+      <label>Name <input id="fName" type="text" placeholder="e.g. Midterm exam"></label>
+      <div class="form-row">
+        <label>Weight % <input id="fWeight" type="number" min="0" max="100" step="0.5" placeholder="25"></label>
+        <label>Score % <input id="fScore" type="number" min="0" max="100" step="0.5" placeholder="optional"></label>
+      </div>
+      <label class="chk"><input id="fUpcoming" type="checkbox"> Upcoming — score not known yet</label>
+      <div class="form-row" id="guessRow">
+        <label>Guess % (for projections) <input id="fGuess" type="number" min="0" max="100" step="0.5" placeholder="e.g. 85"></label>
+      </div>
+      <div class="btn-row">
+        <button class="danger" id="delBtn" hidden>Delete</button>
+        <span class="spacer"></span>
+        <button id="cancelBtn">Cancel</button>
+        <button class="primary" id="saveBtn">Save</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>What-if: needed on remaining</h2></div>
+    <div class="form-row">
+      <label>Target final % <input id="fTarget" type="number" min="0" max="100" step="0.5" value="90"></label>
+      <button class="primary" id="calcBtn">Calculate</button>
+    </div>
+    <div class="whatif" id="whatifResult" hidden></div>
+    <p class="hint">Tells you the average score you need on un-scored (remaining) weight to hit your target. 100% local math — not a guarantee.</p>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Impact chart</h2></div>
+    <div id="chart"></div>
+    <p class="hint">Points each assignment contributes to your final grade (score ÷ 100 × weight).</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M12 8.8v3.2l2.2 2.2"/></svg>
+    </div>
+    <div>
+      <h1>ThumbnailLab</h1>
+      <p class="sub">Your thumbnails, your data</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Checklist + <strong>your own CTR notes</strong> — not a prediction of virality.</span>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="score" role="tab">Score</button>
+    <button class="tab" data-tab="trends" role="tab">Trends</button>
+    <button class="tab" data-tab="thumbs" role="tab">Thumbs <span id="count" class="pill">0</span></button>
+  </nav>
+
+  <section id="tab-score" class="pane active">
+    <form id="scoreForm" autocomplete="off">
+      <label class="field">Label
+        <input name="label" maxlength="60" placeholder="e.g. Oud attar thumbnail v2">
+      </label>
+      <label class="field">Thumbnail ref / URL (optional)
+        <input name="thumbRef" maxlength="300" placeholder="filename or link">
+      </label>
+
+      <label class="check"><input type="checkbox" name="face"> <span>Face present</span></label>
+
+      <div class="field">Emotion clarity <b class="val" id="emotionVal">3</b>
+        <input type="range" name="emotion" min="1" max="5" step="1" value="3">
+      </div>
+      <label class="field">Text words on thumbnail
+        <input name="words" type="number" min="0" max="50" value="3">
+      </label>
+      <div class="field">Contrast <b class="val" id="contrastVal">3</b>
+        <input type="range" name="contrast" min="1" max="5" step="1" value="3">
+      </div>
+      <div class="field">Curiosity gap <b class="val" id="curiosityVal">3</b>
+        <input type="range" name="curiosity" min="1" max="5" step="1" value="3">
+      </div>
+      <label class="field">Your CTR % (optional — from your own analytics)
+        <input name="ctr" type="number" min="0" max="100" step="0.1" placeholder="e.g. 4.2">
+      </label>
+      <button class="cta" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Save score
+      </button>
+    </form>
+  </section>
+
+  <section id="tab-trends" class="pane">
+    <div id="trendsEmpty" class="empty">Score at least <strong>2 thumbnails</strong> to see trends.</div>
+    <div id="trendsBody" hidden></div>
+  </section>
+
+  <section id="tab-thumbs" class="pane">
+    <div class="list-head">
+      <button id="exportBtn" class="ghost" type="button">Export JSON</button>
+      <button id="clearBtn" class="ghost danger" type="button">Clear all</button>
+    </div>
+    <div id="thumbList" class="list"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SurgeLog</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 17h14M6 17l1.5-6h9L18 17"/>
+        <circle cx="7.5" cy="19" r="1.6"/><circle cx="16.5" cy="19" r="1.6"/>
+        <path d="M9 11V8h4l1 3"/>
+      </svg>
+    </div>
+    <div>
+      <h1>SurgeLog</h1>
+      <p class="sub">manual ride-surge journal</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Manual logbook only — this is <b>not live pricing</b>. Trends come from rides you log yourself.</span>
+  </div>
+
+  <div class="stat-row" id="statRow">
+    <div class="stat"><b id="stRides">0</b><span>rides</span></div>
+    <div class="stat"><b id="stAvg">–</b><span>avg surge</span></div>
+    <div class="stat"><b id="stMax">–</b><span>max surge</span></div>
+    <div class="stat"><b id="stSpent">–</b><span>spent</span></div>
+  </div>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 3 5-8"/></svg>
+      <span>Avg surge by hour</span>
+    </div>
+    <div class="bars" id="hourBars"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span>Avg surge by weekday</span>
+    </div>
+    <div class="bars" id="dayBars"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      <span>Log a ride</span>
+    </div>
+    <div class="form">
+      <div class="row2">
+        <label>Date<input type="date" id="fDate"></label>
+        <label>Time<input type="time" id="fTime"></label>
+      </div>
+      <div class="row2">
+        <label>App
+          <select id="fApp">
+            <option>Uber</option><option>Ola</option><option>Lyft</option>
+            <option>Rapido</option><option>inDrive</option><option>Other</option>
+          </select>
+        </label>
+        <label>Surge ×<input type="number" id="fSurge" min="1" step="0.1" value="1.0"></label>
+      </div>
+      <div class="row2">
+        <label>From<input type="text" id="fFrom" placeholder="Pickup area"></label>
+        <label>To<input type="text" id="fTo" placeholder="Drop area"></label>
+      </div>
+      <div class="row2">
+        <label>Base fare<input type="number" id="fBase" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Paid fare<input type="number" id="fPaid" min="0" step="0.01" placeholder="auto = base × surge"></label>
+      </div>
+      <label>Notes<input type="text" id="fNotes" placeholder="e.g. rain, match night, airport run"></label>
+      <button id="addBtn" class="primary">Add ride</button>
+      <p class="note" id="formNote"></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span>Ride log</span>
+      <span class="count" id="logCount"></span>
+    </div>
+    <ul class="log" id="logList"><li class="empty">No rides logged yet.</li></ul>
+    <div class="row">
+      <button id="csvBtn" class="ghost sm grow" disabled>Export CSV</button>
+      <button id="clearBtn" class="ghost sm danger" disabled>Delete all</button>
+    </div>
+  </section>
+
+  <footer class="foot">Your logs never leave this browser. There is no live rideshare pricing API — entries are entered by hand.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

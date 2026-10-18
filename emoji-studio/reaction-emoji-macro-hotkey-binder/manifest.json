@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "MacroReact — Emoji Hotkey Binder",
+  "version": "1.0.0",
+  "description": "Bind favorite emoji to keyboard hotkeys (chrome.commands). Press a hotkey to copy its emoji. Hotkey-to-copy only — no keylogging.",
+  "action": { "default_popup": "popup.html", "default_title": "MacroReact" },
+  "background": { "service_worker": "background.js" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "offscreen"],
+  "commands": {
+    "macro-1": { "suggested_key": { "default": "Ctrl+Shift+1" }, "description": "Copy macro emoji 1" },
+    "macro-2": { "suggested_key": { "default": "Ctrl+Shift+2" }, "description": "Copy macro emoji 2" },
+    "macro-3": { "suggested_key": { "default": "Ctrl+Shift+3" }, "description": "Copy macro emoji 3" },
+    "macro-4": { "suggested_key": { "default": "Ctrl+Shift+4" }, "description": "Copy macro emoji 4" },
+    "macro-5": { "suggested_key": { "default": "Ctrl+Shift+5" }, "description": "Copy macro emoji 5" }
+  }
+}

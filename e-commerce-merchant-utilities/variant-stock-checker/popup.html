@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variant Stock Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="m14 14 7 7"/><path d="m21 14-7 7"/></svg>
+    <div><h1>Variant Stock</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="results" class="glass card" hidden>
+      <div id="groups"></div>
+      <p class="conf">Best-effort estimates from visible page signals (disabled options, “sold out” text). Not a guarantee — confirm on the site before ordering.</p>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan page</b> on a product page with size/color/style variants.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

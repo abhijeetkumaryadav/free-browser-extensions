@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>METAR/TAF Decoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.6 1.6A4 4 0 0 0 7 19h10.5z"/><path d="M8 21v.5M12 21v.5M16 21v.5"/></svg>
+    <div>
+      <h1>METAR/TAF Decoder</h1>
+      <p class="sub">Decodes what <strong>you</strong> paste — not live weather</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Paste raw METAR/TAF text below. Nothing is fetched — the decode happens entirely from your paste.</span>
+  </div>
+
+  <label class="lbl" for="raw">Raw METAR / TAF</label>
+  <textarea id="raw" rows="4" placeholder="e.g. EGLL 161450Z 27012G22KT 9999 FEW035 18/09 Q1013 NOSIG"></textarea>
+
+  <div class="row">
+    <button id="decode" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+      Decode
+    </button>
+    <button id="clear" class="btn ghost">Clear</button>
+  </div>
+
+  <section id="out" class="out hidden" aria-live="polite"></section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

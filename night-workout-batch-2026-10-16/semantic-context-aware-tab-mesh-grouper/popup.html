@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tab Grouper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  <div>
+    <h1>Tab Grouper</h1>
+    <p class="sub">rule-based tab mesh</p>
+  </div>
+</header>
+
+<div class="notice">Rule-based grouping only — no AI, no semantic understanding.</div>
+
+<button id="group" class="btn primary">Group tabs now</button>
+<button id="ungroup" class="btn">Ungroup all</button>
+
+<section class="card">
+  <h2>Keyword rules</h2>
+  <p class="hint">Comma-separated keywords. Tabs whose URL or title contains a keyword join that group.</p>
+  <div id="rules"></div>
+  <div class="row">
+    <input id="rname" type="text" placeholder="Group name" maxlength="40">
+    <input id="rkeys" type="text" placeholder="github, stack" maxlength="120">
+    <button id="add" class="btn small">Add</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Options</h2>
+  <label class="opt"><input type="checkbox" id="byDomain" checked> Also group by domain</label>
+  <label class="opt"><input type="checkbox" id="windowOnly" checked> Current window only</label>
+</section>
+
+<p id="status" class="status"></p>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+/* TabState Log — deep-dark glassmorphism, single amber accent (#f59e0b) */
+:root {
+  --accent: #f59e0b;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --bg: #0b0d14;
+  --panel: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #f2f4fa;
+  --muted: #9aa3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 600px;
+  background: radial-gradient(120% 90% at 50% 0%, #1c1710 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.hero {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+}
+
+.hero-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #b45309);
+  color: #fff;
+}
+.hero-icon svg { width: 22px; height: 22px; }
+
+.hero h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+.subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.section-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.section-title { font-weight: 700; font-size: 13px; }
+.btn-group { display: flex; gap: 6px; }
+
+.btn {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+}
+.btn:hover { background: rgba(245, 158, 11, 0.28); }
+.btn.small { padding: 4px 10px; font-size: 11px; }
+.btn.danger { color: #f87171; background: rgba(248, 113, 113, 0.1); border-color: rgba(248, 113, 113, 0.35); }
+.btn.danger:hover { background: rgba(248, 113, 113, 0.22); }
+
+.tab-list, .log-list {
+  display: flex; flex-direction: column; gap: 6px;
+  max-height: 170px; overflow-y: auto;
+}
+.log-list { max-height: 150px; }
+
+.tab-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.tab-title {
+  flex: 1; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 12px;
+}
+.badges { display: flex; gap: 4px; flex-shrink: 0; }
+.badge {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.4px;
+  padding: 2px 7px; border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.badge.active { color: var(--accent); border-color: rgba(245, 158, 11, 0.5); background: var(--accent-soft); }
+.badge.audible { color: #34d399; border-color: rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.1); }
+.badge.discarded { color: #f87171; border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.1); }
+
+.log-row {
+  display: flex; gap: 8px; align-items: baseline;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 11.5px;
+}
+.log-time { color: var(--muted); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+.log-type {
+  color: var(--accent); font-weight: 700; flex-shrink: 0;
+  min-width: 88px; text-transform: capitalize;
+}
+.log-detail { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.empty { color: var(--muted); font-size: 12px; text-align: center; padding: 10px; }
+
+.note {
+  font-size: 11px; color: var(--muted); line-height: 1.55;
+  padding: 10px 12px;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 10px 10px 0;
+}
+.note strong { color: var(--text); }

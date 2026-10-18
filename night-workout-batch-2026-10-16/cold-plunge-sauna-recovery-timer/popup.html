@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrast Timer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6.5 7 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 9.7 12 2.7 12 2.7z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+    <div>
+      <h1>Contrast Timer</h1>
+      <p class="sub">Cold plunge / sauna intervals</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Timer only — NOT medical advice.</strong> Cold exposure has real risks. Consult a professional before starting.</span>
+  </div>
+
+  <!-- Idle / config view -->
+  <section id="configView">
+    <div class="field-row">
+      <label>Cold (sec)
+        <input type="number" id="coldSec" min="10" max="600" step="5" value="60">
+      </label>
+      <label>Hot (sec)
+        <input type="number" id="hotSec" min="10" max="900" step="5" value="180">
+      </label>
+      <label>Rounds
+        <input type="number" id="rounds" min="1" max="10" step="1" value="3">
+      </label>
+    </div>
+    <p class="hint">A round = one cold phase + one hot phase. Chimes on every phase change while the popup is open; notifications take over when it is closed.</p>
+    <button id="startBtn" class="primary">Start session</button>
+  </section>
+
+  <!-- Running view -->
+  <section id="runView" hidden>
+    <div class="phase-pill" id="phasePill">COLD</div>
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 120 120">
+        <circle class="track" cx="60" cy="60" r="52"/>
+        <circle class="bar" id="ringBar" cx="60" cy="60" r="52"/>
+      </svg>
+      <div class="ring-label">
+        <span id="timeLeft">--:--</span>
+        <small id="roundLabel">Round 1 / 3</small>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button id="skipBtn" class="ghost">Skip phase</button>
+      <button id="stopBtn" class="danger">End session</button>
+    </div>
+  </section>
+
+  <section class="log">
+    <h2>Session log</h2>
+    <ul id="logList"></ul>
+    <button id="clearLog" class="ghost small">Clear log</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

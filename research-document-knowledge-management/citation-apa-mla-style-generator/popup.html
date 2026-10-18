@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>CiteIt</title>
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 9h6"/><path d="M9 12h4"/></svg>
+    </span>
+    <div>
+      <h1>CiteIt</h1>
+      <p class="sub">APA 7th &amp; MLA 9th citation builder</p>
+    </div>
+    <button id="autofill" class="btn ghost" title="Fill fields from the current tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+      Auto-fill
+    </button>
+  </header>
+
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-style="apa" role="tab">APA 7th</button>
+      <button class="tab" data-style="mla" role="tab">MLA 9th</button>
+    </div>
+    <div class="fields">
+      <label>Authors <span class="hint">"Last, First; Last2, First2" — leave blank if none</span>
+        <input type="text" id="authors" placeholder="Smith, John; Doe, Jane" autocomplete="off">
+      </label>
+      <label>Page title
+        <input type="text" id="title" placeholder="Title of the page" autocomplete="off">
+      </label>
+      <div class="grid2">
+        <label>Site name
+          <input type="text" id="site" placeholder="Site Name" autocomplete="off">
+        </label>
+        <label>Published date
+          <input type="text" id="pubDate" placeholder="2024-05-10 or blank" autocomplete="off">
+        </label>
+      </div>
+      <label>URL
+        <input type="text" id="url" placeholder="https://…" autocomplete="off" spellcheck="false">
+      </label>
+    </div>
+  </section>
+
+  <section class="card output">
+    <div class="out-head">
+      <h2>Your citation</h2>
+      <div class="actions">
+        <button id="copy" class="btn primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+        <button id="save" class="btn ghost">Save</button>
+      </div>
+    </div>
+    <p id="citation" class="citation">Fill in the fields above to generate a citation.</p>
+    <p id="copied" class="flash hidden">Copied to clipboard</p>
+  </section>
+
+  <section class="card">
+    <div class="out-head">
+      <h2>Saved citations <span id="libCount" class="count">0</span></h2>
+      <button id="export" class="btn ghost small">Export .txt</button>
+    </div>
+    <ul id="library" class="library"></ul>
+    <p id="libEmpty" class="empty">Nothing saved yet. Generate a citation and press Save.</p>
+  </section>
+
+  <p class="foot">Formulas follow APA 7th &amp; MLA 9th for web pages. Always double-check against your style guide — auto-filled metadata is best-effort.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

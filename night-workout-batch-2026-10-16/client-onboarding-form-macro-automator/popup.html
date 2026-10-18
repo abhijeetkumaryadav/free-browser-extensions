@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboard Macro</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 9v12"/><circle cx="15" cy="15" r="1.4"/><path d="M17.5 17.5l2 2"/></svg></div>
+    <div>
+      <h1>Onboard Macro</h1>
+      <p class="sub">Client form autofill helper</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>Fills <strong>only when you click Fill</strong>. Password &amp; payment fields are always blocked. <strong>Review the form before submitting.</strong></p>
+  </div>
+
+  <section class="block">
+    <div class="row">
+      <label class="lbl" for="profile">Client profile</label>
+      <div class="row">
+        <select id="profile"></select>
+        <button id="del-profile" class="btn ghost" title="Delete profile">✕</button>
+      </div>
+    </div>
+    <div class="row">
+      <input id="new-profile" type="text" placeholder="New client profile name…" maxlength="60">
+      <button id="add-profile" class="btn ghost">Add</button>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Field mappings <span class="hint">label pattern → answer</span></h2>
+    <div id="mappings" class="map-list"></div>
+    <div class="row">
+      <input id="pat" type="text" placeholder="Label contains (e.g. first name)" maxlength="60">
+      <input id="ans" type="text" placeholder="Answer value" maxlength="200">
+      <button id="add-map" class="btn ghost">Add</button>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="row">
+      <button id="scan" class="btn ghost">Scan this form</button>
+      <button id="fill" class="btn primary">Fill this form</button>
+    </div>
+    <p id="status" class="status">Ready.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

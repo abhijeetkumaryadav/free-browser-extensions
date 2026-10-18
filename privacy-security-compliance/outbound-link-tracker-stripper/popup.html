@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outbound Link Tracker Stripper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      <line x1="4" y1="4" x2="20" y2="20"></line>
+    </svg>
+    <div class="app-title">
+      <h1>Tracker Stripper</h1>
+      <p class="subtitle">cleans links you click</p>
+    </div>
+    <label class="switch" title="Enable/disable stripping">
+      <input type="checkbox" id="enabledToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="stat-card">
+    <div class="stat-number" id="totalCount">0</div>
+    <div class="stat-label">tracking params stripped this session</div>
+  </section>
+
+  <section class="site-row">
+    <div class="site-info">
+      <div class="site-host" id="siteHost">—</div>
+      <div class="site-sub">strip trackers on this site</div>
+    </div>
+    <label class="switch" title="Toggle for this site">
+      <input type="checkbox" id="siteToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </section>
+
+  <section class="top-sites">
+    <h2>Most cleaned sites</h2>
+    <div id="siteList" class="site-list"></div>
+  </section>
+
+  <footer class="footer">
+    <button id="resetBtn" class="ghost-btn">Reset counter</button>
+    <p class="note">Only http(s) links are touched. Modified clicks (Ctrl/Cmd+click) are left alone.</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

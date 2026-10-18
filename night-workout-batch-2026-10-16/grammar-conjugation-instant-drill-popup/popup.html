@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conjugation Drill</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+    <div>
+      <h1>Conjugation Drill</h1>
+      <p class="tag">Instant verb-table drills</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Your tables — not a grammar engine. Drill the conjugations <b>you</b> enter.</span>
+  </div>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="tables">Tables</button>
+    <button class="tab" data-tab="drill">Drill</button>
+  </nav>
+
+  <!-- Tables tab -->
+  <section id="tab-tables" class="panel">
+    <div class="card">
+      <h2>New table</h2>
+      <label class="fld"><span>Verb (infinitive)</span>
+        <input id="verbName" type="text" placeholder="e.g. hablar / 食べる / parler" maxlength="60">
+      </label>
+      <label class="fld"><span>Forms (one per line, in order)</span>
+        <textarea id="verbForms" rows="4" placeholder="e.g.&#10;yo hablo&#10;tú hablas&#10;él habla"></textarea>
+      </label>
+      <div class="row">
+        <button id="addTable" class="btn primary">Add table</button>
+        <span id="tableMsg" class="msg"></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Saved tables <span id="tableCount" class="count"></span></h2>
+      <div id="tableList" class="tlist"></div>
+    </div>
+  </section>
+
+  <!-- Drill tab -->
+  <section id="tab-drill" class="panel hidden">
+    <div class="card">
+      <h2>Drill</h2>
+      <div id="drillSetup">
+        <label class="fld"><span>Table</span>
+          <select id="drillTable"></select>
+        </label>
+        <label class="fld"><span>Questions</span>
+          <select id="drillCount">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+        <button id="startDrill" class="btn primary wide">Start drill</button>
+      </div>
+
+      <div id="drillPlay" class="hidden">
+        <div class="scorebar">
+          <span id="qNum">Q1</span>
+          <span class="score">✓ <b id="scoreOk">0</b> · ✗ <b id="scoreBad">0</b></span>
+        </div>
+        <div class="prompt" id="drillPrompt">—</div>
+        <div class="row">
+          <input id="drillAnswer" type="text" placeholder="Type the form…" autocomplete="off">
+          <button id="checkBtn" class="btn primary">Check</button>
+        </div>
+        <div id="drillFeedback" class="feedback"></div>
+        <button id="nextBtn" class="btn hidden wide">Next →</button>
+      </div>
+
+      <div id="drillResult" class="hidden">
+        <div class="result-ring"><span id="resultPct">0%</span></div>
+        <p id="resultText" class="result-text"></p>
+        <button id="retryBtn" class="btn primary wide">Drill again</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">100% local · nothing leaves your browser</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

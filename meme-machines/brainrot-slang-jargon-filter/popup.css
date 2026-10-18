@@ -1,0 +1,89 @@
+/* Brainrot Slang Filter — deep-dark glassmorphism, single lime accent (#a3e635) */
+:root {
+  --accent: #a3e635;
+  --accent-soft: rgba(163, 230, 53, 0.12);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --ink: #16210a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.app { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* Header */
+.header { padding: 12px 14px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-icon { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+.brand h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.2px; }
+.tagline { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* Panels */
+.panel { padding: 12px 14px; }
+.row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.row .icon { width: 18px; height: 18px; color: var(--accent); }
+.row label { font-weight: 600; font-size: 13px; flex: 1; }
+.val { font-size: 12px; color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+
+.hint { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+/* Actions */
+.actions { display: flex; flex-direction: column; gap: 8px; }
+
+.btn-primary {
+  width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px;
+  border: none; border-radius: 10px;
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 700; font-size: 13px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.08s ease;
+}
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary .icon { width: 17px; height: 17px; }
+.btn-primary:disabled { opacity: 0.55; cursor: default; }
+
+.btn-ghost {
+  width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600; font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.btn-ghost:hover { border-color: var(--accent); background: var(--accent-soft); }
+.btn-ghost .icon { width: 16px; height: 16px; color: var(--accent); }
+
+/* Status */
+.status { font-size: 12px; color: var(--muted); line-height: 1.6; text-align: center; }
+.status strong { color: var(--accent); }
+
+/* Footer */
+.footer p { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.6; }

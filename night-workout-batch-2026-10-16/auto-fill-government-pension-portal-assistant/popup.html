@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FormFill Buddy</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M9 16l2 2 4-4"/></svg>
+    <div>
+      <h1>FormFill Buddy</h1>
+      <p class="sub">Your details, filled only when you ask</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="fill">Fill</button>
+      <button class="tab" data-tab="profile">My details</button>
+    </div>
+
+    <div class="tabpane" id="pane-fill">
+      <button id="fillBtn" class="primary">Fill form fields on this page</button>
+      <p id="fillStatus" class="status" role="status"></p>
+      <div class="notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <span><strong>Always verify before submitting.</strong> This tool fills fields — it never checks what the form sends. Review every field yourself before clicking submit.</span>
+      </div>
+    </div>
+
+    <div class="tabpane hidden" id="pane-profile">
+      <div class="grid" id="profileGrid"></div>
+      <div class="row">
+        <button id="saveBtn" class="primary">Save details</button>
+        <button id="clearBtn" class="ghost">Clear</button>
+      </div>
+      <p id="saveStatus" class="status" role="status"></p>
+      <p class="fineprint">Stored only on this device (<code>chrome.storage.local</code>). Never sent anywhere.</p>
+    </div>
+  </section>
+
+  <footer class="fineprint">Nothing auto-fills. Every fill needs your click.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

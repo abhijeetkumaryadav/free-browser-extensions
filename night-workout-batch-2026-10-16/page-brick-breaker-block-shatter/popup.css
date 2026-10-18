@@ -1,0 +1,45 @@
+/* Brick Breaker popup — deep-dark glassmorphism, single amber accent (#fb923c). */
+:root { --accent: #fb923c; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: rgba(12, 12, 18, 0.96);
+  color: #f2f2f7;
+}
+.card {
+  margin: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(20, 20, 26, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+.logo { width: 34px; height: 34px; color: var(--accent); flex-shrink: 0; }
+h1 { font-size: 17px; font-weight: 700; }
+.sub { font-size: 12px; color: #a7a7b5; margin-top: 4px; line-height: 1.45; }
+.stat-row { display: flex; gap: 10px; margin-bottom: 14px; }
+.stat {
+  flex: 1; padding: 10px 12px; border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.stat .label { font-size: 11px; color: #a7a7b5; }
+.stat .value { font-size: 20px; font-weight: 700; color: var(--accent); }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field span { font-size: 12px; color: #a7a7b5; }
+select {
+  background: rgba(255, 255, 255, 0.05); color: #f2f2f7;
+  border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px;
+  padding: 9px 10px; font-size: 13px;
+}
+.primary {
+  width: 100%; padding: 12px; border: none; border-radius: 12px;
+  background: var(--accent); color: #141410; font-weight: 700; font-size: 14px;
+  cursor: pointer;
+}
+.primary:hover { filter: brightness(1.08); }
+.hint { font-size: 11px; color: #8a8a98; margin-top: 12px; line-height: 1.5; }

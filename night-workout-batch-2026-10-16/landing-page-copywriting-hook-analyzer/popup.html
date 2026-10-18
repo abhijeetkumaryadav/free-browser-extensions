@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Hook Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="hdr">
+  <span class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+  </span>
+  <div>
+    <h1>Copy Hook Analyzer</h1>
+    <p class="sub">Heuristic checklist — tips only, not conversion advice</p>
+  </div>
+</header>
+
+<div class="notice">
+  Reads this page's hero text, headings and CTA buttons, then runs a bundled
+  heuristic checklist. Scores are rough guides, not measurements of what converts.
+</div>
+
+<div class="row">
+  <button id="scanBtn" class="btn primary">Analyze this page</button>
+  <button id="clearBtn" class="btn ghost">Clear</button>
+</div>
+
+<div id="status" class="status">Click “Analyze this page”.</div>
+<div id="overall" class="overall hidden"></div>
+<div id="results" class="results"></div>
+
+<footer class="ftr">100% local — nothing leaves your browser.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

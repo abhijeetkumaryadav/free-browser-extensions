@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XML Log Anomaly Detector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    <div><h1>Log Anomaly Detector</h1><p>XML log lines → spikes, clusters, outliers</p></div>
+  </header>
+  <main>
+    <div class="fake-strip">⚠ BEST-EFFORT PARSING — verify flagged items against your raw logs.</div>
+    <section class="glass card">
+      <label class="fld" for="loginput">XML log lines (one entry per line)
+        <textarea id="loginput" rows="6" placeholder='&lt;log ts="2026-10-16T10:00:01Z" level="INFO" rt="42"&gt;request ok&lt;/log&gt;'></textarea>
+      </label>
+      <div class="btn-row">
+        <button id="sample" class="ghost">Load sample</button>
+        <button id="analyze" class="primary">Analyze</button>
+      </div>
+    </section>
+    <section class="glass card" id="dashCard" hidden>
+      <h2>Overview</h2>
+      <div class="stats">
+        <div><span>Entries</span><b id="stTotal">0</b></div>
+        <div><span>Parsed</span><b id="stParsed">0</b></div>
+        <div class="red"><span>Errors</span><b id="stErr">0</b></div>
+        <div class="amber"><span>Anomalies</span><b id="stAnom">0</b></div>
+      </div>
+      <svg id="timeline" viewBox="0 0 348 120" class="timeline"></svg>
+      <div class="legend">
+        <span><i class="sw total"></i>entries/min</span>
+        <span><i class="sw err"></i>errors</span>
+        <span><i class="sw anom"></i>anomaly</span>
+      </div>
+    </section>
+    <section class="glass card" id="anomCard" hidden>
+      <div class="res-head">
+        <h2>Flagged anomalies</h2>
+        <button id="copyReport" class="ghost sm">Copy report</button>
+      </div>
+      <div id="anomalies"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

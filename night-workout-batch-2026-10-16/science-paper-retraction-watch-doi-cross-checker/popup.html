@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Logbook</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+    <div>
+      <h1>Paper Logbook</h1>
+      <p class="sub">Retraction-watch — your personal log</p>
+    </div>
+  </header>
+
+  <div class="notice">Your logbook — <strong>not live retraction data</strong>. Statuses are your own labels; verify with the journal before citing.</div>
+
+  <form id="addForm" class="form">
+    <label>DOI
+      <input id="doi" type="text" placeholder="10.1038/nature12373" autocomplete="off">
+    </label>
+    <label>Title
+      <input id="title" type="text" placeholder="Paper title" autocomplete="off">
+    </label>
+    <label>My status
+      <select id="status">
+        <option value="ok">OK — no concerns</option>
+        <option value="concerned">Concerned — check again</option>
+        <option value="retracted-by-you">Retracted (my call)</option>
+      </select>
+    </label>
+    <label>Notes
+      <textarea id="notes" rows="2" placeholder="Why this status? (optional)"></textarea>
+    </label>
+    <button type="submit" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Log paper
+    </button>
+    <p class="err" id="err" hidden></p>
+  </form>
+
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search DOI, title, notes…" autocomplete="off">
+    <div class="stats" id="stats"></div>
+  </div>
+
+  <ul class="list" id="list"></ul>
+  <p class="empty" id="empty" hidden>No papers logged yet.</p>
+
+  <footer class="foot">Fully local — nothing leaves your browser.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

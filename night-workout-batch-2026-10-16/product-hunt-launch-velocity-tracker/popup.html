@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Launch Velocity Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+    </span>
+    <div>
+      <h1>Launch Velocity Tracker</h1>
+      <p class="sub">Your logged launch metrics &amp; per-hour velocity</p>
+    </div>
+  </header>
+
+  <div class="honest-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Your logged data only — NOT live Product Hunt data. Every point is typed by you.</span>
+  </div>
+
+  <!-- Log a snapshot -->
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Log snapshot
+    </h2>
+    <div class="grid2">
+      <label>Upvotes <input type="number" id="upvotes" min="0" step="1" placeholder="120"></label>
+      <label>Comments <input type="number" id="comments" min="0" step="1" placeholder="15"></label>
+      <label>Rank <input type="number" id="rank" min="0" step="1" placeholder="3 (optional)"></label>
+      <label>Time <input type="datetime-local" id="when"></label>
+    </div>
+    <button id="addBtn" class="primary">Add snapshot</button>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats" id="statsRow">
+    <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-lbl">Total upvotes</span></div>
+    <div class="stat"><span class="stat-num" id="statVel">—</span><span class="stat-lbl">Latest velocity/hr</span></div>
+    <div class="stat"><span class="stat-num" id="statPeak">—</span><span class="stat-lbl">Peak velocity/hr</span></div>
+    <div class="stat"><span class="stat-num" id="statRank">—</span><span class="stat-lbl">Latest rank</span></div>
+  </section>
+
+  <!-- Chart -->
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 3 5-8"/></svg>
+      Upvotes over time
+    </h2>
+    <canvas id="chart" width="336" height="170"></canvas>
+    <div class="legend"><span class="dot up"></span>Upvotes<span class="dot cm"></span>Comments</div>
+  </section>
+
+  <!-- History -->
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+      History
+    </h2>
+    <ul id="history" class="history"></ul>
+    <div class="row">
+      <button id="clearBtn" class="ghost danger">Clear all</button>
+    </div>
+    <p class="empty" id="emptyMsg">No snapshots yet. Log your first one above.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

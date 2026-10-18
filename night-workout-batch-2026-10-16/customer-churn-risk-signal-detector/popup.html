@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Churn Risk Worksheet</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
+    <div class="title">
+      <h1>Churn Risk Worksheet</h1>
+      <p>Score customers by hand — see who needs attention.</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><strong>Your judgment only.</strong> Nothing here reads your data — every score is one you type. This is <strong>not</strong> automatic churn detection.</span>
+  </div>
+
+  <section class="card add-card">
+    <h2 id="formTitle">Add customer</h2>
+    <label class="field">
+      <span>Customer name</span>
+      <input id="nameInput" type="text" placeholder="Acme Corp" maxlength="80">
+    </label>
+    <div id="sliders" class="sliders"></div>
+    <label class="field">
+      <span>Note (optional)</span>
+      <input id="noteInput" type="text" placeholder="Contract renews in Q4…" maxlength="140">
+    </label>
+    <div class="row">
+      <button id="saveBtn" class="primary">Add customer</button>
+      <button id="resetBtn" class="ghost" hidden>Cancel edit</button>
+    </div>
+  </section>
+
+  <section class="card list-card">
+    <div class="list-head">
+      <h2>Risk ranking</h2>
+      <span id="count" class="count">0</span>
+    </div>
+    <div id="list" class="list"><p class="empty">No customers yet. Score your first one above.</p></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

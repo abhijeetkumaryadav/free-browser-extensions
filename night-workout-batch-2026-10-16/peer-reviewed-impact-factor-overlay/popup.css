@@ -1,0 +1,119 @@
+/* Journal Metric Logbook — deep-dark glassmorphism UI. Single accent: emerald #34d399 */
+:root {
+  --accent: #34d399;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --danger: #f87171;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 560px;
+  overflow-y: auto;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: linear-gradient(160deg, #0b1220 0%, #101826 50%, #0c1420 100%);
+}
+
+.app {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px;
+  min-height: 100%;
+}
+
+/* ---------- header ---------- */
+.head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.logo { width: 30px; height: 30px; flex-shrink: 0; }
+.head h1 { font-size: 16px; font-weight: 700; }
+.head .sub { font-size: 11px; color: var(--muted); }
+
+/* ---------- honest-scope banner ---------- */
+.scope {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 11px; line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.scope svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.scope strong { color: var(--accent); }
+
+/* ---------- tabs ---------- */
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tab {
+  flex: 1; padding: 8px; border-radius: 8px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.tab.active { background: rgba(52, 211, 153, 0.15); border-color: var(--accent); color: var(--accent); }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ---------- toolbar ---------- */
+.toolbar { display: flex; gap: 8px; margin-bottom: 10px; }
+select, input, textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 12px;
+  padding: 8px 10px;
+  width: 100%;
+  font-family: inherit;
+}
+select:focus, input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+select option { background: #141a26; }
+
+/* ---------- buttons ---------- */
+.btn {
+  border: none; border-radius: 8px; cursor: pointer;
+  font-size: 12px; font-weight: 600; padding: 8px 12px;
+}
+.btn.primary { background: var(--accent); color: #052e22; }
+.btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+.btn.ghost:hover { color: var(--text); border-color: var(--accent); }
+
+/* ---------- journal cards ---------- */
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.card .title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+.card .pub { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.metrics { display: flex; gap: 12px; margin-bottom: 8px; }
+.metric .k { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+.metric .v { font-size: 14px; font-weight: 700; color: var(--accent); }
+.notes { font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 8px; }
+.updated { font-size: 10px; color: var(--muted); margin-bottom: 6px; }
+.card-actions { display: flex; gap: 6px; }
+.card-actions .btn { padding: 5px 10px; font-size: 11px; }
+.btn.del { color: var(--danger); border-color: rgba(248, 113, 113, 0.4); }
+.btn.del:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ---------- form ---------- */
+form label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+form input, form textarea { margin-top: 4px; resize: vertical; }
+.row3 { display: flex; gap: 8px; }
+.row3 label { flex: 1; }
+.form-actions { display: flex; gap: 8px; margin-top: 2px; }
+
+/* ---------- empty state ---------- */
+.empty { text-align: center; padding: 30px 10px; color: var(--muted); }
+.empty svg { width: 40px; height: 40px; margin-bottom: 10px; opacity: 0.5; }
+.empty p { font-size: 12px; line-height: 1.6; }
+.hidden { display: none !important; }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sun Salutation Flow</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="hdr">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+      </svg>
+      <div>
+        <h1>Sun Salutation</h1>
+        <p class="sub">Surya Namaskar · side-panel guide</p>
+      </div>
+      <div class="rounds" title="Completed rounds">
+        <span class="rounds-label">Rounds</span>
+        <span id="roundCount" class="rounds-val">0</span>
+      </div>
+    </header>
+
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span>Pose guide — not coaching advice. Move gently; stop if anything hurts.</span>
+    </div>
+
+    <!-- Current pose card -->
+    <section class="pose-card">
+      <div class="pose-meta">
+        <span id="poseIndex" class="pose-index">Pose 1 of 12</span>
+        <span id="poseCount" class="pose-count">30s</span>
+      </div>
+      <h2 id="poseName" class="pose-name">—</h2>
+      <p id="poseDesc" class="pose-desc">—</p>
+      <div class="timer-ring">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="52"/>
+          <circle id="ringFg" class="ring-fg" cx="60" cy="60" r="52"/>
+        </svg>
+        <div id="ringLabel" class="ring-label">30</div>
+      </div>
+    </section>
+
+    <!-- Pose sequence strip -->
+    <section class="seq">
+      <h3 class="seq-title">Sequence</h3>
+      <ol id="seqList" class="seq-list"></ol>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="btn-row">
+        <button id="prevBtn" class="ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          Prev
+        </button>
+        <button id="playBtn" class="primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          <span id="playLabel">Start flow</span>
+        </button>
+        <button id="nextBtn" class="ghost">
+          Next
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+      <label class="ctl">
+        <span>Hold per pose <b id="holdVal">30s</b></span>
+        <input id="holdSec" type="range" min="10" max="90" step="5" value="30" aria-label="Seconds per pose">
+      </label>
+      <label class="ctl check">
+        <input id="autoAdvance" type="checkbox" checked>
+        <span>Auto-advance with chime</span>
+      </label>
+      <button id="resetBtn" class="ghost small">Reset flow</button>
+    </section>
+  </div>
+<script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Localization Previewer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+    <div><h1>Localization Previewer</h1><p>Pseudolocalization for layout testing</p></div>
+  </header>
+  <main>
+    <div class="fake-strip">⚠ FAKE TEXT — transformed strings are for layout testing only. Not real translation.</div>
+    <section class="glass card">
+      <label class="fld" for="input">UI strings (one per line)
+        <textarea id="input" rows="5" placeholder="Add to cart&#10;Free shipping on orders over $50&#10;Your session expires in 5 minutes"></textarea>
+      </label>
+      <div class="btn-row">
+        <button id="grab" class="ghost">Grab from page</button>
+        <button id="samples" class="ghost">Samples</button>
+        <button id="go" class="primary">Transform</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Transform options</h2>
+      <label class="check"><input type="checkbox" id="optAccent" checked> Accented characters</label>
+      <label class="check"><input type="checkbox" id="optExpand" checked> Length expansion</label>
+      <label class="check"><input type="checkbox" id="optBrackets" checked> Bracket markers <code>[!!! … !!!]</code></label>
+      <label class="fld small">Expansion
+        <select id="optRatio">
+          <option value="1.3">+30%</option>
+          <option value="1.4" selected>+40% (typical German)</option>
+          <option value="1.6">+60% (stress test)</option>
+        </select>
+      </label>
+    </section>
+    <section class="glass card" id="resultsCard" hidden>
+      <div class="res-head">
+        <h2>Preview</h2>
+        <button id="copyAll" class="ghost sm">Copy all</button>
+      </div>
+      <div id="results"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

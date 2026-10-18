@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vocab Quiz Generator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="bar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+  <h1>Vocab Quiz Generator</h1>
+</header>
+
+<section class="notice">
+  Generates quizzes from <b>your text</b> — blank-out &amp; word-matching,
+  scored. Heuristic — <b>not AI comprehension</b>. Fully local.
+</section>
+
+<!-- Build view -->
+<div id="viewBuild">
+  <label class="lbl">Paste reading text</label>
+  <textarea id="txt" placeholder="Paste the passage your quiz should come from…"></textarea>
+  <div class="row">
+    <label class="lbl">Questions <input id="numQ" type="number" min="2" max="20" value="8"></label>
+  </div>
+  <button id="gen" class="primary">Generate quiz</button>
+  <div id="genErr" class="err" hidden></div>
+</div>
+
+<!-- Quiz view -->
+<div id="viewQuiz" hidden>
+  <div class="qhead">
+    <span id="qCount"></span>
+    <button id="quit" class="ghost">New text</button>
+  </div>
+  <div id="qWrap"></div>
+  <button id="score" class="primary">Check score</button>
+  <div id="result" class="result" hidden></div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

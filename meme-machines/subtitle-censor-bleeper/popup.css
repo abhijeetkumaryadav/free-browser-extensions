@@ -1,0 +1,102 @@
+/* BleepBox — deep-dark glassmorphism, single red accent (#ef4444). */
+:root {
+  --accent: #ef4444;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .08);
+  --text: #e8e8ec;
+  --muted: #9a9aa5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Inter, sans-serif;
+  padding: 16px;
+}
+
+.app-header { margin-bottom: 14px; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo .lucide { width: 20px; height: 20px; color: var(--accent); }
+.logo h1 { font-size: 16px; font-weight: 700; letter-spacing: .2px; }
+.tagline { color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+.panel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.panel-head h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+.hint { font-size: 11px; color: var(--muted); }
+
+textarea, input[type="text"], select {
+  width: 100%;
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 8px 10px;
+  font: inherit;
+  resize: vertical;
+}
+textarea:focus, input:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+select { padding: 7px 8px; }
+
+.row { display: flex; gap: 8px; margin-top: 8px; }
+.row .field { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.row .field span { font-size: 11px; color: var(--muted); }
+.row input[type="text"] { flex: 1; }
+
+.actions { display: flex; gap: 8px; margin-top: 10px; }
+
+.primary-btn {
+  flex: 1;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--accent); color: #fff; border: none; border-radius: 8px;
+  padding: 9px 12px; font: inherit; font-weight: 600; cursor: pointer;
+}
+.primary-btn:hover { filter: brightness(1.1); }
+.ghost-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.06); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 10px; font: inherit; font-size: 12px; cursor: pointer;
+}
+.ghost-btn:hover { background: rgba(255,255,255,.1); }
+.ghost-btn .lucide, .primary-btn .lucide { width: 14px; height: 14px; }
+
+.chip {
+  background: rgba(239, 68, 68, .15); color: var(--accent);
+  border: 1px solid rgba(239, 68, 68, .35);
+  font-size: 11px; font-weight: 600; border-radius: 999px; padding: 2px 9px;
+}
+
+.word-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 96px; overflow-y: auto; }
+.word-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--border);
+  border-radius: 999px; padding: 3px 6px 3px 10px; font-size: 12px;
+}
+.word-tag.custom { border-color: rgba(239, 68, 68, .4); }
+.word-tag button {
+  background: none; border: none; color: var(--muted); cursor: pointer;
+  font-size: 13px; line-height: 1; padding: 2px;
+}
+.word-tag button:hover { color: var(--accent); }
+.empty-note { color: var(--muted); font-size: 12px; }
+
+.link-btn {
+  background: none; border: none; color: var(--muted); cursor: pointer;
+  font: inherit; font-size: 11px; text-decoration: underline; margin-top: 8px;
+}
+.link-btn:hover { color: var(--accent); }
+
+.disclaimer { font-size: 11px; color: var(--muted); text-align: center; padding: 4px 8px 8px; }

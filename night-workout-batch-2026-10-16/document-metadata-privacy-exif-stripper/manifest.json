@@ -1,0 +1,22 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "Strip EXIF/metadata from local images by re-encoding them via canvas. Shows before/after sizes and whether EXIF was detected. Images only \u2014 not documents.",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "MetaStrip \u2014 EXIF Metadata Remover",
+  "permissions": [
+    "storage"
+  ],
+  "version": "1.0.1"
+}

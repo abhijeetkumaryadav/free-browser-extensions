@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inversion &amp; Smog Guide</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8l14 2"/><path d="M4 14l16 2"/><path d="M6 20l12-1"/><circle cx="18" cy="6" r="2.5"/></svg>
+    <div>
+      <h1>Inversion &amp; Smog Guide</h1>
+      <p class="sub">Temperature inversions · Lapse rates · Smog trapping</p>
+    </div>
+  </header>
+
+  <div class="banner">Educational only — your notes. <strong>Not live data.</strong> No air-quality data is fetched.</div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="learn">Learn</button>
+    <button class="tab" data-tab="log">My Log <span id="obsCount" class="count">0</span></button>
+  </nav>
+
+  <!-- Learn tab -->
+  <section id="tab-learn" class="panel">
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 17h18"/><path d="M6 17c0-4 2.5-6 6-6s6 2 6 6"/><path d="M12 11V5"/></svg> What is an inversion?</h2>
+      <p>Normally air <strong>cools with height</strong>. In an <strong>inversion</strong>, a layer of warm air sits above cooler air near the ground — the temperature rises instead of falling. The warm lid acts like a ceiling.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20l6-8 4 5 6-9"/></svg> Lapse rates</h2>
+      <p>The <strong>lapse rate</strong> is how fast temperature changes with height. Positive lapse = normal cooling (~6.5 °C/km). <strong>Negative lapse = inversion.</strong> When the rate flips near the surface, pollution has nowhere to rise.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17.5 16a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.5 1.5A4 4 0 0 0 6.5 16h11z"/><path d="M12 12v5"/></svg> Why smog gets trapped</h2>
+      <p>Warm air is lighter — it won't sink through the warm lid. Traffic exhaust and haze stay <strong>under the inversion</strong>, concentrating near the ground. Valleys and clear, calm nights make inversions stronger; sunshine usually breaks them.</p>
+    </div>
+    <div class="lesson">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Remember</h2>
+      <p>This guide teaches concepts only. It measures nothing about the air above you — use official air-quality sources for real decisions.</p>
+    </div>
+  </section>
+
+  <!-- Log tab: observation log -->
+  <section id="tab-log" class="panel hidden">
+    <div class="stats">
+      <div class="stat"><span id="statCount">0</span><label>observations</label></div>
+      <div class="stat"><span id="statAvg">—</span><label>avg haze (7d)</label></div>
+      <div class="stat"><span id="statLast">—</span><label>latest</label></div>
+    </div>
+    <form id="obsForm" class="form" autocomplete="off">
+      <div class="row">
+        <select id="obsLevel" aria-label="Haze level">
+          <option value="0">0 — Clear</option>
+          <option value="1">1 — Slight haze</option>
+          <option value="2">2 — Noticeable</option>
+          <option value="3">3 — Thick</option>
+          <option value="4">4 — Very thick</option>
+          <option value="5">5 — Can't see far</option>
+        </select>
+        <select id="obsSky" aria-label="Sky">
+          <option value="clear">Clear sky</option>
+          <option value="partly">Partly cloudy</option>
+          <option value="overcast">Overcast</option>
+          <option value="fog">Foggy</option>
+        </select>
+      </div>
+      <textarea id="obsNotes" maxlength="500" rows="2" placeholder="Notes — e.g. brown layer over the valley at dawn..."></textarea>
+      <button type="submit" class="btn">Log observation</button>
+    </form>
+    <input id="search" class="search" placeholder="Search notes…" autocomplete="off">
+    <ul id="obsList" class="list"></ul>
+    <button id="clearAll" class="link danger">Clear all observations</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

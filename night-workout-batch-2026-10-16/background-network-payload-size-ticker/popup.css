@@ -1,0 +1,52 @@
+/* Deep-dark glassmorphism, one accent: cyan #22d3ee. */
+:root { --accent: #22d3ee; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px; max-height: 560px; overflow-y: auto;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px; color: #e8eaf0;
+  background: rgba(18, 18, 24, 0.96);
+  padding: 16px;
+}
+header { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+h1 { font-size: 16px; font-weight: 650; }
+.sub { font-size: 11px; color: #9aa0b4; margin-top: 2px; word-break: break-all; }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 14px;
+  font-size: 11.5px; line-height: 1.45; color: #c6cbd8;
+}
+.notice svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px; color: var(--accent); }
+.totals { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px; padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.stat .label { font-size: 10.5px; color: #9aa0b4; text-transform: uppercase; letter-spacing: 0.4px; }
+.stat .value { font-size: 17px; font-weight: 700; }
+.stat.down .value { color: var(--accent); }
+.stat.up .value { color: #a78bfa; }
+.row-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+h2 { font-size: 13px; font-weight: 650; }
+.ghost {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; color: #c6cbd8; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 8px;
+  padding: 5px 10px; font-size: 12px;
+}
+.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.ghost svg { width: 13px; height: 13px; }
+.hosts { display: flex; flex-direction: column; gap: 10px; }
+.empty { color: #9aa0b4; font-size: 12px; line-height: 1.5; }
+.host-row { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 8px 10px; }
+.host-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 5px; }
+.host-name { font-weight: 600; font-size: 12px; word-break: break-all; }
+.host-total { color: var(--accent); font-weight: 700; font-size: 12px; flex-shrink: 0; }
+.bar { height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; margin-bottom: 5px; }
+.fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.host-meta { font-size: 11px; color: #9aa0b4; }

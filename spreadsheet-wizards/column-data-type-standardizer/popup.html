@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>ColumnClean</title>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18"/><path d="M16 3v18"/><path d="M3 8h5"/><path d="M3 16h5"/><path d="M16 8h5"/><path d="M16 16h5"/></svg>
+    <div>
+      <h1>ColumnClean</h1>
+      <p>CSV column data standardizer</p>
+    </div>
+  </div>
+  <button id="clearBtn" class="ghost" title="Clear everything">Clear</button>
+</header>
+
+<main>
+  <section class="panel" id="stepData">
+    <label class="fld">
+      <span>Paste CSV data <em>(header row required)</em></span>
+      <textarea id="csvIn" rows="4" spellcheck="false" placeholder="name,joined,amount&#10;Ana,12/03/2024,$1,234.50&#10;bob,2024-3-5,€900"></textarea>
+    </label>
+    <button id="loadBtn" class="primary">Load data</button>
+  </section>
+
+  <section class="panel hidden" id="stepWork">
+    <div class="row">
+      <label class="fld grow">
+        <span>Column</span>
+        <select id="colSel"></select>
+      </label>
+      <label class="chk"><input type="checkbox" id="hasHeader" checked> Header row</label>
+    </div>
+
+    <span class="groupLabel">Transformations <em>(applied in order)</em></span>
+    <div class="xforms">
+      <label class="chk"><input type="checkbox" class="xf" data-xf="trim" checked> Trim whitespace</label>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="caseUpper"> UPPERCASE</label>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="caseLower"> lowercase</label>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="caseTitle"> Title Case</label>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="date"> Normalize dates →</label>
+      <select id="dateFmt">
+        <option value="iso">YYYY-MM-DD</option>
+        <option value="dmy">DD/MM/YYYY</option>
+        <option value="mdy">MM/DD/YYYY</option>
+        <option value="dmytext">12 Mar 2024</option>
+      </select>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="num"> Normalize numbers</label>
+      <label class="chk"><input type="checkbox" class="xf" data-xf="dedup"> Remove duplicate rows <em>(by this column)</em></label>
+    </div>
+    <label class="chk dayfirst"><input type="checkbox" id="dayFirst" checked> Interpret ambiguous dates as day-first (12/03 = 12 Mar)</label>
+
+    <div id="stats" class="stats"></div>
+
+    <span class="groupLabel">Preview <em>(first 20 rows, changes highlighted)</em></span>
+    <div class="preview" id="preview"><table><tbody id="previewBody"></tbody></table></div>
+
+    <div class="actions">
+      <button id="downloadBtn" class="primary">Download cleaned CSV</button>
+      <button id="copyBtn" class="ghost">Copy</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>All processing on-device.</span>
+  <span id="rowCount"></span>
+</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

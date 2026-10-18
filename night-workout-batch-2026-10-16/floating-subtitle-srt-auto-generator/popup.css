@@ -1,0 +1,142 @@
+/* floating-subtitle-srt-auto-generator — popup.css
+   Deep-dark glassmorphism, 380px popup, one vibrant accent (amber). */
+
+:root {
+  --accent: #fbbf24;            /* vibrant amber */
+  --bg-0: #0d0d12;
+  --bg-1: rgba(20, 20, 26, 0.72);
+  --line: rgba(255, 255, 255, 0.08);
+  --txt: #f4f4f6;
+  --mut: #a7a7b3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 600px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg-0);
+  color: var(--txt);
+}
+
+.shell {
+  background: var(--bg-1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+/* ---------- header ---------- */
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand-ico { width: 32px; height: 32px; color: var(--accent); flex: none; }
+h1 { font-size: 17px; font-weight: 650; }
+.sub { font-size: 12px; color: var(--mut); margin-top: 2px; }
+
+/* ---------- notice ---------- */
+.notice {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--mut);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.notice strong { color: var(--txt); }
+
+/* ---------- editor ---------- */
+.editor {
+  display: flex; flex-direction: column; gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+label { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: var(--mut); }
+input, textarea {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--txt);
+  font-size: 13px;
+  padding: 9px 10px;
+  width: 100%;
+  font-family: inherit;
+  resize: vertical;
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.hint { font-size: 11px; color: var(--mut); }
+.hint code { color: var(--accent); font-size: 11px; }
+.form-error { font-size: 12px; color: #f87171; }
+
+.row-btns { display: flex; gap: 8px; }
+
+/* ---------- buttons ---------- */
+.primary, .secondary, .ghost {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+.primary { background: var(--accent); color: #1d1305; flex: 1; }
+.primary:hover { opacity: 0.92; }
+.primary:active { transform: scale(0.98); }
+.secondary {
+  background: rgba(251, 191, 36, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+.secondary:hover { background: rgba(251, 191, 36, 0.22); }
+.ghost { background: transparent; color: var(--mut); border: 1px solid var(--line); }
+.ghost:hover { color: var(--txt); }
+
+/* ---------- cue list ---------- */
+.cues-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.cues-head h2 { font-size: 14px; font-weight: 650; }
+.count {
+  font-size: 11px; background: var(--accent); color: #1d1305;
+  border-radius: 999px; padding: 2px 8px; margin-left: 4px; font-weight: 700;
+}
+.cues-actions { display: flex; gap: 8px; }
+
+.cuelist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.cue {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.cue.editing { border-color: var(--accent); }
+.cue-top { display: flex; align-items: center; gap: 8px; }
+.cue-num {
+  font-size: 11px; font-weight: 700; color: #1d1305;
+  background: var(--accent); border-radius: 6px; padding: 2px 8px; flex: none;
+}
+.cue-time { font-size: 12px; color: var(--mut); font-variant-numeric: tabular-nums; }
+.cue-text { font-size: 13px; line-height: 1.45; white-space: pre-wrap; word-break: break-word; }
+.cue-actions { display: flex; gap: 6px; }
+.mini {
+  font-size: 11px; font-weight: 600;
+  background: transparent; color: var(--mut);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 4px 9px; cursor: pointer;
+}
+.mini:hover { color: var(--txt); border-color: var(--accent); }
+.mini.danger:hover { color: #f87171; border-color: #f87171; }
+
+.empty-cues { font-size: 12px; color: var(--mut); text-align: center; padding: 12px 0; }

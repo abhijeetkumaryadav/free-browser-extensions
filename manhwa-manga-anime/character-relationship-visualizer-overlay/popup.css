@@ -1,0 +1,85 @@
+/* CharMap — deep-dark glassmorphism, one accent: pink #ec4899 */
+:root{
+  --accent:#ec4899; --bg:#101014; --panel:rgba(20,20,26,.72);
+  --line:rgba(255,255,255,.08); --txt:#f2f2f5; --muted:#a3a3ad;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;background:var(--bg);color:var(--txt);
+  font:13px/1.5 -apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+.app{padding:14px;display:flex;flex-direction:column;gap:12px}
+
+/* header */
+.bar{display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;border-radius:10px;flex:none;
+  background:linear-gradient(135deg,#ec4899,#8b5cf6);
+  display:flex;align-items:center;justify-content:center}
+.logo svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round}
+.titles h1{font-size:15px;font-weight:650}
+.titles p{font-size:11px;color:var(--muted)}
+.map-select{margin-left:auto;background:var(--panel);border:1px solid var(--line);
+  color:var(--txt);border-radius:8px;padding:6px 8px;font-size:12px;max-width:130px;
+  backdrop-filter:blur(12px)}
+
+/* tabs */
+.tabs{display:flex;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;padding:3px;backdrop-filter:blur(12px)}
+.tab{flex:1;background:none;border:none;color:var(--muted);font-size:12px;
+  padding:7px 0;border-radius:7px;cursor:pointer}
+.tab.active{background:rgba(236,73,153,.16);color:var(--accent);font-weight:600}
+.pane{display:none;flex-direction:column;gap:10px}
+.pane.active{display:flex}
+
+/* cards */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:12px;backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:10px}
+.card h2{font-size:12px;font-weight:650;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+label{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted)}
+input,select{background:rgba(255,255,255,.05);border:1px solid var(--line);
+  color:var(--txt);border-radius:8px;padding:8px 10px;font-size:13px;width:100%}
+input[type=color]{padding:2px;height:36px;cursor:pointer}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.btn{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);
+  border-radius:8px;padding:8px 12px;font-size:12.5px;cursor:pointer;text-align:center}
+.btn:hover{border-color:rgba(255,255,255,.2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.danger{color:#fb7185}
+.btn.file{cursor:pointer;display:block}
+.muted{color:var(--muted)}.small{font-size:11px}
+
+/* canvas */
+.canvas-wrap{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;backdrop-filter:blur(12px);position:relative}
+#graph{display:block;cursor:grab;touch-action:none}
+.hint{position:absolute;left:0;right:0;bottom:6px;text-align:center;
+  font-size:10.5px;color:var(--muted);pointer-events:none}
+.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:16px;height:0;border-top:2px solid;display:inline-block}
+
+/* detail card */
+.detail-head{display:flex;align-items:center;gap:8px}
+.detail-head strong{font-size:13.5px}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.icon-btn{margin-left:auto;background:none;border:none;color:var(--muted);
+  font-size:16px;cursor:pointer;line-height:1}
+.conn-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.conn-list li{background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:8px;padding:7px 9px;font-size:12px;cursor:pointer}
+.conn-list li:hover{border-color:var(--accent)}
+.conn-list .rtype{color:var(--accent);font-weight:600}
+
+/* lists */
+.list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.list li{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:9px 11px;backdrop-filter:blur(12px);display:flex;align-items:center;gap:9px}
+.list .grow{flex:1;min-width:0}
+.list .grow strong{font-size:13px;display:block}
+.list .grow span{font-size:11px;color:var(--muted)}
+.mini{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--txt);
+  border-radius:7px;padding:5px 9px;font-size:11.5px;cursor:pointer}
+.mini:hover{border-color:var(--accent)}
+.mini.danger{color:#fb7185}
+.badge{font-size:10.5px;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.07);
+  color:var(--muted)}

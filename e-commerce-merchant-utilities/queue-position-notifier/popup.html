@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Queue Position Notifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+    <div><h1>Drop Notifier</h1><p id="count">No reminders set</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>New reminder</h2>
+      <label class="fld">Page
+        <input id="fName" maxlength="80" placeholder="Product name">
+      </label>
+      <label class="fld">Goes live at
+        <input id="fWhen" type="datetime-local">
+      </label>
+      <button id="addBtn" class="primary">Set reminder</button>
+      <p class="note">Uses the current tab's page. You'll get a notification when it's time.</p>
+    </section>
+    <section class="glass card">
+      <h2>Reminders</h2>
+      <div id="list"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

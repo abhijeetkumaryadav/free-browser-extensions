@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="title-row">
+    <svg class="app-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 10h16M4 14h10"/><path d="m14 20 2 2 4-4"/></svg>
+    <h1>Style Lint</h1>
+  </div>
+  <p class="honest">Rule-based checks only — <strong>not AI</strong>, no grammar engine. It flags surface patterns; you decide.</p>
+</header>
+
+<main>
+  <label class="lbl" for="text">Text to check</label>
+  <textarea id="text" rows="7" placeholder="Paste your draft here…"></textarea>
+
+  <div class="row">
+    <button id="checkBtn" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Check text
+    </button>
+    <button id="activeBtn" class="ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Grab active input
+    </button>
+  </div>
+
+  <div id="summary" class="summary hidden"></div>
+  <ul id="flags" class="flags"></ul>
+
+  <section class="rules">
+    <h2>Bundled rules</h2>
+    <ul id="ruleList"></ul>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

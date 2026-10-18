@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>StepLog</title>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>StepLog</h1>
+      <p class="subtitle">Browsing step recorder</p>
+    </div>
+    <span id="recDot" class="rec-dot hidden"></span>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+    </svg>
+    <span>Records only after you press <b>Start</b>. Password values are never logged. Everything stays on this device.</span>
+  </div>
+
+  <!-- Controls -->
+  <section class="panel">
+    <div class="row">
+      <button id="toggle" class="btn primary">● Start recording</button>
+    </div>
+    <div id="status" class="status">Not recording</div>
+  </section>
+
+  <!-- Session list view -->
+  <section class="panel" id="listView">
+    <div class="label">Sessions</div>
+    <div id="sessionList" class="session-list"></div>
+    <div class="row">
+      <button id="clearAll" class="btn ghost danger">Clear all</button>
+    </div>
+  </section>
+
+  <!-- Detail view -->
+  <section class="panel hidden" id="detailView">
+    <div class="detail-head">
+      <button id="back" class="btn ghost small">← Back</button>
+      <span id="detailTitle" class="detail-title">Session</span>
+    </div>
+    <div class="row">
+      <button id="exportJson" class="btn">Export JSON</button>
+      <button id="exportMd" class="btn">Export Markdown</button>
+    </div>
+    <div id="timeline" class="timeline"></div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

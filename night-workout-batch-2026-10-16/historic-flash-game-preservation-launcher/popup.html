@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Flash Game Shelf</title>
+</head>
+<body>
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+  <p><strong>Your list — links only.</strong> No emulation here; links open only when you click them.</p>
+</div>
+<header>
+  <h1>Flash Game Shelf</h1>
+  <p class="sub">Preservation links, personal</p>
+</header>
+<section class="card">
+  <h2>Add a game</h2>
+  <input id="fName" placeholder="Game name *" maxlength="80">
+  <input id="fUrl" placeholder="Archive.org link *" maxlength="300">
+  <textarea id="fNote" placeholder="Your notes — where you played it, tips…" maxlength="1000"></textarea>
+  <button id="btnAdd">Shelve it 🕹</button>
+</section>
+<section class="card">
+  <div class="row"><h2>Games <span id="count">(0)</span></h2></div>
+  <input id="search" placeholder="Search name or notes…">
+  <div id="list" class="list"></div>
+  <button id="btnClear" class="ghost">Clear shelf</button>
+</section>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referrer Policy Masker</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header glass">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          <line x1="4" y1="4" x2="20" y2="20"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Referrer Masker</h1>
+        <p class="subtitle">Strict referrer policy, enforced</p>
+      </div>
+      <label class="switch" title="Enable / disable masking">
+        <input type="checkbox" id="enabledToggle" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- Status -->
+    <section class="card glass">
+      <div class="status-row">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Loading…</span>
+      </div>
+      <p class="hint">When enabled, every page you visit gets a strict
+        <code>Referrer-Policy</code>, so sites learn less about where you came from.</p>
+    </section>
+
+    <!-- Mode -->
+    <section class="card glass">
+      <h2>Policy mode</h2>
+      <label class="radio-row">
+        <input type="radio" name="mode" value="strict" />
+        <div>
+          <span class="radio-title">No referrer</span>
+          <span class="radio-desc">Send no <code>Referer</code> header at all. Maximum privacy.</span>
+        </div>
+      </label>
+      <label class="radio-row">
+        <input type="radio" name="mode" value="origin" />
+        <div>
+          <span class="radio-title">Origin only</span>
+          <span class="radio-desc">Send just the domain (<code>https://example.com</code>), never the full URL.</span>
+        </div>
+      </label>
+    </section>
+
+    <!-- Counter -->
+    <section class="card glass">
+      <h2>Session activity</h2>
+      <div class="counter-row">
+        <div class="counter">
+          <span class="counter-value" id="requestCount">0</span>
+          <span class="counter-label">outgoing requests observed<br />while masking is on</span>
+        </div>
+        <button class="btn ghost" id="resetCounter">Reset</button>
+      </div>
+      <p class="hint">Counted passively from outgoing requests. Nothing is logged or sent anywhere.</p>
+    </section>
+
+    <footer class="footer">
+      <span>All on-device · fully reversible</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

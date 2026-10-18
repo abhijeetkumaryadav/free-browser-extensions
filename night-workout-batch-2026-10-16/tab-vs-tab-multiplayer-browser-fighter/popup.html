@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tab vs Tab Fighter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 9V5a2 2 0 0 0-4 0v8L7.6 10.6a2 2 0 0 0-2.8 2.8L10 18.6A6 6 0 0 0 14.3 20H15a5 5 0 0 0 5-5v-4a2 2 0 0 0-4 0"/><path d="M4 4l3 3M20 4l-3 3" opacity="0"/>
+      </svg>
+      <div>
+        <h1>Tab vs Tab Fighter</h1>
+        <p class="sub">2-player arena across two tabs</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+      </svg>
+      <span><strong>Same browser only.</strong> Both players open a tab on any page — fighters sync locally on your machine. <strong>NOT online multiplayer.</strong> The page itself is never modified; the arena is one removable overlay.</span>
+    </div>
+
+    <label class="field">
+      <span class="label">This tab plays as</span>
+      <div class="seg" id="roleSeg">
+        <button data-role="p1" class="active">Player 1 (blue)</button>
+        <button data-role="p2">Player 2 (red)</button>
+      </div>
+    </label>
+
+    <button id="joinBtn" class="primary">Join arena on this tab</button>
+    <button id="resetBtn" class="ghost">Reset arena scores</button>
+
+    <p class="hint">Move: A / D &middot; Jump: W &middot; Punch: J &middot; Kick: K &middot; Fireball: L &middot; Block: S &middot; Esc: leave</p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

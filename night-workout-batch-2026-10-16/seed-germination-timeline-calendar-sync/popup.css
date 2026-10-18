@@ -1,0 +1,100 @@
+/* Seed Timeline — deep-dark glassmorphism, one accent (#4ade80 green) */
+:root {
+  --accent: #4ade80;
+  --bg: #0d1117;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .08);
+  --text: #e8edf3;
+  --muted: #8b94a3;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  max-height: 600px;
+  overflow-y: auto;
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+}
+.topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 5;
+}
+.brand-ico { width: 28px; height: 28px; color: var(--accent); flex-shrink: 0; }
+.topbar h1 { font-size: 15px; font-weight: 650; letter-spacing: .2px; }
+.sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+main { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 12px; }
+.card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+.field-label { display: block; font-size: 11px; color: var(--muted); margin: 10px 0 6px; }
+.field-label:first-child { margin-top: 0; }
+select, input[type="date"] {
+  width: 100%; padding: 9px 10px; border-radius: 8px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--border);
+  color: var(--text); font-size: 13px; outline: none;
+}
+select:focus, input:focus { border-color: var(--accent); }
+select option { background: #151a22; }
+.row { display: flex; gap: 8px; margin-top: 12px; }
+.btn {
+  padding: 9px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: 1px solid transparent;
+}
+.btn.primary { background: var(--accent); color: #06280f; flex: 1; }
+.btn.primary:hover:not(:disabled) { filter: brightness(1.1); }
+.btn.primary:disabled { opacity: .4; cursor: not-allowed; }
+.btn.ghost { background: transparent; border-color: var(--border); color: var(--text); }
+.btn.ghost:hover { border-color: var(--accent); }
+.btn.small { padding: 7px 12px; font-size: 12px; flex: none; }
+h2 { font-size: 13px; font-weight: 650; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; margin: 10px 0 12px; }
+.fact { font-size: 12px; color: var(--muted); }
+.fact b { color: var(--text); font-weight: 600; }
+/* Timeline: horizontal milestone bar */
+.timeline { display: flex; align-items: flex-start; margin-top: 6px; }
+.milestone { flex: 1; text-align: center; position: relative; padding-top: 22px; }
+.milestone::before {
+  content: ""; position: absolute; top: 8px; left: 50%;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); transform: translateX(-50%);
+  box-shadow: 0 0 8px var(--accent);
+}
+.milestone::after {
+  content: ""; position: absolute; top: 13px; left: -50%; right: 50%;
+  height: 2px; background: var(--border);
+}
+.milestone:first-child::after { display: none; }
+.milestone .m-label { font-size: 11px; font-weight: 600; }
+.milestone .m-date { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.plan-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.count {
+  display: inline-block; min-width: 20px; text-align: center;
+  background: var(--accent); color: #06280f; border-radius: 10px;
+  font-size: 11px; font-weight: 700; padding: 1px 6px;
+}
+.plan-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.plan-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,255,255,.04); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px;
+}
+.plan-item .when { color: var(--muted); font-size: 11px; }
+.plan-item button {
+  background: transparent; border: none; color: var(--muted);
+  cursor: pointer; font-size: 14px; padding: 2px 4px;
+}
+.plan-item button:hover { color: #ff6b6b; }
+.muted { color: var(--muted); font-size: 12px; text-align: center; padding: 8px 0; }
+.disclaimer { color: var(--muted); font-size: 10.5px; line-height: 1.5; }

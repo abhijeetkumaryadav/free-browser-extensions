@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Query Privacy Scrubber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header glass">
+    <div class="brand">
+      <span class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7l7-4 7 4"/><path d="M3 13l2-2 2 2 2-2 2 2 2-2 2 2 2-2 2 2"/></svg>
+      </span>
+      <div>
+        <h1>Query Scrubber</h1>
+        <p class="sub">Tracking-parameter cleaner</p>
+      </div>
+    </div>
+    <label class="switch" title="Master on/off">
+      <input type="checkbox" id="masterToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="summary glass">
+    <div class="stat">
+      <span class="stat-num" id="statStripped">0</span>
+      <span class="stat-label">params stripped</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="statRules">0</span>
+      <span class="stat-label">active rules</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="statParams">0</span>
+      <span class="stat-label">params watched</span>
+    </div>
+  </section>
+
+  <section class="panel glass">
+    <div class="panel-title">Watched parameters</div>
+    <div id="paramList" class="chips"></div>
+    <div class="add-row">
+      <input id="newParam" type="text" placeholder="add param, e.g. ref" maxlength="40">
+      <button id="addParam" class="btn">Add</button>
+    </div>
+    <p class="hint">Tap a chip to remove it. Changes rebuild the rules instantly.</p>
+  </section>
+
+  <section class="panel glass">
+    <div class="panel-title">Test it</div>
+    <p class="hint" style="margin-bottom:8px">Paste a URL to preview the cleaned result:</p>
+    <div class="add-row">
+      <input id="testUrl" type="text" placeholder="https://example.com/?utm_source=x&id=1">
+      <button id="testBtn" class="btn">Clean</button>
+    </div>
+    <code id="testOut" class="test-out" hidden></code>
+  </section>
+
+  <footer class="footer">
+    <button id="resetDefaults" class="link-btn">Restore defaults</button>
+    <button id="resetStats" class="link-btn">Reset stats</button>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

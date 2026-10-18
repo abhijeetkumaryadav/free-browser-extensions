@@ -1,0 +1,130 @@
+/* Stumble Button — deep-dark glassmorphism, single retro-orange accent */
+:root {
+  --accent: #ff6b35;
+  --bg: #0c0c10;
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+  --danger: #ff5d5d;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 380px; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+}
+.app {
+  width: 380px;
+  padding: 16px;
+  background: rgba(20, 20, 26, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hdr { display: flex; align-items: center; gap: 12px; }
+.logo { width: 34px; height: 34px; color: var(--accent); flex-shrink: 0; }
+.hdr h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.2px; }
+.hdr .sub { color: var(--muted); font-size: 11px; }
+.scope-note {
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(255, 107, 53, 0.08);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.scope-note strong { color: var(--accent); }
+
+/* Big stumble button */
+.stumble-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 16px;
+  font-size: 18px; font-weight: 800; letter-spacing: 1px;
+  color: #14100c;
+  background: linear-gradient(135deg, var(--accent), #ffb35c);
+  border: none; border-radius: 14px; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.35);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.stumble-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(255, 107, 53, 0.45); }
+.stumble-btn:active { transform: translateY(1px) scale(0.99); }
+.stumble-btn svg { width: 22px; height: 22px; }
+.stumble-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+.row { display: flex; gap: 8px; align-items: flex-end; }
+.fld { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.fld span { font-size: 11px; color: var(--muted); }
+input[type="url"], input[type="text"], select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+select option { background: #1a1a20; }
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ghost-btn:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.3); }
+.accent-btn {
+  background: var(--accent);
+  border: none; color: #14100c;
+  border-radius: 8px; padding: 8px 14px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  white-space: nowrap;
+}
+.accent-btn:hover { filter: brightness(1.1); }
+
+.add-card, .list-card, .hist-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.add-card h2, .list-card h2, .hist-card h2 {
+  font-size: 13px; font-weight: 700;
+}
+.muted { color: var(--muted); font-weight: 400; font-size: 11px; }
+.err { color: var(--danger); font-size: 11px; }
+.hidden { display: none !important; }
+.empty { text-align: center; color: var(--muted); font-size: 12px; padding: 8px 0; }
+.count-line { font-size: 11px; color: var(--muted); }
+
+.site-list, .hist-list { list-style: none; display: flex; flex-direction: column; gap: 6px; max-height: 160px; overflow-y: auto; }
+.site-list li, .hist-list li {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px; padding: 7px 9px;
+}
+.site-info { flex: 1; min-width: 0; }
+.site-url { font-size: 12px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; text-decoration: none; }
+.site-url:hover { color: var(--accent); }
+.site-cat {
+  font-size: 10px; color: var(--accent);
+  background: rgba(255, 107, 53, 0.12);
+  border-radius: 10px; padding: 2px 8px;
+  flex-shrink: 0;
+}
+.del-btn {
+  background: transparent; border: none; color: var(--muted);
+  cursor: pointer; font-size: 15px; line-height: 1; padding: 2px 4px; flex-shrink: 0;
+}
+.del-btn:hover { color: var(--danger); }
+.hist-time { color: var(--muted); font-size: 10px; flex-shrink: 0; }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6l1.4 1.4m10 10 1.4 1.4m0-12.8-1.4 1.4M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="3.2"/></svg>
+    <div>
+      <h1>Calm Mode</h1>
+      <p class="sub">Content density attenuator</p>
+    </div>
+    <label class="switch" title="Toggle declutter for this tab">
+      <input type="checkbox" id="power">
+      <span class="track"><span class="knob"></span></span>
+    </label>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <span>Heuristic declutter — hides common ad/popup/sidebar patterns. Reversible; page DOM is never modified. Sizes approximate.</span>
+  </div>
+
+  <section class="card">
+    <label class="slider">Dim non-text areas
+      <input type="range" id="dim" min="0" max="100" value="0">
+      <span id="dimVal">0%</span>
+    </label>
+    <p class="hint">Fades images, video, embeds and navigation so text stands out.</p>
+  </section>
+
+  <section class="card">
+    <div class="statrow">
+      <div><span class="big" id="hiddenCount">–</span><span class="lbl">elements hidden</span></div>
+      <div><span class="big" id="tabState">off</span><span class="lbl">current tab</span></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span id="msg">Toggle to declutter this page.</span>
+    <button id="refresh" class="ghost">Re-scan</button>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

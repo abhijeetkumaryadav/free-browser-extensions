@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="reader.css">
+<title>CBZ Reader</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+    <span>CBZ Reader</span>
+  </div>
+  <label class="filebtn">Open .cbz<input type="file" id="file" accept=".cbz,.zip" hidden></label>
+  <div class="nav">
+    <button id="prev" title="Previous page">‹</button>
+    <span id="counter">–</span>
+    <button id="next" title="Next page">›</button>
+  </div>
+  <button id="fs" class="ghost" title="Toggle fullscreen">⛶</button>
+</header>
+<div class="honest">CBZ only — CBR/RAR files are not supported. Parsing happens entirely on your device; nothing is uploaded.</div>
+<main id="stage">
+  <div id="empty" class="empty">
+    <p>Choose a <b>.cbz</b> file to start reading.</p>
+    <p class="dim">Pages are extracted in the browser. Your page position is saved per file name.</p>
+  </div>
+  <img id="page" alt="Comic page" hidden>
+  <div id="err" class="err" hidden></div>
+</main>
+<footer class="thumbs" id="thumbs"></footer>
+<script src="reader.js"></script>
+</body>
+</html>

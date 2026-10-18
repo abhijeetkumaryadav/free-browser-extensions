@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ClaimGraph — Patent Claim Dependency Mapper</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><path d="M8 7.5l3 7.6M16 7.5l-3 7.6M8.6 6h6.8"/></svg>
+    </span>
+    <div class="brand-text">
+      <h1>ClaimGraph</h1>
+      <p>Patent claim dependency mapper</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel" id="inputPanel">
+      <label class="field-label" for="claimsInput">Claims text</label>
+      <textarea id="claimsInput" rows="7" placeholder="1. A device comprising…&#10;2. The device of claim 1, wherein…&#10;3. The device according to any of claims 1-2, further…" spellcheck="false"></textarea>
+      <div class="row">
+        <button id="mapBtn" class="btn primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><path d="M8 7.5l3 7.6M16 7.5l-3 7.6M8.6 6h6.8"/></svg>
+          Map dependencies
+        </button>
+        <button id="sampleBtn" class="btn ghost">Load sample</button>
+        <button id="clearBtn" class="btn ghost danger">Clear</button>
+      </div>
+      <p class="hint">Number each claim on its own line, e.g. <code>2. The widget of claim 1…</code>. References like “claim 3”, “claims 1–4” or “any of claims 2, 5” are detected automatically. Everything stays on-device.</p>
+    </section>
+
+    <section class="panel hidden" id="resultPanel">
+      <div class="stats">
+        <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">claims</span></div>
+        <div class="stat"><span class="stat-num indep" id="statIndep">0</span><span class="stat-label">independent</span></div>
+        <div class="stat"><span class="stat-num dep" id="statDep">0</span><span class="stat-label">dependent</span></div>
+        <div class="stat"><span class="stat-num warn" id="statDangling">0</span><span class="stat-label">dangling refs</span></div>
+      </div>
+
+      <div class="legend">
+        <span class="chip indep"><i></i>Independent</span>
+        <span class="chip dep"><i></i>Dependent</span>
+        <span class="chip dangling"><i></i>Dangling ref</span>
+        <span class="chip sel"><i></i>Selected chain</span>
+      </div>
+
+      <div class="graph-wrap">
+        <canvas id="graph" width="348" height="320" aria-label="Claim dependency graph"></canvas>
+      </div>
+      <div class="row">
+        <button id="backBtn" class="btn ghost">← Edit claims</button>
+        <button id="resetSelBtn" class="btn ghost hidden">Reset selection</button>
+      </div>
+
+      <div class="detail hidden" id="detailCard">
+        <h2 id="detailTitle">Claim</h2>
+        <p id="detailText"></p>
+        <div class="detail-row"><span>Depends on:</span><b id="detailDeps">—</b></div>
+        <div class="detail-row"><span>Depended on by:</span><b id="detailDependents">—</b></div>
+      </div>
+
+      <div class="warn-box hidden" id="danglingBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        <p id="danglingText"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Off-line parser · <span id="footCount"></span></p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

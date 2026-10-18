@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manual Redaction Tool</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18" opacity=".45"/></svg>
+    </span>
+    <div>
+      <h1>Manual Redaction Tool</h1>
+      <p class="sub">Pixelate regions of a local image</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Manual redaction only — you draw the boxes. Not face detection.</span>
+  </div>
+
+  <label class="filebtn">
+    <input type="file" id="fileInput" accept="image/*" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+    Load a local image
+  </label>
+
+  <div class="canvaswrap" id="canvasWrap">
+    <canvas id="stage" width="348" height="200"></canvas>
+    <div class="hint" id="emptyHint">No image loaded yet — load an image, then drag on it to mark regions.</div>
+  </div>
+
+  <div class="controls">
+    <label class="field">
+      <span>Pixel size</span>
+      <input type="range" id="pixelSize" min="4" max="32" step="2" value="12">
+      <b id="pixelVal">12px</b>
+    </label>
+    <div class="btnrow">
+      <button id="undoBtn" class="ghost" title="Remove the last box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-15-6.7L3 13"/></svg>
+        Undo box
+      </button>
+      <button id="clearBtn" class="ghost">Clear all</button>
+    </div>
+    <button id="downloadBtn" class="primary" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+      Pixelate &amp; download
+    </button>
+    <p class="count"><span id="boxCount">0</span> region(s) marked</p>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SnippetVault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+      <div>
+        <h1>SnippetVault</h1>
+        <p class="tagline">Local snippet library — not cloud sync</p>
+      </div>
+    </div>
+    <button id="btnAdd" class="btn accent" title="New snippet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      New
+    </button>
+  </header>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input id="search" type="text" placeholder="Search name, tag or code…">
+    </div>
+  </div>
+
+  <!-- Editor panel (hidden by default) -->
+  <section id="editor" class="panel hidden">
+    <h2 id="editorTitle">New snippet</h2>
+    <label class="field">
+      <span>Name</span>
+      <input id="fldName" type="text" placeholder="e.g. debounce helper" maxlength="80">
+    </label>
+    <div class="row">
+      <label class="field grow">
+        <span>Language</span>
+        <select id="fldLang">
+          <option>javascript</option><option>python</option><option>html</option>
+          <option>css</option><option>json</option><option>sql</option>
+          <option>bash</option><option>markdown</option><option>typescript</option>
+          <option>java</option><option>go</option><option>rust</option>
+          <option>php</option><option>ruby</option><option>yaml</option>
+          <option>text</option>
+        </select>
+      </label>
+      <label class="field grow">
+        <span>Tags (comma separated)</span>
+        <input id="fldTags" type="text" placeholder="util, dom" maxlength="120">
+      </label>
+    </div>
+    <label class="field">
+      <span>Code / text</span>
+      <textarea id="fldBody" rows="8" placeholder="Paste your snippet here…" spellcheck="false"></textarea>
+    </label>
+    <div class="actions">
+      <button id="btnCancel" class="btn ghost">Cancel</button>
+      <button id="btnSave" class="btn accent">Save snippet</button>
+    </div>
+  </section>
+
+  <!-- Share-prep modal -->
+  <div id="shareModal" class="modal hidden">
+    <div class="modal-card">
+      <h2>Share prep</h2>
+      <p class="muted">SnippetVault is <strong>local-only</strong> — it cannot post to the cloud.
+        Copy the formatted block below and paste it manually at
+        <code>gist.github.com</code> or <code>pastebin.com</code>.</p>
+      <textarea id="shareText" rows="8" readonly spellcheck="false"></textarea>
+      <div class="actions">
+        <button id="btnShareClose" class="btn ghost">Close</button>
+        <button id="btnShareCopy" class="btn accent">Copy block</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="list" class="list"></main>
+
+  <footer class="footbar">
+    <span id="count" class="muted">0 snippets</span>
+    <div class="foot-actions">
+      <button id="btnExport" class="btn ghost sm" title="Download all snippets as JSON">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Export
+      </button>
+      <button id="btnImport" class="btn ghost sm" title="Import snippets from a JSON file">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+        Import
+      </button>
+      <input id="fileImport" type="file" accept="application/json,.json" class="hidden">
+    </div>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

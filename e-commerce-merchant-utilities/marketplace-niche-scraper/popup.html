@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketplace Niche Scraper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <div><h1>Niche Scraper</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="summary" class="glass card" hidden>
+      <div class="stats">
+        <div><span>Listings</span><b id="stCount">—</b></div>
+        <div><span>Price range</span><b id="stRange">—</b></div>
+        <div><span>Avg rating</span><b id="stRating">—</b></div>
+      </div>
+      <button id="csv" class="ghost">Export CSV</button>
+    </section>
+    <section id="tableCard" class="glass card" hidden>
+      <table id="tbl">
+        <thead><tr>
+          <th data-k="title">Title <span class="arr"></span></th>
+          <th data-k="price" class="num">Price <span class="arr"></span></th>
+          <th data-k="rating" class="num">Rating <span class="arr"></span></th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="note">Best-effort extraction from visible listings. Scroll the page to load more, then scan again.</p>
+    </section>
+    <div id="empty" class="empty">Open a marketplace search or category page, then hit <b>Scan page</b>.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG Code Optimizer Grabber</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <div><h1>SVG Grabber</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan</button>
+  </header>
+  <main>
+    <section id="listView">
+      <div id="list"></div>
+      <div id="empty" class="empty">Hit <b>Scan</b> to find inline SVGs on this page.</div>
+    </section>
+    <section id="detailView" hidden>
+      <button id="back" class="ghost">← All SVGs</button>
+      <div class="glass card">
+        <div class="prev-wrap"><img id="preview" alt="SVG preview"></div>
+        <div class="stats">
+          <div><span>Before</span><b id="stBefore">—</b></div>
+          <div><span>After</span><b id="stAfter">—</b></div>
+          <div class="good"><span>Saved</span><b id="stSaved">—</b></div>
+        </div>
+        <textarea id="code" readonly spellcheck="false"></textarea>
+        <div class="btn-row">
+          <button id="copyBtn" class="primary">Copy code</button>
+          <button id="dlBtn" class="ghost">Download .svg</button>
+        </div>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

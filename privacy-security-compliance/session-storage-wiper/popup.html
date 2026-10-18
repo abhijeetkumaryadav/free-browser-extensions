@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Storage Wiper</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header glass">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18"/>
+          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
+          <line x1="10" y1="11" x2="10" y2="17"/>
+          <line x1="14" y1="11" x2="14" y2="17"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Storage Wiper</h1>
+        <p class="subtitle" id="siteLine">Current site: …</p>
+      </div>
+    </header>
+
+    <!-- Current site -->
+    <section class="card glass">
+      <h2>Wipe this site</h2>
+      <div class="origin" id="originLabel">—</div>
+      <div class="types">
+        <label class="check"><input type="checkbox" data-type="cookies" checked /><span>Cookies <em id="cookieCount"></em></span></label>
+        <label class="check"><input type="checkbox" data-type="cache" checked /><span>Cache</span></label>
+        <label class="check"><input type="checkbox" data-type="localStorage" checked /><span>Local storage</span></label>
+        <label class="check"><input type="checkbox" data-type="indexedDB" /><span>IndexedDB</span></label>
+        <label class="check"><input type="checkbox" data-type="serviceWorkers" /><span>Service workers</span></label>
+        <label class="check"><input type="checkbox" data-type="cacheStorage" /><span>Cache storage</span></label>
+      </div>
+      <button class="btn danger" id="wipeSiteBtn">Wipe selected data</button>
+      <p class="hint">Two-step confirm. Only the checked data types on this site are removed.
+        Session storage dies with its tabs — closing the tab clears it.</p>
+    </section>
+
+    <!-- All sites -->
+    <section class="card glass">
+      <h2>Wipe all sites</h2>
+      <p class="hint" style="margin:0 0 10px">Removes the checked data types across every site.
+        This signs you out almost everywhere.</p>
+      <button class="btn danger-outline" id="wipeAllBtn">Wipe all sites…</button>
+    </section>
+
+    <div class="result glass" id="result" hidden></div>
+
+    <footer class="footer"><span>Strictly user-initiated · all on-device</span></footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

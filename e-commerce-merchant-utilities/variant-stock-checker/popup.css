@@ -1,0 +1,29 @@
+:root {
+  --bg: #0e0e13; --glass: rgba(22,22,30,.72); --glass-border: rgba(255,255,255,.08);
+  --ink: #f4f6fb; --muted: #9aa3b5; --accent: #ff4d2e; --accent-soft: rgba(255,77,46,.13);
+  --ok: #4ade80; --low: #f5a623; --out: #ef4444;
+}
+* { box-sizing: border-box; }
+body { width: 380px; max-height: 600px; margin: 0; background: var(--bg); color: var(--ink);
+  font: 13px/1.5 -apple-system,"Segoe UI",Roboto,Inter,sans-serif; display: flex; flex-direction: column; }
+.glass { background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); }
+header { display: flex; align-items: center; gap: 12px; padding: 16px; border-bottom: 1px solid var(--glass-border); border-left:0; border-right:0; border-top:0; border-radius:0; }
+header .ico { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
+header h1 { font-size: 15px; margin: 0; } header p { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+header .primary { margin-left: auto; }
+.primary { background: var(--accent); color: #fff; border: 0; border-radius: 10px; padding: 9px 16px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.primary:hover { filter: brightness(1.12); } .primary:disabled { opacity: .55; cursor: wait; }
+main { overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+.card { border-radius: 14px; padding: 16px; }
+.gname { font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); font-weight: 600; margin: 14px 0 8px; }
+.gname:first-child { margin-top: 0; }
+.vrow { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.03); border: 1px solid var(--glass-border); margin-bottom: 6px; }
+.vrow:last-child { margin-bottom: 0; }
+.vrow .lbl { flex: 1; font-size: 13px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pill { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; border-radius: 20px; padding: 4px 10px; white-space: nowrap; }
+.pill.in { background: rgba(74,222,128,.14); color: var(--ok); }
+.pill.low { background: rgba(245,166,35,.14); color: var(--low); }
+.pill.out { background: rgba(239,68,68,.14); color: var(--out); }
+.note { font-size: 10px; color: var(--muted); flex-basis: 100%; margin: 0; }
+.conf { font-size: 11px; color: var(--muted); margin: 12px 0 0; background: rgba(255,255,255,.04); border: 1px solid var(--glass-border); border-radius: 9px; padding: 8px 10px; }
+.empty { text-align: center; color: var(--muted); padding: 8px 12px 4px; }

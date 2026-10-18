@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CropZoom</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo-dot" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>
+    </div>
+    <div>
+      <h1>CropZoom</h1>
+      <p class="subtitle">Video crop &amp; zoom</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <p class="label">Aspect preset</p>
+      <div class="preset-grid" id="presets">
+        <button class="preset" data-mode="fit">Fit</button>
+        <button class="preset" data-mode="16:9">16:9 fill</button>
+        <button class="preset" data-mode="4:3">4:3</button>
+        <button class="preset" data-mode="1:1">1:1</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="slider-row">
+        <label for="zoom">Zoom <span class="val" id="zoomVal">100%</span></label>
+        <input type="range" id="zoom" min="100" max="300" step="5" value="100">
+      </div>
+      <div class="slider-row">
+        <label for="panX">Pan X <span class="val" id="panXVal">0%</span></label>
+        <input type="range" id="panX" min="-50" max="50" step="1" value="0">
+      </div>
+      <div class="slider-row">
+        <label for="panY">Pan Y <span class="val" id="panYVal">0%</span></label>
+        <input type="range" id="panY" min="-50" max="50" step="1" value="0">
+      </div>
+    </section>
+
+    <section class="panel site-row">
+      <label class="remember">
+        <input type="checkbox" id="remember" checked>
+        <span>Remember for <strong id="siteName">this site</strong></span>
+      </label>
+      <button id="reset" class="ghost-btn">Reset video</button>
+    </section>
+
+    <p class="status" id="status" role="status"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

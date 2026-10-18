@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapMark</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <div>
+        <h1>SnapMark</h1>
+        <p class="subtitle">Capture &amp; annotate screenshots</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <button id="captureBtn" class="capture-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      Capture visible tab
+    </button>
+    <p class="hint">Captures the tab you're viewing, then opens the annotation canvas in a new tab. Nothing is uploaded — everything stays on this device.</p>
+
+    <ol class="steps glass">
+      <li><span>1</span> Click <strong>Capture visible tab</strong></li>
+      <li><span>2</span> Draw arrows, boxes, text — or blur &amp; crop</li>
+      <li><span>3</span> Download the annotated PNG</li>
+    </ol>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

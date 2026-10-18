@@ -1,0 +1,63 @@
+/* FileScope popup — 380px, deep-dark glass, lime accent. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { color-scheme: dark; }
+body {
+  width: 380px; max-height: 600px; overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0c0c10; color: #f4f4f5; font-size: 14px;
+}
+.wrap { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.head .logo { display: flex; gap: 10px; align-items: center; }
+.head .icon { width: 30px; height: 30px; color: #a3e635; }
+.head h1 { font-size: 16px; font-weight: 700; }
+.head p { font-size: 11px; color: rgba(244,244,245,.55); margin-top: 2px; }
+
+.dropzone {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: 2px dashed rgba(163,230,53,.4); border-radius: 14px;
+  padding: 20px 12px; cursor: pointer; font-size: 13px; color: rgba(244,244,245,.75);
+  background: rgba(163,230,53,.05); transition: border-color .15s, background .15s;
+}
+.dropzone:hover, .dropzone.over { border-color: #a3e635; background: rgba(163,230,53,.1); }
+.dropzone .icon { width: 22px; height: 22px; color: #a3e635; }
+.dropzone strong { color: #a3e635; }
+
+.card {
+  background: rgba(20,20,26,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(244,244,245,.55); }
+.count { color: #a3e635; }
+.empty, .note { font-size: 12px; color: rgba(244,244,245,.5); }
+.pname { text-transform: none; letter-spacing: 0; color: #a3e635; font-weight: 600; }
+
+.files { display: flex; flex-direction: column; gap: 8px; max-height: 220px; overflow-y: auto; }
+.file {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px;
+}
+.file .top { display: flex; align-items: center; gap: 8px; }
+.file .fic { width: 18px; height: 18px; color: #a3e635; flex-shrink: 0; }
+.file .fname { flex: 1; font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file .meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 12px; }
+.file .meta dt { color: rgba(244,244,245,.5); }
+.file .meta dd { color: rgba(244,244,245,.85); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hash { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px !important; }
+.file .actions { display: flex; gap: 6px; }
+
+.btn-ghost, .btn-accent {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 10px; padding: 7px 12px; font-size: 12px; font-weight: 600; cursor: pointer;
+  border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.06); color: #f4f4f5;
+}
+.btn-ghost:hover { border-color: #a3e635; }
+.btn-accent { background: #a3e635; border: none; color: #0c0c10; }
+.btn-accent:hover { filter: brightness(1.1); }
+.btn-ghost.full { width: 100%; }
+.spin { font-size: 12px; color: rgba(244,244,245,.5); }
+
+.preview { max-height: 200px; overflow: auto; border-radius: 10px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.08); padding: 10px; }
+.preview pre { font-size: 11px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; color: rgba(244,244,245,.85); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.preview img { max-width: 100%; border-radius: 8px; display: block; }

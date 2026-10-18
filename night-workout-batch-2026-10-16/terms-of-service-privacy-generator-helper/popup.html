@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Policy Draft Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div class="title">
+      <h1>Policy Draft Helper</h1>
+      <p>Plain-language template drafts — not legal documents.</p>
+    </div>
+  </header>
+
+  <div class="lawyer">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span><strong>NOT legal advice.</strong> This generates a starting draft only. <strong>Have a lawyer review it</strong> before publishing.</span>
+  </div>
+
+  <!-- Step 1: wizard -->
+  <section id="step-wizard" class="card">
+    <h2>1 · Tell us about your service</h2>
+    <label class="field"><span>Service name</span>
+      <input id="svcName" type="text" placeholder="Acme Widgets" maxlength="80"></label>
+    <label class="field"><span>Service type</span>
+      <select id="svcType">
+        <option value="SaaS web application">SaaS web application</option>
+        <option value="e-commerce store">E-commerce store</option>
+        <option value="blog or content site">Blog / content site</option>
+        <option value="mobile app">Mobile app</option>
+        <option value="online service">Other online service</option>
+      </select></label>
+    <label class="field"><span>Contact email</span>
+      <input id="contactEmail" type="email" placeholder="legal@example.com" maxlength="120"></label>
+    <label class="field"><span>Your country / region (for guidance notes)</span>
+      <input id="region" type="text" placeholder="e.g. India, EU, US" maxlength="60"></label>
+    <fieldset class="checks">
+      <legend>Data you collect</legend>
+      <label><input type="checkbox" id="d-name" checked> Name / email</label>
+      <label><input type="checkbox" id="d-pay"> Payment details</label>
+      <label><input type="checkbox" id="d-analytics" checked> Analytics / usage data</label>
+      <label><input type="checkbox" id="d-cookies" checked> Cookies</label>
+      <label><input type="checkbox" id="d-location"> Location</label>
+    </fieldset>
+    <button id="generateBtn" class="primary">Generate drafts</button>
+  </section>
+
+  <!-- Step 2: results -->
+  <section id="step-result" class="card" hidden>
+    <h2>2 · Your draft templates</h2>
+    <div class="tabs">
+      <button id="tabTos" class="tab active">Terms of Service</button>
+      <button id="tabPp" class="tab">Privacy Policy</button>
+    </div>
+    <textarea id="draftOut" rows="14" readonly></textarea>
+    <div class="row">
+      <button id="copyBtn" class="primary">Copy draft</button>
+      <button id="backBtn" class="ghost">Back to wizard</button>
+    </div>
+    <div class="lawyer foot">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span><strong>Get a lawyer.</strong> Laws differ by country — this draft needs professional review before use.</span>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

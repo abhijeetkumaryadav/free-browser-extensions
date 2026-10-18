@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Review Velocity Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+  </div>
+  <div>
+    <h1>Review Velocity Analyzer</h1>
+    <p class="subtitle">Manual review tracker — no scraping</p>
+  </div>
+</header>
+
+<section class="card">
+  <div class="card-head">
+    <h2>Business</h2>
+    <button id="addBizBtn" class="btn tiny">+ Add</button>
+  </div>
+  <select id="bizSelect"></select>
+  <div id="bizForm" class="hidden">
+    <input id="bizName" type="text" placeholder="Business name" maxlength="80">
+    <div class="btn-row">
+      <button id="bizSave" class="btn primary">Save</button>
+      <button id="bizCancel" class="btn ghost">Cancel</button>
+    </div>
+  </div>
+</section>
+
+<section class="card hidden" id="logCard">
+  <div class="card-head"><h2>Log a datapoint</h2></div>
+  <div class="row">
+    <div class="grow">
+      <label class="field-label" for="logDate">Date</label>
+      <input id="logDate" type="date">
+    </div>
+    <div class="grow">
+      <label class="field-label" for="logCount">Total reviews</label>
+      <input id="logCount" type="number" min="0" placeholder="e.g. 342">
+    </div>
+    <div class="grow">
+      <label class="field-label" for="logStars">Avg stars</label>
+      <input id="logStars" type="number" min="1" max="5" step="0.1" placeholder="4.6">
+    </div>
+  </div>
+  <div class="btn-row">
+    <button id="logBtn" class="btn primary">Log datapoint</button>
+    <button id="delBizBtn" class="btn ghost danger">Delete business</button>
+  </div>
+  <p class="note">Copy these numbers from your Google Business Profile by hand — this tool never reads Google Maps.</p>
+</section>
+
+<section class="card hidden" id="statsCard">
+  <div class="card-head">
+    <h2>Insights</h2>
+    <button id="exportBtn" class="btn tiny">Export CSV</button>
+  </div>
+  <div id="stats" class="summary"></div>
+  <canvas id="chart" width="336" height="150"></canvas>
+  <div id="history"></div>
+</section>
+
+<section class="card">
+  <div class="card-head"><h2>Weekly reminder</h2></div>
+  <label class="switch-row">
+    <input type="checkbox" id="remindToggle">
+    <span>Remind me to log reviews every Monday 9:00</span>
+  </label>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

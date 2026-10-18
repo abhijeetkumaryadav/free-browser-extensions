@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <span class="hdr-icon" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1" fill="currentColor"/></svg>
+    </span>
+    <h1>Feed Ticker</h1>
+    <span id="unreadBadge" class="count">0</span>
+    <button id="refreshBtn" class="btn icon" type="button" title="Refresh now">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>
+    </button>
+  </header>
+
+  <nav class="tabs">
+    <button id="tabItems" class="tab active" type="button">Headlines</button>
+    <button id="tabFeeds" class="tab" type="button">Feeds <span id="feedCount"></span></button>
+  </nav>
+
+  <!-- Headlines view -->
+  <section id="viewItems">
+    <div class="toolbar">
+      <span id="statusLine" class="status"></span>
+      <button id="markAllBtn" class="btn ghost sm" type="button">Mark all read</button>
+    </div>
+    <main id="itemList" class="list"></main>
+    <div id="emptyItems" class="empty hidden">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1" fill="currentColor"/></svg>
+      <p>No headlines yet.<br>Add a feed URL under the Feeds tab.</p>
+    </div>
+  </section>
+
+  <!-- Feeds view -->
+  <section id="viewFeeds" class="hidden">
+    <div class="savebar panel">
+      <input id="feedUrl" type="url" placeholder="Paste an RSS/Atom feed URL&hellip;" autocomplete="off" spellcheck="false">
+      <button id="addBtn" class="btn primary" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add feed
+      </button>
+      <p id="feedHint" class="hint"></p>
+    </div>
+    <main id="feedList" class="list"></main>
+    <div id="emptyFeeds" class="empty hidden">
+      <p>No feeds added yet.<br>Paste any RSS or Atom URL above.</p>
+    </div>
+    <p class="note">Refreshes every 15 minutes. Only the URLs you add are ever fetched.</p>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+:root{--accent:#38bdf8;--bg:rgba(18,20,26,.78);--card:rgba(255,255,255,.05);--txt:#e8eaf0;--dim:#9aa0b4;--radius:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);backdrop-filter:blur(12px);color:var(--txt);padding:16px;font-size:13px}
+header{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+.logo{width:30px;height:30px;color:var(--accent);flex-shrink:0}
+h1{font-size:16px;font-weight:650}
+.scope{color:var(--dim);font-size:11px;margin-top:4px;line-height:1.45}
+.big{display:flex;align-items:baseline;gap:8px;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:12px 16px}
+#total{font-size:30px;font-weight:750;color:var(--accent);font-variant-numeric:tabular-nums}
+.big-label{color:var(--dim)}
+.delta-row{margin:8px 2px 12px;color:var(--dim);font-size:12px}
+#sample{width:100%;padding:10px;border:none;border-radius:var(--radius);background:var(--accent);color:#0b1218;font-weight:700;font-size:13px;cursor:pointer;margin-bottom:14px}
+#sample:hover{filter:brightness(1.08)}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.link{background:none;border:none;color:var(--accent);cursor:pointer;font-size:12px}
+.bars{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:12px 14px;margin-bottom:14px}
+.bar-row{display:grid;grid-template-columns:64px 1fr 56px;gap:8px;align-items:center;font-size:12px}
+.bar-row code{color:var(--txt);font-size:11px}
+.track{height:8px;background:rgba(255,255,255,.08);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:var(--accent);border-radius:4px}
+.bar-row span:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--dim)}
+.history{list-style:none;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:10px 14px;margin-bottom:12px;max-height:120px;overflow:auto}
+.history li{padding:4px 0;font-variant-numeric:tabular-nums;font-size:12px;border-bottom:1px solid rgba(255,255,255,.04)}
+.history li:last-child{border:none}
+.empty{color:var(--dim)}
+.up{color:#f87171}.down{color:#4ade80}
+footer{color:var(--dim);font-size:11px;line-height:1.5;text-align:center}

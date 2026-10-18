@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TabGuard — Tower Defense</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <header class="hud">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 21V10l-2-1 2-1V5h3V3h6v2h3v3l2 1-2 1v11"/><path d="M4 21h16"/>
+      </svg>
+      <span>TabGuard</span>
+    </div>
+    <div class="stats">
+      <div class="stat gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9.5 10h5"/></svg>
+        <span id="gold">0</span>
+      </div>
+      <div class="stat lives">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.8 8.9 2.6 5.5 6 5.5c2 0 3.4 1.1 4 2.3.6-1.2 2-2.3 4-2.3 3.4 0 5.2 3.4 3.5 6.5C19 16.5 12 21 12 21z"/></svg>
+        <span id="lives">0</span>
+      </div>
+      <div class="stat wave">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M2 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/></svg>
+        <span id="wave">Wave 0</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="startBtn" class="btn primary">Start wave</button>
+      <button id="pauseBtn" class="btn">Pause</button>
+      <button id="speedBtn" class="btn">1×</button>
+      <button id="restartBtn" class="btn danger">Restart</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="board-wrap">
+      <canvas id="game" width="768" height="512"></canvas>
+      <div id="banner" class="banner hidden"></div>
+    </div>
+    <aside class="panel">
+      <h2>Build</h2>
+      <div id="shop" class="shop"></div>
+      <h2>Tower</h2>
+      <div id="towerInfo" class="tower-info">
+        <p class="empty">Select a tower type, then click a free tile — or click a placed tower to manage it.</p>
+      </div>
+      <h2>Legend</h2>
+      <ul class="legend">
+        <li><span class="dot" style="background:#f87171"></span>Grunt — steady</li>
+        <li><span class="dot" style="background:#fbbf24"></span>Runner — fast, weak</li>
+        <li><span class="dot" style="background:#a78bfa"></span>Brute — slow, tanky (−2 lives)</li>
+      </ul>
+    </aside>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

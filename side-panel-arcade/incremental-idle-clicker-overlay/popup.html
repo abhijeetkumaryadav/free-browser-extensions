@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ClickIdle</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" id="brandMark"></span>
+      <div>
+        <h1>ClickIdle</h1>
+        <p class="sub">idle clicker</p>
+      </div>
+    </div>
+    <button class="icon-btn" id="statsBtn" title="Statistics" aria-label="Statistics"></button>
+  </header>
+
+  <!-- Main game view -->
+  <main id="gameView">
+    <section class="balance card">
+      <div class="balance-row">
+        <span class="shard-ico" id="shardIco"></span>
+        <div>
+          <div class="balance-amount" id="balance">0</div>
+          <div class="balance-rate" id="rateLine">+0 /sec</div>
+        </div>
+        <div class="prestige-chip" id="prestigeChip" title="Prestige multiplier">×1.00</div>
+      </div>
+    </section>
+
+    <button class="click-btn" id="clickBtn" aria-label="Earn shards">
+      <span class="click-ring"></span>
+      <span class="click-label">TAP</span>
+      <span class="click-gain" id="clickGain">+1</span>
+    </button>
+    <div class="floaters" id="floaters" aria-hidden="true"></div>
+
+    <section class="upgrades">
+      <h2>Upgrades</h2>
+      <div class="upgrade-list" id="upgradeList"></div>
+    </section>
+
+    <button class="prestige-btn" id="prestigeBtn">
+      <span class="p-ico" id="prestigeIco"></span>
+      <span>Prestige — reset for permanent boost</span>
+      <span class="p-req" id="prestigeReq"></span>
+    </button>
+  </main>
+
+  <!-- Stats view -->
+  <main id="statsView" hidden>
+    <section class="card stats-card">
+      <h2>Statistics</h2>
+      <div class="stat-row"><span>Total earned</span><b id="stEarned">0</b></div>
+      <div class="stat-row"><span>Manual taps</span><b id="stClicks">0</b></div>
+      <div class="stat-row"><span>Play time</span><b id="stTime">0m</b></div>
+      <div class="stat-row"><span>Prestiges</span><b id="stPrestige">0</b></div>
+      <div class="stat-row"><span>Prestige multiplier</span><b id="stMult">×1.00</b></div>
+      <div class="stat-row"><span>Offline earnings rate</span><b id="stOffline">25%</b></div>
+    </section>
+    <button class="ghost-btn" id="backBtn">Back to game</button>
+    <button class="danger-btn" id="resetBtn">Reset all progress</button>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

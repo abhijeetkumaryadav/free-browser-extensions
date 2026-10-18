@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Journey Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 12h6M9 16h4"/></svg>
+    </div>
+    <div>
+      <h1>Research Journey Mapper</h1>
+      <p class="sub">Your milestones, mapped visually</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>This shows <strong>only the milestones you log</strong> — it does <strong>not</strong> read your browsing history.</p>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="timeline">Timeline</button>
+    <button class="tab" data-tab="add">Log milestone</button>
+  </nav>
+
+  <section id="tab-timeline" class="panel">
+    <div class="filters">
+      <select id="typeFilter" aria-label="Filter by type">
+        <option value="">All types</option>
+        <option value="question">Questions</option>
+        <option value="source">Sources</option>
+        <option value="draft">Drafts</option>
+        <option value="decision">Decisions</option>
+        <option value="note">Notes</option>
+      </select>
+      <button id="exportBtn" class="btn ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Export
+      </button>
+    </div>
+    <div id="timeline" class="timeline"></div>
+  </section>
+
+  <section id="tab-add" class="panel hidden">
+    <div class="form">
+      <label>Type
+        <select id="mType">
+          <option value="question">Question asked</option>
+          <option value="source">Source found</option>
+          <option value="draft">Draft written</option>
+          <option value="decision">Decision made</option>
+          <option value="note">Note</option>
+        </select>
+      </label>
+      <label>Title<input id="mTitle" type="text" placeholder="e.g. Interviewed Dr. Rao about archives"></label>
+      <label>Date<input id="mDate" type="date"></label>
+      <label>Details<textarea id="mDetail" rows="3" placeholder="Links, quotes, key findings…"></textarea></label>
+      <button id="saveBtn" class="btn">Log milestone</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

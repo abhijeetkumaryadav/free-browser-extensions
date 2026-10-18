@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <span class="hdr-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v5.2c0 5-3.4 9.3-8 10.8-4.6-1.5-8-5.8-8-10.8V5.5z"/><path d="M12 8v4"/><circle cx="12" cy="15" r="0.9" fill="currentColor"/></svg>
+    </span>
+    <div>
+      <h1>Untrusted SSL Blocker</h1>
+      <p class="sub">Connection safety for this tab</p>
+    </div>
+  </header>
+
+  <section class="status glass" id="statusCard">
+    <span class="proto" id="protoBadge">–</span>
+    <div>
+      <div class="host" id="host">–</div>
+      <div class="verdict" id="verdict">Checking…</div>
+    </div>
+  </section>
+
+  <section id="warnBox" class="warn hidden">
+    <strong>Not secure.</strong> This page loads over plain HTTP — anything you type can be read in transit.
+    <button id="tryHttps" class="btn small">Try HTTPS version</button>
+  </section>
+
+  <section class="card glass">
+    <h2>Sensitive forms on this page</h2>
+    <div id="formsList"><p class="muted">Scanning…</p></div>
+  </section>
+
+  <section class="card glass">
+    <h2>HTTPS-only domains</h2>
+    <p class="muted small">Pages on these domains should never load over HTTP. You'll get a warning if they do.</p>
+    <div class="addrow">
+      <input id="domainInput" type="text" placeholder="example.com" spellcheck="false">
+      <button id="addDomain" class="btn small">Add</button>
+    </div>
+    <button id="addCurrent" class="linkbtn">+ Add current site</button>
+    <div id="domainList" class="domlist"></div>
+  </section>
+
+  <p id="error" class="error hidden"></p>
+  <footer class="foot">Read-only analysis · nothing leaves your device</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

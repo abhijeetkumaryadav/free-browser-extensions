@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
+    <div>
+      <h1>StudyGate</h1>
+      <p class="sub">Study first, watch later</p>
+    </div>
+    <nav class="tabs">
+      <button id="tab-study" class="tab active" type="button">Study</button>
+      <button id="tab-parent" class="tab" type="button">Parent</button>
+    </nav>
+  </header>
+
+  <!-- ============ STUDY VIEW ============ -->
+  <section id="view-study" class="view">
+    <div class="status-card" id="status-card">
+      <div class="status-icon" id="status-icon">🔒</div>
+      <div>
+        <div class="status-title" id="status-title">YouTube is locked</div>
+        <div class="status-desc" id="status-desc">Finish your study goal to unlock it.</div>
+      </div>
+    </div>
+
+    <div class="timer-ring-wrap">
+      <svg class="timer-ring" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="52" class="ring-bg"/>
+        <circle cx="60" cy="60" r="52" class="ring-fg" id="ring-fg"/>
+      </svg>
+      <div class="timer-center">
+        <div class="timer-time" id="timer-time">0:00</div>
+        <div class="timer-label" id="timer-label">of 25 min goal</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button id="btn-start" class="btn primary" type="button">▶ Start studying</button>
+      <button id="btn-pause" class="btn" type="button" hidden>⏸ Pause</button>
+      <button id="btn-reset" class="btn ghost" type="button">Reset today</button>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num" id="stat-streak">0</div><div class="stat-cap">day streak 🔥</div></div>
+      <div class="stat"><div class="stat-num" id="stat-best">0</div><div class="stat-cap">best streak</div></div>
+      <div class="stat"><div class="stat-num" id="stat-total">0</div><div class="stat-cap">goals completed</div></div>
+    </div>
+
+    <div class="week">
+      <div class="week-title">Last 7 days</div>
+      <div class="week-bars" id="week-bars"></div>
+    </div>
+
+    <p class="honest">Family agreement aid — a tech-savvy kid can bypass any extension. 100% local, nothing leaves this device.</p>
+  </section>
+
+  <!-- ============ PARENT VIEW ============ -->
+  <section id="view-parent" class="view" hidden>
+    <div id="pin-gate">
+      <p class="pin-msg" id="pin-msg">Enter the parent PIN to change settings.</p>
+      <div class="pin-row">
+        <input id="pin-input" type="password" inputmode="numeric" maxlength="8" placeholder="••••" autocomplete="off">
+        <button id="pin-go" class="btn primary" type="button">Unlock</button>
+      </div>
+      <p class="hint" id="pin-hint" hidden>No PIN set yet — choose one now to become the parent.</p>
+    </div>
+
+    <div id="parent-settings" hidden>
+      <label class="field">
+        <span>Daily study goal (minutes)</span>
+        <input id="set-goal" type="number" min="5" max="180" step="5">
+      </label>
+
+      <div class="field">
+        <span>Locked sites</span>
+        <div class="domain-list" id="domain-list"></div>
+        <div class="domain-add">
+          <input id="domain-input" type="text" placeholder="example.com" autocomplete="off">
+          <button id="domain-add" class="btn small" type="button">Add</button>
+        </div>
+        <p class="hint">YouTube domains are locked by default. Extra sites need your approval in Chrome.</p>
+      </div>
+
+      <div class="btn-row">
+        <button id="btn-change-pin" class="btn" type="button">Change PIN</button>
+        <button id="btn-reset-day" class="btn ghost" type="button">Reset today</button>
+      </div>
+      <button id="btn-lock-settings" class="btn ghost full" type="button">Lock settings</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

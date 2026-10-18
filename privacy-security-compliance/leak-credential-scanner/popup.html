@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <h1>Leak Credential Scanner</h1>
+      <p class="sub">Heuristic scan of this page — results stay on your device.</p>
+    </div>
+    <span id="badge" class="badge hidden">0</span>
+  </header>
+
+  <div class="controls">
+    <button id="scanBtn" class="primary">Scan this page</button>
+    <button id="copyBtn" class="ghost" disabled>Copy report</button>
+  </div>
+
+  <p id="status" class="status">Click “Scan this page” to look for exposed-secret patterns.</p>
+  <div id="results" class="results"></div>
+
+  <footer class="foot">Heuristic only — expect false positives. Nothing is ever sent anywhere.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>SlangSense</title>
+</head>
+<body>
+<header class="hero">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M9 11h.01M12.5 11h.01M16 11h.01"/></svg>
+  <div>
+    <h1>SlangSense</h1>
+    <p class="sub">What are the kids even saying?</p>
+  </div>
+</header>
+
+<section>
+  <div class="tabs">
+    <button id="tabPaste" class="tab active">Paste text</button>
+    <button id="tabScan" class="tab">Scan this page</button>
+    <button id="tabDict" class="tab">Dictionary</button>
+  </div>
+
+  <div id="panePaste">
+    <textarea id="inputText" rows="4" placeholder="Paste your kid's message here…"></textarea>
+    <button id="decodeBtn" class="btn primary">Decode it</button>
+    <div id="decodeOut" class="out"></div>
+  </div>
+
+  <div id="paneScan" class="hidden">
+    <p class="note">Highlights slang terms on the current page with hover definitions. Nothing is read or sent anywhere.</p>
+    <div class="row">
+      <button id="scanBtn" class="btn primary">Scan this page</button>
+      <button id="clearBtn" class="btn ghost">Clear highlights</button>
+    </div>
+    <p id="scanMsg" class="msg"></p>
+  </div>
+
+  <div id="paneDict" class="hidden">
+    <input id="dictSearch" type="text" placeholder="Search the dictionary…">
+    <div id="dictList" class="dict"></div>
+    <h3>Suggest a term</h3>
+    <div class="row">
+      <input id="newTerm" type="text" placeholder="Term" class="grow">
+    </div>
+    <div class="row">
+      <input id="newDef" type="text" placeholder="What does it mean?" class="grow">
+      <button id="addTerm" class="btn primary">Add</button>
+    </div>
+    <p class="note">Suggestions are stored only on this device.</p>
+  </div>
+
+  <p class="disclaimer">Informal crowd-knowledge reference — definitions may be outdated or regional. When in doubt, just ask them (they love explaining).</p>
+</section>
+
+<script src="dictionary.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

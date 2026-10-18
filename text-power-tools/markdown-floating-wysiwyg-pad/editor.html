@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MarkPad — Editor</title>
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <header class="toolbar glass">
+    <div class="brand-mini">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      </span>
+      <span class="name">MarkPad</span>
+    </div>
+
+    <div class="tools" role="toolbar" aria-label="Formatting">
+      <button class="tool" data-cmd="bold" title="Bold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4h8a4 4 0 0 1 0 8H6zM6 12h9a4 4 0 0 1 0 8H6z"/></svg></button>
+      <button class="tool" data-cmd="italic" title="Italic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+      <button class="tool" data-cmd="strike" title="Strikethrough"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 4H9a3 3 0 0 0-2.8 4M20 12H4M14 20H8a3 3 0 0 1-2.8-4"/></svg></button>
+      <span class="sep"></span>
+      <button class="tool" data-cmd="h1" title="Heading 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4v16M18 4v16M6 12h12"/></svg></button>
+      <button class="tool" data-cmd="h2" title="Heading 2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4v16M6 12h8M17 20l3-8v8"/></svg></button>
+      <button class="tool" data-cmd="quote" title="Quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.76-2.77-3.5-4C5.42 1.71 4 2 4 2v3s3-.5 3 3c-2 0-4 1-4 5v8zM14 21c3 0 7-1 7-8V5c0-1.25-.76-2.77-3.5-4C16.42 1.71 15 2 15 2v3s3-.5 3 3c-2 0-4 1-4 5v8z" transform="scale(0.85) translate(2 2)"/></svg></button>
+      <span class="sep"></span>
+      <button class="tool" data-cmd="ul" title="Bullet list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1.2" fill="currentColor"/><circle cx="4" cy="12" r="1.2" fill="currentColor"/><circle cx="4" cy="18" r="1.2" fill="currentColor"/></svg></button>
+      <button class="tool" data-cmd="ol" title="Numbered list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4M4 10h2M6 18H4c0-1 2-1.5 2-3s-2-1.5-2-3h2"/></svg></button>
+      <button class="tool" data-cmd="code" title="Code block"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></button>
+      <button class="tool" data-cmd="link" title="Insert link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></button>
+      <button class="tool" data-cmd="clear" title="Clear formatting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
+    </div>
+
+    <div class="actions">
+      <div class="view-toggle" role="tablist" aria-label="View">
+        <button class="vt active" data-view="write">Write</button>
+        <button class="vt" data-view="markdown">Markdown</button>
+      </div>
+      <button class="btn small" id="exportMd" title="Download as Markdown (.md)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        .md
+      </button>
+      <button class="btn small" id="exportHtml" title="Download as HTML (.html)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        .html
+      </button>
+      <button class="btn small danger" id="newDoc" title="Start a new document">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        New
+      </button>
+    </div>
+  </header>
+
+  <main class="doc-wrap">
+    <div id="editor" contenteditable="true" spellcheck="true" data-placeholder="Start writing something great…"></div>
+    <textarea id="mdview" class="mdview" spellcheck="false" hidden aria-label="Markdown source"></textarea>
+  </main>
+
+  <footer class="statusbar">
+    <span id="wordCount">0 words</span>
+    <span class="dot">·</span>
+    <span id="saveState">Saved</span>
+    <span class="dot">·</span>
+    <span class="local">Local only — nothing leaves your browser</span>
+  </footer>
+
+  <script src="editor.js"></script>
+</body>
+</html>

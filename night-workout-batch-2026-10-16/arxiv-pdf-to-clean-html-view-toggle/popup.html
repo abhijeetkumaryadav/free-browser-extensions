@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>Clean Read Toggle</title>
+</head>
+<body>
+<header class="hdr">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h7"/></svg>
+  <div>
+    <h1>Clean Read Toggle</h1>
+    <p class="sub">Heuristic extraction — best effort</p>
+  </div>
+</header>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>Shows the page's main text in a distraction-free overlay. Guesses the article container — it can be wrong. Toggle off restores the page untouched.</span>
+</div>
+
+<button id="toggle" class="big">Turn on clean reading</button>
+<p class="status" id="status">Click to read this tab in a clean overlay.</p>
+
+<script src="popup.js"></script>
+</body>
+</html>

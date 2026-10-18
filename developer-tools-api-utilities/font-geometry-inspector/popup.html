@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Font Geometry Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+    <div><h1>Font Geometry</h1><p id="pageHost">—</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <button id="pick" class="primary big">Pick element on page</button>
+      <p class="note" id="hint">Hover highlights elements — click one to inspect its typography. Esc cancels.</p>
+    </section>
+    <section class="glass card" id="resultCard" hidden>
+      <h2 id="tagName">—</h2>
+      <div id="props"></div>
+      <button id="copyAll" class="ghost">Copy all as CSS</button>
+    </section>
+    <div id="empty" class="empty">Pick an element to see its font geometry.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

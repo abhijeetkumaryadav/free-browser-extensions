@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Air Diary</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <!-- leaf icon (lucide-style stroke) -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="app-icon"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 9-9 4-.7 7-.4 7-.4s-.3 3-1 7c-1.2 4.6-4 8.4-8 9.4Z"/><path d="M4 21c4-6 8-9 12-11"/></svg>
+    <div>
+      <h1>Air Diary</h1>
+      <p class="subtitle">Personal air-quality journal</p>
+    </div>
+  </header>
+
+  <!-- Honest scope banner: no live AQI/pollen API exists -->
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="mini-icon"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Your diary only — <strong>NOT</strong> live AQI or pollen data. Every entry is your own observation.</span>
+  </div>
+
+  <div id="reminder-banner" class="reminder-banner hidden"></div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">Log</button>
+    <button class="tab" data-tab="trends">Trends</button>
+    <button class="tab" data-tab="reminders">Reminders</button>
+  </nav>
+
+  <!-- ============ LOG TAB ============ -->
+  <section id="tab-log" class="tab-pane active">
+    <form id="log-form" class="card">
+      <h2>Log today</h2>
+      <label>Date
+        <input type="date" id="f-date">
+      </label>
+      <fieldset class="rating">
+        <legend>Air quality (your observation)</legend>
+        <div class="scale" id="air-scale"></div>
+      </fieldset>
+      <fieldset class="rating">
+        <legend>Pollen level (your observation)</legend>
+        <div class="scale" id="pollen-scale"></div>
+      </fieldset>
+      <fieldset class="symptoms">
+        <legend>Symptoms</legend>
+        <div id="symptom-list"></div>
+      </fieldset>
+      <label>Notes
+        <textarea id="f-notes" rows="2" placeholder="e.g. hazy morning, dusty wind…" maxlength="500"></textarea>
+      </label>
+      <button type="submit" class="btn primary">Save entry</button>
+    </form>
+
+    <div id="entry-list"></div>
+    <p class="empty" id="entries-empty">No entries yet. Log your first day above.</p>
+  </section>
+
+  <!-- ============ TRENDS TAB ============ -->
+  <section id="tab-trends" class="tab-pane">
+    <div class="card">
+      <h2>Patterns over time</h2>
+      <p class="hint">Air quality (teal) and pollen (amber) from your own logs. Lower is better.</p>
+      <canvas id="trend-canvas" width="340" height="160"></canvas>
+      <div class="stats" id="trend-stats"></div>
+    </div>
+    <div class="card">
+      <h2>Symptom frequency</h2>
+      <div id="symptom-stats"></div>
+    </div>
+  </section>
+
+  <!-- ============ REMINDERS TAB ============ -->
+  <section id="tab-reminders" class="tab-pane">
+    <div class="card">
+      <h2>Personal threshold reminder</h2>
+      <p class="hint">Based only on your own logs — not live data.</p>
+      <label>Alert me when "bad air" days (quality ≥ 4) in the last 7 days reach
+        <input type="number" id="r-threshold" min="1" max="7" value="3">
+      </label>
+      <div class="row">
+        <button class="btn small primary" id="btn-save-reminder">Save</button>
+        <button class="btn small" id="btn-disable-reminder">Disable</button>
+      </div>
+      <p class="hint" id="reminder-status"></p>
+    </div>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

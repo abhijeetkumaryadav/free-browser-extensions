@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tone Word Counter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+    <div>
+      <h1>Tone Word Counter</h1>
+      <p class="sub">Word-count heuristic — not real bias analysis</p>
+    </div>
+  </header>
+
+  <label class="field-label" for="text">Paste article text</label>
+  <textarea id="text" rows="4" placeholder="Paste the article or paragraph..."></textarea>
+
+  <div class="row">
+    <button id="analyzeBtn" class="primary">Count tone words</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <section id="results" class="hidden">
+    <div class="bar-wrap">
+      <div class="bar">
+        <div id="negFill" class="fill neg"></div>
+        <div id="posFill" class="fill pos"></div>
+      </div>
+      <div class="bar-labels">
+        <span id="negLabel">0 negative</span>
+        <span id="posLabel">0 positive</span>
+      </div>
+    </div>
+    <div class="stats"><span id="wordCount">0 words scanned</span></div>
+    <div class="two-col">
+      <div>
+        <h3>Positive hits</h3>
+        <ul id="posList"></ul>
+      </div>
+      <div>
+        <h3>Negative hits</h3>
+        <ul id="negList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="banner">
+    Heuristic word-count only — counts loaded words from a built-in list.
+    It cannot detect bias, irony, or context. Fully local, no network.
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

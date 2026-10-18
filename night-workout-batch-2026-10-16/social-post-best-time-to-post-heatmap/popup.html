@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best-Time Heatmap</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/><rect x="7.5" y="12.5" width="3" height="3" rx="0.6" class="hot"/><rect x="13.5" y="12.5" width="3" height="3" rx="0.6"/></svg>
+    <div>
+      <h1>Best-Time Heatmap</h1>
+      <p class="tagline">Your posting log — not analytics</p>
+    </div>
+  </header>
+
+  <p class="honest">No analytics API. Log your own posts; the heatmap shows only what <em>you</em> entered. Best slots come from your data alone.</p>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">Log</button>
+    <button class="tab" data-tab="map">Heatmap</button>
+    <button class="tab" data-tab="best">Best slots</button>
+    <button class="tab" data-tab="notes">Notes</button>
+  </nav>
+
+  <section class="panel active" id="tab-log">
+    <form id="entryForm">
+      <div class="row">
+        <label>Platform
+          <select id="fPlatform">
+            <option>Instagram</option><option>Facebook</option><option>Threads</option>
+            <option>X</option><option>LinkedIn</option><option>YouTube</option><option>Other</option>
+          </select>
+        </label>
+        <label>Day
+          <select id="fDay">
+            <option>Mon</option><option>Tue</option><option>Wed</option><option>Thu</option>
+            <option>Fri</option><option>Sat</option><option>Sun</option>
+          </select>
+        </label>
+        <label>Hour
+          <select id="fHour"></select>
+        </label>
+      </div>
+      <label>Engagement notes (optional)
+        <input id="fNotes" maxlength="200" placeholder="e.g. good reach, 40 likes">
+      </label>
+      <button type="submit" class="btn">Log post</button>
+    </form>
+    <div class="list" id="entryList"></div>
+    <div class="foot">
+      <button id="exportBtn" class="ghost">Export JSON</button>
+      <label class="ghost filebtn">Import <input type="file" id="importFile" accept="application/json" hidden></label>
+      <button id="clearBtn" class="ghost danger">Clear all</button>
+    </div>
+  </section>
+
+  <section class="panel" id="tab-map">
+    <canvas id="heat" width="348" height="170"></canvas>
+    <p class="hint">Rows = days (Mon–Sun), columns = hours (0–23). Brighter = more posts you logged there.</p>
+  </section>
+
+  <section class="panel" id="tab-best">
+    <div id="bestList" class="list"></div>
+    <p class="hint">Top day×hour slots ranked by how many of <em>your</em> logged posts landed there. Small samples mean weak conclusions.</p>
+  </section>
+
+  <section class="panel" id="tab-notes">
+    <textarea id="notes" maxlength="2000" placeholder="Your observations about posting times…"></textarea>
+    <p class="hint autosaved">Autosaved locally.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

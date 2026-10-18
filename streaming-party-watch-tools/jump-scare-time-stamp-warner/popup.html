@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ScareWarn</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo-dot" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    </div>
+    <div>
+      <h1>ScareWarn</h1>
+      <p class="subtitle">Jump-scare timestamp warnings</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <p class="label">Title</p>
+      <div class="title-row">
+        <select id="titleSelect" aria-label="Select title"></select>
+        <button id="deleteTitle" class="icon-btn" title="Delete title" aria-label="Delete title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </button>
+      </div>
+      <div class="title-row">
+        <input type="text" id="newTitle" placeholder="New title name…" maxlength="80">
+        <button id="addTitle" class="accent-btn">Add</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="label">Timestamps <span class="hint">(warns 5s before)</span></p>
+      <ul id="stampList" class="stamp-list"></ul>
+      <div class="title-row">
+        <input type="text" id="newTime" placeholder="mm:ss" maxlength="8" class="time-input">
+        <input type="text" id="newNote" placeholder="Note (optional)…" maxlength="80">
+        <button id="addStamp" class="accent-btn">Add</button>
+      </div>
+    </section>
+
+    <section class="panel watch-row">
+      <button id="startWatch" class="watch-btn">Start watching</button>
+      <button id="stopWatch" class="ghost-btn" disabled>Stop</button>
+    </section>
+
+    <p class="fineprint">All timestamps are entered by you — there is no scare database.</p>
+    <p class="status" id="status" role="status"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

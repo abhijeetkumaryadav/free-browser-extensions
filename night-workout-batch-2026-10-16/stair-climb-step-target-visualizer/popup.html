@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h4v-4h4v-4h4V8h4V4"/><path d="M4 20V4"/></svg>
+    <div>
+      <h1>Stair Climber</h1>
+      <p class="tag">Flights logged — your numbers, estimates</p>
+    </div>
+  </header>
+
+  <section class="card hero">
+    <div class="big"><span id="todayCount">0</span><small> / <span id="targetEcho">10</span> flights today</small></div>
+    <div class="bar"><div id="fill" class="fill"></div></div>
+    <div id="badges" class="badges"></div>
+  </section>
+
+  <section class="card">
+    <h2>Log climbs</h2>
+    <div class="row">
+      <input id="flights" type="number" min="1" max="500" value="1">
+      <button id="logBtn" class="btn">+ Flights</button>
+    </div>
+    <div class="row">
+      <input id="steps" type="number" min="1" max="10000" value="20" aria-label="Steps">
+      <button id="logSteps" class="btn ghost">+ Steps</button>
+    </div>
+    <label class="fld">Daily target (flights) <input id="target" type="number" min="1" max="200" value="10"></label>
+    <p class="hint">1 flight ≈ 12 steps. Steps convert automatically.</p>
+  </section>
+
+  <section class="card">
+    <h2>Last 7 days</h2>
+    <div id="history" class="hist"></div>
+  </section>
+
+  <p class="foot">You log — estimates only, <b>not medical advice</b>.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

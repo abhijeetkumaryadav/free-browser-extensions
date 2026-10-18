@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form Fill Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="5" rx="1"/><rect x="3" y="14" width="18" height="5" rx="1"/><path d="M17 8h.01M17 17h.01"/></svg>
+    <div>
+      <h1>Form Fill Helper</h1>
+      <p class="sub">Regex rules for HTML forms</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>HTML forms only — not PDF parsing. You trigger every fill; preview first. Clearing inputs returns the page to normal.</span>
+  </div>
+
+  <section class="card">
+    <h2>Add rule</h2>
+    <label class="fld"><span>Field-name pattern (regex)</span><input id="pat" type="text" placeholder="e.g. email|e-mail|user_email"></label>
+    <label class="fld"><span>Value to fill</span><input id="val" type="text" placeholder="e.g. you@example.com"></label>
+    <label class="fld chk"><input id="case" type="checkbox" checked> <span>Case-insensitive</span></label>
+    <button id="addBtn" class="btn primary">Add rule</button>
+  </section>
+
+  <section class="card">
+    <h2>Your rules <span id="ruleCount" class="count"></span></h2>
+    <div id="rules" class="rules"></div>
+  </section>
+
+  <section class="card">
+    <h2>Current tab</h2>
+    <div class="row">
+      <button id="scanBtn" class="btn">Scan fields</button>
+      <button id="fillBtn" class="btn primary" disabled>Fill matched</button>
+      <button id="clearBtn" class="btn danger">Clear filled</button>
+    </div>
+    <div id="preview" class="preview">Click “Scan fields” to preview which inputs your rules would match on this tab.</div>
+  </section>
+
+  <div class="foot">
+    <button id="exportBtn" class="link">Export JSON</button>
+    <button id="importBtn" class="link">Import JSON</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

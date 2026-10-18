@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Forge — Generative CSS Theme Engine</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Honest scope notice -->
+  <div class="notice">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Color-math generator — <strong>not neural</strong>. No models, no AI, no network.</span>
+  </div>
+
+  <h1 class="title">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.28-.3-.45-.7-.45-1.14 0-.9.74-1.64 1.64-1.64h3.1c2.48 0 4.5-2.02 4.5-4.5S17.5 2 12 2z"/></svg>
+    Theme Forge
+  </h1>
+
+  <!-- Controls -->
+  <section class="card">
+    <div class="row">
+      <label for="scheme">Scheme</label>
+      <select id="scheme">
+        <option value="analogous">Analogous</option>
+        <option value="complementary">Complementary</option>
+        <option value="triadic">Triadic</option>
+        <option value="tetradic">Tetradic</option>
+        <option value="monochrome">Monochrome</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="hue">Hue <span class="val" id="hueVal">210</span>°</label>
+      <input type="range" id="hue" min="0" max="360" value="210">
+    </div>
+    <div class="row">
+      <label for="sat">Saturation <span class="val" id="satVal">70</span>%</label>
+      <input type="range" id="sat" min="0" max="100" value="70">
+    </div>
+    <div class="row">
+      <label for="light">Lightness <span class="val" id="lightVal">55</span>%</label>
+      <input type="range" id="light" min="10" max="90" value="55">
+    </div>
+    <div class="row">
+      <label for="seed">Seed</label>
+      <div class="seedRow">
+        <input type="number" id="seed" min="0" max="999999" placeholder="random">
+        <button id="generate" class="btn accent">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/><path d="M12 8.5v7M8.5 12h7"/></svg>
+          Generate
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palette -->
+  <section class="card">
+    <div class="cardTitle">Palette</div>
+    <div class="palette" id="palette"></div>
+  </section>
+
+  <!-- Live preview -->
+  <section class="card">
+    <div class="cardTitle">Live preview</div>
+    <div class="preview" id="preview">
+      <div class="pv-card">
+        <h3 class="pv-h">Sample heading</h3>
+        <p class="pv-p">Body text rendered with the generated theme colors.</p>
+        <div class="pv-btns">
+          <button class="pv-btn pv-primary">Primary</button>
+          <button class="pv-btn pv-secondary">Secondary</button>
+        </div>
+        <div class="pv-badge">Badge</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Save / export -->
+  <section class="card">
+    <div class="cardTitle">Saved themes</div>
+    <div class="saveRow">
+      <input type="text" id="themeName" placeholder="Theme name…" maxlength="40">
+      <button id="save" class="btn accent">Save</button>
+    </div>
+    <ul class="themeList" id="themeList"></ul>
+    <button id="export" class="btn ghost wide">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export current as CSS variables
+    </button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Habitable Zone Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+    <div>
+      <h1>Habitable Zone</h1>
+      <p class="sub">Kopparapu-style estimator</p>
+    </div>
+  </header>
+
+  <div class="banner">Simplified model — educational only, not real astrophysics.</div>
+
+  <section class="card">
+    <h2>Star parameters</h2>
+    <label>Luminosity (L☉)</label>
+    <input id="lum" type="number" step="0.0001" min="0" placeholder="e.g. 1.0 for the Sun">
+    <label>Effective temperature (K)</label>
+    <input id="teff" type="number" step="1" min="0" placeholder="e.g. 5778 for the Sun">
+    <div id="formerr" class="err" hidden></div>
+    <button id="calcbtn" class="primary">Calculate</button>
+  </section>
+
+  <section class="card" id="results" hidden>
+    <h2>Results <span id="spectype" class="count"></span></h2>
+    <div class="res">
+      <div class="resrow opt"><span>Optimistic HZ</span><b id="opt"></b></div>
+      <div class="resrow con"><span>Conservative HZ</span><b id="con"></b></div>
+    </div>
+    <div class="bar" id="hzbar"></div>
+    <div class="legend"><span><i class="sw optsw"></i>Optimistic</span><span><i class="sw consw"></i>Conservative</span></div>
+    <p class="note">Optimistic: Recent Venus → Early Mars. Conservative: Runaway Greenhouse → Maximum Greenhouse. Boundaries follow Kopparapu et al. (2013) flux polynomials; orbital distance = √((L/L☉)/S_eff).</p>
+  </section>
+
+  <footer class="foot">Simplified model — your inputs, heuristic output.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

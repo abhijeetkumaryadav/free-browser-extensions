@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TabWav — Tab Audio to WAV</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>TabWav</h1>
+        <p class="subtitle">Tab audio &rarr; WAV recorder</p>
+      </div>
+      <div id="recDot" class="rec-dot idle" title="Recording state"></div>
+    </header>
+
+    <!-- Consent / scope note -->
+    <section class="card consent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <p><strong>Tab audio only.</strong> Records the active tab's audible
+      output after you press Start. Nothing is captured in the background —
+      recording stops when you press Stop or close this popup. Only record
+      audio you have the right to record.</p>
+    </section>
+
+    <!-- Status + timer -->
+    <section class="card status-card">
+      <div class="status-row">
+        <span id="statusText" class="status-text">Idle — ready to record</span>
+        <span id="timer" class="timer">00:00</span>
+      </div>
+      <canvas id="meter" width="332" height="44" aria-label="Audio level meter"></canvas>
+    </section>
+
+    <!-- Controls -->
+    <section class="controls">
+      <button id="btnStart" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><circle cx="12" cy="12" r="6"/></svg>
+        Start recording
+      </button>
+      <button id="btnStop" class="btn danger" disabled>
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+        Stop
+      </button>
+    </section>
+
+    <!-- Result -->
+    <section id="resultCard" class="card result hidden">
+      <div class="result-row">
+        <div>
+          <p class="result-title">Recording finished</p>
+          <p id="resultMeta" class="result-meta">—</p>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button id="btnDownload" class="btn accent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download .wav
+        </button>
+        <button id="btnDiscard" class="btn ghost">Discard</button>
+      </div>
+    </section>
+
+    <p id="errorMsg" class="error hidden"></p>
+
+    <footer class="footer">
+      <p>Keep this popup open while recording. WAV is encoded locally on your device — no network.</p>
+    </footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

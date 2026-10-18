@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outbox Delay Timer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Outbox Delay Timer</h1>
+      <p class="subtitle">Never forget a follow-up</p>
+    </div>
+  </header>
+
+  <!-- Add entry form -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Log a sent email
+    </h2>
+    <label class="field">
+      <span>To</span>
+      <input id="to" type="text" placeholder="recipient@example.com" maxlength="120">
+    </label>
+    <label class="field">
+      <span>Subject</span>
+      <input id="subject" type="text" placeholder="What was it about?" maxlength="160">
+    </label>
+    <div class="row">
+      <label class="field grow">
+        <span>Remind me in</span>
+        <div class="presets" id="presets">
+          <button class="preset active" data-hours="48">2 days</button>
+          <button class="preset" data-hours="168">1 week</button>
+          <button class="preset" data-hours="336">2 weeks</button>
+          <button class="preset" data-hours="custom">Custom</button>
+        </div>
+      </label>
+    </div>
+    <div class="row hidden" id="customRow">
+      <label class="field grow">
+        <span>Custom hours</span>
+        <input id="customHours" type="number" min="1" max="8760" value="72">
+      </label>
+    </div>
+    <button id="addBtn" class="primary-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+      Set follow-up reminder
+    </button>
+  </section>
+
+  <!-- Pending list -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Pending follow-ups <span class="count" id="count">0</span>
+    </h2>
+    <div id="list" class="list"></div>
+    <div id="empty" class="empty">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+      <p>All clear — no follow-ups waiting.</p>
+    </div>
+  </section>
+
+  <footer class="foot">All entries stay on this device. No mailbox access.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

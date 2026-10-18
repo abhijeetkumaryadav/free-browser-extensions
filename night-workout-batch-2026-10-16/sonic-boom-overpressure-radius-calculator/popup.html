@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonic Boom Overpressure Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+    <div>
+      <h1>Sonic Boom Estimator</h1>
+      <p class="sub">Simplified model — educational only</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <label class="field">
+      <span>Mach number</span>
+      <input id="mach" type="number" min="1.01" max="10" step="0.01" value="1.4">
+    </label>
+    <label class="field">
+      <span>Altitude (ft)</span>
+      <input id="alt" type="number" min="1000" max="100000" step="500" value="40000">
+    </label>
+    <label class="field">
+      <span>Aircraft length (ft)</span>
+      <input id="len" type="number" min="10" max="400" step="1" value="200">
+    </label>
+    <button id="calc" class="btn">Estimate boom</button>
+  </section>
+
+  <section id="results" class="card hidden">
+    <div class="row"><span>Overpressure (psf)</span><strong id="psf">–</strong></div>
+    <div class="row"><span>Peak N-wave (Pa)</span><strong id="pa">–</strong></div>
+    <div class="row"><span>Boom carpet width</span><strong id="width">–</strong></div>
+    <div class="row"><span>Mach cone half-angle</span><strong id="angle">–</strong></div>
+    <p class="note" id="verdict"></p>
+  </section>
+
+  <section class="card banner">
+    <p><strong>Simplified model.</strong> Uses the Carlson/Whitham-style far-field scaling
+    Δp ∝ (M²−1)^(−1/8)·(h/L)^(−3/4). Real booms vary with atmosphere, maneuvers and
+    focusing — this is an educational estimate, not a prediction.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

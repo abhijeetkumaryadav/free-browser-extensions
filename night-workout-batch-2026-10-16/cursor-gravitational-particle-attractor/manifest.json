@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Cursor Gravity Particles",
+  "short_name": "GravityParticles",
+  "version": "1.0.0",
+  "description": "Harmless visual toy: colorful particles on a canvas overlay are pulled toward your cursor. User-triggered, one-click stop, 100% local.",
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": { "default_popup": "popup.html", "default_title": "Cursor Gravity Particles" },
+  "permissions": ["storage", "activeTab", "scripting"]
+}

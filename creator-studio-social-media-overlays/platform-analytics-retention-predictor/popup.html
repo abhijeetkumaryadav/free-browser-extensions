@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="glass header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 17l5-6 4 3 6-8 3 4"/><path d="M3 21h18"/>
+    </svg>
+    <div>
+      <h1>Retention Predictor</h1>
+      <p class="sub">Heuristic curve fit · <em>estimate only, not platform data</em></p>
+    </div>
+  </header>
+
+  <section class="glass panel">
+    <div class="row">
+      <label class="grow">Video duration
+        <input type="text" id="duration" value="10:00" placeholder="mm:ss">
+      </label>
+      <button id="sampleBtn" class="ghost">Load sample</button>
+      <button id="analyzeBtn" class="primary">Analyze</button>
+    </div>
+    <label class="ta-label">Retention points — one per line: <code>time %</code></label>
+    <textarea id="data" rows="6" placeholder="0:00 100%&#10;0:30 82%&#10;1:00 74%&#10;…or  30,82  /  1:00 — 74%"></textarea>
+    <div id="parseNote" class="note hidden"></div>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="glass panel">
+      <h2>Retention curve</h2>
+      <canvas id="chart"></canvas>
+      <div class="legend">
+        <span><i class="sw data"></i>Your data</span>
+        <span><i class="sw fit"></i>Decay fit</span>
+        <span><i class="sw drop"></i>Drop-off</span>
+      </div>
+      <div id="fitNote" class="note"></div>
+    </div>
+
+    <div class="glass panel">
+      <h2>Biggest drop-offs</h2>
+      <div id="drops"></div>
+    </div>
+
+    <div class="glass panel">
+      <h2>Suggestions</h2>
+      <ul id="tips" class="tips"></ul>
+    </div>
+  </section>
+
+  <p class="disclaimer">Heuristic estimator for planning. It does not read any
+  analytics account and its output is not real platform data.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

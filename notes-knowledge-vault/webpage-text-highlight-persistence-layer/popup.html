@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4z"/></svg>
+      </div>
+      <div>
+        <h1>HighlightLayer</h1>
+        <p class="subtitle" id="pageHost">Persistent page highlights</p>
+      </div>
+    </header>
+
+    <div id="unsupported" class="notice hidden">Highlighting isn't available on this page (browser pages like chrome:// are off-limits).</div>
+
+    <section class="panel">
+      <div class="row-label">Highlight current selection</div>
+      <div class="color-row" id="colorRow">
+        <button class="swatch" data-color="yellow" title="Yellow" style="--sw:#fde047"></button>
+        <button class="swatch" data-color="lime" title="Lime" style="--sw:#a3e635"></button>
+        <button class="swatch" data-color="cyan" title="Cyan" style="--sw:#22d3ee"></button>
+        <button class="swatch" data-color="pink" title="Pink" style="--sw:#f472b6"></button>
+      </div>
+      <p class="hint">Tip: select text, then right-click → HighlightLayer → color.</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <span class="row-label">Highlights on this page <span id="count" class="badge">0</span></span>
+        <div class="actions">
+          <button id="exportBtn" class="btn ghost" title="Export as Markdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Export
+          </button>
+          <button id="clearBtn" class="btn ghost danger" title="Remove all highlights on this page">Clear</button>
+        </div>
+      </div>
+      <div id="list" class="hl-list"></div>
+      <div id="empty" class="empty">No highlights yet. Select text on the page and pick a color.</div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

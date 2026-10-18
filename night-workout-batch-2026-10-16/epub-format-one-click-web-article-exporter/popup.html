@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Article to EPUB</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+    </svg>
+    <div>
+      <h1>Article to EPUB</h1>
+      <p class="sub">One-click web article exporter</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <strong>Heuristic extraction — best effort.</strong>
+    Text is pulled with simple page heuristics; complex layouts may export
+    partially. The file is generated locally — nothing is uploaded.
+  </div>
+
+  <button id="exportBtn" class="cta">Export this page as EPUB</button>
+
+  <p class="title" id="articleTitle"></p>
+  <p class="status" id="status"></p>
+  <p class="notice" id="notice"></p>
+
+  <details class="how">
+    <summary>How it works</summary>
+    <p>On click, the extension reads the active tab and heuristically picks the
+    article container (<code>&lt;article&gt;</code>, <code>&lt;main&gt;</code>, or the
+    largest text block), splits it into paragraphs, and assembles a valid minimal
+    EPUB (mimetype, container.xml, OPF, NCX, one XHTML chapter) entirely in your
+    browser. No network calls, no accounts, no tracking.</p>
+  </details>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

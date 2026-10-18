@@ -1,0 +1,113 @@
+/* CardForge — Trading Card Minter | deep-dark glassmorphism, gold accent (#f5b301) */
+:root {
+  --accent: #f5b301;
+  --accent-dim: rgba(245, 179, 1, .14);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, .72);
+  --panel-solid: #14141b;
+  --border: rgba(255, 255, 255, .08);
+  --text: #f4f4f6;
+  --muted: #9a9aa6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+/* ---------- header ---------- */
+.topbar { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon {
+  width: 30px; height: 30px; color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(245,179,1,.35);
+  border-radius: 10px; padding: 5px;
+}
+.brand h1 { font-size: 17px; font-weight: 700; letter-spacing: .2px; }
+.subtitle { color: var(--muted); font-size: 11px; }
+
+.icon-btn {
+  width: 32px; height: 32px; display: grid; place-items: center;
+  background: transparent; border: 1px solid var(--border); border-radius: 9px;
+  color: var(--muted); cursor: pointer; transition: all .15s ease;
+}
+.icon-btn svg { width: 16px; height: 16px; }
+.icon-btn:hover { color: var(--accent); border-color: rgba(245,179,1,.45); }
+
+/* ---------- cards ---------- */
+.card {
+  background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 14px; padding: 14px;
+}
+
+#cardCanvas {
+  width: 100%; height: auto; border-radius: 12px; display: block;
+  box-shadow: 0 8px 28px rgba(0,0,0,.55);
+}
+
+.download-btn {
+  width: 100%; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(135deg, #f5b301, #d99a00);
+  color: #241a00; font-weight: 700; font-size: 14px;
+  border: none; border-radius: 10px; padding: 11px; cursor: pointer;
+  transition: transform .08s ease, filter .15s ease;
+}
+.download-btn:hover { filter: brightness(1.08); }
+.download-btn:active { transform: scale(.98); }
+.download-btn svg { width: 17px; height: 17px; }
+
+/* ---------- editor ---------- */
+.editor { display: flex; flex-direction: column; gap: 10px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.grow { flex: 1; }
+.row { display: flex; gap: 10px; align-items: flex-end; }
+.stats-row .field { flex: 1; }
+
+.field-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; }
+
+.text-input, .num-input {
+  width: 100%; background: var(--panel-solid); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 9px 10px; font-size: 13px; outline: none;
+}
+.text-input:focus, .num-input:focus { border-color: var(--accent); }
+.num-input { text-align: center; }
+
+.tab-btn {
+  display: flex; align-items: center; gap: 7px; white-space: nowrap;
+  background: transparent; color: var(--accent);
+  border: 1px solid rgba(245,179,1,.4); border-radius: 10px;
+  padding: 9px 12px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  transition: background .15s ease;
+}
+.tab-btn:hover { background: var(--accent-dim); }
+.tab-btn svg { width: 15px; height: 15px; }
+
+.art-row { display: flex; gap: 8px; }
+.art-pick {
+  flex: 1; border: 2px solid var(--border); border-radius: 10px; overflow: hidden;
+  cursor: pointer; background: none; padding: 0; transition: border-color .15s ease;
+}
+.art-pick img { width: 100%; height: 56px; object-fit: cover; display: block; }
+.art-pick.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+
+.rarity-row { display: flex; gap: 8px; }
+.rarity-pick {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--panel-solid); border: 2px solid var(--border); border-radius: 10px;
+  color: var(--muted); padding: 8px 4px; font-size: 11.5px; font-weight: 600; cursor: pointer;
+  transition: all .15s ease;
+}
+.rarity-pick .dot { width: 10px; height: 10px; border-radius: 50%; }
+.rarity-pick.selected { color: var(--text); }
+
+.foot { color: var(--muted); font-size: 11px; text-align: center; }

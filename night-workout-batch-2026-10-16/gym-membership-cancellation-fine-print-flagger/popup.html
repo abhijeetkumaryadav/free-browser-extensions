@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine-Print Flagger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <h1>Fine-Print Flagger</h1>
+      <p class="sub">Gym contract clause scanner</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Heuristic pattern scan — <strong>not legal advice</strong>. Always read the full contract yourself.</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="paste">Paste text</button>
+    <button class="tab" data-tab="scan">Scan active field</button>
+    <button class="tab" data-tab="rules">All rules</button>
+  </div>
+
+  <section id="tab-paste" class="tabpane active">
+    <textarea id="contract" rows="6" placeholder="Paste the membership agreement text here…"></textarea>
+    <button id="analyze" class="primary">Scan contract</button>
+  </section>
+
+  <section id="tab-scan" class="tabpane">
+    <p class="hint">Focus a text field on the page (or select contract text), then scan it. Read-only — the page is never modified.</p>
+    <button id="grab" class="primary">Scan focused field / selection</button>
+  </section>
+
+  <section id="tab-rules" class="tabpane">
+    <div id="ruleList"></div>
+  </section>
+
+  <div id="verdict" class="verdict hidden"></div>
+  <div id="results"></div>
+</div>
+<script src="rules.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

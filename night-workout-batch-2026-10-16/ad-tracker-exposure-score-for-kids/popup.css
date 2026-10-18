@@ -1,0 +1,98 @@
+/* KidTrack Shield — shared glassmorphism design system */
+:root {
+  --bg: #0c0c12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f1f1f6;
+  --muted: #9a9aad;
+  --accent: #38bdf8; /* single vibrant accent: sky */
+  --accent-soft: rgba(56, 189, 248, 0.14);
+  --good: #4ade80;
+  --warn: #fbbf24;
+  --bad: #fb7185;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+header.app {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+header.app .logo {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+header.app .logo svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+header.app h1 { font-size: 15px; font-weight: 650; letter-spacing: 0.2px; }
+header.app p { font-size: 12px; color: var(--muted); }
+main { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+button.primary {
+  width: 100%; padding: 12px; border: none; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #818cf8);
+  color: #06121c; font-weight: 700; font-size: 14px; cursor: pointer;
+}
+button.primary:hover { filter: brightness(1.08); }
+button.ghost {
+  width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 12px;
+  background: transparent; color: var(--text); font-size: 13px; cursor: pointer;
+}
+button.ghost:hover { background: var(--accent-soft); }
+.score-ring { display: flex; align-items: center; gap: 16px; }
+.ring {
+  width: 92px; height: 92px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: conic-gradient(var(--accent) calc(var(--p, 0) * 1%), rgba(255,255,255,0.08) 0);
+  position: relative;
+}
+.ring::before {
+  content: ""; position: absolute; inset: 10px; border-radius: 50%; background: var(--bg);
+}
+.ring b { position: relative; font-size: 24px; }
+.verdict { font-size: 15px; font-weight: 700; }
+.verdict small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; margin-top: 4px; }
+.stat-row { display: flex; gap: 12px; }
+.stat { flex: 1; text-align: center; padding: 10px 4px; }
+.stat b { display: block; font-size: 20px; color: var(--accent); }
+.stat span { font-size: 11px; color: var(--muted); }
+ul.findings { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+ul.findings li {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px; font-size: 13px;
+}
+ul.findings li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
+  stroke: var(--warn); fill: none; stroke-width: 2; }
+ul.findings li .host { color: var(--muted); font-size: 12px; word-break: break-all; }
+.tip { font-size: 12.5px; color: var(--muted); display: flex; gap: 8px; }
+.tip svg { width: 14px; height: 14px; flex-shrink: 0; stroke: var(--accent); fill: none; stroke-width: 2; margin-top: 2px; }
+.honest {
+  font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--border);
+  padding-top: 10px; margin-top: 2px;
+}
+.badge-sample {
+  display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.4px;
+  background: var(--accent-soft); color: var(--accent);
+  border: 1px solid rgba(56,189,248,0.35); border-radius: 6px; padding: 2px 6px;
+  margin-left: 6px; vertical-align: middle;
+}
+.empty { text-align: center; color: var(--muted); padding: 18px 8px; font-size: 13px; }
+footer.note { padding: 0 16px 16px; font-size: 11px; color: var(--muted); text-align: center; }

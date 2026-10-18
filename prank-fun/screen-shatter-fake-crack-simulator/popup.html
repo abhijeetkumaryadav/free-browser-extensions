@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrackScreen</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
+      </div>
+      <div class="title-wrap">
+        <h1>CrackScreen</h1>
+        <p class="subtitle">Fake screen shatter prank</p>
+      </div>
+      <span class="prank-badge">PRANK</span>
+    </header>
+
+    <div class="panel">
+      <p class="desc">Shows a fake cracked-screen effect over the current tab with a shatter sound. It's clearly a joke — one click restores everything.</p>
+
+      <div class="field">
+        <label class="field-label">Crack intensity</label>
+        <div class="segmented" id="densitySeg">
+          <button data-val="light">Light</button>
+          <button data-val="medium" class="active">Medium</button>
+          <button data-val="heavy">Heavy</button>
+        </div>
+      </div>
+
+      <div class="row between">
+        <label class="field-label" for="soundToggle">Shatter sound</label>
+        <label class="switch">
+          <input type="checkbox" id="soundToggle" checked>
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+
+      <button id="shatterBtn" class="cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
+        Shatter this tab
+      </button>
+      <p class="hint">Clicking again (or the restore button) removes the effect instantly.</p>
+    </div>
+
+    <footer class="footer">Harmless joke · nothing is damaged · fully reversible</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

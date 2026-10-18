@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Concept Canvas — Visual Glossary</title>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3"/><circle cx="18" cy="8" r="3"/><circle cx="11" cy="17" r="3"/>
+        <path d="M8.7 7 15 7.7"/><path d="M7.4 8.7 9.6 14.4"/><path d="M15.5 10 12.6 14.7"/>
+      </svg>
+      <div><h1>Concept Canvas</h1><p class="sub">Your visual glossary of jargon</p></div>
+    </div>
+    <div class="notice">Your notes and definitions only — this does <strong>not</strong> explain textbook content. You add every term and definition yourself.</div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="terms">Terms</button>
+    <button class="tab" data-tab="add">Add</button>
+    <button class="tab" data-tab="review">Review</button>
+  </nav>
+
+  <!-- TERMS -->
+  <section id="tab-terms" class="tabpage">
+    <div class="panel">
+      <input id="search" type="text" placeholder="Search terms or definitions…">
+      <div class="filter-row">
+        <select id="tagFilter"><option value="">All tags</option></select>
+        <span id="termCount" class="count"></span>
+      </div>
+      <div id="termList"></div>
+    </div>
+  </section>
+
+  <!-- ADD / EDIT -->
+  <section id="tab-add" class="tabpage" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2 id="addTitle">New term</h2></div>
+      <div class="form">
+        <label>Term <input id="tTerm" type="text" placeholder="e.g. Osmosis"></label>
+        <label>Definition (your own words) <textarea id="tDef" placeholder="Write what it means to you…"></textarea></label>
+        <label>Tag <input id="tTag" type="text" placeholder="e.g. Biology"></label>
+        <div class="doodle-head">
+          <label class="doodle-label">Doodle (click to select, drag to move)</label>
+          <div class="tools">
+            <button class="tool" id="addRect" title="Add rectangle">▭</button>
+            <button class="tool" id="addCircle" title="Add circle">○</button>
+            <button class="tool" id="addText" title="Add text">T</button>
+            <button class="tool danger" id="delShape" title="Delete selected">⌫</button>
+          </div>
+        </div>
+        <svg id="doodle" viewBox="0 0 300 180" width="100%" height="180" aria-label="Doodle canvas"></svg>
+        <input id="shapeLabel" type="text" placeholder="Label of selected shape (type to rename)">
+        <div class="btn-row">
+          <button id="cancelAdd">Clear</button>
+          <span class="spacer"></span>
+          <button class="primary" id="saveTerm">Save term</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="tab-review" class="tabpage" hidden>
+    <div class="panel">
+      <div class="card" id="card">
+        <div class="card-term" id="cardTerm"></div>
+        <svg id="cardDoodle" viewBox="0 0 300 150" width="100%" height="150"></svg>
+        <div class="card-def" id="cardDef" hidden></div>
+      </div>
+      <div class="btn-row card-nav">
+        <button id="prevCard">← Prev</button>
+        <button class="primary" id="flipCard">Flip</button>
+        <button id="nextCard">Next →</button>
+        <button id="shuffleCard" title="Shuffle">⇄</button>
+      </div>
+      <div id="reviewCount" class="count center"></div>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

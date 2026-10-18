@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Injection Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9.5 12l2 2 3.5-4"/>
+    </svg>
+    <div>
+      <h1>Prompt Injection Scanner</h1>
+      <p class="sub">Bundled pattern list — not guaranteed detection.</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Heuristic pattern matching only. It cannot prove text is safe or malicious — always review hits yourself.</span>
+  </div>
+
+  <section class="card">
+    <h2>Input</h2>
+    <textarea id="input" rows="6" spellcheck="false" placeholder="Paste the prompt, message, or document text to scan…"></textarea>
+    <div class="row">
+      <button id="scanBtn" class="btn accent">Scan text</button>
+      <button id="grabBtn" class="btn">Scan active field</button>
+      <button id="clearBtn" class="btn ghost">Clear</button>
+    </div>
+    <p id="grabNote" class="muted" hidden></p>
+  </section>
+
+  <section class="card">
+    <h2>Verdict</h2>
+    <div id="verdict" class="verdict idle">Not scanned yet.</div>
+    <div id="hits" class="hits"></div>
+  </section>
+
+  <section class="card">
+    <h2>Pattern list <span class="count" id="ruleCount"></span></h2>
+    <div id="rules" class="rules"></div>
+  </section>
+
+  <footer class="foot">100% local. Nothing is uploaded; scanned text never leaves this popup.</footer>
+</div>
+<script src="rules.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

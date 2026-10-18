@@ -1,0 +1,12 @@
+/* CBZ Reader popup — deep-dark glassmorphism, one accent (#f59e0b) */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#141419;color:#e8e8ee}
+.card{margin:12px;padding:16px;border-radius:16px;background:rgba(20,20,26,.72);backdrop-filter:blur(12px);border:1px solid rgba(245,158,11,.25)}
+.honest{font-size:11px;line-height:1.5;padding:8px 10px;border-radius:10px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);color:#fcd34d;margin-bottom:12px}
+.title-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.icon{width:26px;height:26px;color:#f59e0b}
+h1{font-size:18px;font-weight:700}
+.sub{font-size:13px;line-height:1.6;color:#b9b9c7;margin-bottom:14px}
+.primary{width:100%;padding:11px;border:none;border-radius:12px;background:#f59e0b;color:#141419;font-size:14px;font-weight:700;cursor:pointer}
+.primary:hover{background:#fbbf24}
+.hint{font-size:11px;color:#8a8a99;margin-top:12px;line-height:1.5}

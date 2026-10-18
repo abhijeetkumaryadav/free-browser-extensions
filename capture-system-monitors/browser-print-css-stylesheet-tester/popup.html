@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintPeek — Print Stylesheet Tester</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>PrintPeek</h1>
+        <p class="subtitle">Print stylesheet tester</p>
+      </div>
+      <div id="statePill" class="pill idle">Idle</div>
+    </header>
+
+    <section class="card note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <p><strong>Simulation, not the real print engine.</strong> This injects a
+      print-style CSS layer (white page, dark text, nav/ads hidden) so you can
+      eyeball a print layout. For the real thing, use <em>Real print
+      preview</em> below.</p>
+    </section>
+
+    <section class="card">
+      <p class="card-title">Simulation options</p>
+      <label class="switch-row">
+        <span>Hide navigation &amp; sidebars</span>
+        <button id="optHideNav" class="switch on" role="switch" aria-checked="true"><span class="knob"></span></button>
+      </label>
+      <label class="switch-row">
+        <span>Show link URLs after links</span>
+        <button id="optShowUrls" class="switch on" role="switch" aria-checked="true"><span class="knob"></span></button>
+      </label>
+      <label class="switch-row">
+        <span>Hide cookie banners &amp; popups</span>
+        <button id="optHideOverlays" class="switch on" role="switch" aria-checked="true"><span class="knob"></span></button>
+      </label>
+    </section>
+
+    <section class="controls">
+      <button id="btnToggle" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span id="btnToggleLabel">Apply print simulation</span>
+      </button>
+      <button id="btnPrint" class="btn ghost" title="Open the browser's real print dialog for this tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Real print preview
+      </button>
+    </section>
+
+    <p id="errorMsg" class="error hidden"></p>
+
+    <footer class="footer">
+      <p>User-gesture only · one removable &lt;style&gt; tag · restore removes it exactly · no network.</p>
+    </footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

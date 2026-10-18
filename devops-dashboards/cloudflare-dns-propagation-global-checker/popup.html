@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropCheck — DNS Propagation Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <!-- Lucide-style globe stroke icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M2 12h20"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    </div>
+    <div class="title">
+      <h1>PropCheck</h1>
+      <p>DNS propagation checker</p>
+    </div>
+  </header>
+
+  <!-- Scope disclaimer: honest about limitations -->
+  <div class="scope">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Compares answers from 2 public DoH resolvers — an approximation, not a global network.</span>
+  </div>
+
+  <!-- Query form -->
+  <div class="panel">
+    <label class="lbl" for="domain">Domain</label>
+    <div class="row">
+      <input id="domain" class="inp grow" type="text" placeholder="example.com" autocomplete="off" spellcheck="false">
+      <select id="rtype" class="inp sel" aria-label="Record type">
+        <option value="A">A</option>
+        <option value="AAAA">AAAA</option>
+        <option value="CNAME">CNAME</option>
+        <option value="MX">MX</option>
+        <option value="TXT">TXT</option>
+        <option value="NS">NS</option>
+      </select>
+    </div>
+    <div class="row actions">
+      <button id="check" class="btn primary grow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Check propagation
+      </button>
+      <button id="copy" class="btn ghost" title="Copy results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Status line -->
+  <div id="status" class="status idle">Enter a domain to compare resolver answers.</div>
+
+  <!-- Results: one card per resolver -->
+  <div id="results" class="results"></div>
+
+  <footer class="foot">
+    <span>Data: Google DoH · Cloudflare DoH (free, no key)</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

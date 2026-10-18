@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JWST Target List</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6-9 6-9-6z"/><path d="M3 14l9 6 9-6"/><circle cx="12" cy="10" r="1.6"/></svg>
+    <div>
+      <h1>JWST Target List</h1>
+      <p class="sub">Deep-sky coordinate logbook</p>
+    </div>
+  </header>
+
+  <div class="banner">Your list — not live telescope data.</div>
+
+  <section class="card">
+    <h2>Add target</h2>
+    <input id="tname" type="text" placeholder="Name (e.g. M42 Orion Nebula)" maxlength="80">
+    <div class="row">
+      <input id="tra" type="number" step="0.0001" placeholder="RA (hours, 0–24)" min="0" max="24">
+      <input id="tdec" type="number" step="0.0001" placeholder="Dec (° , −90–90)" min="-90" max="90">
+    </div>
+    <textarea id="tnotes" rows="2" placeholder="Notes (optional)" maxlength="400"></textarea>
+    <div id="formerr" class="err" hidden></div>
+    <button id="addbtn" class="primary">Add target</button>
+  </section>
+
+  <section class="card">
+    <h2>My targets <span id="count" class="count"></span></h2>
+    <input id="search" type="text" placeholder="Search name or notes…" maxlength="80">
+    <div id="list" class="list"></div>
+    <div id="empty" class="empty">No targets yet. Add your first one above.</div>
+  </section>
+
+  <footer class="foot">Educational logbook — no live JWST feed.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

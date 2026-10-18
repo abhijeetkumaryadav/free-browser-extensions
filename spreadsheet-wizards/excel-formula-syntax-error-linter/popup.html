@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>FormulaLint</title>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+    <div>
+      <h1>FormulaLint</h1>
+      <p>Excel &amp; Sheets formula linter</p>
+    </div>
+  </div>
+  <button id="clearBtn" class="ghost" title="Clear editor">Clear</button>
+</header>
+
+<main>
+  <label class="fld">
+    <span>Paste your formula</span>
+    <textarea id="formula" rows="4" spellcheck="false" placeholder="=VLOOKUP(A2, Sheet2!A:B, 2, FALSE)"></textarea>
+  </label>
+  <div class="opts">
+    <label class="chk"><input type="checkbox" id="live" checked> Lint as I type</label>
+    <label class="chk"><input type="checkbox" id="strict" checked> Strict arg counts</label>
+  </div>
+  <div id="status" class="status ok"><span class="dot"></span><span id="statusText">Paste a formula to lint it.</span></div>
+  <section id="results" class="results empty"></section>
+</main>
+
+<footer>
+  <span>All checks run on-device.</span>
+  <span id="fnCount"></span>
+</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

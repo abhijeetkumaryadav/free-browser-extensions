@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relic Tags</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/><path d="M14 4l-4 16"/></svg>
+      <div>
+        <h1>Relic Tags</h1>
+        <p class="subtitle">Old-school HTML reference</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="honest-banner">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Educational — not live. These relics are listed from a bundled reference; nothing here scans web pages.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="relics">Relics</button>
+    <button class="tab" data-tab="quiz">Quiz</button>
+    <button class="tab" data-tab="notes">Notes</button>
+  </nav>
+
+  <main>
+    <!-- Relics tab -->
+    <section id="tab-relics" class="tab-panel active">
+      <div class="search-row">
+        <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search" type="text" placeholder="Search relics…" autocomplete="off">
+      </div>
+      <div class="stats-row"><span id="relicCount">0 relics</span></div>
+      <ul id="relicList" class="relic-list"></ul>
+      <div id="emptyRelics" class="empty">No relics match.</div>
+    </section>
+
+    <!-- Quiz tab -->
+    <section id="tab-quiz" class="tab-panel">
+      <div id="quizStart">
+        <p class="quiz-intro">Test your fossil knowledge. 8 questions about dead HTML tags.</p>
+        <button id="startQuiz" class="btn primary">Start quiz</button>
+        <p id="bestScore" class="stats-row"></p>
+      </div>
+      <div id="quizPlay" hidden>
+        <div class="quiz-progress"><span id="qNum"></span><div class="bar"><div id="qBar" class="fill"></div></div></div>
+        <h2 id="qText" class="quiz-question"></h2>
+        <div id="qOptions" class="quiz-options"></div>
+      </div>
+      <div id="quizDone" hidden>
+        <h2 id="qScore" class="quiz-score"></h2>
+        <p id="qVerdict" class="quiz-verdict"></p>
+        <button id="againQuiz" class="btn primary">Play again</button>
+      </div>
+    </section>
+
+    <!-- Notes tab -->
+    <section id="tab-notes" class="tab-panel">
+      <form id="noteForm" class="form">
+        <label>Title
+          <input id="nTitle" type="text" maxlength="120" placeholder="Note title" required>
+        </label>
+        <label>Body
+          <textarea id="nBody" rows="3" maxlength="2000" placeholder="Your thoughts…"></textarea>
+        </label>
+        <button type="submit" class="btn primary">Save note</button>
+      </form>
+      <div class="search-row">
+        <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="noteSearch" type="text" placeholder="Search notes…" autocomplete="off">
+      </div>
+      <ul id="noteList" class="note-list"></ul>
+      <div id="emptyNotes" class="empty">No notes yet.</div>
+    </section>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

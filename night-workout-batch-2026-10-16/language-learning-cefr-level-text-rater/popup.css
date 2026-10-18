@@ -1,0 +1,42 @@
+/* Deep-dark glassmorphism — one accent: sky #81baf0 */
+:root{
+  --bg:rgba(18,20,27,.9); --glass:rgba(22,24,32,.72); --glass2:rgba(28,31,42,.55);
+  --line:rgba(255,255,255,.09); --txt:#e8ecf4; --dim:#9aa3b5; --accent:#81baf0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font:13px/1.55 -apple-system,"Segoe UI",Roboto,sans-serif;color:var(--txt);
+  background:var(--bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px}
+.bar{margin-bottom:12px}
+.title{font-size:16px;font-weight:700}
+.sub{font-size:11px;color:var(--dim)}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:12px;
+  padding:12px;margin-bottom:12px}
+.hidden{display:none}
+label{display:block;font-size:12px;color:var(--dim);margin-bottom:6px}
+textarea{width:100%;resize:vertical;background:var(--glass2);border:1px solid var(--line);
+  border-radius:8px;color:var(--txt);padding:8px;font:inherit}
+textarea:focus{outline:1px solid var(--accent)}
+.row{display:flex;gap:8px;margin-top:10px}
+button{border:1px solid var(--line);border-radius:8px;padding:8px 14px;font:inherit;
+  cursor:pointer;background:var(--glass2);color:var(--txt)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#0b1220;font-weight:700;flex:1}
+button.ghost{color:var(--dim)}
+button:hover{filter:brightness(1.08)}
+.levelRow{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.level{width:64px;height:64px;border-radius:50%;border:3px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:var(--accent)}
+.scoreLabel{font-size:11px;color:var(--dim)}
+.scoreVal{font-size:22px;font-weight:800}
+.meters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.meter{background:var(--glass2);border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center}
+.meter span{display:block;font-size:10px;color:var(--dim)}
+.meter b{font-size:14px;color:var(--accent)}
+h3{font-size:12px;margin:8px 0;color:var(--dim);font-weight:600}
+.sentList{max-height:220px;overflow:auto;display:flex;flex-direction:column;gap:8px}
+.sent{background:var(--glass2);border:1px solid var(--line);border-radius:8px;padding:8px}
+.sent .top{display:flex;justify-content:space-between;margin-bottom:4px}
+.badge{font-size:11px;font-weight:700;color:var(--accent);border:1px solid var(--accent);
+  border-radius:6px;padding:1px 7px}
+.sent p{font-size:12px;color:var(--txt)}
+.legend ul{list-style:disc;padding-left:18px;color:var(--dim);font-size:12px}
+.legend li{margin-bottom:4px}

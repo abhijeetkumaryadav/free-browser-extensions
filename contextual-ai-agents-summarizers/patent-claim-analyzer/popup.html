@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patent Claim Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+    <div><h1>Claim Analyzer</h1><p>Best-effort on-device parsing</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Claim text
+        <textarea id="input" rows="6" placeholder="Paste patent claims here (e.g. 1. A device comprising…&#10;2. The device of claim 1, wherein…)"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="analyze" class="primary">Analyze</button>
+        <button id="sample" class="ghost">Load sample</button>
+      </div>
+    </section>
+    <section class="glass card" id="results" hidden>
+      <h2>Claims <span class="hint" id="claimCount"></span></h2>
+      <div id="claims"></div>
+      <h2>Key limiting terms</h2>
+      <div id="terms" class="chips"></div>
+      <h2>Claim chart</h2>
+      <div class="btnrow">
+        <button id="copyTsv" class="ghost">Copy chart</button>
+        <button id="csvBtn" class="ghost">Export CSV</button>
+      </div>
+      <div id="chart"></div>
+    </section>
+    <section class="glass card" id="histCard" hidden>
+      <h2>History</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

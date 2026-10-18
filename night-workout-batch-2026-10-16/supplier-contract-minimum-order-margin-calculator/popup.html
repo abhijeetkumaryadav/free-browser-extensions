@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOQ Margin Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M7 21h10M8 4v2M16 4v2"/></svg>
+    </div>
+    <div>
+      <h1>MOQ Margin Calculator</h1>
+      <p class="sub">Supplier contract math</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Estimates only — not procurement or financial advice. Verify quotes with your supplier.</span>
+  </div>
+
+  <section class="form" aria-label="Inputs">
+    <label>Unit cost ($) <input id="unitCost" type="number" min="0" step="0.01" placeholder="2.50"></label>
+    <label>MOQ (units) <input id="moq" type="number" min="1" step="1" placeholder="500"></label>
+    <label>Freight / shipping ($) <input id="freight" type="number" min="0" step="0.01" placeholder="120"></label>
+    <label>Other fees ($) <input id="fees" type="number" min="0" step="0.01" placeholder="0"></label>
+    <label>Expected sell price ($) <input id="sellPrice" type="number" min="0" step="0.01" placeholder="9.99"></label>
+  </section>
+
+  <button id="calc" class="cta">Calculate</button>
+
+  <section id="results" class="results" hidden aria-live="polite">
+    <div class="grid2">
+      <div class="stat"><span class="k">Landed cost / unit</span><span class="v" id="rLanded">–</span></div>
+      <div class="stat"><span class="k">Total outlay</span><span class="v" id="rOutlay">–</span></div>
+      <div class="stat"><span class="k">Break-even units</span><span class="v" id="rBreak">–</span></div>
+      <div class="stat"><span class="k">Margin at 100%</span><span class="v" id="rMargin">–</span></div>
+    </div>
+    <h2>Sell-through scenarios</h2>
+    <div id="table" class="table"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

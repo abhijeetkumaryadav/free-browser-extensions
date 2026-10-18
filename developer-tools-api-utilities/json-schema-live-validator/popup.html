@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON Schema Live Validator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <div><h1>Schema Validator</h1><p>JSON Schema draft-07 subset · on-device</p></div>
+    <div id="status" class="status idle">—</div>
+  </header>
+  <main>
+    <label class="fld">JSON document
+      <textarea id="json" spellcheck="false" placeholder='{ "name": "Asha", "age": 29 }'></textarea>
+    </label>
+    <label class="fld">JSON Schema
+      <textarea id="schema" spellcheck="false" placeholder='{ "type": "object", "required": ["name"], ... }'></textarea>
+    </label>
+    <div class="actions">
+      <button id="validate" class="primary">Validate</button>
+      <button id="sample" class="ghost">Load sample</button>
+      <button id="clear" class="ghost">Clear</button>
+    </div>
+    <div id="errors" class="errors"></div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

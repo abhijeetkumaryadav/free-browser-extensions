@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+    </div>
+    <div>
+      <h1>CacheKeeper</h1>
+      <p class="subtitle">Storage usage dashboard</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <span class="section-title">Current tab</span>
+      <div class="origin-row">
+        <span class="origin" id="originLabel">—</span>
+        <button id="scanBtn" class="scan-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Scan</span>
+        </button>
+      </div>
+      <div class="usage-block" id="usageBlock" hidden>
+        <div class="usage-numbers">
+          <span id="usageText">—</span>
+          <span id="pctText" class="pct">—</span>
+        </div>
+        <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+        <p class="quota-note" id="quotaNote"></p>
+      </div>
+      <button id="clearBtn" class="clear-btn" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <span>Clear cache for this origin</span>
+      </button>
+      <p class="error" id="scanError" hidden></p>
+    </section>
+
+    <section class="card">
+      <div class="row-head">
+        <span class="section-title">Scan history</span>
+        <button id="historyClear" class="link-btn">Clear</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+      <p class="empty" id="historyEmpty">No scans yet.</p>
+    </section>
+
+    <p class="scope-note">
+      Extensions cannot control the browser cache or stop tabs from being discarded —
+      this is a read-only usage audit plus an on-demand, user-initiated cache clear for
+      the current origin only. Usage is measured with <code>navigator.storage.estimate()</code>
+      inside the tab's own context. For full site-data controls, see
+      <code>chrome://settings/siteData</code>.
+    </p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

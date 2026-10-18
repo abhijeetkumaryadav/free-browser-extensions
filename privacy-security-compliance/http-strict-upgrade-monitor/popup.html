@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connection Security Monitor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <div class="app-titles">
+      <h1>Connection Monitor</h1>
+      <p id="hostLine">Read-only security scan</p>
+    </div>
+    <div id="gradeBadge" class="grade">–</div>
+  </header>
+
+  <section class="card">
+    <div class="scan-row">
+      <span class="label">Protocol</span>
+      <span id="protocolVal" class="pill">…</span>
+    </div>
+    <div class="scan-row">
+      <span class="label">Page URL</span>
+      <span id="urlVal" class="mono small">…</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">Mixed content scan</div>
+    <div class="scan-row"><span class="label">Insecure images</span><span id="imgCount" class="count">0</span></div>
+    <div class="scan-row"><span class="label">Insecure scripts</span><span id="scriptCount" class="count">0</span></div>
+    <div class="scan-row"><span class="label">Insecure frames</span><span id="frameCount" class="count">0</span></div>
+    <div class="scan-row"><span class="label">Insecure other</span><span id="otherCount" class="count">0</span></div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">Form &amp; link checks</div>
+    <div class="scan-row"><span class="label">Forms posting to http</span><span id="formCount" class="count">0</span></div>
+    <div class="scan-row"><span class="label">Password fields on http</span><span id="pwCount" class="count warn">0</span></div>
+  </section>
+
+  <section class="card hidden" id="warnCard">
+    <div class="card-title warn-title">Warnings</div>
+    <ul id="warnList" class="warn-list"></ul>
+  </section>
+
+  <button id="rescanBtn" class="btn-primary">Re-scan this page</button>
+  <p class="hint">Read-only analysis — nothing is blocked or changed. Re-scan after the page finishes loading for best results.</p>
+
+  <footer class="footer"><span>Grade is heuristic, not a security audit.</span></footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

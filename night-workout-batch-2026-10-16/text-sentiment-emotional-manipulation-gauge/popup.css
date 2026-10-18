@@ -1,0 +1,130 @@
+/* Sentiment Signal Gauge — deep-dark glassmorphism, 380px, one cyan accent */
+:root{
+  --bg: rgba(18,18,24,.72);
+  --card: rgba(255,255,255,.05);
+  --border: rgba(255,255,255,.10);
+  --text: #eef2ff;
+  --muted: #9aa3b2;
+  --accent: #22d3ee; /* single accent: cyan */
+  --danger: #f87171;
+  --radius: 12px;
+  --gap: 14px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  width:380px; max-height:600px; overflow-y:auto;
+  background: linear-gradient(160deg,#0b0e17 0%,#111625 100%);
+  color:var(--text);
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:13px; line-height:1.45;
+}
+.shell{
+  margin:12px; padding:var(--gap);
+  background:var(--bg); backdrop-filter:blur(12px);
+  border:1px solid var(--border); border-radius:16px;
+}
+/* Honest-limits banner */
+.notice{
+  display:flex; gap:10px; align-items:flex-start;
+  background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.35);
+  color:var(--text); border-radius:var(--radius); padding:10px 12px;
+  font-size:11.5px; margin-bottom:var(--gap);
+}
+.notice-icon{ width:18px; height:18px; flex:none; color:var(--accent); }
+/* Tabs */
+.tabs{ display:flex; gap:6px; margin-bottom:var(--gap); }
+.tab{
+  flex:1; background:transparent; color:var(--muted);
+  border:1px solid var(--border); border-radius:10px;
+  padding:8px 4px; font-size:12px; cursor:pointer;
+}
+.tab.active{ background:rgba(34,211,238,.14); color:var(--accent); border-color:rgba(34,211,238,.5); }
+.panel{ display:none; } .panel.active{ display:block; }
+/* Fields */
+.field-label{ display:block; font-size:12px; color:var(--muted); margin-bottom:6px; }
+textarea, input[type=text]{
+  width:100%; background:rgba(255,255,255,.04); color:var(--text);
+  border:1px solid var(--border); border-radius:var(--radius);
+  padding:10px; font-size:13px; font-family:inherit; resize:vertical;
+  margin-bottom:10px;
+}
+textarea:focus, input:focus{ outline:none; border-color:var(--accent); }
+.primary{
+  width:100%; background:var(--accent); color:#06121a; border:none;
+  border-radius:var(--radius); padding:10px; font-size:13px; font-weight:600;
+  cursor:pointer; margin-bottom:var(--gap);
+}
+.primary:hover{ filter:brightness(1.1); }
+/* Gauge */
+.results.hidden{ display:none; }
+.gauge-card{
+  display:flex; gap:14px; align-items:center;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:12px; margin-bottom:12px;
+}
+.gauge{
+  width:110px; height:60px; flex:none; position:relative;
+  background:conic-gradient(from 180deg,#f87171 0%,#fbbf24 50%,#34d399 100%);
+  border-radius:110px 110px 0 0; overflow:hidden;
+}
+.gauge::after{ /* inner mask so it reads as an arc */
+  content:""; position:absolute; inset:14px 14px 0 14px;
+  background:#141a28; border-radius:100px 100px 0 0;
+}
+.gauge-needle{
+  position:absolute; left:50%; bottom:0; width:2px; height:44px;
+  background:#fff; transform-origin:bottom center;
+  transform:rotate(-90deg); z-index:2; transition:transform .5s ease;
+}
+.gauge-readout{ min-width:0; }
+.gauge-score{ font-size:24px; font-weight:700; color:var(--accent); }
+.gauge-label{ font-size:11px; color:var(--muted); }
+.gauge-label .sub{ display:block; font-size:10px; }
+.verdict{
+  display:inline-block; margin-top:6px; font-size:12px; font-weight:600;
+  padding:3px 10px; border-radius:999px;
+  background:rgba(34,211,238,.14); color:var(--accent);
+}
+/* Stats + signals */
+.stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+.stat{ background:var(--card); border:1px solid var(--border); border-radius:10px; padding:8px; text-align:center; }
+.stat b{ display:block; font-size:16px; color:var(--text); }
+.stat span{ font-size:10.5px; color:var(--muted); }
+.sec-title{ font-size:12px; color:var(--muted); margin-bottom:8px; }
+.signal-list{ display:flex; flex-direction:column; gap:8px; }
+.signal{
+  background:var(--card); border:1px solid var(--border); border-radius:10px;
+  padding:10px 12px;
+}
+.signal h4{ font-size:12.5px; color:var(--text); margin-bottom:2px; }
+.signal h4 .count{
+  float:right; background:rgba(248,113,113,.15); color:var(--danger);
+  border-radius:999px; padding:1px 8px; font-size:11px;
+}
+.signal p{ font-size:11.5px; color:var(--muted); }
+.muted{ color:var(--muted); font-size:12px; }
+.hidden{ display:none; }
+/* Guide */
+.lede{ color:var(--muted); font-size:12px; margin-bottom:10px; }
+.guide-card{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:10px 12px; margin-bottom:8px;
+}
+.guide-head{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+.guide-head .dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
+.guide-card h4{ font-size:12.5px; }
+.guide-card p{ font-size:11.5px; color:var(--muted); }
+/* Notes */
+.note-list{ display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+.note{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:10px; padding:10px 12px;
+}
+.note h4{ font-size:12.5px; margin-bottom:2px; }
+.note p{ font-size:11.5px; color:var(--muted); white-space:pre-wrap; }
+.note .row{ display:flex; justify-content:space-between; align-items:center; margin-top:6px; }
+.note time{ font-size:10.5px; color:var(--muted); }
+.note button{
+  background:transparent; border:1px solid var(--border); color:var(--danger);
+  border-radius:8px; font-size:11px; padding:3px 10px; cursor:pointer;
+}

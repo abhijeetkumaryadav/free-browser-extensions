@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentiment Signal Gauge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <!-- Honest-limits banner -->
+  <div class="notice">
+    <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <span>Heuristic signals — not psychological analysis. Lexicon matching only; context, sarcasm, and culture are invisible to this tool.</span>
+  </div>
+
+  <!-- Tab bar -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="scan">Scanner</button>
+    <button class="tab" data-tab="guide">Signal guide</button>
+    <button class="tab" data-tab="notes">My notes</button>
+  </nav>
+
+  <!-- Scanner tab -->
+  <section class="panel active" id="panel-scan">
+    <label class="field-label" for="input">Paste text to scan</label>
+    <textarea id="input" rows="5" maxlength="5000" placeholder="Paste an article excerpt, ad, or message…"></textarea>
+    <button id="scanBtn" class="primary">Scan text</button>
+
+    <div id="results" class="results hidden">
+      <!-- Sentiment gauge -->
+      <div class="gauge-card">
+        <div class="gauge" id="gauge"><div class="gauge-needle" id="needle"></div></div>
+        <div class="gauge-readout">
+          <div class="gauge-score" id="sentScore">0</div>
+          <div class="gauge-label">sentiment score <span class="sub">(−100 negative → +100 positive)</span></div>
+          <div class="verdict" id="sentVerdict">—</div>
+        </div>
+      </div>
+      <div class="stat-grid" id="statGrid"></div>
+      <h3 class="sec-title">Manipulation signals found</h3>
+      <div id="signalList" class="signal-list"></div>
+      <p id="noSignals" class="muted hidden">No manipulation signals detected in this text.</p>
+    </div>
+  </section>
+
+  <!-- Guide tab -->
+  <section class="panel" id="panel-guide">
+    <p class="lede">What the scanner counts, in plain language:</p>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>Sentiment score</h4></div>
+      <p>Weighted positive/negative word lists. Score = (positive − negative) hits per 100 words, normalized to −100…+100.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>Loaded language</h4></div>
+      <p>Emotionally charged adjectives and nouns (e.g. "outrageous", "treacherous"). Rhetorical heat, not proof of manipulation.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>False urgency</h4></div>
+      <p>Time-pressure phrases ("act now", "before it's gone") that push a decision faster than the facts allow.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>Fear / threat cues</h4></div>
+      <p>Loss and danger words ("catastrophe", "you'll lose") that can bypass calm reasoning.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>Flattery / in-group praise</h4></div>
+      <p>Warmth aimed at you ("smart people like you") — lowers skepticism before the ask.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-head"><span class="dot"></span><h4>Shouting style</h4></div>
+      <p>Exclamation density and ALL-CAPS sentences. Raised voice, not raised evidence.</p>
+    </div>
+  </section>
+
+  <!-- Notes tab -->
+  <section class="panel" id="panel-notes">
+    <label class="field-label" for="noteTitle">Add a note (autosaves)</label>
+    <input id="noteTitle" type="text" maxlength="80" placeholder="Note title…">
+    <textarea id="noteBody" rows="3" maxlength="2000" placeholder="What did you notice about this text?"></textarea>
+    <button id="addNote" class="primary">Save note</button>
+    <div id="noteList" class="note-list"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

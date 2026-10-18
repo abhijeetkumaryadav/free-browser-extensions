@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="banner">GAME — user-triggered only · page is never edited</div>
+<h1><svg viewBox="0 0 24 24" class="icon"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke-width="2.5"/><line x1="15.5" y1="15.5" x2="21" y2="21" stroke-width="3" stroke-linecap="round"/></svg> Typo Scavenger Hunt</h1>
+<p class="sub">We hide numbered markers over likely typos on the page. Click a marker to reveal the word and score.</p>
+<label class="field">Time limit
+  <select id="seconds">
+    <option value="60">60 seconds</option>
+    <option value="120" selected>120 seconds</option>
+    <option value="180">180 seconds</option>
+  </select>
+</label>
+<div class="row">
+  <button id="start" class="primary">Start hunt on this tab</button>
+  <button id="stop" class="ghost">Stop</button>
+</div>
+<p class="hint">Esc also quits. Heuristic typo detection from a bundled word list — best-effort, just a game.</p>
+<p class="best">Best score: <span id="best">0</span></p>
+<script src="popup.js"></script>
+</body>
+</html>

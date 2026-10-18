@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document Citation Verifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    <div><h1>Citation Verifier</h1><p id="pageHost">—</p></div>
+    <button id="start" class="primary">Verify links</button>
+  </header>
+  <main>
+    <section id="progCard" class="glass card" hidden>
+      <div class="prog-row"><span id="progLabel">Starting…</span><b id="progPct">0%</b></div>
+      <div class="bar"><div id="barFill"></div></div>
+      <p class="note">Each link opens briefly in a hidden tab, is checked, then closed. Keep this popup open.</p>
+    </section>
+    <section id="resCard" class="glass card" hidden>
+      <h2>Results <span id="resCount" class="count"></span></h2>
+      <div class="legend">
+        <span><i class="pill alive"></i>alive</span>
+        <span><i class="pill dead"></i>dead</span>
+        <span><i class="pill unknown"></i>unknown</span>
+      </div>
+      <div id="results"></div>
+      <button id="csvBtn" class="ghost">Export CSV</button>
+      <p class="note">Best-effort check — “unknown” means the page blocked inspection (e.g. store pages), not that it’s broken.</p>
+    </section>
+    <div id="empty" class="empty">Hit <b>Verify links</b> to collect this page’s outbound links and check each one.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

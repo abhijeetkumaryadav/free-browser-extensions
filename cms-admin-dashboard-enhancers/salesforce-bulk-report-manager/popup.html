@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Report Library</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="panel header">
+    <span class="icon-badge" aria-hidden="true">
+      <!-- Lucide-style bar-chart stroke icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></svg>
+    </span>
+    <div>
+      <h1>Report Library</h1>
+      <p class="sub">Bookmark organizer · not a Salesforce integration</p>
+    </div>
+    <span id="countBadge" class="count">0</span>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="row">
+        <input id="searchInput" type="text" placeholder="Search reports…" maxlength="80">
+        <select id="folderFilter" aria-label="Filter by folder"><option value="">All folders</option></select>
+      </div>
+    </section>
+
+    <ul id="reportList" class="report-list"></ul>
+
+    <section id="emptyState" class="panel empty hidden">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="dim"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></svg>
+      <p>No reports saved yet.<br>Add your first report below.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Add report</h2>
+      <input id="nameInput" type="text" placeholder="Report name" maxlength="80">
+      <input id="urlInput" type="text" placeholder="https://… report URL" maxlength="500" inputmode="url">
+      <div class="row">
+        <input id="folderInput" type="text" placeholder="Folder (optional)" maxlength="40" list="folderHints">
+        <datalist id="folderHints"></datalist>
+        <input id="notesInput" type="text" placeholder="Notes (optional)" maxlength="140">
+      </div>
+      <p id="formError" class="error hidden">Enter a name and a valid http(s) URL.</p>
+      <button id="addBtn" class="primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Save report
+      </button>
+    </section>
+
+    <section class="panel row between">
+      <button id="csvBtn" class="ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Export CSV
+      </button>
+      <button id="clearBtn" class="danger-ghost">Delete all</button>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

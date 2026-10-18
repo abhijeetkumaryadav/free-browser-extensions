@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TetraFall</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="8" width="6" height="6" rx="1"/><rect x="9" y="8" width="6" height="6" rx="1"/>
+        <rect x="15" y="8" width="6" height="6" rx="1"/><rect x="9" y="14" width="6" height="6" rx="1"/>
+      </svg>
+      <div>
+        <h1>TetraFall</h1>
+        <p class="tag">Side Panel Tetris Arcade</p>
+      </div>
+    </header>
+
+    <button id="playBtn" class="play">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Play Tetris
+    </button>
+    <p class="hint">Opens the full game board in a new tab.</p>
+
+    <section class="panel">
+      <h2>High scores</h2>
+      <ol id="scores" class="scores"><li class="empty">No games yet — play one!</li></ol>
+    </section>
+
+    <section class="panel">
+      <h2>Controls</h2>
+      <ul class="keys">
+        <li><kbd>←</kbd><kbd>→</kbd> move</li>
+        <li><kbd>↓</kbd> soft drop</li>
+        <li><kbd>Z</kbd>/<kbd>↑</kbd> rotate</li>
+        <li><kbd>C</kbd> hold piece</li>
+        <li><kbd>Space</kbd> hard drop</li>
+        <li><kbd>P</kbd> pause</li>
+      </ul>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=380">
+<title>Wrist Mobility Reminder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    <div>
+      <h1>Wrist Mobility Reminder</h1>
+      <p class="sub">Gentle stretch reminders</p>
+    </div>
+    <button id="toggle" class="toggle" aria-label="Toggle reminders"></button>
+  </header>
+
+  <p class="notice">Reminders only — <strong>NOT medical advice</strong>. See a doctor for wrist pain.</p>
+
+  <section class="row">
+    <label for="interval">Every <span id="intervalVal">45</span> min</label>
+    <input id="interval" type="range" min="10" max="180" step="5" value="45">
+  </section>
+
+  <section>
+    <button id="testNow" class="btn secondary">Send a reminder now</button>
+  </section>
+
+  <section>
+    <h2>Last exercise</h2>
+    <div id="lastEx" class="exercise">No reminder yet.</div>
+  </section>
+
+  <section>
+    <h2>Done log <span id="doneCount" class="count"></span></h2>
+    <ul id="doneLog" class="log"></ul>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

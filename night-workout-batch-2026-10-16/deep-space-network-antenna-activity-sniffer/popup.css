@@ -1,0 +1,141 @@
+/* DSN Dashboard — deep-dark glassmorphism, single sky accent */
+:root {
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.10);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #38bdf8; /* single vibrant accent */
+  --accent-soft: rgba(56, 189, 248, 0.14);
+  --danger: #f87171;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #0b0b10;
+  color: var(--text);
+}
+
+.app {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 200px;
+}
+
+/* Header */
+.header { display: flex; align-items: center; gap: 12px; }
+.header-icon { width: 36px; height: 36px; color: var(--accent); flex-shrink: 0; }
+.header-icon svg { width: 100%; height: 100%; }
+.header h1 { font-size: 17px; font-weight: 700; }
+.subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* Notice banner */
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--accent-soft);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px; padding: 12px;
+}
+.notice-icon { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.notice-icon svg { width: 100%; height: 100%; }
+.notice p { font-size: 12px; line-height: 1.5; color: var(--text); }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card h2 { font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--accent); }
+.hint { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Facts */
+.facts { display: flex; flex-direction: column; gap: 8px; }
+.fact {
+  display: flex; flex-direction: column; gap: 3px;
+  font-size: 12px; padding: 9px 11px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.fact strong { color: var(--accent); font-size: 12px; }
+.fact span { color: var(--muted); line-height: 1.5; }
+
+/* Countdown */
+.countdown {
+  text-align: center; padding: 12px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 10px;
+}
+.countdown-empty { font-size: 12px; color: var(--muted); }
+.countdown-craft { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.countdown-time { font-size: 22px; font-weight: 800; color: var(--accent);
+  font-variant-numeric: tabular-nums; }
+.countdown-when { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* Form */
+.form-grid { display: flex; flex-direction: column; gap: 8px; }
+input {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px; padding: 8px 10px;
+  font-size: 13px; width: 100%;
+  color-scheme: dark;
+}
+input:focus { outline: none; border-color: var(--accent); }
+.form-grid .btn { align-self: flex-end; }
+
+.row { display: flex; gap: 8px; align-items: center; }
+.row.end { justify-content: flex-end; }
+
+.btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  color: var(--text); border-radius: 8px;
+  padding: 8px 14px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: rgba(255,255,255,0.14); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #06202e; }
+.btn.primary:hover { background: #0ea5e9; }
+.btn.ghost { background: transparent; color: var(--muted); }
+.btn.ghost:hover { color: var(--danger); border-color: var(--danger); }
+
+.form-error { font-size: 12px; color: var(--danger); min-height: 16px; }
+
+/* Schedule list */
+.schedule { list-style: none; display: flex; flex-direction: column; gap: 6px;
+  max-height: 170px; overflow-y: auto; }
+.schedule li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; padding: 8px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.schedule li.past { opacity: 0.55; }
+.sched-craft { font-weight: 700; flex: 1; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.sched-note { color: var(--muted); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; max-width: 110px; }
+.sched-when { color: var(--muted); font-size: 11px; white-space: nowrap; }
+.sched-del {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 14px; line-height: 1; padding: 2px 4px;
+}
+.sched-del:hover { color: var(--danger); }
+.empty { font-size: 12px; color: var(--muted); text-align: center; padding: 10px; }
+
+.footer { font-size: 11px; color: var(--muted); text-align: center; }

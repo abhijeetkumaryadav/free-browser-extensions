@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Business Registry Helper</title>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header class="hero">
+    <div class="hero-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01M15 10h.01M12 10h.01M9 13h.01M15 13h.01M12 13h.01"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Business Registry Helper</h1>
+      <p class="subtitle">Official registry directory &middot; lookup checklist &middot; offline</p>
+    </div>
+  </header>
+
+  <!-- Checklist -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      EIN lookup checklist <span id="checkCount" class="count">0 / 6</span>
+    </h2>
+    <div class="progress"><div id="progressFill" class="progress-fill"></div></div>
+    <ul id="checkList" class="items"></ul>
+    <button id="btnResetCheck" class="ghost-btn">Reset checklist</button>
+    <p class="fineprint">A guided process for looking up a business / EIN through official sources. It does not query the IRS for you — no credentials are ever requested.</p>
+  </section>
+
+  <!-- Registries -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Official registries <span id="regCount" class="count">0</span>
+    </h2>
+    <input id="fSearch" type="text" placeholder="Search registries…" maxlength="60">
+    <ul id="regList" class="items"></ul>
+    <p id="regEmpty" class="empty hidden">No registries match your search.</p>
+  </section>
+
+  <!-- Add custom -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add custom registry
+    </h2>
+    <label class="field"><span>Name</span><input id="fName" type="text" placeholder="e.g. Nevada SOS Business Search" maxlength="80"></label>
+    <label class="field"><span>URL (https://…)</span><input id="fUrl" type="text" placeholder="https://…" maxlength="300"></label>
+    <button id="btnAddReg" class="btn">Add registry</button>
+  </section>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

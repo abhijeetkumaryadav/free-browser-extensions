@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Stack Detector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="hdr">
+  <span class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+  </span>
+  <div>
+    <h1>Tech Stack Detector</h1>
+    <p class="sub">Heuristic client-side fingerprints — no server visibility</p>
+  </div>
+</header>
+
+<div class="notice">
+  Scans for known fingerprints (framework globals, CDN URLs, generator tags, script sources)
+  and reports them with confidence levels. It cannot see servers, so misses and
+  false positives are possible.
+</div>
+
+<div class="row">
+  <button id="scanBtn" class="btn primary">Scan this page</button>
+  <button id="clearBtn" class="btn ghost">Clear</button>
+</div>
+
+<div id="status" class="status">Click “Scan this page”.</div>
+<div id="results" class="results"></div>
+
+<footer class="ftr">100% local — nothing leaves your browser.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

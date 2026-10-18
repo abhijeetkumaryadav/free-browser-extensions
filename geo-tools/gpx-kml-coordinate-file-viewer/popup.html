@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrackView</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.5-2.5v-13L9 7l6-2.5L20.5 7v13L15 17.5 9 20z"/><path d="M9 7v13M15 4.5v13"/></svg>
+    <div>
+      <h1>TrackView</h1>
+      <p class="tagline">GPX / KML viewer · 100% local</p>
+    </div>
+  </header>
+
+  <!-- Drop zone -->
+  <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop a GPX or KML file">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <p><strong>Drop a .gpx / .kml file</strong><br><span>or click to choose · parsed locally, never uploaded</span></p>
+    <input type="file" id="fileInput" accept=".gpx,.kml,.xml" hidden>
+  </div>
+
+  <!-- Track canvas -->
+  <div id="mapWrap" class="map-wrap hidden">
+    <canvas id="trackCanvas" width="656" height="380"></canvas>
+    <div class="map-meta"><span id="fileName">—</span><span id="segInfo">—</span></div>
+  </div>
+
+  <!-- Stats -->
+  <div id="stats" class="stats hidden">
+    <div class="stat"><span class="label">Points</span><span class="value" id="stPoints">0</span></div>
+    <div class="stat"><span class="label">Distance</span><span class="value" id="stDist">—</span></div>
+    <div class="stat"><span class="label">Elev. gain</span><span class="value" id="stGain">—</span></div>
+    <div class="stat"><span class="label">Elev. range</span><span class="value" id="stRange">—</span></div>
+  </div>
+
+  <!-- Elevation profile -->
+  <div id="elevWrap" class="elev-wrap hidden">
+    <h2>Elevation profile</h2>
+    <canvas id="elevCanvas" width="656" height="140"></canvas>
+  </div>
+
+  <!-- Actions -->
+  <div id="actions" class="actions hidden">
+    <button id="btnGeoJson" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export GeoJSON
+    </button>
+    <button id="btnClear" class="btn ghost">Clear</button>
+  </div>
+
+  <p id="status" class="status" role="status"></p>
+  <p class="footnote">Local-only: files are parsed in your browser with DOMParser. No map tiles, no network.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

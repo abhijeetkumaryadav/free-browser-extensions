@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20c0-4 2-6 4-8l-1-4 4 2 2-3 2 3 4-2-1 4c2 2 4 4 4 8"/>
+        <circle cx="10.5" cy="14" r="0.6" fill="currentColor"/>
+        <circle cx="15.5" cy="14" r="0.6" fill="currentColor"/>
+        <path d="M12 16.5l1 1 1-1"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Screen Cat</h1>
+      <p class="sub">roaming pet companion</p>
+    </div>
+  </header>
+
+  <div class="actions">
+    <button id="summon" class="btn primary">Summon cat on this tab</button>
+    <button id="dismiss" class="btn ghost">Dismiss</button>
+  </div>
+
+  <div class="group">
+    <span class="label">Fur color</span>
+    <div class="swatches" id="swatches" role="radiogroup" aria-label="Fur color">
+      <button class="sw active" data-color="#f59e0b" style="--c:#f59e0b" aria-label="Ginger"></button>
+      <button class="sw" data-color="#9ca3af" style="--c:#9ca3af" aria-label="Grey"></button>
+      <button class="sw" data-color="#3f3f46" style="--c:#3f3f46" aria-label="Midnight"></button>
+      <button class="sw" data-color="#f5f0e8" style="--c:#f5f0e8" aria-label="Cream"></button>
+      <button class="sw" data-color="#f472b6" style="--c:#f472b6" aria-label="Rose"></button>
+      <button class="sw" data-color="#60a5fa" style="--c:#60a5fa" aria-label="Sky"></button>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="row">
+      <span class="label">Size</span>
+      <input type="range" id="size" min="0.7" max="1.6" step="0.1" value="1" aria-label="Cat size">
+    </div>
+    <label class="check">
+      <input type="checkbox" id="chase" checked>
+      <span class="box" aria-hidden="true"></span>
+      Chase my cursor
+    </label>
+  </div>
+
+  <p id="status" class="status" role="status"></p>
+  <footer class="foot">100% local · no tracking · naps included</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FillerSkip</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      </span>
+      <div>
+        <h1>FillerSkip</h1>
+        <p class="tagline">Canon · Mixed · Filler guide</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <label class="field-label" for="series">Series</label>
+      <select id="series" class="control"></select>
+
+      <label class="field-label" for="episode">Episode number</label>
+      <div class="row">
+        <input id="episode" class="control" type="number" min="1" placeholder="e.g. 101">
+        <button id="check" class="btn-primary">Check</button>
+      </div>
+
+      <div id="result" class="result hidden" aria-live="polite">
+        <div id="badge" class="badge">—</div>
+        <div class="result-body">
+          <p id="resultTitle" class="result-title"></p>
+          <p id="resultNote" class="result-note"></p>
+        </div>
+      </div>
+
+      <div class="stats" id="stats">
+        <div class="stat"><span class="dot canon"></span><span id="statCanon">0</span> canon</div>
+        <div class="stat"><span class="dot mixed"></span><span id="statMixed">0</span> mixed</div>
+        <div class="stat"><span class="dot filler"></span><span id="statFiller">0</span> filler</div>
+      </div>
+      <p class="disclaimer">Static dataset, compiled Oct 2026 · ranges are approximate — verify against animefillerlist.com before trusting a verdict.</p>
+    </section>
+
+    <section class="panel">
+      <button id="toggleCustom" class="link-btn" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add your own series
+      </button>
+      <div id="customForm" class="custom-form hidden">
+        <label class="field-label" for="customName">Series name</label>
+        <input id="customName" class="control" type="text" placeholder="e.g. Jujutsu Kaisen">
+        <label class="field-label" for="customTotal">Total episodes</label>
+        <input id="customTotal" class="control" type="number" min="1" placeholder="e.g. 47">
+        <label class="field-label" for="customRanges">Ranges — one per line: <code>from-to type</code></label>
+        <textarea id="customRanges" class="control mono" rows="4" placeholder="1-10 canon&#10;11-13 mixed&#10;14-20 filler"></textarea>
+        <p class="hint">type is <code>canon</code>, <code>mixed</code> or <code>filler</code>. Episodes not covered return “Unknown”.</p>
+        <div class="row">
+          <button id="saveCustom" class="btn-primary">Save series</button>
+          <button id="deleteCustom" class="btn-ghost hidden">Delete</button>
+        </div>
+        <p id="customError" class="error hidden"></p>
+      </div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSN Dashboard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <span class="header-icon" id="satIcon"></span>
+    <div>
+      <h1>DSN Dashboard</h1>
+      <p class="subtitle">Deep Space Network edu</p>
+    </div>
+  </header>
+
+  <!-- Honest-scope banner -->
+  <div class="notice">
+    <span class="notice-icon" id="infoIcon"></span>
+    <p><strong>Educational only — not live DSN data.</strong> Antenna facts are
+    static reference info. Contact times are entered by you (e.g. from
+    mission schedules), not pulled from any feed.</p>
+  </div>
+
+  <!-- Antenna facts -->
+  <section class="card">
+    <h2>Antenna facts</h2>
+    <div class="facts">
+      <div class="fact">
+        <strong>70 m dishes</strong>
+        <span>The giants: DSS-14 (Goldstone), DSS-43 (Canberra), DSS-63 (Madrid).</span>
+      </div>
+      <div class="fact">
+        <strong>34 m BWG dishes</strong>
+        <span>Beam-waveguide workhorses at all three complexes.</span>
+      </div>
+      <div class="fact">
+        <strong>Three complexes, ~120° apart</strong>
+        <span>Goldstone (California), Madrid (Spain), Canberra (Australia) —
+        so one always faces deep space.</span>
+      </div>
+      <div class="fact">
+        <strong>Why it matters</strong>
+        <span>The DSN talks to probes like Voyager, Perseverance and
+        JWST — billions of km away.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next contact countdown -->
+  <section class="card">
+    <h2>Next contact</h2>
+    <div class="countdown" id="nextContact">
+      <span class="countdown-empty">No upcoming contacts scheduled.</span>
+    </div>
+  </section>
+
+  <!-- Add contact -->
+  <section class="card">
+    <h2>Schedule a contact</h2>
+    <p class="hint">Enter a pass time you looked up yourself.</p>
+    <div class="form-grid">
+      <input id="craftName" type="text" maxlength="40"
+             placeholder="Spacecraft (e.g. Voyager 1)" aria-label="Spacecraft name">
+      <input id="contactWhen" type="datetime-local" aria-label="Contact date and time">
+      <input id="contactNote" type="text" maxlength="80"
+             placeholder="Note (e.g. complex, band)" aria-label="Contact note">
+      <button id="addContact" class="btn primary">Add contact</button>
+    </div>
+    <p class="form-error" id="formError"></p>
+  </section>
+
+  <!-- Schedule list -->
+  <section class="card">
+    <h2>Contact schedule</h2>
+    <ul class="schedule" id="schedule"></ul>
+    <div class="row end">
+      <button id="clearAll" class="btn ghost">Clear all</button>
+    </div>
+  </section>
+
+  <footer class="footer">Your schedule stays in this browser. Not live data.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

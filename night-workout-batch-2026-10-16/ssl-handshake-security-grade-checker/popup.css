@@ -1,0 +1,98 @@
+/* Deep-dark glassmorphism — single accent: violet #a78bfa */
+:root {
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #a78bfa;
+  --accent-dim: rgba(167, 139, 250, 0.16);
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --bad: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #0b0b10;
+}
+.shell {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  margin: 12px;
+  padding: 16px;
+}
+.head { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; flex: 0 0 40px;
+  background: var(--accent-dim);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 16px; font-weight: 700; }
+.sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fcd34d;
+  font-size: 11px; line-height: 1.45;
+  border-radius: 10px; padding: 8px 10px; margin-bottom: 12px;
+}
+.notice svg { width: 14px; height: 14px; flex: 0 0 14px; margin-top: 1px; }
+.actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; border-radius: 10px;
+  padding: 9px 14px; cursor: pointer; border: 1px solid transparent;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn svg { width: 15px; height: 15px; }
+.btn.primary { background: var(--accent); color: #1e1445; flex: 1; justify-content: center; }
+.btn.primary:hover { opacity: 0.9; }
+.btn.ghost { background: var(--card); border-color: var(--card-border); color: var(--text); }
+.btn.ghost:hover { background: rgba(255,255,255,0.1); }
+.verdict {
+  border-radius: 10px; padding: 12px; margin-bottom: 12px;
+  display: flex; gap: 10px; align-items: center;
+}
+.verdict.ok { background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.3); }
+.verdict.warn { background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); }
+.verdict.bad { background: rgba(248, 113, 113, 0.1); border: 1px solid rgba(248, 113, 113, 0.3); }
+.verdict .dot { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 12px; }
+.verdict.ok .dot { background: var(--ok); }
+.verdict.warn .dot { background: var(--warn); }
+.verdict.bad .dot { background: var(--bad); }
+.verdict .vt { font-size: 14px; font-weight: 700; }
+.verdict .vd { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.checks { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.check {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 10px; padding: 9px 11px; font-size: 12px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.check .icon { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 1px; }
+.check .icon.ok { color: var(--ok); }
+.check .icon.warn { color: var(--warn); }
+.check .icon.bad { color: var(--bad); }
+.check .ct { font-weight: 600; }
+.check .cd { color: var(--muted); font-size: 11px; margin-top: 2px; line-height: 1.45; }
+.insecure h2 { font-size: 13px; margin-bottom: 8px; color: var(--bad); }
+.list { display: flex; flex-direction: column; gap: 6px; max-height: 160px; overflow-y: auto; }
+.li {
+  background: rgba(248, 113, 113, 0.06);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: 8px; padding: 7px 9px; font-size: 11px;
+  word-break: break-all; color: #fca5a5;
+}
+.li .kind { color: var(--muted); font-size: 10px; }
+.empty { font-size: 12px; color: var(--muted); text-align: center; padding: 18px 8px; line-height: 1.6; }
+.empty strong { color: var(--text); }
+.hidden { display: none; }

@@ -1,0 +1,25 @@
+/* Deep-dark glassmorphism · single accent #22d3ee (cyan) */
+:root{ --accent:#22d3ee; --bg:rgba(20,20,26,.72); --txt:#f1f1f6; --mut:#9a9ab0; --line:rgba(255,255,255,.08); }
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ width:380px; font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--txt); }
+.card{ background:var(--bg); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); padding:14px 16px; }
+.head{ display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.head .logo{ width:26px; height:26px; color:var(--accent); flex:none; }
+.head h1{ font-size:16px; }
+.head .sub{ font-size:11px; color:var(--mut); }
+.hud{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:10px; }
+.stat{ background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:10px; padding:6px 8px; text-align:center; }
+.stat .lbl{ display:block; font-size:10px; color:var(--mut); text-transform:uppercase; letter-spacing:.6px; }
+.stat b{ color:var(--accent); font-variant-numeric:tabular-nums; }
+.play{ display:flex; gap:12px; align-items:flex-start; }
+#board{ background:rgba(0,0,0,.45); border:1px solid var(--line); border-radius:10px; }
+.side{ flex:1; display:flex; flex-direction:column; gap:8px; }
+.side .lbl{ font-size:10px; color:var(--mut); text-transform:uppercase; letter-spacing:.6px; }
+#next{ background:rgba(0,0,0,.45); border:1px solid var(--line); border-radius:8px; }
+.btn{ padding:8px 10px; border-radius:10px; border:1px solid var(--accent); background:rgba(34,211,238,.14); color:var(--accent); font-weight:700; cursor:pointer; }
+.btn.ghost{ border-color:var(--line); background:rgba(255,255,255,.04); color:var(--txt); }
+.cfg{ margin-top:10px; font-size:12px; color:var(--mut); }
+.cfg summary{ cursor:pointer; color:var(--txt); }
+.cfg label{ display:block; margin-top:8px; }
+.cfg input{ width:100%; margin-top:4px; padding:7px 9px; border-radius:8px; border:1px solid var(--line); background:rgba(0,0,0,.4); color:var(--txt); font-size:14px; }
+.cfg .hint{ margin-top:6px; font-size:11px; }

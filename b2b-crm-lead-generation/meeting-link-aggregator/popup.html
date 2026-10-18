@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meeting Link Aggregator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3"/></svg>
+    <div><h1>Meeting Links</h1><p>All your calls in one place</p></div>
+    <button id="toggleForm" class="primary">＋ Add</button>
+  </header>
+  <main>
+    <section id="formCard" class="glass card" hidden>
+      <label class="fld">Title
+        <input id="fTitle" placeholder="Team standup" maxlength="80">
+      </label>
+      <label class="fld">Meeting link
+        <input id="fLink" placeholder="https://meet.google.com/…" inputmode="url" maxlength="500">
+      </label>
+      <label class="fld">Scheduled time
+        <input id="fWhen" type="datetime-local">
+      </label>
+      <div class="form-row">
+        <button id="cancelBtn" class="ghost">Cancel</button>
+        <button id="saveBtn" class="primary">Save meeting</button>
+      </div>
+    </section>
+
+    <section class="glass card" id="upCard" hidden>
+      <h2>Upcoming</h2>
+      <div id="upcoming"></div>
+    </section>
+
+    <section class="glass card" id="pastCard" hidden>
+      <h2>Past</h2>
+      <div id="past"></div>
+    </section>
+
+    <div id="empty" class="empty">No meetings yet. Hit <b>＋ Add</b> to save your first meeting link.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

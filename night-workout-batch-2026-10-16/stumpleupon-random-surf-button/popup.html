@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stumble Button</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M9 5l3-3 3 3"/><path d="M15 19l-3 3-3-3"/><path d="M19 9l3 3-3 3"/><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+    <div>
+      <h1>Stumble Button</h1>
+      <p class="sub">Retro random surfer</p>
+    </div>
+  </header>
+
+  <p class="scope-note">Stumbles <strong>your</strong> curated list — not the StumbleUpon service.</p>
+
+  <button id="stumbleBtn" class="stumble-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+    Stumble!
+  </button>
+
+  <div class="row">
+    <label class="fld">
+      <span>Category filter</span>
+      <select id="filterSel"></select>
+    </label>
+    <button id="clearFilter" class="ghost-btn" title="Show all">All</button>
+  </div>
+
+  <div id="emptyState" class="empty hidden">
+    <p>No sites yet.<br>Add some below to start stumbling.</p>
+  </div>
+
+  <div id="countLine" class="count-line"></div>
+
+  <section class="add-card">
+    <h2>Add a site</h2>
+    <input id="urlInput" type="url" placeholder="https://example.com/cool-page" spellcheck="false">
+    <div class="row">
+      <input id="catInput" type="text" placeholder="Category (e.g. design)" list="catList">
+      <datalist id="catList"></datalist>
+      <button id="addBtn" class="accent-btn">Add</button>
+    </div>
+    <p id="addErr" class="err hidden"></p>
+  </section>
+
+  <section class="list-card">
+    <h2>Your list</h2>
+    <ul id="siteList" class="site-list"></ul>
+  </section>
+
+  <section class="hist-card">
+    <h2>Stumble history <span class="muted">(last 20)</span></h2>
+    <ul id="histList" class="hist-list"></ul>
+    <button id="clearHist" class="ghost-btn">Clear history</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* ClickIdle — deep-dark glassmorphism, single amber accent (#f59e0b). */
+:root {
+  --accent: #f59e0b;
+  --accent-soft: rgba(245, 158, 11, 0.14);
+  --bg: #0c0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  user-select: none;
+}
+.app { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+/* Top bar */
+.topbar { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.brand-mark svg { width: 20px; height: 20px; stroke: #0c0d12; }
+.brand h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+.brand .sub { font-size: 11px; color: var(--muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 10px; cursor: pointer;
+  background: var(--panel); border: 1px solid var(--panel-border);
+  backdrop-filter: blur(12px); display: inline-flex; align-items: center; justify-content: center;
+}
+.icon-btn svg { width: 18px; height: 18px; stroke: var(--muted); }
+.icon-btn:hover svg { stroke: var(--accent); }
+
+/* Cards */
+.card {
+  background: var(--panel); border: 1px solid var(--panel-border);
+  border-radius: var(--radius); backdrop-filter: blur(12px);
+  padding: 14px;
+}
+.balance-row { display: flex; align-items: center; gap: 12px; }
+.shard-ico { width: 30px; height: 30px; flex-shrink: 0; }
+.shard-ico svg { width: 100%; height: 100%; stroke: var(--accent); fill: var(--accent-soft); }
+.balance-amount { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.balance-rate { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.prestige-chip {
+  margin-left: auto; font-size: 12px; font-weight: 700; color: var(--accent);
+  background: var(--accent-soft); border: 1px solid rgba(245,158,11,0.35);
+  padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+}
+
+/* Big click button */
+.click-btn {
+  position: relative; width: 150px; height: 150px; margin: 6px auto 0;
+  border-radius: 50%; cursor: pointer; border: none;
+  background: radial-gradient(circle at 35% 30%, #fbbf24, #b45309 75%);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35), inset 0 2px 6px rgba(255,255,255,0.35);
+  color: #1a1206; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: transform 0.06s ease;
+}
+.click-btn:active { transform: scale(0.94); }
+.click-ring {
+  position: absolute; inset: 8px; border-radius: 50%;
+  border: 2px dashed rgba(26, 18, 6, 0.35);
+}
+.click-label { font-size: 20px; font-weight: 900; letter-spacing: 3px; }
+.click-gain { font-size: 12px; font-weight: 700; opacity: 0.75; }
+.floaters { position: relative; height: 0; pointer-events: none; }
+.floater {
+  position: absolute; left: 50%; top: -150px; transform: translateX(-50%);
+  color: var(--accent); font-weight: 800; font-size: 15px;
+  animation: float-up 0.8s ease-out forwards; text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+@keyframes float-up {
+  from { opacity: 1; margin-top: 0; }
+  to { opacity: 0; margin-top: -64px; }
+}
+
+/* Upgrades */
+.upgrades h2, .stats-card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; }
+.upgrade-list { display: flex; flex-direction: column; gap: 8px; }
+.upgrade {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  background: var(--panel); border: 1px solid var(--panel-border);
+  border-radius: 12px; backdrop-filter: blur(12px); cursor: pointer;
+  transition: border-color 0.15s ease, opacity 0.15s ease; width: 100%;
+  color: var(--text); font: inherit; text-align: left;
+}
+.upgrade:hover:not(:disabled) { border-color: rgba(245,158,11,0.5); }
+.upgrade:disabled { opacity: 0.45; cursor: not-allowed; }
+.upgrade .u-ico {
+  width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
+  background: var(--accent-soft); display: inline-flex; align-items: center; justify-content: center;
+}
+.upgrade .u-ico svg { width: 18px; height: 18px; stroke: var(--accent); }
+.upgrade .u-body { flex: 1; min-width: 0; }
+.upgrade .u-name { font-size: 13px; font-weight: 700; }
+.upgrade .u-desc { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.upgrade .u-cost { font-size: 12px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.upgrade .u-count {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  background: rgba(255,255,255,0.06); border-radius: 6px; padding: 2px 7px;
+}
+.upgrade.maxed .u-cost { color: var(--muted); }
+
+/* Prestige */
+.prestige-btn {
+  display: flex; align-items: center; gap: 8px; justify-content: center;
+  padding: 12px; border-radius: 12px; cursor: pointer;
+  background: rgba(245,158,11,0.08); border: 1px dashed rgba(245,158,11,0.45);
+  color: var(--accent); font: inherit; font-size: 12.5px; font-weight: 700;
+}
+.prestige-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.prestige-btn .p-ico svg { width: 16px; height: 16px; stroke: currentColor; }
+.prestige-btn .p-req { font-weight: 600; color: var(--muted); }
+
+/* Stats view */
+.stat-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.stat-row:last-child { border-bottom: none; }
+.stat-row span { color: var(--muted); }
+.stat-row b { font-variant-numeric: tabular-nums; }
+.ghost-btn, .danger-btn {
+  padding: 11px; border-radius: 12px; font: inherit; font-weight: 700; font-size: 13px; cursor: pointer;
+}
+.ghost-btn { background: var(--panel); border: 1px solid var(--panel-border); color: var(--text); backdrop-filter: blur(12px); }
+.danger-btn { background: transparent; border: 1px solid rgba(239,68,68,0.4); color: #f87171; }
+.danger-btn:hover { background: rgba(239,68,68,0.08); }

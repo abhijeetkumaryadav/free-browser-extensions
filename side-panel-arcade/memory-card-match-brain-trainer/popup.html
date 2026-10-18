@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MemoMatch</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    </div>
+    <div>
+      <h1>MemoMatch</h1>
+      <p class="sub">memory card trainer</p>
+    </div>
+  </header>
+
+  <div id="menu">
+    <h2>Choose difficulty</h2>
+    <div class="diffs">
+      <button class="diff" data-diff="easy">
+        <span class="dname">Easy</span><span class="dgrid">4 × 4</span>
+        <span class="dbest" id="best-easy">—</span>
+      </button>
+      <button class="diff" data-diff="medium">
+        <span class="dname">Medium</span><span class="dgrid">6 × 6</span>
+        <span class="dbest" id="best-medium">—</span>
+      </button>
+      <button class="diff" data-diff="hard">
+        <span class="dname">Hard</span><span class="dgrid">8 × 8</span>
+        <span class="dbest" id="best-hard">—</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="game" class="hidden">
+    <div class="hud">
+      <div class="stat"><span class="label">Moves</span><span id="moves">0</span></div>
+      <div class="stat"><span class="label">Pairs</span><span id="pairs">0/0</span></div>
+      <div class="stat"><span class="label">Time</span><span id="time">0:00</span></div>
+      <button id="restart" class="iconbtn" title="Restart">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+      <button id="quit" class="iconbtn" title="Change difficulty">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 4v16"/></svg>
+      </button>
+    </div>
+    <div id="board" class="board"></div>
+  </div>
+
+  <div id="win" class="overlay hidden">
+    <h2>You win!</h2>
+    <p id="winSub"></p>
+    <div id="winBest" class="record hidden">New best score!</div>
+    <div class="row">
+      <button id="again" class="primary">Play again</button>
+      <button id="change" class="ghost">Change difficulty</button>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

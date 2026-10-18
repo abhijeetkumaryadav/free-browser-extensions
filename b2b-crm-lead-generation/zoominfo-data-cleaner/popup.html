@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZoomInfo Data Cleaner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+    <div><h1>Data Cleaner</h1><p>Paste messy contacts → clean CSV</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>1 · Paste data</h2>
+      <textarea id="raw" rows="6" placeholder="Paste CSV (with a header row) or tab-separated contact data…&#10;name,email,phone,company&#10;JOHN DOE, John@Example.COM, (555) 123-4567, acme inc"></textarea>
+      <div class="opts">
+        <label class="check"><input type="checkbox" id="optDedupe" checked> Remove duplicates</label>
+        <label class="check"><input type="checkbox" id="optIncomplete" checked> Keep incomplete rows (flagged)</label>
+      </div>
+      <button id="cleanBtn" class="accent-btn wide">Clean data</button>
+    </section>
+
+    <section class="glass card" id="resultCard" hidden>
+      <h2>2 · Result</h2>
+      <div class="stats">
+        <div><span>In</span><b id="stIn">0</b></div>
+        <div><span>Out</span><b id="stOut">0</b></div>
+        <div><span>Dupes</span><b id="stDupes">0</b></div>
+        <div><span>Flagged</span><b id="stFlag">0</b></div>
+      </div>
+      <div id="preview" class="preview"></div>
+      <div class="btn-row">
+        <button id="copyBtn" class="ghost-btn">Copy CSV</button>
+        <button id="dlBtn" class="accent-btn">Download CSV</button>
+      </div>
+    </section>
+    <p class="note">Everything runs on-device. Only cleans data you paste — it never scrapes any service.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

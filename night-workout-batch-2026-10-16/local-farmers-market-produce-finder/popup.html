@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Farmers Market Finder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-8 8-10 4-1.6 7-1 8-1-.2 4-2 9-6 12"/><path d="M11 20c0-6 2-11 6-14"/><path d="M4 21h16"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Farmers Market Finder</h1>
+      <p>Your personal market directory</p>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="markets">Markets</button>
+    <button class="tab" data-tab="seasonal">Seasonal</button>
+  </nav>
+
+  <!-- Markets tab -->
+  <section id="tab-markets" class="tab-panel active">
+    <div class="search-row">
+      <input id="search" type="text" placeholder="Search markets…" autocomplete="off">
+      <button id="add-btn" class="btn primary" title="Add a market">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add
+      </button>
+    </div>
+    <p class="sample-note">Bundled listings are <b>sample data</b> — add your own local markets.</p>
+    <div id="market-list" class="list"></div>
+  </section>
+
+  <!-- Seasonal tab -->
+  <section id="tab-seasonal" class="tab-panel">
+    <div class="search-row">
+      <label for="month">Month</label>
+      <select id="month"></select>
+    </div>
+    <p class="sample-note">General Northern-hemisphere guidance — seasons vary locally.</p>
+    <div id="produce-list" class="list"></div>
+  </section>
+
+  <!-- Editor overlay -->
+  <div id="editor" class="overlay hidden">
+    <div class="sheet">
+      <h2 id="editor-title">Add market</h2>
+      <label>Name<input id="f-name" type="text" placeholder="e.g. Riverside Green Market"></label>
+      <label>Location<input id="f-location" type="text" placeholder="e.g. Riverside Park, Gate 2"></label>
+      <label>Days<input id="f-days" type="text" placeholder="e.g. Sat 8am–2pm"></label>
+      <label>Notes<textarea id="f-notes" rows="2" placeholder="Parking, best stalls…"></textarea></label>
+      <div class="sheet-actions">
+        <button id="editor-cancel" class="btn ghost">Cancel</button>
+        <button id="editor-save" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

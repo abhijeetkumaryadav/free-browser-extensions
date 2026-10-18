@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth Loop Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5l3 3"/><path d="M21 4v6h-6"/><path d="M20 12a8 8 0 0 1-14 5l-3-3"/><path d="M3 20v-6h6"/></svg></div>
+    <div>
+      <h1>Growth Loop Scanner</h1>
+      <p class="sub">Referral &amp; loop-signal checklist</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p><strong>Heuristic checklist only</strong> — pattern matching on page text and elements. <strong>Not growth advice;</strong> only real experiments prove what works.</p>
+  </div>
+
+  <div class="row">
+    <button id="scan" class="btn primary">Scan this page</button>
+    <button id="clear" class="btn ghost">Clear</button>
+  </div>
+
+  <div id="score-wrap" class="score-wrap hidden">
+    <div class="ring" id="ring"><span id="score-num">0</span></div>
+    <div>
+      <p class="score-label">Loop readiness</p>
+      <p id="score-verdict" class="score-verdict"></p>
+    </div>
+  </div>
+
+  <div id="checks" class="checks"></div>
+  <p id="status" class="status">Ready — click Scan on any landing page.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

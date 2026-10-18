@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IPLocate</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18"/>
+          <path d="M12 3a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <div>
+          <h1>IPLocate</h1>
+          <p class="subtitle">IP geolocation &amp; ISP lookup</p>
+        </div>
+      </div>
+      <span class="source-badge" title="Free no-key geolocation API">Data: ip-api.com</span>
+    </header>
+
+    <!-- Input -->
+    <section class="panel">
+      <label class="field-label" for="ipInput">IP address <span class="hint">leave blank for your own IP</span></label>
+      <div class="input-row">
+        <input id="ipInput" type="text" spellcheck="false" autocomplete="off"
+               placeholder="e.g. 8.8.8.8  ·  1.1.1.1" />
+        <button id="lookupBtn" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+          Lookup
+        </button>
+      </div>
+      <div class="actions">
+        <button id="myIpBtn" class="ghost-btn">Use my IP</button>
+        <button id="copyBtn" class="ghost-btn" hidden>Copy result</button>
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <section class="panel loading" id="loadingPanel" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Querying ip-api.com…</p>
+    </section>
+
+    <!-- Result -->
+    <section class="panel result" id="resultPanel" hidden>
+      <div class="result-head">
+        <span class="ip" id="resIp">—</span>
+        <span class="flag" id="resCountryCode">—</span>
+      </div>
+      <dl class="details" id="detailsList"></dl>
+    </section>
+
+    <!-- Error -->
+    <section class="panel error" id="errorPanel" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+      </svg>
+      <p id="errorText">Lookup failed.</p>
+    </section>
+
+    <!-- Honest scope -->
+    <p class="scope">
+      IPLocate shows <b>approximate ISP-level geolocation</b> (city accuracy at
+      best, often only region-level) from the free ip-api.com API — no key needed.
+      It <b>cannot</b> pinpoint a street address or a person. Private, reserved,
+      and local IPs can't be looked up. Free tier is rate-limited (~45/min);
+      if you're rate-limited, wait a minute and retry.
+    </p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

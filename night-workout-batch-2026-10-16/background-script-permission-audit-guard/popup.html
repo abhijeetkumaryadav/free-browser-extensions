@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2l8 3.5v5.2c0 5-3.4 9.4-8 11.3-4.6-1.9-8-6.3-8-11.3V5.5z"/>
+        <path d="M8.5 12l2.5 2.5 4.5-5"/>
+      </svg>
+      <div>
+        <h1>Permission Audit Guard</h1>
+        <p class="sub">installed-extension permission audit</p>
+      </div>
+    </div>
+    <button class="ghost" id="rescan" title="Re-scan now">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg>
+      Rescan
+    </button>
+  </header>
+
+  <section class="panel summary" id="summary">
+    <div class="sumrow"><span>Extensions scanned</span><b id="sumTotal">–</b></div>
+    <div class="sumrow"><span class="dot crit"></span>Critical <b id="sumCrit">0</b></div>
+    <div class="sumrow"><span class="dot high"></span>High <b id="sumHigh">0</b></div>
+    <div class="sumrow"><span class="dot elev"></span>Elevated <b id="sumElev">0</b></div>
+    <div class="sumrow"><span class="dot low"></span>Low <b id="sumLow">0</b></div>
+    <div class="scanned" id="scannedAt"></div>
+  </section>
+
+  <section class="panel">
+    <div class="rowhead">
+      <h2>Audit results</h2>
+      <button class="primary" id="exportBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+        Export JSON
+      </button>
+    </div>
+    <div class="cards" id="cards"><div class="empty">Scanning…</div></div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 3.5v5.2c0 5-3.4 9.4-8 11.3-4.6-1.9-8-6.3-8-11.3V5.5z"/></svg>
+    Read-only — this audit never changes, disables, or removes anything.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

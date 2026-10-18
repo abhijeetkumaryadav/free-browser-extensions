@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niche Influencer Vetting Tool</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8.5 11l1.8 1.8L14.5 8.6"/></svg>
+    <div><h1>Influencer Vet</h1><p>Manual-entry creator audit</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="grid2">
+        <label class="fld">Handle<input id="fHandle" placeholder="@creator" maxlength="40"></label>
+        <label class="fld">Platform
+          <select id="fPlatform">
+            <option>Instagram</option><option>TikTok</option><option>YouTube</option><option>X</option><option>Other</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid2">
+        <label class="fld">Followers<input id="fFollowers" type="number" min="0" placeholder="25000"></label>
+        <label class="fld">Avg likes / post<input id="fLikes" type="number" min="0" placeholder="1200"></label>
+      </div>
+      <div class="grid2">
+        <label class="fld">Avg comments / post<input id="fComments" type="number" min="0" placeholder="45"></label>
+        <label class="fld">Post rate (₹ / $)<input id="fRate" type="number" min="0" placeholder="5000"></label>
+      </div>
+      <button id="vetBtn" class="primary">Run vetting</button>
+    </section>
+
+    <section class="glass card" id="resultCard" hidden>
+      <h2>Vetting report</h2>
+      <div class="verdict" id="verdict">—</div>
+      <div class="metrics">
+        <div><span>Engagement rate</span><b id="mEng">—</b></div>
+        <div><span>Cost / engagement</span><b id="mCpe">—</b></div>
+        <div><span>Risk score</span><b id="mRisk">—</b></div>
+      </div>
+      <h3>Red-flag checklist</h3>
+      <div id="flags"></div>
+      <p class="note">Heuristic flags from public averages — always review the creator's actual content before paying.</p>
+    </section>
+
+    <section class="glass card" id="histCard" hidden>
+      <h2>Vetted</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

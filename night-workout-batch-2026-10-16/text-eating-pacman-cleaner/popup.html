@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9h-9V3z"/><circle cx="12" cy="8" r="1.4" fill="#0b0b0f"/></svg>
+    </div>
+    <div>
+      <h1>Pac-Man Cleaner</h1>
+      <p>He eats text. You keep the score.</p>
+    </div>
+  </header>
+
+  <div class="scorebox">
+    <span class="scorelabel">Characters eaten</span>
+    <span class="score" id="score">0</span>
+  </div>
+
+  <div class="control">
+    <div class="labelrow"><label for="speed">Munch speed</label><output id="sval">4</output></div>
+    <input type="range" id="speed" min="1" max="10" step="1" value="4">
+  </div>
+
+  <div class="btnrow">
+    <button id="start" class="primary">Release Pac-Man</button>
+    <button id="restore" class="ghost">Restore text</button>
+  </div>
+
+  <p class="status" id="status">Pac-Man sweeps the page and chomps text with a munch animation. Restore brings every word back — nothing is lost.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

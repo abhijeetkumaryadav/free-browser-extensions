@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c3 4 6 7.2 6 11a6 6 0 1 1-12 0c0-3.8 3-7 6-11z"/>
+        <path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Rain Overlay</h1>
+      <div class="sub">Ambient raindrop physics · visual only</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" id="startBtn">Start Rain</button>
+    <button class="btn ghost" id="stopBtn">Stop</button>
+  </div>
+
+  <div class="group">
+    <div class="label">Intensity</div>
+    <div class="row">
+      <input type="range" id="intensity" min="1" max="10" step="1" value="5" aria-label="Rain intensity">
+      <span class="val" id="intensityVal">5</span>
+    </div>
+    <div class="label">Wind</div>
+    <div class="row">
+      <input type="range" id="wind" min="-10" max="10" step="1" value="2" aria-label="Wind strength">
+      <span class="val" id="windVal">2</span>
+    </div>
+    <div class="hint">Negative wind blows left, positive blows right.</div>
+  </div>
+
+  <div class="group">
+    <label class="check"><input type="checkbox" id="ripplesToggle" checked><span class="box"></span>Ripple rings on impact</label>
+    <label class="check"><input type="checkbox" id="splashToggle" checked><span class="box"></span>Splash streaks</label>
+  </div>
+
+  <div class="footer">A lightweight canvas overlay — pointer-events pass<br>through, pages stay fully clickable. Stops cleanly.</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

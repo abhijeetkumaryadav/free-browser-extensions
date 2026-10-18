@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe Clutter Remover</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+    <div><h1>Recipe Cleaner</h1><p id="pageHost">—</p></div>
+    <button id="extract" class="primary">Extract recipe</button>
+  </header>
+  <main>
+    <div id="empty" class="empty">Open a recipe page, then hit <b>Extract recipe</b> — no life story, no popups, just the food.</div>
+    <section id="card" class="glass card" hidden>
+      <img id="rImg" class="rimg" alt="" hidden>
+      <h2 id="rTitle" class="rtitle">—</h2>
+      <p id="rDesc" class="rdesc" hidden></p>
+      <div id="rMeta" class="meta"></div>
+      <div class="sec-head"><h3>Ingredients</h3><button id="copyBtn" class="ghost-sm">Copy</button></div>
+      <ul id="rIng" class="ing"></ul>
+      <h3>Method</h3>
+      <ol id="rSteps" class="steps"></ol>
+      <div id="nutWrap" hidden>
+        <h3>Nutrition <span class="approx">(per recipe data)</span></h3>
+        <div id="rNut" class="nut"></div>
+      </div>
+      <div class="actions">
+        <button id="printBtn" class="primary">Print-friendly view</button>
+      </div>
+      <p class="note" id="srcNote">Best-effort extraction.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

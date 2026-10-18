@@ -1,0 +1,59 @@
+/* Test Profile Generator — deep-dark glassmorphism, 380px, single amber accent */
+:root{
+  --accent:#f59e0b;
+  --bg:#0b0d12;
+  --surface:rgba(20,20,26,.72);
+  --stroke:rgba(255,255,255,.09);
+  --text:#e8eaf0;
+  --muted:#9aa0b4;
+  --danger:#f472b6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;max-height:600px;overflow-y:auto;
+  font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--text);
+  background:var(--bg) radial-gradient(600px 300px at 50% -80px,rgba(245,158,11,.12),transparent);
+}
+.app{background:var(--surface);backdrop-filter:blur(12px);padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.topbar{display:flex;align-items:center;gap:10px}
+.logo{width:26px;height:26px;color:var(--accent)}
+.titles h1{font-size:15px;font-weight:650}
+.titles p{font-size:11px;color:var(--muted)}
+.banner{
+  display:flex;gap:8px;align-items:flex-start;
+  background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.35);
+  border-radius:10px;padding:8px 10px;font-size:11px;color:var(--muted);
+}
+.banner svg{width:15px;height:15px;flex:none;color:var(--accent);margin-top:1px}
+.banner strong{color:var(--text)}
+.controls{display:flex;flex-direction:column;gap:10px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field>span{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+input[type=number]{
+  background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:8px;
+  color:var(--text);padding:7px 10px;width:80px;font-size:13px;
+}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:12px;color:var(--text)}
+.checks label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.checks input{accent-color:var(--accent)}
+button{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border-radius:10px;border:1px solid var(--stroke);
+  font-size:13px;font-weight:600;padding:9px 12px;cursor:pointer;color:var(--text);
+  background:rgba(255,255,255,.05);
+}
+button svg{width:16px;height:16px}
+button.primary{background:var(--accent);border-color:var(--accent);color:#171106}
+button.ghost:disabled{opacity:.4;cursor:default}
+button:not(:disabled):hover{filter:brightness(1.1)}
+.results{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto}
+.profile{
+  background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:10px;
+  padding:8px 10px;font-size:12px;display:flex;flex-direction:column;gap:3px;
+}
+.profile .row{display:flex;gap:6px}
+.profile .k{color:var(--muted);min-width:70px}
+.profile .v{word-break:break-all}
+.foot{display:flex;align-items:center;gap:10px}
+.status{font-size:11px;color:var(--accent)}

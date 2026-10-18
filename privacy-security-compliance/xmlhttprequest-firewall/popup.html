@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
+    <div class="app-title">
+      <h1>XHR Firewall</h1>
+      <p id="originLabel" class="origin">…</p>
+    </div>
+    <label class="switch" title="Master on/off switch">
+      <input type="checkbox" id="masterToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="panel stats">
+    <div class="stat">
+      <span class="stat-value" id="statRequests">0</span>
+      <span class="stat-label">requests</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value blocked" id="statBlocked">0</span>
+      <span class="stat-label">blocked</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" id="statDomains">0</span>
+      <span class="stat-label">domains</span>
+    </div>
+    <button id="clearLog" class="ghost-btn" title="Clear this tab's log">Clear log</button>
+  </section>
+
+  <section class="panel">
+    <h2>Domains on this page</h2>
+    <p class="hint">Block a domain to stop this site's fetch/XHR calls to it. Reload-safe, reversible.</p>
+    <div id="domainList" class="domain-list">
+      <p class="empty">No requests observed yet on this tab.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Live log</h2>
+    <div id="liveLog" class="live-log">
+      <p class="empty">Waiting for requests…</p>
+    </div>
+  </section>
+
+  <footer class="footer">All data stays on this device.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeakPlot — Elevation Profile</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 9 6l4 7 3-4 5 11Z"/><path d="M3 20h18"/></svg>
+    </span>
+    <div>
+      <h1>PeakPlot</h1>
+      <p class="sub">Elevation profile · Data: Open-Meteo</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="field">
+      <span>Start (lat, lng)</span>
+      <input id="start" type="text" inputmode="decimal" placeholder="28.6139, 77.2090" value="28.6139, 77.2090">
+    </label>
+    <label class="field">
+      <span>End (lat, lng)</span>
+      <input id="end" type="text" inputmode="decimal" placeholder="27.1751, 78.0421" value="27.1751, 78.0421">
+    </label>
+    <label class="field">
+      <span>Sample points <em id="sampleVal">60</em></span>
+      <input id="samples" type="range" min="10" max="120" step="10" value="60">
+    </label>
+    <button id="plot" class="primary">Plot elevation</button>
+    <p id="status" class="status" role="status">Enter two points and plot.</p>
+  </section>
+
+  <section class="panel chart-panel">
+    <canvas id="chart" width="348" height="170" aria-label="Elevation profile chart"></canvas>
+    <div class="stats">
+      <div class="stat"><span class="k">Distance</span><span class="v" id="statDist">–</span></div>
+      <div class="stat"><span class="k">Min / Max</span><span class="v" id="statMinMax">–</span></div>
+      <div class="stat"><span class="k">Ascent</span><span class="v" id="statAsc">–</span></div>
+      <div class="stat"><span class="k">Descent</span><span class="v" id="statDesc">–</span></div>
+    </div>
+  </section>
+
+  <footer class="foot">Open-Meteo elevation API · free, no key · straight-line path</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buying Intent Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+    <div>
+      <h1>Buying Intent Tracker</h1>
+      <p id="pageHost">—</p>
+    </div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+
+  <main>
+    <section id="report" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div class="score-wrap">
+        <svg class="ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" class="track"/>
+          <circle cx="60" cy="60" r="52" class="fill" id="ringFill"/>
+          <text x="60" y="58" text-anchor="middle" class="score-num" id="scoreNum">0</text>
+          <text x="60" y="76" text-anchor="middle" class="score-lab">INTENT</text>
+        </svg>
+        <div id="verdict" class="verdict">—</div>
+      </div>
+      <div id="factors"></div>
+      <button id="saveScan" class="ghost">Save this scan</button>
+    </section>
+
+    <section class="glass card" id="histCard" hidden>
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>
+        Scan history
+      </h2>
+      <div id="history"></div>
+    </section>
+
+    <div id="empty" class="empty">Hit <b>Scan page</b> on any product page to score its buying-intent signals.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

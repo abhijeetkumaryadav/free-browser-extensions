@@ -1,0 +1,63 @@
+/* LinkSentry — deep-dark glassmorphism popup, single cyan accent #22d3ee */
+:root{
+  --accent:#22d3ee; --accent-dim:rgba(34,211,238,.14);
+  --bg:rgba(20,20,26,.72); --card:rgba(255,255,255,.045);
+  --text:#f1f5f9; --muted:#94a3b8; --line:rgba(255,255,255,.09);
+  --red:#f87171; --amber:#fbbf24; --green:#34d399; --violet:#a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;max-height:600px;overflow-y:auto;background:#0b0d14;color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px}
+.app{background:var(--bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:16px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.hdr{display:flex;gap:12px;align-items:center}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.logo svg{width:22px;height:22px}
+h1{font-size:16px;font-weight:700;letter-spacing:.2px}
+.sub{font-size:11px;color:var(--muted);margin-top:2px}
+.controls{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+select{background:#14161f;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 8px;font-size:12px}
+.primary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--accent);color:#062026;border:none;border-radius:10px;padding:11px;
+  font-size:13px;font-weight:700;cursor:pointer}
+.primary svg{width:16px;height:16px}
+.primary:disabled{opacity:.45;cursor:default}
+.progress-wrap{display:flex;flex-direction:column;gap:6px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.progress{height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
+#progressBar{height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .2s}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 4px;
+  display:flex;flex-direction:column;align-items:center;gap:2px}
+.num{font-size:16px;font-weight:800}
+.lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.tile.ok .num{color:var(--green)} .tile.broken .num{color:var(--red)}
+.tile.redirect .num{color:var(--violet)} .tile.slow .num{color:var(--amber)}
+.tile.blocked .num{color:var(--muted)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;
+  padding:5px 11px;font-size:11px;cursor:pointer}
+.chip.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);font-weight:600}
+.findings{display:flex;flex-direction:column;gap:8px;max-height:260px;overflow-y:auto}
+.finding{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+  display:flex;flex-direction:column;gap:6px}
+.finding .top{display:flex;align-items:center;gap:8px}
+.badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;flex-shrink:0;text-transform:uppercase;letter-spacing:.4px}
+.broken{background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.35)}
+.redirect{background:rgba(167,139,250,.15);color:var(--violet);border:1px solid rgba(167,139,250,.35)}
+.slow{background:rgba(251,191,36,.15);color:var(--amber);border:1px solid rgba(251,191,36,.35)}
+.uncheckable{background:rgba(148,163,184,.15);color:var(--muted);border:1px solid rgba(148,163,184,.35)}
+.url{font-size:11px;color:var(--text);word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
+.meta{font-size:11px;color:var(--muted);line-height:1.5}
+.reveal{align-self:flex-start;background:transparent;border:1px solid var(--line);color:var(--accent);
+  border-radius:8px;padding:4px 10px;font-size:11px;cursor:pointer}
+.empty{color:var(--muted);font-size:12px;text-align:center;padding:18px 8px}
+.actions{display:flex;gap:8px}
+.ghost{flex:1;background:transparent;border:1px solid var(--line);color:var(--muted);
+  border-radius:10px;padding:8px;font-size:12px;cursor:pointer}
+.ghost:hover{color:var(--text);border-color:var(--accent)}
+.honest{font-size:10.5px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:10px}
+.hidden{display:none!important}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}

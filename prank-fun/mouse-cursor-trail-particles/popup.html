@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+    </div>
+    <div>
+      <h1>SparkleTrail</h1>
+      <p class="sub">Cursor particle trail &middot; per-tab overlay</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="row between">
+      <div class="label">Trail on this tab</div>
+      <button id="toggle" class="switch" role="switch" aria-checked="false" aria-label="Toggle particle trail"><span class="knob"></span></button>
+    </div>
+    <p class="hint">Colorful particles follow your cursor in a shadow-DOM canvas overlay. Off = page untouched.</p>
+  </section>
+
+  <section class="card">
+    <div class="label">Color theme</div>
+    <div class="chips" id="themes">
+      <button class="chip active" data-theme="rainbow">Rainbow</button>
+      <button class="chip" data-theme="ocean">Ocean</button>
+      <button class="chip" data-theme="fire">Fire</button>
+      <button class="chip" data-theme="gold">Gold</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <label for="size" class="label">Particle size</label>
+      <span id="sizeVal" class="val">6</span>
+    </div>
+    <input id="size" type="range" min="2" max="14" value="6" step="1">
+    <div class="row between" style="margin-top:12px">
+      <label for="density" class="label">Density</label>
+      <span id="densityVal" class="val">4</span>
+    </div>
+    <input id="density" type="range" min="1" max="10" value="4" step="1">
+    <div class="ticks"><span>Subtle</span><span>Party</span></div>
+  </section>
+
+  <footer class="foot">requestAnimationFrame &middot; particles capped at 300 &middot; zero network calls</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

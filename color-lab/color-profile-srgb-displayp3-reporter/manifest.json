@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "GamutCheck \u2014 Color Profile Reporter",
+  "version": "1.0.0",
+  "description": "Informational tool: reports what your browser exposes about display color (color depth, pixel depth) and renders side-by-side sRGB vs Display-P3 test swatches so you can visually compare gamuts.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GamutCheck",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

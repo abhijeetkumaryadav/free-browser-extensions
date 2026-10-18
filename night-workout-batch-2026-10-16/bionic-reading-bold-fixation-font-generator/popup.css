@@ -1,0 +1,121 @@
+/* Bionic Formatter — deep-dark glassmorphism, single violet accent (#a78bfa) */
+:root {
+  --accent: #a78bfa;
+  --accent-dim: rgba(167, 139, 250, 0.14);
+  --bg: #101014;
+  --text: #ececf1;
+  --text-dim: #9a9aa5;
+  --border: rgba(255, 255, 255, 0.09);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 380px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.app {
+  width: 380px;
+  padding: 16px;
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(167, 139, 250, 0.10), transparent 60%),
+    var(--bg);
+}
+
+/* Header */
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(20, 20, 26, 0.72);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--accent);
+}
+.logo svg { width: 22px; height: 22px; }
+.titles h1 { font-size: 15px; font-weight: 650; letter-spacing: 0.1px; }
+.subtitle { font-size: 12px; color: var(--text-dim); }
+
+/* Honest-scope banner */
+.banner {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 12px; margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: rgba(20, 20, 26, 0.72);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  font-size: 12px; color: var(--text-dim);
+}
+.banner svg { width: 16px; height: 16px; flex: none; color: var(--accent); margin-top: 1px; }
+.banner strong { color: var(--text); }
+
+/* Cards */
+.card {
+  padding: 14px; margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: rgba(20, 20, 26, 0.72);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 13px; margin-bottom: 10px;
+}
+.card-title svg { width: 16px; height: 16px; color: var(--accent); }
+.stats { margin-left: auto; font-size: 11px; color: var(--text-dim); font-weight: 400; }
+
+textarea {
+  width: 100%; resize: vertical; min-height: 90px;
+  padding: 10px 12px; border-radius: 10px;
+  background: rgba(10, 10, 14, 0.6);
+  border: 1px solid var(--border);
+  color: var(--text); font-family: inherit; font-size: 13px;
+}
+textarea:focus { outline: none; border-color: var(--accent); }
+
+.row { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
+.grow { flex: 1; }
+.opt-label { font-size: 12px; color: var(--text-dim); }
+
+/* Buttons */
+button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 9px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: 1px solid transparent;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+button svg { width: 15px; height: 15px; }
+.primary { background: var(--accent); color: #14101f; border: none; }
+.primary:hover { opacity: 0.92; }
+.primary:active { transform: scale(0.98); }
+.ghost { background: transparent; color: var(--text-dim); border-color: var(--border); }
+.ghost:hover { color: var(--text); border-color: var(--accent); }
+
+select {
+  padding: 9px 10px; border-radius: 10px; font-size: 12px;
+  background: rgba(10, 10, 14, 0.6); color: var(--text);
+  border: 1px solid var(--border);
+}
+select:focus { outline: none; border-color: var(--accent); }
+
+/* Formatted preview */
+.preview {
+  padding: 12px; border-radius: 10px;
+  background: rgba(10, 10, 14, 0.6);
+  border: 1px solid var(--border);
+  font-size: 14px; line-height: 1.7;
+  max-height: 240px; overflow: auto;
+  white-space: pre-wrap; word-wrap: break-word;
+}
+.preview b, .preview strong { font-weight: 800; color: var(--text); }
+
+.footer { text-align: center; font-size: 11px; color: var(--text-dim); padding: 4px 0 2px; }
+[hidden] { display: none !important; }

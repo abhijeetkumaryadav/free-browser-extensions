@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="shell">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+    <div>
+      <h1>HTML Lint Badge</h1>
+      <p class="site" id="siteLabel">…</p>
+    </div>
+  </header>
+
+  <p class="notice">Heuristic lint only — common issues like missing alt text, missing lang/title, duplicate ids, and nesting mistakes. <strong>Not W3C validation.</strong> The page is never modified.</p>
+
+  <div class="row">
+    <button id="scanBtn" class="primary">Scan this tab</button>
+    <button id="clearBtn" class="ghost">Clear badge</button>
+  </div>
+
+  <section id="results" class="hidden">
+    <div class="score">
+      <span class="bignum" id="issueCount">0</span>
+      <span class="cap">issues found</span>
+    </div>
+    <ul id="issueList" class="issues"></ul>
+  </section>
+
+  <footer><span id="status" class="status">Idle</span></footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

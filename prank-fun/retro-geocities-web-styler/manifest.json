@@ -1,0 +1,20 @@
+{
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Geocities Rewind"
+    },
+    "description": "Harmless joke: one click restyles any page like a 1999 Geocities site. Fully reversible.",
+    "icons": {
+        "128": "icons/icon128.png",
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png"
+    },
+    "manifest_version": 3,
+    "name": "Geocities Rewind \u2014 1999 Page Styler",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "short_name": "Geocities Rewind",
+    "version": "1.0.0"
+}

@@ -1,0 +1,62 @@
+/* Medication Schedule Tracker — shared design tokens: deep-dark glass, teal accent */
+:root {
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(28, 28, 36, 0.85);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --accent: #2dd4bf;
+  --danger: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font: 13px/1.45 -apple-system, "Segoe UI", Inter, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  padding: 16px;
+}
+h1 { font-size: 15px; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+h1 svg { width: 20px; height: 20px; stroke: var(--accent); }
+.banner {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(45, 212, 191, 0.08);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 8px; padding: 8px 10px; font-size: 11.5px; color: var(--muted);
+  margin-bottom: 12px;
+}
+.banner svg { width: 14px; height: 14px; stroke: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px; margin-bottom: 12px;
+}
+.card h2 { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.row { display: flex; gap: 8px; margin-bottom: 8px; }
+input, select, button, textarea {
+  font: inherit; color: var(--text);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 10px;
+}
+input, select, textarea { flex: 1; min-width: 0; }
+input:focus, select:focus, textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+button { cursor: pointer; background: var(--accent); color: #06281f; font-weight: 600; border: none; }
+button.ghost { background: rgba(255,255,255,0.06); color: var(--text); }
+button.danger { background: rgba(248,113,113,0.15); color: var(--danger); border: 1px solid rgba(248,113,113,0.4); }
+button:disabled { opacity: 0.5; cursor: default; }
+.med { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.med:last-child { border-bottom: none; }
+.med .info { flex: 1; min-width: 0; }
+.med .name { font-weight: 600; }
+.med .times { font-size: 11.5px; color: var(--muted); }
+.check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--accent); cursor: pointer; flex-shrink: 0; background: transparent; padding: 0; }
+.check.done { background: var(--accent); }
+.check svg { width: 12px; height: 12px; stroke: #06281f; }
+.icon-btn { background: none; border: none; color: var(--muted); padding: 4px; cursor: pointer; }
+.icon-btn svg { width: 14px; height: 14px; stroke: currentColor; }
+.empty { text-align: center; color: var(--muted); padding: 12px 0; font-size: 12px; }
+.stats { display: flex; gap: 8px; }
+.stat { flex: 1; text-align: center; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px; }
+.stat .n { font-size: 18px; font-weight: 700; color: var(--accent); }
+.stat .l { font-size: 11px; color: var(--muted); }

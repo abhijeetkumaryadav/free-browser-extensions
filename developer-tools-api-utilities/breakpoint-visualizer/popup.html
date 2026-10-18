@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breakpoint Visualizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <div><h1>Breakpoint Visualizer</h1><p>Live viewport overlay</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <button id="toggle" class="primary wide">Toggle overlay on this tab</button>
+      <div class="row">
+        <label class="fld inline">Overlay position
+          <select id="position">
+            <option value="top-left">Top left</option>
+            <option value="top-right">Top right</option>
+            <option value="bottom-left">Bottom left</option>
+            <option value="bottom-right" selected>Bottom right</option>
+          </select>
+        </label>
+      </div>
+      <p class="note" id="hint" hidden></p>
+    </section>
+    <section class="glass card">
+      <h2>Breakpoints</h2>
+      <div id="bps"></div>
+      <div class="add-form">
+        <input id="bpName" placeholder="Name (e.g. Tablet)" maxlength="24">
+        <input id="bpMin" type="number" min="0" placeholder="Min width px">
+        <button id="addBp" class="ghost">＋ Add breakpoint</button>
+      </div>
+      <p class="note">The active breakpoint is the one with the largest min-width that fits the viewport.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

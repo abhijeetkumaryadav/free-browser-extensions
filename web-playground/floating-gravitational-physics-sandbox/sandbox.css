@@ -1,0 +1,66 @@
+:root {
+  --accent: #f97316;
+  --panel: rgba(20, 20, 26, 0.78);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8eaf0;
+  --muted: #9aa0b0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: #0b0d12 radial-gradient(1200px 700px at 70% 20%, rgba(249,115,22,.07), transparent 60%);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+#world { position: fixed; inset: 0; cursor: crosshair; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.hud {
+  position: fixed;
+  top: 16px; left: 16px;
+  width: 264px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  user-select: none;
+}
+.hud-title { display: flex; align-items: center; gap: 10px; }
+.hud-title svg { width: 26px; height: 26px; color: var(--accent); flex: none; }
+h1 { font-size: 16px; font-weight: 700; }
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 1px 6px;
+  margin-left: auto;
+}
+.hint { color: var(--muted); font-size: 12px; }
+.row { display: flex; align-items: center; gap: 10px; }
+.row span { width: 74px; flex: none; color: var(--muted); font-size: 12.5px; }
+.row b { width: 46px; text-align: right; font-variant-numeric: tabular-nums; color: var(--accent); font-size: 12.5px; }
+input[type="range"] { flex: 1; accent-color: var(--accent); cursor: pointer; }
+.check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+.btns { display: flex; gap: 8px; }
+.btns button {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 0;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.btns button:hover { background: rgba(255,255,255,.12); }
+.btns button svg { width: 15px; height: 15px; }
+.stats { color: var(--muted); font-size: 12px; text-align: center; }
+.stats span { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }

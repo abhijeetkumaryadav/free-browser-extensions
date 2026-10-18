@@ -1,0 +1,105 @@
+/* PropCheck — DNS Propagation Checker
+   Deep-dark glassmorphism design system. Single accent: orange #f97316. */
+:root{
+  --accent:#f97316;
+  --bg:#0b0b10;
+  --panel:rgba(20,20,26,.72);
+  --panel-solid:#141419;
+  --border:rgba(255,255,255,.08);
+  --text:#f4f4f6;
+  --muted:#9a9aa6;
+  --green:#22c55e;
+  --red:#ef4444;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:13px;
+  line-height:1.45;
+}
+.app{padding:14px;display:flex;flex-direction:column;gap:12px}
+
+/* Header */
+.hdr{display:flex;align-items:center;gap:10px}
+.logo{
+  width:34px;height:34px;border-radius:10px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(249,115,22,.25),rgba(249,115,22,.06));
+  border:1px solid rgba(249,115,22,.35);color:var(--accent);
+}
+.logo svg{width:20px;height:20px}
+.title h1{font-size:15px;font-weight:700;letter-spacing:.2px}
+.title p{font-size:11px;color:var(--muted)}
+
+/* Honest-scope notice */
+.scope{
+  display:flex;gap:8px;align-items:flex-start;
+  background:var(--panel);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:9px 11px;font-size:11px;color:var(--muted);
+}
+.scope svg{width:14px;height:14px;flex:none;color:var(--accent);margin-top:1px}
+
+/* Panels */
+.panel{
+  background:var(--panel);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:12px;display:flex;flex-direction:column;gap:10px;
+}
+.lbl{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.row{display:flex;gap:8px;align-items:center}
+.grow{flex:1}
+.inp{
+  background:rgba(255,255,255,.05);border:1px solid var(--border);
+  border-radius:8px;color:var(--text);padding:8px 10px;font-size:13px;outline:none;width:100%;
+}
+.inp:focus{border-color:var(--accent)}
+.sel{flex:none;width:86px;cursor:pointer}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid transparent;
+}
+.btn svg{width:15px;height:15px}
+.btn.primary{background:var(--accent);color:#111;border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.primary:disabled{opacity:.5;cursor:wait}
+.btn.ghost{background:transparent;color:var(--muted);border-color:var(--border);padding:9px 10px}
+.btn.ghost:hover{color:var(--text);border-color:var(--accent)}
+
+/* Status */
+.status{font-size:12px;color:var(--muted);min-height:18px}
+.status.ok{color:var(--green)}
+.status.err{color:var(--red)}
+
+/* Resolver cards */
+.results{display:flex;flex-direction:column;gap:10px}
+.res-card{
+  background:var(--panel);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);padding:11px 12px;
+}
+.res-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.res-name{font-weight:700;font-size:13px}
+.badge{
+  font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.badge.match{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.badge.mismatch{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.4)}
+.badge.pending{background:rgba(249,115,22,.12);color:var(--accent);border:1px solid rgba(249,115,22,.4)}
+.ans{list-style:none;display:flex;flex-direction:column;gap:5px}
+.ans li{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12px;background:rgba(255,255,255,.04);
+  border:1px solid var(--border);border-radius:7px;padding:6px 9px;word-break:break-all;
+}
+.ans li .ttl{color:var(--muted);font-size:10.5px;margin-left:6px}
+.empty{color:var(--muted);font-size:12px;font-style:italic}
+
+/* Footer */
+.foot{font-size:10.5px;color:var(--muted);text-align:center;padding-top:2px}

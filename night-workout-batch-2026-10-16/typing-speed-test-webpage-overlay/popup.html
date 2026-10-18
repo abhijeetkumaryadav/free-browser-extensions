@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test Overlay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <!-- Lucide-style keyboard icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="2"/>
+          <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h.01M11 14h4M17 14h.01"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>Typing Speed Test</h1>
+        <p class="subtitle">60 seconds. Type the passage. Beat your best.</p>
+      </div>
+    </header>
+
+    <!-- Best scores -->
+    <div class="stats">
+      <div class="stat"><span class="stat-label">Best WPM</span><span class="stat-value" id="statWpm">–</span></div>
+      <div class="stat"><span class="stat-label">Best Acc</span><span class="stat-value" id="statAcc">–</span></div>
+      <div class="stat"><span class="stat-label">Tests</span><span class="stat-value" id="statTests">0</span></div>
+    </div>
+
+    <!-- Controls -->
+    <section class="panel">
+      <label class="field">
+        <span class="field-label">Passage</span>
+        <select id="passageSelect" class="select"></select>
+      </label>
+      <label class="field">
+        <span class="field-label">Difficulty</span>
+        <div class="segmented" id="difficultySeg">
+          <button class="seg active" data-diff="easy" type="button">Easy</button>
+          <button class="seg" data-diff="medium" type="button">Medium</button>
+          <button class="seg" data-diff="hard" type="button">Hard</button>
+        </div>
+      </label>
+      <button class="btn btn-primary" id="btnStart">
+        <!-- play icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        Start test on this tab
+      </button>
+      <p class="note" id="note"></p>
+    </section>
+
+    <!-- History -->
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Recent results</h2>
+        <button class="link" id="btnClear">Clear</button>
+      </div>
+      <ul class="history" id="history"><li class="empty">No tests yet — start one!</li></ul>
+    </section>
+
+    <!-- Honest scope footer -->
+    <footer class="scope">
+      <span class="scope-dot"></span>
+      Game only — the overlay closes with one click or Esc and the page is never changed. Results stay local.
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

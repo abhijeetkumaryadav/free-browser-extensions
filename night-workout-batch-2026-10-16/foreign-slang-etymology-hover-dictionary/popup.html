@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Etymology Hover Dictionary</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="bar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+  <h1>Etymology Hover</h1>
+</header>
+
+<section class="notice">
+  Your <b>personal</b> word-etymology dictionary. Add words and their
+  origins below; hover them on any page for a tooltip. <b>Your entries only —
+  not a real etymology dictionary.</b> Fully local.
+</section>
+
+<div class="row toggle-row">
+  <label class="switch">
+    <input type="checkbox" id="enabled">
+    <span class="track"></span>
+  </label>
+  <span>Hover tooltips on this tab</span>
+</div>
+
+<div id="addCard">
+  <label class="lbl">Word</label>
+  <input id="wWord" placeholder="e.g. serendipity" autocomplete="off">
+  <label class="lbl">Etymology / notes</label>
+  <textarea id="wNote" placeholder="e.g. Persian fairy tale 'The Three Princes of Serendip' — coined 1754"></textarea>
+  <button id="add" class="primary">Add entry</button>
+  <div id="addErr" class="err" hidden></div>
+</div>
+
+<label class="lbl mt">Entries (<span id="count">0</span>)</label>
+<div id="list"></div>
+
+<script src="popup.js"></script>
+</body>
+</html>

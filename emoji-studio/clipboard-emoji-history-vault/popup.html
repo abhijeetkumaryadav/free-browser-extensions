@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmojiVault — Emoji History Vault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.2"/></svg>
+    <div>
+      <h1>EmojiVault</h1>
+      <p>Emoji history vault · picker + on-demand import</p>
+    </div>
+  </header>
+
+  <section class="glass panel">
+    <h2>Picker <span id="pickerCount" class="stat"></span></h2>
+    <input id="search" class="search" type="search" placeholder="Search emoji…" aria-label="Search emoji">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="chip-grid" id="grid"></div>
+    <p class="hint">Click an emoji to copy it — it is logged to your vault automatically.</p>
+  </section>
+
+  <section class="glass panel">
+    <h2>Vault <span id="vaultCount" class="stat"></span></h2>
+    <div class="vault-tools">
+      <input id="vaultSearch" class="search" type="search" placeholder="Search vault…" aria-label="Search vault">
+      <div class="btn-row">
+        <button id="importBtn" class="btn ghost">Import from clipboard</button>
+        <button id="clearBtn" class="btn ghost" disabled>Clear vault</button>
+      </div>
+    </div>
+    <div id="vault" class="vault"></div>
+    <p class="hint">Honest scope: this vault only records emoji <strong>you copy inside this extension</strong> (picker clicks or the Import button). Browsers do not let extensions read your system clipboard in the background, so nothing is ever captured silently.</p>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <footer class="foot">All local · zero network · v1.0.0</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

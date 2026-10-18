@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeployBadger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header glass">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+      <div class="title-wrap">
+        <h1>DeployBadger</h1>
+        <p class="subtitle">Vercel &amp; Netlify status</p>
+      </div>
+      <button id="refreshBtn" class="icon-btn" title="Refresh now" aria-label="Refresh now">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Setup view: token + provider -->
+    <section id="setupView" class="glass panel">
+      <div class="field">
+        <label for="providerSel">Provider</label>
+        <div class="segmented" role="tablist" aria-label="Provider">
+          <button class="seg-btn active" data-provider="vercel" role="tab" aria-selected="true">Vercel</button>
+          <button class="seg-btn" data-provider="netlify" role="tab" aria-selected="false">Netlify</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tokenInput">Personal access token</label>
+        <input id="tokenInput" type="password" placeholder="Paste your token" autocomplete="off" spellcheck="false">
+        <p class="hint" id="tokenHint">
+          Vercel: <span class="mono">vercel.com → Account → Tokens</span> (read scope is enough).
+          Stored only on this device, sent only to api.vercel.com.
+        </p>
+      </div>
+      <button id="saveBtn" class="primary">Save &amp; connect</button>
+      <p class="error" id="setupError" hidden></p>
+      <p class="note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Your token is required — this extension ships with no credentials.
+        It never leaves your machine except to the provider API.
+      </p>
+    </section>
+
+    <!-- Main view: deployment list -->
+    <section id="mainView" hidden>
+      <div class="toolbar glass">
+        <span class="provider-tag" id="providerTag">Vercel</span>
+        <span class="last-check" id="lastCheck">—</span>
+        <label class="switch-wrap" title="Auto-refresh every 5 minutes">
+          <span class="switch-label">Auto</span>
+          <button id="autoToggle" class="switch" role="switch" aria-checked="false" aria-label="Auto-refresh">
+            <span class="knob"></span>
+          </button>
+        </label>
+        <button id="logoutBtn" class="icon-btn" title="Forget token &amp; disconnect" aria-label="Disconnect">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="error" id="listError" hidden></p>
+      <div id="deployList" class="deploy-list"></div>
+      <div id="emptyState" class="empty" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <p>No deployments found.</p>
+      </div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

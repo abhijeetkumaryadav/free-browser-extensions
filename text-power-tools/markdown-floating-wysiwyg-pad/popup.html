@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MarkPad</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      </span>
+      <div>
+        <h1>MarkPad</h1>
+        <p class="tag">Floating WYSIWYG markdown pad</p>
+      </div>
+    </header>
+
+    <div class="stats glass">
+      <div class="stat"><span class="label">Words</span><span class="value" id="wordCount">–</span></div>
+      <div class="stat"><span class="label">Last saved</span><span class="value" id="lastSaved">–</span></div>
+    </div>
+
+    <button class="btn primary" id="openEditor">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+      Open editor
+    </button>
+    <button class="btn ghost" id="newDoc">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      New document
+    </button>
+
+    <p class="hint">Your draft autosaves on this device only. Nothing leaves your browser.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PingPlot — HTTP Uptime & Latency Monitor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>
+    <div>
+      <h1>PingPlot</h1>
+      <p class="tagline">HTTP uptime &amp; latency monitor</p>
+    </div>
+  </div>
+  <div class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Idle</span></div>
+</header>
+
+<main>
+  <!-- Config card -->
+  <section class="card">
+    <h2>Monitor target</h2>
+    <label class="field">
+      <span>URL to monitor</span>
+      <input type="url" id="urlInput" placeholder="https://example.com" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="row">
+      <label class="field half">
+        <span>Check every</span>
+        <select id="intervalSelect">
+          <option value="1">1 minute</option>
+          <option value="5" selected>5 minutes</option>
+          <option value="15">15 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="60">60 minutes</option>
+        </select>
+      </label>
+      <label class="field half checkline">
+        <input type="checkbox" id="notifyCheck" checked>
+        <span>Alert on status change</span>
+      </label>
+    </div>
+    <div class="row btns">
+      <button id="startBtn" class="btn primary">Start monitoring</button>
+      <button id="stopBtn" class="btn ghost" disabled>Stop</button>
+    </div>
+    <p class="note">Honest scope: browsers cannot do ICMP ping. This measures <strong>HTTP(S) request latency</strong> with <code>fetch</code> — a good uptime proxy, not a network-layer ping.</p>
+  </section>
+
+  <!-- Stats card -->
+  <section class="card" id="statsCard" hidden>
+    <h2>Live stats</h2>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-label">Status</span><span class="stat-value" id="statStatus">—</span></div>
+      <div class="stat"><span class="stat-label">Last latency</span><span class="stat-value" id="statLatency">—</span></div>
+      <div class="stat"><span class="stat-label">Uptime (24h)</span><span class="stat-value" id="statUptime">—</span></div>
+      <div class="stat"><span class="stat-label">Checks</span><span class="stat-value" id="statChecks">—</span></div>
+    </div>
+    <canvas id="graph" width="680" height="220"></canvas>
+    <div class="graph-legend"><span>Latency (ms) — last <span id="graphCount">60</span> checks</span><button id="checkNowBtn" class="btn small">Check now</button></div>
+  </section>
+
+  <!-- Log card -->
+  <section class="card" id="logCard" hidden>
+    <div class="card-head">
+      <h2>Event log</h2>
+      <button id="clearBtn" class="btn small ghost">Clear</button>
+    </div>
+    <ul id="logList" class="log"></ul>
+  </section>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

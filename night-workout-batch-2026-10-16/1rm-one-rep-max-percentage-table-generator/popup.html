@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><rect x="5" y="7" width="2.4" height="10" rx="1"/><rect x="8.4" y="8.5" width="2.4" height="7" rx="1"/><rect x="13.2" y="8.5" width="2.4" height="7" rx="1"/><rect x="16.6" y="7" width="2.4" height="10" rx="1"/></svg>
+    <div>
+      <h1>1RM Table</h1>
+      <p class="sub">One-rep-max estimator</p>
+    </div>
+  </header>
+
+  <div class="form">
+    <label>Weight lifted
+      <input id="weight" type="number" min="0" step="0.5" placeholder="e.g. 100">
+    </label>
+    <label>Reps
+      <input id="reps" type="number" min="1" max="12" step="1" placeholder="e.g. 5">
+    </label>
+    <div class="unit-row">
+      <button id="unitKg" class="unit active" type="button">kg</button>
+      <button id="unitLb" class="unit" type="button">lb</button>
+    </div>
+    <button id="calc" class="primary" type="button">Calculate</button>
+  </div>
+
+  <section id="results" class="results hidden">
+    <div class="rm-row">
+      <div class="rm"><span class="rm-label">Epley</span><span id="epley" class="rm-val">–</span></div>
+      <div class="rm"><span class="rm-label">Brzycki</span><span id="brzycki" class="rm-val">–</span></div>
+    </div>
+    <div class="table-head">
+      <span>Training table</span>
+      <button id="copyTable" class="ghost" type="button">Copy table</button>
+    </div>
+    <table id="pctTable">
+      <thead><tr><th>%</th><th id="baseTh">1RM</th><th>Weight</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p id="copyMsg" class="copy-msg"></p>
+  </section>
+
+  <p class="notice">Estimates only — <strong>not medical advice</strong>. Lift safely; use a spotter.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

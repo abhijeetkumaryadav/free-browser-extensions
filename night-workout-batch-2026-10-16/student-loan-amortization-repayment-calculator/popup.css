@@ -1,0 +1,46 @@
+/* Loan Repay Planner — deep-dark glassmorphism, single emerald accent (#34d399) */
+:root{
+  --accent:#34d399;
+  --bg:#101014;
+  --card:rgba(20,20,26,.72);
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --line:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,"Segoe UI",Inter,sans-serif}
+.shell{padding:14px;display:flex;flex-direction:column;gap:12px}
+.hero{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:12px;background:rgba(52,211,153,.14);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.logo svg{width:24px;height:24px}
+h1{font-size:17px;font-weight:700}
+.sub{font-size:12px;color:var(--muted)}
+.banner{display:flex;gap:10px;background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.35);border-radius:12px;padding:10px 12px;font-size:12px;color:#d1fae5}
+.banner svg{width:18px;height:18px;flex-shrink:0;color:var(--accent)}
+.card{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.card h2{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+.card h2 svg{width:16px;height:16px;color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:5px}
+input{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 10px;font-size:14px;width:100%}
+input:focus{outline:none;border-color:var(--accent)}
+.btn{background:var(--accent);border:none;border-radius:10px;color:#052e1f;font-weight:700;font-size:14px;padding:11px;cursor:pointer;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.hidden{display:none}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:9px 10px;display:flex;flex-direction:column;gap:2px}
+.k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.v{font-size:16px;font-weight:700;color:var(--accent)}
+.bar{display:flex;height:12px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,.06)}
+.fill-prin{background:var(--accent)}
+.fill-int{background:#f59e0b}
+.legend{display:flex;gap:14px;font-size:11px;color:var(--muted)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.dot.prin{background:var(--accent)}.dot.int{background:#f59e0b}
+.sched-title{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.sched{max-height:170px;overflow-y:auto;border:1px solid var(--line);border-radius:10px}
+.row{display:grid;grid-template-columns:56px 1fr 1fr;gap:8px;padding:8px 10px;font-size:12px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.row .yr{color:var(--accent);font-weight:700}
+.foot{font-size:11px;color:var(--muted);text-align:center}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}

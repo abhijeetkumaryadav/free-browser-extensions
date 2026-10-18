@@ -1,0 +1,135 @@
+/* Farmers Market Finder — deep-dark glassmorphism, single green accent */
+:root {
+  --bg: #0c0e12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --panel-solid: #14161c;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #eef1f4;
+  --muted: #9aa3ad;
+  --accent: #22c55e;
+  --accent-dim: rgba(34, 197, 94, 0.14);
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 600px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.app { padding: 14px 14px 16px; }
+
+/* Header */
+.hero {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; margin-bottom: 12px;
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 14px;
+}
+.hero-icon {
+  width: 38px; height: 38px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-dim); border-radius: 11px; color: var(--accent);
+}
+.hero-icon svg { width: 22px; height: 22px; }
+.hero h1 { font-size: 15px; font-weight: 700; }
+.hero p { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* Tabs */
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tab {
+  flex: 1; padding: 8px; font-size: 12.5px; font-weight: 600;
+  background: var(--panel); color: var(--muted);
+  border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.tab.active { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Search + inputs */
+.search-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+.search-row label { font-size: 12px; color: var(--muted); }
+input, select, textarea {
+  flex: 1; padding: 8px 10px; font-size: 12.5px; color: var(--text);
+  background: var(--panel-solid); border: 1px solid var(--border); border-radius: 10px;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+select { flex: 2; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 12px; font-size: 12.5px; font-weight: 600;
+  border-radius: 10px; border: 1px solid var(--border); cursor: pointer;
+  background: var(--panel); color: var(--text);
+}
+.btn svg { width: 14px; height: 14px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #06110a; }
+.btn.ghost { background: transparent; }
+.btn.icon-btn { padding: 6px; }
+
+.sample-note {
+  font-size: 11px; color: var(--muted); margin-bottom: 8px; line-height: 1.5;
+}
+.sample-note b { color: var(--accent); }
+
+/* Cards */
+.list { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto; }
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.card h3 { font-size: 13px; font-weight: 700; }
+.card .loc { font-size: 11.5px; color: var(--muted); margin-top: 3px; display: flex; gap: 5px; align-items: center; }
+.card .loc svg { width: 12px; height: 12px; flex: none; }
+.card .days { display: inline-block; margin-top: 6px; font-size: 11px; color: var(--accent);
+  background: var(--accent-dim); border-radius: 7px; padding: 3px 8px; font-weight: 600; }
+.card .notes { font-size: 11.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+.card-actions { display: flex; gap: 6px; flex: none; }
+.card-actions button {
+  background: transparent; border: 1px solid var(--border); border-radius: 8px;
+  color: var(--muted); padding: 5px; cursor: pointer; display: flex;
+}
+.card-actions button:hover { color: var(--text); border-color: var(--text); }
+.card-actions button.danger:hover { color: var(--danger); border-color: var(--danger); }
+.card-actions svg { width: 13px; height: 13px; }
+
+.badge-sample {
+  font-size: 10px; font-weight: 700; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 6px; padding: 2px 6px;
+}
+
+.empty { text-align: center; color: var(--muted); font-size: 12px; padding: 24px 12px; }
+
+/* Produce chips */
+.produce-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 12px; padding: 6px 10px; border-radius: 20px;
+  background: var(--accent-dim); color: var(--accent);
+  border: 1px solid rgba(34, 197, 94, 0.35); font-weight: 600;
+}
+.produce-head { font-size: 12px; font-weight: 700; margin: 10px 0 6px; color: var(--text); }
+.produce-head:first-child { margin-top: 0; }
+
+/* Editor overlay */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
+  display: flex; align-items: center; justify-content: center; z-index: 10;
+}
+.overlay.hidden { display: none; }
+.sheet {
+  width: 92%; background: var(--panel-solid); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.sheet h2 { font-size: 14px; }
+.sheet label { font-size: 11.5px; color: var(--muted); display: flex; flex-direction: column; gap: 5px; }
+.sheet input, .sheet textarea { width: 100%; }
+.sheet-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }

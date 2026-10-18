@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwatchPeek</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>
+    <div>
+      <h1>SwatchPeek</h1>
+      <p class="tagline">Inline color swatch visualizer</p>
+    </div>
+  </header>
+
+  <label class="field-label" for="src">Paste CSS or color values</label>
+  <textarea id="src" rows="6" placeholder="e.g.  color: #ec4899;  background: rgb(20, 20, 26);&#10;border: 1px solid rebeccapurple;" spellcheck="false"></textarea>
+
+  <div class="toolbar">
+    <button id="clearBtn" class="btn ghost" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      Clear
+    </button>
+    <button id="copyAllBtn" class="btn primary" type="button" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Copy all as HEX
+    </button>
+  </div>
+
+  <div class="stats" id="stats">0 colors found</div>
+
+  <div class="output" id="output">
+    <div class="empty">Type or paste CSS above — every color token gets a live swatch next to it.</div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="foot">
+    <span class="dot"></span> Local only — nothing leaves this popup
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

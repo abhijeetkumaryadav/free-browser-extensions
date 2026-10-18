@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="hdr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18"/><path d="m8 7 4-4 4 4M8 17l4 4 4-4"/></svg>
+    <div>
+      <h1>Compare Cards</h1>
+      <p class="sub">Personal pros &amp; cons</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Your own notes — not researched data. Scores come only from the weights you assign.</span>
+  </div>
+
+  <!-- Card list view -->
+  <section id="listView">
+    <div class="row">
+      <input id="newCardTitle" class="input" type="text" placeholder="New comparison topic… (e.g. Headphones A vs B)">
+      <button id="addCard" class="btn-primary btn-sm">Add</button>
+    </div>
+    <ul id="cardList" class="cards"></ul>
+    <div class="footer-row">
+      <button id="exportJson" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        JSON
+      </button>
+      <button id="exportTxt" class="btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Text summary
+      </button>
+    </div>
+  </section>
+
+  <!-- Card detail view -->
+  <section id="detailView" class="hidden">
+    <button id="backBtn" class="btn-ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
+      All cards
+    </button>
+
+    <div class="row">
+      <input id="cardTitle" class="input" type="text" aria-label="Card title">
+      <button id="deleteCard" class="btn-danger btn-sm" title="Delete this card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      </button>
+    </div>
+
+    <div class="score-card">
+      <div class="score-nums">
+        <div class="sn"><span class="k pro">Pros</span><span class="v" id="proTotal">0</span></div>
+        <div class="sn"><span class="k">Net</span><span class="v" id="netScore">0</span></div>
+        <div class="sn"><span class="k con">Cons</span><span class="v" id="conTotal">0</span></div>
+      </div>
+      <div class="score-bar"><div class="score-fill" id="scoreFill"></div></div>
+      <div class="verdict" id="verdict">Even</div>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <h2 class="sec-title pro">Pros</h2>
+        <ul id="proList" class="bullets"></ul>
+        <div class="add-row">
+          <input id="proText" class="input" type="text" placeholder="Add a pro…">
+          <select id="proWeight" class="select" title="Weight">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3" selected>3</option><option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button id="addPro" class="btn-primary btn-sm">+</button>
+        </div>
+      </div>
+      <div class="col">
+        <h2 class="sec-title con">Cons</h2>
+        <ul id="conList" class="bullets"></ul>
+        <div class="add-row">
+          <input id="conText" class="input" type="text" placeholder="Add a con…">
+          <select id="conWeight" class="select" title="Weight">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3" selected>3</option><option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button id="addCon" class="btn-primary btn-sm">+</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

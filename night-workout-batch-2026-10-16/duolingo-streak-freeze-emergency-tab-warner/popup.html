@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Practice Reminder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+  <h1>Practice Reminder</h1>
+</header>
+
+<div class="scope-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <p>Reminder only — not affiliated with Duolingo. This extension can't detect your
+     Duolingo streak; your streak counts days you mark done yourself.</p>
+</div>
+
+<section class="card streak-card">
+  <div class="streak-num"><span id="streakNum">0</span></div>
+  <div class="streak-label">day streak</div>
+  <div class="today-row"><span id="todayStatus">Not done today</span></div>
+  <button id="doneBtn" class="btn primary">Mark today's practice done</button>
+</section>
+
+<section class="card">
+  <h2>Reminder time</h2>
+  <div class="row">
+    <input id="timeInput" type="time" value="20:00">
+    <button id="saveBtn" class="btn">Save</button>
+  </div>
+  <label class="toggle"><input id="enableChk" type="checkbox" checked> <span>Daily reminder on</span></label>
+  <p class="hint" id="nextInfo"></p>
+</section>
+
+<section class="card danger-zone">
+  <button id="resetBtn" class="btn ghost">Reset streak</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

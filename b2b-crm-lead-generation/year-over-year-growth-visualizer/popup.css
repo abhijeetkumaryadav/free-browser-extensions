@@ -1,0 +1,95 @@
+/* Year-over-Year Growth Visualizer — deep dark glassmorphism, emerald accent */
+:root {
+  --bg: #0d0f0e;
+  --glass: rgba(24, 28, 26, .72);
+  --glass-border: rgba(255, 255, 255, .08);
+  --ink: #f2f7f4;
+  --muted: #93a39b;
+  --accent: #10b981;
+  --accent-soft: rgba(16, 185, 129, .13);
+  --red: #f87171;
+  --red-soft: rgba(248, 113, 113, .13);
+}
+* { box-sizing: border-box; }
+body {
+  width: 380px; max-height: 600px; margin: 0;
+  background: var(--bg); color: var(--ink);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+  display: flex; flex-direction: column;
+}
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+header {
+  display: flex; align-items: center; gap: 12px; padding: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  border-left: 0; border-right: 0; border-top: 0; border-radius: 0;
+}
+header .ico { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
+header h1 { font-size: 15px; margin: 0; }
+header p { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+main { overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.card { border-radius: 14px; padding: 14px; }
+.card h2 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--muted); margin: 0 0 10px; font-weight: 600;
+}
+.series-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.add-row { display: flex; gap: 8px; }
+select, input {
+  background: rgba(255, 255, 255, .05); border: 1px solid var(--glass-border);
+  color: var(--ink); border-radius: 9px; padding: 9px 10px; outline: none;
+  font-size: 13px; min-width: 0;
+}
+select { flex: 1; }
+select option { background: #17211c; }
+.add-row input:first-child { flex: 1; }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+.icon-btn {
+  width: 38px; border-radius: 9px; border: 1px solid var(--glass-border);
+  background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; line-height: 1;
+}
+.icon-btn:hover { color: var(--red); border-color: var(--red); }
+.accent-btn {
+  background: var(--accent); color: #04120c; border: 0; border-radius: 9px;
+  padding: 9px 14px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.accent-btn:hover { filter: brightness(1.1); }
+.accent-btn.wide { width: 100%; margin-top: 10px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.tab {
+  flex: 1; padding: 8px; border-radius: 9px; cursor: pointer; font-weight: 600;
+  background: transparent; color: var(--muted); border: 1px solid var(--glass-border);
+}
+.tab.active { background: var(--accent-soft); color: var(--accent); border-color: rgba(16,185,129,.4); }
+#chart { width: 100%; height: 190px; display: block; }
+.chart-empty { text-align: center; color: var(--muted); padding: 40px 10px; font-size: 12px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.stats div {
+  background: rgba(255, 255, 255, .03); border: 1px solid var(--glass-border);
+  border-radius: 10px; padding: 8px 4px; text-align: center;
+}
+.stats span {
+  display: block; font-size: 9px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .5px;
+}
+.stats b { font-size: 13px; }
+.stats b.badge {
+  display: inline-block; margin-top: 2px; padding: 2px 8px; border-radius: 20px; font-size: 12px;
+}
+.badge.up { background: var(--accent-soft); color: #34d399; }
+.badge.down { background: var(--red-soft); color: var(--red); }
+.pt-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid var(--glass-border); font-size: 13px;
+}
+.pt-row:last-child { border-bottom: 0; }
+.pt-row .yr { font-weight: 700; width: 52px; }
+.pt-row .val { flex: 1; color: var(--muted); }
+.pt-row .yoy { font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 20px; }
+.pt-row .yoy.up { background: var(--accent-soft); color: #34d399; }
+.pt-row .yoy.down { background: var(--red-soft); color: var(--red); }
+.pt-row .x { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 15px; }
+.pt-row .x:hover { color: var(--red); }

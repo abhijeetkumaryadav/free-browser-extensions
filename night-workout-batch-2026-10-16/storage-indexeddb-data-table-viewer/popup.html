@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Storage Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="hero">
+  <div class="brand">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+    <div>
+      <h1>Storage Inspector</h1>
+      <p class="sub">Self storage table viewer</p>
+    </div>
+  </div>
+  <p class="scope">Views <strong>THIS extension's</strong> storage.local only — browsers don't let extensions see other extensions' or websites' storage.</p>
+</header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="search" type="text" placeholder="Search keys…" autocomplete="off">
+  </div>
+  <div class="btn-row">
+    <button id="refresh" class="btn ghost">Refresh</button>
+    <button id="export" class="btn ghost">Export</button>
+    <button id="import" class="btn ghost">Import</button>
+    <input id="file" type="file" accept="application/json,.json" hidden>
+  </div>
+</div>
+
+<div class="stats">
+  <span><strong id="count">0</strong> keys</span>
+  <span><strong id="bytes">0 B</strong> used</span>
+</div>
+
+<div id="empty" class="empty hidden">
+  <p>No keys found.</p>
+  <p class="dim">This extension stores nothing yet — or your search matched nothing.</p>
+</div>
+
+<table id="table" class="kv-table">
+  <thead><tr><th>Key</th><th>Value</th><th class="col-act">Action</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+
+<div id="toast" class="toast hidden"></div>
+<script src="popup.js"></script>
+</body>
+</html>

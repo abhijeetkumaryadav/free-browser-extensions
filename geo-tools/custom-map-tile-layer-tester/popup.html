@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TileTest — Map Tile Previewer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+    </span>
+    <div>
+      <h1>TileTest</h1>
+      <p class="sub">Single-tile preview · not a full map</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="field">
+      <span>Tile URL template</span>
+      <input id="tpl" type="text" spellcheck="false" placeholder="https://tile.openstreetmap.org/{z}/{x}/{y}.png">
+    </label>
+    <div class="modes">
+      <button class="mode active" data-mode="zxy">z / x / y</button>
+      <button class="mode" data-mode="latlng">lat / lng + zoom</button>
+    </div>
+    <div class="row3" id="zxyRow">
+      <label class="field"><span>z</span><input id="z" type="number" value="10" min="0" max="22"></label>
+      <label class="field"><span>x</span><input id="x" type="number" value="600" min="0"></label>
+      <label class="field"><span>y</span><input id="y" type="number" value="400" min="0"></label>
+    </div>
+    <div class="row3 hidden" id="latlngRow">
+      <label class="field"><span>lat</span><input id="lat" type="text" inputmode="decimal" value="28.6139"></label>
+      <label class="field"><span>lng</span><input id="lng" type="text" inputmode="decimal" value="77.2090"></label>
+      <label class="field"><span>zoom</span><input id="zoom" type="number" value="12" min="0" max="22"></label>
+    </div>
+    <button id="load" class="primary">Load tile</button>
+    <p id="urlOut" class="url"></p>
+  </section>
+
+  <section class="panel preview-panel">
+    <div class="tile-wrap" id="tileWrap">
+      <img id="tile" alt="Map tile preview" class="hidden">
+      <span id="placeholder" class="placeholder">No tile loaded</span>
+    </div>
+    <p id="status" class="status" role="status">Enter a URL template, then load.</p>
+  </section>
+
+  <footer class="foot">Loads one tile from a URL <em>you</em> provide. Respect tile usage policies.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

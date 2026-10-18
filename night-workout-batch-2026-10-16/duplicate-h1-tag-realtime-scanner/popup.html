@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>H1 Sleuth</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2M9 20h6M12 5v15"/></svg></div>
+  <div>
+    <h1>H1 Sleuth</h1>
+    <p class="sub">Duplicate H1 scanner — read-only</p>
+  </div>
+</header>
+
+<main>
+  <button id="scan" class="primary">Scan this page</button>
+  <div id="empty" class="empty">Click scan to audit the page's h1 usage. A healthy page has exactly one non-empty h1.</div>
+
+  <div id="results" hidden>
+    <div class="score-row">
+      <div class="score-ring" id="scoreRing"><span id="scoreVal">0</span></div>
+      <div>
+        <div class="score-label" id="verdict">—</div>
+        <div class="score-sub" id="statsLine">—</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-num" id="stCount">0</span><span class="stat-lbl">h1 tags</span></div>
+      <div class="stat"><span class="stat-num" id="stEmpty">0</span><span class="stat-lbl">empty</span></div>
+      <div class="stat"><span class="stat-num" id="stHidden">0</span><span class="stat-lbl">hidden</span></div>
+      <div class="stat"><span class="stat-num" id="stIssues">0</span><span class="stat-lbl">issues</span></div>
+    </div>
+
+    <div id="issues"></div>
+
+    <h2>Heading outline</h2>
+    <div id="outline"></div>
+  </div>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

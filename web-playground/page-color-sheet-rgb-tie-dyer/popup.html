@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TieDye — RGB Page Color Cycler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#ff4ecd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1.2" fill="#ff4ecd" stroke="none"/><circle cx="15.5" cy="10" r="1.2" fill="#00e5ff" stroke="none"/><circle cx="12" cy="15" r="1.2" fill="#ffee00" stroke="none"/></svg>
+    <div>
+      <h1>TieDye</h1>
+      <p class="sub">RGB page color cycler · harmless prank</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="row label-row"><span class="label">Palette</span></div>
+    <div class="chips" id="palette-chips"></div>
+  </section>
+
+  <section class="panel">
+    <div class="row label-row">
+      <span class="label">Cycle speed</span>
+      <span class="value" id="speed-label">Normal</span>
+    </div>
+    <input type="range" id="speed" min="2000" max="16000" step="1000" value="8000" aria-label="Cycle speed">
+    <div class="hint-row"><span>Chill</span><span>Wild</span></div>
+  </section>
+
+  <section class="panel">
+    <div class="row label-row"><span class="label">Blend style</span></div>
+    <div class="chips" id="blend-chips"></div>
+  </section>
+
+  <div class="btn-row">
+    <button id="start" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Dye the page
+    </button>
+    <button id="stop" class="btn ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      Stop / restore
+    </button>
+  </div>
+
+  <p class="status" id="status">Ready. The page itself is never modified — one click restores it.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html"},"description":"A fully local word-guessing game: context clues, letter guesses, hints, and streaks. No data leaves your browser.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Context Clue Word Guesser","version":"1.0.0"}

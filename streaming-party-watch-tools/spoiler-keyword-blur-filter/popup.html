@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/><path d="m4 4 16 16"/></svg>
+    </span>
+    <div>
+      <h1>SpoilerBlur</h1>
+      <p class="sub">Spoiler keyword filter</p>
+    </div>
+    <label class="switch master" title="Master on/off">
+      <input id="master" type="checkbox">
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <div class="site-row">
+    <span class="site-label">This site: <strong id="host">…</strong></span>
+    <label class="switch" title="Enable on this site">
+      <input id="site-toggle" type="checkbox" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </div>
+
+  <div class="add-row">
+    <input id="kw-input" type="text" placeholder="Add keyword (e.g. ending, dies)…" maxlength="60">
+    <button id="kw-add" class="btn" aria-label="Add keyword">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+
+  <div id="chips" class="chips"></div>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="count">0</span><span class="lbl">blurred blocks</span></div>
+    <button id="reveal-all" class="btn ghost">Reveal all on page</button>
+  </div>
+
+  <p class="foot">Matching text is blurred on the page — click any blurred block to reveal it. All data stays on this device.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

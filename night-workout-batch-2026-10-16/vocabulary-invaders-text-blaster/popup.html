@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="banner">GAME — user-triggered only · page is never modified</div>
+<h1><svg viewBox="0 0 24 24" class="icon"><path d="M4 4h3v3H4zM8 4h3v3H8zM12 4h3v3h-3zM16 4h3v3h-3zM4 8h12v3H4zM7 11h10v3H7zM5 14h2v3H5zM15 14h2v3h-2zM3 17h3v2H3zM18 17h3v2h-3z"/></svg> Vocabulary Invaders</h1>
+<p class="sub">Type the invaders' words to blast them before they reach the bottom.</p>
+<label class="field">Difficulty
+  <select id="difficulty">
+    <option value="easy">Easy — slow, short words</option>
+    <option value="normal" selected>Normal</option>
+    <option value="hard">Hard — fast, long words</option>
+  </select>
+</label>
+<div class="row">
+  <button id="start" class="primary">Start game on this tab</button>
+  <button id="stop" class="ghost">Stop</button>
+</div>
+<p class="hint">Esc also quits. Your best score is saved on this device.</p>
+<p class="best">Best score: <span id="best">0</span></p>
+<script src="popup.js"></script>
+</body>
+</html>

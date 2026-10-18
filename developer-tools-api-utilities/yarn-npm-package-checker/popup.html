@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yarn / npm Package Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+    <div><h1>Package Checker</h1><p>Live lookups on registry.npmjs.org</p></div>
+  </header>
+  <main>
+    <section class="glass card" id="inputCard">
+      <textarea id="pkgjson" spellcheck="false" placeholder='Paste package.json (or just the "dependencies" block)…'></textarea>
+      <button id="analyze" class="primary">Check packages</button>
+      <div id="error" class="error" hidden></div>
+    </section>
+    <section class="glass card" id="resultsCard" hidden>
+      <div class="chips">
+        <div class="chip"><span>Total</span><b id="cTotal">0</b></div>
+        <div class="chip ok"><span>Up to date</span><b id="cOk">0</b></div>
+        <div class="chip warn"><span>Outdated</span><b id="cOut">0</b></div>
+        <div class="chip bad"><span>Deprecated</span><b id="cDep">0</b></div>
+      </div>
+      <div id="rows"></div>
+      <button id="copy" class="ghost">Copy report</button>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* Payload Badger — deep-dark glassmorphism, single cyan accent */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font-family:-apple-system,"Segoe UI",Roboto,Inter,sans-serif;color:#e8f6fb;background:rgba(20,20,26,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header{display:flex;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(34,211,238,.18)}
+.logo{width:40px;height:40px;border-radius:12px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;flex:none}
+.logo svg{width:24px;height:24px}
+h1{font-size:16px;font-weight:700}
+.sub{font-size:11px;color:#8aa0ab}
+main{padding:14px 16px;max-height:480px;overflow-y:auto}
+.primary{width:100%;padding:11px;border:none;border-radius:10px;background:#22d3ee;color:#04222a;font-weight:700;font-size:14px;cursor:pointer}
+.primary:hover{background:#67e8f9}
+.primary:disabled{opacity:.5;cursor:wait}
+.empty{margin-top:12px;font-size:12px;color:#8aa0ab;line-height:1.6;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px}
+.score-row{display:flex;gap:14px;align-items:center;margin-top:12px}
+.score-ring{width:76px;height:76px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;border:6px solid #22d3ee;background:rgba(34,211,238,.08)}
+.score-label{font-size:14px;font-weight:700}
+.score-sub{font-size:11px;color:#8aa0ab;margin-top:4px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 6px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.stat-num{font-size:15px;font-weight:800;color:#22d3ee}
+.stat-lbl{font-size:10px;color:#8aa0ab}
+.filter-row{display:flex;gap:8px;margin:14px 0 10px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#c9dbe3;font-size:11px;padding:6px 12px;border-radius:20px;cursor:pointer}
+.chip.active{background:#22d3ee;color:#04222a;border-color:#22d3ee;font-weight:700}
+.chip.ghost{margin-left:auto}
+.finding{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-left:4px solid #22d3ee;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.finding.sev-oversized{border-left-color:#f59e0b}
+.finding.sev-format{border-left-color:#a78bfa}
+.finding-head{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600}
+.src{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px;color:#e8f6fb}
+.save{color:#22d3ee;font-weight:800;flex:none}
+.finding .meta{font-size:11px;color:#8aa0ab;margin-top:6px;line-height:1.6}
+.finding .tip{font-size:11px;color:#c9dbe3;margin-top:6px;line-height:1.6}
+.dim{width:100%;height:44px;object-fit:cover;border-radius:6px;margin-top:8px;background:#111}
+.hidden{display:none!important}

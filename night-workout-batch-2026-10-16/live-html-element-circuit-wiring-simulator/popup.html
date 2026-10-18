@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M5 8.2V13a2 2 0 0 0 2 2h3.8M19 8.2V13a2 2 0 0 1-2 2h-3.8"/></svg>
+    <div>
+      <h1>Circuit Wiring Simulator</h1>
+      <p class="sub">A harmless visual toy &mdash; draws animated circuit wires between page elements. The page itself is never changed.</p>
+    </div>
+  </header>
+
+  <section class="row">
+    <span class="label">Wire style</span>
+    <div class="seg" id="styleSeg">
+      <button data-style="hub" class="on">Hub</button>
+      <button data-style="chain">Chain</button>
+      <button data-style="elbow">Elbow</button>
+    </div>
+  </section>
+
+  <section class="row">
+    <span class="label">Pulse speed</span>
+    <input type="range" id="speed" min="1" max="10" value="4">
+  </section>
+
+  <section class="row">
+    <span class="label">Node count</span>
+    <input type="range" id="nodes" min="6" max="40" value="18">
+  </section>
+
+  <div class="actions">
+    <button id="show" class="primary">Show wiring on this tab</button>
+    <button id="remove" class="ghost">Remove overlay</button>
+  </div>
+
+  <p class="note">100% local &mdash; nothing leaves your browser. Overlay only; restore is instant.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

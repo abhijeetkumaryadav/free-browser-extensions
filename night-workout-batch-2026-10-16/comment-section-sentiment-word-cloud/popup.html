@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Word Cloud</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .42-8.98 6.5 6.5 0 0 0-12.7 1.61A4 4 0 0 0 6 19h11.5z"/></svg>
+  <div>
+    <h1>Word Cloud</h1>
+    <p class="sub">Comment frequency visualizer</p>
+  </div>
+</header>
+
+<div class="notice" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+  <span>Frequency cloud only — counts words, judges nothing. Not sentiment AI.</span>
+</div>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="input" role="tab">Input</button>
+  <button class="tab" data-tab="cloud" role="tab">Cloud</button>
+  <button class="tab" data-tab="notes" role="tab">Notes</button>
+</nav>
+
+<section class="panel" data-panel="input">
+  <label class="field-label" for="comments">Paste comments, one per line</label>
+  <textarea id="comments" rows="8" placeholder="Amazing video!&#10;Great tutorial, thanks&#10;This helped me a lot"></textarea>
+  <div class="row">
+    <label class="check"><input type="checkbox" id="minlen" checked> Ignore words shorter than 3 letters</label>
+  </div>
+  <button id="build" class="primary">Build cloud</button>
+  <div class="stats" id="stats" hidden></div>
+  <h2 class="mini">Top words</h2>
+  <ol class="toplist" id="toplist"></ol>
+</section>
+
+<section class="panel" data-panel="cloud" hidden>
+  <canvas id="cloud" width="348" height="280"></canvas>
+  <div class="row spread">
+    <button id="shuffle" class="ghost">Reshuffle layout</button>
+    <button id="download" class="ghost">Download PNG</button>
+  </div>
+</section>
+
+<section class="panel" data-panel="notes" hidden>
+  <label class="field-label" for="notes">Your notes (autosaved)</label>
+  <textarea id="notes" rows="10" placeholder="What stood out in this comment batch?"></textarea>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

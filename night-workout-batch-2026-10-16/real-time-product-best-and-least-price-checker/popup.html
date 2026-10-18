@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Price Logbook</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3H4v7l9.59 9.59a2 2 0 0 0 2.82 0l4.18-4.18a2 2 0 0 0 0-2.83z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+    <h1>Price Logbook</h1>
+    <p class="scope-note">Your logged prices only — not live price comparison.</p>
+  </header>
+
+  <section class="card">
+    <h2>Log a price</h2>
+    <label>Product
+      <input id="product" type="text" placeholder="e.g. Sony WH-1000XM5" autocomplete="off">
+    </label>
+    <label>Store
+      <input id="store" type="text" placeholder="e.g. Amazon" autocomplete="off">
+    </label>
+    <label>Price
+      <input id="price" type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+    </label>
+    <button id="add" class="primary">Log price</button>
+    <p id="form-error" class="error" hidden></p>
+  </section>
+
+  <section class="card">
+    <h2>Products</h2>
+    <div id="product-list" class="product-list"></div>
+    <p id="empty" class="empty">No prices logged yet. Add your first sighting above.</p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

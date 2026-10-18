@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+        <path d="M4 4l16 16"/>
+      </svg>
+    </span>
+    <div class="brand-text">
+      <h1>Zen Mode</h1>
+      <p class="sub">Distraction-free reading</p>
+    </div>
+  </header>
+
+  <main>
+    <div id="notice" class="notice hidden"></div>
+
+    <button id="toggle" class="toggle-btn" disabled>
+      <span id="toggle-label">Loading…</span>
+    </button>
+
+    <div class="section">
+      <p class="section-label">Theme</p>
+      <div class="segmented" role="group" aria-label="Reading theme">
+        <button data-theme="light" class="seg">Light</button>
+        <button data-theme="sepia" class="seg">Sepia</button>
+        <button data-theme="dark" class="seg">Dark</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="slider-head">
+        <p class="section-label">Font size</p>
+        <span id="font-val" class="slider-val">18px</span>
+      </div>
+      <input id="font-size" type="range" min="14" max="24" step="1" value="18">
+    </div>
+
+    <div class="section">
+      <div class="slider-head">
+        <p class="section-label">Line width</p>
+        <span id="width-val" class="slider-val">680px</span>
+      </div>
+      <input id="line-width" type="range" min="560" max="880" step="20" value="680">
+    </div>
+  </main>
+
+  <footer class="foot">
+    <span>Original page is restored when you exit</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

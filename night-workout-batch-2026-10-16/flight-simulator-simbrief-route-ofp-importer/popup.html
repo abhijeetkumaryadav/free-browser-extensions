@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Route String Parser</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5c1.6-1.6 1.6-4.2 0-5.8-1.6-1.6-4.2-1.6-5.8 0L10.2 5.2 2 3.4l3 3.7-.4 2.2L2 10.5l2.3.9 1.4 4.4c.3.8 1.3 1.1 2 .6l2.2-1.5 3.4 3.4c1.2 1.2 3.2 1.2 4.5 0z"/></svg>
+  <div>
+    <h1>Route String Parser</h1>
+    <p class="sub">Paste a route → waypoints, legs, distance</p>
+  </div>
+</header>
+
+<section class="card">
+  <label for="routeInput">Route string</label>
+  <textarea id="routeInput" rows="3" placeholder="EGLL SID WOBUN UN864 KUDOS LFPG" spellcheck="false"></textarea>
+  <div class="row btn-row">
+    <button id="parseBtn" class="primary">Parse</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+  <p class="hint">Parses what <strong>you</strong> paste — not SimBrief, no network, no live data.</p>
+</section>
+
+<section class="card hidden" id="resultCard">
+  <div class="stats">
+    <div class="stat"><span class="num" id="statPoints">0</span><span class="lbl">points</span></div>
+    <div class="stat"><span class="num" id="statLegs">0</span><span class="lbl">legs</span></div>
+    <div class="stat"><span class="num" id="statDist">0</span><span class="lbl">known nm</span></div>
+  </div>
+  <p class="fine">Distance counts only segments between airports in the bundled database; fix/airway legs are counted, not measured.</p>
+  <ul id="pointList" class="points"></ul>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

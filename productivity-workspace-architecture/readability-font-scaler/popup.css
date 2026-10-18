@@ -1,0 +1,106 @@
+/* Readability Font Scaler — popup styles.
+   Design system: 380px popup, deep dark + glassmorphism, ONE teal accent,
+   12–16px breathing room, Lucide-style stroke icons. */
+
+:root {
+  --accent: #14b8a6;          /* teal — the single accent color */
+  --accent-soft: rgba(20, 184, 166, 0.16);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f6;
+  --text-dim: #9a9aa5;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.app { display: flex; flex-direction: column; gap: 12px; padding: 14px; }
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ---- header ---- */
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { width: 22px; height: 22px; color: var(--accent); }
+h1 { font-size: 14px; font-weight: 600; }
+.site { font-size: 11px; color: var(--text-dim); margin-top: 2px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---- toggle switch ---- */
+.switch input { display: none; }
+.track {
+  display: inline-block; width: 40px; height: 22px; border-radius: 11px;
+  background: rgba(255,255,255,0.12); position: relative; cursor: pointer;
+  transition: background 0.15s;
+}
+.thumb {
+  position: absolute; top: 3px; left: 3px; width: 16px; height: 16px;
+  border-radius: 50%; background: #fff; transition: transform 0.15s;
+}
+.switch input:checked + .track { background: var(--accent); }
+.switch input:checked + .track .thumb { transform: translateX(18px); }
+
+/* ---- controls ---- */
+.controls { padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+.controls.disabled { opacity: 0.45; pointer-events: none; }
+.control-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.control-head label { font-size: 12px; font-weight: 500; color: var(--text-dim); }
+.value { font-size: 12px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+
+input[type="range"] {
+  width: 100%; appearance: none; -webkit-appearance: none; height: 4px;
+  border-radius: 2px; background: rgba(255,255,255,0.12); outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); cursor: pointer;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px; border: none; border-radius: 50%;
+  background: var(--accent); cursor: pointer;
+}
+
+/* ---- segmented buttons ---- */
+.seg { display: flex; gap: 6px; }
+.seg button {
+  flex: 1; padding: 8px 0; font-size: 12px; font-weight: 500;
+  color: var(--text-dim); background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border); border-radius: 9px; cursor: pointer;
+  transition: all 0.12s;
+}
+.seg button:hover { color: var(--text); }
+.seg button.active {
+  color: var(--accent); border-color: rgba(20, 184, 166, 0.5);
+  background: var(--accent-soft);
+}
+.seg.small button { padding: 6px 0; font-size: 11px; }
+
+.scope-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.scope-label { font-size: 12px; color: var(--text-dim); }
+.scope-row .seg { flex: 1; }
+
+/* ---- footer ---- */
+.footer { display: flex; gap: 8px; padding: 10px 14px; }
+.ghost-btn {
+  flex: 1; padding: 8px 0; font-size: 12px; font-weight: 500;
+  color: var(--text-dim); background: transparent;
+  border: 1px solid var(--border); border-radius: 9px; cursor: pointer;
+  transition: all 0.12s;
+}
+.ghost-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+.ghost-btn.danger:hover { color: #f87171; border-color: rgba(239,68,68,0.4); }

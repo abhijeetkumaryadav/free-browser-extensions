@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirect paused — Malicious Redirect Interceptor</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#0c0c10;color:#f2f2f5;
+    font:14px/1.6 -apple-system,"Segoe UI",Inter,Roboto,sans-serif;padding:24px}
+  .card{max-width:520px;width:100%;background:rgba(20,20,26,.72);
+    backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;padding:32px;text-align:center}
+  .icon{width:52px;height:52px;color:#f97316;margin:0 auto 16px;display:block}
+  h1{font-size:20px;margin-bottom:8px}
+  p{color:#9a9aa5;font-size:13px;margin-bottom:6px}
+  .route{display:flex;align-items:center;justify-content:center;gap:10px;
+    margin:18px 0;flex-wrap:wrap}
+  .pill{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;padding:8px 12px;font-family:ui-monospace,Menlo,monospace;
+    font-size:12px;word-break:break-all;max-width:200px}
+  .arrow{color:#f97316;font-weight:700}
+  .btns{display:flex;gap:10px;margin-top:20px}
+  button{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.1);
+    font-size:14px;font-weight:650;cursor:pointer}
+  .back{background:rgba(255,255,255,.06);color:#f2f2f5}
+  .back:hover{filter:brightness(1.3)}
+  .go{background:#f97316;border-color:transparent;color:#fff}
+  .go:hover{filter:brightness(1.1)}
+  .note{margin-top:16px;font-size:11px;color:#9a9aa5}
+</style>
+</head>
+<body>
+  <div class="card">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <h1>Redirect paused</h1>
+    <p>This page bounced you across domains seconds after loading — a common
+       trick in phishing and malvertising. Nothing was sent anywhere.</p>
+    <div class="route">
+      <span class="pill" id="from">…</span>
+      <span class="arrow">→</span>
+      <span class="pill" id="to">…</span>
+    </div>
+    <div class="btns">
+      <button class="back" id="backBtn">Go back</button>
+      <button class="go" id="goBtn">Continue anyway</button>
+    </div>
+    <p class="note">Heuristic detection — legitimate redirects (like logins) can trigger this.
+       Add trusted domains to the whitelist in the extension popup.</p>
+  </div>
+  <script src="warn.js"></script>
+</body>
+</html>

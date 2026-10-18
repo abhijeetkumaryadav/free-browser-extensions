@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14"/><path d="m6 11 6 6 6-6"/><path d="M5 21h14"/></svg>
+    </div>
+    <div>
+      <h1>Gravity Sandbox</h1>
+      <p>Drop the page. Watch it fall.</p>
+    </div>
+  </header>
+
+  <div class="control">
+    <div class="labelrow"><label for="gravity">Gravity strength</label><output id="gval">0.6</output></div>
+    <input type="range" id="gravity" min="0.1" max="2" step="0.1" value="0.6">
+  </div>
+
+  <div class="btnrow">
+    <button id="start" class="primary">Start gravity</button>
+    <button id="restore" class="ghost">Restore page</button>
+  </div>
+
+  <p class="status" id="status">Elements fall, bounce &amp; settle at the bottom. Nothing is destroyed — Restore rebuilds the page instantly.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

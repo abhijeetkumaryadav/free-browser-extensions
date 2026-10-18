@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </span>
+    <div>
+      <h1>PhishBarometer</h1>
+      <p class="sub">On-demand phishing-risk scan</p>
+    </div>
+  </header>
+
+  <p class="notice">
+    Heuristic aid only — <strong>not a verdict</strong>.
+    When in doubt, close the tab and type the official address yourself.
+  </p>
+
+  <button id="scanBtn" class="primary">Scan this page</button>
+  <p id="pageUrl" class="url"></p>
+
+  <section id="results" hidden>
+    <div class="gauge-wrap">
+      <svg id="gauge" viewBox="0 0 200 120" aria-hidden="true">
+        <path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="14" stroke-linecap="round"/>
+        <path id="gaugeArc" d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="url(#grad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+        <defs>
+          <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#22c55e"/>
+            <stop offset="50%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#f87171"/>
+          </linearGradient>
+        </defs>
+        <line id="needle" x1="100" y1="105" x2="100" y2="45" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="100" cy="105" r="6" fill="#fff"/>
+      </svg>
+      <div class="score-row">
+        <span id="scoreNum">0</span><span class="score-max">/100</span>
+      </div>
+      <div id="verdict" class="verdict">—</div>
+    </div>
+    <h2>Signals found <span id="sigCount" class="count"></span></h2>
+    <ul id="signals" class="signals"></ul>
+    <p id="allClear" class="all-clear" hidden>No suspicious signals found. Stay sharp anyway — heuristics can miss things.</p>
+  </section>
+
+  <footer class="foot">100% local · nothing leaves your device · no tracking</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

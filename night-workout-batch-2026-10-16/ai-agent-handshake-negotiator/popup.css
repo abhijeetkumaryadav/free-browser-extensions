@@ -1,0 +1,93 @@
+/* Handshake Tester — deep-dark glassmorphism, one accent (#38bdf8 sky). */
+:root {
+  --accent: #38bdf8;
+  --bg: rgba(20, 20, 26, .72);
+  --panel: rgba(255, 255, 255, .045);
+  --border: rgba(255, 255, 255, .09);
+  --text: #eef1f6;
+  --muted: #9aa3b2;
+  --danger: #f87171;
+  --ok: #34d399;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font: 13px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #0d0e13;
+}
+.app {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.app-header { display: flex; gap: 10px; align-items: center; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex: none; }
+h1 { font-size: 15px; margin: 0; }
+.sub { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(56, 189, 248, .09);
+  border: 1px solid rgba(56, 189, 248, .28);
+  border-radius: 10px; padding: 8px 10px; font-size: 11.5px; color: #cde9fa;
+}
+.notice svg { width: 16px; height: 16px; flex: none; margin-top: 1px; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card h2 { font-size: 13px; margin: 0; }
+.card h3 { font-size: 11.5px; margin: 4px 0 0; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.endpoint-list { display: flex; flex-direction: column; gap: 6px; max-height: 150px; overflow-y: auto; }
+.endpoint-list .empty { color: var(--muted); font-size: 12px; }
+.ep-row {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  border-radius: 8px; padding: 6px 8px; font-size: 12px;
+}
+.ep-row .name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ep-row .url { color: var(--muted); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.icon-btn {
+  background: none; border: none; color: var(--danger); cursor: pointer; padding: 4px;
+  border-radius: 6px; font-size: 12px;
+}
+.icon-btn:hover { background: rgba(248,113,113,.12); }
+.endpoint-form { display: flex; flex-direction: column; gap: 8px; }
+input, textarea, select {
+  width: 100%; background: rgba(0,0,0,.35); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text); padding: 8px 10px; font: inherit; font-size: 12.5px;
+}
+textarea { resize: vertical; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+input:focus, textarea:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+.row { display: flex; gap: 8px; }
+.row.between { justify-content: space-between; align-items: center; }
+.row select { flex: none; width: auto; }
+#epSelect { flex: 1; }
+.btn {
+  background: rgba(255,255,255,.07); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 14px; font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+}
+.btn.accent { background: var(--accent); border-color: var(--accent); color: #06202e; }
+.btn.accent:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: .5; cursor: wait; }
+.error { color: var(--danger); font-size: 12px; margin: 0; }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.stat { background: rgba(0,0,0,.3); border: 1px solid var(--border); border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 2px; }
+.stat .k { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.stat .v { font-size: 14px; font-weight: 700; }
+.v.good { color: var(--ok); } .v.bad { color: var(--danger); }
+.code {
+  background: rgba(0,0,0,.4); border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11px;
+  white-space: pre-wrap; word-break: break-word; max-height: 140px; overflow-y: auto; margin: 0;
+}
+.foot { font-size: 10.5px; color: var(--muted); text-align: center; }

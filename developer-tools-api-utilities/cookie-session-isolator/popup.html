@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookie Session Isolator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="14.5" cy="9" r=".8" fill="currentColor"/><circle cx="10.5" cy="14.5" r=".8" fill="currentColor"/><circle cx="15" cy="14" r=".8" fill="currentColor"/></svg>
+    <div><h1>Session Isolator</h1><p id="hostLine">—</p></div>
+    <div class="count-pill" id="countPill">0</div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Cookies on this site</h2>
+      <div id="cookieList"><div class="empty">Loading cookies…</div></div>
+    </section>
+    <section class="glass card danger-zone">
+      <h2>Reset session</h2>
+      <p class="note">Clears this site's cookies, localStorage, sessionStorage and cache, then you can reload for a clean slate.</p>
+      <button id="clearBtn" class="danger">Clear site data</button>
+      <button id="freshBtn" class="ghost">Fresh session — clear &amp; reload</button>
+      <div id="status" class="status" hidden></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

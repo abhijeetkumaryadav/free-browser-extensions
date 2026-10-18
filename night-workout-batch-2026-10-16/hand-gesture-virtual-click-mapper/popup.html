@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Keys</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+    <div>
+      <h1>Click Keys</h1>
+      <p class="sub">Keyboard shortcuts that click elements</p>
+    </div>
+  </header>
+
+  <div class="scope">Keyboard-triggered clicks — not hand gestures. No camera, no tracking.</div>
+
+  <section class="add-row">
+    <input id="keyInput" type="text" placeholder="Key (e.g. g)" maxlength="1" autocomplete="off">
+    <input id="selInput" type="text" placeholder="CSS selector (e.g. #submit)" autocomplete="off">
+    <button id="addBtn" class="btn accent">Add</button>
+  </section>
+  <div id="hint" class="hint"></div>
+
+  <section>
+    <h2>Mappings</h2>
+    <ul id="mapList" class="list"></ul>
+    <div id="empty" class="empty">No mappings yet. Add a key + selector, then press the key on any page.</div>
+  </section>
+
+  <button id="injectBtn" class="btn accent block">Enable on this tab</button>
+  <div class="foot">Enable once per tab. Mappings apply page-wide; disabled on password fields.</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

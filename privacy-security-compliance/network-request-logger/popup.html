@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Request Logger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+    </svg>
+    <div class="app-title">
+      <h1>Network Logger</h1>
+      <p class="subtitle">read-only · never blocks traffic</p>
+    </div>
+    <div class="header-actions">
+      <button id="exportBtn" class="ghost-btn" title="Export as JSON">Export</button>
+      <button id="clearBtn" class="ghost-btn danger" title="Clear log for this tab">Clear</button>
+    </div>
+  </header>
+
+  <div class="controls">
+    <input id="searchInput" type="search" placeholder="Filter by URL or method…" autocomplete="off">
+    <div id="typeChips" class="chips">
+      <button class="chip active" data-type="all">All</button>
+      <button class="chip" data-type="xmlhttprequest">XHR</button>
+      <button class="chip" data-type="script">JS</button>
+      <button class="chip" data-type="stylesheet">CSS</button>
+      <button class="chip" data-type="image">Img</button>
+      <button class="chip" data-type="font">Font</button>
+      <button class="chip" data-type="media">Media</button>
+      <button class="chip" data-type="main_frame,sub_frame">Doc</button>
+    </div>
+  </div>
+
+  <div id="stats" class="stats"></div>
+  <main id="logList" class="log-list" aria-live="polite"></main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

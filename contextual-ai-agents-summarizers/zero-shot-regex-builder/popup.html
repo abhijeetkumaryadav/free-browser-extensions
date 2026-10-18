@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero-Shot Regex Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8.5" y1="10" x2="15.5" y2="14"/><line x1="15.5" y1="10" x2="8.5" y2="14"/></svg>
+    <div><h1>Regex Builder</h1><p>Compose patterns visually, test live</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Add a block</h2>
+      <div id="palette" class="palette"></div>
+    </section>
+    <section class="glass card">
+      <h2>Your pattern</h2>
+      <div id="blocks"></div>
+      <div id="regexOut" class="regex-out"><code id="regexStr">—</code></div>
+      <label class="check"><input type="checkbox" id="flagI"> Case-insensitive (<code>i</code> flag)</label>
+      <div id="regexErr" class="errors" hidden></div>
+      <div class="btn-row">
+        <button id="copyBtn" class="primary">Copy regex</button>
+        <button id="clearBtn" class="ghost">Clear all</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Test it</h2>
+      <textarea id="sample" rows="4" placeholder="Paste sample text here…">Contact ada@example.com or call +1 (555) 123-4567. Order #4821 shipped on 2026-10-16. Visit https://example.com/deals for 25% off.</textarea>
+      <div class="match-line"><span id="matchCount" class="count">0 matches</span></div>
+      <div id="highlight" class="highlight"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

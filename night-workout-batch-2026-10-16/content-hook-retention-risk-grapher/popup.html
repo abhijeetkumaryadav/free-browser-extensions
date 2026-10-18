@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+    </div>
+    <div>
+      <h1>Retention Risk Grapher</h1>
+      <div class="sub">Content hook analyzer</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    Heuristic proxy — <b>not real retention data</b>. Scores come from sentence
+    length, jargon density, and engagement signals. No AI involved.
+  </div>
+
+  <textarea id="scriptInput" placeholder="Paste your script here…"></textarea>
+
+  <div class="btn-row">
+    <button id="analyzeBtn" class="primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+      Score retention risk
+    </button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <div id="results"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

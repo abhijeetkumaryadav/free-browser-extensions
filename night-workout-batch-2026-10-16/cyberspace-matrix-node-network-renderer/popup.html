@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Matrix Node Network</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <svg class="logo" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/>
+      <path d="M7 7.5 10.5 16M17 7.5 13.5 16M7.2 6h9.6"/>
+    </svg>
+    <div>
+      <h1>Matrix Node Network</h1>
+      <p class="sub">Cyberspace bookmark visualizer</p>
+    </div>
+  </header>
+
+  <div class="banner">Cosmetic visualizer — your bookmarks only. Click a node to open it.</div>
+
+  <canvas id="stage" width="348" height="252"></canvas>
+  <p class="hint" id="nodeHint">Loading bookmarks…</p>
+
+  <section>
+    <h2>Groups <span class="mini">nodes sharing a group get linked</span></h2>
+    <div class="row">
+      <input id="groupName" type="text" maxlength="40" placeholder="New group name…">
+      <button id="addGroup" class="btn">Add</button>
+    </div>
+    <ul id="groupList" class="list"></ul>
+  </section>
+
+  <section>
+    <h2>Bookmarks <span class="mini">assign up to 16 to groups</span></h2>
+    <ul id="bookmarkList" class="list"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

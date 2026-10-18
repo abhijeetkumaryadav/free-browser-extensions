@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funding Round Notifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+    <div><h1>Funding Watch</h1><p>Track startups &amp; their rounds</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Watchlist</h2>
+      <div id="watchlist"></div>
+      <div class="add-form">
+        <input id="cName" placeholder="Company name" maxlength="60">
+        <input id="cFollow" type="date" title="Follow-up date">
+        <input id="cNotes" placeholder="Notes (optional)" maxlength="120">
+        <button id="addCompany" class="ghost">＋ Watch company</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Log a round</h2>
+      <div class="add-form">
+        <select id="rCompany"></select>
+        <select id="rStage"></select>
+        <input id="rAmount" placeholder="Amount (e.g. $4.2M)" maxlength="24">
+        <input id="rDate" type="date" title="Announcement date">
+        <button id="addRound" class="primary">Log round</button>
+      </div>
+    </section>
+    <section class="glass card" id="tlCard" hidden>
+      <h2 id="tlTitle">Timeline</h2>
+      <select id="tlCompany" class="tlpick"></select>
+      <div id="tlMeta" class="tlmeta"></div>
+      <div id="timeline"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

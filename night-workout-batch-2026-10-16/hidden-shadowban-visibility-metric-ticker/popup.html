@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visibility Health Diary</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <h1>Visibility Health Diary</h1>
+      <p class="sub">Your reach, tracked by you.</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p><strong>Honest scope:</strong> this tool <strong>cannot detect shadowbans</strong> — no platform discloses them and no extension can see them. It only charts reach/engagement figures <em>you</em> copy from your own analytics. Drop flags are speculative prompts for reflection, never diagnoses.</p>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="dash" role="tab">Dashboard</button>
+    <button class="tab" data-tab="log" role="tab">Log post</button>
+    <button class="tab" data-tab="posts" role="tab">Posts</button>
+  </nav>
+
+  <!-- Dashboard -->
+  <section id="tab-dash" class="panel active">
+    <div class="stats">
+      <div class="stat"><span class="stat-num" id="stPosts">0</span><span class="stat-lbl">Posts logged</span></div>
+      <div class="stat"><span class="stat-num" id="stAvgReach">–</span><span class="stat-lbl">Avg reach (last 10)</span></div>
+      <div class="stat"><span class="stat-num" id="stEng">–</span><span class="stat-lbl">Avg engagement %</span></div>
+    </div>
+    <h2 class="section-title">Reach over time</h2>
+    <div class="chart-wrap"><svg id="chart" viewBox="0 0 340 140" role="img" aria-label="Reach chart"></svg></div>
+    <div id="dropBox"></div>
+    <div class="row-actions">
+      <button id="exportBtn" class="btn ghost">Export JSON</button>
+      <button id="clearBtn" class="btn danger">Clear all</button>
+    </div>
+  </section>
+
+  <!-- Log -->
+  <section id="tab-log" class="panel">
+    <h2 class="section-title">Log a post's metrics</h2>
+    <label class="field"><span>Post label *</span>
+      <input id="fLabel" type="text" placeholder="e.g. Reel – morning chai recipe" maxlength="80">
+    </label>
+    <div class="grid2">
+      <label class="field"><span>Platform</span>
+        <select id="fPlatform">
+          <option>Instagram</option><option>YouTube</option><option>X / Twitter</option>
+          <option>TikTok</option><option>Facebook</option><option>Other</option>
+        </select>
+      </label>
+      <label class="field"><span>Date posted</span><input id="fDate" type="date"></label>
+    </div>
+    <div class="grid2">
+      <label class="field"><span>Reach *</span><input id="fReach" type="number" min="0" placeholder="0"></label>
+      <label class="field"><span>Likes</span><input id="fLikes" type="number" min="0" placeholder="0"></label>
+    </div>
+    <div class="grid2">
+      <label class="field"><span>Comments</span><input id="fComments" type="number" min="0" placeholder="0"></label>
+      <label class="field"><span>Saves / shares</span><input id="fSaves" type="number" min="0" placeholder="0"></label>
+    </div>
+    <label class="field"><span>Diary note (what felt different?)</span>
+      <input id="fNote" type="text" placeholder="e.g. posted at 2am, hook was weak" maxlength="140">
+    </label>
+    <button id="addBtn" class="btn primary full">Log post</button>
+    <p class="hint">Copy the numbers from your platform's analytics — this tool reads nothing automatically.</p>
+  </section>
+
+  <!-- Posts -->
+  <section id="tab-posts" class="panel">
+    <h2 class="section-title">Logged posts</h2>
+    <div id="postList" class="rows"><p class="empty">No posts logged yet.</p></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

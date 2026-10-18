@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snapshot Time Traveler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="icon-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <div class="title-block">
+      <h1>Snapshot Time Traveler</h1>
+      <p class="sub">Your page-snapshot log + Wayback links</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Your log — not live snapshots.</strong> This extension makes zero network calls; Wayback links just open in a new tab for you to browse.</span>
+  </div>
+
+  <div class="form card">
+    <input id="entryUrl" type="text" placeholder="Page URL, e.g. https://example.com/article" maxlength="500">
+    <input id="entryTitle" type="text" placeholder="Title / label (optional)" maxlength="100">
+    <textarea id="entryNotes" rows="2" placeholder="Why is this snapshot worth remembering? (optional)" maxlength="1000"></textarea>
+    <button id="addEntry" class="btn-primary">Add to log</button>
+  </div>
+
+  <div class="search-row">
+    <input id="entrySearch" type="text" placeholder="Search your log…">
+  </div>
+
+  <div id="entries"></div>
+  <button id="clearAll" class="btn-ghost">Clear log</button>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

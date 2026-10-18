@@ -1,0 +1,51 @@
+/* Research Journey Mapper — deep-dark glassmorphism, single violet accent (#8b5cf6) */
+:root{
+  --accent:#8b5cf6;
+  --bg:#101014;
+  --card:rgba(20,20,26,.72);
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --line:rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;min-height:420px;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,"Segoe UI",Inter,sans-serif}
+.shell{padding:14px;display:flex;flex-direction:column;gap:12px}
+.hero{display:flex;gap:12px;align-items:center}
+.logo{width:44px;height:44px;border-radius:12px;background:rgba(139,92,246,.14);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.logo svg{width:24px;height:24px}
+h1{font-size:17px;font-weight:700}
+.sub{font-size:12px;color:var(--muted)}
+.banner{display:flex;gap:10px;background:rgba(139,92,246,.10);border:1px solid rgba(139,92,246,.35);border-radius:12px;padding:10px 12px;font-size:12px;color:#e9e4fd}
+.banner svg{width:18px;height:18px;flex-shrink:0;color:var(--accent)}
+.tabs{display:flex;gap:6px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:4px}
+.tab{flex:1;background:none;border:none;color:var(--muted);font-size:13px;font-weight:600;padding:8px;border-radius:9px;cursor:pointer}
+.tab.active{background:rgba(139,92,246,.18);color:var(--accent)}
+.hidden{display:none}
+.filters{display:flex;gap:8px;margin-bottom:10px}
+.filters select{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px;font-size:13px}
+.btn{background:var(--accent);border:none;border-radius:10px;color:#1e1040;font-weight:700;font-size:13px;padding:9px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:rgba(139,92,246,.14);color:var(--accent)}
+.btn.ghost svg{width:14px;height:14px}
+.timeline{position:relative;max-height:300px;overflow-y:auto;padding-left:22px;display:flex;flex-direction:column;gap:12px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:rgba(139,92,246,.35);border-radius:2px}
+.node{position:relative;background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.node::before{content:"";position:absolute;left:-20px;top:14px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.node.q::before{background:#38bdf8;box-shadow:0 0 8px #38bdf8}
+.node.s::before{background:#34d399;box-shadow:0 0 8px #34d399}
+.node.d2::before{background:#fbbf24;box-shadow:0 0 8px #fbbf24}
+.node.dc::before{background:#f472b6;box-shadow:0 0 8px #f472b6}
+.node .trow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:3px}
+.node .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.node .date{font-size:11px;color:var(--muted)}
+.node .title{font-size:13px;font-weight:600}
+.node .detail{font-size:12px;color:var(--muted);margin-top:3px;white-space:pre-wrap;word-break:break-word}
+.node .del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;float:right;padding:0 0 4px 8px}
+.node .del:hover{color:#f87171}
+.empty{text-align:center;color:var(--muted);font-size:13px;padding:28px 10px}
+.form{display:flex;flex-direction:column;gap:10px;background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;padding:14px}
+label{font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:5px}
+input,select,textarea{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 10px;font-size:13px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{resize:vertical}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}

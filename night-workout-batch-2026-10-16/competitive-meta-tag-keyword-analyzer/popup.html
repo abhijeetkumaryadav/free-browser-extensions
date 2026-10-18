@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaTag Keyword Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M9 20h6"/><path d="M12 5v15"/></svg></div>
+    <div>
+      <h1>MetaTag Keyword Analyzer</h1>
+      <p class="sub">On-page SEO self-audit</p>
+    </div>
+  </header>
+
+  <div class="score-row">
+    <div class="score-ring"><span id="scoreNum">–</span></div>
+    <div class="score-meta">
+      <div id="verdict" class="verdict">Not scanned yet</div>
+      <div id="summary" class="summary">Scan this page to audit its own meta tags.</div>
+    </div>
+  </div>
+
+  <div id="tagCards" class="tagcards"></div>
+
+  <h2 class="sect">Top keywords</h2>
+  <div id="keywords" class="keywords"><div class="empty">No scan results yet.</div></div>
+
+  <h2 class="sect">Checks</h2>
+  <div id="findings" class="findings"><div class="empty">No scan results yet.</div></div>
+
+  <button id="scan" class="primary">Scan this page</button>
+  <button id="clear" class="ghost">Clear results</button>
+
+  <p class="honesty">Self-audit tool: analyzes the open page's own meta tags and copy only — never scrapes other sites. Guidelines are heuristics, not ranking guarantees. 100% local.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

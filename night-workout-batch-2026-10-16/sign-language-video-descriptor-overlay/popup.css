@@ -1,0 +1,64 @@
+/* Sign Practice Cards — deep-dark glassmorphism. ONE accent: violet #a78bfa */
+:root{--accent:#a78bfa;--bg:#141419;--card:rgba(20,20,26,.72);--line:rgba(255,255,255,.1);--txt:#f4f4f6;--dim:#9aa0ad}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;background:var(--bg);color:var(--txt);font:14px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.card{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px;margin:12px;padding:16px}
+.head{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.logo{width:40px;height:40px;border-radius:12px;background:rgba(167,139,250,.14);display:grid;place-items:center;color:var(--accent)}
+.logo svg{width:22px;height:22px}
+h1{font-size:16px;font-weight:650}
+.sub{font-size:12px;color:var(--dim)}
+.banner{display:flex;gap:10px;align-items:flex-start;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.28);border-radius:12px;padding:10px 12px;font-size:12px;color:#e8e2d2;margin-bottom:14px}
+.banner svg{width:18px;height:18px;color:#fbbf24;flex:none;margin-top:1px}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tab{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--dim);border-radius:10px;padding:8px;font-size:13px;font-weight:600;cursor:pointer}
+.tab.active{background:rgba(167,139,250,.16);border-color:var(--accent);color:var(--txt)}
+.panel.hidden{display:none}
+.row{display:flex;gap:8px;margin-bottom:12px;align-items:center}
+.row.spaced{justify-content:space-between}
+.text{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:9px 11px;font-size:13px;outline:none}
+.text:focus{border-color:var(--accent)}
+.text.full{width:100%;margin-bottom:4px}
+.text.grow{flex:1}
+select.text option{background:#1c1c22}
+.area{min-height:64px;resize:vertical;font-family:inherit}
+.lbl{display:block;font-size:12px;color:var(--dim);margin:10px 0 4px}
+.btn{border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.btn.accent{background:var(--accent);color:#1e1440}
+.btn.accent:hover{filter:brightness(1.1)}
+.btn.ghost{background:rgba(255,255,255,.07);color:var(--txt);border:1px solid var(--line)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.btn.fullbtn{width:100%;margin-top:12px;padding:11px}
+.msg{font-size:12px;color:var(--accent);margin-top:8px;min-height:16px}
+.flash{perspective:900px;margin-bottom:12px}
+.flash-inner{position:relative;height:210px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.flash-inner.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:8px;overflow-y:auto}
+.face.back{transform:rotateY(180deg);justify-content:flex-start;text-align:left;align-items:stretch}
+.f-front{font-size:26px;font-weight:700}
+.f-cat{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.hint{font-size:11px;color:var(--dim)}
+.f-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+.f-motion{font-size:13px}
+.f-notes{font-size:13px;color:#d8dae0}
+.f-link{color:var(--accent);font-size:13px;text-decoration:none}
+.f-link:hover{text-decoration:underline}
+.hidden{display:none!important}
+.progress{font-variant-numeric:tabular-nums;color:var(--dim);font-size:13px}
+.mastery{margin-top:4px;font-size:12px;color:var(--dim)}
+.mastery .bar{height:8px;background:rgba(255,255,255,.08);border-radius:4px;margin-top:6px;overflow:hidden}
+.mastery .fill{height:100%;background:var(--accent);border-radius:4px;transition:width .3s}
+.deck{display:flex;flex-direction:column;gap:6px;max-height:300px;overflow-y:auto}
+.dcard{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:13px}
+.dcard .dhead{display:flex;gap:8px;align-items:center}
+.dcard .dname{flex:1;font-weight:600}
+.dcard .dcat{font-size:11px;color:var(--accent)}
+.dcard .dmotion{font-size:12px;color:var(--dim);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dcard .dbody{margin-top:6px;font-size:12px;color:#d8dae0}
+.dcard .dlink{color:var(--accent);font-size:12px;text-decoration:none}
+.dcard .known{font-size:11px;color:var(--accent)}
+.ndel{background:none;border:none;color:var(--dim);cursor:pointer;font-size:15px;line-height:1}
+.ndel:hover{color:#f87171}
+.empty{color:var(--dim);font-size:13px;padding:8px 0}
+.foot{margin-top:14px;font-size:11px;color:var(--dim);text-align:center}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:4px}

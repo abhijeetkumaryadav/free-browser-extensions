@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad-Node Purger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.5 5.5l13 13"/></svg>
+    </div>
+    <div>
+      <h1>Ad-Node Purger</h1>
+      <p class="subtitle">Heuristic ad-container hider</p>
+    </div>
+    <div class="status-dot" id="statusDot" title="Not active"></div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span>Heuristic only — may hide non-ad elements. One click restores everything.</span>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num" id="hiddenCount">0</span><span class="stat-label">hidden</span></div>
+    <div class="stat"><span class="stat-num" id="shadowCount">0</span><span class="stat-label">in shadow DOM</span></div>
+  </div>
+
+  <button class="btn primary" id="purgeBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+    Purge ad nodes
+  </button>
+  <button class="btn ghost" id="restoreBtn" disabled>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+    Restore page
+  </button>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Custom selectors</h2>
+      <span class="hint">one per line</span>
+    </div>
+    <textarea id="customSelectors" rows="3" placeholder=".my-ad-class&#10;#sponsored-slot"></textarea>
+    <button class="btn small" id="saveSelectors">Save selectors</button>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><h2>Options</h2></div>
+    <label class="check"><input type="checkbox" id="optShadow" checked> Scan open shadow roots</label>
+    <label class="check"><input type="checkbox" id="optIframes" checked> Include same-origin iframes</label>
+  </div>
+
+  <p class="foot">Scans only when you click. Nothing leaves your browser.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

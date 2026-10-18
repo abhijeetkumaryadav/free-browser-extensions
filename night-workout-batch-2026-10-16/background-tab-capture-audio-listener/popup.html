@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Audio Recorder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/>
+    </svg>
+    <div>
+      <h1>Tab Audio Recorder</h1>
+      <p class="sub">Records the current tab's audio</p>
+    </div>
+    <span class="dot" id="stateDot" title="idle"></span>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Records the current tab's audio — your recordings only. The tab must be <b>playing audio</b> when you start; nothing runs until you press start.</span>
+  </div>
+
+  <div class="meter-wrap">
+    <canvas id="meter" width="344" height="64" aria-label="audio level meter"></canvas>
+    <div class="meter-row"><span id="tabLabel">No tab captured</span><span id="clock">00:00</span></div>
+  </div>
+
+  <div class="controls">
+    <button id="startBtn" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/></svg>
+      Start recording
+    </button>
+    <button id="stopBtn" class="ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg>
+      Stop
+    </button>
+  </div>
+
+  <div class="result hidden" id="resultBox">
+    <div class="result-row">
+      <span id="resultName">recording.webm</span>
+      <span id="resultSize"></span>
+    </div>
+    <button id="dlBtn" class="ghost small">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+      Download WebM
+    </button>
+  </div>
+
+  <p class="error" id="errorMsg" role="alert"></p>
+
+  <footer class="foot">Local only — recordings never leave this browser.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

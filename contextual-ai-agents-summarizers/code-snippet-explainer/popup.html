@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code Snippet Explainer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <div><h1>Snippet Explainer</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="blocksCard" class="glass card" hidden>
+      <h2>Code blocks found <span id="blockCount" class="count"></span></h2>
+      <div id="blocks"></div>
+    </section>
+    <section id="analysisCard" class="glass card" hidden>
+      <h2>Structural explanation</h2>
+      <div class="lang-row"><span id="langBadge" class="lang-badge">—</span><span class="heur">on-device heuristic · not AI</span></div>
+      <div class="stats">
+        <div><span>Lines</span><b id="sLines">—</b></div>
+        <div><span>Functions</span><b id="sFuncs">—</b></div>
+        <div><span>Classes</span><b id="sClasses">—</b></div>
+        <div><span>Comments</span><b id="sComments">—</b></div>
+      </div>
+      <div id="summary" class="summary"></div>
+      <button id="copyBtn" class="ghost">Copy explanation</button>
+    </section>
+    <section id="historyCard" class="glass card" hidden>
+      <h2>Recent explanations</h2>
+      <div id="history"></div>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan page</b> on any page with code — docs, Stack Overflow, GitHub — to collect its code blocks.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

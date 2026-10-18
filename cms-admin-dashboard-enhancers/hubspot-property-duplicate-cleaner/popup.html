@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Dedupe Planner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="m21 3-7.5 7.5"/><path d="m3 3 7.5 7.5"/><path d="M16 21h5v-5"/><path d="M8 21H3v-5"/><path d="m21 21-7.5-7.5"/><path d="m3 21 7.5-7.5"/></svg>
+    </div>
+    <div class="header-text">
+      <h1>Property Dedupe Planner</h1>
+      <p class="subtitle">Offline planner · no HubSpot API · all on-device</p>
+    </div>
+  </header>
+
+  <!-- Input section -->
+  <section class="panel" id="inputPanel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+      <span>1 · Paste property names</span>
+    </div>
+    <textarea id="propInput" placeholder="One per line, or paste CSV (first column is used):&#10;First Name&#10;firstname&#10;First name&#10;Company&#10;Company Name&#10;companyname"></textarea>
+    <div class="input-row">
+      <button class="btn secondary" id="loadSample">Load sample</button>
+      <button class="btn secondary" id="clearInput">Clear</button>
+      <button class="btn primary" id="analyzeBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Find duplicates
+      </button>
+    </div>
+  </section>
+
+  <!-- Results section -->
+  <section class="panel hidden" id="resultsPanel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-8"/></svg>
+      <span>2 · Review groups</span>
+      <span class="stat" id="groupCount"></span>
+    </div>
+
+    <div class="controls">
+      <label class="slider-label">
+        Similarity threshold
+        <span id="thresholdVal">80%</span>
+      </label>
+      <input type="range" id="threshold" min="50" max="100" value="80">
+      <p class="hint">Higher = only near-identical names grouped.</p>
+    </div>
+
+    <div id="groupsList" class="groups"></div>
+    <div class="empty hidden" id="noDupes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      <p>No near-duplicates found at this threshold.<br>Try lowering it.</p>
+    </div>
+  </section>
+
+  <!-- Export section -->
+  <section class="panel hidden" id="exportPanel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+      <span>3 · Export merge plan</span>
+    </div>
+    <div class="export-row">
+      <button class="btn primary" id="copyPlan">Copy plan CSV</button>
+      <button class="btn secondary" id="downloadPlan">Download .csv</button>
+    </div>
+    <p class="hint">Plan columns: group, property, decision (keep/merge/delete), canonical name.</p>
+  </section>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "Manual time tracker for sponsored content. Start/stop timers per sponsor or campaign, log sessions, and export CSV reports for invoicing.",
+  "host_permissions": [],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Sponsor Read Time Tracker",
+  "permissions": [
+    "storage"
+  ],
+  "version": "1.0.0"
+}

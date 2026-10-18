@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlassForce</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M9 21V9"/></svg>
+    <div>
+      <h1>GlassForce</h1>
+      <p class="sub">Glassmorphism theme forcer</p>
+    </div>
+  </header>
+
+  <div class="row switch-row">
+    <div>
+      <div class="label">Glass theme</div>
+      <div class="hint" id="siteHint">Applies to this tab only</div>
+    </div>
+    <button id="powerToggle" class="toggle" role="switch" aria-checked="false"><span class="knob"></span></button>
+  </div>
+
+  <div class="label">Intensity preset</div>
+  <div class="presets">
+    <button class="preset" data-preset="soft">Soft</button>
+    <button class="preset" data-preset="frosted">Frosted</button>
+    <button class="preset" data-preset="deep">Deep</button>
+  </div>
+
+  <div class="row">
+    <div class="label">Blur strength</div>
+    <div class="value" id="blurVal">12px</div>
+  </div>
+  <input type="range" id="blur" min="4" max="30" value="12">
+
+  <div class="row">
+    <div class="label">Panel opacity</div>
+    <div class="value" id="opacityVal">72%</div>
+  </div>
+  <input type="range" id="opacity" min="30" max="95" value="72">
+
+  <label class="remember">
+    <input type="checkbox" id="rememberSite">
+    <span>Remember for this site</span>
+  </label>
+
+  <footer>Honest scope: pure CSS injection, user-triggered. Turn off to restore the page instantly. Nothing leaves your device.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

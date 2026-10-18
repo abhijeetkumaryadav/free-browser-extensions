@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Strapi Mock Payload Builder</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="logo">
+      <!-- Lucide-style stroke: database icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+        <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+        <path d="M3 12a9 3 0 0 0 18 0"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Mock Payload Studio</h1>
+      <p class="sub">Strapi-style schema → realistic JSON</p>
+    </div>
+  </header>
+
+  <!-- Saved schemas -->
+  <section class="card glass">
+    <div class="row-between">
+      <h2>Saved schemas</h2>
+      <span class="hint">stored on-device</span>
+    </div>
+    <div class="schema-bar">
+      <select id="schemaSelect" aria-label="Saved schemas">
+        <option value="">— choose a saved schema —</option>
+      </select>
+      <button id="loadSchemaBtn" class="btn ghost" title="Load selected schema">Load</button>
+      <button id="deleteSchemaBtn" class="btn ghost danger" title="Delete selected schema">✕</button>
+    </div>
+    <div class="schema-bar">
+      <input id="schemaName" type="text" placeholder="Schema name, e.g. Article" maxlength="40" />
+      <button id="saveSchemaBtn" class="btn accent">Save schema</button>
+    </div>
+  </section>
+
+  <!-- Field editor -->
+  <section class="card glass">
+    <div class="row-between">
+      <h2>Fields</h2>
+      <button id="addFieldBtn" class="btn ghost">+ Add field</button>
+    </div>
+    <div id="fieldList" class="field-list"></div>
+  </section>
+
+  <!-- Generation options -->
+  <section class="card glass">
+    <h2>Generate</h2>
+    <div class="gen-row">
+      <label class="gen-opt">
+        <input type="radio" name="mode" value="single" checked />
+        <span>Single entry</span>
+      </label>
+      <label class="gen-opt">
+        <input type="radio" name="mode" value="collection" />
+        <span>Collection</span>
+      </label>
+      <input id="countInput" type="number" min="1" max="50" value="5" title="Entries in collection" disabled />
+    </div>
+    <button id="generateBtn" class="btn accent full">Generate mock payload</button>
+  </section>
+
+  <!-- Output -->
+  <section class="card glass" id="outputCard" hidden>
+    <div class="row-between">
+      <h2>Payload</h2>
+      <div class="actions">
+        <button id="copyBtn" class="btn ghost" title="Copy JSON">Copy</button>
+        <button id="downloadBtn" class="btn ghost" title="Download .json">Download</button>
+      </div>
+    </div>
+    <pre id="output" class="output"></pre>
+  </section>
+
+  <p class="footnote">Offline mock generator — never sends anything anywhere.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

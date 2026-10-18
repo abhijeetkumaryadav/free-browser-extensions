@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grammar &amp; Style Regulation Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <div><h1>Style Checker</h1><p>Grammar &amp; style rules, on-device</p></div>
+    <div id="scoreChip" class="score" hidden>–</div>
+  </header>
+  <main>
+    <section class="glass card">
+      <textarea id="input" rows="6" placeholder="Paste your text here to check it against your style regulations…"></textarea>
+      <button id="analyze" class="primary">Analyze text</button>
+    </section>
+    <section id="statsCard" class="glass card" hidden>
+      <div class="stats">
+        <div><span>Words</span><b id="stWords">0</b></div>
+        <div><span>Sentences</span><b id="stSent">0</b></div>
+        <div><span>Flesch</span><b id="stFlesch">–</b></div>
+        <div class="bad"><span>Issues</span><b id="stIssues">0</b></div>
+      </div>
+      <div id="fleschNote" class="fnote" hidden></div>
+    </section>
+    <section id="findCard" class="glass card" hidden>
+      <h2>Findings <span id="findCount" class="count"></span></h2>
+      <div id="findings"></div>
+    </section>
+    <section class="glass card">
+      <h2>Regulations</h2>
+      <label class="fld">Max words per sentence
+        <input id="wordLimit" type="number" min="5" max="100" value="25">
+      </label>
+      <label class="fld">Banned words &amp; phrases <span class="hint">comma or line separated</span>
+        <textarea id="banned" rows="3" placeholder="very, really, in order to, utilize"></textarea>
+      </label>
+      <button id="saveRegs" class="ghost">Save regulations</button>
+      <div id="savedMsg" class="saved" hidden>Regulations saved</div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

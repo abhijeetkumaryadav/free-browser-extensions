@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header>
+  <svg viewBox="0 0 24 24" class="logo"><rect x="3" y="4" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+  <div><h1>DOM Node Counter</h1><p class="scope">Counts nodes — <b>suggests</b> growth. It cannot diagnose memory leaks (detached nodes are invisible from here).</p></div>
+</header>
+
+<div class="big"><span id="total">—</span><span class="big-label">nodes now</span></div>
+<div class="delta-row"><span id="delta">Take a sample to start tracking.</span></div>
+
+<button id="sample">Sample this tab</button>
+
+<section>
+  <h2>Top tags</h2>
+  <div id="top-tags" class="bars"></div>
+</section>
+
+<section>
+  <h2>Sample history <button id="clear" class="link">clear</button></h2>
+  <ul id="history" class="history"><li class="empty">No samples yet for this tab.</li></ul>
+</section>
+
+<footer>Tip: interact with the page, then sample again. Steady upward growth while idle may hint at a leak.</footer>
+<script src="popup.js"></script>
+</body></html>

@@ -1,0 +1,127 @@
+/* Podcast Enclosure Sniffer — popup.css
+   Deep-dark glassmorphism, 380px popup, one vibrant accent (podcast purple). */
+
+:root {
+  --accent: #c084fc;            /* vibrant purple */
+  --bg-0: #0d0d12;
+  --bg-1: rgba(20, 20, 26, 0.72);
+  --line: rgba(255, 255, 255, 0.08);
+  --txt: #f4f4f6;
+  --mut: #a7a7b3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 560px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg-0);
+  color: var(--txt);
+}
+
+.shell {
+  background: var(--bg-1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 560px;
+}
+
+/* ---------- header ---------- */
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand-ico { width: 32px; height: 32px; color: var(--accent); flex: none; }
+h1 { font-size: 17px; font-weight: 650; letter-spacing: 0.2px; }
+.sub { font-size: 12px; color: var(--mut); margin-top: 2px; }
+
+/* ---------- notice ---------- */
+.notice {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--mut);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.notice strong { color: var(--txt); }
+
+/* ---------- buttons ---------- */
+.primary, .ghost {
+  border: none;
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+.primary { background: var(--accent); color: #17101f; }
+.primary:hover { opacity: 0.92; }
+.primary:active { transform: scale(0.98); }
+.ghost {
+  background: transparent;
+  color: var(--mut);
+  border: 1px solid var(--line);
+  padding: 8px;
+  font-size: 12px;
+}
+.ghost:hover { color: var(--txt); }
+
+/* ---------- results ---------- */
+.empty {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 24px 16px; text-align: center; color: var(--mut); font-size: 13px;
+}
+.empty svg { width: 40px; height: 40px; color: rgba(192, 132, 252, 0.5); }
+
+.results { display: flex; flex-direction: column; gap: 8px; }
+.summary { font-size: 12px; color: var(--mut); }
+
+.list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.card-head { display: flex; align-items: center; gap: 8px; }
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #17101f;
+  background: var(--accent);
+  border-radius: 5px;
+  padding: 3px 7px;
+}
+.badge.feed { background: #7dd3fc; }
+.card-name {
+  font-size: 13px;
+  font-weight: 600;
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card-hint { font-size: 11px; color: var(--mut); word-break: break-all; }
+.card-actions { display: flex; gap: 8px; margin-top: 2px; }
+.chip {
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+.chip:hover { border-color: var(--accent); }

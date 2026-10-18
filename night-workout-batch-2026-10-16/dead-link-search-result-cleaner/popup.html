@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dead Link Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+  <div>
+    <h1>Dead Link Checker</h1>
+    <p class="sub">Badge links that fail to load.</p>
+  </div>
+</header>
+
+<div class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>Network check only: flags links that don't connect at all. Browser rules mean it <b>cannot detect 404s</b>. Bot-protected sites may misfire.</span>
+</div>
+
+<section class="card">
+  <div class="row">
+    <label class="label" for="maxLinks">Max links to check</label>
+    <select id="maxLinks">
+      <option value="10">10</option>
+      <option value="30" selected>30</option>
+      <option value="50">50</option>
+    </select>
+  </div>
+  <div class="row buttons">
+    <button id="checkBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Check this page
+    </button>
+    <button id="clearBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Clear badges
+    </button>
+  </div>
+  <div class="progress" id="progress" hidden>
+    <div class="bar" id="bar"></div>
+  </div>
+  <p class="stats" id="stats">No check yet.</p>
+</section>
+
+<footer class="foot">Nothing runs until you click. Badges are removable overlays — the page is never edited.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

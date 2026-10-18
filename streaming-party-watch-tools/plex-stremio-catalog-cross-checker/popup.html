@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CatalogCross</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="app-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <div>
+      <h1>CatalogCross</h1>
+      <p class="subtitle">Manual list cross-checker</p>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div class="stat"><span class="stat-num" id="statOverlap">0</span><span class="stat-label">On both</span></div>
+    <div class="stat"><span class="stat-num accent-a" id="statOnlyA">0</span><span class="stat-label">Only Plex</span></div>
+    <div class="stat"><span class="stat-num accent-b" id="statOnlyB">0</span><span class="stat-label">Only Stremio</span></div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-view="overlap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
+      Overlap
+    </button>
+    <button class="tab" data-view="onlyA">Only Plex</button>
+    <button class="tab" data-view="onlyB">Only Stremio</button>
+    <button class="tab" data-view="manage">Manage</button>
+  </div>
+
+  <div class="search-row" id="searchRow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="text" id="searchInput" placeholder="Search titles…">
+  </div>
+
+  <ul class="title-list" id="titleList"></ul>
+  <p class="empty" id="emptyState">No titles here yet.</p>
+
+  <section class="card hidden" id="managePanel">
+    <h2>My Plex <span class="count" id="countA">0</span></h2>
+    <div class="add-row">
+      <input type="text" id="inputA" placeholder="Add title to Plex list…">
+      <button class="add-btn" id="addA">Add</button>
+    </div>
+    <h2 class="mt">My Stremio <span class="count" id="countB">0</span></h2>
+    <div class="add-row">
+      <input type="text" id="inputB" placeholder="Add title to Stremio list…">
+      <button class="add-btn" id="addB">Add</button>
+    </div>
+    <div class="btn-row">
+      <button class="ghost-btn" id="exportBtn">Export JSON</button>
+      <label class="ghost-btn file-label" for="importFile">Import JSON</label>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+    <p class="danger-zone"><button class="link-btn" id="clearAllBtn">Clear both lists</button></p>
+  </section>
+
+  <footer class="scope-note">
+    Manual lists you maintain yourself — not connected to Plex or Stremio accounts.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

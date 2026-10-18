@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BassLab</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </div>
+    <div>
+      <h1>BassLab</h1>
+      <p class="sub">Tab audio equalizer</p>
+    </div>
+    <span class="status" id="status">off</span>
+  </header>
+
+  <section class="card">
+    <button class="btn primary wide" id="btnToggle">Enable EQ on this tab</button>
+    <p class="hint" id="enableHint">Click to route this tab's audio through the equalizer. One click per tab — Chrome asks for permission each time.</p>
+  </section>
+
+  <section class="card" id="eqCard" aria-disabled="true">
+    <div class="presets" id="presets">
+      <button class="chip" data-preset="flat">Flat</button>
+      <button class="chip active" data-preset="bass">Bass Boost</button>
+      <button class="chip" data-preset="vocal">Vocal</button>
+      <button class="chip" data-preset="treble">Treble</button>
+    </div>
+    <div class="bands" id="bands"><!-- sliders injected by JS --></div>
+    <div class="row between">
+      <label class="switch-label">
+        <input type="checkbox" id="bypass">
+        <span class="switch"></span>
+        Bypass (original sound)
+      </label>
+      <button class="btn ghost" id="btnReset">Reset</button>
+    </div>
+  </section>
+
+  <footer class="footer">Live processing only · nothing recorded or uploaded</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

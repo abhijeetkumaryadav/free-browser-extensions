@@ -1,0 +1,35 @@
+/* Phishing Wallet Blacklist — deep-dark glassmorphism, accent #ff4d5e */
+:root { --accent: #ff4d5e; --bg: #101014; --panel: rgba(20,20,26,.72); --line: rgba(255,255,255,.09); --txt: #f2f2f5; --mut: #9a9aa6; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 380px; background: var(--bg); color: var(--txt); font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; padding: 14px; }
+.topbar { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo { width: 34px; height: 34px; color: var(--accent); flex: none; }
+h1 { font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+.sub { color: var(--mut); font-size: 11px; }
+.card { background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+.lbl { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: var(--mut); margin-bottom: 6px; }
+textarea, .search { width: 100%; background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 10px; color: var(--txt); padding: 9px 10px; font: 12px/1.4 ui-monospace, Menlo, monospace; resize: vertical; }
+textarea:focus, .search:focus { outline: none; border-color: var(--accent); }
+.row { display: flex; gap: 8px; margin-top: 10px; }
+.row.tight { margin-top: 0; }
+.btn { border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--txt); border-radius: 10px; padding: 8px 12px; font-size: 12px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #14141a; font-weight: 700; flex: 1; }
+.btn.ghost { background: transparent; }
+.btn.tiny { padding: 4px 9px; font-size: 11px; }
+.verdict { margin-top: 10px; border-radius: 10px; padding: 10px 12px; font-size: 12px; border: 1px solid; }
+.verdict.hidden { display: none; }
+.verdict.bad { background: rgba(255,77,94,.12); border-color: var(--accent); color: #ffb3ba; }
+.verdict.good { background: rgba(46,204,113,.10); border-color: #2ecc71; color: #a9e8c5; }
+.note { margin-top: 10px; font-size: 11px; color: var(--mut); }
+.listhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+h2 { font-size: 13px; font-weight: 600; }
+.pill { background: rgba(255,77,94,.15); color: var(--accent); border-radius: 20px; padding: 1px 8px; font-size: 11px; margin-left: 4px; }
+.search { margin-bottom: 8px; }
+.list { list-style: none; max-height: 170px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+.list li { display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; font: 11px/1.4 ui-monospace, Menlo, monospace; word-break: break-all; }
+.list li .tag { font: 9px/1 sans-serif; text-transform: uppercase; letter-spacing: .6px; color: #0f0f13; background: #8b8b96; border-radius: 4px; padding: 3px 5px; flex: none; }
+.list li .x { margin-left: auto; flex: none; background: none; border: none; color: var(--mut); cursor: pointer; font-size: 14px; }
+.list li .x:hover { color: var(--accent); }
+.empty { color: var(--mut); font-size: 12px; text-align: center; padding: 12px; }
+footer { color: var(--mut); font-size: 10px; text-align: center; }

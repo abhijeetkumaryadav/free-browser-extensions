@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecture Note Timestamps</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    </div>
+    <div>
+      <h1>Lecture Note Timestamps</h1>
+      <p class="sub">Timestamped lecture notes</p>
+    </div>
+  </header>
+
+  <!-- Honest-scope banner -->
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <span><strong>Manual timestamps only.</strong> You press the button — nothing is synced from audio or AI.</span>
+  </div>
+
+  <!-- Session controls -->
+  <div class="row">
+    <input id="sessionName" class="text" type="text" placeholder="Session name (e.g. Physics Ch. 4)" maxlength="80">
+    <button id="startBtn" class="btn accent">Start</button>
+  </div>
+
+  <div id="liveBar" class="live hidden">
+    <div class="live-dot"></div>
+    <div class="live-info">
+      <div id="liveName" class="live-name">Session</div>
+      <div id="liveClock" class="live-clock">00:00:00</div>
+    </div>
+    <button id="stopBtn" class="btn ghost">Stop</button>
+  </div>
+
+  <!-- Note capture -->
+  <div id="capture" class="hidden">
+    <div class="row">
+      <input id="noteText" class="text grow" type="text" placeholder="Type a note, hit Add…" maxlength="240">
+      <button id="addBtn" class="btn accent">Add @ now</button>
+    </div>
+    <div class="quick-row">
+      <button class="chip" data-q="Key concept">Key concept</button>
+      <button class="chip" data-q="Exam likely">Exam likely</button>
+      <button class="chip" data-q="Confusing">Confusing</button>
+      <button class="chip" data-q="Example">Example</button>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <h2 class="section">Timeline</h2>
+  <div id="timeline" class="timeline"><p class="empty">No notes yet. Start a session and add notes as the lecture plays.</p></div>
+
+  <div class="row spaced">
+    <button id="exportBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      Export .md
+    </button>
+    <button id="copyBtn" class="btn ghost">Copy all</button>
+    <button id="clearBtn" class="btn danger">Clear</button>
+  </div>
+
+  <!-- Past sessions -->
+  <h2 class="section">Past sessions</h2>
+  <div id="sessions" class="sessions"><p class="empty">None yet.</p></div>
+
+  <p class="foot">100% local — your notes never leave this browser.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

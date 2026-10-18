@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StreamGauge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <span class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+    </span>
+    <div class="titles">
+      <h1>StreamGauge</h1>
+      <p>Quality preference manager</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>This site</h2>
+      <span class="hint">read-only — can't force bitrate</span>
+    </div>
+    <p id="siteLabel" class="site">…</p>
+    <div class="row">
+      <label class="field grow">
+        <span>Preferred quality</span>
+        <select id="prefSelect">
+          <option value="">Not set</option>
+          <option value="2160">2160p (4K)</option>
+          <option value="1440">1440p (QHD)</option>
+          <option value="1080">1080p (Full HD)</option>
+          <option value="720">720p (HD)</option>
+          <option value="480">480p</option>
+          <option value="360">360p</option>
+        </select>
+      </label>
+      <button id="savePrefBtn" class="btn accent self-end">Save</button>
+    </div>
+    <button id="checkBtn" class="btn primary full">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Check playback now
+    </button>
+    <div id="resultBox" class="result hidden"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Preferences</h2>
+      <span id="prefCount" class="hint"></span>
+    </div>
+    <ul id="prefList" class="pref-list"></ul>
+    <p id="emptyPrefs" class="empty">No site preferences yet. Set one above.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Verification log</h2>
+      <button id="clearLogBtn" class="link-btn" title="Clear the log">Clear</button>
+    </div>
+    <ul id="logList" class="log-list"></ul>
+    <p id="emptyLog" class="empty">Run “Check playback now” on a video page to log what the player delivers.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

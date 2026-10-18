@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Image Check Journal — Reverse Search Launcher",
+  "short_name": "Image Check",
+  "version": "1.0.0",
+  "description": "Log images you are checking, launch reverse-image searches, record your own verdict. Your journal — launches searches, doesn't analyze.",
+  "author": "rdx",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Image Check Journal"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

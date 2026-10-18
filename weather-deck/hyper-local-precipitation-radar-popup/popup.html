@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RainScope — Precipitation</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15.5A4.5 4.5 0 0 0 17.5 7h-1A7 7 0 1 0 5 15.3"/><path d="M8 19v1M12 18v2M16 19v1"/></svg>
+    <div class="title-block">
+      <h1>RainScope</h1>
+      <p>Hyper-local precipitation</p>
+    </div>
+    <button id="refreshBtn" class="icon-btn" title="Refresh" aria-label="Refresh">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <!-- City search -->
+  <form id="searchForm" class="search-row" autocomplete="off">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="cityInput" type="text" placeholder="Type a city…" aria-label="City">
+    <button type="submit" class="go-btn">Go</button>
+  </form>
+  <div id="suggestList" class="suggest-list hidden"></div>
+
+  <!-- Main content -->
+  <main id="content">
+    <div id="emptyState" class="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15.5A4.5 4.5 0 0 0 17.5 7h-1A7 7 0 1 0 5 15.3"/><path d="M8 19v1M12 18v2M16 19v1"/></svg>
+      <p>Search a city to see its rain outlook.</p>
+    </div>
+
+    <div id="errorState" class="error-state hidden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p id="errorMsg">Could not load precipitation data.</p>
+    </div>
+
+    <div id="loadingState" class="loading-state hidden">
+      <div class="spinner"></div>
+      <p>Fetching live data…</p>
+    </div>
+
+    <div id="resultPanel" class="hidden">
+      <div class="place-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="placeName">—</span>
+        <span id="updatedAt" class="updated"></span>
+      </div>
+
+      <section class="now-card">
+        <div class="now-left">
+          <span id="nowTemp" class="now-temp">–</span>
+          <span id="nowDesc" class="now-desc">–</span>
+        </div>
+        <div class="now-right">
+          <div class="now-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 9.8 12 2.7 12 2.7z"/></svg>
+            <span><b id="nowProb">–</b> now</span>
+          </div>
+          <div class="now-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 15.5A4.5 4.5 0 0 0 17.5 7h-1A7 7 0 1 0 5 15.3"/></svg>
+            <span><b id="nowMm">–</b> this hour</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-card">
+        <h2>Next 12 hours <span class="unit">· rain probability</span></h2>
+        <canvas id="chart" width="660" height="220" aria-label="Hourly rain probability bar chart"></canvas>
+        <div id="hourLabels" class="hour-labels"></div>
+      </section>
+
+      <p class="scope-note">Forecast model data — not live radar imagery.</p>
+    </div>
+  </main>
+
+  <footer class="footer">Data: Open-Meteo · no API key needed</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

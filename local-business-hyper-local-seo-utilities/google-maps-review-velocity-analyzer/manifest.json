@@ -1,0 +1,28 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "Manually log review counts and ratings per business, then see review velocity, star trends, and charts. Never scrapes Google Maps.",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Review Velocity Analyzer",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "clipboardWrite"
+  ],
+  "version": "1.0.0",
+  "background": {
+    "service_worker": "background.js"
+  }
+}

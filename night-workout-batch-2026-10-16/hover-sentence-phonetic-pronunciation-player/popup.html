@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </div>
+    <div>
+      <h1>Click-to-Pronounce</h1>
+      <div class="sub">Sentence pronunciation player</div>
+    </div>
+  </header>
+  <div class="notice">
+    <strong>Scope:</strong> hover any sentence on the page to highlight it, click to hear it
+    spoken aloud. It <strong>plays pronunciation only</strong> — no phonetic transcription
+    or spelling is produced. 100% local, zero network.
+  </div>
+  <label for="voice">Voice</label>
+  <select id="voice"><option>Loading voices…</option></select>
+  <label>Rate</label>
+  <div class="slider-row"><input type="range" id="rate" min="0.5" max="2" step="0.1" value="1"><span class="val" id="rateVal">1.0×</span></div>
+  <div class="btn-row">
+    <button class="btn-primary" id="arm">
+      <svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg><span>Arm on this tab</span>
+    </button>
+    <button class="btn-ghost" id="clear" disabled>
+      <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>Clear</span>
+    </button>
+  </div>
+  <ol class="how">
+    <li>Click <strong>Arm on this tab</strong>.</li>
+    <li>Hover sentences — they highlight.</li>
+    <li>Click a sentence to hear it. <strong>Esc</strong> clears everything.</li>
+  </ol>
+  <div class="status" id="status">Idle</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

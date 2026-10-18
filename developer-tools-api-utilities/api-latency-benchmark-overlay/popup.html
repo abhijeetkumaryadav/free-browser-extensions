@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Latency Benchmark</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    <div><h1>Latency Benchmark</h1><p>Time your API endpoints</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Endpoints <span>(one URL per line)</span>
+        <textarea id="urls" rows="4" spellcheck="false" placeholder="https://api.example.com/health&#10;https://api.example.com/v1/users"></textarea>
+      </label>
+      <div class="row">
+        <label class="fld inline">Runs per endpoint
+          <select id="runs">
+            <option value="1">1</option>
+            <option value="3" selected>3</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <button id="runBtn" class="primary">Run benchmark</button>
+      </div>
+      <p class="note">Only endpoints you enter are tested. Requests that fail CORS are reported as blocked — nothing is sent anywhere else.</p>
+    </section>
+    <section class="glass card" id="resultsCard" hidden>
+      <h2>Results <span id="summary"></span></h2>
+      <div id="results"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

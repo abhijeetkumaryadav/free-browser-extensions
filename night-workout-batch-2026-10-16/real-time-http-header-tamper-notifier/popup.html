@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Tamper Notifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.5"/><path d="M19 16.5v1.5l1 1"/></svg>
+      <div>
+        <h1>Header Guard</h1>
+        <p class="subtitle">security header watcher</p>
+      </div>
+    </div>
+    <span id="badge" class="badge">—</span>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span><b>Observe + notify only.</b> This tool never modifies headers or traffic — it flags missing or suspiciously weak security headers on the active tab.</span>
+  </div>
+
+  <div id="pageInfo" class="page-info muted"></div>
+
+  <div class="filters">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="warn">Warnings</button>
+    <button class="chip" data-f="notice">Notices</button>
+    <button class="chip" data-f="info">Info</button>
+  </div>
+
+  <ul id="findingList" class="findings"></ul>
+  <p id="cleanState" class="muted center hidden">No issues found — all checked headers look healthy.</p>
+  <p id="noData" class="muted center hidden">No report yet for this tab. Reload the page to analyze its response headers.</p>
+
+  <details class="raw">
+    <summary>Raw response headers</summary>
+    <div id="rawHeaders" class="raw-list"></div>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

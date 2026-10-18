@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Territory Planner</title>
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Territory Planner</h1>
+      <p class="subtitle">Radius-based sales territories</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>New territory</h2>
+      <label class="field">Territory name
+        <input id="tName" type="text" placeholder="e.g. Downtown West" maxlength="60" autocomplete="off">
+      </label>
+      <label class="field">Center address
+        <input id="tAddr" type="text" placeholder="e.g. 1600 Amphitheatre Pkwy, Mountain View" autocomplete="off">
+      </label>
+      <div class="row">
+        <label class="field grow">Radius
+          <input id="tRadius" type="number" min="0.1" step="0.1" value="10">
+        </label>
+        <label class="field">Unit
+          <select id="tUnit">
+            <option value="km">km</option>
+            <option value="mi">mi</option>
+          </select>
+        </label>
+      </div>
+      <button id="addBtn" class="primary">Geocode &amp; add territory</button>
+      <p class="note">The address is geocoded with OpenStreetMap Nominatim only when you click the button. Nothing else is ever sent anywhere.</p>
+      <div id="status" class="status" role="status" hidden></div>
+    </section>
+
+    <section class="card">
+      <h2>Territories <span id="count" class="count"></span></h2>
+      <canvas id="map" width="336" height="168" aria-label="Schematic territory overview"></canvas>
+      <ul id="list" class="territory-list"></ul>
+      <div class="row actions">
+        <button id="exportBtn" class="ghost">Export CSV</button>
+        <button id="clearBtn" class="ghost danger">Clear all</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

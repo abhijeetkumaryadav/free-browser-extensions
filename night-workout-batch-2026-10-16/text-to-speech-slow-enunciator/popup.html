@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SlowSpeak</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9.5 9.5 0 010 13"/></svg>
+    </span>
+    <div>
+      <h1>SlowSpeak</h1>
+      <p class="tagline">Clear slow text-to-speech</p>
+    </div>
+  </header>
+
+  <button class="btn ghost" id="grab">Grab selected text from page</button>
+  <textarea id="text" rows="5" placeholder="Type or paste text here, or grab a selection from the page…"></textarea>
+
+  <div class="group">
+    <div class="label">Voice</div>
+    <select id="voice"><option value="">Loading voices…</option></select>
+  </div>
+
+  <div class="group">
+    <div class="label">Speed <span class="val" id="rateVal">0.7×</span></div>
+    <input type="range" id="rate" min="0.3" max="1" step="0.05" value="0.7">
+  </div>
+
+  <div class="group">
+    <div class="label">Pitch <span class="val" id="pitchVal">1.0</span></div>
+    <input type="range" id="pitch" min="0.5" max="1.5" step="0.1" value="1">
+  </div>
+
+  <div class="group">
+    <div class="label">Pause between sentences <span class="val" id="pauseVal">0.8s</span></div>
+    <input type="range" id="pause" min="0" max="3" step="0.2" value="0.8">
+  </div>
+
+  <div class="controls">
+    <button class="btn primary" id="play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Read aloud
+    </button>
+    <button class="btn" id="stop">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg> Stop
+    </button>
+  </div>
+
+  <p class="scope">On-device speech synthesis only — nothing leaves this device.</p>
+  <div class="status" id="status">Ready</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- App header: brand + icon -->
+  <header class="app-header">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 7V5h14v2M12 5v14M9 19h6"/>
+      </svg>
+    </div>
+    <div>
+      <h1>FontStack Lab</h1>
+      <p class="subtitle">Font fallback tester</p>
+    </div>
+  </header>
+
+  <!-- Sample text -->
+  <section class="panel">
+    <h2>Sample text</h2>
+    <input type="text" id="sampleText" value="The quick brown fox 0123456789" maxlength="80"
+           spellcheck="false" aria-label="Sample text for previews">
+  </section>
+
+  <!-- Stack list -->
+  <section class="panel">
+    <h2>Candidate stacks <span class="count" id="stackCount"></span></h2>
+    <div id="stacks" class="stacks"></div>
+  </section>
+
+  <!-- Add custom stack -->
+  <section class="panel">
+    <h2>Add custom stack</h2>
+    <div class="add-row">
+      <input type="text" id="customName" placeholder="Name (e.g. Brand sans)" maxlength="40"
+             aria-label="Custom stack name">
+      <input type="text" id="customFonts" placeholder='"Inter", "Helvetica Neue", Arial, sans-serif'
+             spellcheck="false" aria-label="Custom font stack, comma separated">
+      <button id="addBtn" class="btn primary">Add</button>
+    </div>
+    <button id="resetBtn" class="btn ghost">Reset to presets</button>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

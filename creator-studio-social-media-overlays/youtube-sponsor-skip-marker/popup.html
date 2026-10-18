@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Sponsor Segment Finder</title>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="3" x2="12" y2="21"/><path d="M12 3l7 2.5L12 8.5"/>
+        </svg>
+        <div>
+          <h1>Sponsor Segments</h1>
+          <p class="subtitle">Community data · SponsorBlock</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div id="statusRow" class="status">Checking this video…</div>
+      <div id="segmentList" class="seg-list"></div>
+      <p id="emptyMsg" class="dim hidden">No segments reported for this video yet.<br>Be the first to submit them on SponsorBlock.</p>
+    </section>
+
+    <section class="panel toggles">
+      <label class="toggle-row">
+        <span>Show marker bar on player</span>
+        <input type="checkbox" id="barToggle" checked>
+        <span class="switch"></span>
+      </label>
+      <div class="cat-filters" id="catFilters"></div>
+    </section>
+
+    <footer class="footer">Read-only lookup · segments are crowdsourced, accuracy varies</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

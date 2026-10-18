@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SnakeByte — Retro Snake</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <!-- Header -->
+    <header class="header glass">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 17c2 0 2-3 4-3s2 3 4 3 2-3 4-3"/>
+          <circle cx="20" cy="14" r="1.2" fill="currentColor" stroke="none"/>
+        </svg>
+        <div>
+          <h1>SnakeByte</h1>
+          <p class="subtitle">retro snake arcade</p>
+        </div>
+      </div>
+      <div class="scores">
+        <div class="score-box">
+          <span class="score-label">Score</span>
+          <span class="score-value" id="score">0</span>
+        </div>
+        <div class="score-box">
+          <span class="score-label">Best</span>
+          <span class="score-value accent" id="best">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Game board -->
+    <section class="board-wrap glass">
+      <canvas id="board" width="348" height="300" aria-label="Snake game board"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-card">
+          <h2 id="overlay-title">Ready?</h2>
+          <p id="overlay-text">Press <kbd>Space</kbd> or tap Start.</p>
+          <button class="btn" id="start-btn" type="button">Start game</button>
+        </div>
+      </div>
+      <div class="level-chip" id="level-chip" hidden>Level 1</div>
+    </section>
+
+    <!-- Controls -->
+    <footer class="controls glass">
+      <div class="controls-row">
+        <button class="btn btn-ghost" id="pause-btn" type="button" title="Pause / resume (Space)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/>
+          </svg>
+          Pause
+        </button>
+        <button class="btn btn-ghost" id="restart-btn" type="button" title="Restart (R)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>
+          </svg>
+          Restart
+        </button>
+        <button class="btn btn-ghost" id="speed-btn" type="button" title="Toggle speed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+          <span id="speed-label">Speed: 1×</span>
+        </button>
+      </div>
+      <p class="hint">
+        <kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to steer
+        · <kbd>Space</kbd> pause · <kbd>R</kbd> restart
+      </p>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

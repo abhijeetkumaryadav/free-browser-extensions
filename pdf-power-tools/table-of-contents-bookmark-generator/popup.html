@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOCsmith</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>
+      <div>
+        <h1>TOCsmith</h1>
+        <p class="subtitle">Table of contents builder</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab active" id="tabPage">From this page</button>
+      <button class="tab" id="tabMd">From Markdown</button>
+    </div>
+
+    <!-- Page mode -->
+    <section id="pageMode">
+      <button class="btn primary full" id="scanBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+        Scan page headings
+      </button>
+      <p class="hint">Scans h1–h6 on the active tab. Read-only — nothing on the page is changed. Click any entry to scroll to it.</p>
+    </section>
+
+    <!-- Markdown mode -->
+    <section id="mdMode" hidden>
+      <textarea id="mdInput" rows="6" placeholder="Paste Markdown here…&#10;&#10;# Chapter 1&#10;## Section 1.1&#10;# Chapter 2"></textarea>
+      <button class="btn primary full" id="parseBtn">Build TOC from Markdown</button>
+    </section>
+
+    <div class="toc-head">
+      <div class="section-title">Table of contents <span id="countBadge"></span></div>
+      <div class="export-row">
+        <button class="btn ghost small" id="copyMdBtn" title="Copy as Markdown list">Copy .md</button>
+        <button class="btn ghost small" id="copyHtmlBtn" title="Copy as HTML list">Copy HTML</button>
+      </div>
+    </div>
+    <div class="toc" id="tocList"></div>
+    <div class="empty" id="emptyState">No TOC yet — scan the page or paste Markdown.</div>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

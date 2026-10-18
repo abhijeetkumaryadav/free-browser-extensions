@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Site Limiter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M17 2.5 22 7l-5 4.5"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Pomodoro Site Limiter</h1>
+      <p class="subtitle" id="statusLine">No session running</p>
+    </div>
+  </header>
+
+  <!-- Timer card -->
+  <section class="card">
+    <div class="timer-display">
+      <div class="time" id="timeLeft">25:00</div>
+      <div class="phase" id="phaseLabel">Ready</div>
+    </div>
+    <div class="presets" id="presets">
+      <button class="preset active" data-focus="25" data-break="5">25 / 5</button>
+      <button class="preset" data-focus="50" data-break="10">50 / 10</button>
+      <button class="preset" data-focus="15" data-break="3">15 / 3</button>
+      <button class="preset" data-focus="custom" data-break="custom">Custom</button>
+    </div>
+    <div class="row hidden" id="customRow">
+      <label class="field grow"><span>Focus (min)</span><input id="customFocus" type="number" min="1" max="180" value="25"></label>
+      <label class="field grow"><span>Break (min)</span><input id="customBreak" type="number" min="1" max="60" value="5"></label>
+    </div>
+    <div class="btn-row">
+      <button id="startBtn" class="primary-btn">Start focus</button>
+      <button id="resetBtn" class="ghost-btn">Reset</button>
+    </div>
+    <div class="session-stats" id="sessionStats"></div>
+  </section>
+
+  <!-- Blocklist card -->
+  <section class="card">
+    <h2 class="card-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/></svg>
+      Blocked during focus <span class="count" id="blockCount">0</span>
+    </h2>
+    <div class="row">
+      <input id="siteInput" class="grow site-input" type="text" placeholder="example.com" maxlength="120">
+      <button id="addCurrentBtn" class="chip" title="Block the current tab's site">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        This site
+      </button>
+    </div>
+    <button id="addBtn" class="secondary-btn">Add site</button>
+    <div id="blockList" class="block-list"></div>
+    <p class="hint">Blocked sites show a "back to focus" interstitial during focus sessions. Breaks are always unlocked.</p>
+  </section>
+
+  <footer class="foot">All data stays on this device.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

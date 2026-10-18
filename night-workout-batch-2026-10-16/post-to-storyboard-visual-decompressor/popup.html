@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storyboard Decompressor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 5v4M17 5v4"/></svg>
+    </span>
+    <div>
+      <h1>Storyboard Decompressor</h1>
+      <p class="sub">Expand one post idea into a shot-by-shot plan</p>
+    </div>
+  </header>
+
+  <label class="field">
+    <span>Working title</span>
+    <input id="boardTitle" type="text" placeholder="e.g. Launch day reel" maxlength="80">
+  </label>
+
+  <div class="stats">
+    <div class="stat"><strong id="stFrames">0</strong><span>frames</span></div>
+    <div class="stat"><strong id="stSecs">0s</strong><span>est. runtime</span></div>
+  </div>
+
+  <ol id="frames" class="frames" aria-label="Storyboard frames"></ol>
+
+  <div class="addbar">
+    <select id="newType" aria-label="New frame type">
+      <option value="hook">Hook</option>
+      <option value="beat">Beat</option>
+      <option value="cta">CTA</option>
+      <option value="note">Note</option>
+    </select>
+    <button id="addFrame" class="primary sm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Add frame
+    </button>
+  </div>
+
+  <div class="actions">
+    <button id="copyOutline" class="ghost sm">Copy outline</button>
+    <button id="exportJson" class="ghost sm">Export JSON</button>
+    <button id="clearBoard" class="ghost sm danger">Clear</button>
+  </div>
+  <p id="status" class="status" role="status"></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

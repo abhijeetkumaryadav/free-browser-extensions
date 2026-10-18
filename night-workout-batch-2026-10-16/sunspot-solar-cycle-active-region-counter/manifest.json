@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Sunspot Counter"},"description":"Educational sunspot guide plus a personal observation log that computes your Wolf sunspot number.","manifest_version":3,"name":"Sunspot Counter — Solar Cycle Logbook","permissions":["storage"],"version":"1.0.0"}

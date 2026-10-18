@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <div class="notice"><strong>Your entries only.</strong> This is a manual list you maintain — it is <strong>not</strong> live SatCat/catalog data and not an official decay prediction.</div>
+  <div class="card">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 9 3 5 7l4 4"/><path d="m17 11 4 4-4 4-4-4"/><path d="m8 12 4 4 4-4-4-4Z"/><path d="m16 8 3-3"/><path d="M9 21 4 16"/></svg> Decay Tracker</h1>
+  </div>
+  <div class="card">
+    <h2>Add satellite</h2>
+    <label for="name">Name</label>
+    <input id="name" placeholder="e.g. CubeSat-1" maxlength="60">
+    <div class="row">
+      <div><label for="date">Estimated decay date</label><input id="date" type="date"></div>
+    </div>
+    <button id="add">Add satellite</button>
+  </div>
+  <div class="card">
+    <h2>Upcoming decays</h2>
+    <div id="upcoming"><div class="empty">No upcoming decays.</div></div>
+  </div>
+  <div class="card">
+    <h2>Past decays</h2>
+    <div id="past"><div class="empty">Nothing decayed yet.</div></div>
+  </div>
+  <footer>Satellite Decay Tracker v1.0.0 — your entries, not live catalog data.</footer>
+  <script src="popup.js"></script>
+</body></html>

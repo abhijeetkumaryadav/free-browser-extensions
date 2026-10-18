@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Manifest Linter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="hero">
+  <div class="brand">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+    <div>
+      <h1>Manifest Linter</h1>
+      <p class="sub">Web app manifest checker</p>
+    </div>
+  </div>
+  <p class="scope">Lints the <strong>manifest file</strong> of the current tab — not the app itself. Checks name, icons, start_url, display, and colors.</p>
+</header>
+
+<div class="controls">
+  <button id="lint" class="btn primary">Lint this tab's manifest</button>
+  <button id="clear" class="btn ghost">Clear</button>
+</div>
+
+<div id="status" class="status">Click the button to check the current tab.</div>
+
+<div id="summary" class="summary hidden">
+  <span class="pill err">Errors <strong id="errCount">0</strong></span>
+  <span class="pill warn">Warnings <strong id="warnCount">0</strong></span>
+  <span class="pill ok">Passed <strong id="okCount">0</strong></span>
+</div>
+
+<ul id="results" class="results"></ul>
+
+<script src="popup.js"></script>
+</body>
+</html>

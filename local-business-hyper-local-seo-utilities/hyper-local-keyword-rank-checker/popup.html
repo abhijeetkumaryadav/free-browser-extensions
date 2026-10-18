@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="glass">
+  <!-- Lucide-style trending-up stroke icon -->
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+    <polyline points="16 7 22 7 22 13"/>
+  </svg>
+  <div>
+    <h1>Rank Tracker</h1>
+    <p>Hyper-local keywords · manual log · on-device</p>
+  </div>
+</header>
+
+<main>
+  <!-- LIST VIEW -->
+  <div id="listView">
+    <section class="card glass">
+      <h2>Track a keyword</h2>
+      <label>Keyword
+        <input id="kw" type="text" placeholder="e.g. emergency plumber" maxlength="120">
+      </label>
+      <label>Location
+        <input id="loc" type="text" placeholder="e.g. Austin, TX" maxlength="120">
+      </label>
+      <div class="row">
+        <button id="addKw" class="primary">Add keyword</button>
+      </div>
+      <p class="hint">Manual tracking: check rankings yourself, then log the
+      position here. This extension never scrapes Google or any search engine.</p>
+    </section>
+
+    <section class="card glass">
+      <div class="cardhead">
+        <h2>Keywords</h2>
+        <button id="export" class="ghost sm" title="Download all data as CSV">Export CSV</button>
+      </div>
+      <ul id="kwList"></ul>
+    </section>
+  </div>
+
+  <!-- DETAIL VIEW -->
+  <div id="detailView" class="hidden">
+    <section class="card glass">
+      <div class="cardhead">
+        <button id="back" class="ghost sm">← Back</button>
+        <button id="delKw" class="ghost sm danger">Delete</button>
+      </div>
+      <h2 id="dTitle" class="dtitle"></h2>
+      <p id="dSub" class="hint"></p>
+      <div class="stats">
+        <div class="stat"><span class="k">Latest</span><span class="v" id="dLatest">—</span></div>
+        <div class="stat"><span class="k">Best</span><span class="v" id="dBest">—</span></div>
+        <div class="stat"><span class="k">Movement</span><span class="v" id="dMove">—</span></div>
+      </div>
+      <canvas id="chart" width="332" height="150"></canvas>
+    </section>
+
+    <section class="card glass">
+      <h2>Log a position</h2>
+      <div class="grid2">
+        <label>Date <input id="eDate" type="date"></label>
+        <label>Position <input id="ePos" type="number" min="1" max="1000" placeholder="e.g. 4"></label>
+      </div>
+      <label>Ranking URL (optional)
+        <input id="eUrl" type="text" placeholder="https://…" maxlength="300">
+      </label>
+      <label>Notes (optional)
+        <input id="eNote" type="text" placeholder="e.g. after GBP post" maxlength="200">
+      </label>
+      <div class="row">
+        <button id="addEntry" class="primary">Log position</button>
+      </div>
+    </section>
+
+    <section class="card glass">
+      <h2>History</h2>
+      <ul id="entries"></ul>
+    </section>
+  </div>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

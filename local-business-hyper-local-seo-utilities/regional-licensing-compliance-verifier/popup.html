@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LicenseLens</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <span class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+    </span>
+    <div>
+      <h1>LicenseLens</h1>
+      <p class="subtitle">Licensing compliance assistant</p>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="directory">Directory</button>
+    <button class="tab" data-tab="licenses">My Licenses <span class="count" id="licenseCount"></span></button>
+    <button class="tab" data-tab="reminders">Reminders</button>
+  </nav>
+
+  <!-- Directory -->
+  <section id="tab-directory" class="panel active">
+    <div class="filters">
+      <input id="dirSearch" type="search" placeholder="Search authorities…" aria-label="Search authorities">
+      <div class="filter-row">
+        <select id="dirRegion" aria-label="Filter by region"><option value="">All regions</option></select>
+        <select id="dirCategory" aria-label="Filter by category"><option value="">All categories</option></select>
+      </div>
+    </div>
+    <div id="directoryList" class="cards"></div>
+  </section>
+
+  <!-- Licenses -->
+  <section id="tab-licenses" class="panel">
+    <button id="addLicenseBtn" class="btn primary full">+ Track a new license</button>
+    <form id="licenseForm" class="glass hidden">
+      <h3>New license</h3>
+      <label>License name<input id="fName" required placeholder="e.g. FSSAI Food License"></label>
+      <label>Authority
+        <select id="fAuthority"></select>
+      </label>
+      <div class="row">
+        <label>Issued<input id="fIssued" type="date"></label>
+        <label>Expires<input id="fExpiry" type="date"></label>
+      </div>
+      <label>Notes<textarea id="fNotes" rows="2" placeholder="Application ref, contacts…"></textarea></label>
+      <div class="row">
+        <button type="submit" class="btn primary">Save license</button>
+        <button type="button" id="cancelForm" class="btn ghost">Cancel</button>
+      </div>
+    </form>
+    <div id="licenseList" class="cards"></div>
+  </section>
+
+  <!-- Reminders -->
+  <section id="tab-reminders" class="panel">
+    <p class="hint">You are notified 30, 7 and 1 day before a license expires.</p>
+    <div id="reminderList" class="cards"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

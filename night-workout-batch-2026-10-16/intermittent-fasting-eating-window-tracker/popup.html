@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fasting Window Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 3h12l-4.5 7.5L18 21H6l4.5-10.5z"/><path d="M7.5 6.5h9"/>
+    </svg>
+    <div>
+      <h1>Fasting Tracker</h1>
+      <p class="sub">Eating-window countdown</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Tracker only — <strong>NOT medical advice</strong>. Consult a professional before fasting.</span>
+  </div>
+
+  <!-- Plan -->
+  <div class="plan-row">
+    <label>Fast (h) <input type="number" id="fastH" min="1" max="72" value="16"></label>
+    <span class="colon">:</span>
+    <label>Eat (h) <input type="number" id="eatH" min="1" max="24" value="8"></label>
+  </div>
+
+  <!-- Status -->
+  <div class="status-wrap">
+    <div class="big-time" id="bigTime">16:00:00</div>
+    <div class="phase" id="phase">Ready — press Start fasting</div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+  </div>
+
+  <div class="controls">
+    <button id="startBtn" class="primary">Start fasting</button>
+    <button id="stopBtn" class="ghost">End</button>
+  </div>
+
+  <!-- History -->
+  <details class="history" open>
+    <summary>History</summary>
+    <ul id="historyList"></ul>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

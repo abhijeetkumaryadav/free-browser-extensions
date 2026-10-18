@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacancy History Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <div><h1>Vacancy Tracker</h1><p id="subtitle">Job application pipeline</p></div>
+    <button id="newBtn" class="mini-primary">＋ New</button>
+  </header>
+  <main>
+    <section class="glass card" id="formCard" hidden>
+      <h2>Add application</h2>
+      <div class="form">
+        <input id="fTitle" placeholder="Job title *" maxlength="80">
+        <input id="fCompany" placeholder="Company *" maxlength="80">
+        <input id="fUrl" placeholder="Posting URL" maxlength="300" spellcheck="false">
+        <div class="row2">
+          <label>Date applied<input id="fDate" type="date"></label>
+          <label>Status
+            <select id="fStatus">
+              <option value="saved">Saved</option>
+              <option value="applied" selected>Applied</option>
+              <option value="interview">Interview</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </label>
+        </div>
+        <label>Follow-up reminder<input id="fFollow" type="date"></label>
+        <div class="row2">
+          <button id="saveBtn" class="primary">Save</button>
+          <button id="cancelBtn" class="ghost">Cancel</button>
+        </div>
+      </div>
+    </section>
+    <section class="stats glass" id="stats"></section>
+    <div class="view-toggle">
+      <button id="viewList" class="on">Applications</button>
+      <button id="viewTime">Timeline</button>
+    </div>
+    <section id="list"></section>
+    <section id="timeline" class="glass card" hidden></section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

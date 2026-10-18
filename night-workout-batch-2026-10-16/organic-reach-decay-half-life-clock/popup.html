@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reach Half-Life Clock</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <div><h1>Reach Half-Life Clock</h1><p class="sub">Your snapshots — not platform analytics.</p></div>
+  </div>
+</header>
+
+<div class="banner">Log your own engagement snapshots. Half-life is estimated from your data only — rough and approximate.</div>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="posts">Posts</button>
+  <button class="tab" data-tab="notes">Notes</button>
+</nav>
+
+<section id="tab-posts" class="panel">
+  <form id="post-form" class="card">
+    <h2>Add post</h2>
+    <input id="post-title" maxlength="80" placeholder="Title or caption" required>
+    <div class="row">
+      <select id="post-platform">
+        <option>Instagram</option><option>TikTok</option><option>YouTube</option>
+        <option>X</option><option>Facebook</option><option>LinkedIn</option><option>Other</option>
+      </select>
+      <input id="post-published" type="datetime-local">
+    </div>
+    <div class="row">
+      <input id="snap-value" type="number" min="0" max="100000000" placeholder="Engagement at snapshot (likes/views)">
+      <button type="submit">Save</button>
+    </div>
+    <p class="hint">Save a post, then add more snapshots over time to build its decay curve.</p>
+  </form>
+
+  <div id="post-detail" class="card hidden">
+    <h2 id="detail-title">Post</h2>
+    <p class="meta"><span id="detail-platform"></span> · <span id="detail-published"></span></p>
+    <canvas id="decay-canvas" width="348" height="150"></canvas>
+    <p id="half-life" class="hl"></p>
+    <form id="snap-form" class="row">
+      <input id="snap-at" type="datetime-local">
+      <input id="snap-eng" type="number" min="0" max="100000000" placeholder="Engagement" required>
+      <button type="submit">+ snapshot</button>
+    </form>
+    <ul id="snap-list" class="list"></ul>
+    <div class="row">
+      <button id="back-btn" class="ghost">← All posts</button>
+      <button id="delete-post" class="danger">Delete post</button>
+    </div>
+  </div>
+
+  <div id="post-list-card" class="card">
+    <h2>Your posts</h2>
+    <input id="post-search" class="search" placeholder="Search posts…" maxlength="60">
+    <ul id="post-list" class="list"></ul>
+  </div>
+</section>
+
+<section id="tab-notes" class="panel hidden">
+  <form id="note-form" class="card">
+    <h2>Add note</h2>
+    <input id="note-title" maxlength="80" placeholder="Title" required>
+    <textarea id="note-body" rows="3" maxlength="2000" placeholder="What did you learn about this post's decay?"></textarea>
+    <button type="submit">Save note</button>
+  </form>
+  <div class="card">
+    <h2>Notes</h2>
+    <input id="note-search" class="search" placeholder="Search notes…" maxlength="60">
+    <ul id="note-list" class="list"></ul>
+  </div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

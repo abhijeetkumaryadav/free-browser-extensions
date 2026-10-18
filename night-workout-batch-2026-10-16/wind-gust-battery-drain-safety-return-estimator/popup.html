@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Battery Drain — Safety Return Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <!-- Lucide-style outline battery icon -->
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="7" width="16" height="10" rx="2"/>
+      <line x1="22" y1="11" x2="22" y2="13"/>
+      <line x1="6" y1="11" x2="6" y2="13"/>
+      <line x1="10" y1="11" x2="10" y2="13"/>
+    </svg>
+    <div>
+      <h1>Battery Drain Estimator</h1>
+      <p class="sub">Flight time &amp; safe return margin</p>
+    </div>
+  </div>
+
+  <div class="notice"><strong>Estimates only — not flight planning.</strong> A simplified drain model; it does not know your airframe, temperature, or battery health. Always follow your drone's manual.</div>
+
+  <div class="grid">
+    <div class="field"><span>Battery capacity (mAh)</span><input id="cap" type="number" min="1" value="5200"></div>
+    <div class="field"><span>Hover current (A)</span><input id="cur" type="number" min="0.1" step="0.1" value="12"></div>
+    <div class="field"><span>Headwind (m/s)</span><input id="wind" type="number" min="0" step="0.5" value="4"></div>
+    <div class="field"><span>Cruise speed (m/s)</span><input id="spd" type="number" min="1" step="0.5" value="12"></div>
+    <div class="field"><span>Outbound distance (m)</span><input id="dist" type="number" min="1" value="800"></div>
+    <div class="field"><span>Reserve margin (%)</span><input id="resv" type="number" min="0" max="60" value="20"></div>
+  </div>
+  <button class="btn" id="go">Estimate</button>
+
+  <div class="results" id="results" hidden>
+    <div class="result wide"><span class="rlabel">Hover endurance (no wind)</span><span class="rvalue" id="rHover">—</span></div>
+    <div class="result wide"><span class="rlabel">Out / back time</span><span class="rvalue small" id="rLegs">—</span></div>
+    <div class="result wide"><span class="rlabel">Energy used (round trip)</span><span class="rvalue" id="rUse">—</span></div>
+    <div class="result wide"><span class="rlabel">Remaining after reserve</span><span class="rvalue" id="rRem">—</span></div>
+    <div class="result wide"><span class="rlabel">Verdict</span><span class="rvalue" id="rVerdict">—</span></div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

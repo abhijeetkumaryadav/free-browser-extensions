@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formula Macro Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <div><h1>Formula Converter</h1><p>Excel → Sheets · JS · Python</p></div>
+    <button id="convert" class="primary">Convert</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Excel formula
+        <textarea id="input" rows="3" placeholder="e.g. =IF(A1&gt;100, SUM(B1:B10)*0.9, &quot;low&quot;)"></textarea>
+      </label>
+      <p class="note">Best-effort on-device mapping. Cell references are kept as-is — adapt ranges to your target.</p>
+    </section>
+    <section class="glass card out">
+      <div class="out-head"><h2>Google Sheets</h2><button class="copy" data-t="sheets">Copy</button></div>
+      <code id="oSheets" class="code">—</code>
+    </section>
+    <section class="glass card out">
+      <div class="out-head"><h2>JavaScript</h2><button class="copy" data-t="js">Copy</button></div>
+      <code id="oJs" class="code">—</code>
+    </section>
+    <section class="glass card out">
+      <div class="out-head"><h2>Python</h2><button class="copy" data-t="py">Copy</button></div>
+      <code id="oPy" class="code">—</code>
+    </section>
+    <section class="glass card" id="notesCard" hidden>
+      <h2>Function notes</h2>
+      <div id="notes"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

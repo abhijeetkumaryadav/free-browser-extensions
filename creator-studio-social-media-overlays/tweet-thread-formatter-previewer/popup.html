@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thread Formatter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Thread Formatter</h1>
+      <p>Tweet thread previewer</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="field-label" for="source">Your text</label>
+    <textarea id="source" rows="5" placeholder="Paste your long-form text here…"></textarea>
+    <div class="opts">
+      <label class="opt"><input type="checkbox" id="numbering" checked><span>Number tweets (1/5)</span></label>
+      <select id="numStyle" title="Numbering style">
+        <option value="suffix">Suffix — text 1/5</option>
+        <option value="prefix">Prefix — 1/5 text</option>
+      </select>
+    </div>
+    <div class="btn-row">
+      <button id="split" class="btn primary">Split into thread</button>
+      <button id="clear" class="btn ghost">Clear</button>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="threadPanel">
+    <div class="thread-head">
+      <h2 class="section-title">Preview <span class="count" id="tweetCount"></span></h2>
+      <button id="copyAll" class="btn small">Copy thread</button>
+    </div>
+    <p class="hint">Drag <span class="drag-ico">⋮⋮</span> to reorder · click a card to edit</p>
+    <ol class="thread" id="thread"></ol>
+    <p class="copied hidden" id="copiedMsg">Thread copied to clipboard ✓</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

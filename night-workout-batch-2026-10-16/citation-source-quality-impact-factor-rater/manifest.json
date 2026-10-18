@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Citation Quality Checklist — Source Rater",
+  "short_name": "Source Rater",
+  "version": "1.0.0",
+  "description": "Rate a citation against a heuristic quality checklist. Your checklist only — not real impact factors, no live data.",
+  "author": "rdx",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Citation Quality Checklist"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

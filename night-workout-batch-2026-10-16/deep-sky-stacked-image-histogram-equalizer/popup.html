@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Histogram Equalizer Demo</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header class="hdr">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 17l5-5 3 3 4-4 6 6"/><circle cx="16.5" cy="7.5" r="1.5"/></svg>
+  <div><h1>Histogram Equalizer</h1><p class="sub">deep-sky stacking concept demo</p></div>
+</header>
+<div class="notice">Demo only — not real image processing. Synthetic test image, generated in your browser.</div>
+<div class="canvases">
+  <div><canvas id="before" width="160" height="120"></canvas><span>Before</span></div>
+  <div><canvas id="after" width="160" height="120"></canvas><span>After equalization</span></div>
+</div>
+<div class="histwrap">
+  <canvas id="hist" width="340" height="90"></canvas>
+  <div class="legend"><i class="lg b"></i>original histogram <i class="lg a"></i>equalized</div>
+</div>
+<label class="slider">Equalization strength <b id="sv">70%</b>
+  <input id="strength" type="range" min="0" max="100" value="70"></label>
+<div class="row2">
+  <button id="regen" class="btn">↻ New test image</button>
+  <button id="stars" class="btn tog">Stars: on</button>
+</div>
+<div class="explainer">
+  <h2>Why stack?</h2>
+  <p>Deep-sky images are faint: most signal hides in the darkest 10% of the histogram. Stacking averages many exposures to beat down random noise, then <b>histogram equalization</b> stretches the dark tones so faint nebulosity becomes visible — at the cost of also stretching noise, which is why calibration frames and enough subs matter.</p>
+</div>
+<script src="popup.js"></script>
+</body></html>

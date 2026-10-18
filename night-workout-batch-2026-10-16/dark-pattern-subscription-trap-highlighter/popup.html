@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Pattern Spotter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+    <div>
+      <h1>Dark Pattern Spotter</h1>
+      <p class="sub">Heuristic scan for subscription traps</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <button id="scanBtn" class="primary">Scan this page</button>
+    <div class="summary" id="summary"></div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-sev="all">All</button>
+      <button class="chip" data-sev="high">High</button>
+      <button class="chip" data-sev="medium">Medium</button>
+      <button class="chip" data-sev="low">Low</button>
+    </div>
+    <div id="results" class="results"></div>
+    <div class="row">
+      <button id="clearBtn" class="ghost">Clear highlights</button>
+    </div>
+    <p class="fineprint">Heuristic pattern matching — not proof of wrongdoing. Findings are highlighted with amber outlines; the page itself is never changed.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

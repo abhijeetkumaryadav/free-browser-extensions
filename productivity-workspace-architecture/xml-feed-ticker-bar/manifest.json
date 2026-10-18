@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "XML Feed Ticker Bar",
+  "version": "1.0.0",
+  "description": "A quiet RSS/Atom reader. Add feed URLs, get refreshed headlines with unread badges — only the feeds you add are ever contacted.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "XML Feed Ticker Bar",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

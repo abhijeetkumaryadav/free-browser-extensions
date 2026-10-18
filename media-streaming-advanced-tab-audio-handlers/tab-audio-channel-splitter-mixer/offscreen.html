@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tab Audio Mixer — Offscreen</title>
+</head>
+<body>
+  <!--
+    Offscreen document: hosts the Web Audio graph. MV3 service workers have
+    no AudioContext, so all capture + processing lives here.
+  -->
+  <script src="offscreen.js"></script>
+</body>
+</html>

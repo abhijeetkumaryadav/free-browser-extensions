@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Transit Delay Refund Helper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="icon-wrap" id="logo-icon"></span>
+    <div>
+      <h1>Refund Helper</h1>
+      <p class="subtitle">Transit delay claim assistant</p>
+    </div>
+  </header>
+
+  <section class="honesty-banner">
+    <span class="icon" data-icon="info"></span>
+    <p><strong>Manual helper only.</strong> This extension cannot file claims for you — transit agencies offer no such API. It prepares your claim; you submit it yourself.</p>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">Log delay</button>
+    <button class="tab" data-tab="letter">Claim letter</button>
+    <button class="tab" data-tab="checklist">Checklist</button>
+  </nav>
+
+  <section id="tab-log" class="tabpane">
+    <div class="stats" id="stats"></div>
+    <form id="delay-form">
+      <label>Date<input type="date" id="f-date" required></label>
+      <label>Transit agency<input type="text" id="f-agency" placeholder="e.g. Delhi Metro" required></label>
+      <div class="row">
+        <label>Route / line<input type="text" id="f-route" placeholder="e.g. Yellow Line" required></label>
+        <label>Delay (min)<input type="number" id="f-minutes" min="1" max="1440" placeholder="45" required></label>
+      </div>
+      <div class="row">
+        <label>From station<input type="text" id="f-from" placeholder="Rajiv Chowk"></label>
+        <label>To station<input type="text" id="f-to" placeholder="Huda City Centre"></label>
+      </div>
+      <label>Ticket / card ref<input type="text" id="f-ticket" placeholder="e.g. smart-card 1234"></label>
+      <label>Your name<input type="text" id="f-name" placeholder="For the claim letter"></label>
+      <button type="submit" class="primary-btn"><span class="icon" data-icon="plus"></span>Add delay</button>
+    </form>
+    <div id="delay-list" class="delay-list"></div>
+  </section>
+
+  <section id="tab-letter" class="tabpane hidden">
+    <label>Select logged delay
+      <select id="letter-delay"></select>
+    </label>
+    <label>Contact email of agency (optional)<input type="text" id="letter-to" placeholder="e.g. care@agency.example"></label>
+    <textarea id="letter-output" rows="12" readonly></textarea>
+    <div class="btn-row">
+      <button id="copy-letter" class="secondary-btn"><span class="icon" data-icon="copy"></span>Copy letter</button>
+      <button id="mailto-btn" class="secondary-btn"><span class="icon" data-icon="mail"></span>Open in email</button>
+    </div>
+  </section>
+
+  <section id="tab-checklist" class="tabpane hidden">
+    <div id="checklist" class="checklist"></div>
+    <button id="reset-checklist" class="link-btn">Reset checklist</button>
+  </section>
+
+  <section class="footer">
+    <p>All data stays in this browser. Claim rules, refund thresholds and response times vary by agency — verify on their official site.</p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

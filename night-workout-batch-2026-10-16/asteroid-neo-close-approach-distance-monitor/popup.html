@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEO Close-Approach Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M20.2 7.8c.6 1.4.2 3.1-1 4.2M3.8 16.2c-.6-1.4-.2-3.1 1-4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(-24 12 12)"/></svg>
+  <div>
+    <h1>NEO Journal</h1>
+    <p class="sub">Your entries only — not live NEO data.</p>
+  </div>
+</header>
+
+<section class="card next-card">
+  <div class="card-title">Next approach</div>
+  <div id="nextName" class="next-name">—</div>
+  <div id="nextCountdown" class="countdown">—</div>
+  <div id="nextMeta" class="meta">—</div>
+</section>
+
+<form id="addForm" class="card" autocomplete="off">
+  <div class="card-title">Log an approach</div>
+  <input id="fName" type="text" placeholder="Asteroid name (e.g. 2024 XK)" maxlength="60" required>
+  <div class="row">
+    <input id="fDate" type="date" required>
+    <input id="fTime" type="time" value="00:00">
+  </div>
+  <div class="row">
+    <input id="fDist" type="number" min="0" step="0.01" placeholder="Dist. (lunar distances)">
+    <input id="fSize" type="text" placeholder="Size est. (e.g. ~30 m)" maxlength="30">
+  </div>
+  <textarea id="fNotes" rows="2" placeholder="Notes (optional)" maxlength="300"></textarea>
+  <button type="submit" class="btn primary">Add approach</button>
+</form>
+
+<section class="card">
+  <div class="card-title">Approaches <span id="count" class="count"></span></div>
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty">No approaches logged yet.</p>
+</section>
+
+<footer class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <span>Educational journal. Entries you type are not official NASA/CNEOS predictions.</span>
+</footer>
+<script src="popup.js"></script>
+</body>
+</html>

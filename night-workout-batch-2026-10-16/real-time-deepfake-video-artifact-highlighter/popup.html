@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.2" y1="16.2" x2="21" y2="21"/></svg>
+    <div>
+      <h1>Artifact Lens</h1>
+      <p class="sub">Compression artifact visualizer</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <span>Shows <b>compression artifacts</b> — this is <b>NOT</b> deepfake detection.</span>
+  </div>
+
+  <section class="card">
+    <label class="filebtn">
+      <input type="file" id="file" accept="video/*" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M12 12V3m0 0 4 4m-4-4L8 7"/></svg>
+      <span id="fileLabel">Load local video</span>
+    </label>
+    <video id="stage" controls playsinline></video>
+    <canvas id="lens" width="320" height="180"></canvas>
+    <p class="hint">The lens canvas highlights block-boundary gradients — where compression artifacts concentrate.</p>
+  </section>
+
+  <section class="card row">
+    <label class="slider">Sensitivity
+      <input type="range" id="sens" min="1" max="100" value="40">
+      <span id="sensVal">40</span>
+    </label>
+    <label class="chk"><input type="checkbox" id="live" checked> Live overlay while playing</label>
+  </section>
+
+  <footer class="foot">
+    <span id="stat">No video loaded</span>
+    <button id="reset" class="ghost">Reset</button>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

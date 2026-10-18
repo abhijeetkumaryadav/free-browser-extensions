@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BleepBox — Text Censor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="logo">
+    <svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h20"/><path d="M2 8h20"/><path d="M2 12h20"/><path d="M2 16h20"/><path d="M2 20h20"/></svg>
+    <h1>BleepBox</h1>
+  </div>
+  <p class="tagline">Text censor · text only, no audio</p>
+</header>
+
+<main>
+  <!-- Source text -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Source text</h2>
+      <button id="grabSelection" class="ghost-btn" title="Grab the currently selected text on the active tab">
+        <svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M19 3v18"/><path d="M5 12h14"/></svg>
+        Grab selection
+      </button>
+    </div>
+    <textarea id="inputText" rows="4" placeholder="Paste text here, or grab the page selection…"></textarea>
+    <div class="row">
+      <label class="field">
+        <span>Intensity</span>
+        <select id="intensity">
+          <option value="mild">Mild — light words only</option>
+          <option value="standard" selected>Standard — common list</option>
+          <option value="strict">Strict — full list</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Replace with</span>
+        <select id="maskStyle">
+          <option value="asterisk" selected>**** (asterisks)</option>
+          <option value="hash">#### (hash)</option>
+          <option value="firstlast">f***k (first + last letter)</option>
+          <option value="bleep">[bleep]</option>
+        </select>
+      </label>
+    </div>
+    <div class="actions">
+      <button id="censorBtn" class="primary-btn">Censor text</button>
+      <button id="clearBtn" class="ghost-btn">Clear</button>
+    </div>
+  </section>
+
+  <!-- Output -->
+  <section class="panel" id="outputPanel" hidden>
+    <div class="panel-head">
+      <h2>Censored output</h2>
+      <span id="hitCount" class="chip"></span>
+    </div>
+    <textarea id="outputText" rows="4" readonly></textarea>
+    <div class="actions">
+      <button id="copyBtn" class="primary-btn">
+        <svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        Copy
+      </button>
+    </div>
+  </section>
+
+  <!-- Word list -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Word list</h2>
+      <span class="hint">bundled list + your additions</span>
+    </div>
+    <div class="row">
+      <input id="newWord" type="text" placeholder="Add a word…" maxlength="40">
+      <button id="addWord" class="ghost-btn">Add</button>
+    </div>
+    <div id="wordList" class="word-list"></div>
+    <button id="resetWords" class="link-btn">Reset to default list</button>
+  </section>
+
+  <p class="disclaimer">Honest scope: BleepBox censors text only. It cannot bleep audio in videos or streams.</p>
+</main>
+
+<script src="wordlist.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

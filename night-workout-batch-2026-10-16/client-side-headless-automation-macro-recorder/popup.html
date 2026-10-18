@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macro Recorder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+    <h1>Macro Recorder</h1>
+  </div>
+  <span id="statusPill" class="pill idle">Idle</span>
+</header>
+
+<div class="banner" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+  <p>Runs <strong>only</strong> in the visible tab with your explicit click. Never records password fields or submits forms silently. Your own repetitive tasks only.</p>
+</div>
+
+<section class="recorder card">
+  <div class="row">
+    <input id="macroName" type="text" maxlength="60" placeholder="Macro name (e.g. Weekly report fill)">
+  </div>
+  <div class="row buttons">
+    <button id="recordBtn" class="btn primary">● Record</button>
+    <button id="stopBtn" class="btn ghost" disabled>■ Stop</button>
+  </div>
+  <div id="liveCount" class="muted" aria-live="polite">No recording in progress.</div>
+</section>
+
+<section class="card">
+  <h2>Saved macros</h2>
+  <ul id="macroList" class="macro-list"></ul>
+  <p id="emptyMsg" class="muted">No macros yet. Record one above.</p>
+</section>
+
+<section class="card replay-note">
+  <h2>How replay works</h2>
+  <ol>
+    <li>Click <strong>▶ Replay</strong> on a macro.</li>
+    <li>It replays clicks, typing and scrolls <em>once</em> in the current tab.</li>
+    <li>Password fields are never touched or recorded.</li>
+  </ol>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

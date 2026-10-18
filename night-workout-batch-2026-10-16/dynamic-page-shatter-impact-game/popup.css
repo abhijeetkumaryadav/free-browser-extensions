@@ -1,0 +1,66 @@
+/* ShatterPlay popup — deep-dark glassmorphism, single accent #ff6a3d */
+:root {
+  --accent: #ff6a3d;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.05);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+  --border: rgba(255, 255, 255, 0.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #101014;
+  color: var(--text);
+}
+.card {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 42px; height: 42px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), #b23a1d);
+  color: #fff; flex: none;
+}
+.brand h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.2px; }
+.brand p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.stats {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;
+}
+.stat {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
+.value { font-size: 20px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.value.small { font-size: 13px; color: var(--text); font-weight: 600; }
+button {
+  border: none; border-radius: 12px; padding: 12px;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+button:active { transform: scale(0.98); }
+.primary { background: linear-gradient(135deg, var(--accent), #e04a24); color: #fff; }
+.primary:hover { opacity: 0.92; }
+.primary:disabled { opacity: 0.45; cursor: default; }
+.ghost { background: var(--panel); color: var(--text); border: 1px solid var(--border); }
+.ghost:hover { background: rgba(255, 255, 255, 0.09); }
+.hint { font-size: 12px; line-height: 1.55; color: var(--muted); }
+.hint b { color: var(--accent); }
+kbd {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 1px 6px; font-size: 11px; color: var(--text);
+}
+.err { font-size: 12px; color: #ff8a8a; min-height: 0; }
+.err:empty { display: none; }

@@ -1,0 +1,67 @@
+/* Habitable Zone Calculator — deep-dark glassmorphism, single green accent (#22c55e) */
+:root {
+  --accent: #22c55e;
+  --bg0: #0c0c11;
+  --bg1: rgba(20, 20, 28, .72);
+  --line: rgba(34, 197, 94, .20);
+  --txt: #ececf1;
+  --mut: #9a9aad;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px; min-height: 440px; max-height: 600px;
+  background: var(--bg0); color: var(--txt);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.app { padding: 16px; background: var(--bg1); backdrop-filter: blur(12px); min-height: 440px; }
+.hdr { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+h1 { font-size: 16px; font-weight: 650; letter-spacing: .2px; }
+.sub { color: var(--mut); font-size: 12px; }
+.banner {
+  background: rgba(34,197,94,.10); border: 1px solid var(--line);
+  color: #86efac; font-size: 11.5px; border-radius: 10px;
+  padding: 8px 12px; margin-bottom: 12px;
+}
+.card {
+  background: rgba(28,28,36,.62); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; padding: 12px; margin-bottom: 12px;
+}
+.card h2 { font-size: 13px; font-weight: 650; margin-bottom: 10px; }
+.count { color: var(--mut); font-weight: 400; font-size: 12px; }
+label { display: block; color: var(--mut); font-size: 12px; margin-bottom: 4px; }
+input {
+  width: 100%; background: rgba(12,12,18,.7); color: var(--txt);
+  border: 1px solid rgba(255,255,255,.10); border-radius: 9px;
+  padding: 8px 10px; font-size: 13px; margin-bottom: 10px;
+}
+input:focus { outline: none; border-color: var(--accent); }
+.err { color: #f87171; font-size: 12px; margin-bottom: 8px; }
+button {
+  cursor: pointer; border: none; border-radius: 10px; font-size: 13px;
+  font-weight: 600; padding: 9px 14px; color: #08130c;
+  background: var(--accent); width: 100%;
+}
+button:hover { filter: brightness(1.08); }
+.res { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.resrow {
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(12,12,18,.55); border-radius: 10px; padding: 9px 12px;
+  border: 1px solid rgba(255,255,255,.06); font-variant-numeric: tabular-nums;
+}
+.resrow b { font-weight: 650; }
+.resrow.opt b { color: #86efac; }
+.resrow.con b { color: var(--accent); }
+.bar {
+  height: 14px; border-radius: 7px; background: rgba(12,12,18,.7);
+  border: 1px solid rgba(255,255,255,.08); position: relative; overflow: hidden; margin: 4px 0 8px;
+}
+.zseg { position: absolute; top: 0; bottom: 0; }
+.zseg.opt { background: rgba(134,239,172,.28); }
+.zseg.con { background: rgba(34,197,94,.55); }
+.legend { display: flex; gap: 16px; color: var(--mut); font-size: 12px; margin-bottom: 8px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+.optsw { background: rgba(134,239,172,.55); }
+.consw { background: var(--accent); }
+.note { color: var(--mut); font-size: 11px; }
+.foot { color: var(--mut); font-size: 11px; text-align: center; padding: 4px 0 2px; }

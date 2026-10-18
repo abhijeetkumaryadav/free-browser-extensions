@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="shell">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+    <div>
+      <h1>MySpace Themer</h1>
+      <p class="site" id="siteLabel">…</p>
+    </div>
+  </header>
+
+  <p class="notice">Themes YOUR view of this site only. Toggle off any time — the page is never permanently changed.</p>
+
+  <section>
+    <h2>Presets</h2>
+    <div class="presets" id="presets"></div>
+  </section>
+
+  <section>
+    <h2>Your CSS for this site</h2>
+    <textarea id="cssBox" spellcheck="false" placeholder="body { background: #111; }"></textarea>
+    <div class="row">
+      <button id="applyBtn" class="primary">Apply theme</button>
+      <button id="removeBtn" class="ghost">Remove theme</button>
+    </div>
+  </section>
+
+  <footer>
+    <span id="status" class="status">Idle</span>
+  </footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZoneMap</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="8" stroke-dasharray="3 2"/>
+          <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
+          <path d="M12 12L18.5 8.5"/>
+        </svg>
+        <div>
+          <h1>ZoneMap</h1>
+          <p class="subtitle">Radius &amp; delivery-zone measurer</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mode tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" id="tabDistance" role="tab" aria-selected="true">Distance</button>
+      <button class="tab" id="tabZone" role="tab" aria-selected="false">Delivery zone</button>
+    </div>
+
+    <!-- Distance mode -->
+    <section class="panel" id="panelDistance">
+      <p class="field-label">Point A <span class="hint">latitude, longitude</span></p>
+      <div class="coord-row">
+        <input id="aLat" type="text" inputmode="decimal" placeholder="40.7128" aria-label="Point A latitude" />
+        <input id="aLng" type="text" inputmode="decimal" placeholder="-74.0060" aria-label="Point A longitude" />
+      </div>
+      <p class="field-label">Point B <span class="hint">latitude, longitude</span></p>
+      <div class="coord-row">
+        <input id="bLat" type="text" inputmode="decimal" placeholder="51.5074" aria-label="Point B latitude" />
+        <input id="bLng" type="text" inputmode="decimal" placeholder="-0.1278" aria-label="Point B longitude" />
+      </div>
+      <div class="actions">
+        <div class="unit-toggle" role="group" aria-label="Distance unit">
+          <button class="unit active" data-unit="km">km</button>
+          <button class="unit" data-unit="mi">mi</button>
+        </div>
+        <button id="calcBtn" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M9 5l3-3 3 3"/><path d="M15 19l-3 3-3-3"/><path d="M19 9l3 3-3 3"/><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+          Measure
+        </button>
+      </div>
+      <div class="result" id="distResult" hidden>
+        <span class="result-label">Great-circle distance</span>
+        <span class="result-value" id="distValue">—</span>
+      </div>
+    </section>
+
+    <!-- Delivery-zone mode -->
+    <section class="panel" id="panelZone" hidden>
+      <p class="field-label">Zone center <span class="hint">latitude, longitude</span></p>
+      <div class="coord-row">
+        <input id="cLat" type="text" inputmode="decimal" placeholder="40.7128" aria-label="Center latitude" />
+        <input id="cLng" type="text" inputmode="decimal" placeholder="-74.0060" aria-label="Center longitude" />
+      </div>
+      <p class="field-label">Radius</p>
+      <div class="radius-row">
+        <input id="radius" type="text" inputmode="decimal" placeholder="5" aria-label="Radius" />
+        <div class="unit-toggle" role="group" aria-label="Radius unit">
+          <button class="unit active" data-runit="km">km</button>
+          <button class="unit" data-runit="mi">mi</button>
+        </div>
+      </div>
+      <p class="field-label">Test point <span class="hint">latitude, longitude</span></p>
+      <div class="coord-row">
+        <input id="tLat" type="text" inputmode="decimal" placeholder="40.7580" aria-label="Test point latitude" />
+        <input id="tLng" type="text" inputmode="decimal" placeholder="-73.9855" aria-label="Test point longitude" />
+      </div>
+      <div class="actions">
+        <button id="zoneBtn" class="btn full">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+          Check zone
+        </button>
+      </div>
+      <div class="result" id="zoneResult" hidden>
+        <span class="verdict" id="zoneVerdict">—</span>
+        <span class="result-sub" id="zoneSub">—</span>
+      </div>
+    </section>
+
+    <!-- Error -->
+    <section class="panel error" id="errorPanel" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+      </svg>
+      <p id="errorText">Invalid coordinates.</p>
+    </section>
+
+    <!-- Mini map -->
+    <section class="panel map-panel" id="mapPanel" hidden>
+      <p class="field-label">Local sketch <span class="hint">not to scale across latitudes</span></p>
+      <canvas id="mapCanvas" width="660" height="360"></canvas>
+    </section>
+
+    <!-- Honest scope -->
+    <p class="scope">
+      ZoneMap computes <b>straight-line (great-circle)</b> distances only — not
+      road, walking, or driving distances. The sketch is a simple local
+      equirectangular projection: <b>no map tiles, no geocoding, no network</b> —
+      everything is computed on your device from the numbers you type.
+    </p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

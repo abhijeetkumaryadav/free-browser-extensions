@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <div>
+      <h1>Claim Journal</h1>
+      <p class="sub">Fitness influencer claims you spot</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <span>Your notes only — not medical or fact-check advice. No AI verification here.</span>
+  </div>
+
+  <section class="card">
+    <div class="row2">
+      <input id="claimText" class="field" type="text" placeholder="Claim (e.g. '5x5 doubles T')" maxlength="160">
+      <input id="who" class="field" type="text" placeholder="Who said it" maxlength="60">
+    </div>
+    <input id="source" class="field" type="text" placeholder="Source link (optional)" maxlength="220">
+    <textarea id="notes" class="field" rows="2" placeholder="Your notes (optional)" maxlength="500"></textarea>
+    <div class="row2">
+      <select id="tag" class="field">
+        <option value="unchecked">Unchecked</option>
+        <option value="doubtful">Doubtful</option>
+        <option value="verified">Verified by me</option>
+      </select>
+      <button id="addBtn" class="btn primary">Add claim</button>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <input id="search" class="field grow" type="text" placeholder="Search claims…">
+    <select id="filter" class="field">
+      <option value="all">All</option>
+      <option value="unchecked">Unchecked</option>
+      <option value="doubtful">Doubtful</option>
+      <option value="verified">Verified by me</option>
+    </select>
+  </div>
+
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty">No claims yet. Log the first one above.</p>
+  <footer class="foot"><span id="count">0 claims</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

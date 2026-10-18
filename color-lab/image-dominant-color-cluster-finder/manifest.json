@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"ColorMine"},"description":"Upload any image and find its dominant colors via local canvas sampling — no network, no upload.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"ColorMine — Image Dominant Colors","permissions":["storage"],"version":"1.0.0"}

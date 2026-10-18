@@ -1,0 +1,65 @@
+/* ImgAudit — deep-dark glassmorphism, one amber accent */
+:root {
+  --accent: #f59e0b;
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .09);
+  --text: #f2f2f5;
+  --muted: #9aa0ae;
+  --red: #f87171;
+  --green: #34d399;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 380px; background: var(--bg); color: var(--text); font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; }
+.app { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.hdr { display: flex; align-items: center; gap: 10px; }
+.logo { width: 38px; height: 38px; border-radius: 12px; flex: none; display: grid; place-items: center; color: var(--accent); background: rgba(245, 158, 11, .12); border: 1px solid rgba(245, 158, 11, .3); }
+.logo svg { width: 22px; height: 22px; }
+.hdr h1 { font-size: 15px; font-weight: 700; }
+.sub { font-size: 11px; color: var(--muted); }
+
+.score-panel { display: flex; align-items: center; gap: 16px; background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+.score-ring { position: relative; width: 80px; height: 80px; flex: none; }
+.score-ring svg { width: 80px; height: 80px; transform: rotate(-90deg); }
+.score-ring circle { fill: none; stroke-width: 8; }
+.score-ring .track { stroke: rgba(255,255,255,.1); }
+.score-ring .fill { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 213.6; stroke-dashoffset: 213.6; transition: stroke-dashoffset .6s ease; }
+.score-num { position: absolute; inset: 0; display: grid; place-content: center; font-size: 20px; font-weight: 800; }
+.score-num small { font-size: 10px; color: var(--muted); font-weight: 400; }
+.verdict { font-weight: 700; font-size: 14px; }
+.page-url { font-size: 11px; color: var(--muted); word-break: break-all; }
+
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.stat { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 8px 4px; text-align: center; }
+.stat b { display: block; font-size: 18px; }
+.stat span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.stat.bad b { color: var(--red); }
+.stat.warn b { color: var(--accent); }
+
+.actions { display: flex; gap: 8px; }
+.primary { flex: 1; background: var(--accent); color: #1a1206; border: none; border-radius: 12px; padding: 10px; font-weight: 700; font-size: 13px; cursor: pointer; }
+.primary:hover { filter: brightness(1.1); }
+.primary:disabled { opacity: .5; cursor: default; }
+.ghost { background: transparent; color: var(--accent); border: 1px solid rgba(245,158,11,.4); border-radius: 12px; padding: 10px 14px; font-weight: 600; font-size: 13px; cursor: pointer; }
+.ghost:disabled { opacity: .4; cursor: default; }
+
+.card { background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; }
+.card-title { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 8px; }
+.card-title svg { width: 15px; height: 15px; color: var(--accent); }
+.filters { margin-left: auto; display: flex; gap: 4px; }
+.chip { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 20px; padding: 2px 10px; font-size: 11px; cursor: pointer; }
+.chip.active { background: rgba(245,158,11,.15); color: var(--accent); border-color: rgba(245,158,11,.4); }
+
+.find-list { list-style: none; display: grid; gap: 8px; max-height: 260px; overflow-y: auto; }
+.find-list .empty { color: var(--muted); font-style: italic; font-size: 12px; text-align: center; padding: 12px; }
+.find { border: 1px solid var(--border); border-left: 3px solid var(--muted); border-radius: 10px; padding: 8px 10px; font-size: 12px; }
+.find.error { border-left-color: var(--red); }
+.find.warning { border-left-color: var(--accent); }
+.find .sev { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.find.error .sev { color: var(--red); }
+.find.warning .sev { color: var(--accent); }
+.find .msg { font-weight: 600; margin: 2px 0; }
+.find .detail { color: var(--muted); font-size: 11px; word-break: break-all; }
+.find .fix { color: var(--green); font-size: 11px; margin-top: 2px; }
+.foot { font-size: 10px; color: var(--muted); text-align: center; opacity: .75; }

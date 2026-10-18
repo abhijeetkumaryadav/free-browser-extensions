@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parallel Captions</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <span class="logo">▤</span>
+    <div>
+      <h1>Parallel Captions</h1>
+      <p class="sub">Dual caption viewer</p>
+    </div>
+    <button id="settingsBtn" class="iconbtn" title="Load tracks" aria-label="Load tracks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    </button>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><b>Your tracks only.</b> Load two subtitle files you own. This tool does <b>not</b> machine-translate anything.</span>
+  </div>
+
+  <!-- Load panel -->
+  <section id="loadPanel" class="panel hidden">
+    <div class="field">
+      <label for="fileA">Track A (e.g. original)</label>
+      <input type="file" id="fileA" accept=".srt,.vtt,.txt">
+    </div>
+    <div class="field">
+      <label for="fileB">Track B (e.g. your translation)</label>
+      <input type="file" id="fileB" accept=".srt,.vtt,.txt">
+    </div>
+    <p class="hint">Supports .srt, .vtt, or plain text (blank line = new paragraph). Alignment is by order, not meaning.</p>
+  </section>
+
+  <!-- Playback bar -->
+  <section class="player">
+    <button id="playBtn" class="playbtn" title="Play / pause">
+      <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="pauseIcon" class="hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <div class="timewrap">
+      <span id="timeNow">00:00.0</span>
+      <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek">
+      <span id="timeEnd">00:00.0</span>
+    </div>
+  </section>
+
+  <!-- Sync offset -->
+  <section class="offsetbar">
+    <label for="offset">Track B offset</label>
+    <input type="range" id="offset" min="-5000" max="5000" step="100" value="0">
+    <span id="offsetVal">+0.0s</span>
+  </section>
+
+  <!-- Caption columns -->
+  <section class="columns">
+    <div class="col colA">
+      <h2 id="labelA">Track A</h2>
+      <div id="capA" class="caption">Load a track to begin.</div>
+    </div>
+    <div class="col colB">
+      <h2 id="labelB">Track B</h2>
+      <div id="capB" class="caption">Load a track to begin.</div>
+    </div>
+  </section>
+
+  <p class="foot">Drag the offset slider if the two tracks drift out of sync.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

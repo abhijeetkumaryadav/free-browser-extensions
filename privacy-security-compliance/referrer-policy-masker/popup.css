@@ -1,0 +1,111 @@
+/* Referrer Policy Masker — popup styles.
+   Design system: 380px popup, 12–16px breathing room, deep dark glassmorphism,
+   ONE accent (teal #14b8a6), Lucide-style stroke icons. */
+
+:root {
+  --accent: #14b8a6;
+  --bg: #0c0c10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.app { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+}
+
+.header-icon {
+  width: 38px; height: 38px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(20,184,166,.25), rgba(20,184,166,.08));
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.header-icon svg { width: 21px; height: 21px; }
+
+.header h1 { font-size: 15px; font-weight: 650; letter-spacing: .2px; }
+.subtitle { font-size: 11.5px; color: var(--muted); }
+
+/* Toggle switch */
+.switch { margin-left: auto; position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0; cursor: pointer;
+  background: rgba(255,255,255,.12); border-radius: 24px; transition: .2s;
+}
+.slider::before {
+  content: ""; position: absolute; width: 18px; height: 18px;
+  left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s;
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider::before { transform: translateX(20px); }
+
+/* Cards */
+.card { padding: 14px; }
+.card h2 { font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-bottom: 10px; }
+
+.status-row { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13.5px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+.dot.on { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+
+.hint { font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+.hint code, .radio-desc code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px; color: var(--accent);
+  background: rgba(20,184,166,.1); padding: 1px 5px; border-radius: 5px;
+}
+
+/* Radio rows */
+.radio-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px; border-radius: 10px; cursor: pointer;
+  border: 1px solid transparent; transition: .15s;
+}
+.radio-row:hover { background: rgba(255,255,255,.03); }
+.radio-row input { accent-color: var(--accent); margin-top: 2px; }
+.radio-row:has(input:checked) { border-color: rgba(20,184,166,.4); background: rgba(20,184,166,.06); }
+.radio-title { display: block; font-weight: 600; font-size: 13px; }
+.radio-desc { display: block; font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+/* Counter */
+.counter-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.counter-value { font-size: 26px; font-weight: 700; color: var(--accent); display: block; line-height: 1.1; }
+.counter-label { font-size: 11px; color: var(--muted); }
+
+.btn {
+  border: 1px solid var(--border); border-radius: 9px;
+  padding: 8px 14px; font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: .15s; color: var(--text);
+  background: rgba(255,255,255,.05);
+}
+.btn:hover { background: rgba(255,255,255,.1); }
+.btn.ghost { background: transparent; }
+
+.footer { text-align: center; font-size: 11px; color: var(--muted); padding: 2px 0 4px; }

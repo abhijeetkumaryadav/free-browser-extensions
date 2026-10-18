@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacy Stock Diary</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <span class="icon icon-cross" aria-hidden="true"></span>
+      <div class="titles">
+        <h1>Pharmacy Stock Diary</h1>
+        <p class="subtitle">Your own stock observations</p>
+      </div>
+    </header>
+
+    <form id="addForm" class="form">
+      <input type="text" id="item" placeholder="Item name (e.g. Ibuprofen 200mg)" maxlength="80" required>
+      <div class="form-row">
+        <input type="text" id="pharmacy" placeholder="Pharmacy / store" maxlength="80">
+        <select id="status" aria-label="Availability status">
+          <option value="in">In stock</option>
+          <option value="out">Out of stock</option>
+          <option value="low">Low stock</option>
+        </select>
+      </div>
+      <input type="text" id="note" placeholder="Note (optional — price, size…)" maxlength="120">
+      <button type="submit" class="btn primary">
+        <span class="icon icon-plus" aria-hidden="true"></span> Log observation
+      </button>
+    </form>
+
+    <div class="search-row">
+      <input type="search" id="search" placeholder="Search items or pharmacies…" aria-label="Search entries">
+    </div>
+
+    <ul id="entries" class="entries" aria-live="polite"></ul>
+    <p id="empty" class="empty">No entries yet. Log what you see on the shelf — this is your personal record.</p>
+
+    <div class="footer-row">
+      <button id="export" class="btn ghost">
+        <span class="icon icon-download" aria-hidden="true"></span> Export JSON
+      </button>
+      <button id="clear" class="btn ghost danger-text">
+        <span class="icon icon-trash" aria-hidden="true"></span> Clear all
+      </button>
+    </div>
+
+    <p class="notice">This diary stores <strong>only what you type</strong>. It does <strong>not</strong> check real pharmacy stock — there is no live pharmacy data here.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

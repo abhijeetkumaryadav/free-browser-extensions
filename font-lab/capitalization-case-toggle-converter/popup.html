@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CaseShift — Text Case Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 18 L8 7 L12 18"/><path d="M5.6 14.4 H10.4"/>
+      <path d="M14 18 V10 a2 2 0 0 1 4 0 V18"/><path d="M14 13.5 H18"/>
+    </svg>
+    <div class="hero-text">
+      <h1>CaseShift</h1>
+      <p>Text case converter · 100% local</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <label class="field-label" for="input">Input text</label>
+      <textarea id="input" rows="4" placeholder="Type or paste text here…"></textarea>
+      <div class="row between">
+        <span class="stat" id="stats">0 chars · 0 words</span>
+        <button class="ghost-btn" id="clearBtn" type="button">Clear</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="field-label">Convert to</span>
+      <div class="case-grid" id="caseGrid">
+        <button class="case-btn" data-case="upper" type="button">UPPER CASE</button>
+        <button class="case-btn" data-case="lower" type="button">lower case</button>
+        <button class="case-btn" data-case="title" type="button">Title Case</button>
+        <button class="case-btn" data-case="sentence" type="button">Sentence case</button>
+        <button class="case-btn" data-case="alternating" type="button">aLtErNaTiNg cAsE</button>
+        <button class="case-btn" data-case="toggle" type="button">tOGGLE cASE</button>
+        <button class="case-btn" data-case="camel" type="button">camelCase</button>
+        <button class="case-btn" data-case="pascal" type="button">PascalCase</button>
+        <button class="case-btn" data-case="snake" type="button">snake_case</button>
+        <button class="case-btn" data-case="kebab" type="button">kebab-case</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label class="field-label" for="output">Output <span class="chip" id="modeChip">—</span></label>
+      <textarea id="output" rows="4" readonly placeholder="Converted text appears here…"></textarea>
+      <div class="row">
+        <button class="primary-btn" id="copyBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy output
+        </button>
+      </div>
+      <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>All conversions run locally in your browser. Nothing is sent anywhere.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

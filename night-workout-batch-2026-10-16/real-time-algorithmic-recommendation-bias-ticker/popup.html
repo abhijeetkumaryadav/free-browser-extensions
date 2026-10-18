@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feed Diversity Ticker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+    </div>
+    <div>
+      <h1>Feed Diversity Ticker</h1>
+      <p class="subtitle">Source-variety counter</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span>Counts source diversity on this page — <strong>not</strong> a measure of algorithmic bias.</span>
+  </div>
+
+  <div class="score-card">
+    <div class="score-ring" id="scoreRing"><span id="scoreNum">–</span></div>
+    <div class="score-meta">
+      <span class="score-label">Diversity score</span>
+      <span class="score-sub" id="scoreSub">Click scan to analyze this page</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><span class="stat-num" id="linkCount">0</span><span class="stat-label">links</span></div>
+    <div class="stat"><span class="stat-num" id="domainCount">0</span><span class="stat-label">domains</span></div>
+    <div class="stat"><span class="stat-num" id="authorCount">0</span><span class="stat-label">authors</span></div>
+  </div>
+
+  <button class="btn primary" id="scanBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    Scan this page
+  </button>
+
+  <div class="section">
+    <div class="section-head"><h2>Top sources</h2><span class="hint" id="scannedAt"></span></div>
+    <div id="sourceList" class="source-list"><p class="empty">No scan yet.</p></div>
+  </div>
+
+  <p class="foot">Scan runs only when you click. Fully local — nothing is sent anywhere.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

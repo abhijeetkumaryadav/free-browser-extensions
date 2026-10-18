@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HashCheck</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/>
+      <path d="M9 12l2 2 4-4.5"/>
+    </svg>
+    <div>
+      <h1>HashCheck</h1>
+      <p class="tag">File hash &amp; checksum verifier</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="drop" id="drop">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 16V4m0 0L7 9m5-5l5 5"/>
+        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+      </svg>
+      <span id="fileName">Drop a file or click to choose</span>
+      <input type="file" id="fileInput" hidden>
+    </label>
+    <div class="meta-row">
+      <span id="fileSize" class="muted"></span>
+      <span id="progressText" class="muted"></span>
+    </div>
+    <div class="progress"><div id="bar"></div></div>
+
+    <div class="algos">
+      <label class="chip"><input type="checkbox" id="a256" checked><span>SHA-256</span></label>
+      <label class="chip"><input type="checkbox" id="a512" checked><span>SHA-512</span></label>
+      <label class="chip"><input type="checkbox" id="a1" checked><span>SHA-1</span></label>
+      <label class="chip"><input type="checkbox" id="aMD5" checked><span>MD5</span></label>
+    </div>
+
+    <button id="compute" class="btn" disabled>Compute hashes</button>
+  </section>
+
+  <section class="panel hidden" id="results">
+    <h2>Digests</h2>
+    <div id="hashList"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Compare</h2>
+    <input type="text" id="expected" class="field" placeholder="Paste expected hash…" spellcheck="false" autocomplete="off">
+    <div id="verdict" class="verdict muted">Run a hash, then paste the expected value.</div>
+  </section>
+
+  <p class="note">Everything runs on-device — your file never leaves this machine. MD5 is included only for legacy checksum comparison, not for security.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

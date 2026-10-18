@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Idiom Vault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>
+      <h1>Idiom Vault</h1>
+      <p class="honest-tag">Your browsable collection — not AI suggestions</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="search-row">
+    <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="search" type="text" placeholder="Search idioms, meanings, examples…" autocomplete="off">
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="browse" role="tab">Browse</button>
+    <button class="tab" data-tab="favorites" role="tab">Favorites <span id="favCount" class="count">0</span></button>
+    <button class="tab" data-tab="add" role="tab">Add yours</button>
+  </div>
+
+  <div id="categoryRow" class="categories"></div>
+  <div id="list" class="list" aria-live="polite"></div>
+
+  <section id="addPanel" class="add-panel hidden" aria-hidden="true">
+    <h2>Add your own idiom</h2>
+    <label>Idiom<input id="inIdiom" type="text" placeholder="e.g. steal someone's thunder"></label>
+    <label>Meaning<textarea id="inMeaning" rows="2" placeholder="What does it mean?"></textarea></label>
+    <label>Example<textarea id="inExample" rows="2" placeholder="Example sentence (optional)"></textarea></label>
+    <label>Category
+      <select id="inCategory">
+        <option value="General">General</option>
+        <option value="Emotions">Emotions</option>
+        <option value="Work & Money">Work & Money</option>
+        <option value="Communication">Communication</option>
+        <option value="Success & Failure">Success & Failure</option>
+        <option value="Time & Patience">Time & Patience</option>
+      </select>
+    </label>
+    <button id="saveIdiom" class="primary">Save idiom</button>
+    <p class="note">Stored locally in your browser. Your list never leaves this machine.</p>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status"></div>
+<script src="idioms.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

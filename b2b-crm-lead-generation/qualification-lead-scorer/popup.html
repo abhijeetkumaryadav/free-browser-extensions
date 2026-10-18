@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualification Lead Scorer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-2-2"/></svg>
+    <div><h1>Lead Scorer</h1><p>BANT qualification · 0–100</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Lead name
+        <input id="leadName" maxlength="60" placeholder="e.g. Acme Corp — Priya">
+      </label>
+      <div class="slider-row">
+        <div class="slider-head"><span>Budget</span><b id="vBudget">5</b></div>
+        <input type="range" id="sBudget" min="0" max="10" value="5">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Authority</span><b id="vAuthority">5</b></div>
+        <input type="range" id="sAuthority" min="0" max="10" value="5">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Need</span><b id="vNeed">5</b></div>
+        <input type="range" id="sNeed" min="0" max="10" value="5">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head"><span>Timeline</span><b id="vTimeline">5</b></div>
+        <input type="range" id="sTimeline" min="0" max="10" value="5">
+      </div>
+      <label class="fld">Fit notes
+        <textarea id="notes" rows="2" maxlength="400" placeholder="Industry fit, team size, red flags…"></textarea>
+      </label>
+      <div class="scoreband">
+        <div class="ring" id="ring"><span id="score">50</span></div>
+        <div>
+          <div id="verdict" class="verdict warm">WARM</div>
+          <div class="hint" id="hint">Average across BANT factors</div>
+        </div>
+        <button id="saveBtn" class="primary">Save lead</button>
+      </div>
+    </section>
+    <section class="glass card" id="histCard" hidden>
+      <h2>Scored leads</h2>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

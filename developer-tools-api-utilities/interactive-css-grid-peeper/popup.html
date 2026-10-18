@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSS Grid Peeper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+    <div><h1>Grid Peeper</h1><p id="host">—</p></div>
+  </header>
+  <main>
+    <div class="actions">
+      <button id="scan" class="primary">Scan page</button>
+      <button id="toggle" class="ghost" aria-pressed="false">Show grid lines</button>
+    </div>
+    <div id="count" class="count" hidden></div>
+    <div id="list"></div>
+    <div id="empty" class="empty">Hit <b>Scan page</b> to find every CSS grid container on this tab.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

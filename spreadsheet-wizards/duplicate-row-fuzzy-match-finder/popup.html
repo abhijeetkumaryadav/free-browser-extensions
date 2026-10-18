@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DedupeIQ</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <div>
+        <h1>DedupeIQ</h1>
+        <p class="sub">Fuzzy duplicate row finder</p>
+      </div>
+    </div>
+    <span class="pill" id="rowCount">0 rows</span>
+  </header>
+
+  <!-- Step 1: input -->
+  <section class="card" id="stepInput">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      <span>1 · Paste CSV data</span>
+    </div>
+    <textarea id="csvInput" rows="5" placeholder="Paste CSV rows here (first row = header)&#10;name,email,city&#10;Ada Lovelace,ada@x.com,London&#10;Ada Lovelac,ada@x.com,London"></textarea>
+    <div class="row">
+      <button class="btn primary" id="btnLoad">Load data</button>
+      <button class="btn ghost" id="btnSample">Load sample</button>
+      <button class="btn ghost" id="btnClear">Clear</button>
+    </div>
+    <p class="hint" id="parseHint">First row is treated as the header. Quoted fields supported.</p>
+  </section>
+
+  <!-- Step 2: configure -->
+  <section class="card hidden" id="stepConfig">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>2 · Match settings</span>
+    </div>
+    <label class="lbl">Key columns (match on these)</label>
+    <div class="chips" id="colChips"></div>
+    <div class="slider-row">
+      <label class="lbl" for="threshold">Fuzzy threshold · <span id="thresholdVal">85%</span></label>
+      <input type="range" id="threshold" min="50" max="100" value="85">
+    </div>
+    <label class="check"><input type="checkbox" id="chkCase" checked> Case-insensitive</label>
+    <label class="check"><input type="checkbox" id="chkTrim" checked> Ignore surrounding whitespace</label>
+    <button class="btn primary wide" id="btnScan">Find duplicates</button>
+    <p class="hint">Heuristic matching (Levenshtein similarity). Review every group before exporting.</p>
+  </section>
+
+  <!-- Step 3: results -->
+  <section class="card hidden" id="stepResults">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>
+      <span>3 · Duplicate groups</span>
+      <span class="pill" id="groupCount">0 groups</span>
+    </div>
+    <div class="row">
+      <button class="btn ghost sm" id="btnKeepFirst">Keep first in each group</button>
+      <button class="btn ghost sm" id="btnKeepNone">Uncheck all</button>
+    </div>
+    <div id="groups"></div>
+    <div class="summary" id="summary"></div>
+    <div class="row">
+      <button class="btn primary" id="btnExport">Export deduped CSV</button>
+      <button class="btn ghost" id="btnCopy">Copy</button>
+    </div>
+  </section>
+
+  <footer class="footer">100% on-device · nothing is uploaded</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

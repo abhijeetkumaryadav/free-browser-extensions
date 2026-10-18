@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScoreScout</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <span class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </span>
+    <div class="titles">
+      <h1>ScoreScout</h1>
+      <p>IMDb &amp; Rotten Tomatoes lookup helper</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Find scores</h2>
+      <span class="hint">lookup helper — no score APIs</span>
+    </div>
+    <label class="field">
+      <span>Title</span>
+      <input id="titleInput" type="text" placeholder="e.g. Dune: Part Two" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Year <em>(optional)</em></span>
+      <input id="yearInput" type="number" min="1900" max="2100" placeholder="2024">
+    </label>
+    <div class="row">
+      <button id="detectBtn" class="btn ghost" title="Read the likely title from the current tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="7"/></svg>
+        Detect from tab
+      </button>
+    </div>
+    <div class="row two">
+      <button id="imdbBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Search IMDb
+      </button>
+      <button id="rtBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Search RT
+      </button>
+    </div>
+    <p id="detectNote" class="note hidden"></p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>Score log</h2>
+      <button id="exportBtn" class="link-btn" title="Download log as CSV">Export CSV</button>
+    </div>
+    <div class="log-form">
+      <label class="field sm">
+        <span>IMDb /10</span>
+        <input id="imdbScore" type="number" min="0" max="10" step="0.1" placeholder="8.6">
+      </label>
+      <label class="field sm">
+        <span>RT %</span>
+        <input id="rtScore" type="number" min="0" max="100" step="1" placeholder="93">
+      </label>
+      <button id="saveBtn" class="btn accent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Log score
+      </button>
+    </div>
+    <ul id="logList" class="log-list"></ul>
+    <p id="emptyLog" class="empty">No scores logged yet. Look a title up, then record its scores here.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

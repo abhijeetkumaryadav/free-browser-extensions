@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Bubble Latency Tracker</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="logo">
+      <!-- Lucide-style stroke: timer/stopwatch icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="13" r="8"/>
+        <path d="M12 9v4l2.5 2.5"/>
+        <path d="M9 2h6"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Latency Tracker</h1>
+      <p class="sub">Manual stopwatch for plugin &amp; workflow timings</p>
+    </div>
+  </header>
+
+  <!-- Add plugin / workflow step -->
+  <section class="card glass">
+    <h2>Track a plugin / step</h2>
+    <div class="add-bar">
+      <input id="pluginName" type="text" placeholder="e.g. Stripe Checkout plugin" maxlength="60" />
+      <button id="addPluginBtn" class="btn accent">Add</button>
+    </div>
+    <div id="pluginList" class="plugin-list"></div>
+  </section>
+
+  <!-- Live timer -->
+  <section class="card glass" id="timerCard" hidden>
+    <div class="row-between">
+      <h2>Running</h2>
+      <span class="live-dot" title="Timer running"></span>
+    </div>
+    <div class="timer-display">
+      <div id="timerName" class="timer-name">—</div>
+      <div id="timerValue" class="timer-value">00:00.0</div>
+    </div>
+    <div class="note-row">
+      <input id="timerNote" type="text" placeholder="Note for this run (optional)" maxlength="120" />
+    </div>
+    <button id="stopBtn" class="btn accent full">Stop &amp; log</button>
+  </section>
+
+  <!-- Stats -->
+  <section class="card glass">
+    <div class="row-between">
+      <h2>Stats</h2>
+      <div class="actions">
+        <button id="exportBtn" class="btn ghost" title="Export log as CSV">CSV</button>
+        <button id="clearBtn" class="btn ghost danger" title="Clear all data">Clear</button>
+      </div>
+    </div>
+    <div id="statsList" class="stats-list"></div>
+  </section>
+
+  <!-- Recent log -->
+  <section class="card glass">
+    <h2>Recent runs</h2>
+    <div id="logList" class="log-list"></div>
+  </section>
+
+  <p class="footnote">Manual tracker — timings you record yourself. Nothing automated, nothing leaves your device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

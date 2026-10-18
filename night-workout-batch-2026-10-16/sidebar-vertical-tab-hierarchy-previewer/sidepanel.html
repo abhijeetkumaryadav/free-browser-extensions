@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="title-row">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="6" x2="20" y2="6"/><circle cx="12" cy="6" r="1.6" fill="currentColor" stroke="none"/>
+        <line x1="6" y1="12" x2="18" y2="12"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+        <line x1="8" y1="18" x2="16" y2="18"/><circle cx="12" cy="18" r="1.6" fill="currentColor" stroke="none"/>
+      </svg>
+      <h1>TabTree</h1>
+      <span id="totalBadge" class="badge">0</span>
+    </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/>
+      </svg>
+      <input id="search" type="text" placeholder="Search tabs…" autocomplete="off">
+    </div>
+    <div class="toolbar-actions">
+      <button id="expandAll" title="Expand all groups">Expand</button>
+      <button id="collapseAll" title="Collapse all groups">Collapse</button>
+    </div>
+  </header>
+  <main id="tree" aria-label="Tab hierarchy"></main>
+  <footer class="foot"><span>Click a tab to switch · ✕ closes it</span></footer>
+<script src="sidepanel.js"></script>
+</body>
+</html>

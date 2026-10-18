@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkedIn Notion Lead Pusher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16.5c.6-1.6 1.7-2.5 3-2.5s2.4.9 3 2.5M14 9.5h4M14 13h4"/></svg>
+    <div><h1>Lead Pusher</h1><p>Capture → Notion · CSV · Webhook</p></div>
+    <button id="grab" class="ghost-sm" title="Prefill from this page">⤓</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Quick capture <span id="grabHint" class="hint"></span></h2>
+      <div class="add-form">
+        <input id="fName" placeholder="Full name" maxlength="80">
+        <input id="fHeadline" placeholder="Headline (e.g. VP Sales @ Acme)" maxlength="120">
+        <input id="fCompany" placeholder="Company" maxlength="80">
+        <input id="fUrl" placeholder="Profile URL" maxlength="300">
+        <input id="fTags" placeholder="Tags, comma separated" maxlength="120">
+        <textarea id="fNotes" placeholder="Notes…" rows="2" maxlength="1000"></textarea>
+        <button id="saveBtn" class="primary">Save lead</button>
+      </div>
+    </section>
+    <section class="glass card" id="leadsCard" hidden>
+      <h2>Leads <span id="leadCount" class="hint"></span></h2>
+      <div id="leads"></div>
+    </section>
+    <section class="glass card">
+      <h2>Export</h2>
+      <div class="exp-row">
+        <button id="copyMd">Copy Markdown</button>
+        <button id="dlCsv">Download CSV</button>
+      </div>
+      <label class="fld">Your webhook URL (optional)
+        <input id="webhook" placeholder="https://your-endpoint.example/hook" maxlength="500">
+      </label>
+      <button id="pushBtn" class="ghost">Push all leads as JSON</button>
+      <p id="pushStatus" class="note"></p>
+      <p class="note">Leads live on this device. The webhook only fires when you press the button, and only to the URL you entered.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

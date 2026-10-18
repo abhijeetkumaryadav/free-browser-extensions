@@ -1,0 +1,57 @@
+/* Passive Pattern Flagger — deep-dark glassmorphism, single violet accent */
+:root{
+  --accent:#a78bfa;
+  --bg:rgba(20,20,26,.72);
+  --panel:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.10);
+  --text:#f4f4f6;
+  --muted:#a1a1b3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  width:380px;padding:16px;
+  background:var(--bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  color:var(--text);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+header h1{font-size:17px;display:flex;align-items:center;gap:8px}
+header .sub{color:var(--muted);font-size:12px;margin:2px 0 12px}
+.ico{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.notice{
+  background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:8px;padding:10px 12px;font-size:12px;color:var(--muted);margin-bottom:12px;
+}
+.notice strong{color:var(--text)}
+textarea{
+  width:100%;background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  color:var(--text);padding:10px 12px;font:inherit;resize:vertical;min-height:110px;
+}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.row{display:flex;gap:8px;margin:12px 0}
+button{
+  border:none;border-radius:8px;padding:9px 14px;font:inherit;cursor:pointer;
+}
+button.primary{background:var(--accent);color:#14141a;font-weight:600;flex:1}
+button.primary:hover{filter:brightness(1.1)}
+button.ghost{background:var(--panel);color:var(--text);border:1px solid var(--border)}
+button.ghost:hover{border-color:var(--accent)}
+.summary{
+  background:var(--panel);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;font-size:13px;margin-bottom:8px;
+}
+.summary b{color:var(--accent)}
+.hidden{display:none}
+.flags{max-height:190px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.flag{
+  background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:10px 12px;
+}
+.flag .match{
+  font-weight:600;color:var(--accent);font-size:13px;
+}
+.flag .ctx{color:var(--muted);font-size:12px;margin-top:4px}
+.flag .why{font-size:12px;margin-top:4px;color:var(--text)}
+.empty{color:var(--muted);text-align:center;padding:16px;font-size:13px}
+.tips{margin-top:4px;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.tips summary{cursor:pointer;font-weight:600;font-size:13px}
+.tips ul{margin:8px 0 0 18px;font-size:12px;color:var(--muted)}
+.tips li{margin-bottom:6px}
+.tips em{color:var(--text);font-style:normal;background:rgba(167,139,250,.15);padding:0 4px;border-radius:4px}

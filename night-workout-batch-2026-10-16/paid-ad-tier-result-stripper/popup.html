@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paid Ad Tier Result Stripper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="header">
+    <span class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/></svg>
+    </span>
+    <div class="title-wrap">
+      <h1>Ad-Tier Stripper</h1>
+      <p class="subtitle">Collapse paid-ad results on this page</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>Heuristic, your choice, reversible.</strong>
+    Flags results with ad signals (sponsored labels, ad/tracking URLs). It can miss and misfire — review the list. Nothing runs until you click.
+  </div>
+
+  <div class="actions">
+    <button id="scanBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      Scan &amp; collapse ads
+    </button>
+    <button id="restoreBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Restore all
+    </button>
+  </div>
+
+  <div id="status" class="status" role="status">Idle.</div>
+
+  <ul id="flagList" class="flag-list" hidden></ul>
+
+  <footer class="footer">
+    <span>Lifetime stripped: <strong id="lifetime">0</strong></span>
+    <span>100% local · zero network</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

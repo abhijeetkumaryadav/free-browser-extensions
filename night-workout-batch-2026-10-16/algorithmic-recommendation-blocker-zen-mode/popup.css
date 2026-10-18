@@ -1,0 +1,71 @@
+/* Zen Mode — deep-dark glassmorphism, single rose accent */
+:root {
+  --accent: #fb7185;
+  --bg: #101014;
+  --ink: #f4f4f6;
+  --muted: #a9a9b3;
+  --line: rgba(255, 255, 255, 0.09);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font: 14px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.card {
+  margin: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(20, 20, 26, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex: none; }
+h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { font-size: 12px; color: var(--muted); }
+
+.banner {
+  font-size: 12.5px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(251, 113, 133, 0.35);
+  background: rgba(251, 113, 133, 0.08);
+  margin-bottom: 14px;
+}
+.banner strong { color: var(--accent); }
+
+.row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+
+.toggle {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(251, 113, 133, 0.5);
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.toggle:hover { background: rgba(251, 113, 133, 0.22); }
+.toggle:active { transform: scale(0.98); }
+.toggle.active { background: rgba(251, 113, 133, 0.32); color: #fff; }
+
+.stat { text-align: center; min-width: 84px; }
+.num { display: block; font-size: 26px; font-weight: 800; color: var(--accent); }
+.lbl { font-size: 11px; color: var(--muted); }
+
+.status { font-size: 13px; color: var(--ink); margin-bottom: 4px; min-height: 20px; }
+.notice { font-size: 12px; color: var(--accent); min-height: 18px; margin-bottom: 8px; }
+
+.how { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+.how summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); }
+.how p { font-size: 12.5px; color: var(--muted); margin-top: 8px; }

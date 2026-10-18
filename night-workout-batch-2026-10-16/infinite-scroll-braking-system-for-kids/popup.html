@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>BrakeTime</title>
+</head>
+<body>
+<header class="hero">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+  <div>
+    <h1>BrakeTime</h1>
+    <p class="sub">Gentle scroll brakes for kids</p>
+  </div>
+</header>
+
+<!-- Kid dashboard -->
+<section id="kidView">
+  <div class="stat-grid">
+    <div class="stat"><span class="num" id="scrollPx">0</span><span class="lbl">px scrolled today</span></div>
+    <div class="stat"><span class="num" id="brakeCount">0</span><span class="lbl">breath breaks taken</span></div>
+    <div class="stat"><span class="num" id="sessionMin">0</span><span class="lbl">min on fun sites</span></div>
+  </div>
+  <p class="note">BrakeTime adds friendly pauses to endless scrolling. Nothing is ever blocked — just a chance to breathe.</p>
+  <button id="openParent" class="btn ghost">Parent settings</button>
+</section>
+
+<!-- PIN gate -->
+<section id="pinView" class="hidden">
+  <h2>Parent area</h2>
+  <p class="note">Enter your 4-digit PIN to change settings.</p>
+  <input id="pinInput" type="password" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+  <div class="row">
+    <button id="pinOk" class="btn primary">Unlock</button>
+    <button id="pinCancel" class="btn ghost">Back</button>
+  </div>
+  <p id="pinMsg" class="msg"></p>
+</section>
+
+<!-- Parent settings -->
+<section id="parentView" class="hidden">
+  <h2>Parent settings</h2>
+
+  <label class="field"><span>Scroll distance per brake (px)</span>
+    <input id="setBrakePx" type="number" min="1000" max="100000" step="500">
+  </label>
+  <label class="field"><span>Brake pause overlay (seconds)</span>
+    <input id="setBrakeSec" type="number" min="3" max="120">
+  </label>
+  <label class="field"><span>Session gentle-reminder (minutes, 0 = off)</span>
+    <input id="setSessionMin" type="number" min="0" max="240">
+  </label>
+
+  <h3>Monitored sites</h3>
+  <div id="domainList" class="chip-list"></div>
+  <div class="row">
+    <input id="newDomain" type="text" placeholder="example.com" class="grow">
+    <button id="addDomain" class="btn primary">Add</button>
+  </div>
+
+  <h3>Change PIN</h3>
+  <div class="row">
+    <input id="newPin" type="password" inputmode="numeric" maxlength="4" placeholder="New 4-digit PIN" class="grow">
+    <button id="setPin" class="btn primary">Set</button>
+  </div>
+
+  <div class="row end">
+    <button id="saveSettings" class="btn primary">Save</button>
+    <button id="resetStats" class="btn ghost">Reset today's stats</button>
+    <button id="lockBtn" class="btn ghost">Lock</button>
+  </div>
+  <p id="saveMsg" class="msg"></p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

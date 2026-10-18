@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Foraging Plant Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-8"/><path d="M12 14C12 8 8 4 3 4c0 6 4 10 9 10Z"/><path d="M12 12c0-5 4-8 9-8 0 5-4 8-9 8Z"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Foraging Plant Mapper</h1>
+      <p>Edible urban plants reference</p>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <span>Never eat anything uncertain. Verify with a local expert guide before foraging.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="reference">Reference</button>
+    <button class="tab" data-tab="log">My Log</button>
+  </nav>
+
+  <section id="tab-reference" class="tab-panel active">
+    <div class="search-row">
+      <input id="plant-search" type="text" placeholder="Search plants…" autocomplete="off">
+    </div>
+    <div id="plant-list" class="list"></div>
+  </section>
+
+  <section id="tab-log" class="tab-panel">
+    <div class="search-row">
+      <input id="log-search" type="text" placeholder="Search your log…" autocomplete="off">
+      <button id="log-add-btn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Log find
+      </button>
+    </div>
+    <div id="log-list" class="list"></div>
+  </section>
+
+  <div id="log-editor" class="overlay hidden">
+    <div class="sheet">
+      <h2 id="log-editor-title">Log a find</h2>
+      <label>Plant name<input id="l-name" type="text" placeholder="e.g. Dandelion"></label>
+      <label>Date<input id="l-date" type="date"></label>
+      <label>Spot<input id="l-spot" type="text" placeholder="e.g. Canal path, north side"></label>
+      <label>Notes<textarea id="l-notes" rows="2" placeholder="Quantity, condition…"></textarea></label>
+      <div class="sheet-actions">
+        <button id="log-cancel" class="btn ghost">Cancel</button>
+        <button id="log-save" class="btn primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkSentry</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </div>
+    <div>
+      <h1>LinkSentry</h1>
+      <p class="sub">Broken-link checker for live pages</p>
+    </div>
+  </header>
+
+  <div class="controls">
+    <label class="row">
+      <span>Max links to check</span>
+      <select id="maxLinks">
+        <option value="50">50</option>
+        <option value="100" selected>100</option>
+        <option value="250">250</option>
+      </select>
+    </label>
+    <button id="scanBtn" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan this page
+    </button>
+  </div>
+
+  <div id="progressWrap" class="progress-wrap hidden">
+    <div class="progress-row"><span id="progressLabel">Preparing…</span><span id="progressPct">0%</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </div>
+
+  <div id="summary" class="summary hidden">
+    <div class="tile ok"><span class="num" id="nOk">0</span><span class="lbl">OK</span></div>
+    <div class="tile broken"><span class="num" id="nBroken">0</span><span class="lbl">Broken</span></div>
+    <div class="tile redirect"><span class="num" id="nRedirect">0</span><span class="lbl">Redirect</span></div>
+    <div class="tile slow"><span class="num" id="nSlow">0</span><span class="lbl">Slow</span></div>
+    <div class="tile blocked"><span class="num" id="nBlocked">0</span><span class="lbl">Unverified</span></div>
+  </div>
+
+  <div id="filters" class="filters hidden" role="group" aria-label="Filter findings">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="broken">Broken</button>
+    <button class="chip" data-f="redirect">Redirects</button>
+    <button class="chip" data-f="slow">Slow</button>
+    <button class="chip" data-f="uncheckable">Unverified</button>
+  </div>
+
+  <div id="findings" class="findings"></div>
+
+  <div id="actions" class="actions hidden">
+    <button id="exportJson" class="ghost">Export JSON</button>
+    <button id="exportCsv" class="ghost">Export CSV</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <p class="honest" id="honestNote">Checks run on demand from your browser, rate-limited (4 at a time). Bot-protected or CORS-blocked links are marked <b>Unverified</b> — never counted as broken. Same-origin links are checked first and verified most reliably.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

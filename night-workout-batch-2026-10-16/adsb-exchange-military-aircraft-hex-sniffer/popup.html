@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mode-S Hex Explainer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header>
+    <svg class="brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16l20-6-6 20-4-7-7-4z"/><path d="M9 13l6-6"/></svg>
+    <div>
+      <h1>Mode-S Hex Explainer</h1>
+      <p class="sub">ICAO 24-bit codes &middot; your log</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <p><b>Educational only</b> — no live tracking, no receiver, no aircraft positions. It only explains and logs codes you type.</p>
+  </div>
+
+  <details class="explainer" open>
+    <summary>How Mode-S hex codes work</summary>
+    <ul>
+      <li><b>24-bit ICAO address:</b> every Mode-S transponder broadcasts a unique 6-hex-digit code (e.g. <code>A4B5C6</code>).</li>
+      <li><b>Country blocks:</b> the first digits identify the country of registry — e.g. <code>A…</code> = USA, <code>4…</code> = Germany, <code>39…</code> = Italy, <code>7C…</code> = Australia.</li>
+      <li><b>Not a callsign:</b> the hex code identifies the airframe, not the flight — callsigns come from separate ADS-B messages.</li>
+      <li><b>Military codes</b> use specific registry blocks (e.g. US military <code>AE…</code> range) but reveal nothing about mission or position on their own.</li>
+    </ul>
+  </details>
+
+  <div class="add">
+    <input id="hexInput" maxlength="6" placeholder="e.g. A4B5C6" spellcheck="false">
+    <input id="noteInput" placeholder="note (optional)">
+    <button id="addBtn">Log</button>
+  </div>
+  <p class="hint" id="hexHint">Type a 6-digit hex code — its country block is detected automatically.</p>
+
+  <div class="list-head"><h2>Your hex log</h2><span id="count">0</span></div>
+  <ul id="logList"></ul>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

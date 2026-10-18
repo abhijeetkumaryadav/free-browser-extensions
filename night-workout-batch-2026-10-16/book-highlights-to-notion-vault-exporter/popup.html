@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highlight Vault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    </div>
+    <div>
+      <h1>Highlight Vault</h1>
+      <p class="subtitle">Your vault — manual import to Notion</p>
+    </div>
+  </header>
+
+  <!-- Honest scope banner -->
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p>No Notion connection. Copy or download the Markdown below and paste/import it into Notion yourself.</p>
+  </div>
+
+  <!-- Add form -->
+  <section class="card">
+    <h2>Add a highlight</h2>
+    <input id="f-book" type="text" placeholder="Book title *" maxlength="200">
+    <div class="row">
+      <input id="f-page" type="number" placeholder="Page" min="1" max="99999">
+      <input id="f-tag" type="text" placeholder="Tag (optional)" maxlength="40">
+    </div>
+    <textarea id="f-quote" rows="3" placeholder="The quote / passage *" maxlength="4000"></textarea>
+    <textarea id="f-note" rows="2" placeholder="Your note (optional)" maxlength="2000"></textarea>
+    <button id="btn-add" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Save highlight
+    </button>
+    <p class="error" id="form-error" hidden></p>
+  </section>
+
+  <!-- Search + list -->
+  <section class="card">
+    <div class="list-head">
+      <h2>Your highlights <span class="count" id="count">0</span></h2>
+      <button id="btn-clear" class="btn-ghost" title="Delete all highlights">Clear</button>
+    </div>
+    <input id="search" type="text" placeholder="Search book, quote, note, tag…" maxlength="100">
+    <div id="list" class="list"></div>
+    <p class="empty" id="empty">No highlights yet. Add your first one above.</p>
+  </section>
+
+  <!-- Export -->
+  <section class="card">
+    <h2>Export to Notion</h2>
+    <p class="hint">Preview the generated Markdown, then copy it or download the file and import it into Notion manually (Settings → Import → Text & Markdown).</p>
+    <pre class="preview" id="preview"></pre>
+    <div class="row">
+      <button id="btn-copy" class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy
+      </button>
+      <button id="btn-download" class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download .md
+      </button>
+    </div>
+    <p class="ok" id="export-msg" hidden></p>
+  </section>
+
+  <footer class="footer">All data stays in your browser. Zero network.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

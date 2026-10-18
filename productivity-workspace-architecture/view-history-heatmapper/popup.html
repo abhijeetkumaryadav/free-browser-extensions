@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Heatmap</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-icon">
+      <!-- Lucide-style calendar-days stroke icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+        <circle cx="8" cy="15" r="1"></circle>
+        <circle cx="12" cy="15" r="1"></circle>
+        <circle cx="16" cy="15" r="1"></circle>
+      </svg>
+    </div>
+    <div>
+      <h1>History Heatmap</h1>
+      <p class="subtitle">Your last 30 days, hour by day</p>
+    </div>
+  </header>
+
+  <section id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Reading local history…</p>
+  </section>
+
+  <section id="content" class="hidden">
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-value" id="statTotal">0</span>
+        <span class="stat-label">visits</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="statHour">—</span>
+        <span class="stat-label">peak hour</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="statDay">—</span>
+        <span class="stat-label">peak day</span>
+      </div>
+    </div>
+
+    <div class="heatmap-wrap">
+      <div class="y-labels" id="yLabels"></div>
+      <div class="grid-scroll">
+        <div class="heatmap-grid" id="heatmap"></div>
+        <div class="x-labels" id="xLabels"></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span>Less</span>
+      <div class="legend-cells">
+        <span class="cell l0"></span><span class="cell l1"></span><span class="cell l2"></span><span class="cell l3"></span><span class="cell l4"></span>
+      </div>
+      <span>More</span>
+    </div>
+
+    <footer class="footer">
+      <p>Computed on-device from local history. Nothing is stored or sent anywhere.</p>
+    </footer>
+  </section>
+
+<script src="popup.js"></script>
+</body>
+</html>

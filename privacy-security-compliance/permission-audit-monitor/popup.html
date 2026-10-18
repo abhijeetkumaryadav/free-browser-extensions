@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permission Audit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="brand">
+      <span class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <div>
+        <h1>Permission Audit</h1>
+        <p class="sub">Extension security scan</p>
+      </div>
+    </div>
+    <button id="rescan" class="btn-icon" title="Re-scan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <!-- Summary -->
+  <section class="summary glass">
+    <div class="stat">
+      <span class="stat-num" id="statTotal">–</span>
+      <span class="stat-label">extensions</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num warn" id="statRisky">–</span>
+      <span class="stat-label">high risk</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="statAvg">–</span>
+      <span class="stat-label">avg score</span>
+    </div>
+  </section>
+
+  <!-- Sort row -->
+  <div class="toolbar">
+    <span class="toolbar-label">Sort</span>
+    <div class="seg" id="sortSeg">
+      <button data-sort="risk" class="active">Risk</button>
+      <button data-sort="name">Name</button>
+      <button data-sort="perms">Permissions</button>
+    </div>
+  </div>
+
+  <!-- List -->
+  <main id="list" class="list"></main>
+
+  <footer class="footer">
+    <p>Read-only audit — nothing is modified. Manage extensions at
+      <a href="#" id="openExtensions">chrome://extensions</a>.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

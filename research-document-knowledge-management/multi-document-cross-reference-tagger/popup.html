@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LinkNotes — Cross-Reference Tagger</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7l1.7-1.7"/></svg>
+    </span>
+    <div class="brand-text">
+      <h1>LinkNotes</h1>
+      <p>Cross-reference tagger</p>
+    </div>
+    <button id="exportAllBtn" class="icon-btn" title="Export all notes as Markdown">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- LIST VIEW -->
+    <section id="listView">
+      <div class="search-row">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="searchInput" type="text" placeholder="Search notes…" autocomplete="off" />
+        </div>
+        <button id="newNoteBtn" class="btn primary sm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          New
+        </button>
+      </div>
+      <p class="hint">Link notes with <code>[[Note Name]]</code> — click a link to jump, see backlinks, export as Markdown.</p>
+      <div id="notesList" class="notes-list"></div>
+      <div id="emptyState" class="empty hidden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        <p>No notes yet.<br />Create one and link it with <code>[[tags]]</code>.</p>
+      </div>
+    </section>
+
+    <!-- EDITOR VIEW -->
+    <section id="editorView" class="hidden">
+      <button id="backListBtn" class="btn ghost sm back">← All notes</button>
+      <input id="titleInput" type="text" placeholder="Note title…" autocomplete="off" maxlength="80" />
+      <div class="tabs">
+        <button id="editTab" class="tab active">Edit</button>
+        <button id="previewTab" class="tab">Preview</button>
+      </div>
+      <textarea id="bodyInput" rows="9" placeholder="Write here… link other notes with [[Note Name]]" spellcheck="true"></textarea>
+      <div id="previewPane" class="preview hidden"></div>
+
+      <div class="meta-row">
+        <span id="wordCount">0 words</span>
+        <span id="linkCount">0 links</span>
+      </div>
+
+      <div class="backlinks panel-inner">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7l1.7-1.7"/></svg>
+          Backlinks <span id="backlinkNum" class="count-badge">0</span>
+        </h3>
+        <div id="backlinkList"><p class="muted">No notes link to this one yet.</p></div>
+      </div>
+
+      <div class="row">
+        <button id="saveNoteBtn" class="btn primary grow">Save note</button>
+        <button id="exportNoteBtn" class="btn ghost sm" title="Export this note as Markdown">Export</button>
+        <button id="deleteNoteBtn" class="btn ghost sm danger" title="Delete this note">Delete</button>
+      </div>
+      <p id="saveState" class="save-state"></p>
+    </section>
+  </main>
+
+  <footer><p>All notes stay on this device · <span id="footCount"></span></p></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

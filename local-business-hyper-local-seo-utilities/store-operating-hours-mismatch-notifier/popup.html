@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </span>
+      <div>
+        <h1>Hours Consistency Tracker</h1>
+        <p class="subtitle">Manual entry · all data stays on-device</p>
+      </div>
+    </div>
+    <div class="score-card" id="scoreCard">
+      <div class="score-ring"><span id="scoreVal">–</span></div>
+      <div class="score-text">
+        <p class="score-label">Consistency score</p>
+        <p class="score-sub" id="scoreSub">Add 2+ platforms to compare</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Platforms</h2>
+        <button class="ghost-btn" id="addPlatformBtn">+ Add</button>
+      </div>
+      <div id="platformList" class="platform-list"></div>
+      <div id="platformForm" class="form hidden">
+        <input type="text" id="platformName" placeholder="Platform name (e.g. Google)" maxlength="30">
+        <div class="form-row">
+          <button class="primary-btn" id="savePlatformBtn">Save platform</button>
+          <button class="ghost-btn" id="cancelPlatformBtn">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="hoursPanel">
+      <div class="panel-head">
+        <h2 id="hoursTitle">Hours</h2>
+        <button class="ghost-btn" id="copyHoursBtn" title="Copy these hours to another platform">Copy to…</button>
+      </div>
+      <div id="dayRows"></div>
+      <p class="fine">Times use 24h format. Tick “Closed” for days off.</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Holiday overrides</h2>
+        <button class="ghost-btn" id="addHolidayBtn">+ Add</button>
+      </div>
+      <div id="holidayList" class="holiday-list"></div>
+      <div id="holidayForm" class="form hidden">
+        <input type="date" id="holidayDate">
+        <input type="text" id="holidayLabel" placeholder="Label (e.g. Diwali)" maxlength="30">
+        <div class="holiday-hours-row">
+          <label><input type="checkbox" id="holidayClosed" checked> Closed</label>
+          <input type="time" id="holidayOpen" value="09:00" disabled>
+          <input type="time" id="holidayClose" value="18:00" disabled>
+        </div>
+        <div class="form-row">
+          <button class="primary-btn" id="saveHolidayBtn">Save</button>
+          <button class="ghost-btn" id="cancelHolidayBtn">Cancel</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>Export</h2></div>
+      <div class="form-row">
+        <button class="ghost-btn" id="exportJsonBtn">Export JSON</button>
+        <button class="ghost-btn" id="exportCsvBtn">Export CSV</button>
+      </div>
+    </section>
+
+    <div id="mismatchBanner" class="banner hidden"></div>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

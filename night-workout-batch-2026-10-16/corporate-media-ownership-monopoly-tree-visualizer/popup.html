@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Ownership Tree</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+    <div>
+      <h1>Media Ownership Tree</h1>
+      <p class="sub">Concentration guide &amp; your notes</p>
+    </div>
+  </header>
+
+  <p class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span><strong>Your notes — educational only.</strong> No built-in ownership data; you map the organizations yourself.</span>
+  </p>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="learn">Learn</button>
+    <button class="tab" data-tab="tree">My tree</button>
+  </div>
+
+  <section id="tab-learn">
+    <div class="guide">
+      <h3>Why ownership matters</h3>
+      <p>When a few companies own many outlets, editorial choices can reflect the owner's interests. Knowing <em>who owns what</em> is a basic media-literacy habit.</p>
+      <h3>How to read ownership</h3>
+      <ul>
+        <li>Find the outlet's "About / ownership" page or parent company's annual report.</li>
+        <li>Follow the chain: outlet → publisher → parent company → controlling shareholders.</li>
+        <li>Note the parent company's other businesses — conflicts of interest hide there.</li>
+      </ul>
+      <h3>What "concentration" means</h3>
+      <p>Concentration is how much of a market's audience or revenue sits with few owners. High concentration can narrow the range of viewpoints on offer.</p>
+      <h3>Verify everything</h3>
+      <p>Ownership changes (mergers, sales). Date your notes and re-check yearly.</p>
+    </div>
+  </section>
+
+  <section id="tab-tree" class="hidden">
+    <div class="row">
+      <input id="orgName" maxlength="80" placeholder="Organization name">
+      <select id="orgRole">
+        <option value="outlet">Outlet</option>
+        <option value="publisher">Publisher</option>
+        <option value="parent">Parent company</option>
+        <option value="owner">Owner / shareholder</option>
+      </select>
+    </div>
+    <input id="orgParent" maxlength="80" placeholder="Owned by (parent name, optional)">
+    <input id="orgNote" maxlength="200" placeholder="Note (optional, e.g. acquired 2021)">
+    <button id="add" class="primary">Add to tree</button>
+    <div class="toolbar">
+      <input id="q" placeholder="Search your tree…" maxlength="80">
+      <button id="clear" class="danger hidden">Clear</button>
+    </div>
+    <div id="tree" class="tree"></div>
+  </section>
+
+  <p class="foot">Fully local. Nothing leaves your browser.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

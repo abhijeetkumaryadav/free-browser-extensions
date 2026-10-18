@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoordFlip — Lat/Lng DMS Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+    </span>
+    <div>
+      <h1>CoordFlip</h1>
+      <p class="sub">Decimal ↔ DMS coordinate converter · 100% local</p>
+    </div>
+  </header>
+
+  <!-- Mode tabs -->
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="dec2dms" role="tab">Decimal → DMS</button>
+    <button class="tab" data-tab="dms2dec" role="tab">DMS → Decimal</button>
+    <button class="tab" data-tab="batch" role="tab">Batch</button>
+  </nav>
+
+  <!-- Decimal -> DMS -->
+  <section id="tab-dec2dms" class="panel active">
+    <label class="field">
+      <span class="flabel">Latitude (decimal)</span>
+      <input id="dec-lat" type="text" inputmode="decimal" placeholder="e.g. 28.6139">
+    </label>
+    <label class="field">
+      <span class="flabel">Longitude (decimal)</span>
+      <input id="dec-lng" type="text" inputmode="decimal" placeholder="e.g. 77.2090">
+    </label>
+    <button id="btn-dec2dms" class="btn">Convert to DMS</button>
+    <div class="result" id="res-dec2dms" hidden>
+      <div class="rrow"><span class="rlabel">Latitude</span><span class="rval" id="out-lat"></span><button class="copy" data-copy="out-lat" title="Copy">⧉</button></div>
+      <div class="rrow"><span class="rlabel">Longitude</span><span class="rval" id="out-lng"></span><button class="copy" data-copy="out-lng" title="Copy">⧉</button></div>
+      <div class="rrow full"><span class="rlabel">Combined</span><span class="rval" id="out-combined"></span><button class="copy" data-copy="out-combined" title="Copy">⧉</button></div>
+    </div>
+    <p class="err" id="err-dec2dms" hidden></p>
+  </section>
+
+  <!-- DMS -> Decimal -->
+  <section id="tab-dms2dec" class="panel">
+    <label class="field">
+      <span class="flabel">Latitude (DMS)</span>
+      <input id="dms-lat" type="text" placeholder='e.g. 28°36′50.0″N  or  28 36 50 N'>
+    </label>
+    <label class="field">
+      <span class="flabel">Longitude (DMS)</span>
+      <input id="dms-lng" type="text" placeholder='e.g. 77°12′32.4″E  or  77 12 32 E'>
+    </label>
+    <button id="btn-dms2dec" class="btn">Convert to Decimal</button>
+    <div class="result" id="res-dms2dec" hidden>
+      <div class="rrow"><span class="rlabel">Latitude</span><span class="rval" id="out-dec-lat"></span><button class="copy" data-copy="out-dec-lat" title="Copy">⧉</button></div>
+      <div class="rrow"><span class="rlabel">Longitude</span><span class="rval" id="out-dec-lng"></span><button class="copy" data-copy="out-dec-lng" title="Copy">⧉</button></div>
+      <div class="rrow full"><span class="rlabel">Combined</span><span class="rval" id="out-dec-combined"></span><button class="copy" data-copy="out-dec-combined" title="Copy">⧉</button></div>
+    </div>
+    <p class="err" id="err-dms2dec" hidden></p>
+  </section>
+
+  <!-- Batch -->
+  <section id="tab-batch" class="panel">
+    <p class="hint">One coordinate per line — decimal (<code>28.6139, 77.2090</code>) or DMS. Direction is auto-detected.</p>
+    <label class="field">
+      <span class="flabel">Coordinates</span>
+      <textarea id="batch-in" rows="4" placeholder="28.6139, 77.2090&#10;28°36′50″N, 77°12′32″E"></textarea>
+    </label>
+    <div class="seg">
+      <button class="segbtn active" data-dir="toDms">→ DMS</button>
+      <button class="segbtn" data-dir="toDec">→ Decimal</button>
+    </div>
+    <button id="btn-batch" class="btn">Convert All</button>
+    <button id="btn-batch-copy" class="btn ghost" hidden>Copy All Results</button>
+    <div class="result batch" id="res-batch" hidden></div>
+    <p class="err" id="err-batch" hidden></p>
+  </section>
+
+  <footer class="ftr">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="toast" class="toast">Copied</span>
+    <span class="scope">Local tool — no network, no tracking.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

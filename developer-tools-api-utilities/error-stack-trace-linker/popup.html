@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error Stack Trace Linker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+    <div><h1>Stack Trace Linker</h1><p>Chrome · Firefox · Node formats</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Paste stack trace</h2>
+      <textarea id="traceInput" rows="5" placeholder="Error: something broke&#10;    at render (app.js:42:7)&#10;    at main (app.js:10:3)"></textarea>
+      <div class="btn-row">
+        <button id="parseBtn" class="primary">Parse frames</button>
+        <button id="clearBtn" class="ghost">Clear</button>
+      </div>
+    </section>
+    <section class="glass card" id="framesCard" hidden>
+      <h2>Parsed frames <span id="frameCount" class="pill"></span></h2>
+      <div id="frames"></div>
+    </section>
+    <section class="glass card" id="shareCard" hidden>
+      <h2>Shareable format</h2>
+      <pre id="sharePre"></pre>
+      <button id="copyShare" class="ghost">Copy shareable version</button>
+    </section>
+    <p class="note">Best-effort parser — covers Chrome, Firefox, and Node frame formats. File paths feed the VS&nbsp;Code links; remote URLs link to their location instead.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

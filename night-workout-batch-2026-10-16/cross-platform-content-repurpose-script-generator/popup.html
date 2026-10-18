@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M21 3l-7.5 7.5"/><path d="M3 3l7.5 7.5"/><path d="M16 21h5v-5"/><path d="M8 21H3v-5"/><path d="M21 21l-7.5-7.5"/><path d="M3 21l7.5-7.5"/></svg>
+    <div>
+      <h1>Repurpose Planner</h1>
+      <p class="sub">One idea → platform-ready outlines</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    Template-based planner — <strong>not AI</strong>. It builds outlines from your
+    templates; <strong>you write the actual words</strong>.
+  </div>
+
+  <section>
+    <label class="field-label">Topic</label>
+    <input id="topic" type="text" placeholder="e.g. 5 desk stretches for creators">
+    <label class="field-label">Key points (one per line)</label>
+    <textarea id="points" rows="4" placeholder="Point one&#10;Point two&#10;Point three"></textarea>
+    <button id="generate" class="primary">Generate outlines</button>
+  </section>
+
+  <nav class="tabs">
+    <button data-tab="short" class="active">Short-form</button>
+    <button data-tab="carousel">Carousel</button>
+    <button data-tab="long">Long-form</button>
+    <button data-tab="news">Newsletter</button>
+    <button data-tab="templates" class="gear" title="Edit templates">⚙</button>
+  </nav>
+
+  <div id="out-short" class="panel active"></div>
+  <div id="out-carousel" class="panel"></div>
+  <div id="out-long" class="panel"></div>
+  <div id="out-news" class="panel"></div>
+
+  <div id="out-templates" class="panel">
+    <p class="hint">Edit the templates. Use <code>{{topic}}</code>, <code>{{point1}}</code>…<code>{{pointN}}</code>, <code>{{allpoints}}</code>.</p>
+    <label class="field-label">Short-form template</label>
+    <textarea id="tpl-short" rows="6"></textarea>
+    <label class="field-label">Carousel template (one slide = one line)</label>
+    <textarea id="tpl-carousel" rows="6"></textarea>
+    <label class="field-label">Long-form template</label>
+    <textarea id="tpl-long" rows="6"></textarea>
+    <label class="field-label">Newsletter template</label>
+    <textarea id="tpl-news" rows="6"></textarea>
+    <div class="row">
+      <button id="saveTpl" class="primary">Save templates</button>
+      <button id="resetTpl" class="ghost">Reset defaults</button>
+    </div>
+  </div>
+
+  <footer>Made for planners — templates only, no AI, 100% local.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

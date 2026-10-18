@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrameStep</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M7 6v12M17 6v12M2 10h5M2 14h5M17 10h5M17 14h5M10 9.5v5M14 9.5v5"/></svg>
+    </div>
+    <div>
+      <h1>FrameStep</h1>
+      <p class="sub">Frame-by-frame video stepper</p>
+    </div>
+    <span class="status" id="status">idle</span>
+  </header>
+
+  <section class="card">
+    <div class="readout">
+      <div class="readout-item">
+        <span class="label">Time</span>
+        <span class="value" id="timeVal">--:--.---</span>
+      </div>
+      <div class="readout-item">
+        <span class="label">Frame</span>
+        <span class="value" id="frameVal">—</span>
+      </div>
+      <div class="readout-item">
+        <span class="label">Video</span>
+        <span class="value small" id="videoVal">none</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn icon" id="btnBack" title="Step back one frame (,)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="btn primary" id="btnPlay" title="Play / pause">
+        <svg id="iconPause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg id="iconPlay" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l14 8-14 8z"/></svg>
+      </button>
+      <button class="btn icon" id="btnFwd" title="Step forward one frame (.)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="row">
+      <label for="fps">Step size (fps)</label>
+      <select id="fps">
+        <option value="24">24 fps</option>
+        <option value="25">25 fps</option>
+        <option value="30" selected>30 fps</option>
+        <option value="60">60 fps</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <button class="btn wide" id="btnCapture">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      Capture frame as PNG
+    </button>
+    <p class="hint">Shortcuts: <kbd>,</kbd> back · <kbd>.</kbd> forward · <kbd>space</kbd> play/pause — work when the video is focused on the page.</p>
+  </section>
+
+  <footer class="footer">Read-only overlay · nothing is uploaded</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Historical Context Annotator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/><path d="M12 7v5l3 3"/></svg>
+    <div><h1>Context Annotator</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="tlCard" class="glass card" hidden>
+      <h2>Timeline <span id="evCount" class="count"></span></h2>
+      <div id="timeline"></div>
+      <p class="note">Best-effort extraction from page text. Notes are saved on this device, per page.</p>
+    </section>
+    <div id="empty" class="empty">Open a page and hit <b>Scan page</b> to extract the years and dates it mentions.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

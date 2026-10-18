@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="panel header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="2.4"/>
+      <ellipse cx="12" cy="12" rx="9" ry="4.4" transform="rotate(-24 12 12)"/>
+      <ellipse cx="12" cy="12" rx="10" ry="4.8" transform="rotate(28 12 12)"/>
+    </svg>
+    <div>
+      <h1>OrbitBox</h1>
+      <p class="sub">Gravity physics sandbox · toy</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <button id="open" class="cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/>
+      </svg>
+      Open sandbox
+    </button>
+    <p class="hint">Launches a full-page tab. Click or drag to spawn balls, tune gravity, pause, clear.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Defaults</h2>
+    <label class="row">
+      <span>Ball size</span>
+      <input id="ballSize" type="range" min="6" max="40" step="1" value="16">
+      <b id="ballSizeVal">16</b>
+    </label>
+    <label class="row">
+      <span>Gravity</span>
+      <input id="gravity" type="range" min="0" max="3000" step="50" value="1200">
+      <b id="gravityVal">1200</b>
+    </label>
+    <label class="row check">
+      <span>Motion trails</span>
+      <input id="trails" type="checkbox" checked>
+    </label>
+  </section>
+
+  <footer class="note">Purely a toy — balls obey no laws but ours. Nothing leaves your device.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

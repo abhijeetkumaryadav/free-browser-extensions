@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Idle Tab RAM Hibernator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    <div class="hwrap">
+      <h1>Tab Hibernator</h1>
+      <p>Idle tabs sleep · click to wake</p>
+    </div>
+    <label class="switch" title="Enable auto-hibernate">
+      <input type="checkbox" id="enabled">
+      <span class="track"><span class="knob"></span></span>
+    </label>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>Idle threshold</h2>
+      <div class="thresh-row">
+        <input type="number" id="idleMinutes" min="5" max="480" step="5" value="30">
+        <span class="unit">minutes idle → hibernate</span>
+      </div>
+      <button id="sweepNow" class="ghost">Hibernate idle tabs now</button>
+      <p class="note">Never touches the active tab, pinned tabs, or whitelisted sites. Hibernated tabs restore on click — no data loss.</p>
+    </section>
+
+    <section class="glass card">
+      <h2>Hibernated <span id="hibCount" class="count">0</span></h2>
+      <div id="hibList"></div>
+      <button id="wakeAll" class="primary" disabled>Wake all</button>
+    </section>
+
+    <section class="glass card">
+      <h2>Whitelist</h2>
+      <div class="wl-add">
+        <input type="text" id="wlInput" placeholder="example.com" maxlength="120">
+        <button id="wlAdd" class="ghost">Add</button>
+      </div>
+      <button id="wlCurrent" class="ghost">＋ Whitelist current site</button>
+      <div id="wlList"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

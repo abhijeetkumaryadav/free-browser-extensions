@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distraction Dog</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="logo">
+    <svg class="lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.25 16.25h1.5L12 17z"/><path d="M16 14c-.5.5-1 1.5-1 2"/><path d="M8 14c.5.5 1 1.5 1 2"/><circle cx="8.5" cy="9.5" r=".5" fill="currentColor"/><circle cx="15.5" cy="9.5" r=".5" fill="currentColor"/><path d="M12 3C7 3 4 7 4 12c0 4 2.5 8 8 8s8-4 8-8c0-5-3-9-8-9z"/></svg>
+    <h1>Distraction Dog</h1>
+  </div>
+  <p class="tagline">a professional-grade distraction, for science</p>
+</header>
+
+<main>
+  <!-- Dog card: the star of the show -->
+  <section class="panel dog-panel" id="dogPanel">
+    <div class="dog-scene">
+      <img id="dogImg" src="assets/dog_happy.png" alt="A very good dog" width="140" height="140">
+      <button id="dismissBtn" class="dismiss" title="Send the dog away (it comes back — it's a dog)">×</button>
+    </div>
+    <p id="dogMsg" class="dog-msg">Loading wisdom…</p>
+    <div class="dog-actions">
+      <button id="petBtn" class="ghost-btn">🦴 Pet</button>
+      <button id="feedBtn" class="ghost-btn">🍖 Feed</button>
+      <button id="trickBtn" class="ghost-btn">🎪 Trick</button>
+    </div>
+    <div class="dog-stats">
+      <span class="stat" title="Pets given">❤️ <b id="petsCount">0</b></span>
+      <span class="stat" title="Treats fed">🦴 <b id="treatsCount">0</b></span>
+      <span class="stat" title="Distractions delivered">⏱️ <b id="visitsCount">0</b></span>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Settings</h2>
+    </div>
+    <label class="toggle-row">
+      <span>Pop up while the popup is open</span>
+      <input type="checkbox" id="enablePopups" checked>
+    </label>
+    <label class="field">
+      <span>Distraction frequency</span>
+      <select id="frequency">
+        <option value="8">Every ~8 seconds (maximum chaos)</option>
+        <option value="20" selected>Every ~20 seconds</option>
+        <option value="45">Every ~45 seconds (polite)</option>
+      </select>
+    </label>
+    <button id="summonBtn" class="primary-btn">Summon the dog now</button>
+  </section>
+
+  <p class="disclaimer">Clearly labeled fun: this dog does nothing useful. It just wants you to know it's a good boy.</p>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* game.css — full-page bubble wrap sheet, deep dark glassmorphism, teal accent */
+:root {
+  --accent: #14b8a6;
+  --bg: #0b0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, rgba(20, 184, 166, 0.10), transparent), var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.game-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 14px;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.hud-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.hud-brand svg { width: 22px; height: 22px; color: var(--accent); }
+
+.hud-stats { display: flex; gap: 8px; flex: 1; }
+
+.hud-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hud-chip strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+.hud-actions { display: flex; gap: 8px; }
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.08s ease;
+}
+
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.icon-btn:active { transform: scale(0.94); }
+.icon-btn[aria-pressed="false"] { color: var(--muted); }
+.icon-btn svg { width: 18px; height: 18px; }
+
+.board-wrap {
+  flex: 1;
+  min-height: 0;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  overflow: auto;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  align-content: start;
+  touch-action: none;
+}
+
+/* A single bubble: glossy unpopped dome. */
+.bubble {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 28%, transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.28), rgba(20, 184, 166, 0.05));
+  box-shadow:
+    inset 0 3px 8px rgba(255, 255, 255, 0.18),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.05s ease;
+}
+
+.bubble:hover { transform: scale(1.06); }
+
+/* Popped: deflated crater. */
+.bubble.popped {
+  cursor: default;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.45), rgba(20, 184, 166, 0.04));
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.55);
+  animation: pop-squash 0.18s ease;
+}
+
+@keyframes pop-squash {
+  0% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+/* Particle ring burst on pop. */
+.particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 50;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0d9488, var(--accent));
+  transition: width 0.2s ease;
+}
+
+.progress span { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+/* Celebration overlay when a sheet is fully popped. */
+.celebrate {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 6, 9, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+.celebrate-card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.celebrate-card h2 { font-size: 24px; }
+.celebrate-card p { color: var(--muted); font-size: 14px; }
+.celebrate-card strong { color: var(--accent); font-size: 20px; }
+.celebrate-card button {
+  margin-top: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #04211e;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}

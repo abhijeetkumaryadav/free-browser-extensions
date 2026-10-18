@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+  </div>
+  <div>
+    <h1>LoopBreaker</h1>
+    <p>Break addictive scroll loops</p>
+  </div>
+</header>
+<main>
+  <div class="card">
+    <div class="row">
+      <label>Protection on<small>Pauses & nudges on this device</small></label>
+      <label class="switch"><input type="checkbox" id="enabled"><span class="slider"></span></label>
+    </div>
+    <div class="row">
+      <label>Break every<small>Minutes of active scrolling</small></label>
+      <select id="interval">
+        <option value="10">10 min</option>
+        <option value="20" selected>20 min</option>
+        <option value="30">30 min</option>
+        <option value="45">45 min</option>
+        <option value="60">60 min</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Pause length<small>How long the breather lasts</small></label>
+      <select id="pauseLen">
+        <option value="15">15 sec</option>
+        <option value="30" selected>30 sec</option>
+        <option value="60">1 min</option>
+      </select>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Today</h2>
+    <div class="stat-row">
+      <div class="stat"><b id="statBreaks">0</b><span>breathers taken</span></div>
+      <div class="stat"><b id="statMins">0</b><span>mindful minutes</span></div>
+      <div class="stat"><b id="statLoops">0</b><span>loops spotted</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Loops on this page</h2>
+    <div id="patterns"><div class="empty">Click “Check this page” to spot addictive patterns.</div></div>
+  </div>
+  <button class="primary" id="checkBtn">🕵️ Check this page</button>
+  <div class="honest">
+    Honest scope: pattern detection is <b>heuristic</b> (DOM clues like growing
+    scroll height, autoplay video, streak counters) — it can miss or misfire.
+    LoopBreaker adds gentle friction, never blocks sites. 100% local, no network.
+  </div>
+</main>
+<footer class="note">LoopBreaker v1.0.0 · friction, not force</footer>
+<script src="popup.js"></script>
+</body>
+</html>

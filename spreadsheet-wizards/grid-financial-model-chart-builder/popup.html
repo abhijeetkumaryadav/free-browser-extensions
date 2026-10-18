@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChartForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 13v4"/><path d="M12 9v8"/><path d="M17 5v12"/>
+      </svg>
+      <div>
+        <h1>ChartForge</h1>
+        <p class="tagline">CSV chart builder</p>
+      </div>
+    </div>
+    <span class="badge">on-device</span>
+  </header>
+
+  <main>
+    <!-- Data -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+        <h2>Data</h2>
+      </div>
+      <textarea id="csvInput" rows="5" placeholder="Paste CSV data here…&#10;month,revenue,expenses&#10;Jan,12000,8000&#10;Feb,15000,9000&#10;Mar,13500,8500"></textarea>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="hasHeader" checked><span>First row is header</span></label>
+        <span class="spacer"></span>
+        <button id="loadSample" class="btn ghost sm">Sample</button>
+        <button id="clearData" class="btn ghost sm">Clear</button>
+      </div>
+      <p class="note" id="dataNote">Paste numeric data to build a chart.</p>
+    </section>
+
+    <!-- Chart config -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        <h2>Chart</h2>
+        <span class="spacer"></span>
+        <div class="seg" role="tablist" aria-label="Chart type">
+          <button id="typeBar" class="seg-btn active">Bar</button>
+          <button id="typeLine" class="seg-btn">Line</button>
+          <button id="typePie" class="seg-btn">Pie</button>
+        </div>
+      </div>
+      <label class="field-label" for="titleInput">Title</label>
+      <input id="titleInput" type="text" placeholder="Monthly revenue" autocomplete="off">
+      <div class="grid2">
+        <div>
+          <label class="field-label" for="xSelect">X axis (labels)</label>
+          <select id="xSelect"></select>
+        </div>
+        <div>
+          <label class="field-label" for="paletteSelect">Palette</label>
+          <select id="paletteSelect">
+            <option value="emerald">Emerald</option>
+            <option value="sunset">Sunset</option>
+            <option value="ocean">Ocean</option>
+            <option value="mono">Mono</option>
+          </select>
+        </div>
+      </div>
+      <label class="field-label">Y series <span class="hint">(numeric columns)</span></label>
+      <div class="y-list" id="yList"></div>
+    </section>
+
+    <!-- Canvas -->
+    <section class="panel">
+      <div class="panel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h2>Preview</h2>
+      </div>
+      <div class="canvas-wrap"><canvas id="chart"></canvas></div>
+      <p class="empty-note" id="emptyNote">Configure data and series to render a chart.</p>
+      <div class="row">
+        <button id="downloadBtn" class="btn primary" disabled>Download PNG</button>
+        <span class="spacer"></span>
+        <span class="stat" id="pointStat"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Simple hand-drawn charts, rendered locally. Not a BI tool — no aggregations or formulas.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

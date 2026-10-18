@@ -1,0 +1,114 @@
+/* ColorMine — deep-dark glassmorphism, single orange accent */
+:root {
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.16);
+  --bg: #101014;
+  --text: #f1f1f4;
+  --muted: #9a9aa5;
+  --border: rgba(255, 255, 255, 0.09);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.topbar { padding: 14px 16px 10px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo {
+  width: 26px; height: 26px; color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 5px;
+}
+h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { font-size: 11px; color: var(--muted); }
+
+.card {
+  margin: 0 12px 12px;
+  padding: 14px;
+  background: rgba(20, 20, 26, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.dropzone {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 26px 14px;
+  border: 2px dashed rgba(249, 115, 22, 0.45);
+  border-radius: 10px;
+  cursor: pointer; text-align: center;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.dropzone:hover, .dropzone.dragover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.dropzone svg { width: 28px; height: 28px; color: var(--accent); }
+.dropzone .hint { font-size: 11px; color: var(--muted); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  opacity: 0; pointer-events: none;
+}
+.hidden { display: none !important; }
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
+.img-info { font-size: 10px; color: var(--accent); letter-spacing: 0; text-transform: none; margin-left: 4px; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-soft); color: var(--accent);
+  border: 1px solid var(--border);
+  font-size: 12px; font-weight: 600;
+  padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.pill:hover { background: rgba(249,115,22,0.28); transform: translateY(-1px); }
+.pill svg { width: 13px; height: 13px; }
+
+.palette { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.swatch {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+.swatch:hover { border-color: var(--accent); transform: translateY(-1px); }
+.swatch .chip {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.swatch .meta { display: flex; flex-direction: column; gap: 1px; }
+.swatch .hex { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; font-weight: 600; }
+.swatch .pct {
+  height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden; width: 150px;
+}
+.swatch .pct i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+.swatch .share { margin-left: auto; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.slider-row label {
+  display: flex; justify-content: space-between;
+  font-weight: 600; font-size: 12px; margin-bottom: 8px; color: var(--text);
+}
+.slider-row label span { color: var(--accent); font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+
+.note { margin-top: 8px; font-size: 11px; color: var(--accent); font-weight: 600; }
+.method { margin-top: 10px; font-size: 10.5px; color: var(--muted); }

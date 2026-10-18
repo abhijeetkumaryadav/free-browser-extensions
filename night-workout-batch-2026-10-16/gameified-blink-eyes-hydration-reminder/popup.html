@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blink &amp; Sip</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <!-- Header -->
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Blink &amp; Sip</h1>
+      <p class="sub">Gamified blink + water reminders</p>
+    </div>
+    <label class="switch" title="Enable reminders">
+      <input type="checkbox" id="enabled" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <!-- Score strip -->
+  <section class="stats" aria-label="Your stats">
+    <div class="stat"><span class="num" id="points">0</span><span class="lbl">points</span></div>
+    <div class="stat"><span class="num" id="streak">0</span><span class="lbl">streak</span></div>
+    <div class="stat"><span class="num" id="best">0</span><span class="lbl">best streak</span></div>
+    <div class="stat"><span class="num" id="today">0</span><span class="lbl">today</span></div>
+  </section>
+
+  <!-- Complete actions -->
+  <section class="actions">
+    <button id="doneBlink" class="btn accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      I blinked <b>+5</b>
+    </button>
+    <button id="doneWater" class="btn accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 17.7 10a6 6 0 1 1-11.4 0L12 2.7Z"/></svg>
+      I drank water <b>+10</b>
+    </button>
+  </section>
+
+  <!-- Intervals -->
+  <section class="settings">
+    <label class="row">
+      <span>Blink reminder</span>
+      <span class="ctl"><input type="number" id="blinkMinutes" min="5" max="120" step="5" value="20"><span class="unit">min</span></span>
+    </label>
+    <label class="row">
+      <span>Water reminder</span>
+      <span class="ctl"><input type="number" id="waterMinutes" min="15" max="240" step="15" value="60"><span class="unit">min</span></span>
+    </label>
+  </section>
+
+  <p class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    Reminders only — not medical guidance.
+  </p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

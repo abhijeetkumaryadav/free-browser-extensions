@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebGL Fingerprint Fuzzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header glass">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <!-- Lucide-style box icon (stroke) -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        </span>
+        <div class="brand-text">
+          <h1>WebGL Fuzzer</h1>
+          <p class="subtitle">Anti-fingerprinting shield</p>
+        </div>
+      </div>
+      <span id="statusPill" class="pill">…</span>
+    </header>
+
+    <section class="card glass">
+      <label class="toggle row">
+        <span class="row-text">
+          <strong>Master protection</strong>
+          <small>Fuzz WebGL readback on all sites</small>
+        </span>
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+    </section>
+
+    <section class="card glass">
+      <div class="row">
+        <span class="row-text">
+          <strong>Protect this site</strong>
+          <small id="siteHost">—</small>
+        </span>
+        <label class="toggle">
+          <input type="checkbox" id="siteToggle" checked>
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+      <p class="hint">Turn off per-site if a 3D app misbehaves. Changes apply on next page load.</p>
+    </section>
+
+    <section class="card glass">
+      <div class="row section-head">
+        <strong>Allowlisted sites</strong>
+        <span id="allowCount" class="count">0</span>
+      </div>
+      <div id="allowList" class="allow-list"></div>
+      <p id="allowEmpty" class="hint">No exceptions yet.</p>
+    </section>
+
+    <section class="card glass what">
+      <strong>What it does</strong>
+      <ul>
+        <li>Adds ±2 invisible noise to <code>readPixels</code> output</li>
+        <li>Randomizes reported GPU strings every page load</li>
+        <li>Rendering stays pixel-perfect to your eyes</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      All settings on-device · nothing transmitted
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pharmacy Price Log</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+    <h1>Pharmacy Price Log</h1>
+    <p class="scope-note">Personal logbook — <strong>not medical advice</strong>, not live coupon data.</p>
+  </header>
+
+  <section class="card">
+    <h2>Deductible tracker</h2>
+    <div class="deductible">
+      <label>Deductible target
+        <input id="deductible-target" type="number" min="0" step="0.01" placeholder="e.g. 1500" inputmode="decimal">
+      </label>
+      <button id="save-target" class="ghost">Save target</button>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress"><div id="progress-bar"></div></div>
+      <p id="progress-text" class="muted"></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Log a price quote</h2>
+    <label>Medication
+      <input id="med" type="text" placeholder="e.g. Atorvastatin 20mg" autocomplete="off">
+    </label>
+    <label>Pharmacy
+      <input id="pharmacy" type="text" placeholder="e.g. Local pharmacy" autocomplete="off">
+    </label>
+    <div class="row">
+      <label>Price
+        <input id="price" type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal">
+      </label>
+      <label>Counts toward deductible
+        <input id="toward" type="checkbox" checked>
+      </label>
+    </div>
+    <button id="add" class="primary">Log quote</button>
+    <p id="form-error" class="error" hidden></p>
+  </section>
+
+  <section class="card">
+    <h2>Medications</h2>
+    <div id="med-list" class="med-list"></div>
+    <p id="empty" class="empty">No quotes logged yet.</p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

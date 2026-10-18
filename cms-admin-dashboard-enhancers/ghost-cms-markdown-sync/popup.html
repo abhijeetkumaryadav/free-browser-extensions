@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghost Markdown Composer</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+      </svg>
+    </div>
+    <div>
+      <h1>Ghost Markdown Composer</h1>
+      <p class="subtitle">Write · preview · paste into Ghost</p>
+    </div>
+    <button id="clearBtn" class="ghost-btn" title="Clear draft">Clear</button>
+  </header>
+
+  <section class="panel">
+    <h2>Post settings</h2>
+    <label class="field">
+      <span>Title</span>
+      <input id="titleInput" type="text" placeholder="Your post title" />
+    </label>
+    <div class="two-col">
+      <label class="field">
+        <span>Slug <em>(auto)</em></span>
+        <input id="slugInput" type="text" placeholder="your-post-title" />
+      </label>
+      <label class="field check">
+        <span>Featured</span>
+        <button id="featuredToggle" class="toggle" role="switch" aria-checked="false" aria-label="Featured post">
+          <span class="knob"></span>
+        </button>
+      </label>
+    </div>
+    <label class="field">
+      <span>Tags <em>(comma separated)</em></span>
+      <input id="tagsInput" type="text" placeholder="news, tutorial" />
+    </label>
+    <label class="field">
+      <span>Excerpt <em>(optional)</em></span>
+      <textarea id="excerptInput" rows="2" placeholder="One or two sentences for cards & SEO…"></textarea>
+    </label>
+  </section>
+
+  <section class="panel">
+    <div class="tabs">
+      <button class="tab active" data-tab="write">Write</button>
+      <button class="tab" data-tab="preview">Preview</button>
+      <span class="stats"><span id="wordCount">0</span> words · <span id="readTime">0</span> min</span>
+    </div>
+    <textarea id="mdInput" class="md-area" rows="10" placeholder="# Start writing in Markdown…
+
+**Bold**, *italic*, `code`, [links](https://example.com)
+
+- lists work too"></textarea>
+    <article id="mdPreview" class="md-preview hidden"></article>
+  </section>
+
+  <section class="panel actions">
+    <button id="copyBtn" class="primary-btn">Copy Markdown + frontmatter</button>
+    <div class="row">
+      <button id="downloadBtn" class="ghost-btn">Download .md</button>
+      <button id="copyFmBtn" class="ghost-btn">Copy frontmatter only</button>
+    </div>
+    <p class="hint">Paste into Ghost via the editor's Markdown card, or import the .md file.</p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

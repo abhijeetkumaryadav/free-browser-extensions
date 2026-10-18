@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Citation Builder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hdr">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/><path d="M9 21h6"/><path d="M12 3v18" opacity=".4"/><path d="M7 10h4M7 14h7"/></svg>
+      </span>
+      <div>
+        <h1>Citation Builder</h1>
+        <p class="sub">APA · MLA · Chicago + format check</p>
+      </div>
+    </header>
+
+    <div class="scope">Builds citations from <b>your</b> metadata and checks formatting — it does <b>not</b> verify whether a source's claims are true.</div>
+
+    <label class="lbl" for="stype">Source type</label>
+    <select id="stype">
+      <option value="book">Book</option>
+      <option value="article">Journal article</option>
+      <option value="web">Website / web page</option>
+    </select>
+
+    <label class="lbl" for="authors">Authors <span class="dim">(one per line: Last, First)</span></label>
+    <textarea id="authors" rows="2" placeholder="Smith, Jane&#10;Doe, John"></textarea>
+
+    <div class="row">
+      <div><label class="lbl" for="year">Year</label><input id="year" placeholder="2024"></div>
+      <div><label class="lbl" for="title">Title</label><input id="title" placeholder="Study of tides"></div>
+    </div>
+
+    <label class="lbl" for="container">Container <span class="dim">(journal / publisher / site name)</span></label>
+    <input id="container" placeholder="Journal of Marine Studies">
+
+    <div class="row" id="articleFields">
+      <div><label class="lbl" for="vol">Vol.</label><input id="vol" placeholder="12"></div>
+      <div><label class="lbl" for="issue">Issue</label><input id="issue" placeholder="3"></div>
+      <div><label class="lbl" for="pages">Pages</label><input id="pages" placeholder="45–67"></div>
+    </div>
+
+    <label class="lbl" for="url">URL / DOI</label>
+    <input id="url" placeholder="https://doi.org/…">
+
+    <button id="buildBtn" class="primary">Build citations</button>
+    <div id="warn" class="warn hidden" role="alert"></div>
+
+    <div id="out" class="hidden">
+      <div class="cite"><div class="cite-h">APA 7th <button class="mini" data-k="apa">Copy</button></div><p id="apa"></p></div>
+      <div class="cite"><div class="cite-h">MLA 9th <button class="mini" data-k="mla">Copy</button></div><p id="mla"></p></div>
+      <div class="cite"><div class="cite-h">Chicago 17th (author–date) <button class="mini" data-k="chicago">Copy</button></div><p id="chicago"></p></div>
+    </div>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

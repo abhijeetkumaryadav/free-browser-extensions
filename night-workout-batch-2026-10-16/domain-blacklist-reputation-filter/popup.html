@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Domain Blacklist Filter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+  <div>
+    <h1>Domain Blacklist Filter</h1>
+    <p class="sub">Hide results from YOUR domains.</p>
+  </div>
+</header>
+
+<div class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>Your blacklist — NOT a reputation service. No external ratings; only domains you add.</span>
+</div>
+
+<section class="card">
+  <label class="label" for="domains">Blacklisted domains <span class="dim">(one per line)</span></label>
+  <textarea id="domains" rows="4" placeholder="example.com&#10;spammy-site.net&#10;annoying.blog"></textarea>
+  <div class="row">
+    <span class="count" id="domainCount">0 domains</span>
+    <button id="saveBtn" class="btn ghost">Save list</button>
+  </div>
+</section>
+
+<section class="card">
+  <div class="label">Hide mode</div>
+  <div class="seg">
+    <button id="modeDim" class="segbtn active">Dim</button>
+    <button id="modeCollapse" class="segbtn">Collapse</button>
+  </div>
+  <div class="row buttons">
+    <button id="filterBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      Filter this page
+    </button>
+    <button id="restoreBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Restore
+    </button>
+  </div>
+  <p class="stats" id="stats">No scan yet.</p>
+</section>
+
+<footer class="foot">Nothing runs until you click. Fully reversible — one click restores everything.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

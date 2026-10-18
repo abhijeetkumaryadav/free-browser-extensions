@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Narrative Flow Evaluator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <div><h1>Flow Evaluator</h1><p>Heuristic pacing analysis · on-device</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Your text</h2>
+      <textarea id="text" placeholder="Paste your story or article here — 500+ words gives the best read…"></textarea>
+      <div class="btnrow">
+        <button id="analyze" class="primary">Analyze flow</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+    <div id="results" hidden>
+      <section class="glass card score-card">
+        <div class="score-ring"><span id="score">–</span></div>
+        <div class="score-info"><h2>Flow score</h2><p id="verdict" class="note"></p></div>
+      </section>
+      <section class="glass card">
+        <h2>Sentence rhythm <span class="sub">length of each sentence, in order</span></h2>
+        <svg id="rhythm" viewBox="0 0 340 84" class="viz"></svg>
+        <div id="metrics"></div>
+      </section>
+      <section class="glass card">
+        <h2>Pacing curve <span class="sub">tension words per section</span></h2>
+        <svg id="pacing" viewBox="0 0 340 84" class="viz"></svg>
+        <p class="note">Heuristic: counts curated tension words per eighth of the text. A rising curve usually means the stakes build.</p>
+      </section>
+      <section class="glass card">
+        <h2>Suggestions</h2>
+        <div id="tips"></div>
+      </section>
+    </div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

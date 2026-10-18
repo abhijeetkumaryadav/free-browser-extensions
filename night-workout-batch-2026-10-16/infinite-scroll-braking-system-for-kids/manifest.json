@@ -1,0 +1,26 @@
+{
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BrakeTime"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "description": "Gentle scroll brakes for kids: pause overlays, scroll counters and session timers on parent-chosen sites. Friction only \u2014 nothing is blocked. 100% local.",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "BrakeTime \u2014 Infinite Scroll Braking for Kids",
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "version": "1.0.0"
+}

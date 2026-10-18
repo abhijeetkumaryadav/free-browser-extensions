@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- App header: brand + icon -->
+  <header class="app-header">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="8.5" cy="9.5" r="1.3" fill="currentColor" stroke="none"/>
+        <circle cx="12" cy="7.8" r="1.3" fill="currentColor" stroke="none"/>
+        <circle cx="15.5" cy="9.5" r="1.3" fill="currentColor" stroke="none"/>
+        <path d="M12 21c-1.5-1.2-1.5-3.2 0-4.2 1.6-1.1 4-.6 4 .8"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Chroma</h1>
+      <p class="subtitle">Color harmony studio</p>
+    </div>
+  </header>
+
+  <!-- Base color input -->
+  <section class="panel">
+    <h2>Base color</h2>
+    <div class="base-row">
+      <input type="color" id="basePicker" value="#ec4899" aria-label="Pick base color">
+      <input type="text" id="baseHex" value="#ec4899" maxlength="7" spellcheck="false" aria-label="Base color hex">
+      <button id="eyeBtn" class="icon-btn" title="Pick color from screen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 22l1-4 9.5-9.5 3 3L6 21l-4 1z"/>
+          <path d="M14.5 5.5l3 3L21 5l-3-3-3.5 3.5z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Harmony modes + generated palette -->
+  <section class="panel">
+    <h2>Harmony</h2>
+    <div class="modes" id="modes" role="tablist">
+      <button data-mode="complementary" class="mode active">Complementary</button>
+      <button data-mode="triadic" class="mode">Triadic</button>
+      <button data-mode="analogous" class="mode">Analogous</button>
+      <button data-mode="split" class="mode">Split-comp.</button>
+      <button data-mode="tetradic" class="mode">Tetradic</button>
+      <button data-mode="mono" class="mode">Monochrome</button>
+    </div>
+    <div class="swatches" id="swatches" aria-live="polite"></div>
+    <div class="actions">
+      <button id="saveBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        Save palette
+      </button>
+      <button id="exportBtn" class="btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+        </svg>
+        Copy CSS vars
+      </button>
+    </div>
+  </section>
+
+  <!-- Saved favorites -->
+  <section class="panel">
+    <h2>Favorites <span class="count" id="favCount"></span></h2>
+    <div id="favorites" class="favorites"></div>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

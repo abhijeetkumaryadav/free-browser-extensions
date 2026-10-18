@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Minefield</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.5" fill="#10b981"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/>
+      </svg>
+      <div>
+        <h1>Minefield</h1>
+        <p class="tag">Classic Minesweeper</p>
+      </div>
+      <div class="spacer"></div>
+      <select id="difficulty" class="diff" title="Difficulty">
+        <option value="beginner">Beginner 9×9 · 10</option>
+        <option value="intermediate">Intermediate 12×12 · 25</option>
+        <option value="custom">Custom…</option>
+      </select>
+    </header>
+
+    <div id="customRow" class="custom hidden">
+      <label>Rows <input id="cRows" type="number" min="5" max="16" value="10"></label>
+      <label>Cols <input id="cCols" type="number" min="5" max="16" value="10"></label>
+      <label>Mines <input id="cMines" type="number" min="5" max="60" value="15"></label>
+      <button id="cApply">Apply</button>
+    </div>
+
+    <div class="hud">
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        <span id="mineCount">10</span>
+      </div>
+      <button id="face" class="face" title="New game">
+        <svg id="faceIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+        </svg>
+      </button>
+      <div class="stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span id="timer">0</span>
+      </div>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <p id="status" class="status">Left-click to reveal · right-click to flag</p>
+
+    <section class="panel">
+      <h2>Best times</h2>
+      <ul id="bests" class="bests"><li class="empty">No wins yet — good luck!</li></ul>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

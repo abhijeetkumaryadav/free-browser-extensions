@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Payload Ticker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+  <div>
+    <h1>Network Payload Ticker</h1>
+    <p class="sub" id="tabLabel">current tab</p>
+  </div>
+</header>
+
+<div class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>Counts bytes per tab. Response sizes come from the Content-Length header — where headers hide them, sizes are <strong>estimated</strong> (counted as unknown). Session tally resets when the background worker sleeps.</span>
+</div>
+
+<section class="totals">
+  <div class="stat down">
+    <span class="label">Downloaded</span>
+    <span class="value" id="inBytes">0 B</span>
+  </div>
+  <div class="stat up">
+    <span class="label">Uploaded</span>
+    <span class="value" id="outBytes">0 B</span>
+  </div>
+  <div class="stat">
+    <span class="label">Requests</span>
+    <span class="value" id="requests">0</span>
+  </div>
+  <div class="stat">
+    <span class="label">Unknown size</span>
+    <span class="value" id="unknown">0</span>
+  </div>
+</section>
+
+<section>
+  <div class="row-head">
+    <h2>Per-host breakdown</h2>
+    <button id="resetBtn" class="ghost" title="Reset the tally for this tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+      Reset
+    </button>
+  </div>
+  <div id="hosts" class="hosts"><p class="empty">No traffic recorded for this tab yet. Reload the page to see the ticker move.</p></div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

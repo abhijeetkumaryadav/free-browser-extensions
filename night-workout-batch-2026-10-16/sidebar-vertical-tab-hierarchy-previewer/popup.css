@@ -1,0 +1,53 @@
+:root {
+  --accent: #818cf8;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.05);
+  --text: #f1f2f6;
+  --muted: #9aa0b4;
+  --border: rgba(255, 255, 255, 0.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  background: #141419;
+  color: var(--text);
+}
+.card {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { width: 34px; height: 34px; color: var(--accent); }
+.brand h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.2px; }
+.brand p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.stats { display: flex; gap: 12px; }
+.stat {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.stat span { display: block; font-size: 22px; font-weight: 700; color: var(--accent); }
+.stat label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+.primary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent);
+  color: #0d0d14;
+  border: none; border-radius: 12px;
+  padding: 12px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.primary:hover { filter: brightness(1.1); }
+.primary:active { transform: scale(0.98); }
+.primary svg { width: 18px; height: 18px; }
+.hint { font-size: 12px; color: var(--muted); line-height: 1.5; }

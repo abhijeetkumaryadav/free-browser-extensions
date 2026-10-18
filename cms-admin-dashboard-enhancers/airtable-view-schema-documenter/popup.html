@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schema Doc Generator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+    </div>
+    <div class="header-text">
+      <h1>Schema Doc Generator</h1>
+      <p class="subtitle">Field list → Markdown docs · all on-device</p>
+    </div>
+  </header>
+
+  <!-- Input section -->
+  <section class="panel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+      <span>1 · Paste fields</span>
+    </div>
+    <input type="text" id="tableName" class="table-input" placeholder="Table name (e.g. Customers)" maxlength="80">
+    <textarea id="fieldInput" placeholder="One per line — name | type, or CSV (name, type):&#10;Name | Single line text&#10;Email | Email&#10;Status | Single select&#10;Created | Created time&#10;Orders | Link to another record"></textarea>
+    <div class="input-row">
+      <button class="btn secondary" id="loadSample">Load sample</button>
+      <button class="btn secondary" id="clearInput">Clear</button>
+      <button class="btn primary" id="generateBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Generate docs
+      </button>
+    </div>
+    <p class="hint">Supported types auto-detect: text, number, select, date, checkbox, attachment, link, formula, rollup, email, URL, phone… anything else is kept as a custom type.</p>
+  </section>
+
+  <!-- Preview + export -->
+  <section class="panel hidden" id="outputPanel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span>2 · Preview &amp; export</span>
+      <span class="stat" id="fieldCount"></span>
+    </div>
+    <div id="preview" class="preview"></div>
+    <div class="export-row">
+      <button class="btn primary" id="copyMd">Copy Markdown</button>
+      <button class="btn secondary" id="downloadMd">Download .md</button>
+    </div>
+  </section>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

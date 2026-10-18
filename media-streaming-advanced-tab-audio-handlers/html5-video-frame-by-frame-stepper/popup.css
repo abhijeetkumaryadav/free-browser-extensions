@@ -1,0 +1,99 @@
+/* FrameStep — deep-dark glassmorphism, one cyan accent */
+:root {
+  --accent: #22d3ee;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+  --danger: #ef4444;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+}
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+/* Header */
+.header { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, #22d3ee, #0e7490);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.35);
+}
+.logo svg { width: 22px; height: 22px; color: #062a30; }
+.header h1 { font-size: 15px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.status {
+  margin-left: auto; font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.6px; color: var(--muted);
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(12px);
+}
+.status.live { color: var(--accent); border-color: rgba(34, 211, 238, 0.4); }
+
+/* Cards */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Readout */
+.readout { display: flex; gap: 8px; margin-bottom: 12px; }
+.readout-item {
+  flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px 10px; text-align: center;
+}
+.readout-item .label { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
+.readout-item .value { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
+.readout-item .value.small { font-size: 12px; color: var(--text); font-weight: 600; }
+
+/* Controls */
+.controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+  color: var(--text); border-radius: 12px; cursor: pointer;
+  font-size: 13px; font-weight: 600; padding: 10px 14px;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(34,211,238,0.4); }
+.btn:active { transform: scale(0.97); }
+.btn svg { width: 18px; height: 18px; }
+.btn.icon { width: 52px; height: 52px; border-radius: 50%; padding: 0; }
+.btn.primary {
+  width: 64px; height: 64px; border-radius: 50%; padding: 0;
+  background: linear-gradient(135deg, #22d3ee, #0891b2);
+  border: none; box-shadow: 0 4px 18px rgba(34, 211, 238, 0.4);
+}
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.primary svg { color: #062a30; width: 24px; height: 24px; }
+.btn.wide { width: 100%; }
+.btn.wide svg { color: var(--accent); }
+.hidden { display: none; }
+
+/* Row */
+.row { display: flex; align-items: center; justify-content: space-between; }
+.row label { font-size: 12px; color: var(--muted); }
+select {
+  background: rgba(0,0,0,0.35); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; font-size: 12px; cursor: pointer;
+}
+select:focus { outline: none; border-color: var(--accent); }
+
+.hint { font-size: 11px; color: var(--muted); line-height: 1.7; margin-top: 10px; }
+.hint kbd {
+  background: rgba(255,255,255,0.08); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1px 6px; font-size: 10px; font-family: monospace;
+}
+.footer { text-align: center; font-size: 10px; color: var(--muted); opacity: 0.7; }

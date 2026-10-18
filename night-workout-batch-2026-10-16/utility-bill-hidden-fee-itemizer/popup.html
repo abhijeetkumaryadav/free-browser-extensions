@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BillFee Itemizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12a1 1 0 0 1 1 1v19l-3-2-2.5 2L11 20l-2.5 2L6 20l-3 2V3a1 1 0 0 1 1-1z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+    </div>
+    <div>
+      <h1>BillFee Itemizer</h1>
+      <p class="sub">Spot hidden fees in your bills</p>
+    </div>
+  </header>
+
+  <div class="notice" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span>Educational flagger only — based on data you type in. Not an official bill audit.</span>
+  </div>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="label">Bills logged</span><span class="value" id="statBills">0</span></div>
+    <div class="stat"><span class="label">Total paid</span><span class="value" id="statTotal">$0.00</span></div>
+    <div class="stat"><span class="label">Avg / bill</span><span class="value" id="statAvg">$0.00</span></div>
+    <div class="stat"><span class="label">Flagged fees</span><span class="value flag" id="statFlags">0</span></div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="bills" role="tab">Bills</button>
+    <button class="tab" data-tab="add" role="tab">Add bill</button>
+    <button class="tab" data-tab="flags" role="tab">Flagged fees <span class="pill" id="flagPill">0</span></button>
+  </nav>
+
+  <main>
+    <section class="panel active" id="panel-bills">
+      <div class="toolbar">
+        <select id="providerFilter" aria-label="Filter by provider"><option value="">All providers</option></select>
+        <button class="btn ghost" id="exportBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></svg>
+          CSV
+        </button>
+      </div>
+      <div id="billList" class="bill-list"></div>
+    </section>
+
+    <section class="panel" id="panel-add">
+      <form id="billForm" class="form">
+        <label>Provider
+          <input type="text" id="fProvider" placeholder="e.g. City Power & Light" required maxlength="60">
+        </label>
+        <div class="row">
+          <label>Billing month
+            <input type="month" id="fMonth" required>
+          </label>
+          <label>Due date <span class="opt">(optional)</span>
+            <input type="date" id="fDue">
+          </label>
+        </div>
+        <div class="lines-head">
+          <h2>Line items</h2>
+          <button type="button" class="btn ghost sm" id="addLineBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            Add line
+          </button>
+        </div>
+        <div id="lineItems"></div>
+        <div class="bill-total">Bill total: <strong id="billTotal">$0.00</strong></div>
+        <button type="submit" class="btn primary wide">Save bill</button>
+      </form>
+    </section>
+
+    <section class="panel" id="panel-flags">
+      <p class="hint">Items that look like extra fees are listed here with plain-language explanations. Tap one to see which bill it came from.</p>
+      <div id="flagList" class="flag-list"></div>
+    </section>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

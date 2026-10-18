@@ -1,0 +1,153 @@
+/* Quick Tab Switcher HUD — popup styles.
+   Design system: 380px popup, deep dark + glassmorphism, ONE violet accent,
+   12–16px breathing room, Lucide-style stroke icons. */
+
+:root {
+  --accent: #8b5cf6;          /* violet — the single accent color */
+  --accent-soft: rgba(139, 92, 246, 0.16);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f6;
+  --text-dim: #9a9aa5;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 560px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.app { display: flex; flex-direction: column; height: 100%; padding: 14px; gap: 12px; }
+
+/* ---- glass panels ---- */
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ---- header ---- */
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { width: 20px; height: 20px; color: var(--accent); }
+h1 { font-size: 14px; font-weight: 600; letter-spacing: 0.2px; }
+.count {
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 20px; padding: 2px 10px;
+}
+
+/* ---- search ---- */
+.search-wrap {
+  position: relative; display: flex; align-items: center;
+}
+.search-icon {
+  position: absolute; left: 12px; width: 16px; height: 16px; color: var(--text-dim);
+  pointer-events: none;
+}
+#search {
+  width: 100%;
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); font-size: 13px;
+  padding: 11px 64px 11px 36px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+#search::placeholder { color: var(--text-dim); }
+.hint-kbd {
+  position: absolute; right: 10px;
+  font-family: inherit; font-size: 10px; color: var(--text-dim);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px;
+  pointer-events: none;
+}
+
+/* ---- tab list ---- */
+.list {
+  list-style: none;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 6px;
+  min-height: 120px; max-height: 330px;
+  padding-right: 2px;
+}
+.list::-webkit-scrollbar { width: 6px; }
+.list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+
+.tab-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.tab-item:hover { background: rgba(255, 255, 255, 0.06); }
+.tab-item.selected {
+  background: var(--accent-soft);
+  border-color: rgba(139, 92, 246, 0.45);
+}
+.favicon {
+  width: 18px; height: 18px; flex-shrink: 0; border-radius: 4px;
+  background: rgba(255,255,255,0.06);
+}
+.tab-meta { flex: 1; min-width: 0; }
+.tab-title {
+  font-size: 12.5px; font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tab-item.active .tab-title { color: var(--accent); }
+.tab-url {
+  font-size: 11px; color: var(--text-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  margin-top: 2px;
+}
+.close-btn {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none; border-radius: 6px;
+  color: var(--text-dim); cursor: pointer;
+  opacity: 0; transition: opacity 0.12s, background 0.12s;
+}
+.tab-item:hover .close-btn, .tab-item.selected .close-btn { opacity: 1; }
+.close-btn:hover { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.close-btn svg { width: 13px; height: 13px; }
+
+.empty {
+  text-align: center; color: var(--text-dim);
+  padding: 32px 16px; font-size: 12.5px;
+}
+
+/* ---- footer ---- */
+.footer { padding: 9px 14px; }
+.kbd-row {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 10.5px; color: var(--text-dim);
+}
+kbd {
+  font-family: inherit; font-size: 10px; color: var(--text);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border); border-radius: 5px;
+  padding: 1px 6px;
+}

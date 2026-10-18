@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supplier Alternative Finder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1M12 18h1M7 18h1"/></svg>
+    <div><h1>Alt Supplier Finder</h1><p>Sourcing worksheet</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Your product</h2>
+      <input id="fProduct" class="txt" placeholder="Product name, e.g. bamboo toothbrush" maxlength="80">
+      <div class="grid3">
+        <label>Unit cost $<input id="fCost" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>MOQ<input id="fMoq" type="number" min="0" step="1" placeholder="500"></label>
+        <label>Lead time (days)<input id="fLead" type="number" min="0" step="1" placeholder="30"></label>
+      </div>
+      <input id="fSupplier" class="txt" placeholder="Current supplier name (optional)" maxlength="60">
+      <button id="saveTerms" class="primary">Save terms</button>
+    </section>
+
+    <section class="glass card">
+      <h2>Search launchers</h2>
+      <p class="note">Open sourcing marketplaces with your product prefilled.</p>
+      <div class="launch">
+        <button data-site="alibaba">Alibaba</button>
+        <button data-site="mic">Made-in-China</button>
+        <button data-site="thomas">Thomasnet</button>
+        <button data-site="google">Google</button>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <h2>Compare suppliers <span id="count" class="count"></span></h2>
+      <div id="rows"></div>
+      <div class="add-form">
+        <input id="nName" placeholder="Supplier name" maxlength="60">
+        <input id="nCost" type="number" min="0" step="0.01" placeholder="Unit cost $">
+        <input id="nMoq" type="number" min="0" step="1" placeholder="MOQ">
+        <input id="nLead" type="number" min="0" step="1" placeholder="Lead days">
+        <input id="nNote" class="wide" placeholder="Note, e.g. FOB Shenzhen, samples free" maxlength="100">
+        <button id="addBtn" class="ghost wide">＋ Add supplier (max 5)</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

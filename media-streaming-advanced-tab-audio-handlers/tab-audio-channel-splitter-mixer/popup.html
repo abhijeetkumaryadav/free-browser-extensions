@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 10v4"/>
+          <path d="M8 7v10"/>
+          <path d="M12 4v16"/>
+          <path d="M16 7v10"/>
+          <path d="M20 10v4"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1>Tab Audio Mixer</h1>
+        <p class="subtitle">Stereo tools for this tab</p>
+      </div>
+      <div class="status-pill" id="statusPill">
+        <span class="dot"></span><span id="statusText">Off</span>
+      </div>
+    </header>
+
+    <!-- Enable / disable -->
+    <section class="card">
+      <button class="power-btn" id="powerBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
+          <line x1="12" y1="2" x2="12" y2="12"/>
+        </svg>
+        <span id="powerLabel">Enable mixer for this tab</span>
+      </button>
+      <p class="hint" id="tabHint">Works on the active tab. The tab is muted while the mixer runs so you only hear the processed audio.</p>
+    </section>
+
+    <!-- Controls -->
+    <section class="card" id="controlsCard">
+      <div class="control">
+        <div class="control-head">
+          <label for="balance">Balance</label>
+          <span class="value" id="balanceValue">Center</span>
+        </div>
+        <div class="slider-row">
+          <span class="chan">L</span>
+          <input type="range" id="balance" min="-100" max="100" value="0" step="1">
+          <span class="chan">R</span>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="chip" id="swapBtn" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 3l4 4-4 4"/>
+            <path d="M21 7H8"/>
+            <path d="M7 21l-4-4 4-4"/>
+            <path d="M3 17h13"/>
+          </svg>
+          Swap L/R
+        </button>
+        <button class="chip" id="monoBtn" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v18"/>
+          </svg>
+          Mono mix
+        </button>
+      </div>
+
+      <div class="btn-row">
+        <button class="chip mute" id="muteLBtn" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          Mute L
+        </button>
+        <button class="chip mute" id="muteRBtn" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          Mute R
+        </button>
+      </div>
+
+      <button class="link-btn" id="resetBtn">Reset all settings</button>
+    </section>
+
+    <footer class="footer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 16v-4"/>
+        <path d="M12 8h.01"/>
+      </svg>
+      <span>Capture can't run on browser pages (chrome://, Web Store). One tab at a time.</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

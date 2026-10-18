@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CropCalc</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12c0-4 3-7 8-7 0 4-3 7-8 7z"/><path d="M12 12c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"/></svg>
+    </span>
+    <div>
+      <h1>CropCalc</h1>
+      <p class="sub">Spacing · density · yield estimator</p>
+    </div>
+  </header>
+
+  <label class="field">
+    <span>Crop preset</span>
+    <select id="crop"></select>
+  </label>
+
+  <div class="grid2">
+    <label class="field">
+      <span>Row spacing (cm)</span>
+      <input id="rowCm" type="number" min="1" max="500" step="0.5" value="75">
+    </label>
+    <label class="field">
+      <span>In-row spacing (cm)</span>
+      <input id="plantCm" type="number" min="0.5" max="500" step="0.5" value="20">
+    </label>
+  </div>
+
+  <div class="grid2">
+    <label class="field">
+      <span>Field area</span>
+      <input id="area" type="number" min="0.01" step="0.01" value="1">
+    </label>
+    <label class="field">
+      <span>Unit</span>
+      <select id="areaUnit">
+        <option value="ha" selected>hectare</option>
+        <option value="acre">acre</option>
+        <option value="m2">m²</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="grid2">
+    <label class="field">
+      <span>Germination (%)</span>
+      <input id="germ" type="number" min="1" max="100" step="1" value="90">
+    </label>
+    <label class="field">
+      <span>Yield / plant (kg)</span>
+      <input id="yieldPlant" type="number" min="0.0001" step="0.0001" value="0.2">
+    </label>
+  </div>
+
+  <button id="calcBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>
+    Calculate
+  </button>
+
+  <div id="results" class="results hidden">
+    <div class="rrow"><span>Plants per m²</span><strong id="rDensity">–</strong></div>
+    <div class="rrow"><span>Population / hectare</span><strong id="rPopHa">–</strong></div>
+    <div class="rrow"><span>Total plants (field)</span><strong id="rTotal">–</strong></div>
+    <div class="rrow"><span>Effective stand (after germ.)</span><strong id="rEffective">–</strong></div>
+    <div class="yield-box">
+      <div class="yield-head">Estimated yield <em>(range ±20%, clearly an estimate)</em></div>
+      <div class="yield-bar">
+        <div class="bar-low" id="barLow"></div>
+        <div class="bar-mid" id="barMid"></div>
+        <div class="bar-high" id="barHigh"></div>
+      </div>
+      <div class="yield-vals">
+        <div><label>low</label><strong id="yLow">–</strong></div>
+        <div><label>expected</label><strong id="yMid">–</strong></div>
+        <div><label>high</label><strong id="yHigh">–</strong></div>
+      </div>
+      <div class="yield-total">Field total: <strong id="yTotal">–</strong></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="copyBtn" class="ghost">Copy summary</button>
+    <button id="resetBtn" class="ghost">Reset</button>
+  </div>
+
+  <footer class="foot">Standard agronomy formulas · estimates only — real yield depends on soil, weather &amp; management · 100% local, no network</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

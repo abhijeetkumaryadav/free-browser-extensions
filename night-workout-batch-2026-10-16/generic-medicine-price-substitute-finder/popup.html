@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" class="ic"><path d="M12 2v20M2 12h20"/></svg></div>
+    <div>
+      <h1>Medicine Price Logbook</h1>
+      <p class="sub">Personal price log — your entries only</p>
+    </div>
+  </header>
+
+  <!-- Mandatory health disclaimer -->
+  <div class="disclaimer" role="note">
+    <svg viewBox="0 0 24 24" class="ic"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <span>Not medical advice — ask your pharmacist about generics. This tool only logs prices.</span>
+  </div>
+
+  <form id="entry-form" autocomplete="off">
+    <label>Medicine name
+      <input id="med-name" type="text" maxlength="80" placeholder="e.g. Paracetamol 500mg" required>
+    </label>
+    <div class="row">
+      <label>Pharmacy
+        <input id="med-pharmacy" type="text" maxlength="80" placeholder="e.g. City Chemist">
+      </label>
+      <label class="price-lab">Price
+        <input id="med-price" type="number" min="0" step="0.01" placeholder="0.00" required>
+      </label>
+    </div>
+    <label>Date
+      <input id="med-date" type="date" required>
+    </label>
+    <button type="submit" class="btn primary">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M12 5v14M5 12h14"/></svg>
+      Log price
+    </button>
+  </form>
+
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search your log…" aria-label="Search log">
+    <select id="sort" aria-label="Sort order">
+      <option value="new">Newest first</option>
+      <option value="old">Oldest first</option>
+      <option value="low">Lowest price</option>
+      <option value="high">Highest price</option>
+    </select>
+  </div>
+
+  <section id="log-list" class="log" aria-live="polite"></section>
+
+  <footer class="foot">
+    <button id="export" class="btn ghost">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Export JSON
+    </button>
+    <button id="clear" class="btn ghost danger">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      Clear
+    </button>
+  </footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

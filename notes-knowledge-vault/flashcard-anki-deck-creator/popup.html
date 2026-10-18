@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M22 8.35V4.5a2 2 0 0 0-2-2H4.5a2 2 0 0 0-2 2"/><path d="M15 5.5 17.5 8 15 10.5"/><path d="M6 12h9"/></svg>
+    <div>
+      <h1>CardForge</h1>
+      <p class="subtitle">Flashcards · spaced repetition</p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="decks">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>
+    Decks
+  </button>
+  <button class="tab" data-tab="cards">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M22 8.35V4.5a2 2 0 0 0-2-2H4.5a2 2 0 0 0-2 2"/></svg>
+    Cards
+  </button>
+  <button class="tab" data-tab="study">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+    Study
+  </button>
+</nav>
+
+<main>
+  <!-- DECKS -->
+  <section id="tab-decks" class="tabpanel active">
+    <div class="addrow">
+      <input id="deckName" type="text" placeholder="New deck name…" maxlength="60">
+      <button id="addDeckBtn" class="primary sm">Add</button>
+    </div>
+    <div id="deckList" class="deck-list"></div>
+  </section>
+
+  <!-- CARDS -->
+  <section id="tab-cards" class="tabpanel">
+    <div class="deck-picker">
+      <label for="cardDeckSelect">Deck</label>
+      <select id="cardDeckSelect"></select>
+    </div>
+    <div class="field">
+      <label for="cardFront">Front</label>
+      <textarea id="cardFront" rows="2" placeholder="Question, term, phrase…"></textarea>
+    </div>
+    <div class="field">
+      <label for="cardBack">Back</label>
+      <textarea id="cardBack" rows="2" placeholder="Answer, definition, translation…"></textarea>
+    </div>
+    <div class="row">
+      <button id="addCardBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"/></svg>
+        Add card
+      </button>
+      <button id="exportTsvBtn" class="ghost" title="Export this deck as Anki-compatible TSV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+        Anki TSV
+      </button>
+    </div>
+    <p id="cardStatus" class="status"></p>
+    <div id="cardList" class="card-list"></div>
+  </section>
+
+  <!-- STUDY -->
+  <section id="tab-study" class="tabpanel">
+    <div class="deck-picker">
+      <label for="studyDeckSelect">Deck</label>
+      <select id="studyDeckSelect"></select>
+    </div>
+    <div id="studyEmpty" class="empty-msg">Pick a deck and press Start to study.</div>
+    <div id="studyBox" class="hidden">
+      <p id="studyProgress" class="progress-label"></p>
+      <div id="flashcard" class="flashcard">
+        <div class="flash-inner">
+          <div class="flash-face flash-front"><p id="flashFront"></p></div>
+          <div class="flash-face flash-back"><p id="flashBack"></p></div>
+        </div>
+      </div>
+      <button id="flipBtn" class="primary wide">Show answer</button>
+      <div id="gradeRow" class="grade-row hidden">
+        <button class="grade g-again" data-grade="again">Again</button>
+        <button class="grade g-hard" data-grade="hard">Hard</button>
+        <button class="grade g-good" data-grade="good">Good</button>
+        <button class="grade g-easy" data-grade="easy">Easy</button>
+      </div>
+      <button id="stopStudyBtn" class="ghost wide">End session</button>
+    </div>
+    <div id="studyDone" class="hidden">
+      <div class="done-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        <h3>Session complete!</h3>
+        <p id="studySummary"></p>
+        <button id="studyAgainBtn" class="primary">Study again</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Deck options modal -->
+<div id="deckModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="deckModalTitle">Deck</h3>
+      <button id="deckModalClose" class="icon-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="field">
+      <label for="deckRename">Rename deck</label>
+      <input id="deckRename" type="text" maxlength="60">
+    </div>
+    <div class="row">
+      <button id="deckRenameBtn" class="primary">Rename</button>
+      <button id="deckDeleteBtn" class="danger-ghost">Delete deck</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

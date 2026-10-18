@@ -1,0 +1,84 @@
+/* Medicine Price Logbook — deep-dark glassmorphism, one teal accent */
+:root{
+  --accent:#10b981;           /* teal — single accent */
+  --accent-soft:rgba(16,185,129,.14);
+  --bg:#0e0e14;
+  --ink:#f1f1f4;
+  --ink-dim:#a7a7b5;
+  --stroke:rgba(255,255,255,.09);
+  --field:rgba(255,255,255,.05);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  width:380px;max-height:560px;overflow-y:auto;
+  font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);background:var(--bg);
+}
+.card{
+  margin:12px;padding:16px;border-radius:18px;
+  background:rgba(20,20,26,.72);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--stroke);
+  display:flex;flex-direction:column;gap:14px;
+}
+.head{display:flex;align-items:center;gap:12px}
+.logo{
+  width:40px;height:40px;border-radius:12px;flex:none;
+  background:var(--accent-soft);border:1px solid var(--stroke);
+  display:grid;place-items:center;color:var(--accent);
+}
+.head h1{margin:0;font-size:16px;font-weight:650}
+.sub{margin:2px 0 0;font-size:12px;color:var(--ink-dim)}
+.ic{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Disclaimer banner — always visible */
+.disclaimer{
+  display:flex;gap:10px;align-items:flex-start;
+  background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);
+  border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.5;
+  color:#fcd34d;
+}
+.disclaimer .ic{flex:none;margin-top:2px}
+
+form{display:flex;flex-direction:column;gap:10px}
+label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--ink-dim)}
+.row{display:grid;grid-template-columns:1fr 110px;gap:10px}
+input,select{
+  background:var(--field);border:1px solid var(--stroke);border-radius:10px;
+  color:var(--ink);padding:9px 10px;font-size:13px;width:100%;outline:none;
+}
+input:focus,select:focus{border-color:var(--accent)}
+select option{background:#1a1a22}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;border-radius:12px;padding:10px 12px;font-size:13px;font-weight:600;
+  cursor:pointer;
+}
+.btn .ic{width:16px;height:16px}
+.btn.primary{background:var(--accent);color:#06281d}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:var(--field);border:1px solid var(--stroke);color:var(--ink)}
+.btn.ghost.danger{color:#f87171}
+.toolbar{display:flex;gap:8px}
+.toolbar input{flex:1}
+.toolbar select{flex:none;width:120px}
+
+.log{display:flex;flex-direction:column;gap:8px}
+.entry{
+  border:1px solid var(--stroke);border-radius:12px;padding:10px 12px;
+  background:rgba(255,255,255,.03);
+}
+.entry .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.entry .name{font-weight:650;font-size:13px}
+.entry .meta{font-size:12px;color:var(--ink-dim);margin-top:2px}
+.entry .del{background:none;border:none;color:var(--ink-dim);cursor:pointer;padding:4px;border-radius:8px}
+.entry .del:hover{color:#f87171}
+.lowest{
+  display:inline-flex;align-items:center;gap:4px;margin-left:6px;
+  font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 8px;
+}
+.empty{text-align:center;color:var(--ink-dim);font-size:13px;padding:18px 0}
+.foot{display:flex;gap:8px}
+.foot .btn{flex:1}

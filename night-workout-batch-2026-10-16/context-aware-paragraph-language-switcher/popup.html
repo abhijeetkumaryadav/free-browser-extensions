@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/><circle cx="19" cy="18" r="3"/></svg>
+    <div>
+      <h1>Script Labeler</h1>
+      <p class="sub">Guess each paragraph's writing script</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Script guess only — not language detection, no translation. Guesses can be wrong.</span>
+  </div>
+
+  <div class="stats" id="stats" hidden></div>
+
+  <div class="actions">
+    <button id="label" class="primary">Label paragraphs</button>
+    <button id="clear" class="ghost" disabled>Clear labels</button>
+  </div>
+
+  <p class="hint">Runs only when you click. Adds small badges next to paragraphs; the page text itself is never changed. Clear removes every badge.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

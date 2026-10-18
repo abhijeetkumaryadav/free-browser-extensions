@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trend Velocity Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    <div><h1>Velocity Tracker</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <section id="product" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div id="metrics"></div>
+    </section>
+    <section class="glass card">
+      <h2>Log snapshot</h2>
+      <div class="grid2">
+        <label>Price<input id="sPrice" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Rating (0–5)<input id="sRating" type="number" min="0" max="5" step="0.1" placeholder="4.5"></label>
+        <label>Review count<input id="sReviews" type="number" min="0" step="1" placeholder="1200"></label>
+        <label>Rank #<input id="sRank" type="number" min="0" step="1" placeholder="optional"></label>
+      </div>
+      <button id="logSnap" class="primary wide">Log snapshot</button>
+    </section>
+    <section class="glass card" id="histCard" hidden>
+      <h2>Tracked products</h2>
+      <div id="history"></div>
+    </section>
+    <div id="empty" class="empty">Hit <b>Scan page</b> on a product page, then log snapshots over time to see velocity.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>SVG Export Grabber</title>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+        <path d="M2 2l7.586 7.586"/>
+        <circle cx="11" cy="11" r="2"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>SVG Export Grabber</h1>
+      <p>Find &amp; export page SVGs</p>
+    </div>
+    <span class="privacy-pill">local only</span>
+  </header>
+
+  <!-- Controls -->
+  <div class="toolbar">
+    <button class="btn-primary btn-sm" id="scanBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      Scan page
+    </button>
+    <button class="btn-primary btn-sm hidden" id="downloadAllBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      Download all
+    </button>
+    <span class="count hidden" id="countBadge"></span>
+  </div>
+
+  <p class="error hidden" id="errorMsg"></p>
+
+  <!-- Results -->
+  <div id="resultsList" class="results-list"></div>
+  <p class="empty" id="emptyState">Click <b>Scan page</b> to find every inline SVG and SVG image on the active tab.</p>
+
+  <footer class="footer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span>Reads only the page you scan · nothing uploaded</span>
+  </footer>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service Risk Translator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><h1>Risk Translator</h1><p>Paste ToS → spot the risky bits</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Terms of Service text
+        <textarea id="input" rows="6" placeholder="Paste the Terms of Service here…"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="scan" class="primary">Scan for risks</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+    <section class="glass card" id="results" hidden>
+      <div id="verdict" class="verdict"></div>
+      <div id="rows"></div>
+      <button id="copy" class="ghost">Copy report</button>
+      <p class="note">Heuristic keyword scan only — not legal advice. Read the full terms before agreeing.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Phase & Altitude</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header>
+    <h1>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      Moon Tonight
+    </h1>
+    <p class="sub">Phase, illumination and sky position — computed locally.</p>
+  </header>
+
+  <!-- Big phase readout -->
+  <section class="hero">
+    <canvas id="moonCanvas" width="120" height="120" aria-label="Moon phase illustration"></canvas>
+    <div class="hero-text">
+      <div class="phase" id="phaseName">—</div>
+      <div class="illum" id="illum">—</div>
+      <div class="age" id="age">—</div>
+    </div>
+  </section>
+
+  <!-- Position -->
+  <section class="pos">
+    <div class="tile"><span class="k">Altitude</span><span class="v" id="alt">—</span></div>
+    <div class="tile"><span class="k">Azimuth</span><span class="v" id="az">—</span></div>
+    <div class="tile"><span class="k">Distance</span><span class="v" id="dist">—</span></div>
+  </section>
+
+  <!-- Location / time -->
+  <section class="settings">
+    <div class="row">
+      <label>Lat° <input id="lat" type="number" step="0.01" min="-90" max="90" placeholder="51.5"></label>
+      <label>Lon° <input id="lon" type="number" step="0.01" min="-180" max="180" placeholder="-0.1"></label>
+    </div>
+    <div class="row">
+      <label>Time <input id="when" type="datetime-local"></label>
+      <button id="nowBtn" class="ghost" type="button">Now</button>
+    </div>
+    <button id="calcBtn" class="primary" type="button">Compute moon</button>
+  </section>
+
+  <footer class="note">Standard low-precision lunar algorithm (Paul Schlyter / synodic math). Approximate — not for navigation. Fully local, no network.</footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

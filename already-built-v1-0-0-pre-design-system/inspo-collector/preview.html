@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Inspo Collector — Preview</title>
+<style>
+:root {
+  --bg: #14101a; --panel: #1e1826; --ink: #f3ecf7; --muted: #a89bb5;
+  --accent: #c97b8e; --accent-deep: #8e4a5e; --line: #2c2337;
+}
+* { box-sizing: border-box; }
+body {
+  width: 380px; margin: 0; background: var(--bg); color: var(--ink);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex; flex-direction: column; min-height: 560px;
+}
+header { padding: 12px 12px 8px; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--line); }
+.brand { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
+.brand .pin { color: var(--accent); }
+#search { background: var(--panel); border: 1px solid var(--line); color: var(--ink); border-radius: 8px; padding: 7px 10px; outline: none; }
+nav#boards { display: flex; gap: 6px; padding: 10px 12px; overflow-x: auto; border-bottom: 1px solid var(--line); }
+nav#boards button { flex: 0 0 auto; background: var(--panel); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 12px; }
+nav#boards button.active { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; }
+main#grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; align-content: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.card img { width: 100%; height: 110px; object-fit: cover; display: block; background: #0d0a12; }
+.card .meta { padding: 7px 8px 8px; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.card .tags span { font-size: 10px; background: #2c2337; color: var(--muted); border-radius: 999px; padding: 2px 7px; }
+.card .swatches { display: flex; gap: 4px; }
+.card .swatches i { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,.25); display: inline-block; }
+.card .row { display: flex; gap: 6px; margin-top: 7px; }
+.card .row button { flex: 1; background: transparent; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 4px 0; font-size: 11px; }
+footer { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+footer .actions { display: flex; gap: 8px; }
+footer button { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; }
+.hint { text-align:center; color: var(--muted); font-size: 11px; padding: 6px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="pin">◈</span> Inspo Collector</div>
+    <input id="search" type="search" placeholder="Search tags or titles…">
+  </header>
+  <nav id="boards">
+    <button class="active"><span>Festive Edit (3)</span></button>
+    <button><span>Glow Routine (2)</span></button>
+    <button><span>Unsorted (1)</span></button>
+  </nav>
+  <main id="grid">
+    <div class="card">
+      <img src="https://picsum.photos/seed/diwalifashion/400/300" alt="">
+      <div class="meta">
+        <div class="tags"><span>diwali</span><span>saree</span><span>gold</span><span>pinterest</span></div>
+        <div class="swatches">
+          <i style="background:#8e2f3c"></i><i style="background:#d4a017"></i><i style="background:#2b1a22"></i><i style="background:#e8c874"></i><i style="background:#5c1f2e"></i>
+        </div>
+        <div class="row"><button>Source ↗</button><button>Delete</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/seed/attaroud/400/300" alt="">
+      <div class="meta">
+        <div class="tags"><span>attar</span><span>oud</span><span>campaign</span></div>
+        <div class="swatches">
+          <i style="background:#3a2a1a"></i><i style="background:#8a6a3a"></i><i style="background:#14100c"></i><i style="background:#c9a86a"></i><i style="background:#5c4a2a"></i>
+        </div>
+        <div class="row"><button>Source ↗</button><button>Delete</button></div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/seed/zardozi/400/300" alt="">
+      <div class="meta">
+        <div class="tags"><span>zardozi</span><span>embroidery</span><span>heritage</span></div>
+        <div class="swatches">
+          <i style="background:#7a1f2b"></i><i style="background:#c9962e"></i><i style="background:#2e1a1e"></i><i style="background:#e5c76b"></i><i style="background:#4a2a20"></i>
+        </div>
+        <div class="row"><button>Source ↗</button><button>Delete</button></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <span>3 saved</span>
+    <div class="actions"><button>＋ Board</button><button>Export</button></div>
+  </footer>
+  <div class="hint">Preview mockup with sample data — v1.0.0</div>
+</body>
+</html>

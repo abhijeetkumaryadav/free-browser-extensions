@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palette + Font Finder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="pin">◈</span> Palette + Font Finder</div>
+    <button id="analyze">Analyze this page</button>
+    <div id="status"></div>
+  </header>
+
+  <main>
+    <section id="colorsSection" hidden>
+      <div class="sec-head"><h2>Colors</h2><button id="copyCss" class="ghost">Copy as CSS</button></div>
+      <div id="swatches"></div>
+    </section>
+
+    <section id="fontsSection" hidden>
+      <div class="sec-head"><h2>Fonts</h2></div>
+      <div id="fonts"></div>
+    </section>
+
+    <section id="savedSection" hidden>
+      <div class="sec-head"><h2>Saved palettes</h2></div>
+      <div id="saved"></div>
+    </section>
+
+    <div id="empty" class="empty">Click “Analyze this page” to extract its colors and fonts.</div>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

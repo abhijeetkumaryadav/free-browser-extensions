@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clickstream Heatmap</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9h.01"/><path d="M15 15h.01"/><path d="M12 12h.01"/><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+    <div>
+      <h1>Clickstream Heatmap</h1>
+      <p class="sub">Local visualizer of your own clicks</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p>Honest scope: shows only <b>your real clicks</b> on this page. It <b>never generates fake clicks</b> or traffic. All data stays in this browser.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="clicksPage">0</span><span class="lbl">clicks this page</span></div>
+    <div class="stat"><span class="num" id="clicksTotal">0</span><span class="lbl">total clicks</span></div>
+    <div class="stat"><span class="num" id="pagesTracked">0</span><span class="lbl">pages tracked</span></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>Track clicks on this tab</span>
+      <small>Injects a listener after your explicit click</small>
+    </div>
+    <label class="switch"><input type="checkbox" id="trackToggle"><span class="knob"></span></label>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>Disable tracking for this site</span>
+      <small id="siteName">—</small>
+    </div>
+    <label class="switch"><input type="checkbox" id="siteDisable"><span class="knob"></span></label>
+  </div>
+
+  <div class="btns">
+    <button id="showMap" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.5"/></svg>
+      Show heatmap overlay
+    </button>
+    <button id="clearPage" class="ghost">Clear this page</button>
+    <button id="clearAll" class="ghost danger">Clear everything</button>
+  </div>
+
+  <p class="foot">No network calls · No fake traffic · Delete anytime</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

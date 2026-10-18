@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Eye Yoga Pacer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="top">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/>
+  </svg>
+  <div><h1>Eye Yoga Pacer</h1><p class="sub">Strain recovery routines</p></div>
+</header>
+
+<p class="notice">Pacing aid only — not medical advice. Stop if anything feels uncomfortable; see a professional for vision problems.</p>
+
+<section class="card">
+  <h2>Routine</h2>
+  <div class="phase-row" id="phaseRow">
+    <button class="phase active" data-phase="fig8">Figure-8</button>
+    <button class="phase" data-phase="updown">Up–Down</button>
+    <button class="phase" data-phase="leftright">Left–Right</button>
+    <button class="phase" data-phase="palming">Palming</button>
+  </div>
+  <canvas id="stage" width="348" height="190"></canvas>
+  <div class="row">
+    <button id="startBtn" class="btn">Start</button>
+    <button id="stopBtn" class="btn ghost" disabled>Stop</button>
+    <span id="timer" class="val">60s</span>
+  </div>
+  <p class="hint" id="phaseHint">Follow the dot with your eyes — keep your head still.</p>
+</section>
+
+<section class="card">
+  <h2>Settings</h2>
+  <div class="row"><label>Phase duration</label>
+    <input type="range" id="duration" min="20" max="180" step="10" value="60">
+    <span id="durationLabel" class="val">60s</span>
+  </div>
+  <div class="row"><label>Dot speed</label>
+    <input type="range" id="speed" min="1" max="5" step="1" value="3">
+    <span id="speedLabel" class="val">3</span>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Session log</h2>
+  <div id="log" class="empty">No sessions yet.</div>
+  <button id="clearLog" class="btn ghost small">Clear log</button>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

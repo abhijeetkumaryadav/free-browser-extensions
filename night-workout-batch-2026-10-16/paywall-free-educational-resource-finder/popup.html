@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <div>
+      <h1>Free Learning Logbook</h1>
+      <p class="sub">Your saved free-learning links · search &amp; rate</p>
+    </div>
+  </header>
+  <p class="banner">📚 Saves links <em>you</em> find. It never bypasses paywalls — always use official free access.</p>
+  <div class="bar">
+    <input id="q" type="search" placeholder="Search title, topic, type…">
+    <select id="topicFilter"><option value="">All topics</option></select>
+  </div>
+  <div id="list" class="list"></div>
+  <details class="add">
+    <summary>Add a resource</summary>
+    <input id="fTitle" placeholder="Title">
+    <input id="fUrl" placeholder="https://…">
+    <div class="row">
+      <input id="fTopic" placeholder="Topic (e.g. math)">
+      <select id="fType">
+        <option>course</option><option>docs</option><option>tutorial</option>
+        <option>video</option><option>book</option><option>other</option>
+      </select>
+      <select id="fRating">
+        <option value="0">★ rate</option><option value="1">★</option><option value="2">★★</option>
+        <option value="3">★★★</option><option value="4">★★★★</option><option value="5">★★★★★</option>
+      </select>
+    </div>
+    <button id="save" class="btn primary">Save</button>
+  </details>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

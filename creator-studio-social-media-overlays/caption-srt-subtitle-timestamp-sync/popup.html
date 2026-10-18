@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 15h4M6 11h8M16 15h2M14 11h4"/></svg>
+      <div>
+        <h1>SRT Timestamp Studio</h1>
+        <div class="subtitle">Validate · shift · renumber · export subtitles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <section class="panel">
+    <div class="field-label">Subtitle file</div>
+    <textarea id="srtInput" placeholder="Paste SRT content here, or drop a .srt file…"></textarea>
+    <div class="row">
+      <label class="btn btn-ghost file-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+        Open .srt file
+        <input type="file" id="fileInput" accept=".srt,text/plain" class="hidden">
+      </label>
+      <button class="btn btn-ghost" id="sampleBtn">Load sample</button>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" id="parseBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Parse &amp; validate
+      </button>
+    </div>
+  </section>
+
+  <!-- Validation -->
+  <section class="panel hidden" id="validationPanel">
+    <div class="field-label">Validation</div>
+    <div class="errors" id="errorList"></div>
+  </section>
+
+  <!-- Adjust -->
+  <section class="panel hidden" id="adjustPanel">
+    <div class="field-label">Shift timestamps</div>
+    <div class="stats">
+      <div class="stat"><span class="stat-k">Cues</span><span class="stat-v" id="statCues">0</span></div>
+      <div class="stat"><span class="stat-k">Duration</span><span class="stat-v" id="statDur">—</span></div>
+      <div class="stat"><span class="stat-k">Shifted</span><span class="stat-v" id="statShift">+0 ms</span></div>
+    </div>
+    <div class="shift-grid">
+      <div class="shift-field">
+        <label>Seconds (±)</label>
+        <input class="num-input" id="shiftSec" type="number" value="0" step="1">
+      </div>
+      <div class="shift-field">
+        <label>Millis (±)</label>
+        <input class="num-input" id="shiftMs" type="number" value="0" step="50">
+      </div>
+      <button class="btn btn-primary" id="applyShiftBtn" style="flex:0 0 auto">Apply</button>
+    </div>
+    <div class="row">
+      <button class="btn btn-ghost" id="fixNumBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        Fix numbering
+      </button>
+      <button class="btn btn-ghost" id="resetBtn">Reset</button>
+    </div>
+  </section>
+
+  <!-- Preview -->
+  <section class="panel hidden" id="previewPanel">
+    <div class="field-label">Preview</div>
+    <div class="preview" id="cueList"></div>
+  </section>
+
+  <!-- Export -->
+  <section class="panel hidden" id="exportPanel">
+    <div class="field-label">Export</div>
+    <div class="row">
+      <button class="btn btn-primary" id="downloadBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+        Download .srt
+      </button>
+      <button class="btn btn-ghost" id="copyBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy
+      </button>
+    </div>
+  </section>
+
+  <div class="footer">100% client-side · your subtitles never leave this device</div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

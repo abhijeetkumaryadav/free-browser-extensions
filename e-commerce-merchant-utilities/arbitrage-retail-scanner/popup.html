@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arbitrage Retail Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+    <div>
+      <h1>Arbitrage Scanner</h1>
+      <p id="pageHost">—</p>
+    </div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+
+  <main>
+    <section id="product" class="glass card" hidden>
+      <div class="prod-title" id="prodTitle">—</div>
+      <div class="prod-price"><span id="prodPrice">—</span><span id="prodCur"></span></div>
+      <div class="compare">
+        <button data-cmp="google">Google Shopping</button>
+        <button data-cmp="amazon">Amazon</button>
+        <button data-cmp="ebay">eBay</button>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        Margin calculator
+      </h2>
+      <div class="grid2">
+        <label>Buy price<input id="buy" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Sell price<input id="sell" type="number" min="0" step="0.01" placeholder="0.00"></label>
+        <label>Marketplace fee %<input id="fee" type="number" min="0" max="100" step="0.1" value="12"></label>
+        <label>Shipping cost<input id="ship" type="number" min="0" step="0.01" value="0"></label>
+      </div>
+      <div id="result" class="result" hidden>
+        <div class="rrow"><span>Profit</span><b id="rProfit">—</b></div>
+        <div class="rrow"><span>Margin</span><b id="rMargin">—</b></div>
+        <div class="rrow"><span>ROI</span><b id="rRoi">—</b></div>
+        <div id="verdict" class="verdict">—</div>
+      </div>
+      <button id="saveScan" class="ghost">Save this scan</button>
+    </section>
+
+    <section class="glass card" id="histCard" hidden>
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>
+        Scan history
+      </h2>
+      <div id="history"></div>
+    </section>
+
+    <div id="empty" class="empty">Hit <b>Scan page</b> on any product page to detect its title and price.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

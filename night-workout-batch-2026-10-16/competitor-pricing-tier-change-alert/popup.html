@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Competitor Pricing Tier Change Alert</title>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="hdr-row">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24H4a1 1 0 0 0-1 1v5.59a2 2 0 0 0 .59 1.41l9.58 9.59a2 2 0 0 0 2.83 0l4.59-4.59a2 2 0 0 0 0-2.83z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>
+      <div>
+        <h1>Pricing Watchdog</h1>
+        <p class="sub">Manual competitor pricing logbook</p>
+      </div>
+    </div>
+    <div class="honest" role="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+      <span>MANUAL LOGGING ONLY — this extension does <b>not</b> monitor competitors or fetch live prices. You type every price yourself.</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="log">Log</button>
+    <button class="tab" data-tab="history">History</button>
+    <button class="tab" data-tab="compete">Competitors</button>
+  </nav>
+
+  <!-- LOG TAB -->
+  <section class="panel active" id="tab-log">
+    <label class="fld">
+      <span>Competitor</span>
+      <select id="log-comp"></select>
+    </label>
+    <label class="fld">
+      <span>Snapshot date</span>
+      <input type="date" id="log-date">
+    </label>
+    <div class="tiers" id="tier-rows"></div>
+    <button class="btn ghost" id="add-tier">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Add tier
+    </button>
+    <button class="btn primary" id="save-snap">Save snapshot &amp; check changes</button>
+
+    <div class="diff hidden" id="diff-box">
+      <h2>Changes vs previous snapshot</h2>
+      <ul id="diff-list"></ul>
+    </div>
+  </section>
+
+  <!-- HISTORY TAB -->
+  <section class="panel" id="tab-history">
+    <label class="fld">
+      <span>Competitor</span>
+      <select id="hist-comp"></select>
+    </label>
+    <div class="stats" id="hist-stats"></div>
+    <div class="snaps" id="snap-list"></div>
+  </section>
+
+  <!-- COMPETITORS TAB -->
+  <section class="panel" id="tab-compete">
+    <div class="addrow">
+      <input type="text" id="comp-name" placeholder="Competitor name (e.g. Acme SaaS)">
+      <button class="btn primary sm" id="add-comp">Add</button>
+    </div>
+    <ul class="comps" id="comp-list"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

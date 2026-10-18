@@ -1,0 +1,58 @@
+/* Screen Crack Prank popup — deep-dark glassmorphism, 380px, single red accent */
+:root {
+  --accent: #ef4444;
+  --bg: rgba(20, 20, 26, 0.72);
+  --text: #f2f2f7;
+  --muted: #a3a3b8;
+  --border: rgba(255, 255, 255, 0.09);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: #0c0c12;
+}
+.card {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px;
+}
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.logo { width: 32px; height: 32px; flex-shrink: 0; }
+h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.notice {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ffd9d9;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+}
+.desc { font-size: 13px; line-height: 1.6; color: var(--muted); margin-bottom: 14px; }
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+button.primary { background: var(--accent); color: #fff; }
+button.primary:hover { filter: brightness(1.1); }
+button.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+button.ghost:hover { background: rgba(255, 255, 255, 0.06); }
+.status { font-size: 12px; color: var(--muted); min-height: 16px; text-align: center; }

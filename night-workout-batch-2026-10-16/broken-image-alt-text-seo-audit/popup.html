@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImgAudit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+    </div>
+    <div>
+      <h1>ImgAudit</h1>
+      <p class="sub">Image SEO audit · read-only</p>
+    </div>
+  </header>
+
+  <section class="score-panel" id="scorePanel" hidden>
+    <div class="score-ring">
+      <svg viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" class="track"/>
+        <circle cx="40" cy="40" r="34" class="fill" id="scoreArc"/>
+      </svg>
+      <div class="score-num"><span id="scoreNum">–</span><small>/100</small></div>
+    </div>
+    <div class="score-meta">
+      <div id="verdict" class="verdict">—</div>
+      <div id="pageUrl" class="page-url"></div>
+    </div>
+  </section>
+
+  <div class="stat-row" id="statRow" hidden>
+    <div class="stat"><b id="stTotal">0</b><span>images</span></div>
+    <div class="stat bad"><b id="stBroken">0</b><span>broken</span></div>
+    <div class="stat bad"><b id="stAlt">0</b><span>alt issues</span></div>
+    <div class="stat warn"><b id="stHeavy">0</b><span>oversized</span></div>
+  </div>
+
+  <div class="actions">
+    <button id="scanBtn" class="primary">Scan this page</button>
+    <button id="exportBtn" class="ghost" disabled>Export JSON</button>
+  </div>
+
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+      <span>Findings</span>
+      <div class="filters">
+        <button data-f="all" class="chip active">all</button>
+        <button data-f="error" class="chip">errors</button>
+        <button data-f="warning" class="chip">warnings</button>
+      </div>
+    </div>
+    <ul class="find-list" id="findList"><li class="empty">Run a scan to audit this page's images.</li></ul>
+  </section>
+
+  <footer class="foot">Heuristic audit — decorative images may legitimately use empty alt="". Read-only: nothing on the page is changed.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

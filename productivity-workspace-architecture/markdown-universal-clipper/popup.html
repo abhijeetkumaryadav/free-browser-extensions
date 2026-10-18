@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown Universal Clipper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <div>
+      <h1>Markdown Clipper</h1>
+      <p id="pageHost">Detecting page…</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <label class="row">
+        <input type="checkbox" id="optSelection" checked>
+        <span>Selected text as blockquote</span>
+      </label>
+      <label class="row">
+        <input type="checkbox" id="optExcerpt" checked>
+        <span>Page text excerpt</span>
+      </label>
+      <label class="row">
+        <input type="checkbox" id="optImages" checked>
+        <span>Images as <code>![]()</code> refs</span>
+      </label>
+      <button id="clipBtn" class="primary">Clip this page</button>
+    </section>
+
+    <section class="glass card" id="previewCard" hidden>
+      <h2>Preview</h2>
+      <pre id="preview" class="preview"></pre>
+      <div class="actions">
+        <button id="copyBtn" class="primary">Copy Markdown</button>
+        <button id="dlBtn" class="ghost">Download .md</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <p class="hint">Tip: select text on the page first to clip just that passage as a blockquote.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

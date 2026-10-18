@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Depth Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2 2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+    <div>
+      <h1>DOM Depth Analyzer</h1>
+      <p class="subtitle">Map the active tab's DOM tree depth</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Depth analysis only — not 3D extrusion. Read-only scan; the page is never modified.</span>
+  </div>
+
+  <button id="scanBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    Scan this tab's DOM
+  </button>
+
+  <div id="error" class="error hidden"></div>
+
+  <div id="results" class="hidden">
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num" id="maxDepth">–</span>
+        <span class="stat-label">Max depth</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="totalNodes">–</span>
+        <span class="stat-label">Elements</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="deepCount">–</span>
+        <span class="stat-label">Depth ≥ 15</span>
+      </div>
+    </div>
+
+    <h2>Nodes per depth</h2>
+    <div id="chart" class="chart"></div>
+
+    <h2>Deepest elements <span class="hint">(tag · class · path)</span></h2>
+    <div id="deepest"></div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

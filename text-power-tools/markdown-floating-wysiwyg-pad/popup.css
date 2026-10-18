@@ -1,0 +1,60 @@
+/* MarkPad popup — deep dark glassmorphism, violet accent */
+:root {
+  --accent: #8b5cf6;
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f1f1f4;
+  --muted: #9a9aa5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+}
+
+.popup { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: grid; place-items: center; flex: none;
+  background: linear-gradient(135deg, var(--accent), #6d28d9);
+  color: #fff;
+}
+.logo svg { width: 22px; height: 22px; }
+.brand h1 { font-size: 17px; font-weight: 650; letter-spacing: 0.2px; }
+.tag { font-size: 12px; color: var(--muted); }
+
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.stats { display: flex; padding: 12px 14px; gap: 16px; }
+.stat { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+.value { font-size: 15px; font-weight: 600; }
+
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 11px 14px; border-radius: 12px;
+  font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid transparent;
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+.btn svg { width: 17px; height: 17px; }
+.btn:active { transform: scale(0.98); }
+.btn.primary { background: linear-gradient(135deg, var(--accent), #6d28d9); color: #fff; }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.ghost { background: var(--panel); border-color: var(--border); color: var(--text); }
+.btn.ghost:hover { border-color: var(--accent); }
+
+.hint { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; }

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>Textbook Price Log</title>
+</head>
+<body>
+<header class="top">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>
+  <div>
+    <h1>Textbook Price Log</h1>
+    <p class="sub">Your price log — manual, not live prices</p>
+  </div>
+</header>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>No barcode scanning and no live prices. You type prices in yourself; the log compares what you entered.</span>
+</div>
+
+<section class="card add">
+  <h2>Log a price</h2>
+  <label>Book title <input id="f-title" placeholder="Organic Chemistry, 9e" maxlength="120"></label>
+  <label>ISBN (optional) <input id="f-isbn" placeholder="9780137458553" maxlength="17"></label>
+  <div class="grid2">
+    <label>Store <input id="f-store" placeholder="Campus shop" maxlength="60"></label>
+    <label>Price <input id="f-price" inputmode="decimal" placeholder="249.99" maxlength="12"></label>
+  </div>
+  <label>Currency code <input id="f-cur" placeholder="USD" maxlength="3"></label>
+  <button id="btn-add" class="primary">Log price</button>
+  <p class="err" id="err" hidden></p>
+</section>
+
+<section class="card list">
+  <div class="list-head">
+    <h2>Best price per book</h2>
+    <input id="f-search" placeholder="Search title or store…">
+  </div>
+  <ul id="books"></ul>
+  <p class="empty" id="empty" hidden>No prices logged yet.</p>
+</section>
+
+<section class="card tools">
+  <h2>Backup</h2>
+  <div class="row">
+    <button id="btn-export" class="ghost">Export JSON</button>
+    <button id="btn-import" class="ghost">Import JSON</button>
+  </div>
+  <input type="file" id="f-import" accept="application/json" hidden>
+  <button id="btn-clear" class="danger">Clear all</button>
+</section>
+<script src="popup.js"></script>
+</body>
+</html>

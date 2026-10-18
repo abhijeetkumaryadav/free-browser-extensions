@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PagePack — Single-File Page Saver</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <h1>PagePack</h1>
+        <p class="subtitle">Single-file page saver</p>
+      </div>
+    </header>
+
+    <label class="field">
+      <span class="label">File name</span>
+      <input id="filename" type="text" placeholder="page" spellcheck="false" />
+    </label>
+
+    <div class="field">
+      <span class="label">Format</span>
+      <div class="radio-group" role="radiogroup" aria-label="Format">
+        <label class="radio">
+          <input type="radio" name="format" value="mhtml" checked />
+          <span class="radio-card">
+            <strong>.mhtml</strong>
+            <em>Browser-native snapshot, most faithful</em>
+          </span>
+        </label>
+        <label class="radio">
+          <input type="radio" name="format" value="html" />
+          <span class="radio-card">
+            <strong>.html</strong>
+            <em>Cleaned single file, scripts removed</em>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <label class="check" id="imgRow">
+      <input id="includeImages" type="checkbox" checked />
+      <span>Inline images as data URIs <small>(HTML mode, best-effort, ~3&nbsp;MB each)</small></span>
+    </label>
+
+    <button id="save" class="save-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Save page</span>
+    </button>
+
+    <div id="status" class="status" hidden></div>
+    <ul id="warnings" class="warnings" hidden></ul>
+
+    <footer class="footer">
+      <span>Best-effort for complex pages — JS-heavy apps may not round-trip perfectly.</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

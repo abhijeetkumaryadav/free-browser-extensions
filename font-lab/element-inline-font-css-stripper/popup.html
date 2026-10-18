@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+    <div>
+      <h1>FontStrip</h1>
+      <p class="sub">Inline font CSS stripper</p>
+    </div>
+    <span class="badge" id="stateBadge">Clean</span>
+  </header>
+
+  <section class="card">
+    <span class="row-label">Strip these inline properties</span>
+    <label class="check"><input type="checkbox" id="grpFamily" checked><span>Font family</span><code>font-family</code></label>
+    <label class="check"><input type="checkbox" id="grpSize" checked><span>Font size &amp; line height</span><code>font-size · line-height</code></label>
+    <label class="check"><input type="checkbox" id="grpStyle" checked><span>Weight · style · spacing</span><code>font-weight · font-style · letter-spacing…</code></label>
+  </section>
+
+  <section class="card stats" id="statsCard" hidden>
+    <div class="stat"><span class="num" id="statAffected">0</span><span class="lbl">elements stripped</span></div>
+    <div class="stat"><span class="num" id="statProps">0</span><span class="lbl">properties removed</span></div>
+  </section>
+
+  <div class="actions">
+    <button id="stripBtn" class="primary">Strip inline fonts</button>
+    <button id="restoreBtn" class="ghost">Restore page</button>
+  </div>
+
+  <p class="note" id="pageNote"></p>
+  <p class="foot">Dev utility · originals are backed up per element and restored exactly · tab-only</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

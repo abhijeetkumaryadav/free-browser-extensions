@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BubblePop — Bubble Wrap</title>
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+<div class="game-shell">
+  <header class="hud">
+    <div class="hud-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/>
+        <circle cx="8" cy="16" r="3"/><circle cx="16" cy="16" r="3"/>
+      </svg>
+      <span>BubblePop</span>
+    </div>
+    <div class="hud-stats">
+      <span class="hud-chip">Pops <strong id="popCount">0</strong></span>
+      <span class="hud-chip">Streak <strong id="streakCount">0</strong></span>
+    </div>
+    <div class="hud-actions">
+      <button id="soundBtn" class="icon-btn" aria-label="Toggle sound" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
+      <button id="resetBtn" class="icon-btn" aria-label="New sheet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="board-wrap">
+    <div id="board" class="board" aria-label="Bubble wrap sheet. Click or drag to pop."></div>
+  </main>
+
+  <footer class="progress">
+    <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+    <span id="progressLabel">Pop the whole sheet!</span>
+  </footer>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* EmojiVault — Emoji History Vault
+ * Design system: 380px popup, deep-dark glassmorphism, ONE accent (teal #14b8a6),
+ * Lucide-style stroke icons, 12–16px breathing room. All local, zero network.
+ */
+
+:root {
+  --accent: #14b8a6;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+  --line: rgba(255, 255, 255, 0.08);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.app { padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+
+.brand { display: flex; align-items: center; gap: 12px; padding: 2px 4px; }
+.brand-icon { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+.brand h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.2px; }
+.brand p { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.panel { padding: 14px; }
+.panel h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+.stat { color: var(--accent); font-weight: 700; text-transform: none; letter-spacing: 0; }
+
+.hint { font-size: 11px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
+.hint strong { color: var(--text); }
+.status { margin-top: 10px; font-size: 12px; color: var(--accent); min-height: 16px; }
+
+.search {
+  width: 100%; padding: 9px 12px; margin-bottom: 10px;
+  border-radius: 10px; border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05); color: var(--text); font-size: 12.5px; outline: none;
+}
+.search:focus { border-color: var(--accent); }
+.search::placeholder { color: var(--muted); }
+
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.tab {
+  padding: 6px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04);
+  color: var(--muted); cursor: pointer;
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #04211d; }
+
+.chip-grid { display: flex; flex-wrap: wrap; gap: 6px; max-height: 150px; overflow-y: auto; }
+
+.chip {
+  padding: 8px 11px; border-radius: 10px; font-size: 18px; line-height: 1;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.04);
+  color: var(--text); cursor: pointer; transition: transform 0.08s ease, background 0.15s ease;
+}
+.chip:hover { background: rgba(20, 184, 166, 0.15); border-color: rgba(20, 184, 166, 0.5); }
+.chip:active { transform: scale(0.94); }
+
+.vault-tools { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.vault-tools .search { margin-bottom: 0; }
+
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn {
+  padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: 700;
+  cursor: pointer; border: 1px solid transparent;
+}
+.btn.ghost { background: rgba(255, 255, 255, 0.05); border-color: var(--line); color: var(--text); }
+.btn.ghost:hover { border-color: var(--accent); }
+.btn.ghost:disabled { opacity: 0.4; cursor: default; }
+
+.vault { display: flex; flex-direction: column; gap: 6px; max-height: 210px; overflow-y: auto; }
+.vault-empty { color: var(--muted); font-size: 12px; padding: 10px 2px; line-height: 1.5; }
+
+.entry {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 10px;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03);
+  cursor: pointer; transition: background 0.12s ease;
+}
+.entry:hover { background: rgba(20, 184, 166, 0.10); }
+.entry .glyph { font-size: 20px; }
+.entry .meta { flex: 1; min-width: 0; }
+.entry .meta .name { font-size: 12px; font-weight: 600; }
+.entry .meta .sub { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
+.entry .del {
+  border: none; background: transparent; color: var(--muted);
+  font-size: 15px; cursor: pointer; padding: 4px; border-radius: 6px; line-height: 1;
+}
+.entry .del:hover { color: #f87171; background: rgba(248, 113, 113, 0.1); }
+
+.foot { text-align: center; font-size: 10.5px; color: var(--muted); padding-bottom: 2px; }

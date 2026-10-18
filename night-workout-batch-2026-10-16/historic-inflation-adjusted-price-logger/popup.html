@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PriceLog</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="brand">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <div><h1>PriceLog</h1><p class="sub">inflation-adjusted price log</p></div>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Approximate reference CPI data, not official figures. Adjustments are estimates.</span>
+  </div>
+
+  <section class="card">
+    <h2>Log a price</h2>
+    <label class="field"><span>Item</span><input id="fItem" type="text" placeholder="e.g. Gallon of milk"></label>
+    <div class="row">
+      <label class="field"><span>Price (USD)</span><input id="fPrice" type="number" min="0" step="0.01" placeholder="3.49"></label>
+      <label class="field"><span>Date</span><input id="fDate" type="date"></label>
+    </div>
+    <button id="btnAdd" class="btn primary">Add entry</button>
+    <p id="formMsg" class="msg" aria-live="polite"></p>
+  </section>
+
+  <section class="card">
+    <h2>Log <span id="statCount" class="pill">0</span></h2>
+    <div class="totals">
+      <div class="total"><span>Logged total (nominal)</span><strong id="tNominal">—</strong></div>
+      <div class="total"><span>In today's money</span><strong id="tAdjusted" class="accent">—</strong></div>
+    </div>
+    <svg id="chart" viewBox="0 0 340 150" class="chart" role="img" aria-label="Price trend chart"></svg>
+    <div id="entries" class="entries"></div>
+    <button id="btnClear" class="btn ghost danger">Clear all entries</button>
+  </section>
+
+  <section class="card">
+    <h2>CPI reference table</h2>
+    <p class="hint">Annual US CPI-U (1982–84 = 100), bundled approximation. Edit any year to refine estimates.</p>
+    <div id="cpiTable" class="cpi"></div>
+    <button id="btnCpiSave" class="btn">Save table</button>
+    <button id="btnCpiReset" class="btn ghost">Reset to defaults</button>
+  </section>
+
+  <footer class="foot">100% local · nothing leaves your browser</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

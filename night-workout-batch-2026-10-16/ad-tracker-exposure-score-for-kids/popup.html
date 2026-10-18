@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+  </div>
+  <div>
+    <h1>KidTrack Shield</h1>
+    <p>Ad-tracker exposure score for kids</p>
+  </div>
+</header>
+<main>
+  <div class="card" id="scoreCard" hidden>
+    <div class="score-ring">
+      <div class="ring" id="ring"><b id="scoreNum">0</b></div>
+      <div>
+        <div class="verdict" id="verdict">Scanning…<small id="verdictSub"></small></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" id="statsCard" hidden>
+    <div class="stat-row">
+      <div class="stat"><b id="statThird">0</b><span>3rd-party requests</span></div>
+      <div class="stat"><b id="statPixels">0</b><span>tracking pixels</span></div>
+      <div class="stat"><b id="statHosts">0</b><span>tracker hosts</span></div>
+    </div>
+  </div>
+  <div class="card" id="findingsCard" hidden>
+    <b style="font-size:13px">What we spotted</b>
+    <ul class="findings" id="findings"></ul>
+  </div>
+  <div class="card">
+    <div class="tip">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
+      <span id="tipText">Tip: a high score means lots of companies may be watching this page. Ask a grown-up before signing up!</span>
+    </div>
+  </div>
+  <button class="primary" id="scanBtn">🔍 Scan this page</button>
+  <button class="ghost" id="clearBtn" hidden>Clear results</button>
+  <div class="honest">
+    Honest scope: this is a <b>heuristic</b> estimate. The tracker list is a built-in
+    <span class="badge-sample">SAMPLE LIST</span> of well-known domains — it can miss
+    real trackers and flag harmless ones. Nothing is blocked or changed; this scan
+    only observes and reports, 100% on your device. No network, no accounts.
+  </div>
+</main>
+<footer class="note">KidTrack Shield v1.0.0 · observe-only privacy helper</footer>
+<script src="popup.js"></script>
+</body>
+</html>

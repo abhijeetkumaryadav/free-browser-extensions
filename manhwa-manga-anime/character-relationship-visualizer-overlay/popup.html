@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=380">
+<title>CharMap</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <div class="logo"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.8 7.2 10.5 16M16.2 7.2 13.5 16M8.4 6h7.2"/></svg></div>
+    <div class="titles"><h1>CharMap</h1><p>Character relationship maps</p></div>
+    <select id="mapSelect" class="map-select" title="Active map"></select>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="graph">Graph</button>
+    <button class="tab" data-tab="people">People</button>
+    <button class="tab" data-tab="links">Links</button>
+    <button class="tab" data-tab="maps">Maps</button>
+  </div>
+
+  <!-- GRAPH TAB -->
+  <section class="pane active" id="pane-graph">
+    <div class="canvas-wrap">
+      <canvas id="graph" width="348" height="380"></canvas>
+      <div class="hint">Drag to pan &middot; scroll to zoom &middot; drag nodes &middot; click a node for details</div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="detail card" id="detail" hidden>
+      <div class="detail-head"><span id="detailDot" class="dot"></span><strong id="detailName"></strong>
+        <button class="icon-btn" id="detailClose" title="Close">&times;</button></div>
+      <p class="muted" id="detailSeries"></p>
+      <ul class="conn-list" id="detailConns"></ul>
+    </div>
+  </section>
+
+  <!-- PEOPLE TAB -->
+  <section class="pane" id="pane-people">
+    <form id="charForm" class="card">
+      <h2>Add character</h2>
+      <label>Name<input id="cName" maxlength="40" placeholder="e.g. Lyra" required></label>
+      <label>Series<input id="cSeries" maxlength="40" placeholder="e.g. Northern Lights"></label>
+      <label>Color<input type="color" id="cColor" value="#ec4899"></label>
+      <button class="btn primary" type="submit">Add character</button>
+    </form>
+    <ul class="list" id="charList"></ul>
+  </section>
+
+  <!-- LINKS TAB -->
+  <section class="pane" id="pane-links">
+    <form id="relForm" class="card">
+      <h2>Add relationship</h2>
+      <div class="row">
+        <label>From<select id="rFrom"></select></label>
+        <label>Type<select id="rType">
+          <option value="ally">Ally</option>
+          <option value="rival">Rival</option>
+          <option value="family">Family</option>
+          <option value="romantic">Romantic</option>
+          <option value="mentor">Mentor</option>
+          <option value="neutral">Neutral</option>
+        </select></label>
+      </div>
+      <label>To<select id="rTo"></select></label>
+      <label>Note (optional)<input id="rNote" maxlength="80" placeholder="e.g. childhood friends"></label>
+      <button class="btn primary" type="submit">Add link</button>
+    </form>
+    <ul class="list" id="relList"></ul>
+  </section>
+
+  <!-- MAPS TAB -->
+  <section class="pane" id="pane-maps">
+    <form id="mapForm" class="card">
+      <h2>New map</h2>
+      <div class="row"><input id="mName" maxlength="40" placeholder="Map name" required>
+      <button class="btn primary" type="submit">Create</button></div>
+    </form>
+    <div class="card">
+      <h2>Backup</h2>
+      <div class="row">
+        <button class="btn" id="exportBtn">Export JSON</button>
+        <label class="btn file">Import JSON<input type="file" id="importFile" accept="application/json" hidden></label>
+      </div>
+      <p class="muted small">Export downloads the active map. Import adds it as a new map.</p>
+    </div>
+    <ul class="list" id="mapList"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

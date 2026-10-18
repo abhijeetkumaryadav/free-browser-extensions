@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Move Ticker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+    </span>
+    <div>
+      <h1>Move Ticker</h1>
+      <p class="sub">Since your last movement break.</p>
+    </div>
+  </header>
+
+  <p class="notice">A motivational tracker — <em>not medical advice</em>. It only counts time since breaks you log yourself.</p>
+
+  <section class="ticker">
+    <div class="time" id="elapsed">0:00:00</div>
+    <div class="phase" id="phase">You're fresh — keep it up.</div>
+    <div class="prompt" id="prompt"></div>
+    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+  </section>
+
+  <div class="actions">
+    <button id="logBreak" class="btn">I took a movement break</button>
+    <button id="reset" class="link" type="button">reset timer</button>
+  </div>
+
+  <section class="stats">
+    <div class="stat"><span class="k">Breaks today</span><span class="v" id="todayCount">0</span></div>
+    <div class="stat"><span class="k">Longest sit today</span><span class="v" id="longest">—</span></div>
+    <div class="stat"><span class="k">Avg gap today</span><span class="v" id="avg">—</span></div>
+  </section>
+
+  <section class="history">
+    <h2>Today's breaks <button id="clear" class="link" type="button">clear</button></h2>
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty">No breaks logged yet today. Stand up, stretch, log it.</p>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEFR Text Rater</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="bar">
+  <div class="title">CEFR Text Rater</div>
+  <div class="sub">heuristic complexity proxy</div>
+</header>
+
+<main>
+  <section class="card">
+    <label for="text">Paste text to rate</label>
+    <textarea id="text" rows="6" placeholder="Paste English text…"></textarea>
+    <div class="row">
+      <button id="rate" class="primary">Rate text</button>
+      <button id="clear" class="ghost">Clear</button>
+    </div>
+  </section>
+
+  <section class="card hidden" id="resultCard">
+    <div class="levelRow">
+      <div class="level" id="levelBadge">–</div>
+      <div>
+        <div class="scoreLabel">Overall complexity score</div>
+        <div class="scoreVal" id="scoreVal">–</div>
+      </div>
+    </div>
+    <div class="meters">
+      <div class="meter"><span>Avg sentence length</span><b id="mLen">–</b></div>
+      <div class="meter"><span>Rare-word share</span><b id="mRare">–</b></div>
+      <div class="meter"><span>Sentences rated</span><b id="mN">–</b></div>
+    </div>
+    <h3>Per-sentence breakdown</h3>
+    <div id="sentList" class="sentList"></div>
+  </section>
+
+  <section class="card legend">
+    <h3>How it scores</h3>
+    <ul>
+      <li><b>Sentence length</b> — longer sentences weigh harder.</li>
+      <li><b>Word rarity</b> — words outside the bundled 2,000-word common list count as rare.</li>
+      <li>Mapped to A1–C2 bands; <b>heuristic proxy only — not a real CEFR assessment.</b></li>
+    </ul>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

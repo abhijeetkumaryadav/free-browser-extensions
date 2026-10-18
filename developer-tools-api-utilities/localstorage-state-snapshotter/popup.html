@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LocalStorage State Snapshotter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    <div><h1>State Snapshotter</h1><p id="pageHost">—</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>New snapshot</h2>
+      <div class="cap-row">
+        <input id="snapName" placeholder="Snapshot name" maxlength="60">
+        <button id="captureBtn" class="primary">Capture</button>
+      </div>
+      <div id="capError" class="error" hidden></div>
+    </section>
+    <section class="glass card" id="listCard" hidden>
+      <h2>Snapshots</h2>
+      <div id="snapList"></div>
+      <button id="compareBtn" class="ghost" disabled>Compare selected (pick 2)</button>
+      <div id="diffBox" class="diff" hidden></div>
+    </section>
+    <section class="glass card">
+      <h2>Import / Export</h2>
+      <div class="io-row">
+        <button id="importBtn" class="ghost">Import JSON</button>
+        <input type="file" id="importFile" accept=".json,application/json" hidden>
+      </div>
+      <p class="note">Snapshots live on-device only. Restoring asks for confirmation first.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

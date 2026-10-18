@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.85 12.15 19 4"/><path d="M15 5l3 3"/><path d="M18 8l2 2"/></svg>
+  <div>
+    <h1>ZK Session Authenticator</h1>
+    <p class="sub">Schnorr-style proof demo</p>
+  </div>
+</header>
+
+<div class="banner">EDUCATIONAL DEMO — toy parameters, <strong>not</strong> real authentication security.</div>
+
+<section class="card">
+  <div class="params">
+    <div><span>p</span><code id="pP"></code></div>
+    <div><span>g</span><code id="pG"></code></div>
+    <div><span>q</span><code id="pQ"></code></div>
+  </div>
+  <p class="note">Toy group: p = 23, q = 11, g = 2. Real systems use 256-bit groups.</p>
+</section>
+
+<section class="cols">
+  <div class="card prover">
+    <h2>Prover <span class="who">knows secret x</span></h2>
+    <div class="kv"><span>secret x</span><code id="vX">–</code></div>
+    <div class="kv"><span>public y = gˣ</span><code id="vY">–</code></div>
+    <div class="kv"><span>random r</span><code id="vR">–</code></div>
+    <div class="kv"><span>commit t = gʳ</span><code id="vT">–</code></div>
+    <div class="kv"><span>response s = r+cx</span><code id="vS">–</code></div>
+  </div>
+  <div class="card verifier">
+    <h2>Verifier <span class="who">knows only y</span></h2>
+    <div class="kv"><span>challenge c</span><code id="vC">–</code></div>
+    <div class="kv"><span>gˢ mod p</span><code id="vGs">–</code></div>
+    <div class="kv"><span>t·yᶜ mod p</span><code id="vTyc">–</code></div>
+    <div id="result" class="result idle">not run</div>
+  </div>
+</section>
+
+<section class="card">
+  <div class="steps">
+    <button id="s1" class="btn">1 · Keygen</button>
+    <button id="s2" class="btn">2 · Commit</button>
+    <button id="s3" class="btn">3 · Challenge</button>
+    <button id="s4" class="btn">4 · Respond</button>
+    <button id="s5" class="btn">5 · Verify</button>
+  </div>
+  <button id="run" class="btn primary wide">Run full protocol</button>
+  <button id="reset" class="btn ghost wide">Reset</button>
+</section>
+
+<section class="card">
+  <h2>Protocol log</h2>
+  <ol id="log" class="log"></ol>
+</section>
+
+<footer>The secret x never leaves the prover panel. The verifier learns nothing except "proof valid".</footer>
+<script src="popup.js"></script>
+</body>
+</html>

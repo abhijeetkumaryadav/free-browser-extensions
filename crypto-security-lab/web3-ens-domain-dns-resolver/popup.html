@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ENSResolve</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/>
+    </svg>
+    <div>
+      <h1>ENSResolve</h1>
+      <p class="tag">Web3 ENS domain resolver</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="lbl" for="name">ENS name</label>
+    <div class="row">
+      <input type="text" id="name" class="field" placeholder="vitalik.eth" spellcheck="false" autocomplete="off">
+      <button id="resolve" class="btn">Resolve</button>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <input type="text" id="addrIn" class="field" placeholder="0x… (reverse lookup)" spellcheck="false" autocomplete="off">
+      <button id="reverse" class="btn ghost">Reverse</button>
+    </div>
+    <div id="status" class="status muted">Enter a .eth name to resolve it on-chain.</div>
+  </section>
+
+  <section class="panel hidden" id="results">
+    <h2>Resolution</h2>
+    <div class="kv"><span>Namehash</span><code id="rNode"></code></div>
+    <div class="kv"><span>Resolver</span><code id="rResolver"></code></div>
+    <div class="kv"><span>Address</span><code id="rAddr"></code></div>
+    <div class="kv"><span>Primary name</span><code id="rPrimary"></code></div>
+    <button id="copyAddr" class="btn ghost full">Copy address</button>
+  </section>
+
+  <p class="note">Read-only lookups via free public Ethereum gateways (cloudflare-eth.com, ethereum.publicnode.com). No wallet, no keys, no signing. ENS data is public on-chain data.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

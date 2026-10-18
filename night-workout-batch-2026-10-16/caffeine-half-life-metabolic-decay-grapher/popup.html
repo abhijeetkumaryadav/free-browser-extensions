@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Caffeine Decay Graph</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="titlebar">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+    <div>
+      <h1>Caffeine Decay Graph</h1>
+      <p class="sub">Half-life decay visualizer</p>
+    </div>
+  </header>
+
+  <div class="notice" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><strong>Math model</strong> — exponential decay estimate, not medical advice.</span>
+  </div>
+
+  <section class="now" id="nowWrap">
+    <div class="now-val"><span id="nowMg">0</span><small>mg</small></div>
+    <div class="now-meta"><div>estimated in system now</div><div class="dim" id="nowDetail"></div></div>
+  </section>
+
+  <section class="graph">
+    <canvas id="decayChart" width="348" height="150" aria-label="Caffeine decay graph"></canvas>
+    <div class="legend"><span><i class="sw curve"></i>Remaining caffeine</span><span><i class="sw bed"></i>Bedtime</span></div>
+  </section>
+
+  <form id="logForm">
+    <div class="row">
+      <div class="col">
+        <label for="mg">Caffeine (mg)</label>
+        <input type="number" id="mg" min="1" max="1000" value="95" required>
+      </div>
+      <div class="col">
+        <label for="when">Time</label>
+        <input type="time" id="when" required>
+      </div>
+    </div>
+    <button type="submit" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Log intake
+    </button>
+  </form>
+
+  <section class="settings">
+    <h2>Settings</h2>
+    <div class="row">
+      <div class="col">
+        <label for="halfLife">Half-life (hours)</label>
+        <input type="number" id="halfLife" min="2" max="12" step="0.1" value="5.7">
+      </div>
+      <div class="col">
+        <label for="bedtime">Bedtime</label>
+        <input type="time" id="bedtime" value="23:00">
+      </div>
+    </div>
+    <button class="ghost" id="saveSettings">Save settings</button>
+  </section>
+
+  <section class="history">
+    <div class="history-head">
+      <h2>Today's intake</h2>
+      <button class="ghost danger" id="clearBtn">Clear</button>
+    </div>
+    <ul id="intakeList" class="list"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

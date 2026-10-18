@@ -1,0 +1,49 @@
+/* Form Frame Scrubber — deep-dark glassmorphism, one vibrant accent (#a3e635 lime) */
+:root { --accent: #a3e635; --bg: rgba(20,20,26,.72); --txt: #e8e8ee; --mut: #9a9aa8; --line: rgba(255,255,255,.09); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 380px; }
+body {
+  background: var(--bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--txt); font: 13px/1.45 -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+}
+.card { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+header { display: flex; gap: 10px; align-items: center; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex: none; }
+h1 { font-size: 15px; font-weight: 650; letter-spacing: .2px; }
+.sub { font-size: 11px; color: var(--mut); }
+.file-btn {
+  display: block; text-align: center; padding: 10px; border-radius: 10px; cursor: pointer;
+  background: rgba(163,230,53,.14); border: 1px dashed rgba(163,230,53,.55); color: var(--accent);
+  font-weight: 600; transition: background .15s;
+}
+.file-btn:hover { background: rgba(163,230,53,.22); }
+.stage-wrap { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: #0b0b10; min-height: 120px; }
+video { display: block; width: 100%; max-height: 220px; background: #0b0b10; }
+#empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--mut); font-size: 12px; padding: 20px; text-align: center; pointer-events: none; }
+#empty.gone { display: none; }
+.timebar { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; font-size: 11.5px; color: var(--mut); }
+input[type=range] { flex: 1; accent-color: var(--accent); }
+.row { display: flex; gap: 8px; align-items: stretch; }
+.row.two > * { flex: 1; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 9px 10px; border-radius: 9px; border: 1px solid var(--line);
+  background: rgba(255,255,255,.05); color: var(--txt); font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: background .15s, transform .05s; flex: 1;
+}
+.btn:hover:not(:disabled) { background: rgba(255,255,255,.1); }
+.btn:active:not(:disabled) { transform: scale(.97); }
+.btn:disabled { opacity: .4; cursor: default; }
+.btn svg { width: 15px; height: 15px; }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: #101408; flex: 0 0 52px; }
+.btn.accent:hover { background: #b8f25a; }
+.btn.wide { flex: 2; }
+.btn.on { border-color: var(--accent); color: var(--accent); background: rgba(163,230,53,.1); }
+label { font-size: 12px; color: var(--mut); display: flex; align-items: center; gap: 8px; }
+input[type=number], select {
+  background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--txt);
+  border-radius: 8px; padding: 7px 8px; font-size: 12.5px; width: 100%;
+}
+input[type=number] { width: 70px; }
+#setA span, #setB span { font-variant-numeric: tabular-nums; color: var(--mut); }
+.hint { font-size: 11px; color: var(--mut); text-align: center; }

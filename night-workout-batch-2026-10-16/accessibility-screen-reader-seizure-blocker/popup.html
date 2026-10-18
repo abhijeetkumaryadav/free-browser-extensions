@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motion Calm — Animation &amp; Flash Reducer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+    </div>
+    <div class="brand-text">
+      <h1>Motion Calm</h1>
+      <p>Animation &amp; flash reducer</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><strong>Reduces animation only</strong> — it cannot stop all flashing or guarantee seizure safety.
+    This is a vestibular-comfort aid, <strong>not a medical device</strong>. Leave the page if you feel unwell.</span>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Protection mode</h2></div>
+    <div class="modes">
+      <label class="mode">
+        <input type="radio" name="mode" value="freeze">
+        <div class="mode-body">
+          <strong>Freeze motion</strong>
+          <span>Stops CSS animations &amp; transitions</span>
+        </div>
+      </label>
+      <label class="mode">
+        <input type="radio" name="mode" value="strict">
+        <div class="mode-body">
+          <strong>Strict — freeze + dim media</strong>
+          <span>Also dims images, video &amp; canvas</span>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="applyBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Apply to this page
+    </button>
+    <button id="removeBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+      Remove
+    </button>
+  </div>
+
+  <div id="status" class="status" role="status"></div>
+
+  <footer>100% local &middot; one-click restore &middot; zero network</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

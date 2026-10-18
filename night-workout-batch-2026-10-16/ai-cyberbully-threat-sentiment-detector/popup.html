@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg viewBox="0 0 24 24" class="logo" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.3-7 10-3.8-1.7-7-5-7-10V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+  <div><h1>BullyShield</h1><p class="sub">Cyberbully threat detector</p></div>
+</header>
+
+<div class="disclaimer">
+  <strong>Heuristic tool, not AI.</strong> This scans visible page text against a bundled
+  word-pattern list and flags possible bullying/threat signals. It can miss things and
+  misfire. It is <strong>not</strong> a clinical or child-safety authority — always review
+  flagged content yourself and talk to your child.
+</div>
+
+<main>
+  <div id="idleView">
+    <div class="row">
+      <select id="sensitivity" title="Sensitivity">
+        <option value="standard" selected>Standard sensitivity</option>
+        <option value="strict">Strict (more flags)</option>
+      </select>
+      <button id="scanBtn" class="btn primary">Scan this page</button>
+    </div>
+    <p class="muted small">Runs only when you click. Text never leaves this device.</p>
+  </div>
+
+  <div id="resultView" class="hidden">
+    <div id="verdict" class="verdict">–</div>
+    <div id="counts" class="counts"></div>
+    <h2>Flagged snippets <span class="hint">(tap to expand)</span></h2>
+    <div id="snippets" class="snip-list"></div>
+    <h2>What to do next</h2>
+    <ul class="guidance">
+      <li>Read the flagged messages in full context — tone and jokes matter.</li>
+      <li>Talk with your child before taking action; ask how it made them feel.</li>
+      <li>Save evidence (screenshots) if you plan to report to a school or platform.</li>
+      <li>Use the platform's block/report tools for repeat offenders.</li>
+      <li>If anyone is in immediate danger, contact local emergency services.</li>
+    </ul>
+    <button id="rescanBtn" class="btn">Scan again</button>
+  </div>
+  <p id="err" class="error hidden"></p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

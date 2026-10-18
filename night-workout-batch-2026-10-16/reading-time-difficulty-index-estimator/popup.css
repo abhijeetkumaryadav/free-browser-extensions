@@ -1,0 +1,59 @@
+/* ReadGauge — deep-dark glassmorphism, single accent (cyan) */
+:root {
+  --accent: #22d3ee;
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.09);
+  --text: #f1f1f4;
+  --muted: #a7a7b3;
+}
+* { box-sizing: border-box; }
+body {
+  width: 380px; margin: 0;
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text); background: var(--bg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.topbar { padding: 14px 14px 0; }
+.brand { display: flex; align-items: center; gap: 8px; }
+.brand svg { width: 20px; height: 20px; color: var(--accent); }
+.brand h1 { font-size: 15px; margin: 0; }
+.sub { font-size: 11px; color: var(--muted); margin: 4px 0 0; }
+
+main { padding: 12px 14px; }
+.primary {
+  width: 100%; padding: 10px; border: none; border-radius: 10px; cursor: pointer;
+  background: var(--accent); color: #04202a; font-size: 13px; font-weight: 700;
+}
+.primary:hover { filter: brightness(1.1); }
+.primary:disabled { opacity: .5; cursor: default; }
+
+.results { margin-top: 12px; }
+.hidden { display: none; }
+.gauge-wrap { display: flex; justify-content: center; }
+.gauge { width: 190px; }
+#gauge-arc { transition: stroke-dashoffset .6s ease; }
+
+.verdict {
+  text-align: center; font-weight: 600; font-size: 13px; margin: 2px 0 10px;
+  color: var(--accent);
+}
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 10px; padding: 9px 12px; display: flex; flex-direction: column; gap: 2px;
+}
+.s-label { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+.s-value { font-size: 16px; font-weight: 700; }
+.source-line { font-size: 11px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+
+.error {
+  margin-top: 12px; padding: 10px 12px; border-radius: 10px;
+  background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.35);
+  color: #fca5a5; font-size: 12px;
+}
+.how { margin-top: 12px; background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 10px 12px; }
+.how h2 { font-size: 12px; margin: 0 0 6px; }
+.how p { font-size: 11.5px; color: var(--muted); margin: 0; }
+.how code { color: var(--accent); font-size: 10.5px; }
+.foot { padding: 10px 14px 14px; font-size: 10.5px; color: var(--muted); text-align: center; }

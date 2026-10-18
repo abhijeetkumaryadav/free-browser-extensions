@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Fee Lens</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <div>
+    <h1>Seller Fee Lens</h1>
+    <p>Net proceeds estimator</p>
+  </div>
+</header>
+
+<div class="disclaimer" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  Estimates only — fee tables are user-maintained. Verify against official marketplace fee pages. Not financial advice.
+</div>
+
+<main>
+  <section class="card">
+    <label class="field">
+      <span>Marketplace</span>
+      <select id="marketplace"></select>
+    </label>
+    <div class="row">
+      <label class="field"><span>Sell price</span><input id="sellPrice" type="number" min="0" step="0.01" placeholder="29.99"></label>
+      <label class="field"><span>Item cost</span><input id="itemCost" type="number" min="0" step="0.01" placeholder="12.00"></label>
+    </div>
+    <div class="row">
+      <label class="field"><span>Shipping charged</span><input id="shippingCharged" type="number" min="0" step="0.01" placeholder="0.00"></label>
+      <label class="field"><span>Shipping cost</span><input id="shippingCost" type="number" min="0" step="0.01" placeholder="4.50"></label>
+    </div>
+    <button id="calcBtn" class="primary">Calculate net proceeds</button>
+  </section>
+
+  <section class="card result" id="resultCard" hidden>
+    <div class="netline">
+      <span>Estimated net</span>
+      <strong id="netValue">$0.00</strong>
+    </div>
+    <div class="marginline"><span>Margin</span><strong id="marginValue">0%</strong></div>
+    <ul id="breakdown" class="breakdown"></ul>
+  </section>
+
+  <section class="card">
+    <button id="feeToggle" class="ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Edit fee tables
+    </button>
+    <div id="feeEditor" hidden></div>
+  </section>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

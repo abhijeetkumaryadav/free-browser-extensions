@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BibTeX Collector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+    <div class="titles"><h1>BibTeX Collector</h1><p class="sub">Local .bib manager — no sync</p></div>
+  </header>
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Fully local BibTeX library. Validates keys and syntax — nothing leaves your device.</span>
+  </div>
+  <div class="stats" id="stats"></div>
+  <form id="addForm" class="card">
+    <h2>Add entry</h2>
+    <div class="row">
+      <select id="fType" aria-label="Entry type">
+        <option value="article">article</option><option value="book">book</option>
+        <option value="inproceedings">inproceedings</option><option value="misc">misc</option>
+        <option value="phdthesis">phdthesis</option><option value="mastersthesis">mastersthesis</option>
+        <option value="techreport">techreport</option><option value="incollection">incollection</option>
+      </select>
+      <input id="fKey" type="text" maxlength="120" placeholder="Citation key *" required>
+    </div>
+    <input id="fTitle" type="text" maxlength="500" placeholder="Title">
+    <input id="fAuthor" type="text" maxlength="500" placeholder="Author(s)">
+    <div class="row">
+      <input id="fYear" type="number" min="1800" max="2100" placeholder="Year">
+      <input id="fJournal" type="text" maxlength="300" placeholder="Journal / venue">
+    </div>
+    <textarea id="fExtra" rows="2" maxlength="2000" placeholder="Extra fields, one per line:  field = value"></textarea>
+    <div id="formError" class="error"></div>
+    <button type="submit" class="btn-primary">Save entry</button>
+  </form>
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search key, title, author…">
+    <div class="toolbar-btns">
+      <button id="importBtn" class="btn-ghost">Import .bib</button>
+      <input id="importFile" type="file" accept=".bib,.txt" hidden>
+      <button id="exportBtn" class="btn-ghost">Export .bib</button>
+    </div>
+  </div>
+  <div id="list" class="list"></div>
+  <footer class="foot"><span id="count"></span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

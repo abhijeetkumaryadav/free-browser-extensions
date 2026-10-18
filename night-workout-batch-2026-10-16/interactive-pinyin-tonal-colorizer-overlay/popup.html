@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tone Colorizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>
+    <div>
+      <h1>Tone Colorizer</h1>
+      <p class="tag">Pinyin pair highlighter</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><b>Your pairs — not automatic pinyin.</b> Only the hanzi→pinyin pairs <b>you</b> add get colored. No Chinese NLP.</span>
+  </div>
+
+  <div class="card">
+    <h2>Add pair</h2>
+    <div class="row">
+      <input id="hanziIn" type="text" placeholder="汉字" maxlength="20" class="grow">
+      <input id="pinyinIn" type="text" placeholder="han4 zi4" maxlength="60" class="grow">
+      <button id="addPair" class="btn primary">Add</button>
+    </div>
+    <span id="pairMsg" class="msg"></span>
+    <div class="legend">
+      <span><i style="background:#f87171"></i>1st</span>
+      <span><i style="background:#fb923c"></i>2nd</span>
+      <span><i style="background:#34d399"></i>3rd</span>
+      <span><i style="background:#60a5fa"></i>4th</span>
+      <span><i style="background:#9ca3af"></i>neutral</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Your pairs <span id="pairCount" class="count"></span></h2>
+    <div id="pairList" class="plist"></div>
+  </div>
+
+  <div class="row stack">
+    <button id="colorBtn" class="btn primary wide">Color on this tab</button>
+    <button id="clearBtn" class="btn wide">Remove coloring</button>
+    <span id="pageMsg" class="msg"></span>
+  </div>
+
+  <footer class="foot">Hover a colored word to see your pinyin · 100% local</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptShield</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+        <path d="M12 8v4"/><path d="M12 16h.01"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>PromptShield</h1>
+      <p class="subtitle">Heuristic injection scanner</p>
+    </div>
+  </header>
+
+  <!-- Disclaimer: heuristic only -->
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+    </svg>
+    <span>Heuristic patterns only — <strong>not</strong> a security guarantee. Always review flagged content yourself.</span>
+  </div>
+
+  <!-- Input -->
+  <section class="panel">
+    <label class="label" for="input">Prompt text to scan</label>
+    <textarea id="input" rows="7" placeholder="Paste the prompt or user input here…" spellcheck="false"></textarea>
+    <div class="row actions">
+      <button id="scanBtn" class="btn primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        Scan
+      </button>
+      <button id="clearBtn" class="btn ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>
+        Clear
+      </button>
+      <span id="charCount" class="char-count">0 chars</span>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="panel hidden">
+    <div class="score-row">
+      <div class="score-ring" id="scoreRing">
+        <svg viewBox="0 0 72 72" aria-hidden="true">
+          <circle class="ring-bg" cx="36" cy="36" r="30"/>
+          <circle class="ring-fg" id="ringFg" cx="36" cy="36" r="30"/>
+        </svg>
+        <div class="score-text"><span id="scoreNum">0</span><small>/100</small></div>
+      </div>
+      <div class="verdict-block">
+        <div id="verdictBadge" class="verdict safe">SAFE</div>
+        <p id="verdictDesc" class="verdict-desc">No suspicious patterns detected.</p>
+      </div>
+    </div>
+    <div id="findings" class="findings"></div>
+  </section>
+
+  <!-- Empty state -->
+  <div id="emptyState" class="empty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </svg>
+    <p>Paste prompt text above and press <strong>Scan</strong>.</p>
+  </div>
+
+  <footer class="footer">100% on-device · nothing leaves your browser</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

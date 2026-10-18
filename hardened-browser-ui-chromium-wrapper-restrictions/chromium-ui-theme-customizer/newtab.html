@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Tab</title>
+<link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <main class="stage">
+    <section id="clockWrap" class="glass">
+      <div id="clock">--:--</div>
+      <div id="date">—</div>
+      <div id="greeting">Good day</div>
+    </section>
+
+    <form id="searchForm" class="glass" autocomplete="off">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Search the web…" aria-label="Search the web">
+    </form>
+
+    <section class="tiles-head">
+      <h2>Quick links</h2>
+      <button id="addTileBtn" class="btn-ghost" type="button">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add
+      </button>
+    </section>
+    <section id="tiles" class="tiles" aria-label="Quick links"></section>
+
+    <footer class="hint">Theme: <span id="themeName">Default</span> · Customize via the TabForge toolbar popup</footer>
+  </main>
+
+  <div id="tileDialog" class="dialog-backdrop" hidden>
+    <form id="tileForm" class="glass dialog">
+      <h3>Add quick link</h3>
+      <label>Title<input id="tileTitle" type="text" required maxlength="24" placeholder="e.g. Mail"></label>
+      <label>URL<input id="tileUrl" type="url" required placeholder="https://example.com"></label>
+      <div class="dialog-actions">
+        <button type="button" id="tileCancel" class="btn-ghost">Cancel</button>
+        <button type="submit" class="btn-accent">Add</button>
+      </div>
+    </form>
+  </div>
+
+<script src="shared.js"></script>
+<script src="newtab.js"></script>
+</body>
+</html>

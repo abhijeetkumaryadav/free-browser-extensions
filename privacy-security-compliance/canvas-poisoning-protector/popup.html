@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Poisoning Protector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+        <circle cx="12" cy="11" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="9.4" cy="13.4" r="1" fill="currentColor" stroke="none"/>
+        <circle cx="14.6" cy="13.4" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Canvas Poisoning</h1>
+      <p class="subtitle">Anti-fingerprinting shield</p>
+    </div>
+    <label class="switch" title="Master switch">
+      <input type="checkbox" id="globalToggle" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <main>
+    <!-- Current site status -->
+    <section class="card status-card">
+      <div class="status-row">
+        <span class="status-dot" id="statusDot"></span>
+        <div>
+          <div class="status-title" id="statusTitle">Checking…</div>
+          <div class="status-sub" id="statusHost">—</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost" id="siteToggleBtn">Disable for this site</button>
+      <p class="hint">Protection injects invisible noise into canvas reads. Pages render pixel-perfect; only fingerprint reads change.</p>
+    </section>
+
+    <!-- Fingerprint demo -->
+    <section class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v3"/><path d="M18.4 5.6 16.3 7.7"/><path d="M21 12h-3"/><path d="M18.4 18.4l-2.1-2.1"/><path d="M12 18v3"/><path d="M7.8 16.3l-2.2 2.1"/><path d="M6 12H3"/><path d="M7.8 7.7 5.6 5.6"/>
+          <circle cx="12" cy="12" r="3.2"/>
+        </svg>
+        <h2>Fingerprint demo</h2>
+      </div>
+      <p class="hint">Simulated with the same noise algorithm used on pages. A tracker reading your canvas would see a different hash every visit.</p>
+      <div class="hash-row"><span>Run 1</span><code id="hash1">—</code></div>
+      <div class="hash-row"><span>Run 2</span><code id="hash2">—</code></div>
+      <div class="verdict" id="demoVerdict">Press test to compare</div>
+      <button class="btn btn-primary" id="demoBtn">Test my fingerprint</button>
+    </section>
+
+    <!-- Allowlist -->
+    <section class="card">
+      <div class="card-head">
+        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>
+        </svg>
+        <h2>Allowed sites <span class="count" id="allowCount">0</span></h2>
+      </div>
+      <ul class="allow-list" id="allowList"></ul>
+      <p class="hint empty-note" id="allowEmpty">No exceptions — protection is on everywhere.</p>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

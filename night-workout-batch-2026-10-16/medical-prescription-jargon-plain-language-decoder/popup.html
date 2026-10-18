@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rx Decoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5-7-7a4.95 4.95 0 1 1 7-7l7 7a4.95 4.95 0 1 1-7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+    <div class="hdr-text">
+      <h1>Rx Decoder</h1>
+      <p class="sub">prescription jargon → plain language</p>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <p><strong>EDUCATIONAL ONLY — not medical advice.</strong> Abbreviations vary by region and prescriber. If anything is unclear or seems wrong, ask your pharmacist or doctor — never guess a dose.</p>
+  </div>
+
+  <div class="searchrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="text" id="search" placeholder="Search an abbreviation, e.g. prn" maxlength="40" autocomplete="off">
+  </div>
+
+  <p class="hint">Or paste a label line — we decode the abbreviations in it:</p>
+  <textarea id="paste" rows="2" placeholder="e.g. Take 1 tab po bid ac" maxlength="300"></textarea>
+  <button class="btn primary" id="decodeBtn">Decode this line</button>
+  <div id="decodeOut" class="decode-out" hidden></div>
+
+  <p class="section-title">All terms (<span id="count"></span>)</p>
+  <div class="terms" id="terms"></div>
+
+  <footer class="foot"><span>v1.0.0 · bundled dictionary · 100% local</span></footer>
+</div>
+<script src="data.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

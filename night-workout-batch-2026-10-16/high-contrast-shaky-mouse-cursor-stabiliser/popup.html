@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SteadyCursor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7.5 16 2-7 7-2L4 4z"/><path d="M12 12l4 4"/></svg>
+    </span>
+    <div>
+      <h1>SteadyCursor</h1>
+      <p class="tagline">Shaky-mouse stabiliser</p>
+    </div>
+  </header>
+
+  <div class="row switch-row">
+    <div>
+      <div class="label">Enable on this tab</div>
+      <div class="hint">Replaces the cursor with a large high-contrast one</div>
+    </div>
+    <label class="switch"><input type="checkbox" id="enabled"><span class="track"><span class="thumb"></span></span></label>
+  </div>
+
+  <div class="group">
+    <div class="label">Smoothing strength <span class="val" id="smoothVal">40%</span></div>
+    <input type="range" id="smoothing" min="0" max="90" step="5" value="40">
+    <div class="hint">Higher = smoother motion, slightly more lag</div>
+  </div>
+
+  <div class="group">
+    <div class="label">Cursor colour</div>
+    <div class="swatches" id="swatches">
+      <button class="sw active" data-c="#22d3ee" style="--c:#22d3ee" aria-label="Cyan"></button>
+      <button class="sw" data-c="#facc15" style="--c:#facc15" aria-label="Yellow"></button>
+      <button class="sw" data-c="#fb7185" style="--c:#fb7185" aria-label="Rose"></button>
+      <button class="sw" data-c="#a3e635" style="--c:#a3e635" aria-label="Lime"></button>
+      <button class="sw" data-c="#ffffff" style="--c:#ffffff" aria-label="White"></button>
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="label">Cursor size <span class="val" id="sizeVal">32px</span></div>
+    <input type="range" id="size" min="20" max="64" step="2" value="32">
+  </div>
+
+  <div class="row switch-row">
+    <div>
+      <div class="label">Magnify click targets</div>
+      <div class="hint">Enlarges buttons/links under the cursor</div>
+    </div>
+    <label class="switch"><input type="checkbox" id="magnify"><span class="track"><span class="thumb"></span></span></label>
+  </div>
+
+  <p class="scope">Comfort aid only — not a medical device. Nothing leaves this device.</p>
+  <div class="status" id="status">Ready</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

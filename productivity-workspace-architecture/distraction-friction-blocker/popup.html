@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distraction Friction Blocker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+    <div><h1>Focus Blocker</h1><p id="pageHost">—</p></div>
+    <button id="blockThis" class="primary">Block this site</button>
+  </header>
+  <main>
+    <section class="glass card rowline">
+      <div><b>Blocking enabled</b><span class="sub">Show the breathing pause on listed sites</span></div>
+      <label class="switch"><input type="checkbox" id="enabled"><span class="knob"></span></label>
+    </section>
+    <section class="glass card">
+      <h2>Blocked sites</h2>
+      <div class="add-form">
+        <input id="domain" placeholder="example.com" maxlength="120">
+        <button id="addBtn" class="ghost">＋ Add</button>
+      </div>
+      <div id="list"></div>
+    </section>
+    <section class="glass card" id="statsCard" hidden>
+      <h2>Today's pauses</h2>
+      <div id="stats"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Declination Compass</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2 9.2 14.8M14.8 9.2l.9-1.6-1.6.9M9.2 14.8l-.9 1.6 1.6-.9"/></svg>
+    <div>
+      <h1>Declination Compass</h1>
+      <p class="sub">True ↔ magnetic bearings</p>
+    </div>
+  </header>
+
+  <section class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+    <p>Your declination — not a WMM model. Enter the declination for your location (look it up from a chart or calculator); this only does the bearing math.</p>
+  </section>
+
+  <section class="field">
+    <label for="decl">Your declination (°), east positive</label>
+    <input id="decl" type="number" step="0.1" min="-30" max="30" value="0" inputmode="decimal">
+    <p class="hint">e.g. 12.5°E → <b>12.5</b>, 4°W → <b>-4</b></p>
+  </section>
+
+  <section class="field">
+    <label for="bearing">Bearing (° 0–360)</label>
+    <input id="bearing" type="number" step="0.5" min="0" max="360" value="90" inputmode="decimal">
+  </section>
+
+  <div class="results">
+    <div class="row"><span>True → Magnetic</span><b id="t2m">—</b></div>
+    <div class="row"><span>Magnetic → True</span><b id="m2t">—</b></div>
+    <div class="row compass-row"><span>Compass point</span><b id="cp">—</b></div>
+  </div>
+
+  <details class="learn">
+    <summary>How declination works</summary>
+    <ul>
+      <li><b>True north</b> is the geographic North Pole; <b>magnetic north</b> is where a compass needle points. They differ by the <b>magnetic declination</b>, which changes by location and slowly over time.</li>
+      <li>East declination: magnetic north lies <i>east</i> of true north. To go from a <b>true</b> bearing to a <b>magnetic</b> bearing you <i>subtract</i> east declination.</li>
+      <li>Memory aid: <b>"East is least"</b> — subtract east declination when going true → magnetic. <b>"West is best"</b> — add west declination.</li>
+      <li>This tool is a pure math helper. It does not know your real declination — find it from an up-to-date magnetic declination chart.</li>
+    </ul>
+  </details>
+
+  <footer class="foot">Fully local · zero network</footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

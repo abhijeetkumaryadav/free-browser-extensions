@@ -1,0 +1,32 @@
+/* Kaleidoscope popup — deep-dark glassmorphism, one violet accent */
+:root {
+  --accent: #8b5cf6;
+  --bg: #0b0e14;
+  --panel: rgba(20, 20, 26, .72);
+  --line: rgba(255, 255, 255, .08);
+  --text: #e8edf4;
+  --muted: #8b93a5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px; padding: 14px 16px 16px;
+  background: var(--bg); color: var(--text);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.topbar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+.logo { width: 26px; height: 26px; color: var(--accent); flex: none; }
+.topbar h1 { font-size: 16px; font-weight: 650; }
+.sub { color: var(--muted); font-size: 11.5px; }
+.blurb {
+  background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; margin-bottom: 12px; color: var(--muted); font-size: 12.5px;
+}
+.blurb strong { color: var(--text); }
+.btn {
+  width: 100%; border: 0; border-radius: 10px; padding: 11px;
+  font-size: 13.5px; font-weight: 650; cursor: pointer;
+  background: var(--accent); color: #f5f0ff;
+}
+.btn:hover { filter: brightness(1.08); }
+.note { color: var(--muted); font-size: 11px; text-align: center; margin-top: 10px; }

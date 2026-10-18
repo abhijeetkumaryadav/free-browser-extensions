@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ambient Soundscape Mixer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>All sounds are <strong>generated live</strong> in your browser — not recordings.</span>
+  </div>
+
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>
+    <div>
+      <h1>Soundscape Mixer</h1>
+      <p class="sub">Blend ambient layers for focus or rest</p>
+    </div>
+    <button id="playBtn" class="play" aria-label="Play or stop">
+      <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>
+    </button>
+  </header>
+
+  <section class="layers" id="layers"></section>
+
+  <section class="master">
+    <div class="master-row">
+      <span>Master volume</span>
+      <input type="range" id="masterVol" min="0" max="100" value="70">
+    </div>
+    <div class="master-row">
+      <span>Session timer</span>
+      <select id="timerSel">
+        <option value="0">Off</option>
+        <option value="5">5 min</option>
+        <option value="10">10 min</option>
+        <option value="15" selected>15 min</option>
+        <option value="20">20 min</option>
+        <option value="30">30 min</option>
+        <option value="60">60 min</option>
+      </select>
+    </div>
+    <div class="timer-display" id="timerDisplay">Timer off — plays until you stop it</div>
+  </section>
+
+  <footer>100% local. Nothing is recorded, uploaded, or sent anywhere.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

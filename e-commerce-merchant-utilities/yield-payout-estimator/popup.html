@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yield Payout Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <div><h1>Yield Payout Estimator</h1><p>Affiliate &amp; creator commissions</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="grid2">
+        <label class="fld">Sales revenue
+          <input id="revenue" type="number" min="0" step="0.01" placeholder="10000">
+        </label>
+        <label class="fld">Number of sales
+          <input id="sales" type="number" min="0" step="1" placeholder="120">
+        </label>
+      </div>
+      <div class="grid2">
+        <label class="fld">Base rate %
+          <input id="rate" type="number" min="0" max="100" step="0.1" placeholder="10">
+        </label>
+        <label class="fld">Returns / chargebacks %
+          <input id="returns" type="number" min="0" max="100" step="0.1" placeholder="4">
+        </label>
+      </div>
+      <div id="result" class="result" hidden>
+        <div class="net-row">
+          <div><span>Est. net payout</span><b id="rNet">$0.00</b></div>
+          <div class="chip" id="rEffRate">eff. 0%</div>
+        </div>
+        <div class="rrow"><span>Gross commission</span><b id="rGross">$0.00</b></div>
+        <div class="rrow"><span>Minus returns</span><b id="rRet">−$0.00</b></div>
+        <div class="rrow"><span>Avg payout / sale</span><b id="rPerSale">$0.00</b></div>
+        <div id="tierNote" class="note" hidden></div>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>What-if rate slider</h2>
+      <input id="whatif" type="range" min="0" max="30" step="0.5" value="10">
+      <div class="whatif-row">
+        <span>Rate <b id="wiRate">10%</b></span>
+        <span>Payout <b id="wiPayout" class="accent">$0.00</b></span>
+      </div>
+      <p class="note">Drag to see how a different flat rate would change the payout at the same revenue and returns.</p>
+    </section>
+    <section class="glass card">
+      <h2>Commission tiers</h2>
+      <p class="note">Marginal tiers: revenue inside each band earns that band's rate.</p>
+      <div id="tiers"></div>
+      <div class="add-form">
+        <input id="tUpTo" type="number" min="0" step="1" placeholder="Up to revenue">
+        <input id="tRate" type="number" min="0" max="100" step="0.1" placeholder="Rate %">
+        <button id="addTier" class="ghost">＋ Add tier</button>
+      </div>
+      <button id="clearTiers" class="linklike">Reset tiers</button>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

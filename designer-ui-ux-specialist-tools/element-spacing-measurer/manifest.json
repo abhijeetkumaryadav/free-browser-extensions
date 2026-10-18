@@ -1,0 +1,25 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "Measure pixel distances between any two elements on the page with guide lines and live readouts.",
+  "host_permissions": [],
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Element Spacing Measurer",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "version": "1.0.0"
+}

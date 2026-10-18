@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>RA/Dec ↔ Alt/Az</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header class="hdr">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/><circle cx="15.5" cy="8.5" r="1.4" fill="#38bdf8"/></svg>
+  <div><h1>RA/Dec ↔ Alt/Az</h1><p class="sub">Equatorial ⇆ horizontal coords</p></div>
+</header>
+<div class="notice">Approximate spherical-astronomy geometry — educational, not telescope pointing software.</div>
+<div class="tabs">
+  <button class="tab active" data-tab="radec">RA/Dec → Alt/Az</button>
+  <button class="tab" data-tab="altaz">Alt/Az → RA/Dec</button>
+</div>
+<section id="tab-radec" class="panel">
+  <label>Right ascension <input id="ra" type="text" placeholder="hh mm ss  e.g. 05 35 17"></label>
+  <label>Declination <input id="dec" type="text" placeholder="±dd mm ss  e.g. −05 23 28"></label>
+  <div class="row2">
+    <label>Latitude ° <input id="lat" type="number" step="any" value="51.48"></label>
+    <label>Longitude °E <input id="lon" type="number" step="any" value="0.00"></label>
+  </div>
+  <label>Date/time (UTC) <input id="dt" type="datetime-local"></label>
+  <button id="go1" class="go">Convert</button>
+  <div id="out1" class="out"></div>
+</section>
+<section id="tab-altaz" class="panel hidden">
+  <label>Altitude ° <input id="alt" type="number" step="any" placeholder="0 – 90"></label>
+  <label>Azimuth ° <input id="az" type="number" step="any" placeholder="0 – 360 (N→E)"></label>
+  <div class="row2">
+    <label>Latitude ° <input id="lat2" type="number" step="any" value="51.48"></label>
+    <label>Longitude °E <input id="lon2" type="number" step="any" value="0.00"></label>
+  </div>
+  <label>Date/time (UTC) <input id="dt2" type="datetime-local"></label>
+  <button id="go2" class="go">Convert</button>
+  <div id="out2" class="out"></div>
+</section>
+<div class="foot">Also computes: hour angle, LST, above-horizon flag.</div>
+<script src="popup.js"></script>
+</body></html>

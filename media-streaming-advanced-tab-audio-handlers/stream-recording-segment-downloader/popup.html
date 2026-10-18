@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamSaver — Media File Finder</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <div>
+        <h1>StreamSaver</h1>
+        <p class="subtitle">Media file finder</p>
+      </div>
+      <button id="rescan" class="icon-btn" title="Rescan page" aria-label="Rescan page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg>
+      </button>
+    </header>
+
+    <p class="hint">Scans the current tab for publicly accessible video &amp; audio files. Segmented streams (.m3u8 / .mpd) and DRM-protected video are not supported.</p>
+
+    <div id="status" class="status">Scanning page…</div>
+    <ul id="results" class="results" hidden></ul>
+
+    <footer class="footer">
+      <span>Only files you click are downloaded.</span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 18 2.5-7.5L21 11z"/></svg>
+    <div>
+      <h1>CursorCraft</h1>
+      <p class="sub">Custom cursor pack</p>
+    </div>
+  </header>
+
+  <section class="site-row">
+    <span class="site-label">This tab</span>
+    <span class="site-host" id="host">…</span>
+    <span class="site-saved" id="savedBadge" hidden>saved</span>
+  </section>
+
+  <section class="grid" id="grid" aria-label="Cursor styles"></section>
+
+  <section class="preview" id="preview">
+    <img id="previewImg" alt="Cursor preview">
+    <div class="preview-meta">
+      <strong id="previewName">—</strong>
+      <span class="preview-hint">Preview · hover to test</span>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button class="btn primary" id="applyBtn">Apply to this tab</button>
+    <button class="btn ghost" id="restoreBtn">Restore default</button>
+  </footer>
+
+  <p class="note">Fun only — applies on your click, nothing permanent, no tracking.</p>
+  <script src="popup.js"></script>
+</body>
+</html>

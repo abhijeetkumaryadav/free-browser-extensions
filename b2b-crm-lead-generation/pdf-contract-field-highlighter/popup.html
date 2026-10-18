@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contract Field Highlighter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+    <div><h1>Clause Scanner</h1><p>Text-pattern contract review</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Contract text</h2>
+      <textarea id="contract" rows="6" placeholder="Paste the contract text here…"></textarea>
+      <div class="row2">
+        <button id="scan" class="primary">Scan clauses</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+      <p class="note">Pattern-based heuristic — highlights likely clause locations. Not legal advice; always have counsel review.</p>
+    </section>
+    <section class="glass card" id="progressCard" hidden>
+      <h2>Review checklist <span id="prog" class="count"></span></h2>
+      <div class="bar"><div id="barFill"></div></div>
+      <div id="results"></div>
+    </section>
+    <div id="empty" class="empty">Paste contract text and hit <b>Scan clauses</b> to surface termination, liability, payment, renewal, confidentiality, and governing-law language.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

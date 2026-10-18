@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="2.5"/>
+        <path d="M12 5V2M12 22v-3M5 12H2M22 12h-3"/>
+        <path d="M7.5 7.5 5.4 5.4M18.6 18.6l-2.1-2.1M16.5 7.5l2.1-2.1M5.4 18.6l2.1-2.1"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Magnet Repeller</h1>
+      <p class="tag">Visual toy &middot; page untouched</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    Playful visual toy. Page elements are pushed away from your cursor as <em>clones on an overlay</em> &mdash; the real page DOM is never modified. One click restores everything.
+  </div>
+
+  <section class="card">
+    <p class="label row"><span>Repel strength</span><span id="strengthVal" class="val">60</span></p>
+    <input type="range" id="strength" min="10" max="120" step="5" value="60">
+    <p class="label row"><span>Repel radius</span><span id="radiusVal" class="val">220px</span></p>
+    <input type="range" id="radius" min="80" max="400" step="10" value="220">
+  </section>
+
+  <button id="toggle" class="cta">Start repelling</button>
+  <p class="foot">Press <kbd>Esc</kbd> on the page or click Restore to return the page exactly.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

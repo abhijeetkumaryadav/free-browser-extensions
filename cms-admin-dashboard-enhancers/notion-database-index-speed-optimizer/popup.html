@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion Database Index Speed Optimizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+        </span>
+        <div>
+          <h1>Database Design Review</h1>
+          <p class="subtitle">Heuristic advice · offline · no Notion access</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <label class="field-label" for="props-input">Paste your property list</label>
+      <textarea id="props-input" rows="4" placeholder="Name (Title)&#10;Status (Select)&#10;Assignee (Person)&#10;Due (Date)&#10;Project (Relation)&#10;Notes (Text)"></textarea>
+      <div class="btn-row">
+        <button id="analyze" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          Analyze design
+        </button>
+        <button id="load-sample" class="btn btn-ghost">Sample</button>
+      </div>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <div class="score-row">
+        <div id="score-ring" class="score-ring"><span id="score-num">0</span></div>
+        <div>
+          <div id="score-verdict" class="verdict"></div>
+          <div id="score-sub" class="hint"></div>
+        </div>
+      </div>
+      <div id="suggestions"></div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Speed checklist</h2>
+      <div id="checklist"></div>
+    </section>
+
+    <section class="panel">
+      <h2 class="panel-title">Formula helpers</h2>
+      <div id="formulas"></div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Alt Text Gap Finder — popup styles (design system: deep-dark glass, one accent) */
+:root {
+  --accent: #34d399;
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0b0b10;
+  color: var(--text);
+  font-size: 13px;
+}
+.panel {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+.brand { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.brand-icon { width: 28px; height: 28px; color: var(--accent); flex-shrink: 0; }
+h1 { font-size: 15px; font-weight: 600; }
+.sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+.actions { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--text);
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:hover { background: rgba(255, 255, 255, 0.09); }
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #052e1f; font-weight: 600; flex: 1; }
+.btn.primary:hover { background: #4be0aa; }
+.btn.small { font-size: 11px; padding: 6px 10px; }
+.status { color: var(--muted); font-size: 12px; margin-bottom: 12px; line-height: 1.5; }
+.status.ok { color: var(--accent); }
+.status.warn { color: #fbbf24; }
+.summary { display: flex; gap: 8px; margin-bottom: 12px; }
+.summary.hidden, .hidden { display: none; }
+.stat {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 6px; text-align: center;
+}
+.stat-num { display: block; font-size: 20px; font-weight: 700; color: var(--accent); }
+.stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.issues { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.issue {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 12px;
+}
+.issue .fname { font-weight: 600; font-size: 12px; word-break: break-all; margin-bottom: 4px; }
+.issue .meta { color: var(--muted); font-size: 11px; margin-bottom: 8px; }
+.issue .suggest {
+  background: rgba(52, 211, 153, 0.1); border: 1px dashed rgba(52, 211, 153, 0.4);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.5; margin-bottom: 8px;
+}
+.issue .suggest .tag {
+  display: inline-block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--accent); border: 1px solid rgba(52, 211, 153, 0.5); border-radius: 4px;
+  padding: 1px 5px; margin-bottom: 4px;
+}
+.issue .row { display: flex; gap: 6px; }
+.issue .row .btn { flex: 1; font-size: 11px; padding: 6px 8px; }
+.footer { border-top: 1px solid var(--border); padding-top: 12px; }
+.note { color: var(--muted); font-size: 10.5px; line-height: 1.5; margin-top: 8px; }
+.note strong { color: var(--text); }
+.empty { text-align: center; color: var(--muted); padding: 20px 0; font-size: 12px; }

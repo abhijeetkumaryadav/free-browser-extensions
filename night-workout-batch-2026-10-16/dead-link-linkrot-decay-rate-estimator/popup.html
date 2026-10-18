@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linkrot Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="brand">
+  <span class="logo" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+  </span>
+  <div>
+    <h1>Linkrot Estimator</h1>
+    <p class="sub">Decay risk signals — heuristic</p>
+  </div>
+</header>
+
+<div class="notice" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <span>Heuristic signals only — not live link checking. Nothing is fetched or verified.</span>
+</div>
+
+<main>
+  <section class="card">
+    <h2>Add a link</h2>
+    <form id="add-form" autocomplete="off">
+      <label>Title
+        <input id="l-title" type="text" maxlength="150" placeholder="e.g. My old blog post" required>
+      </label>
+      <label>URL
+        <input id="l-url" type="url" maxlength="500" placeholder="https://example.com/page" required>
+      </label>
+      <div class="row">
+        <label>Last known good
+          <input id="l-good" type="date">
+        </label>
+        <label>Notes
+          <input id="l-notes" type="text" maxlength="500" placeholder="Why it matters">
+        </label>
+      </div>
+      <button type="submit" class="btn">Save link</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="list-head">
+      <h2>Links <span id="count" class="pill">0</span></h2>
+      <input id="search" type="search" placeholder="Search title, URL, notes…">
+    </div>
+    <ul id="link-list" class="link-list"></ul>
+    <p id="empty" class="empty">No links yet. Add one above.</p>
+  </section>
+
+  <section class="card guide">
+    <h2>What the score counts</h2>
+    <ul>
+      <li><b>Age</b> — years since the last-known-good date you entered (older = riskier).</li>
+      <li><b>Deep path</b> — long nested paths tend to rot faster than homepages.</li>
+      <li><b>Host type</b> — free hosts and personal domains get a small risk bump.</li>
+      <li><b>No date</b> — unknown history counts as mildly risky.</li>
+    </ul>
+  </section>
+
+  <section class="card foot">
+    <div class="row">
+      <button id="export" class="btn ghost" type="button">Export JSON</button>
+      <label class="btn ghost file">Import JSON<input id="import" type="file" accept="application/json" hidden></label>
+      <button id="clear" class="btn danger" type="button">Clear all</button>
+    </div>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iframe Sandbox Enforcer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="m9 15 2 2 4-4"/></svg>
+    </span>
+    <div>
+      <h1>Iframe Sandbox Enforcer</h1>
+      <p class="subtitle">Harden embedded frames on any page</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h2>Site policy</h2>
+    <p class="site-row"><span class="dot"></span><span id="originLabel" class="origin">…</span></p>
+    <label class="field-label" for="modeSelect">Enforcement mode</label>
+    <select id="modeSelect" class="select">
+      <option value="off">Off — no automatic enforcement</option>
+      <option value="sandbox-third">Sandbox third-party iframes</option>
+      <option value="sandbox-all">Sandbox all iframes</option>
+      <option value="block-third">Block third-party iframes</option>
+    </select>
+    <p class="hint" id="permHint">Enabling a policy asks for optional access to this site only, so it can apply automatically on load. You can revoke it anytime.</p>
+    <button id="savePolicy" class="btn primary">Save site policy</button>
+    <p class="status" id="policyStatus" role="status"></p>
+  </section>
+
+  <section class="panel">
+    <h2>This page</h2>
+    <div class="btn-row">
+      <button id="scanBtn" class="btn primary">Scan iframes</button>
+    </div>
+    <div id="frameList" class="frame-list"></div>
+    <div class="btn-row" id="bulkRow" hidden>
+      <button id="sandboxAllBtn" class="btn">Sandbox all</button>
+      <button id="blockThirdBtn" class="btn danger">Block 3rd-party</button>
+    </div>
+    <p class="hint">Hardening applies in-memory only — reloading the page restores everything. Nothing is modified permanently.</p>
+  </section>
+
+  <footer class="footer">All processing happens on-device. No data leaves your browser.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

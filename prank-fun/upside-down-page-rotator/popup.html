@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlipPage</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      </div>
+      <div class="title-wrap">
+        <h1>FlipPage</h1>
+        <p class="subtitle">Upside-down page rotator</p>
+      </div>
+      <span class="prank-badge">PRANK</span>
+    </header>
+
+    <div class="panel">
+      <p class="desc">Rotates the entire current tab 180° with a smooth animation. It's clearly a joke — one more click puts everything back.</p>
+
+      <div class="status" id="statusLine">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Checking page state…</span>
+      </div>
+
+      <button id="flipBtn" class="cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        <span id="flipLabel">Flip page 180°</span>
+      </button>
+
+      <div class="row between shake-row">
+        <div>
+          <label class="field-label" for="shakeToggle">Shake mode</label>
+          <p class="shake-hint">Gentle wobble while flipped</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="shakeToggle">
+          <span class="track"><span class="thumb"></span></span>
+        </label>
+      </div>
+    </div>
+
+    <footer class="footer">Harmless joke · nothing is damaged · fully reversible</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

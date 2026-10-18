@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Markdown Clipper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Copies Markdown to your clipboard or downloads a <b>.md</b> file — it does <b>not</b> write into your Obsidian vault.</span>
+  </div>
+
+  <section class="card">
+    <div class="card-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6"/><path d="M9 16h4"/></svg>
+      <h2>Clip current tab</h2>
+    </div>
+    <label class="check"><input type="checkbox" id="optYaml" checked> Include YAML frontmatter (title, URL, clipped date)</label>
+    <label class="check"><input type="checkbox" id="optImages" checked> Include images as Markdown image links</label>
+    <label class="check"><input type="checkbox" id="optSelection"> Clip selection only (if text is selected)</label>
+    <button id="clipBtn" class="primary-btn">Clip page to Markdown</button>
+    <p class="hint" id="status">Ready. The Markdown preview appears below.</p>
+  </section>
+
+  <section class="card preview-card" id="previewCard" hidden>
+    <div class="card-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <h2>Preview</h2>
+    </div>
+    <pre id="preview" class="preview"></pre>
+    <div class="btn-row">
+      <button id="copyBtn" class="primary-btn half">Copy Markdown</button>
+      <button id="downloadBtn" class="ghost-btn half">Download .md</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

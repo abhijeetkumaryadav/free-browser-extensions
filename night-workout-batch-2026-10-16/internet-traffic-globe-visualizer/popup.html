@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internet Traffic Globe</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.9 5.7 3.9 9S14.5 18.4 12 21c-2.5-2.6-3.9-5.7-3.9-9S9.5 5.6 12 3z"/></svg>
+    <div>
+      <h1>Internet Traffic Globe</h1>
+      <p class="sub">Simulated visualization</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span><strong>Simulated — not live data.</strong> Arcs are randomly generated for fun; nothing here measures real internet traffic.</span>
+  </div>
+
+  <canvas id="globe" width="348" height="220" aria-label="Animated globe with simulated traffic arcs"></canvas>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="stat-arcs">0</span><span class="lbl">active routes</span></div>
+    <div class="stat"><span class="num" id="stat-packets">0</span><span class="lbl">packets "delivered"</span></div>
+    <div class="stat"><span class="num" id="stat-hops">0</span><span class="lbl">cities shown</span></div>
+  </div>
+
+  <div class="controls">
+    <button id="btn-pause" class="btn primary" type="button">Pause</button>
+    <button id="btn-new" class="btn" type="button">New routes</button>
+    <label class="slider">Speed
+      <input id="speed" type="range" min="0.2" max="3" step="0.2" value="1">
+    </label>
+  </div>
+
+  <section class="explainer">
+    <h2>How internet traffic actually works</h2>
+    <ul>
+      <li>Data travels as <strong>packets</strong> along <strong>undersea cables</strong> and fiber backbones — not as glowing arcs through space.</li>
+      <li>Packets hop through <strong>routers</strong>; each picks the next hop by destination, not by straight-line distance.</li>
+      <li>A "route" here is just two random dots on a drawing — real paths zig-zag through many intermediate networks.</li>
+    </ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

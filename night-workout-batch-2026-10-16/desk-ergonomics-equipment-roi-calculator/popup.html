@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ergo ROI Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h4M7 12h7"/></svg>
+    </span>
+    <div>
+      <h1>Ergo ROI Calculator</h1>
+      <p class="sub">Your numbers — estimates only.</p>
+    </div>
+  </header>
+
+  <p class="notice">Computes payback from values <em>you</em> assign — not financial advice.</p>
+
+  <section class="form">
+    <label>Equipment name
+      <input id="itemName" type="text" placeholder="e.g. Standing desk" maxlength="60">
+    </label>
+    <label>Purchase cost ($)
+      <input id="cost" type="number" min="0" step="0.01" placeholder="800">
+    </label>
+    <label>Expected lifespan (years)
+      <input id="years" type="number" min="0.5" max="30" step="0.5" placeholder="7">
+    </label>
+    <label>Daily comfort / productivity value ($)
+      <input id="dailyValue" type="number" min="0" step="0.25" placeholder="3.50">
+    </label>
+    <p class="hint">The daily value is what the equipment is worth to <em>you</em> per workday — comfort, fewer aches, focus. Be honest; the math does the rest.</p>
+    <button id="calc" class="btn">Calculate ROI</button>
+  </section>
+
+  <section id="results" class="results" hidden>
+    <h2>Result</h2>
+    <div class="grid">
+      <div class="stat"><span class="k">Yearly value</span><span class="v" id="yearly">$0</span></div>
+      <div class="stat"><span class="k">Lifetime value</span><span class="v" id="lifetime">$0</span></div>
+      <div class="stat"><span class="k">Payback period</span><span class="v" id="payback">—</span></div>
+      <div class="stat"><span class="k">Net gain</span><span class="v" id="net">$0</span></div>
+    </div>
+    <div class="bar-wrap"><div class="bar" id="roiBar"></div></div>
+    <p class="verdict" id="verdict"></p>
+  </section>
+
+  <section class="saved">
+    <h2>Saved items <button id="clear" class="link" type="button">clear all</button></h2>
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty">No saved items yet.</p>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

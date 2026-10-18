@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" class="ic"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div>
+      <h1>Symptom Journal</h1>
+      <p class="sub">Your private log — share with your doctor</p>
+    </div>
+  </header>
+
+  <!-- Mandatory health disclaimer -->
+  <div class="disclaimer" role="note">
+    <svg viewBox="0 0 24 24" class="ic"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+    <span>Not a diagnosis — see a doctor. This journal never assesses, diagnoses, or validates symptoms.</span>
+  </div>
+
+  <form id="entry-form" autocomplete="off">
+    <label>Symptom
+      <input id="sym-name" type="text" maxlength="80" placeholder="e.g. Headache" required>
+    </label>
+    <div class="row">
+      <label>Date
+        <input id="sym-date" type="date" required>
+      </label>
+      <label>Severity (1–10)
+        <input id="sym-sev" type="number" min="1" max="10" placeholder="5" required>
+      </label>
+    </div>
+    <label>Notes
+      <textarea id="sym-notes" rows="2" maxlength="500" placeholder="When did it start? What were you doing?"></textarea>
+    </label>
+    <button type="submit" class="btn primary">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M12 5v14M5 12h14"/></svg>
+      Log entry
+    </button>
+  </form>
+
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search your journal…" aria-label="Search journal">
+  </div>
+
+  <section id="log-list" class="log" aria-live="polite"></section>
+
+  <footer class="foot">
+    <button id="export" class="btn ghost">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Export for doctor (JSON)
+    </button>
+    <button id="clear" class="btn ghost danger">
+      <svg viewBox="0 0 24 24" class="ic"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      Clear
+    </button>
+  </footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

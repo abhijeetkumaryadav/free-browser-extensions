@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPE Target Weight Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <!-- Lucide-style scale/gauge outline icon -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brand"><path d="M12 3v18"/><path d="M5 7l7-4 7 4"/><path d="M3 13l2-6 2 6a3.5 3.5 0 0 1-4 0z"/><path d="M17 13l2-6 2 6a3.5 3.5 0 0 1-4 0z"/></svg>
+    <div>
+      <h1>RPE Target Weight</h1>
+      <p class="sub">Estimate only — not medical advice.</p>
+    </div>
+  </header>
+
+  <label class="field">One-rep max (your unit)
+    <input type="number" id="orm" min="1" max="2000" step="0.5" placeholder="e.g. 100">
+  </label>
+  <div class="row2">
+    <label class="field">Reps
+      <input type="number" id="reps" min="1" max="12" step="1" value="5">
+    </label>
+    <label class="field">Target RPE
+      <input type="number" id="rpe" min="6" max="10" step="0.5" value="8">
+    </label>
+  </div>
+  <button id="calc" class="primary">Calculate target</button>
+
+  <div class="result" id="result" hidden>
+    <div class="big" id="target">—</div>
+    <div class="pct" id="pct">—</div>
+  </div>
+
+  <h2>RPE chart (% of 1RM)</h2>
+  <div class="table-wrap">
+    <table id="chart"></table>
+  </div>
+
+  <p class="note">Based on the common RPE percentage chart (RPE 6–10 × 1–12 reps). Charts are population averages — individual variation is large.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

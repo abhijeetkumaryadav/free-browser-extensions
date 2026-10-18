@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcript Paragrapher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5z"/></svg>
+      <h1>Transcript Paragrapher</h1>
+    </div>
+    <p class="scope">Paste a YouTube transcript — it becomes timestamped paragraphs with notes.<br><strong>NO transcript fetching · NO translation</strong> — manual formatter only.</p>
+  </header>
+
+  <main>
+    <section class="panel" id="paste-panel">
+      <label class="field-label" for="raw-input">Paste raw transcript</label>
+      <textarea id="raw-input" placeholder="00:00 Intro&#10;00:14 First topic&#10;&#10;Paste from YouTube's &quot;Open transcript&quot; panel…"></textarea>
+      <div class="row">
+        <button id="format-btn" class="btn primary">Format into paragraphs</button>
+        <button id="clear-btn" class="btn ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="result-panel">
+      <div class="result-head">
+        <span id="para-count" class="count-chip">0 paragraphs</span>
+        <div class="row">
+          <button id="copy-btn" class="btn small">Copy</button>
+          <button id="download-btn" class="btn small">Export .txt</button>
+          <button id="back-btn" class="btn small ghost">Back</button>
+        </div>
+      </div>
+      <div id="para-list"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Formatter for pasted text — does not fetch transcripts or translate.</span>
+  </footer>
+
+  <script src="formatter.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

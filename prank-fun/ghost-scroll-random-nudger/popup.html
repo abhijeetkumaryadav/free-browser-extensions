@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GhostScroll</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header>
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7v13l2.5-2 2.5 2 2-2 2 2 2.5-2 2.5 2V9a7 7 0 0 0-7-7z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg>
+      <div>
+        <h1>GhostScroll</h1>
+        <p class="sub">Random page nudger <span class="joke-tag">joke</span></p>
+      </div>
+    </header>
+
+    <p class="blurb">While active, the current tab gently scrolls by a few pixels at random intervals. Spooky — but harmless, and it stops the moment you say so.</p>
+
+    <div class="status" id="status">
+      <span class="dot" id="dot"></span>
+      <span id="statusText">Idle</span>
+    </div>
+
+    <label class="field">
+      <span class="field-label">Spookiness <em id="intensityVal">Gentle</em></span>
+      <input type="range" id="intensity" min="0" max="2" step="1" value="0">
+      <div class="ticks"><span>Gentle</span><span>Mischievous</span><span>Haunted</span></div>
+    </label>
+
+    <button id="toggle" class="primary">Start haunting</button>
+    <button id="stopAll" class="ghost">Stop all tabs</button>
+
+    <p class="fine">A harmless prank. Nothing leaves your device; no data is collected. Nudges stop automatically when the tab closes.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

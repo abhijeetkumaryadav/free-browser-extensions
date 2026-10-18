@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PopDock</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <!-- Lucide-style: external-link / pop-out glyph -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>PopDock</h1>
+      <p class="subtitle">Tab → standalone window</p>
+    </div>
+  </header>
+
+  <section class="panel current-tab">
+    <div class="tab-icon">T</div>
+    <div class="tab-meta">
+      <div class="tab-title" id="tabTitle">Loading…</div>
+      <div class="tab-url" id="tabUrl"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="row-label">Pop this tab out</div>
+    <button class="btn primary" id="btnPopout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+      Pop out — same size
+    </button>
+    <button class="btn" id="btnCompact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="12" rx="2"/>
+        <line x1="8" y1="20" x2="16" y2="20"/>
+      </svg>
+      Pop out — compact video (640×360)
+    </button>
+    <label class="check-row">
+      <input type="checkbox" id="chkCompactDefault">
+      <span>Always use compact video size</span>
+    </label>
+  </section>
+
+  <section class="panel" id="restorePanel" hidden>
+    <div class="row-label">Last popped tab</div>
+    <button class="btn" id="btnRestore">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="1 4 1 10 7 10"/>
+        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+      </svg>
+      Send back to original window
+    </button>
+  </section>
+
+  <p class="note">
+    Runs only when you click — PopDock never moves tabs on its own.
+    Restricted pages (chrome://, store pages) can't be popped.
+  </p>
+
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

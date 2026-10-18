@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRM Dead Link Validator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    <div><h1>Dead Link Validator</h1><p>Bulk-check URLs in background tabs</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">URLs — one per line
+        <textarea id="urls" rows="6" placeholder="https://example.com/pricing&#10;https://example.com/old-page"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="run" class="primary">Validate links</button>
+        <button id="cancel" class="ghost" hidden>Cancel</button>
+      </div>
+      <div id="progress" class="progress" hidden>
+        <div class="barwrap"><div id="bar"></div></div>
+        <span id="plabel">0 / 0</span>
+      </div>
+      <p class="note">Best-effort: detects browser error pages and error-like titles. Slow, login-walled, or bot-blocked pages may report as unknown.</p>
+    </section>
+    <section class="glass card" id="resCard" hidden>
+      <h2>Results <span id="summary"></span></h2>
+      <div id="results"></div>
+      <div class="btnrow">
+        <button id="export" class="ghost">Export CSV</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

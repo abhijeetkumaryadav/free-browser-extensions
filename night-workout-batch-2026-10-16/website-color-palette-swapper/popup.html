@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c5 0 9 4 9 9 0 2.5-1.5 4-3.5 4h-2a2.5 2.5 0 0 0-2.4 3.2c-.3 1-1.2 1.8-2.6 1.8C6.5 21 3 17 3 12c0-5 4-9 9-9z"/>
+        <circle cx="8.5" cy="10.5" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="12.5" cy="8" r="1.2" fill="currentColor" stroke="none"/>
+        <circle cx="15.5" cy="11.5" r="1.2" fill="currentColor" stroke="none"/>
+      </svg>
+      <div>
+        <h1>PaletteSwap</h1>
+        <p id="siteLabel">this page</p>
+      </div>
+      <span id="statusDot" class="dot" title="No palette applied"></span>
+    </div>
+
+    <section>
+      <h2>Presets</h2>
+      <div class="presets" id="presets"></div>
+    </section>
+
+    <section>
+      <h2>Custom colors</h2>
+      <div class="pickers">
+        <label><span>Background</span><input type="color" id="cBg" value="#1a1a2e"></label>
+        <label><span>Text</span><input type="color" id="cText" value="#f5f0e8"></label>
+        <label><span>Links</span><input type="color" id="cLink" value="#ff9e64"></label>
+      </div>
+      <button id="applyCustom" class="secondary">Apply custom colors</button>
+    </section>
+
+    <label class="remember">
+      <input type="checkbox" id="remember">
+      <span>Remember for this site</span>
+    </label>
+
+    <div class="row">
+      <button id="resetBtn" class="ghost">Reset page</button>
+    </div>
+    <p class="hint">Pure CSS recoloring, applied on demand. Reset restores the page exactly. Saved palettes stay on your device.</p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

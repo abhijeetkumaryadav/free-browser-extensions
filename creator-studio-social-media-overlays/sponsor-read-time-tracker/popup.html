@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sponsor Read Time Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+    </div>
+    <div>
+      <h1>Sponsor Time Tracker</h1>
+      <p class="subtitle">Manual sponsored-content time tracking</p>
+    </div>
+  </header>
+
+  <!-- Active timer -->
+  <section class="card active-card" id="activeCard" hidden>
+    <div class="active-top">
+      <span class="live-dot"></span>
+      <span class="active-label" id="activeSponsor">Sponsor</span>
+    </div>
+    <div class="timer-display" id="timerDisplay">00:00:00</div>
+    <input type="text" id="sessionNote" class="input" placeholder="Session note (optional)…">
+    <button class="btn btn-stop" id="stopBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      Stop &amp; Log
+    </button>
+  </section>
+
+  <!-- Add sponsor -->
+  <section class="card">
+    <h2 class="card-title">Sponsors</h2>
+    <div class="add-row">
+      <input type="text" id="sponsorName" class="input" placeholder="Sponsor or campaign name…" maxlength="60">
+      <button class="btn btn-accent" id="addSponsorBtn">Add</button>
+    </div>
+    <div id="sponsorList" class="sponsor-list"></div>
+  </section>
+
+  <!-- Sessions -->
+  <section class="card">
+    <div class="card-head">
+      <h2 class="card-title">Sessions</h2>
+      <button class="btn btn-ghost" id="exportBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export CSV
+      </button>
+    </div>
+    <div id="sessionList" class="session-list"></div>
+  </section>
+
+  <p class="disclaimer">Manual tracker — timers are started and stopped by you. All data stays on this device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

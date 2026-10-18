@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+        <line x1="12" y1="12" x2="17" y2="7"/>
+      </svg>
+      <div>
+        <h1>Data Leak Sonar</h1>
+        <p class="sub">outbound request monitor</p>
+      </div>
+    </div>
+    <label class="switch" title="Enable / disable monitoring">
+      <input type="checkbox" id="enabledToggle" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <section class="panel stats">
+    <div class="stat"><span class="num" id="statTotal">0</span><span class="lbl">requests</span></div>
+    <div class="stat"><span class="num warn" id="statThird">0</span><span class="lbl">third-party</span></div>
+    <div class="stat"><span class="num danger" id="statTrackers">0</span><span class="lbl">tracker hits</span></div>
+  </section>
+
+  <section class="panel">
+    <div class="rowhead">
+      <h2>Live sonar feed <span class="tabhost" id="tabHost"></span></h2>
+      <button class="ghost" id="clearBtn" title="Clear this tab's feed">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        Clear
+      </button>
+    </div>
+    <div class="feed" id="feed">
+      <div class="empty">No requests captured yet.<br>Browse in this tab and the sonar will light up.</div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Tracker watchlist <span class="hint">sample list — edit freely</span></h2>
+    <div class="addrow">
+      <input type="text" id="trackerInput" placeholder="tracker-domain.com" spellcheck="false">
+      <button class="primary" id="addTracker">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add
+      </button>
+    </div>
+    <div class="chips" id="trackerChips"></div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+    100% local — request URLs never leave your device.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

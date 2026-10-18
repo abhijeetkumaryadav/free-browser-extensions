@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <div>
+        <h1>Form Vault</h1>
+        <p>Local input history — opt-in per site</p>
+      </div>
+    </header>
+
+    <div class="notice">
+      <strong>Privacy-first:</strong> only runs on sites you enable. Passwords, emails,
+      phone numbers and other sensitive field types are <strong>never</strong> captured.
+      Everything stays in this browser — no network calls.
+    </div>
+
+    <div class="site-row">
+      <span class="host" id="hostLabel">current site</span>
+      <div class="toggle" id="siteToggle" role="switch" aria-checked="false" tabindex="0" title="Enable on this site"></div>
+    </div>
+
+    <input class="search" id="search" type="search" placeholder="Search saved values…" autocomplete="off">
+
+    <div class="list" id="list"></div>
+
+    <div class="row">
+      <button class="btn danger" id="clearAll" title="Delete everything in the vault">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        Clear vault
+      </button>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

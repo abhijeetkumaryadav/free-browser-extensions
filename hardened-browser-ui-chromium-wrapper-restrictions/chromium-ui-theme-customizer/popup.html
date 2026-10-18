@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TabForge Theme Studio</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="logo">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/>
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.24-.27-.42-.67-.42-1.1a1.7 1.7 0 0 1 1.7-1.7h2.78A5.21 5.21 0 0 0 22 10.83C21.97 5.43 17.5 2 12 2z"/>
+        </svg>
+        <div>
+          <h1>TabForge Studio</h1>
+          <p>New-tab themes · chrome itself can't be restyled by extensions</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Live preview</h2>
+      <div id="preview" class="preview">
+        <div class="pv-clock">09:41</div>
+        <div class="pv-bar"></div>
+        <div class="pv-tiles">
+          <span class="pv-tile"></span><span class="pv-tile"></span>
+          <span class="pv-tile"></span><span class="pv-tile"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Accent color</h2>
+      <div id="accentSwatches" class="swatches"></div>
+      <label class="row">Custom <input id="accentCustom" type="color" value="#ec4899"></label>
+    </section>
+
+    <section class="card">
+      <h2>Background</h2>
+      <div class="seg" id="bgTypeSeg">
+        <button data-v="gradient" class="on">Gradient</button>
+        <button data-v="image">Image</button>
+      </div>
+      <div id="gradientRow" class="row">
+        <input id="gradA" type="color" value="#14101f" aria-label="Gradient start">
+        <input id="gradB" type="color" value="#3b115f" aria-label="Gradient end">
+        <div id="gradPresets" class="swatches small"></div>
+      </div>
+      <div id="imageRow" class="row" hidden>
+        <label class="btn-ghost file">Choose image
+          <input id="bgImageInput" type="file" accept="image/*" hidden>
+        </label>
+        <button id="bgImageClear" class="btn-ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Style</h2>
+      <div class="seg" id="modeSeg">
+        <button data-v="dark" class="on">Dark</button>
+        <button data-v="light">Light</button>
+      </div>
+      <div class="seg" id="tileSeg">
+        <button data-v="rounded" class="on">Rounded</button>
+        <button data-v="square">Square</button>
+        <button data-v="pill">Pill</button>
+      </div>
+      <label class="row check"><input id="showClock" type="checkbox" checked> Show clock</label>
+      <label class="row check"><input id="showSearch" type="checkbox" checked> Show search</label>
+    </section>
+
+    <section class="card">
+      <h2>Presets</h2>
+      <div id="presetList" class="presets"></div>
+      <div class="row">
+        <input id="presetName" type="text" maxlength="24" placeholder="Preset name…">
+        <button id="presetSave" class="btn-accent">Save</button>
+      </div>
+      <button id="resetBtn" class="btn-ghost full">Reset to default</button>
+    </section>
+  </div>
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

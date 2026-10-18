@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kp Index Watcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <span class="header-icon" id="sunIcon"></span>
+    <div>
+      <h1>Kp Index Watcher</h1>
+      <p class="subtitle">Space-weather edu log</p>
+    </div>
+  </header>
+
+  <!-- Honest-scope banner -->
+  <div class="notice">
+    <span class="notice-icon" id="infoIcon"></span>
+    <p><strong>Educational only — not live alerts.</strong> This extension has no
+    space-weather feed. Log Kp values you check yourself (e.g. at
+    <em>swpc.noaa.gov</em>) and keep your own notes.</p>
+  </div>
+
+  <!-- Kp scale guide -->
+  <section class="card">
+    <h2>Kp scale guide</h2>
+    <p class="hint">Kp runs 0–9. Higher = stronger geomagnetic activity.</p>
+    <div class="scale" id="kpScale"></div>
+  </section>
+
+  <!-- Alert threshold note -->
+  <section class="card">
+    <h2>Alert threshold note</h2>
+    <p class="hint">Pick a level you personally watch for. This is a
+    <strong>note for yourself</strong> — the extension cannot alert you.</p>
+    <div class="row">
+      <select id="threshold" aria-label="Alert threshold">
+        <option value="5">Kp 5 — G1 Minor</option>
+        <option value="6">Kp 6 — G2 Moderate</option>
+        <option value="7" selected>Kp 7 — G3 Strong</option>
+        <option value="8">Kp 8 — G4 Severe</option>
+        <option value="9">Kp 9 — G5 Extreme</option>
+      </select>
+      <button id="saveThreshold" class="btn">Save</button>
+    </div>
+    <p class="saved-note" id="thresholdNote"></p>
+  </section>
+
+  <!-- Log a reading -->
+  <section class="card">
+    <h2>Log a Kp reading</h2>
+    <div class="row">
+      <input id="kpValue" type="number" min="0" max="9" step="1"
+             placeholder="Kp 0–9" aria-label="Kp value">
+      <input id="kpNote" type="text" maxlength="80"
+             placeholder="Note (e.g. source, time)" aria-label="Reading note">
+      <button id="addReading" class="btn primary">Log</button>
+    </div>
+    <p class="form-error" id="formError"></p>
+  </section>
+
+  <!-- History -->
+  <section class="card">
+    <h2>Reading history</h2>
+    <ul class="history" id="history"></ul>
+    <div class="row end">
+      <button id="clearAll" class="btn ghost">Clear all</button>
+    </div>
+  </section>
+
+  <footer class="footer">Your readings stay in this browser. Not live data.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

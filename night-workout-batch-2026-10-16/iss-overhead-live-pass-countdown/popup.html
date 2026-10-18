@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISS Pass Countdown</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M20.2 6.8a9 9 0 1 0-16.4 0"/><path d="M16.5 3.5h2.5v2.5"/><path d="M19 3.5 14 8.5"/></svg>
+    <div>
+      <h1>ISS Pass Countdown</h1>
+      <p class="sub">Overhead pass times you enter</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+    <span><strong>Your times — not live tracking.</strong> Get pass times from heavens-above.com, enter them here, and this counts down to the next one.</span>
+  </div>
+
+  <section class="next card" id="nextCard">
+    <p class="label">Next pass</p>
+    <p class="countdown" id="countdown">—</p>
+    <p class="detail" id="nextDetail">No upcoming passes. Add one below.</p>
+    <button id="notifyBtn" class="btn">Notify 5 min before</button>
+  </section>
+
+  <section class="card">
+    <div class="row2">
+      <input id="passDate" class="field" type="date">
+      <input id="passTime" class="field" type="time">
+    </div>
+    <div class="row2">
+      <input id="elevation" class="field" type="number" min="0" max="90" placeholder="Max elevation ° (opt)">
+      <input id="note" class="field" type="text" placeholder="Note (opt)" maxlength="80">
+    </div>
+    <button id="addBtn" class="btn primary">Add pass</button>
+  </section>
+
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty">No passes saved yet.</p>
+  <footer class="foot"><span id="count">0 passes</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

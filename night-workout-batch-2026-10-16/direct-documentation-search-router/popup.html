@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+    <div>
+      <h1>Docs Search Router</h1>
+      <p class="sub">One query, many docs. Opens search pages — it does <b>not</b> search inside them for you.</p>
+    </div>
+  </header>
+
+  <label class="field">
+    <span>Search query</span>
+    <input id="query" type="text" placeholder="e.g. Array.prototype.flatMap" autocomplete="off">
+  </label>
+
+  <div class="sources-head">
+    <span>Documentation sources</span>
+    <button id="toggle-all" class="link">Select all</button>
+  </div>
+  <ul id="sources" class="sources"></ul>
+
+  <details class="add-source">
+    <summary>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add custom source
+    </summary>
+    <div class="add-form">
+      <input id="src-name" type="text" placeholder="Name, e.g. Vue Docs">
+      <input id="src-url" type="text" placeholder="Search URL, use {q} for the query">
+      <button id="src-add" class="btn">Add source</button>
+    </div>
+  </details>
+
+  <button id="launch" class="btn primary">Launch selected sources</button>
+  <p class="hint">Tip: each source opens as a background tab. Custom URLs must contain <code>{q}</code>, which becomes your URL-encoded query.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

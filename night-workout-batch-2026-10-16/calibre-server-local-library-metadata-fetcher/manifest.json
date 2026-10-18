@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"My Library Log"},"description":"Your personal reading library log: books, status, progress, notes, import/export. Not connected to any Calibre server.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"My Library Log","permissions":["storage"],"version":"1.0.0"}

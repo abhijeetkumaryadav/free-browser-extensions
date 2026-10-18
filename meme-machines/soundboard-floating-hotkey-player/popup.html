@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoundBoard</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <div>
+        <h1>SoundBoard</h1>
+        <p class="tagline">100% synthesized · zero audio files · just for fun</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sound grid -->
+  <main class="grid" id="soundGrid" aria-label="Sound buttons"></main>
+
+  <!-- Volume -->
+  <section class="panel glass">
+    <div class="row">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      <label for="volume">Volume</label>
+      <span class="vol-val" id="volVal">80%</span>
+    </div>
+    <input type="range" id="volume" min="0" max="100" value="80" aria-label="Volume">
+  </section>
+
+  <!-- Floating player -->
+  <section class="panel glass">
+    <button class="btn-primary" id="floatBtn">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l-3 3 3 3"/><path d="M9 5l3-3 3 3"/><path d="M15 19l-3 3-3-3"/><path d="M19 9l3 3-3 3"/><path d="M2 12h20"/><path d="M12 2v20"/></svg>
+      Toggle floating mini player
+    </button>
+    <p class="hint">Drops a small draggable player onto the current tab so sounds keep playing after this popup closes.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Press <kbd>1</kbd>–<kbd>8</kbd> to play · all sounds generated live in your browser</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

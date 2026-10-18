@@ -1,0 +1,61 @@
+/* Kaleidoscope camera surface — deep dark, violet accent, glassmorphism controls */
+:root {
+  --accent: #8b5cf6;
+  --bg: #07080d;
+  --panel: rgba(20, 20, 26, .72);
+  --line: rgba(255, 255, 255, .08);
+  --text: #e8edf4;
+  --muted: #8b93a5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; padding: 20px; overflow: hidden;
+}
+.stage { position: relative; max-width: min(96vw, 1100px); }
+#view {
+  display: block; width: min(92vw, 960px); height: auto; aspect-ratio: 4/3;
+  border-radius: 18px; border: 1px solid var(--line);
+  background: radial-gradient(circle at 50% 40%, #151823, #07080d);
+  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+}
+.overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  border-radius: 18px; background: rgba(7,8,13,.55); backdrop-filter: blur(6px);
+}
+.overlay[hidden] { display: none; }
+.card {
+  background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); border-radius: 16px;
+  padding: 28px 32px; max-width: 420px; text-align: center;
+}
+.card svg { width: 40px; height: 40px; color: var(--accent); margin-bottom: 10px; }
+.card h1 { font-size: 20px; margin-bottom: 8px; }
+.card p { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+.card p strong { color: var(--text); }
+.err { color: #f87171 !important; font-size: 12.5px; margin: 10px 0 0 !important; }
+
+.controls {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center;
+  background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); border-radius: 14px; padding: 12px 20px;
+}
+.controls[hidden] { display: none; }
+.ctrl label { font-size: 12px; color: var(--muted); display: block; margin-bottom: 4px; }
+.ctrl label span { color: var(--accent); font-weight: 700; }
+input[type="range"] { accent-color: var(--accent); width: 140px; }
+.check { font-size: 12.5px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.check input { accent-color: var(--accent); }
+.btnrow { display: flex; gap: 8px; }
+.btn {
+  border: 0; border-radius: 10px; padding: 10px 16px;
+  font-size: 13px; font-weight: 650; cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: #f5f0ff; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.privacy { font-size: 11px; color: var(--muted); width: 100%; text-align: center; }

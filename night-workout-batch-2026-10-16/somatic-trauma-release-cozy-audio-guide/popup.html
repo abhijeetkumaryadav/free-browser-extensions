@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cozy Audio Guide</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Relaxation aid only — <strong>NOT therapy</strong>, not medical advice.</span>
+  </div>
+
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <div>
+      <h1>Cozy Audio Guide</h1>
+      <p class="sub">Generated ambient tones + gentle prompts</p>
+    </div>
+  </header>
+
+  <section class="phase-card" id="phaseCard">
+    <div class="phase-head">
+      <span class="phase-kicker" id="phaseKicker">Ready</span>
+      <span class="phase-time" id="phaseTime">--:--</span>
+    </div>
+    <h2 id="phaseTitle">Settle in somewhere cozy</h2>
+    <p class="phase-text" id="phaseText">Press <strong>Start guided session</strong> below. Soft generated tones will play while gentle prompts guide you through a few minutes of quiet rest.</p>
+    <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section class="controls">
+    <button id="startBtn" class="primary">Start guided session</button>
+    <div class="row">
+      <button id="prevBtn" class="ghost" disabled>← Prev</button>
+      <button id="nextBtn" class="ghost" disabled>Next →</button>
+    </div>
+  </section>
+
+  <section class="audio">
+    <div class="audio-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      <span>Ambient tones</span>
+      <label class="switch">
+        <input type="checkbox" id="ambientToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="vol-row">
+      <span>Volume</span>
+      <input type="range" id="volume" min="0" max="100" value="60">
+    </div>
+  </section>
+
+  <footer>All sounds are generated live in your browser. Nothing is recorded or sent anywhere.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

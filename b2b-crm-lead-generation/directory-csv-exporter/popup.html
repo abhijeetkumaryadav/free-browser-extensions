@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Directory CSV Exporter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div><h1>Directory Exporter</h1><p id="pageHost">Extract contacts from this page</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <button id="scan" class="primary wide">Scan this page</button>
+      <p class="note">Best-effort: reads person cards, <b>mailto:</b> and <b>tel:</b> links, and nearby text. Always review before exporting.</p>
+    </section>
+    <section class="glass card" id="resCard" hidden>
+      <h2><span id="count">0</span> contacts found</h2>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Phone</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="btnrow">
+        <button id="export" class="primary">Export CSV</button>
+        <button id="copy" class="ghost">Copy emails</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

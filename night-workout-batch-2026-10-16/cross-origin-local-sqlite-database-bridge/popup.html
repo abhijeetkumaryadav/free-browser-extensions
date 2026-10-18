@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrape Export Bridge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+    </div>
+    <div class="titles">
+      <h1>Scrape Export Bridge</h1>
+      <p class="sub">Page data → CSV / JSON for your local DB</p>
+    </div>
+  </header>
+
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Export bridge only — no SQLite runs inside an extension. Scrape only data you have the right to use.</span>
+  </div>
+
+  <section class="card">
+    <label class="label" for="source">Source</label>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-source="tables">Tables</button>
+      <button class="tab" data-source="lists">Lists</button>
+      <button class="tab" data-source="jsonld">JSON-LD</button>
+      <button class="tab" data-source="custom">Custom</button>
+    </div>
+    <div class="custom-row hidden" id="customRow">
+      <input type="text" id="selector" placeholder="CSS selector, e.g. .product-row" spellcheck="false">
+    </div>
+    <button class="btn primary" id="extractBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      Extract from this page
+    </button>
+  </section>
+
+  <section class="card hidden" id="resultsCard">
+    <div class="result-head">
+      <div>
+        <div class="label">Preview (first 50 rows)</div>
+        <div class="counts" id="countsLine">0 rows × 0 cols</div>
+      </div>
+      <div class="actions">
+        <button class="btn ghost" id="csvBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          CSV
+        </button>
+        <button class="btn ghost" id="jsonBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          JSON
+        </button>
+      </div>
+    </div>
+    <div class="table-wrap"><table id="previewTable"></table></div>
+    <p class="hint">Import hints: <code>sqlite3</code> → <code>.mode csv</code> + <code>.import file.csv tbl</code> · pandas → <code>pd.read_csv()</code> / <code>pd.read_json()</code>. Full import recipes in the README.</p>
+  </section>
+
+  <div class="status" id="status" role="status"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

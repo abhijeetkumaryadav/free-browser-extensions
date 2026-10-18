@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspo Collector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="pin">◈</span> Inspo Collector</div>
+    <input id="search" type="search" placeholder="Search tags or titles…">
+  </header>
+
+  <nav id="boards"></nav>
+
+  <main id="grid"></main>
+
+  <footer>
+    <span id="count"></span>
+    <div class="actions">
+      <button id="newBoard" title="Create a new board">＋ Board</button>
+      <button id="export" title="Download this board as JSON">Export</button>
+    </div>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

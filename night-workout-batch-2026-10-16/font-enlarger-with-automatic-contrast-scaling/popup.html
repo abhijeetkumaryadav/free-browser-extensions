@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <header class="head">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2M9 20h6M12 5v15"/></svg>
+    </div>
+    <div>
+      <h1>Font Enlarger + Auto Contrast</h1>
+      <p class="sub">Bigger text, smarter contrast · 100% local</p>
+    </div>
+  </header>
+
+  <div class="presets" id="presets">
+    <button data-preset="off" class="chip">Off</button>
+    <button data-preset="comfortable" class="chip">Comfortable</button>
+    <button data-preset="large" class="chip">Large</button>
+    <button data-preset="xl" class="chip">Extra large</button>
+  </div>
+
+  <div class="ctl">
+    <div class="row"><label for="scale">Text size</label><span id="scaleVal" class="val">130%</span></div>
+    <input type="range" id="scale" min="100" max="200" step="5" value="130">
+  </div>
+
+  <div class="ctl">
+    <div class="row"><label for="target">Contrast target</label><span id="targetVal" class="val">4.5 : 1</span></div>
+    <input type="range" id="target" min="3" max="7" step="0.5" value="4.5">
+    <p class="hint">Text below this ratio is darkened/lightened automatically.</p>
+  </div>
+
+  <label class="switch-row">
+    <span>Auto contrast boost</span>
+    <span class="switch"><input type="checkbox" id="contrastOn" checked><i></i></span>
+  </label>
+
+  <label class="switch-row">
+    <span>Remember for this site</span>
+    <span class="switch"><input type="checkbox" id="remember"><i></i></span>
+  </label>
+
+  <div class="btnrow">
+    <button id="applyBtn" class="primary">Apply to this page</button>
+    <button id="resetBtn" class="ghost">Reset</button>
+  </div>
+
+  <div id="status" class="status muted">Not applied on this page.</div>
+
+  <footer class="foot">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8b8b93" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Comfort aid, not a medical device. Page styles are restored exactly on reset.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

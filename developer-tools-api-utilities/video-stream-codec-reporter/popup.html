@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Stream Codec Reporter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    <div><h1>Codec Reporter</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Scan page</button>
+  </header>
+  <main>
+    <div id="results"></div>
+    <div id="empty" class="empty">Hit <b>Scan page</b> to inspect every &lt;video&gt; element on the tab.</div>
+    <button id="copy" class="ghost" hidden>⧉ Copy report</button>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

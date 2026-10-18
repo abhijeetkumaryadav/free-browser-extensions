@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delivery Zone Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+    </span>
+    <div>
+      <h1>Delivery Zone Calculator</h1>
+      <p class="sub">Your zones — <strong>local haversine math</strong></p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Simple sphere math on coordinates you enter. No maps, no live services.</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="zones">Zones</button>
+    <button class="tab" data-tab="check">Point check</button>
+    <button class="tab" data-tab="dist">Distance</button>
+  </div>
+
+  <div id="zonesPane" class="pane">
+    <input id="zName" placeholder="Zone name (e.g. Downtown)">
+    <div class="row">
+      <input id="zLat" type="number" step="any" placeholder="Center lat">
+      <input id="zLon" type="number" step="any" placeholder="Center lon">
+    </div>
+    <div class="row">
+      <input id="zRad" type="number" step="any" placeholder="Radius (km)">
+      <button id="addZone" class="primary small">Add zone</button>
+    </div>
+    <div id="zoneList" class="list"></div>
+  </div>
+
+  <div id="checkPane" class="pane hidden">
+    <div class="row">
+      <input id="cLat" type="number" step="any" placeholder="Point lat">
+      <input id="cLon" type="number" step="any" placeholder="Point lon">
+    </div>
+    <button id="checkBtn" class="primary">Check zones</button>
+    <div id="checkResult" class="results"></div>
+  </div>
+
+  <div id="distPane" class="pane hidden">
+    <div class="row">
+      <input id="aLat" type="number" step="any" placeholder="A lat">
+      <input id="aLon" type="number" step="any" placeholder="A lon">
+    </div>
+    <div class="row">
+      <input id="bLat" type="number" step="any" placeholder="B lat">
+      <input id="bLon" type="number" step="any" placeholder="B lon">
+    </div>
+    <button id="distBtn" class="primary">Compute distance</button>
+    <div id="distResult" class="results"></div>
+    <label class="lbl" for="notes">Your notes</label>
+    <textarea id="notes" rows="4" placeholder="Delivery notes, fees, exceptions…"></textarea>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Video Splitter</title>
+</head>
+<body>
+<h1>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="6" x2="22" y2="4" transform="translate(0 2)"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+  In-Browser Video Splitter
+</h1>
+
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <span>100% local — no uploads. Exports <strong>re-encode via MediaRecorder</strong>; quality and format depend on your browser's codecs.</span>
+</div>
+
+<div class="card">
+  <h2>Source video</h2>
+  <input id="file" type="file" accept="video/*">
+  <video id="video" controls muted playsinline></video>
+</div>
+
+<div class="card">
+  <h2>Clip range</h2>
+  <div class="row">
+    <label>Start</label>
+    <input id="start" type="range" min="0" max="100" step="0.1" value="0">
+    <span class="time" id="start-t">0:00.0</span>
+  </div>
+  <div class="row">
+    <label>End</label>
+    <input id="end" type="range" min="0" max="100" step="0.1" value="100">
+    <span class="time" id="end-t">0:00.0</span>
+  </div>
+  <div class="row">
+    <label>Format</label>
+    <select id="format">
+      <option value="video/webm">WebM (VP8/VP9)</option>
+      <option value="video/mp4">MP4 (if supported)</option>
+    </select>
+    <button id="preview" class="ghost" disabled>Preview clip</button>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Export</h2>
+  <div class="row">
+    <button id="export" disabled>Record &amp; export clip</button>
+  </div>
+  <div class="progress" id="progress"><div></div></div>
+  <div id="status">Pick a video file to begin.</div>
+  <div class="row" style="margin-top:8px;">
+    <a id="download" style="display:none;" href="#">Download clip</a>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

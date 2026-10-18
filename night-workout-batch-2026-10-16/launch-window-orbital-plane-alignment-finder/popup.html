@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Window Planner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <!-- Lucide-style rocket outline icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Launch Window Planner</h1>
+      <p class="sub">Orbital plane alignment, explained</p>
+    </div>
+  </header>
+
+  <div class="notice" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+    </svg>
+    <span>Educational only — not mission planning. Real launches use full orbital mechanics.</span>
+  </div>
+
+  <!-- Countdown to next planned window -->
+  <section class="card next-card">
+    <div class="card-label">NEXT PLANNED WINDOW</div>
+    <div id="nextName" class="next-name">No windows yet</div>
+    <div id="nextCountdown" class="countdown">—</div>
+    <div id="nextMeta" class="meta"></div>
+  </section>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="plan" role="tab" aria-selected="true">My Windows</button>
+    <button class="tab" data-tab="learn" role="tab" aria-selected="false">How It Works</button>
+  </nav>
+
+  <!-- Plan tab -->
+  <section id="tab-plan" class="tabpane active" role="tabpanel">
+    <form id="addForm" class="card form-card" autocomplete="off">
+      <div class="field">
+        <label for="inName">Window name</label>
+        <input id="inName" type="text" maxlength="60" placeholder="e.g. ISS rendezvous practice" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="inWhen">Opens at</label>
+          <input id="inWhen" type="datetime-local" required>
+        </div>
+        <div class="field">
+          <label for="inTarget">Target orbit</label>
+          <input id="inTarget" type="text" maxlength="40" placeholder="e.g. ISS, SSO, GEO">
+        </div>
+      </div>
+      <div class="field">
+        <label for="inNote">Notes</label>
+        <input id="inNote" type="text" maxlength="140" placeholder="Optional note…">
+      </div>
+      <button type="submit" class="btn primary">Add window</button>
+    </form>
+    <div id="list" class="list"></div>
+    <p id="emptyMsg" class="empty">No planned windows yet. Add one above to start a countdown.</p>
+  </section>
+
+  <!-- Learn tab -->
+  <section id="tab-learn" class="tabpane" role="tabpanel">
+    <div class="card lesson">
+      <h2>What is a launch window?</h2>
+      <p>A launch window is the brief period when a rocket can lift off and still reach its intended orbit. It exists because the launch site is rotating with the Earth, and the target orbit is a fixed ring in space — the two only line up at certain times.</p>
+    </div>
+    <div class="card lesson">
+      <h2>Orbital plane alignment</h2>
+      <p>Think of an orbit as a tilted hula-hoop around Earth. Your launch site sits on the spinning surface. A launch window opens when Earth's rotation carries the pad directly <em>under</em> the target orbit's plane, so the rocket can fly straight into it instead of burning extra fuel to turn.</p>
+    </div>
+    <div class="card lesson">
+      <h2>Why windows are short</h2>
+      <p>For a space station rendezvous, alignment may last only minutes — the station whips overhead at 7.66 km/s. For geostationary or interplanetary targets the geometry repeats daily or on longer cycles, so windows can be hours or days long.</p>
+    </div>
+    <div class="card lesson">
+      <h2>The plane-change penalty</h2>
+      <p>Miss the window and you must change the orbital plane after launch. Plane changes are the most expensive maneuver in rocketry — changing direction at orbital speed can cost more fuel than reaching orbit in the first place. That's why timing matters.</p>
+    </div>
+    <div class="card lesson">
+      <h2>Key terms</h2>
+      <ul class="terms">
+        <li><b>Inclination</b> — the tilt of the orbit relative to the equator.</li>
+        <li><b>Ascending node</b> — where the orbit crosses the equator going north.</li>
+        <li><b>Launch azimuth</b> — the compass direction the rocket flies after liftoff.</li>
+        <li><b>Instantaneous window</b> — a window with zero slack: launch on the second, or wait.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">Fully local · no network · your data stays in this browser</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

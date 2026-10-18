@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="popup.css">
+<title>Cold Outreach Sequence Builder</title>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="hdr-row">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+      <div>
+        <h1>Sequence Builder</h1>
+        <p class="sub">Cold outreach templates</p>
+      </div>
+    </div>
+    <div class="honest" role="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+      <span>TEMPLATES + COPY ONLY — this extension does <b>not</b> send emails or messages. You copy text and send it yourself.</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="steps">Steps</button>
+    <button class="tab" data-tab="preview">Preview</button>
+    <button class="tab" data-tab="seqs">Sequences</button>
+  </nav>
+
+  <!-- STEPS TAB -->
+  <section class="panel active" id="tab-steps">
+    <div class="seqbar">
+      <select id="seq-select"></select>
+      <button class="btn ghost sm" id="add-step-open">+ Step</button>
+    </div>
+    <div class="tl" id="step-list"></div>
+    <div class="editor hidden" id="step-editor">
+      <h2 id="ed-title">New step</h2>
+      <label class="fld"><span>Step name</span><input type="text" id="ed-name" placeholder="e.g. Initial email"></label>
+      <label class="fld"><span>Send on day (0 = first touch)</span><input type="number" id="ed-day" min="0" value="0"></label>
+      <label class="fld"><span>Subject (optional)</span><input type="text" id="ed-subject" placeholder="Quick question, {{name}}"></label>
+      <label class="fld"><span>Body — use {{name}} {{company}} {{email}} {{role}} {{title}}</span><textarea id="ed-body" rows="6" placeholder="Hi {{name}},&#10;&#10;I noticed {{company}} is hiring…"></textarea></label>
+      <div class="row">
+        <button class="btn primary sm" id="ed-save">Save step</button>
+        <button class="btn ghost sm" id="ed-cancel">Cancel</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW TAB -->
+  <section class="panel" id="tab-preview">
+    <h2 class="ph">Fill variables</h2>
+    <div class="vars" id="var-inputs">
+      <label class="fld"><span>{{name}}</span><input type="text" id="v-name" placeholder="Jane"></label>
+      <label class="fld"><span>{{company}}</span><input type="text" id="v-company" placeholder="Acme Inc"></label>
+      <label class="fld"><span>{{email}}</span><input type="text" id="v-email" placeholder="jane@acme.com"></label>
+      <label class="fld"><span>{{role}}</span><input type="text" id="v-role" placeholder="VP Sales"></label>
+      <label class="fld"><span>{{title}}</span><input type="text" id="v-title" placeholder="your job title"></label>
+    </div>
+    <div class="row">
+      <button class="btn primary sm" id="render">Render preview</button>
+      <button class="btn ghost sm" id="copy-all">Copy all steps</button>
+    </div>
+    <div class="previews" id="preview-list"></div>
+  </section>
+
+  <!-- SEQUENCES TAB -->
+  <section class="panel" id="tab-seqs">
+    <div class="addrow">
+      <input type="text" id="seq-name" placeholder="Sequence name (e.g. SaaS founders)">
+      <button class="btn primary sm" id="add-seq">Add</button>
+    </div>
+    <ul class="comps" id="seq-list"></ul>
+    <p class="hint">Tip: spaces follow-up days between steps, e.g. Day 0 → Day 3 → Day 10.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

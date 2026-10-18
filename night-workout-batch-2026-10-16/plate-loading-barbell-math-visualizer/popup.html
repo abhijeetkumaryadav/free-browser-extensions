@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12h16"/><rect x="6" y="6" width="3" height="12" rx="1"/><rect x="10" y="8" width="2.4" height="8" rx="1"/></svg>
+    <div>
+      <h1>Plate Math</h1>
+      <p class="sub">Barbell loading visualizer</p>
+    </div>
+  </header>
+
+  <div class="form">
+    <div class="row2">
+      <label>Target <input id="target" type="number" min="0" step="0.5" placeholder="140"></label>
+      <label>Bar <input id="bar" type="number" min="0" step="0.5" placeholder="20"></label>
+    </div>
+    <label>Plates available (each, comma-separated)
+      <input id="plates" type="text" placeholder="25, 20, 15, 10, 5, 2.5, 1.25">
+    </label>
+    <div class="unit-row">
+      <button id="unitKg" class="unit active" type="button">kg</button>
+      <button id="unitLb" class="unit" type="button">lb</button>
+    </div>
+    <button id="calc" class="primary" type="button">Load the bar</button>
+  </div>
+
+  <section id="results" class="results hidden">
+    <canvas id="diagram" width="348" height="120"></canvas>
+    <ul id="breakdown" class="breakdown"></ul>
+    <p id="remainder" class="remainder"></p>
+  </section>
+
+  <p class="notice">Math helper — <strong>check your gym's plates</strong>. Not medical advice.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

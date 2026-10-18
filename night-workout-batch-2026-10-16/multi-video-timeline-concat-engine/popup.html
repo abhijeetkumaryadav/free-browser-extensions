@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="13" height="12" rx="2"/><rect x="17" y="8" width="5" height="8" rx="1"/><path d="M2 20h20"/></svg>
+    <div>
+      <h1>Video Joiner</h1>
+      <p class="sub">Order clips, join into one file</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Re-encodes in real time via MediaRecorder — output quality depends on your browser's codecs. 100% local.</span>
+  </div>
+
+  <label class="drop" id="drop">
+    <input type="file" id="files" accept="video/*" multiple hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+    <span>Drop videos or click to add</span>
+  </label>
+
+  <ol class="timeline" id="timeline"></ol>
+
+  <div class="row">
+    <label class="fmt">Format
+      <select id="format">
+        <option value="video/webm;codecs=vp9,opus">WebM (VP9)</option>
+        <option value="video/webm;codecs=vp8,opus">WebM (VP8)</option>
+        <option value="video/webm">WebM (default)</option>
+      </select>
+    </label>
+    <button id="clear" class="ghost">Clear all</button>
+  </div>
+
+  <button id="join" class="primary" disabled>Join videos</button>
+
+  <div class="progress hidden" id="progressWrap">
+    <div class="bar"><div id="bar"></div></div>
+    <p id="status">Preparing…</p>
+  </div>
+
+  <a id="download" class="primary hidden" download="joined.webm">Download joined video</a>
+  <p class="err" id="err"></p>
+</div>
+<video id="loader" muted playsinline style="display:none"></video>
+<script src="popup.js"></script>
+</body>
+</html>

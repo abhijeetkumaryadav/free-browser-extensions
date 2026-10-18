@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coordinate Distance Measurer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div>
+      <h1>Distance Measurer</h1>
+      <p class="sub">Lat/long → great-circle distance &amp; bearing</p>
+    </div>
+  </header>
+
+  <div class="notice">Great-circle math only — <strong>not for navigation</strong>.</div>
+
+  <div class="grid">
+    <label class="field">
+      <span>From latitude</span>
+      <input id="lat1" type="number" step="any" placeholder="e.g. 40.6413">
+    </label>
+    <label class="field">
+      <span>From longitude</span>
+      <input id="lon1" type="number" step="any" placeholder="e.g. -73.7781">
+    </label>
+    <label class="field">
+      <span>To latitude</span>
+      <input id="lat2" type="number" step="any" placeholder="e.g. 51.4700">
+    </label>
+    <label class="field">
+      <span>To longitude</span>
+      <input id="lon2" type="number" step="any" placeholder="e.g. -0.4543">
+    </label>
+    <button id="calc" class="btn">Measure</button>
+  </div>
+
+  <canvas id="sketch" width="340" height="150"></canvas>
+
+  <div class="results">
+    <div class="result"><span class="rlabel">Distance (nm)</span><span class="rvalue" id="nm">—</span></div>
+    <div class="result"><span class="rlabel">Distance (km / mi)</span><span class="rvalue" id="kmm">—</span></div>
+    <div class="result"><span class="rlabel">Initial bearing</span><span class="rvalue" id="brg">—</span></div>
+    <div class="result wide"><span class="rlabel">Summary</span><span class="rvalue small" id="summary">Enter two coordinate pairs and measure.</span></div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XING to LinkedIn Bridge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <!-- Lucide-style "arrow-right-circle / bridge" stroke icon -->
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    <div>
+      <h1>XING → LinkedIn</h1>
+      <p>Turn a XING profile into a LinkedIn search</p>
+    </div>
+  </header>
+
+  <main>
+    <button id="readBtn" class="primary">Read this XING profile</button>
+    <p class="note">Best-effort: reads only the public profile fields visible to you on the current tab. LinkedIn sign-in is still required on linkedin.com.</p>
+
+    <section id="card" class="glass card" hidden>
+      <div class="field"><span class="label">Name</span><b id="fName">—</b></div>
+      <div class="field"><span class="label">Headline</span><b id="fHeadline">—</b></div>
+      <div class="field"><span class="label">Company</span><b id="fCompany">—</b></div>
+      <div class="field"><span class="label">Location</span><b id="fLocation">—</b></div>
+      <a id="profileUrl" class="link" href="#" target="_blank" rel="noopener">—</a>
+      <div class="btn-row">
+        <button id="searchBtn" class="primary small">Search on LinkedIn</button>
+        <button id="copyBtn" class="tool">Copy summary</button>
+      </div>
+    </section>
+
+    <div id="emptyState" class="empty" hidden>No XING profile data found on this page. Open a public XING profile and try again.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

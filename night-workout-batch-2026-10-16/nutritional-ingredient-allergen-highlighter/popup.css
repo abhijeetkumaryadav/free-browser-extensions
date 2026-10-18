@@ -1,0 +1,126 @@
+/* Ingredient Allergen Highlighter — deep-dark glassmorphism popup */
+:root {
+  --accent: #fb923c;           /* warm orange — food/allergy */
+  --accent-soft: rgba(251, 146, 60, 0.14);
+  --bg: #12141a;
+  --glass: rgba(20, 20, 26, 0.72);
+  --stroke: rgba(255, 255, 255, 0.08);
+  --text: #f1f3f7;
+  --muted: #9aa3b2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 42px; height: 42px; flex: 0 0 42px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  border: 1px solid rgba(251, 146, 60, 0.35);
+  border-radius: 12px; color: var(--accent);
+}
+.logo svg { width: 24px; height: 24px; }
+.brand-text h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+.brand-text p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--accent-soft);
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  border-radius: 12px; padding: 10px 12px;
+  font-size: 12px; line-height: 1.5; color: var(--text);
+}
+.notice svg { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; color: var(--accent); }
+.notice strong { color: var(--accent); }
+
+.actions { display: flex; gap: 10px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: none; cursor: pointer; border-radius: 12px;
+  font-size: 13px; font-weight: 600; padding: 11px 14px;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+  font-family: inherit;
+}
+.btn svg { width: 16px; height: 16px; }
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--accent); color: #161006; flex: 1; }
+.btn.primary:hover { opacity: 0.92; }
+.btn.primary:disabled { opacity: 0.5; cursor: default; }
+.btn.ghost {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--stroke);
+}
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn.small { padding: 8px 12px; font-size: 12px; }
+
+.status {
+  min-height: 18px; font-size: 12px; color: var(--muted); text-align: center;
+}
+.status.ok { color: var(--accent); }
+.status.err { color: #f87171; }
+
+.panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--stroke);
+  border-radius: 14px; padding: 12px;
+}
+.panel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.panel-head h2 { font-size: 13px; font-weight: 700; }
+.count { font-size: 11px; color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500;
+  padding: 7px 11px; border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted); cursor: pointer;
+  transition: all 0.15s ease; font-family: inherit;
+}
+.chip.on {
+  background: var(--accent-soft);
+  border-color: rgba(251, 146, 60, 0.55);
+  color: var(--accent);
+}
+.chip .x {
+  display: none; font-size: 14px; line-height: 1; opacity: 0.7;
+}
+.chip.custom .x { display: inline; }
+.chip.custom .x:hover { opacity: 1; color: #f87171; }
+.chips-empty { font-size: 12px; color: var(--muted); }
+
+.add-row { display: flex; gap: 8px; margin-top: 10px; }
+.add-row input {
+  flex: 1; background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--stroke); border-radius: 10px;
+  padding: 9px 12px; font-size: 13px; color: var(--text);
+  font-family: inherit; outline: none;
+}
+.add-row input:focus { border-color: var(--accent); }
+.add-row input::placeholder { color: var(--muted); }
+
+footer { font-size: 11px; color: var(--muted); text-align: center; }

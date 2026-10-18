@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session Backup Restorer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 11.5h6"/></svg>
+    <div class="hwrap">
+      <h1>Session Backup</h1>
+      <p>Auto-saved every 30 min · on-device</p>
+    </div>
+    <button id="backupNow" class="hdr-btn" title="Take a snapshot now">Backup now</button>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>Snapshots <span id="snapCount" class="count">0</span></h2>
+      <div id="snapList"></div>
+      <p class="note">Keeps the newest 20 snapshots. Restoring opens tabs in a new window — your current tabs are untouched.</p>
+    </section>
+
+    <section class="glass card">
+      <h2>Export / import</h2>
+      <div class="btn-row">
+        <button id="exportBtn" class="ghost">Export JSON</button>
+        <button id="importBtn" class="ghost">Import JSON</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+      <p class="note">Export to move sessions between computers or keep a file backup.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

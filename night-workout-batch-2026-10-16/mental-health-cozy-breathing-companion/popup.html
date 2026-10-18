@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breathing Companion</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-7-2.5-7-6 0-2 1-3.5 2.5-4.5C9 9 10 8 10 6.5 10 4.5 11 3 12 3s2 1.5 2 3.5C14 8 15 9 16.5 10.5 18 11.5 19 13 19 15c0 3.5-3 6-7 6z"/></svg>
+      <div>
+        <h1>Breathing Companion</h1>
+        <p class="subtitle">Slow down, breathe easy</p>
+      </div>
+    </div>
+    <span class="count" id="sessionCount">0 sessions</span>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    If you're struggling, consider reaching out to a professional or a helpline.
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="breathe">Breathe</button>
+    <button class="tab" data-tab="mood">Check-in</button>
+  </div>
+
+  <!-- Breathe tab -->
+  <section id="tab-breathe" class="tab-panel">
+    <div class="rhythm-row" id="rhythmRow">
+      <button class="rhythm active" data-rhythm="box">Boxed<br><span>4 · 4 · 4 · 4</span></button>
+      <button class="rhythm" data-rhythm="478">4-7-8<br><span>4 · 7 · 8</span></button>
+      <button class="rhythm" data-rhythm="custom">Custom<br><span id="customLabel">4 · 2 · 6</span></button>
+    </div>
+    <div class="custom-controls hidden" id="customControls">
+      <label>Inhale <input type="number" id="inInhale" min="1" max="12" value="4"></label>
+      <label>Hold <input type="number" id="inHold" min="0" max="12" value="2"></label>
+      <label>Exhale <input type="number" id="inExhale" min="1" max="12" value="6"></label>
+    </div>
+
+    <div class="stage">
+      <div class="breath-halo"></div>
+      <div class="breath-circle" id="breathCircle">
+        <div class="phase" id="phaseLabel">Ready</div>
+        <div class="seconds" id="phaseSeconds"></div>
+      </div>
+    </div>
+    <div class="round-line">Round <span id="roundNum">0</span> · <span id="totalTime">0:00</span></div>
+
+    <div class="form-actions">
+      <button class="btn primary" id="startBtn">Begin breathing</button>
+      <button class="btn ghost hidden" id="stopBtn">Stop</button>
+    </div>
+  </section>
+
+  <!-- Mood tab -->
+  <section id="tab-mood" class="tab-panel hidden">
+    <p class="mood-title">How are you feeling right now?</p>
+    <div class="mood-row" id="moodRow">
+      <button class="mood" data-mood="1">1<br><span>Low</span></button>
+      <button class="mood" data-mood="2">2</button>
+      <button class="mood" data-mood="3" data-default>3</button>
+      <button class="mood" data-mood="4">4</button>
+      <button class="mood" data-mood="5">5<br><span>Great</span></button>
+    </div>
+    <input type="text" id="moodNote" placeholder="A short note (optional)…" maxlength="120" autocomplete="off">
+    <button class="btn primary full" id="logMoodBtn">Log check-in</button>
+    <p class="mood-hint">Private to this device. No analysis — just your own record.</p>
+    <div class="mood-list" id="moodList"></div>
+    <div class="empty hidden" id="moodEmpty">
+      <p>No check-ins yet. Your history will appear here.</p>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

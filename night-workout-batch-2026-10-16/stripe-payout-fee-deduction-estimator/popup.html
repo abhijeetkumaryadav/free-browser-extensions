@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stripe Payout Fee Estimator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+    </span>
+    <div>
+      <h1>Stripe Payout Fee Estimator</h1>
+      <p class="sub">Estimate fees &amp; net payout from your amounts</p>
+    </div>
+  </header>
+
+  <div class="honest-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span><b>Estimate only.</b> Real Stripe fees depend on your plan, country, currency &amp; payment method. Defaults use standard US card-not-present rates — edit them to match your setup.</span>
+  </div>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+      Fee rates
+    </h2>
+    <div class="grid2">
+      <label>Rate % <input type="number" id="ratePct" min="0" max="100" step="0.01" value="2.9"></label>
+      <label>Fixed per txn <input type="number" id="fixedFee" min="0" step="0.01" value="0.30"></label>
+    </div>
+    <p class="hint">Per-transaction fee = (amount × rate%) + fixed. Change these if your plan differs.</p>
+  </section>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Transaction amounts
+    </h2>
+    <textarea id="amounts" rows="5" placeholder="Paste amounts — one per line or comma-separated:&#10;49.99&#10;129.00&#10;9.99, 199.50"></textarea>
+    <button id="calcBtn" class="primary">Calculate payout</button>
+  </section>
+
+  <section class="card results" id="resultsCard" style="display:none">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      Result
+    </h2>
+    <div class="stats">
+      <div class="stat big"><span class="stat-num" id="rNet">$0.00</span><span class="stat-lbl">Net payout (you keep)</span></div>
+      <div class="stat"><span class="stat-num" id="rGross">$0.00</span><span class="stat-lbl">Gross total</span></div>
+      <div class="stat"><span class="stat-num" id="rFees">$0.00</span><span class="stat-lbl">Total fees</span></div>
+      <div class="stat"><span class="stat-num" id="rCount">0</span><span class="stat-lbl">Transactions</span></div>
+      <div class="stat"><span class="stat-num" id="rEff">—</span><span class="stat-lbl">Effective fee %</span></div>
+    </div>
+    <button id="saveBtn" class="ghost">Save estimate</button>
+  </section>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+      Saved estimates
+    </h2>
+    <ul id="saved" class="history"></ul>
+    <p class="empty" id="emptyMsg">No saved estimates yet.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

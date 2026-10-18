@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SnapDiff</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M5 16l7 5 7-5"/></svg>
+      <div>
+        <h1>SnapDiff</h1>
+        <p class="sub">Sheets snapshot diff checker</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="snap-grid">
+      <div class="snap">
+        <label for="beforeInput">Before snapshot (CSV)</label>
+        <textarea id="beforeInput" placeholder="Paste the older CSV export here…" spellcheck="false"></textarea>
+      </div>
+      <div class="snap">
+        <label for="afterInput">After snapshot (CSV)</label>
+        <textarea id="afterInput" placeholder="Paste the newer CSV export here…" spellcheck="false"></textarea>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="field">
+        <label for="keySelect">Key column</label>
+        <select id="keySelect"><option value="">— paste data first —</option></select>
+      </div>
+      <label class="check"><input type="checkbox" id="ignoreCase" checked> Ignore case in key match</label>
+      <button id="diffBtn" type="button">Compare snapshots</button>
+    </div>
+  </section>
+
+  <section class="card hidden" id="resultCard">
+    <div class="stats" id="statsRow"></div>
+    <div class="legend">
+      <span class="pill added">added</span>
+      <span class="pill removed">removed</span>
+      <span class="pill changed">changed</span>
+      <span class="pill same">unchanged (hidden)</span>
+    </div>
+    <div class="toolbar-row">
+      <div class="filters" id="filters">
+        <button class="fbtn active" data-f="added" type="button">Added</button>
+        <button class="fbtn active" data-f="removed" type="button">Removed</button>
+        <button class="fbtn active" data-f="changed" type="button">Changed</button>
+      </div>
+      <button class="ghost" id="exportBtn" type="button">Export diff CSV</button>
+    </div>
+    <div class="diff-list" id="diffList"></div>
+  </section>
+
+  <p class="note">Manual snapshots only — paste two CSV exports (e.g. from Google Sheets: File → Download → CSV). No Sheets API, no account access, nothing leaves your device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

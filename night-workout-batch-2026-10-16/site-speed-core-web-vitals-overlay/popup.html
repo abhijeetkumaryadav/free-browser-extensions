@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site Speed: Core Web Vitals</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+      </svg>
+      <div class="title-wrap">
+        <h1>Core Web Vitals</h1>
+        <p class="subtitle">Measured on this page, right now</p>
+      </div>
+    </header>
+
+    <div class="controls">
+      <button id="measureBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Measure this page
+      </button>
+      <button id="clearBtn" class="ghost hidden">Remove overlay</button>
+    </div>
+
+    <div id="status" class="status idle">Press “Measure this page” — the extension records real performance entries (LCP, INP, CLS) on this visit and draws a graded overlay on the page.</div>
+
+    <section id="results" class="hidden">
+      <div class="overall" id="overall">
+        <span class="overall-grade" id="overallGrade">–</span>
+        <span class="overall-label" id="overallLabel">No measurement yet</span>
+      </div>
+      <div id="metrics" class="metrics"></div>
+      <h2 class="section-title" id="shiftersTitle">Biggest layout-shift contributors</h2>
+      <div id="shifters" class="shifters"></div>
+      <details class="notes">
+        <summary>About these numbers</summary>
+        <p>These are <b>real measured values</b> from this page visit, collected with the PerformanceObserver API — not estimates or lab simulations. LCP uses the last observed paint, INP is the worst observed interaction, and CLS sums unexpected shifts. Results reflect your device and network right now; they can vary between visits.</p>
+      </details>
+    </section>
+
+    <footer class="foot">
+      <span class="badge">Measured locally · zero network · read-only analysis</span>
+    </footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

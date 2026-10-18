@@ -1,0 +1,156 @@
+/* Speed Lock — deep-dark glassmorphism, single orange accent */
+:root {
+  --accent: #f97316;
+  --accent-dim: rgba(249, 115, 22, .14);
+  --bg: #0b0d12;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .08);
+  --text: #eef1f6;
+  --muted: #9aa3b2;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.shell { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.hidden { display: none !important; }
+
+/* ---- hero ---- */
+.hero {
+  display: flex; gap: 12px; align-items: center;
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.hero-icon {
+  width: 42px; height: 42px; flex: 0 0 42px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(249, 115, 22, .25);
+}
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 15px; font-weight: 650; }
+.hero-text p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ---- toggle switch ---- */
+.switch { position: relative; display: inline-block; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.switch .track {
+  display: block; width: 40px; height: 22px; border-radius: 999px;
+  background: rgba(154, 163, 178, .25);
+  border: 1px solid var(--border);
+  transition: background .15s ease;
+  position: relative;
+}
+.switch .thumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #fff; transition: transform .15s ease;
+}
+.switch input:checked + .track { background: var(--accent); border-color: var(--accent); }
+.switch input:checked + .track .thumb { transform: translateX(18px); }
+
+/* ---- panels ---- */
+.panel {
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.panel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.panel-title { font-size: 13px; font-weight: 600; }
+.rate-readout {
+  font-size: 16px; font-weight: 700; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.site-host {
+  font-size: 11.5px; color: var(--muted);
+  max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ---- slider ---- */
+input[type="range"] {
+  width: 100%; appearance: none; -webkit-appearance: none;
+  height: 6px; border-radius: 999px;
+  background: linear-gradient(to right, var(--accent) var(--fill, 20%), rgba(255,255,255,.1) var(--fill, 20%));
+  outline: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--accent);
+}
+.scale {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--muted); margin-top: 6px;
+}
+
+/* ---- preset chips ---- */
+.presets {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+}
+.chip {
+  padding: 6px 12px; border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted); font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all .12s ease;
+}
+.chip:hover { border-color: rgba(249, 115, 22, .5); color: var(--text); }
+.chip.on {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- site override ---- */
+.site-row { display: flex; flex-direction: column; gap: 10px; }
+select {
+  width: 100%; padding: 9px 10px; border-radius: 10px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  color: var(--text); font-size: 12.5px; outline: none; cursor: pointer;
+}
+select option { background: #141419; }
+.site-readout {
+  font-size: 12px; color: var(--accent); font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- buttons ---- */
+.actions { display: flex; }
+.btn {
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  font-size: 13px; font-weight: 650; cursor: pointer;
+  transition: filter .15s ease;
+}
+.btn.ghost {
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn.ghost:hover { color: var(--text); border-color: rgba(249, 115, 22, .4); }
+
+/* ---- footer ---- */
+.foot { font-size: 11px; color: var(--muted); text-align: center; }

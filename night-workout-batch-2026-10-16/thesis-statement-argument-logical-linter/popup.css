@@ -1,0 +1,40 @@
+/* Deep-dark glassmorphism · one accent: sky #38bdf8 */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;color:#e8eaf0;
+  background:linear-gradient(160deg,#0b0e17,#111527 60%,#0d1020)}
+.app{padding:14px 16px;background:rgba(20,20,26,.72);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;margin:8px}
+.hdr{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.hdr h1{font-size:15px;font-weight:650}
+.sub{font-size:11px;color:#9aa3b8}.sub strong{color:#38bdf8}
+.banner{display:flex;gap:8px;align-items:flex-start;background:rgba(56,189,248,.10);
+  border:1px solid rgba(56,189,248,.35);border-radius:10px;padding:8px 10px;
+  font-size:11px;color:#bfe6fb;margin-bottom:12px}
+.lbl{font-size:12px;color:#9aa3b8;display:block;margin-bottom:6px}
+textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;color:#e8eaf0;padding:9px 10px;font:13px/1.5 inherit;resize:vertical;margin-bottom:10px}
+textarea:focus{outline:1px solid #38bdf8}
+.primary{width:100%;padding:10px;border:0;border-radius:10px;cursor:pointer;
+  background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#06121c;font-weight:700;font-size:13px;margin-bottom:12px}
+.score-wrap{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:12px}
+.ring{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:20px;border:5px solid rgba(56,189,248,.25);border-top-color:#38bdf8}
+.ring-lbl{font-size:11px;color:#9aa3b8}.ring-lbl small{color:#e8eaf0;font-size:12px;font-weight:600}
+.results{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.check{display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:9px 10px}
+.check .dot{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800}
+.pass .dot{background:rgba(52,211,153,.18);color:#34d399}
+.warn .dot{background:rgba(251,191,36,.16);color:#fbbf24}
+.fail .dot{background:rgba(248,113,113,.16);color:#f87171}
+.check b{font-size:12px;display:block}.check p{font-size:11px;color:#9aa3b8}
+.tabs{display:flex;gap:6px;margin-bottom:8px}
+.tab{flex:1;padding:7px;border-radius:8px;border:1px solid rgba(255,255,255,.1);
+  background:transparent;color:#9aa3b8;cursor:pointer;font-size:12px}
+.tab.active{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.4)}
+.pane .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:9px 10px;margin-bottom:8px}
+.pane .card strong{font-size:12px;color:#38bdf8}
+.pane .card p{font-size:11px;color:#9aa3b8}
+.hidden{display:none}

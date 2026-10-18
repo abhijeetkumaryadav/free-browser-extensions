@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter Log</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Chapter Log</h1>
+    <p class="subtitle">Your reading log — you track chapters yourself. <strong>Not a crawler.</strong></p>
+  </header>
+
+  <section class="add-card">
+    <h2>Add chapter</h2>
+    <input id="novel" type="text" placeholder="Novel title" maxlength="200">
+    <div class="row">
+      <input id="chapter" type="number" placeholder="Ch. #" min="1" step="1">
+      <select id="status">
+        <option value="to-read">To read</option>
+        <option value="reading">Reading</option>
+        <option value="read">Read</option>
+      </select>
+    </div>
+    <input id="url" type="url" placeholder="Chapter URL (optional)" maxlength="2048">
+    <input id="note" type="text" placeholder="Note (optional)" maxlength="500">
+    <button id="addBtn">Add chapter</button>
+  </section>
+
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search novels, notes…">
+    <button id="exportBtn" title="Export JSON">Export</button>
+    <button id="importBtn" title="Import JSON">Import</button>
+    <input id="importFile" type="file" accept="application/json" hidden>
+  </div>
+
+  <div id="progress"></div>
+  <ul id="list"></ul>
+  <footer>All data stays in this browser. Nothing is uploaded.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

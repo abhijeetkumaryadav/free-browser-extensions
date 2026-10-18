@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <span class="hdr-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.8" fill="currentColor"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+    </span>
+    <div>
+      <h1>Tracker Pixel Detector</h1>
+      <p class="sub">Hidden pixels &amp; beacons on this page</p>
+    </div>
+  </header>
+
+  <section class="stats glass">
+    <div class="stat"><span class="num" id="count">–</span><span class="lbl">trackers found</span></div>
+    <div class="stat"><span class="num" id="domains">–</span><span class="lbl">unique domains</span></div>
+  </section>
+
+  <section class="row">
+    <label class="switch-row glass">
+      <span>Hide detected pixels</span>
+      <button id="hideToggle" class="switch" role="switch" aria-checked="false"><span class="knob"></span></button>
+    </label>
+    <button id="rescan" class="btn">Rescan page</button>
+  </section>
+
+  <section id="list" class="list"></section>
+  <p id="empty" class="empty hidden">No tracking pixels detected on this page. Clean.</p>
+  <p id="error" class="error hidden"></p>
+
+  <footer class="foot">Read-only analysis · nothing leaves your device</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsubscribed Domain Warner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div><h1>Domain Warner</h1><p id="pageHost">—</p></div>
+    <label class="switch" title="Protection enabled">
+      <input type="checkbox" id="enabled" checked>
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+  <main>
+    <button id="blockThis" class="primary">Block this site</button>
+    <section class="glass card">
+      <h2>Blocklist <span id="count" class="count"></span></h2>
+      <div id="list"></div>
+      <div class="add-row">
+        <input id="manual" placeholder="example.com" maxlength="120" spellcheck="false">
+        <button id="addBtn" class="ghost">Add</button>
+      </div>
+      <p class="note">Visiting a listed domain shows a dismissible warning banner at the top of the page and a red badge on the toolbar icon.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

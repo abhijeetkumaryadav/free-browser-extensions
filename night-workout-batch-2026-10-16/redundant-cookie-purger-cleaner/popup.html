@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cookie Purger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01M11 17v.01M7 14v.01"/></svg></div>
+    <div>
+      <h1>Cookie Purger</h1>
+      <p class="sub" id="siteLabel">Loading current site…</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Your browser cookies only — deleting may log you out.</span>
+  </div>
+
+  <div class="toolbar">
+    <label class="select-all"><input type="checkbox" id="selectAll"> <span>Select all</span></label>
+    <span class="count" id="countLabel">0 cookies</span>
+  </div>
+
+  <div class="list" id="cookieList" role="list" aria-label="Cookies for this site"></div>
+
+  <div class="actions">
+    <button id="deleteSelected" class="btn danger" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>
+      Delete selected
+    </button>
+    <button id="deleteAll" class="btn ghost" disabled>Delete all for this site</button>
+  </div>
+
+  <p class="foot" id="status">Nothing has been deleted yet.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

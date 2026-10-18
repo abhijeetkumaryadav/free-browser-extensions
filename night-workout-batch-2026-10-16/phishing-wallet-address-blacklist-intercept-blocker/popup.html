@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scam Wallet Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <div>
+    <h1>Scam Wallet Checker</h1>
+    <p class="sub">Check-only defensive tool</p>
+  </div>
+</header>
+
+<div class="banner">
+  <strong>Honest scope:</strong> this checks an address against a local sample
+  list you manage. It cannot know every scam address, it never blocks or
+  intercepts anything, and a "clean" result is <em>not</em> a safety guarantee.
+</div>
+
+<section class="card">
+  <label for="addr">Wallet address</label>
+  <textarea id="addr" rows="2" spellcheck="false" placeholder="Paste an ETH/BTC/SOL address…"></textarea>
+  <button id="check" class="primary">Check address</button>
+  <div id="result" class="result hidden"></div>
+</section>
+
+<section class="card">
+  <h2>Your local list <span id="count" class="pill">0</span></h2>
+  <div class="row">
+    <input id="newAddr" spellcheck="false" placeholder="Add a scam address…">
+    <button id="add" class="ghost">Add</button>
+  </div>
+  <p class="hint">Bundled sample entries are marked <strong>sample</strong>. Add or remove any time — everything stays in this browser.</p>
+  <ul id="list"></ul>
+</section>
+
+<footer><span id="status"></span></footer>
+<script src="data.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

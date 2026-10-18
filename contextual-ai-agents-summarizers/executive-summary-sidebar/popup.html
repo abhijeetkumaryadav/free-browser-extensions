@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive Summary</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+    <div><h1>Executive Summary</h1><p>Extractive summarizer · on-device</p></div>
+    <button id="grab" class="primary">Grab page</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Source text
+        <textarea id="input" rows="5" placeholder="Paste an article, report, or long email here — or hit “Grab page”."></textarea>
+      </label>
+      <div class="controls">
+        <label class="fld grow">Summary length
+          <input id="length" type="range" min="2" max="10" value="5">
+          <span id="lengthVal">5 sentences</span>
+        </label>
+        <button id="summarize" class="primary">Summarize</button>
+      </div>
+    </section>
+    <section class="glass card" id="resultCard" hidden>
+      <h2>Summary</h2>
+      <p id="summary" class="summary"></p>
+      <div class="stats">
+        <div><span>Sentences</span><b id="stSent">—</b></div>
+        <div><span>Words</span><b id="stWords">—</b></div>
+        <div><span>Read time</span><b id="stRead">—</b></div>
+      </div>
+      <h2 class="mt">Key terms</h2>
+      <div id="terms" class="chips"></div>
+      <p class="note">Extractive heuristic: picks the most representative sentences by keyword frequency. Nothing leaves your device.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

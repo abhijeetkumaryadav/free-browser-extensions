@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Payload Badger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+  <div>
+    <h1>Payload Badger</h1>
+    <p class="sub">Image weight audit — read-only</p>
+  </div>
+</header>
+
+<main>
+  <button id="scan" class="primary">Scan this page</button>
+  <div id="empty" class="empty">Click scan to audit every image on this page. Sizes are estimates from decoded bytes; real transfer savings vary.</div>
+
+  <div id="results" hidden>
+    <div class="score-row">
+      <div class="score-ring" id="scoreRing"><span id="scoreVal">0</span></div>
+      <div>
+        <div class="score-label" id="verdict">—</div>
+        <div class="score-sub" id="statsLine">—</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-num" id="stTotal">0</span><span class="stat-lbl">images</span></div>
+      <div class="stat"><span class="stat-num" id="stHeavy">0</span><span class="stat-lbl">oversized</span></div>
+      <div class="stat"><span class="stat-num" id="stFmt">0</span><span class="stat-lbl">old format</span></div>
+      <div class="stat"><span class="stat-num" id="stSave">0 KB</span><span class="stat-lbl">est. savings</span></div>
+    </div>
+
+    <div class="filter-row">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="oversized">Oversized</button>
+      <button class="chip" data-f="format">Old format</button>
+      <button id="export" class="chip ghost">Export JSON</button>
+    </div>
+
+    <div id="findings"></div>
+  </div>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

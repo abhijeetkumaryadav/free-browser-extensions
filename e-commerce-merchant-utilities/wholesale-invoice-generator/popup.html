@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wholesale Invoice Generator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+    <div><h1>Invoice Generator</h1><p id="invMeta">—</p></div>
+    <button id="printBtn" class="primary">Preview</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Seller</h2>
+      <div class="grid2">
+        <input id="sName" placeholder="Business name" maxlength="80">
+        <input id="sTax" placeholder="GSTIN / Tax ID" maxlength="40">
+      </div>
+      <input id="sAddr" placeholder="Business address" maxlength="160">
+      <div class="grid2">
+        <input id="sPhone" placeholder="Phone / email" maxlength="80">
+        <input id="currency" placeholder="Currency (₹, $, €)" maxlength="4" value="₹">
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Buyer</h2>
+      <div class="grid2">
+        <input id="bName" placeholder="Buyer name / company" maxlength="80">
+        <input id="bTax" placeholder="GSTIN / Tax ID" maxlength="40">
+      </div>
+      <input id="bAddr" placeholder="Billing address" maxlength="160">
+    </section>
+    <section class="glass card">
+      <h2>Line items</h2>
+      <div id="items"></div>
+      <button id="addItem" class="ghost">＋ Add line item</button>
+    </section>
+    <section class="glass card">
+      <h2>Totals</h2>
+      <div class="rrow"><span>Subtotal</span><b id="tSub">—</b></div>
+      <div class="rrow"><span>Tax</span><b id="tTax">—</b></div>
+      <div class="rrow total"><span>Grand total</span><b id="tGrand">—</b></div>
+      <textarea id="notes" placeholder="Notes / payment terms (optional)" maxlength="400"></textarea>
+    </section>
+    <section class="glass card">
+      <h2>Drafts</h2>
+      <div class="draft-row">
+        <input id="draftName" placeholder="Draft name" maxlength="40">
+        <button id="saveDraft" class="ghost sm">Save</button>
+        <button id="newInv" class="ghost sm">New</button>
+      </div>
+      <div id="drafts"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

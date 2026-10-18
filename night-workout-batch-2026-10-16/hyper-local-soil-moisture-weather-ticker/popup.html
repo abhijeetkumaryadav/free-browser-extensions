@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Honest-scope banner: this is a MANUAL garden log. There are no live
+     soil sensors and no weather API. Every number shown comes from entries
+     the user typed. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garden Bed Log</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      <div>
+        <h1>Garden Bed Log</h1>
+        <p class="subtitle">your beds, your notes</p>
+      </div>
+    </div>
+    <span class="scope-pill" title="No sensors, no weather API. Everything here is data you typed yourself.">MANUAL LOG</span>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p>Manual logbook — <strong>not</strong> live soil sensors, <strong>not</strong> live weather data. Watering status is computed from your own entries.</p>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="dash" role="tab">Dashboard</button>
+    <button class="tab" data-tab="log" role="tab">Log entry</button>
+    <button class="tab" data-tab="beds" role="tab">Beds</button>
+  </nav>
+
+  <section id="tab-dash" class="panel active">
+    <div id="bedCards" class="cards"></div>
+    <div class="card">
+      <h2 class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+        Latest weather notes
+      </h2>
+      <ul id="weatherList" class="weather"></ul>
+    </div>
+  </section>
+
+  <section id="tab-log" class="panel">
+    <div class="card">
+      <h2 class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New log entry
+      </h2>
+      <label class="field"><span>Bed</span><select id="logBed"></select></label>
+      <label class="field"><span>Date</span><input id="logDate" type="date"></label>
+      <label class="check"><input id="logWatered" type="checkbox" checked> Watered today</label>
+      <label class="field"><span>Water amount (ml, optional)</span><input id="logAmount" type="number" min="0" step="50" placeholder="e.g. 2000"></label>
+      <label class="field"><span>Soil moisture (your feel test)</span>
+        <select id="logMoisture">
+          <option value="">— not checked —</option>
+          <option value="1">1 · bone dry</option>
+          <option value="2">2 · dry</option>
+          <option value="3">3 · moist</option>
+          <option value="4">4 · wet</option>
+          <option value="5">5 · soggy</option>
+        </select>
+      </label>
+      <label class="field"><span>Weather note (typed by you)</span><input id="logWeather" type="text" maxlength="80" placeholder="e.g. hot, 34°C, no rain"></label>
+      <label class="field"><span>Notes</span><textarea id="logNote" rows="2" maxlength="300" placeholder="e.g. basil looking wilted at noon"></textarea></label>
+      <button id="saveLogBtn" class="btn primary full">Save entry</button>
+    </div>
+    <div class="card">
+      <h2 class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Recent entries
+      </h2>
+      <ul id="entryList" class="entries"></ul>
+    </div>
+  </section>
+
+  <section id="tab-beds" class="panel">
+    <div class="card">
+      <h2 class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add a bed
+      </h2>
+      <label class="field"><span>Bed name</span><input id="bedName" type="text" maxlength="40" placeholder="e.g. Balcony planter A"></label>
+      <label class="field"><span>Plants (optional)</span><input id="bedPlant" type="text" maxlength="60" placeholder="e.g. basil, mint"></label>
+      <label class="field"><span>Typical watering interval (days)</span><input id="bedInterval" type="number" min="1" max="60" value="3"></label>
+      <button id="addBedBtn" class="btn primary full">Add bed</button>
+    </div>
+    <div class="card">
+      <h2 class="card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+        Your beds
+      </h2>
+      <ul id="bedList" class="beds"></ul>
+    </div>
+  </section>
+
+  <footer class="foot">100% local · zero network · all data is yours, typed by you</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

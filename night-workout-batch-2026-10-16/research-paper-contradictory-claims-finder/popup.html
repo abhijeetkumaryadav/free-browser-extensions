@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>Claim Ledger</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+    <h1>Claim Ledger</h1>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-tab="add">Add</button>
+    <button class="tab" data-tab="topics">Topics</button>
+    <button class="tab" data-tab="compare">Compare</button>
+  </div>
+</header>
+
+<div class="scope-note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <span>Your organized notes — the extension does <b>not</b> find contradictions automatically. You spot them by comparing stances side by side.</span>
+</div>
+
+<main>
+  <section id="tab-add" class="panel active">
+    <label class="field"><span>Topic</span>
+      <input id="f-topic" type="text" placeholder="e.g. Sleep &amp; memory" list="topic-list">
+      <datalist id="topic-list"></datalist>
+    </label>
+    <label class="field"><span>Claim (what the source says)</span>
+      <textarea id="f-claim" rows="3" placeholder="e.g. Sleep deprivation impairs consolidation"></textarea>
+    </label>
+    <label class="field"><span>Source (paper, author, year…)</span>
+      <input id="f-source" type="text" placeholder="e.g. Walker 2009, Nature Reviews">
+    </label>
+    <div class="stance-row">
+      <span class="stance-label">This source's stance:</span>
+      <div class="stance-btns" id="stance-btns">
+        <button class="stance active" data-stance="supports">Supports</button>
+        <button class="stance" data-stance="contradicts">Contradicts</button>
+        <button class="stance" data-stance="neutral">Neutral</button>
+      </div>
+    </div>
+    <label class="field"><span>Your note (optional)</span>
+      <textarea id="f-note" rows="2" placeholder="Why it matters…"></textarea>
+    </label>
+    <button id="btn-add" class="primary">Add claim</button>
+  </section>
+
+  <section id="tab-topics" class="panel">
+    <div class="row-head">
+      <h2>Topics</h2>
+      <span id="topic-count" class="count"></span>
+    </div>
+    <div id="topic-list-view"></div>
+  </section>
+
+  <section id="tab-compare" class="panel">
+    <div class="row-head">
+      <h2>Compare stances</h2>
+      <select id="cmp-topic"></select>
+    </div>
+    <div class="legend">
+      <span class="pill supports">Supports</span>
+      <span class="pill contradicts">Contradicts</span>
+      <span class="pill neutral">Neutral</span>
+    </div>
+    <div id="cmp-view"></div>
+  </section>
+</main>
+
+<footer class="foot">100% local — stored in your browser only.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

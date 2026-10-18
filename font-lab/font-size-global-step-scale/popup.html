@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 9 6l5 12"/><path d="M5.8 14h6.4"/><path d="M15 9.5 16.5 6l3 7"/><path d="M15.8 12.5h3.4"/></svg>
+    </span>
+    <div>
+      <h1>ZoomStep</h1>
+      <p class="sub" id="hostLabel">current tab</p>
+    </div>
+    <span id="zoomBadge" class="badge">100%</span>
+  </header>
+
+  <div class="panel stepper">
+    <button id="zoomOut" class="step" aria-label="Decrease size">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg>
+    </button>
+    <div class="zoom-read">
+      <span id="zoomPct" class="pct">100%</span>
+      <span class="hint">page zoom</span>
+    </div>
+    <button id="zoomIn" class="step" aria-label="Increase size">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+
+  <div class="panel">
+    <button id="resetBtn" class="ghost">Reset to 100%</button>
+    <label class="remember">
+      <input type="checkbox" id="rememberChk">
+      <span>Remember zoom for this site</span>
+    </label>
+  </div>
+
+  <div class="panel">
+    <h2>Saved sites</h2>
+    <ul id="siteList" class="sites"></ul>
+    <p id="emptySites" class="empty">No saved sites yet.</p>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <p>Uses the browser's native page zoom in 10% steps — it scales text and layout together, which is what keeps pages readable and unbroken.</p>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

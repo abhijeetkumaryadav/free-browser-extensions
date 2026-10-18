@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gravity Sandbox</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
+  <div><h1>Gravity Sandbox</h1><p class="sub">visual toy — nothing here is real physics advice</p></div>
+</header>
+
+<div class="scope">Harmless, user-triggered visual toy. Clones tumble, the page
+itself is never edited. One click restores everything exactly.</div>
+
+<div class="field">
+  <div class="row"><label for="grav">Gravity</label><output id="gravOut">9.8 px/frame²</output></div>
+  <input id="grav" type="range" min="2" max="30" step="0.5" value="9.8">
+</div>
+
+<div class="field">
+  <div class="row"><label for="bounce">Bounciness</label><output id="bounceOut">55%</output></div>
+  <input id="bounce" type="range" min="0" max="90" step="5" value="55">
+</div>
+
+<div class="btnrow">
+  <button id="drop" class="primary">Drop everything</button>
+  <button id="restore" class="ghost" disabled>Restore page</button>
+</div>
+
+<div class="status" id="status">Ready. Pick your gravity, then drop.</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

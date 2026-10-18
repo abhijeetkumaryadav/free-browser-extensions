@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jurisdiction Tax Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div><h1>Tax Mapper</h1><p>Sales tax · VAT · GST estimates</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Amount
+        <input id="amount" type="number" min="0" step="0.01" placeholder="0.00">
+      </label>
+      <label class="fld">Jurisdiction
+        <select id="juris"></select>
+      </label>
+      <label class="check"><input type="checkbox" id="inclusive"> Amount already includes tax</label>
+      <div id="result" class="result" hidden>
+        <div class="rrow"><span>Base</span><b id="rBase">—</b></div>
+        <div class="rrow"><span>Tax (<span id="rRate">—</span>)</span><b id="rTax">—</b></div>
+        <div class="rrow total"><span>Total</span><b id="rTotal">—</b></div>
+      </div>
+      <p class="note">Sample rates for quick estimates — always verify against current local rules before filing.</p>
+    </section>
+    <section class="glass card">
+      <h2>Rate table</h2>
+      <div id="rates"></div>
+      <div class="add-form">
+        <input id="nCountry" placeholder="Country" maxlength="40">
+        <input id="nRegion" placeholder="Region / State" maxlength="40">
+        <input id="nRate" type="number" min="0" max="100" step="0.01" placeholder="Rate %">
+        <button id="addBtn" class="ghost">＋ Add rate</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

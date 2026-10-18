@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stretch Prompt</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div>
+      <h1>Stretch Prompt</h1>
+      <p class="tag">Gentle stretch reminders</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Reminders only — not medical advice. Move gently and stop if anything hurts.</span>
+  </div>
+
+  <!-- Settings view -->
+  <section id="settingsView" class="card">
+    <h2>When to nudge me</h2>
+    <p class="hint">After this much keyboard/mouse inactivity, I'll suggest a stretch.</p>
+    <div class="row">
+      <label class="fld">Inactive for
+        <select id="threshold">
+          <option value="300">5 min</option>
+          <option value="600">10 min</option>
+          <option value="900">15 min</option>
+          <option value="1800">30 min</option>
+        </select>
+      </label>
+      <button id="toggle" class="btn accent small">Enable</button>
+    </div>
+    <div class="row stats">
+      <span class="timer">Stretches done: <b id="doneCount">0</b></span>
+    </div>
+  </section>
+
+  <!-- Routine view -->
+  <section id="routineView" class="card hidden">
+    <h2>Stretch routine <span class="timer">(~2 min)</span></h2>
+    <p class="hint">Tap each step when done — or skip anytime.</p>
+    <ol id="steps" class="steps"></ol>
+    <div class="row">
+      <button id="finish" class="btn accent">Done — felt good</button>
+      <button id="skip" class="btn small">Skip</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory Multi-Syncer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><path d="M10 12h4"/></svg>
+    <div><h1>Inventory Syncer</h1><p>One stock table, every marketplace</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="stats">
+        <div><span>SKUs</span><b id="stSku">0</b></div>
+        <div><span>Units</span><b id="stUnits">0</b></div>
+        <div class="warn"><span>Low stock</span><b id="stLow">0</b></div>
+      </div>
+      <div id="rows"></div>
+      <div class="add-form">
+        <input id="fName" placeholder="Product name" maxlength="60">
+        <input id="fSku" placeholder="SKU" maxlength="30">
+        <input id="fStock" type="number" min="0" placeholder="Stock">
+        <input id="fThresh" type="number" min="0" placeholder="Low alert at">
+        <button id="addBtn" class="ghost">＋ Add SKU</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Marketplace exports</h2>
+      <p class="note">Download per-marketplace quantity files to upload in Seller Central, etc.</p>
+      <div class="exp-row">
+        <button data-mkt="amazon">Amazon</button>
+        <button data-mkt="ebay">eBay</button>
+        <button data-mkt="shopify">Shopify</button>
+        <button data-mkt="full">Full CSV</button>
+      </div>
+      <button id="importBtn" class="ghost">Import CSV</button>
+      <input type="file" id="importFile" accept=".csv,text/csv" hidden>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

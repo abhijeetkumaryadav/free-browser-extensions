@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Star Transit Timer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <!-- Lucide-style clock/gauge outline icon -->
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 13.5"/></svg>
+  <h1>Star Transit Timer</h1>
+</header>
+
+<section class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <p>Approximate geometry — educational, not telescope pointing software. Transits are upper-meridian crossings from real sidereal math.</p>
+</section>
+
+<section class="card">
+  <label>Star name (optional)
+    <input id="starName" type="text" placeholder="e.g. Vega" maxlength="60">
+  </label>
+  <label>Right ascension (hours, 0–24)
+    <input id="ra" type="number" step="0.0001" min="0" max="24" placeholder="18.6156">
+  </label>
+  <div class="row2">
+    <label>Latitude (°)
+      <input id="lat" type="number" step="0.0001" min="-90" max="90" placeholder="51.4778">
+    </label>
+    <label>Longitude (° E+)
+      <input id="lon" type="number" step="0.0001" min="-180" max="180" placeholder="0.0">
+    </label>
+  </div>
+  <div class="row2">
+    <label>Declination (°)
+      <input id="dec" type="number" step="0.0001" min="-90" max="90" placeholder="38.784">
+    </label>
+    <label class="check"><input id="notify" type="checkbox"> <span>Notify at transit</span></label>
+  </div>
+  <button id="track" class="primary">Track transit</button>
+</section>
+
+<section id="result" class="card hidden">
+  <div class="hero">
+    <div class="label">Next upper-meridian transit</div>
+    <div id="countdown" class="countdown">--:--:--</div>
+    <div id="when" class="when">—</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="k">Star</span><span class="v" id="rStar">—</span></div>
+    <div class="stat"><span class="k">Altitude at transit</span><span class="v" id="rAlt">—</span></div>
+    <div class="stat"><span class="k">Azimuth at transit</span><span class="v" id="rAz">—</span></div>
+    <div class="stat"><span class="k">Visible?</span><span class="v" id="rVis">—</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Saved stars</h2>
+  <ul id="saved"></ul>
+</section>
+
+<footer>Star Transit Timer · sidereal math, local only</footer>
+<script src="popup.js"></script>
+</body>
+</html>

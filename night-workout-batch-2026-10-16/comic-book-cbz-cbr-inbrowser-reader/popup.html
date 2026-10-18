@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>CBZ Reader</title>
+</head>
+<body>
+<div class="card">
+  <div class="honest">CBZ only — no CBR/RAR support. Everything stays on your device.</div>
+  <div class="title-row">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+    <h1>CBZ Reader</h1>
+  </div>
+  <p class="sub">Pick a <b>.cbz</b> file and read it in a full tab. Your last page is remembered per file name.</p>
+  <button id="open" class="primary">Open reader</button>
+  <p class="hint">Files are never uploaded — parsing happens locally with the browser's own deflate decoder.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

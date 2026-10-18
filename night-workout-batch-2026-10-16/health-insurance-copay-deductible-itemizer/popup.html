@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cost Tracker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main>
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <div>
+      <h1>Healthcare Cost Tracker</h1>
+      <p class="subtitle">Log payments · track deductible progress</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Your records — <strong>not insurance advice.</strong> Always check your insurer's records for official totals.</span>
+  </div>
+
+  <!-- Deductible target -->
+  <section class="card">
+    <h2>Deductible progress</h2>
+    <div class="target-row">
+      <label for="target">Annual deductible target ($)</label>
+      <input id="target" type="number" min="0" step="1" placeholder="e.g. 2000">
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <p class="progress-text" id="progressText">$0 of $0 (0%)</p>
+  </section>
+
+  <!-- Add payment -->
+  <section class="card">
+    <h2>Log a payment</h2>
+    <div class="form-grid">
+      <label>Date<input id="payDate" type="date"></label>
+      <label>Provider<input id="payProvider" type="text" placeholder="Clinic / pharmacy…"></label>
+      <label>Type
+        <select id="payType">
+          <option value="copay">Copay</option>
+          <option value="deductible">Deductible</option>
+          <option value="premium">Premium</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label>Amount ($)<input id="payAmount" type="number" min="0" step="0.01" placeholder="0.00"></label>
+    </div>
+    <button id="addBtn" class="primary">Add payment</button>
+  </section>
+
+  <!-- Totals -->
+  <section class="card">
+    <h2>Totals by type</h2>
+    <div class="totals" id="totals">
+      <div class="total"><span class="t-label">Copay</span><span class="t-value" id="totCopay">$0.00</span></div>
+      <div class="total"><span class="t-label">Deductible</span><span class="t-value" id="totDeductible">$0.00</span></div>
+      <div class="total"><span class="t-label">Premium</span><span class="t-value" id="totPremium">$0.00</span></div>
+      <div class="total"><span class="t-label">Other</span><span class="t-value" id="totOther">$0.00</span></div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="card">
+    <h2>Payment history</h2>
+    <ul id="history" class="history"></ul>
+    <button id="clearBtn" class="ghost">Clear all</button>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

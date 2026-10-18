@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Graph Social Feed Previewer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+      </svg>
+      <div class="title-wrap">
+        <h1>Social Card Preview</h1>
+        <p class="subtitle">How this page shares on social feeds</p>
+      </div>
+    </header>
+
+    <div id="controls" class="controls">
+      <button id="scanBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
+        Analyze this page
+      </button>
+      <label class="toggle-row"><input type="checkbox" id="showIssues" checked><span>Show health issues only toggle</span></label>
+    </div>
+
+    <div id="status" class="status idle">Press “Analyze this page” to scan the page’s Open Graph and Twitter Card tags.</div>
+
+    <!-- Score ring + stat tiles -->
+    <section id="summary" class="summary hidden" aria-live="polite">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="42" class="ring-track"/>
+          <circle id="ringBar" cx="48" cy="48" r="42" class="ring-bar"/>
+        </svg>
+        <div class="ring-text"><span id="scoreNum">0</span><small>/100</small></div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="tile-num" id="statTags">0</span><span class="tile-label">Tags found</span></div>
+        <div class="tile"><span class="tile-num warn" id="statIssues">0</span><span class="tile-label">Issues</span></div>
+        <div class="tile"><span class="tile-num" id="statPlatforms">0</span><span class="tile-label">Platforms OK</span></div>
+      </div>
+    </section>
+
+    <h2 class="section-title hidden" id="cardsTitle">Share-card previews</h2>
+    <div id="cards" class="cards hidden">
+      <div class="card-preview fb">
+        <div class="card-brand">Facebook</div>
+        <div class="card-img-wrap"><img id="fbImg" alt="Open Graph preview image"><span id="fbImgFallback" class="img-fallback hidden">No image</span></div>
+        <div class="card-body">
+          <div class="card-domain" id="fbDomain"></div>
+          <div class="card-title" id="fbTitle"></div>
+          <div class="card-desc" id="fbDesc"></div>
+        </div>
+      </div>
+      <div class="card-preview x">
+        <div class="card-brand">X</div>
+        <div class="card-img-wrap"><img id="xImg" alt="Twitter Card preview image"><span id="xImgFallback" class="img-fallback hidden">No image</span></div>
+        <div class="card-body">
+          <div class="card-title" id="xTitle"></div>
+          <div class="card-desc" id="xDesc"></div>
+          <div class="card-domain" id="xDomain"></div>
+        </div>
+      </div>
+      <div class="card-preview li">
+        <div class="card-brand">LinkedIn</div>
+        <div class="card-img-wrap"><img id="liImg" alt="LinkedIn preview image"><span id="liImgFallback" class="img-fallback hidden">No image</span></div>
+        <div class="card-body">
+          <div class="card-title" id="liTitle"></div>
+          <div class="card-domain" id="liDomain"></div>
+          <div class="card-desc" id="liDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title hidden" id="issuesTitle">Tag health</h2>
+    <div id="issues" class="issues hidden"></div>
+
+    <footer class="foot">
+      <span class="badge">Read-only · local · zero network</span>
+    </footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

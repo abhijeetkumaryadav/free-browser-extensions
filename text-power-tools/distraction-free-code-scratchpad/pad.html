@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ScratchCode</title>
+<link rel="stylesheet" href="pad.css">
+</head>
+<body>
+  <aside class="sidebar glass">
+    <div class="side-head">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+      </span>
+      <span class="name">ScratchCode</span>
+      <button class="icon-btn" id="newPad" title="New scratchpad">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+    <div class="pad-list" id="padList"></div>
+    <p class="side-hint">Lightweight highlighting only — not a full parser.</p>
+  </aside>
+
+  <main class="main">
+    <header class="padbar">
+      <input class="pad-name" id="padName" maxlength="60" aria-label="Scratchpad name" spellcheck="false">
+      <div class="padbar-actions">
+        <select id="langSelect" aria-label="Language">
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="css">CSS</option>
+          <option value="plain">Plain text</option>
+        </select>
+        <button class="btn small" id="renameBtn" title="Rename scratchpad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </button>
+        <button class="btn small" id="downloadBtn" title="Download as file">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="btn small danger" id="deleteBtn" title="Delete scratchpad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="editor-area">
+      <div class="gutter" id="gutter" aria-hidden="true">1</div>
+      <div class="code-wrap">
+        <pre id="highlight" aria-hidden="true"><code id="hlcode"></code></pre>
+        <textarea id="input" spellcheck="false" autocomplete="off" autocapitalize="off"
+          placeholder="// Type here… Tab indents, everything autosaves."></textarea>
+      </div>
+    </div>
+
+    <footer class="statusbar">
+      <span id="lineInfo">1 line</span>
+      <span class="dot">·</span>
+      <span id="saveState">Saved</span>
+      <span class="local">Local only — nothing leaves your browser</span>
+    </footer>
+  </main>
+
+  <script src="pad.js"></script>
+</body>
+</html>

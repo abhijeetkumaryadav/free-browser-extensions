@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Return Policy Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+    <div><h1>Policy Analyzer</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Analyze</button>
+  </header>
+  <main>
+    <section id="resultCard" class="glass card" hidden>
+      <div class="scorewrap">
+        <svg class="ring" viewBox="0 0 90 90">
+          <circle class="track" cx="45" cy="45" r="36"/>
+          <circle class="bar" id="ringBar" cx="45" cy="45" r="36"/>
+        </svg>
+        <div class="scorecenter"><b id="scoreNum">—</b><span id="verdict">—</span></div>
+      </div>
+      <div id="signals"></div>
+      <a id="policyLink" class="ghostlink" hidden target="_blank" rel="noopener">View full return policy ↗</a>
+    </section>
+    <div id="empty" class="empty">Open a store or product page, then hit <b>Analyze</b>.</div>
+    <p class="note">Best-effort heuristic from the page's visible text — always check the store's full policy before buying.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

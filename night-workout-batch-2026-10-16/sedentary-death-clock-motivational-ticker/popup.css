@@ -1,0 +1,62 @@
+/* Move Ticker — deep-dark glassmorphism, single amber accent */
+:root{
+  --accent:#fbbf24;
+  --bg:rgba(20,20,26,.72);
+  --line:rgba(255,255,255,.09);
+  --txt:#f2f3f5;
+  --muted:#9aa0ae;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--txt);background:#0d0d12;font-size:13px;line-height:1.45;
+}
+.card{
+  margin:12px;padding:16px;border-radius:16px;
+  background:var(--bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--line);
+}
+.head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.logo{
+  width:36px;height:36px;flex:none;display:grid;place-items:center;
+  border-radius:10px;color:var(--accent);
+  background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35);
+}
+h1{font-size:15px;font-weight:650}
+.sub{color:var(--muted);font-size:11.5px}
+.notice{
+  font-size:11.5px;color:var(--muted);border:1px dashed var(--line);
+  border-radius:10px;padding:8px 10px;margin-bottom:14px;
+}
+.notice em{color:var(--accent);font-style:normal;font-weight:600}
+.ticker{text-align:center;margin-bottom:12px}
+.time{font-size:34px;font-weight:750;letter-spacing:1px;color:var(--txt);font-variant-numeric:tabular-nums}
+.phase{font-size:13px;font-weight:650;color:var(--accent);margin-top:4px}
+.prompt{font-size:12px;color:var(--muted);margin-top:6px;min-height:18px;font-style:italic}
+.bar-wrap{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:10px}
+.bar{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#f59e0b,var(--accent));transition:width .6s}
+.actions{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.btn{
+  flex:1;padding:10px;border:none;border-radius:10px;cursor:pointer;
+  background:var(--accent);color:#3a2403;font-weight:700;font-size:13px;
+}
+.btn:hover{filter:brightness(1.08)}
+.link{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline}
+.link:hover{color:var(--txt)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.stat{
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:2px;text-align:center;
+}
+.stat .k{font-size:10px;color:var(--muted)}
+.stat .v{font-size:14px;font-weight:700;color:var(--accent)}
+.history h2{font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.list li{
+  display:flex;justify-content:space-between;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+  border-radius:9px;padding:7px 10px;font-size:12px;
+}
+.list .t{color:var(--muted);font-size:11px}
+.empty{color:var(--muted);font-size:12px}

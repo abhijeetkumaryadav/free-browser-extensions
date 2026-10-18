@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordTicker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 6h16"/><path d="M4 10h16"/><path d="M4 14h10"/><path d="M4 18h7"/>
+      </svg>
+      <div>
+        <h1>WordTicker</h1>
+        <p class="sub">Live text counters</p>
+      </div>
+    </div>
+    <button id="clearBtn" class="icon-btn" title="Clear text" aria-label="Clear text">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+      </svg>
+    </button>
+  </header>
+
+  <textarea id="editor" class="editor" placeholder="Type or paste your text here — counts update live…"></textarea>
+
+  <section class="panel">
+    <div class="stats">
+      <div class="stat"><span class="num" id="stWords">0</span><span class="lbl">Words</span></div>
+      <div class="stat"><span class="num" id="stChars">0</span><span class="lbl">Characters</span></div>
+      <div class="stat"><span class="num" id="stNoSpace">0</span><span class="lbl">No spaces</span></div>
+      <div class="stat"><span class="num" id="stSent">0</span><span class="lbl">Sentences</span></div>
+      <div class="stat"><span class="num" id="stPara">0</span><span class="lbl">Paragraphs</span></div>
+      <div class="stat"><span class="num" id="stRead">0s</span><span class="lbl">Read time</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="row space-between">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>
+        </svg>
+        Word goal
+      </h2>
+      <button id="goalEdit" class="mini-btn">Set goal</button>
+    </div>
+    <div id="goalWrap">
+      <div class="goal-bar"><div class="goal-fill" id="goalFill"></div></div>
+      <p class="goal-text"><span id="goalCur">0</span> / <span id="goalMax">500</span> words · <span id="goalPct">0%</span></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/>
+      </svg>
+      Keyword density
+    </h2>
+    <ul id="kwList" class="kw-list"></ul>
+    <p id="kwEmpty" class="muted">Type a few sentences to see top keywords.</p>
+  </section>
+
+  <footer class="foot">
+    <span class="dot"></span> All processing happens on-device. Draft autosaves locally.
+  </footer>
+</div>
+
+<!-- Goal dialog -->
+<div id="goalDialog" class="dialog" hidden>
+  <div class="dialog-card">
+    <h3>Set word goal</h3>
+    <input id="goalInput" type="number" min="0" step="50" placeholder="e.g. 500">
+    <div class="dialog-actions">
+      <button id="goalCancel" class="btn ghost">Cancel</button>
+      <button id="goalSave" class="btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

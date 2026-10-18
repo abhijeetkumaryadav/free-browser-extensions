@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indie Search Tunnel</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <div>
+      <h1>Indie Search Tunnel</h1>
+      <p class="sub">One query, many indie engines</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Opens search pages on the engines you tick — <b>does NOT aggregate or scrape results</b>. Each site runs its own search.</span>
+  </div>
+
+  <section class="card">
+    <input id="query" type="text" placeholder="Type your search query…" autocomplete="off">
+    <div class="row">
+      <button id="allBtn" class="ghost small">All</button>
+      <button id="noneBtn" class="ghost small">None</button>
+    </div>
+    <ul id="engineList" class="engines"></ul>
+    <button id="launchBtn" class="primary">Launch search</button>
+  </section>
+
+  <section class="card">
+    <h2>Add your own engine</h2>
+    <div class="row">
+      <input id="newName" type="text" placeholder="Name" class="half">
+      <input id="newUrl" type="text" placeholder="https://example.com/search?q={q}" class="half">
+    </div>
+    <button id="addBtn" class="ghost">Add engine</button>
+    <p class="hint">Use <code>{q}</code> where the query goes. It becomes the URL-encoded query.</p>
+  </section>
+
+  <footer>Opens background tabs — never steals focus.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

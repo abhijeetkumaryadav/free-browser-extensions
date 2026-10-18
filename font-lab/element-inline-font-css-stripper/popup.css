@@ -1,0 +1,46 @@
+/* FontStrip — deep-dark glassmorphism, red accent (#ef4444) */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+  background:linear-gradient(160deg,#0b0b10,#151018 60%,#0d0d14);
+  color:#e8e8ef;font-size:13px;line-height:1.45;
+}
+.app{padding:16px;display:flex;flex-direction:column;gap:12px}
+.hdr{display:flex;align-items:center;gap:10px}
+.logo{width:30px;height:30px;color:#ef4444;flex:none}
+h1{font-size:16px;font-weight:700;letter-spacing:.2px}
+.sub{font-size:11px;color:#9a9ab0}
+.badge{
+  margin-left:auto;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;
+  padding:4px 10px;border-radius:999px;color:#d7d7e0;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+}
+.badge.active{color:#fff;background:#ef4444;border-color:#ef4444}
+.card{
+  background:rgba(20,20,26,.72);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.row-label{font-size:12px;font-weight:600;color:#c9c9dc}
+.check{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px}
+.check input{width:16px;height:16px;accent-color:#ef4444;cursor:pointer;flex:none}
+.check span{flex:1}
+.check code{font-size:10px;color:#8f8fa8;background:rgba(255,255,255,.05);padding:3px 7px;border-radius:6px}
+.stats{flex-direction:row;justify-content:space-around;text-align:center}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat .num{font-size:22px;font-weight:800;color:#f87171;font-variant-numeric:tabular-nums}
+.stat .lbl{font-size:10px;color:#8f8fa8;text-transform:uppercase;letter-spacing:.5px}
+.actions{display:flex;gap:8px}
+button.primary{
+  flex:1;padding:11px;border:none;border-radius:12px;background:#ef4444;color:#fff;
+  font-size:13px;font-weight:700;cursor:pointer;
+}
+button.primary:hover{background:#f66161}
+button.ghost{
+  padding:11px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);
+  background:transparent;color:#c9c9dc;font-size:13px;font-weight:600;cursor:pointer;
+}
+button.ghost:hover{background:rgba(255,255,255,.06)}
+.note{font-size:11px;color:#8f8fa8;min-height:14px;text-align:center}
+.foot{font-size:10px;color:#6b6b84;text-align:center}

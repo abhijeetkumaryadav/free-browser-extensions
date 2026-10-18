@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fridge Logger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2h11a1 1 0 0 1 1 1v19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M5 10h11M13 5v3M13 13v3"/></svg>
+    </div>
+    <div>
+      <h1>Fridge Logger</h1>
+      <p class="sub">Community fridge inventory</p>
+    </div>
+  </header>
+
+  <div id="alertBanner" class="alert hidden" role="alert"></div>
+
+  <section class="stats" id="stats">
+    <div class="stat"><span class="label">Items</span><span class="value" id="statTotal">0</span></div>
+    <div class="stat"><span class="label">Expiring ≤3d</span><span class="value warn" id="statSoon">0</span></div>
+    <div class="stat"><span class="label">Expired</span><span class="value danger" id="statExpired">0</span></div>
+    <div class="stat"><span class="label">Categories</span><span class="value" id="statCats">0</span></div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="items" role="tab">Inventory</button>
+    <button class="tab" data-tab="add" role="tab">Add item</button>
+    <button class="tab" data-tab="summary" role="tab">Summary</button>
+  </nav>
+
+  <main>
+    <section class="panel active" id="panel-items">
+      <div class="toolbar">
+        <input type="search" id="searchBox" placeholder="Search items…">
+      </div>
+      <div class="toolbar">
+        <select id="locFilter" aria-label="Filter by location">
+          <option value="">All locations</option>
+          <option value="fridge">Fridge</option>
+          <option value="freezer">Freezer</option>
+          <option value="pantry">Pantry shelf</option>
+        </select>
+        <select id="catFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+      </div>
+      <div id="itemList" class="item-list"></div>
+    </section>
+
+    <section class="panel" id="panel-add">
+      <form id="itemForm" class="form">
+        <label>Item name
+          <input type="text" id="iName" placeholder="e.g. Whole milk 1L" required maxlength="60">
+        </label>
+        <div class="row">
+          <label>Category
+            <select id="iCategory">
+              <option>Dairy</option><option>Produce</option><option>Bread &amp; bakery</option>
+              <option>Meat &amp; fish</option><option>Drinks</option><option>Canned &amp; dry</option>
+              <option>Frozen meals</option><option>Snacks</option><option>Other</option>
+            </select>
+          </label>
+          <label>Quantity
+            <input type="number" id="iQty" min="1" value="1" required>
+          </label>
+        </div>
+        <div class="row">
+          <label>Expiry date
+            <input type="date" id="iExpiry" required>
+          </label>
+          <label>Location
+            <select id="iLoc">
+              <option value="fridge">Fridge</option>
+              <option value="freezer">Freezer</option>
+              <option value="pantry">Pantry shelf</option>
+            </select>
+          </label>
+        </div>
+        <label>Added by <span class="opt">(name for multi-user labeling)</span>
+          <input type="text" id="iBy" placeholder="e.g. Priya" maxlength="40">
+        </label>
+        <button type="submit" class="btn primary wide">Add to inventory</button>
+      </form>
+    </section>
+
+    <section class="panel" id="panel-summary">
+      <p class="hint">A plain-text summary you can copy into a group chat or notice board.
+        Nothing is sent automatically — the extension never touches the network.</p>
+      <button class="btn primary wide" id="copySummaryBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        Copy summary
+      </button>
+      <pre id="summaryText" class="summary"></pre>
+    </section>
+  </main>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

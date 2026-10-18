@@ -1,0 +1,41 @@
+/* Cloze Generator — deep-dark glassmorphism, 380px, single amber accent */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font:14px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif;color:#e8eaf0;background:transparent}
+.card{background:rgba(20,20,26,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;margin:0;min-height:200px}
+.top{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.logo{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(245,158,11,.15);color:#f59e0b;flex:none}
+.logo svg{width:22px;height:22px}
+h1{font-size:16px;font-weight:650}
+.sub{font-size:12px;color:#9aa0b4}
+.notice{font-size:12px;color:#c9cddd;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:8px 10px;margin-bottom:12px}
+.lbl{font-size:12px;font-weight:600;color:#9aa0b4;display:block;margin-bottom:6px}
+.hint{font-size:11.5px;color:#7c8296;margin-top:8px}
+textarea{width:100%;resize:vertical;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#e8eaf0;padding:10px;font:inherit;margin-bottom:10px}
+textarea:focus{outline:none;border-color:#f59e0b}
+.row{display:flex;gap:10px;align-items:flex-end}
+.field input{width:70px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#e8eaf0;padding:8px 10px;font:inherit}
+.field input:focus{outline:none;border-color:#f59e0b}
+.grow{flex:1}
+.btnrow{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;border-radius:10px;padding:9px 14px;cursor:pointer;border:1px solid transparent;transition:transform .06s ease,filter .15s}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:#f59e0b;color:#1a1206}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.06);color:#e8eaf0;border-color:rgba(255,255,255,.12)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.tiny{padding:5px 10px;font-size:12px}
+.btn.wide{width:100%;margin-top:10px}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.bar .lbl{margin:0}
+.score{font-size:13px;font-weight:700;color:#f59e0b}
+.wordwall{display:flex;flex-wrap:wrap;gap:6px;max-height:220px;overflow-y:auto;padding:4px;margin-bottom:4px}
+.wordwall .w{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:4px 8px;cursor:pointer;font-size:13px}
+.wordwall .w:hover{border-color:#f59e0b}
+.wordwall .w.blank{background:rgba(245,158,11,.22);border-color:#f59e0b;color:#fcd9a0}
+.quiz{font-size:14.5px;line-height:2.1;margin-bottom:12px;max-height:260px;overflow-y:auto}
+.quiz input{display:inline-block;width:110px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-bottom:2px solid #f59e0b;border-radius:6px;color:#e8eaf0;padding:3px 8px;font:inherit;margin:0 4px;vertical-align:baseline}
+.quiz input:focus{outline:none;border-bottom-color:#fbbf24}
+.quiz input.ok{border-bottom-color:#34d399;color:#a7f3d0}
+.quiz input.bad{border-bottom-color:#f87171;color:#fecaca}
+.ans{font-size:12px;color:#9aa0b4;margin-left:4px}
+section[hidden]{display:none}

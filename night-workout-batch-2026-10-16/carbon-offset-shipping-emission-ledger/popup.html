@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <svg class="brand-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 8l7-5 7 5"/><path d="M3 13l2-2 2 2 2-2 2 2 2-2 2 2 2-2 2 2"/></svg>
+  <div>
+    <h1>Shipping Emissions</h1>
+    <p class="sub">Log · estimate · offset</p>
+  </div>
+</header>
+
+<main>
+  <section class="card summary">
+    <div class="stat"><span class="stat-label">Total emitted</span><span class="stat-val" id="totalEmitted">0 kg</span></div>
+    <div class="stat"><span class="stat-label">Total offset</span><span class="stat-val good" id="totalOffset">0 kg</span></div>
+    <div class="stat"><span class="stat-label">Net balance</span><span class="stat-val" id="netBalance">0 kg</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Log a shipment</h2>
+    <label class="field-label" for="mode">Transport mode</label>
+    <select id="mode"></select>
+    <div class="row2">
+      <div><label class="field-label" for="dist">Distance (km)</label><input type="number" id="dist" min="0" step="any" placeholder="e.g. 1200"></div>
+      <div><label class="field-label" for="weight">Weight (kg)</label><input type="number" id="weight" min="0" step="any" placeholder="e.g. 250"></div>
+    </div>
+    <label class="field-label" for="note">Note (optional)</label>
+    <input type="text" id="note" maxlength="80" placeholder="Order #1234, supplier…">
+    <button id="addShipBtn" class="btn primary full">Add shipment</button>
+  </section>
+
+  <section class="card">
+    <h2>Record an offset</h2>
+    <div class="row2">
+      <div><label class="field-label" for="offKg">CO₂e offset (kg)</label><input type="number" id="offKg" min="0" step="any" placeholder="e.g. 500"></div>
+      <div><label class="field-label" for="offNote">Note</label><input type="text" id="offNote" maxlength="80" placeholder="Verified credits…"></div>
+    </div>
+    <button id="addOffBtn" class="btn good full">Record offset</button>
+  </section>
+
+  <section class="card">
+    <h2>Per-mode breakdown</h2>
+    <div id="breakdown" class="breakdown"></div>
+  </section>
+
+  <section class="card">
+    <h2>Ledger</h2>
+    <ul id="ledgerList" class="ledger"></ul>
+    <p id="emptyMsg" class="muted">No entries yet.</p>
+  </section>
+
+  <p class="disclaimer">
+    CO₂e figures use standard published emission factors per tonne-km and are
+    <b>estimates only</b> — real values vary by route, carrier and load.
+    Everything is stored locally; nothing leaves your device.
+  </p>
+</main>
+
+<script src="data.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engagement Rate Evaluator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+    <div><h1>Engagement Rate</h1><p>Per-post performance, honestly scored</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>New post</h2>
+      <div class="grid2">
+        <label class="fld">Followers<input id="followers" type="number" min="0" placeholder="12,500"></label>
+        <label class="fld">Likes<input id="likes" type="number" min="0" placeholder="640"></label>
+        <label class="fld">Comments<input id="comments" type="number" min="0" placeholder="48"></label>
+        <label class="fld">Shares<input id="shares" type="number" min="0" placeholder="22"></label>
+      </div>
+      <label class="fld">Label (optional)<input id="label" type="text" maxlength="40" placeholder="e.g. Festive Reel #3"></label>
+      <div class="btnrow">
+        <button id="calc" class="primary">Calculate</button>
+        <button id="save" class="ghost">Save post</button>
+      </div>
+      <div id="result" class="result" hidden>
+        <div class="er-num" id="erNum">—</div>
+        <span id="erVerdict" class="pill">—</span>
+        <div id="erBreak" class="break"></div>
+        <div id="erDelta" class="delta" hidden></div>
+      </div>
+    </section>
+    <section class="glass card" id="histCard" hidden>
+      <h2>Your trend</h2>
+      <div class="stats">
+        <div><span>Your avg</span><b id="stAvg">—</b></div>
+        <div><span>Best</span><b id="stBest">—</b></div>
+        <div><span>Posts</span><b id="stN">—</b></div>
+      </div>
+      <svg id="spark" viewBox="0 0 340 80" class="spark"></svg>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

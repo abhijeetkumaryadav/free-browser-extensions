@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClipSave</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <!-- Lucide-style stroke icon: clipboard with image -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><circle cx="12" cy="11" r="2"/><path d="m5.5 18 3.5-3.5 2.5 2.5 3-3 4 4"/></svg>
+      <span>ClipSave</span>
+    </div>
+    <span class="tag">LOCAL&nbsp;·&nbsp;NO AUTO-READ</span>
+  </header>
+
+  <div class="panel">
+    <button id="readBtn" class="btn primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+      Read image from clipboard
+    </button>
+    <p class="hint">The clipboard is read <strong>only</strong> when you press this button — never automatically, never in the background. Copy an image first, then press it.</p>
+  </div>
+
+  <div class="panel hidden" id="previewPanel">
+    <p class="panel-title">Preview</p>
+    <img id="previewImg" class="preview" alt="Clipboard image preview">
+    <div class="meta-grid">
+      <div class="meta"><span class="k">Size</span><span class="v" id="metaSize">—</span></div>
+      <div class="meta"><span class="k">Format</span><span class="v" id="metaFormat">—</span></div>
+      <div class="meta"><span class="k">File size</span><span class="v" id="metaBytes">—</span></div>
+    </div>
+    <div class="row">
+      <label class="name-field">
+        <span>Filename</span>
+        <input type="text" id="fileName" value="clipboard-image">
+      </label>
+    </div>
+    <div class="row">
+      <button id="saveBtn" class="btn primary grow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save as PNG
+      </button>
+      <button id="copyBackBtn" class="btn ghost">Copy</button>
+    </div>
+    <p class="hint" id="saveHint">Saves via a one-time download — your normal browser download prompt applies.</p>
+  </div>
+
+  <div class="panel error hidden" id="errorPanel">
+    <p class="err-title" id="errorTitle">Couldn't read the clipboard</p>
+    <p class="err-sub" id="errorText"></p>
+  </div>
+
+  <footer class="footer">
+    <p>Images never leave your device. Saved files go through your browser's normal download flow — nothing is downloaded silently.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

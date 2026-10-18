@@ -1,0 +1,137 @@
+/* SEO Farm Domain Blocker — deep-dark glassmorphism popup (380px), one accent: violet. */
+:root {
+  --accent: #a78bfa;
+  --bg: rgba(20, 20, 26, 0.72);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.09);
+  --text: #f4f4f6;
+  --text-dim: #a7a7b3;
+  --border: rgba(255, 255, 255, 0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.popup { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+.header { display: flex; align-items: center; gap: 12px; }
+.icon {
+  width: 38px; height: 38px; flex: 0 0 38px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+.icon svg { width: 22px; height: 22px; }
+.title-wrap h1 { font-size: 15px; font-weight: 650; letter-spacing: 0.2px; }
+.subtitle { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+.notice strong { color: var(--text); }
+
+.blocklist h2 { font-size: 12px; font-weight: 650; color: var(--text-dim); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.6px; }
+.add-row { display: flex; gap: 8px; }
+.add-row input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 9px 10px;
+  font-size: 13px;
+  outline: none;
+}
+.add-row input:focus { border-color: var(--accent); }
+.domain-list {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 8px;
+  max-height: 90px; overflow-y: auto;
+}
+.domain-list li {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 6px 4px 10px;
+  font-size: 12px;
+}
+.domain-list button {
+  background: none; border: none; color: var(--text-dim);
+  cursor: pointer; font-size: 14px; line-height: 1;
+  padding: 2px 4px; border-radius: 6px;
+}
+.domain-list button:hover { color: var(--accent); }
+
+.mode { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); }
+.mode label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.mode input[type="radio"] { accent-color: var(--accent); }
+
+.actions { display: flex; gap: 10px; }
+.btn {
+  flex: 1;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn svg { width: 16px; height: 16px; }
+.btn.small { flex: 0 0 auto; background: var(--surface-strong); color: var(--text); border-color: var(--border); padding: 9px 14px; }
+.btn.small:hover { background: var(--surface); }
+.btn.primary { background: var(--accent); color: #16161c; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn.ghost:hover { background: var(--surface-strong); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+
+.status {
+  font-size: 12px; color: var(--text-dim);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  min-height: 34px;
+}
+
+.flag-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 8px;
+  max-height: 180px; overflow-y: auto;
+}
+.flag-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.flag-list .flag-title { color: var(--text); font-weight: 600; margin-bottom: 2px; }
+.flag-list .flag-reason { color: var(--accent); font-size: 11px; }
+
+.footer {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--text-dim);
+  padding-top: 4px;
+}

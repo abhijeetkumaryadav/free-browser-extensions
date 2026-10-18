@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header>
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M3 12h3m12 0h3"/><circle cx="12" cy="12" r="3.2"/><circle cx="19" cy="6" r="1.4" fill="currentColor" stroke="none"/><circle cx="5.5" cy="17" r="1.4" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <div>
+        <h1>Gravity Particles</h1>
+        <p class="sub">Visual toy &mdash; particles chase your cursor</p>
+      </div>
+    </header>
+
+    <div class="banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      <span>Harmless visual toy. A canvas overlay floats above the page &mdash; the page itself is untouched. Stop anytime.</span>
+    </div>
+
+    <div class="row">
+      <label for="gravity">Gravity</label>
+      <input type="range" id="gravity" min="10" max="200" value="90">
+      <span class="val" id="gravityVal">90</span>
+    </div>
+    <div class="row">
+      <label for="count">Particles</label>
+      <input type="range" id="count" min="30" max="300" value="140" step="10">
+      <span class="val" id="countVal">140</span>
+    </div>
+    <div class="row">
+      <label for="trail">Trail length</label>
+      <input type="range" id="trail" min="0" max="90" value="55">
+      <span class="val" id="trailVal">55</span>
+    </div>
+
+    <button id="start" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Start particles
+    </button>
+    <button id="stop" class="ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      Stop &amp; clear
+    </button>
+    <p class="hint">Move your cursor &mdash; particles get pulled in. Press <kbd>Esc</kbd> to stop.</p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

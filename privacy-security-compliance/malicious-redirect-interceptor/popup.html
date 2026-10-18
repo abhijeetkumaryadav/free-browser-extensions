@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <div>
+      <h1>Redirect Interceptor</h1>
+      <p class="sub">Pauses rapid cross-domain redirect chains.</p>
+    </div>
+    <label class="switch"><input type="checkbox" id="enabledToggle" checked><span></span></label>
+  </header>
+
+  <section class="panel">
+    <h2>Trusted redirectors</h2>
+    <p class="hint">Domains that may redirect freely (e.g. your SSO provider).</p>
+    <div class="addrow">
+      <input id="domainInput" type="text" placeholder="example.com" spellcheck="false">
+      <button id="addBtn" class="mini">Add</button>
+    </div>
+    <div id="wl" class="wl"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Recent interceptions</h2>
+    <div id="log" class="log"><p class="hint">None yet.</p></div>
+  </section>
+
+  <footer class="foot">Heuristic detection — you always decide. All data stays on-device.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GraphQL Query Workbench</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"/><path d="M12 22V12"/><path d="m3 7 9 5 9-5"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></svg>
+    <div><h1>GraphQL Workbench</h1><p>Paste-only — never touches live traffic</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Query
+        <textarea id="query" rows="6" spellcheck="false" placeholder="query GetUser($id: ID!) {&#10;  user(id: $id) {&#10;    name&#10;    posts { title }&#10;  }&#10;}"></textarea>
+      </label>
+      <label class="fld">Variables (JSON)
+        <textarea id="vars" rows="3" spellcheck="false" placeholder='{ "id": "123" }'></textarea>
+      </label>
+      <label class="fld">Endpoint (for curl)
+        <input id="endpoint" type="url" spellcheck="false" placeholder="https://api.example.com/graphql">
+      </label>
+      <div class="btn-row">
+        <button id="analyze" class="primary">Analyze</button>
+        <button id="clear" class="ghost">Clear</button>
+      </div>
+    </section>
+    <section class="glass card" id="results" hidden>
+      <h2>Complexity <span class="heur">heuristic</span></h2>
+      <div class="stats">
+        <div><span>Fields</span><b id="stFields">0</b></div>
+        <div><span>Max depth</span><b id="stDepth">0</b></div>
+        <div><span>List-ish</span><b id="stLists">0</b></div>
+      </div>
+      <div id="listFields" class="listfields"></div>
+      <h2>Variables</h2>
+      <div id="varStatus" class="varstatus"></div>
+      <h2>Formatted query</h2>
+      <pre id="pretty" class="code"></pre>
+      <h2>curl</h2>
+      <pre id="curl" class="code"></pre>
+      <button id="copyCurl" class="ghost">Copy curl command</button>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

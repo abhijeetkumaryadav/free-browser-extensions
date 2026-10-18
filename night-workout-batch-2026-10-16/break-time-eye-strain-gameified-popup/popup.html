@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eye Break</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    <div>
+      <h1>Eye Break</h1>
+      <p class="tag">Gamified eye breaks</p>
+    </div>
+    <div class="pts" id="points" title="Total points">0 pts</div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Game only — not medical guidance. Look away from your screen during breaks.</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="num" id="streak">0</span><span class="lbl">day streak</span></div>
+    <div class="stat"><span class="num" id="todayCount">0</span><span class="lbl">breaks today</span></div>
+    <div class="stat"><span class="num" id="best">0</span><span class="lbl">best streak</span></div>
+  </div>
+
+  <section class="card">
+    <h2>Follow-the-Dot</h2>
+    <p class="hint">Watch the glowing dot and track it with your eyes for 20 seconds. (+10 pts)</p>
+    <div id="arena" class="arena"><div id="dot" class="dot hidden"></div></div>
+    <div class="row">
+      <button id="startGame" class="btn accent">Start 20s game</button>
+      <span id="gameTimer" class="timer"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Blink Counter</h2>
+    <p class="hint">Tap each time you blink — 20 blinks earns +5 pts.</p>
+    <div class="row">
+      <button id="blinkTap" class="btn">Tap: I blinked</button>
+      <span class="timer"><span id="blinks">0</span>/20</span>
+    </div>
+    <button id="resetBlink" class="link">reset counter</button>
+  </section>
+
+  <section class="card">
+    <h2>Break Reminders</h2>
+    <div class="row">
+      <label class="fld">Every
+        <select id="interval">
+          <option value="20">20 min</option>
+          <option value="30">30 min</option>
+          <option value="45">45 min</option>
+          <option value="60">60 min</option>
+        </select>
+      </label>
+      <button id="toggleReminders" class="btn small">Enable</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

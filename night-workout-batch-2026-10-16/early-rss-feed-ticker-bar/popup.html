@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSS Ticker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/>
+    </svg>
+    <div>
+      <h1>RSS Ticker</h1>
+      <p class="sub">Early feed reader</p>
+    </div>
+    <button id="refreshBtn" class="icon-btn" title="Refresh all feeds">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+    <span>Fetches <b>only the feeds you add</b> below. Nothing else goes over the network.</span>
+  </div>
+
+  <div class="ticker-wrap" id="tickerWrap" aria-hidden="true">
+    <div class="ticker" id="ticker">Add a feed to start the ticker.</div>
+  </div>
+
+  <section class="add">
+    <input id="feedUrl" type="url" placeholder="https://example.com/feed.xml" spellcheck="false">
+    <button id="addBtn" class="primary">Add</button>
+  </section>
+  <p class="error" id="errorMsg" role="alert"></p>
+
+  <section class="feeds" id="feedList"></section>
+  <section class="items" id="itemList"></section>
+
+  <footer class="foot"><span id="statusLine">No feeds yet.</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

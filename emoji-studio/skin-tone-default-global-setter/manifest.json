@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "ToneSet — Emoji Skin Tone Picker",
+  "version": "1.0.0",
+  "description": "Pick a default skin tone; the built-in emoji picker then copies emoji with that tone applied. Picker output only.",
+  "action": { "default_popup": "popup.html", "default_title": "ToneSet" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"]
+}

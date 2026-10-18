@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promotional SEO Farm Domain Blocker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="header">
+    <span class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </span>
+    <div class="title-wrap">
+      <h1>SEO Farm Blocker</h1>
+      <p class="subtitle">Block results from your blacklisted domains</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>YOUR list — not a farm database.</strong>
+    Only domains you add are blocked; nothing runs until you click; one click
+    restores the page exactly.
+  </div>
+
+  <section class="blocklist">
+    <h2>Blacklist (<span id="domainCount">0</span>)</h2>
+    <div class="add-row">
+      <input id="domainInput" type="text" placeholder="example.com" aria-label="Domain to block">
+      <button id="addBtn" class="btn small">Add</button>
+    </div>
+    <ul id="domainList" class="domain-list"></ul>
+  </section>
+
+  <section class="mode">
+    <label><input type="radio" name="mode" value="dim" checked> Dim</label>
+    <label><input type="radio" name="mode" value="collapse"> Collapse</label>
+  </section>
+
+  <div class="actions">
+    <button id="scanBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      Block on this page
+    </button>
+    <button id="restoreBtn" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Restore all
+    </button>
+  </div>
+
+  <div id="status" class="status" role="status">Idle.</div>
+  <ul id="blockList" class="flag-list" hidden></ul>
+
+  <footer class="footer">
+    <span>Lifetime blocked: <strong id="lifetime">0</strong></span>
+    <span>100% local · zero network</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

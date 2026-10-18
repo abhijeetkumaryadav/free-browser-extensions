@@ -1,0 +1,35 @@
+/* H1 Sleuth — deep-dark glassmorphism, single violet accent */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font-family:-apple-system,"Segoe UI",Roboto,Inter,sans-serif;color:#efe9fb;background:rgba(20,20,26,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header{display:flex;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(167,139,250,.18)}
+.logo{width:40px;height:40px;border-radius:12px;background:rgba(167,139,250,.12);display:flex;align-items:center;justify-content:center;flex:none}
+.logo svg{width:24px;height:24px}
+h1{font-size:16px;font-weight:700}
+h2{font-size:12px;font-weight:700;color:#a78bfa;margin:14px 0 8px;text-transform:uppercase;letter-spacing:.06em}
+.sub{font-size:11px;color:#9d8fb8}
+main{padding:14px 16px;max-height:480px;overflow-y:auto}
+.primary{width:100%;padding:11px;border:none;border-radius:10px;background:#a78bfa;color:#1d1233;font-weight:700;font-size:14px;cursor:pointer}
+.primary:hover{background:#c4b5fd}
+.primary:disabled{opacity:.5;cursor:wait}
+.empty{margin-top:12px;font-size:12px;color:#9d8fb8;line-height:1.6;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px}
+.score-row{display:flex;gap:14px;align-items:center;margin-top:12px}
+.score-ring{width:76px;height:76px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;border:6px solid #a78bfa;background:rgba(167,139,250,.08)}
+.score-label{font-size:14px;font-weight:700}
+.score-sub{font-size:11px;color:#9d8fb8;margin-top:4px}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px 6px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.stat-num{font-size:15px;font-weight:800;color:#a78bfa}
+.stat-lbl{font-size:10px;color:#9d8fb8}
+.issue{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-left:4px solid #a78bfa;border-radius:8px;padding:10px 12px;margin-top:10px}
+.issue.sev-error{border-left-color:#f87171}
+.issue.sev-warn{border-left-color:#f59e0b}
+.issue .title{font-size:12px;font-weight:700}
+.issue .body{font-size:11px;color:#cbbfe6;margin-top:6px;line-height:1.6}
+.issue .loc{font-size:11px;color:#9d8fb8;margin-top:6px;font-style:italic}
+#outline{margin-top:4px}
+.outline-item{display:flex;gap:8px;align-items:baseline;padding:6px 8px;border-radius:6px;font-size:12px}
+.outline-item:hover{background:rgba(167,139,250,.08)}
+.outline-item .tag{font-size:10px;font-weight:800;color:#a78bfa;background:rgba(167,139,250,.14);border-radius:4px;padding:2px 6px;flex:none}
+.outline-item .txt{color:#d9cff2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.outline-item.dim{opacity:.45}
+.pass{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:10px;padding:12px;margin-top:10px;font-size:12px;color:#a7f3d0;line-height:1.6}

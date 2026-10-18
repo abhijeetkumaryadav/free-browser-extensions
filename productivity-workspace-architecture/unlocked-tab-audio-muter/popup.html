@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tab Audio Muter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-icon">
+      <!-- Lucide-style volume-x stroke icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+    </div>
+    <div>
+      <h1>Tab Audio Muter</h1>
+      <p class="subtitle">Control sound across your tabs</p>
+    </div>
+  </header>
+
+  <section class="rule-card">
+    <div class="rule-row">
+      <div>
+        <p class="rule-title">Auto-mute background tabs</p>
+        <p class="rule-desc">Silence new tabs that start playing sound in the background</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="autoMuteToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="muteAllBtn" class="btn ghost">Mute all sounding</button>
+    <button id="exceptThisBtn" class="btn primary">Mute all except this tab</button>
+  </div>
+
+  <section class="list-section">
+    <h2>Tabs making sound <span id="countBadge" class="count">0</span></h2>
+    <ul id="audibleList" class="tab-list"></ul>
+    <p id="emptyState" class="empty">No tabs are making sound right now.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Muted state persists per tab. Nothing leaves your device.</p>
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

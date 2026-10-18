@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowWatch — GitHub Actions Ticker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.2 11 14.7 15.8 9.6"/></svg>
+      </span>
+      <div>
+        <h1>FlowWatch</h1>
+        <p class="subtitle">GitHub Actions status ticker</p>
+      </div>
+    </div>
+    <button id="settings-toggle" class="icon-btn" title="Settings" aria-label="Toggle settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </header>
+
+  <section id="settings-panel" class="panel hidden">
+    <h2>Connection</h2>
+    <p class="hint">Needs your own GitHub personal access token (classic, <code>repo</code> scope). It is stored only in this browser — never sent anywhere except api.github.com.</p>
+    <label class="field">
+      <span>Personal access token</span>
+      <div class="token-row">
+        <input type="password" id="token" placeholder="ghp_…" autocomplete="off" spellcheck="false">
+        <button id="token-visibility" class="icon-btn small" title="Show / hide token" aria-label="Show or hide token">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </label>
+    <div class="field-row">
+      <label class="field">
+        <span>Owner</span>
+        <input type="text" id="owner" placeholder="octocat" autocomplete="off" spellcheck="false">
+      </label>
+      <label class="field">
+        <span>Repository</span>
+        <input type="text" id="repo" placeholder="hello-world" autocomplete="off" spellcheck="false">
+      </label>
+    </div>
+    <label class="switch-row">
+      <span>Auto-refresh every 5 min (updates toolbar badge)</span>
+      <span class="switch"><input type="checkbox" id="auto-refresh"><span class="slider"></span></span>
+    </label>
+    <div class="btn-row">
+      <button id="save-settings" class="btn primary">Save &amp; connect</button>
+      <button id="clear-settings" class="btn ghost">Forget token</button>
+    </div>
+    <p id="settings-status" class="status-line" role="status"></p>
+  </section>
+
+  <main id="runs-panel">
+    <div class="runs-toolbar">
+      <span id="repo-label" class="repo-label">Not configured</span>
+      <button id="refresh-now" class="btn small" title="Refresh now">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Refresh
+      </button>
+    </div>
+    <div id="runs-list" class="runs-list"></div>
+    <p id="runs-status" class="status-line" role="status"></p>
+  </main>
+
+  <footer class="app-footer">
+    <span id="last-checked">Never checked</span>
+    <span class="dot-sep">·</span>
+    <span>Token stays on this device</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Reading Goals</title>
+</head>
+<body>
+<div class="card">
+  <div class="honest">Your log — self-reported. Pages and streaks come from what you enter.</div>
+  <div class="title-row">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+    <h1>Reading Goals</h1>
+  </div>
+
+  <section class="goal">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" class="track"/>
+        <circle cx="50" cy="50" r="42" class="fill" id="ringFill"/>
+      </svg>
+      <div class="ring-label"><b id="goalPct">0%</b><span>of goal</span></div>
+    </div>
+    <div class="goal-meta">
+      <div class="stat"><b id="statPages">0</b><span>pages</span></div>
+      <div class="stat"><b id="statBooks">0</b><span>books</span></div>
+      <div class="stat"><b id="statStreak">0</b><span>day streak</span></div>
+    </div>
+    <div class="goal-edit">
+      <label>Yearly goal
+        <select id="goalType"><option value="pages">pages</option><option value="books">books</option></select>
+      </label>
+      <input type="number" id="goalValue" min="1" max="100000" value="5000">
+      <button id="saveGoal" class="primary">Set</button>
+    </div>
+  </section>
+
+  <section class="log">
+    <h2>Log a session</h2>
+    <div class="row">
+      <input id="book" type="text" placeholder="Book title" maxlength="120">
+      <input id="pages" type="number" placeholder="Pages" min="1" max="5000">
+      <button id="add" class="primary">+</button>
+    </div>
+    <div id="sessions" class="sessions"></div>
+  </section>
+
+  <section class="notes">
+    <h2>Notes</h2>
+    <textarea id="note" placeholder="Your reading notes…" maxlength="2000"></textarea>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

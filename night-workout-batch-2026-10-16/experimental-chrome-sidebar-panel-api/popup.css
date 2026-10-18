@@ -1,0 +1,71 @@
+/* Side Panel Demo — shared popup/panel styles.
+   Deep-dark glassmorphism, one accent (violet). */
+:root{
+  --accent:#a78bfa;
+  --bg:rgba(20,20,26,.72);
+  --surface:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.10);
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--text);background:var(--bg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:14px;display:flex;flex-direction:column;gap:12px;
+}
+body.panel{width:auto;min-height:100vh}
+.bar{display:flex;align-items:center;gap:10px}
+.logo{width:22px;height:22px;color:var(--accent);flex:none}
+h1{font-size:15px;font-weight:650;letter-spacing:.2px}
+h2{font-size:12.5px;font-weight:650;margin-top:4px}
+.notice{
+  font-size:11.5px;color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;padding:8px 10px;
+}
+.notice strong,.notice code{color:var(--accent);font-weight:600}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  font-size:12.5px;font-weight:600;color:#0f172a;
+  background:var(--accent);border:1px solid var(--accent);border-radius:10px;
+  padding:9px 12px;cursor:pointer;transition:transform .12s;
+}
+.btn svg{width:14px;height:14px}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:var(--surface);color:var(--text);border-color:var(--border)}
+.btn.small{padding:5px 10px;font-size:11.5px}
+.status{font-size:12px;color:var(--muted);min-height:18px}
+.status.err{color:#f87171}
+.note-form{display:flex;flex-direction:column;gap:8px}
+input[type=text],textarea{
+  width:100%;font:inherit;font-size:12.5px;color:var(--text);
+  background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:10px;
+  padding:8px 10px;outline:none;
+}
+input[type=text]:focus,textarea:focus{border-color:var(--accent)}
+textarea{resize:vertical;min-height:64px}
+.list{display:flex;flex-direction:column;gap:8px}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  padding:9px 10px;display:flex;gap:8px;align-items:flex-start;
+}
+.card .body{flex:1;min-width:0}
+.card .title{font-weight:650;font-size:12.5px;word-break:break-word}
+.card .text{font-size:12px;color:var(--muted);white-space:pre-wrap;word-break:break-word}
+.card .meta{font-size:10.5px;color:var(--muted);margin-top:4px}
+.card a{color:var(--accent);text-decoration:none;font-size:12.5px;font-weight:600;word-break:break-all}
+.icon-btn{
+  flex:none;background:none;border:1px solid var(--border);border-radius:8px;
+  color:var(--muted);padding:5px;cursor:pointer;display:inline-flex;
+}
+.icon-btn svg{width:13px;height:13px}
+.icon-btn:hover{color:#f87171;border-color:#f87171}
+.empty{font-size:12px;color:var(--muted);text-align:center;padding:14px 0;border:1px dashed var(--border);border-radius:10px}
+.tabs{display:flex;gap:6px}
+.tab{
+  flex:1;font-size:12px;font-weight:600;color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;padding:8px;cursor:pointer;text-align:center;
+}
+.tab.active{color:#0f172a;background:var(--accent);border-color:var(--accent)}

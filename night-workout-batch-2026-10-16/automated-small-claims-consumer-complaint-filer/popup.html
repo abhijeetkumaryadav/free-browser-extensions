@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Complaint Helper</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="shell">
+  <header class="app-header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+    </span>
+    <div><h1>Complaint Helper</h1><p class="sub">Consumer complaint filer</p></div>
+  </header>
+
+  <div class="honesty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <p>No extension can file a complaint for you. This builds a <strong>letter + checklist</strong> — <strong>you file it yourself</strong>. Templates only, <strong>not legal advice</strong>.</p>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="details">Your details</button>
+    <button class="tab" data-tab="letter">Letter</button>
+    <button class="tab" data-tab="checklist">Checklist</button>
+  </nav>
+
+  <section id="tab-details" class="panel">
+    <label>Your name<input id="f-name" placeholder="Jane Doe"></label>
+    <label>Your email / phone<input id="f-contact" placeholder="jane@example.com"></label>
+    <label>Company you're complaining about<input id="f-company" placeholder="Acme Retail Ltd."></label>
+    <label>What happened (plain language)<textarea id="f-facts" rows="4" placeholder="On 12 March I ordered… The item arrived broken…"></textarea></label>
+    <div class="row2">
+      <label>Amount involved<input id="f-amount" placeholder="$250"></label>
+      <label>Date of purchase<input id="f-date" type="date"></label>
+    </div>
+    <label>What you want (refund, replacement…)<input id="f-ask" placeholder="Full refund of $250"></label>
+    <label>Evidence you have (one per line)<textarea id="f-evidence" rows="3" placeholder="Order confirmation email&#10;Photos of damaged item&#10;Chat transcript with support"></textarea></label>
+    <label>Where you'll file<select id="f-venue">
+      <option value="the company's complaint portal">Company complaint portal</option>
+      <option value="the national consumer helpline">National consumer helpline</option>
+      <option value="the consumer protection agency">Consumer protection agency</option>
+      <option value="the small-claims court">Small-claims court</option>
+      <option value="the ombudsman">Ombudsman</option>
+    </select></label>
+    <label>Response deadline you set<input id="f-deadline" type="date"></label>
+    <button id="saveBtn" class="primary">Save details</button>
+  </section>
+
+  <section id="tab-letter" class="panel hidden">
+    <div id="letterOut" class="letter"></div>
+    <button id="copyBtn" class="primary">Copy letter</button>
+  </section>
+
+  <section id="tab-checklist" class="panel hidden">
+    <div id="checklistOut" class="checklist"></div>
+    <div class="status-row">
+      <label>Filing status<select id="statusSel">
+        <option value="draft">Draft</option>
+        <option value="letter-ready">Letter ready</option>
+        <option value="filed">Filed</option>
+        <option value="awaiting">Awaiting response</option>
+        <option value="resolved">Resolved</option>
+        <option value="escalated">Escalated</option>
+      </select></label>
+    </div>
+    <button id="wipeBtn" class="ghost">Clear all data</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

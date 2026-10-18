@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"DOI Wishlist"},"description":"Your personal DOI list with Unpaywall/OpenAlex search links. Local only — not live routing.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"DOI Wishlist — Unpaywall & OpenAlex Links","permissions":["storage"],"version":"1.0.0"}

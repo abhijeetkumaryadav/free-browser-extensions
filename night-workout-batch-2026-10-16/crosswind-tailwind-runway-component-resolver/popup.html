@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crosswind Component Resolver</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+    <div>
+      <h1>Crosswind Resolver</h1>
+      <p class="sub">Wind components on the runway</p>
+    </div>
+  </header>
+
+  <div class="notice">Calculation aid — <strong>not flight planning</strong>. Verify against official sources.</div>
+
+  <div class="grid">
+    <label class="field">
+      <span>Runway heading (°)</span>
+      <input id="rwy" type="number" min="1" max="360" step="1" value="270" placeholder="e.g. 270">
+    </label>
+    <label class="field">
+      <span>Wind direction (°)</span>
+      <input id="wdir" type="number" min="0" max="360" step="1" value="300" placeholder="wind FROM °">
+    </label>
+    <label class="field">
+      <span>Wind speed (kt)</span>
+      <input id="wspd" type="number" min="0" max="200" step="1" value="15" placeholder="e.g. 15">
+    </label>
+    <button id="calc" class="btn">Calculate</button>
+  </div>
+
+  <canvas id="diagram" width="340" height="180"></canvas>
+
+  <div class="results">
+    <div class="result">
+      <span class="rlabel">Headwind</span>
+      <span class="rvalue" id="hw">—</span>
+    </div>
+    <div class="result">
+      <span class="rlabel">Crosswind</span>
+      <span class="rvalue" id="xw">—</span>
+    </div>
+    <div class="result wide">
+      <span class="rlabel">Summary</span>
+      <span class="rvalue small" id="summary">Enter values and calculate.</span>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

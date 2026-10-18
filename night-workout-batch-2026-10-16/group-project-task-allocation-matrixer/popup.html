@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Allocation Matrix</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Honest scope banner -->
+  <div class="banner">
+    <svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>100% manual — you enter every task and member. Nothing is tracked or synced.</span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="matrix">
+      <svg viewBox="0 0 24 24" class="icon"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Matrix
+    </button>
+    <button class="tab" data-tab="tasks">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      Tasks
+    </button>
+    <button class="tab" data-tab="members">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Members
+    </button>
+  </nav>
+
+  <!-- MATRIX panel -->
+  <section class="panel active" id="panel-matrix">
+    <div class="alerts" id="alerts"></div>
+    <h3 class="section-title">Allocation matrix <span class="muted">(who × task)</span></h3>
+    <div class="matrix-wrap"><table class="matrix" id="matrix-table"></table></div>
+    <h3 class="section-title">Workload <span class="muted">(estimated hours)</span></h3>
+    <div class="workload" id="workload"></div>
+    <label class="field inline">
+      <span class="label">Overload threshold (hrs)</span>
+      <input type="number" id="threshold" min="1" max="999" step="1">
+    </label>
+  </section>
+
+  <!-- TASKS panel -->
+  <section class="panel" id="panel-tasks">
+    <div class="form">
+      <label class="field"><span class="label">Task name</span><input type="text" id="task-name" placeholder="e.g. Design homepage mockup" maxlength="80"></label>
+      <div class="row2">
+        <label class="field"><span class="label">Assignee</span><select id="task-assignee"></select></label>
+        <label class="field"><span class="label">Estimate (hrs)</span><input type="number" id="task-est" min="0" max="999" step="0.5" value="2"></label>
+      </div>
+      <label class="field"><span class="label">Depends on</span><select id="task-dep"></select></label>
+      <button class="btn primary" id="add-task">Add task</button>
+    </div>
+    <ul class="task-list" id="task-list"></ul>
+    <p class="empty hidden" id="tasks-empty">No tasks yet. Add the first one above.</p>
+  </section>
+
+  <!-- MEMBERS panel -->
+  <section class="panel" id="panel-members">
+    <div class="form row">
+      <input type="text" id="member-name" placeholder="Member name" maxlength="40">
+      <button class="btn primary" id="add-member">Add</button>
+    </div>
+    <ul class="member-list" id="member-list"></ul>
+    <p class="empty hidden" id="members-empty">No members yet. Add your team above.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

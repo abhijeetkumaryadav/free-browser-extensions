@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=380">
+<title>Jaw Unclench Reminder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="card">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-5 0-8 3.5-8 8v6l2.5-1.5c2 1.5 3.5 2.5 5.5 2.5s3.5-1 5.5-2.5L20 17V11c0-4.5-3-8-8-8z"/><path d="M9 13h.01M15 13h.01"/></svg>
+    <div>
+      <h1>Jaw Unclench Reminder</h1>
+      <p class="sub">Facial tension release prompts</p>
+    </div>
+    <button id="toggle" class="toggle" aria-label="Toggle reminders"></button>
+  </header>
+
+  <p class="notice">Reminders only — <strong>not medical advice</strong>. See a professional for persistent pain.</p>
+
+  <section class="row">
+    <label for="interval">Every <span id="intervalVal">60</span> min</label>
+    <input id="interval" type="range" min="10" max="180" step="5" value="60">
+  </section>
+
+  <section>
+    <button id="testNow" class="btn secondary">Send a reminder now</button>
+  </section>
+
+  <section>
+    <h2>Last prompt</h2>
+    <div id="lastP" class="exercise">No reminder yet.</div>
+  </section>
+
+  <section>
+    <h2>Done log <span id="doneCount" class="count"></span></h2>
+    <ul id="doneLog" class="log"></ul>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

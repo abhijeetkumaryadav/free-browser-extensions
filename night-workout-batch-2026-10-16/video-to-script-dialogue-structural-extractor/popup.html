@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/><line x1="4" x2="4" y1="3" y2="21" opacity="0.35"/></svg>
+    </div>
+    <div>
+      <h1>Script Extractor</h1>
+      <p class="sub">Dialogue structure from page captions</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    Uses captions and timed text the page <b>already exposes</b> — <b>not</b> speech
+    recognition. Empty results mean no captions were found on this page.
+  </div>
+
+  <button id="extract" class="primary">Extract dialogue</button>
+  <div id="status" class="status hidden"></div>
+  <div id="results" class="results"></div>
+  <button id="export" class="ghost hidden">Download script outline (.md)</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

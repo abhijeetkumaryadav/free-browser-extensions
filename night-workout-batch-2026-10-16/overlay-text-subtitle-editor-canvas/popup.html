@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 15h4M6 11h8M14 15h4"/></svg>
+    <div>
+      <h1>Subtitle Editor</h1>
+      <p class="sub">Edit SRT with live canvas preview</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Your SRT stays on this machine — edit text and timings, preview on canvas, download the result.</span>
+  </div>
+
+  <div class="row">
+    <label class="drop">
+      <input type="file" id="file" accept=".srt,.txt" hidden>
+      <span>Open SRT file</span>
+    </label>
+    <button id="pasteBtn" class="ghost">Paste SRT</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+  <textarea id="pasteArea" class="hidden" rows="4" placeholder="Paste SRT content here, then click Load"></textarea>
+  <button id="loadPaste" class="ghost hidden">Load pasted SRT</button>
+
+  <div class="preview">
+    <canvas id="stage" width="348" height="120"></canvas>
+    <div class="scrub">
+      <input type="range" id="time" min="0" max="0" value="0" step="100">
+      <span id="timeLabel">0:00</span>
+    </div>
+    <div class="styleRow">
+      <label>Size <input type="range" id="fontSize" min="12" max="28" value="18"></label>
+      <label>Text <input type="color" id="fg" value="#ffffff"></label>
+      <label>Box <input type="color" id="bg" value="#000000"></label>
+    </div>
+  </div>
+
+  <div class="cues" id="cues"><p class="empty">No subtitles loaded yet.</p></div>
+
+  <div class="row">
+    <button id="addCue" class="ghost">+ Add cue</button>
+    <button id="download" class="primary" disabled>Download SRT</button>
+  </div>
+  <p class="err" id="err"></p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

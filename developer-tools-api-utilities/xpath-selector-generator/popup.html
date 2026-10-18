@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XPath Selector Generator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="7"/>
+      <line x1="12" y1="2" x2="12" y2="5"/>
+      <line x1="12" y1="19" x2="12" y2="22"/>
+      <line x1="2" y1="12" x2="5" y2="12"/>
+      <line x1="19" y1="12" x2="22" y2="12"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    </svg>
+    <div>
+      <h1>XPath Generator</h1>
+      <p id="pageInfo">Pick an element, get its XPath</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card glass">
+      <button id="btnPick" class="primary wide">Pick element</button>
+      <p class="note">Click <b>Pick element</b>, then click any element on the page. Press <b>Esc</b> to cancel.</p>
+      <div id="pickError" class="validation bad" hidden></div>
+    </section>
+
+    <section class="card glass" id="resultsCard" hidden>
+      <h2>Generated XPaths</h2>
+      <div id="results"></div>
+      <p class="note" id="pickedMeta"></p>
+    </section>
+
+    <div id="empty" class="empty">
+      No element picked yet. Capture one to see absolute, ID-based, and robust XPath options with match counts.
+    </div>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

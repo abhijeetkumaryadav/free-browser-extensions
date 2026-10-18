@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed Lock</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <div class="hero-icon">
+      <!-- Lucide-style "gauge" stroke icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Speed Lock</h1>
+      <p>One playback speed, everywhere</p>
+    </div>
+    <label class="switch" title="Master on/off">
+      <input type="checkbox" id="enabledToggle">
+      <span class="track"><span class="thumb"></span></span>
+    </label>
+  </header>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="panel-title">Global speed</span>
+      <span class="rate-readout" id="rateReadout">1×</span>
+    </div>
+    <input type="range" id="rateSlider" min="0.25" max="4" step="0.25" value="1">
+    <div class="scale"><span>0.25×</span><span>4×</span></div>
+    <div class="presets">
+      <button class="chip" data-rate="0.5">0.5×</button>
+      <button class="chip" data-rate="0.75">0.75×</button>
+      <button class="chip" data-rate="1">1×</button>
+      <button class="chip" data-rate="1.25">1.25×</button>
+      <button class="chip" data-rate="1.5">1.5×</button>
+      <button class="chip" data-rate="2">2×</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="panel-title">This site</span>
+      <span class="site-host" id="siteHost">—</span>
+    </div>
+    <div class="site-row">
+      <select id="siteMode">
+        <option value="global">Use global speed</option>
+        <option value="custom">Custom speed for this site</option>
+      </select>
+      <input type="range" id="siteSlider" min="0.25" max="4" step="0.25" value="1" class="hidden">
+    </div>
+    <div class="site-readout hidden" id="siteReadout">1× on this site</div>
+  </section>
+
+  <div class="actions">
+    <button id="resetBtn" class="btn ghost">Reset all to 1×</button>
+  </div>
+
+  <footer class="foot">
+    <span>While locked, sites can't silently change the speed. Turn the switch off to restore normal control.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

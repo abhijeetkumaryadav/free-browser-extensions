@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick QA Contract Query</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+    <div><h1>Contract Q&amp;A</h1><p>On-device text search · not legal advice</p></div>
+    <button id="clearBtn" class="ghost-sm" title="Clear contract text">Clear</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>1 · Paste contract text</h2>
+      <textarea id="contract" placeholder="Paste the contract or clause text here…" rows="5"></textarea>
+      <p class="note"><span id="wordCount">0 words</span> · stays in this browser only</p>
+    </section>
+    <section class="glass card">
+      <h2>2 · Ask about</h2>
+      <div id="chips" class="chips"></div>
+      <div class="kw-row">
+        <input id="keywords" type="text" placeholder="Or type keywords, e.g. penalty, force majeure" maxlength="120">
+        <button id="searchBtn" class="primary">Find</button>
+      </div>
+    </section>
+    <section class="glass card" id="resultsCard" hidden>
+      <h2 id="resultsTitle">Matches</h2>
+      <div id="results"></div>
+    </section>
+  </main>
+  <footer>Search finds passages only — it does not interpret them. Always consult a qualified lawyer for legal advice.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

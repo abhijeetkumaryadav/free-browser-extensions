@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StickyNote PDF</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"/><path d="M15 3v6h6"/></svg>
+    <div class="title-block">
+      <h1>StickyNote PDF</h1>
+      <p>Annotate your PDFs locally</p>
+    </div>
+    <button id="btn-new-doc" class="icon-btn" title="Open a different PDF" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    </button>
+  </header>
+
+  <!-- Empty state: pick a PDF -->
+  <section id="empty-state" class="empty-state">
+    <div id="dropzone" class="dropzone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+      <p class="dz-title">Drop a PDF here</p>
+      <p class="dz-sub">or</p>
+      <button id="btn-pick" class="btn primary">Choose PDF file</button>
+      <input type="file" id="file-input" accept="application/pdf,.pdf" hidden>
+      <p class="dz-note">Files never leave your device. Notes are saved per document.</p>
+    </div>
+  </section>
+
+  <!-- Editor -->
+  <section id="editor" class="editor" hidden>
+    <div class="doc-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      <span id="doc-name" class="doc-name">document.pdf</span>
+      <span id="note-count" class="badge">0 notes</span>
+    </div>
+
+    <!-- Page selector -->
+    <div class="page-strip" id="page-strip" role="tablist" aria-label="Pages"></div>
+
+    <!-- Schematic canvas: click to place a note -->
+    <div class="canvas-wrap">
+      <canvas id="page-canvas"></canvas>
+      <p class="canvas-hint">Click on the page to place a sticky note</p>
+    </div>
+
+    <!-- Note editor -->
+    <div id="note-editor" class="note-editor" hidden>
+      <div class="editor-head">
+        <span id="editor-title">New note</span>
+        <button id="btn-editor-close" class="icon-btn sm" title="Cancel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <textarea id="note-text" rows="3" maxlength="500" placeholder="Type your note…"></textarea>
+      <div class="color-row" id="color-row" role="radiogroup" aria-label="Note color"></div>
+      <div class="editor-actions">
+        <button id="btn-note-delete" class="btn danger ghost" hidden>Delete</button>
+        <div class="spacer"></div>
+        <button id="btn-note-save" class="btn primary">Save note</button>
+      </div>
+    </div>
+
+    <!-- Notes list -->
+    <div class="notes-section">
+      <div class="section-head">
+        <h2>Notes on this page</h2>
+      </div>
+      <div id="notes-list" class="notes-list"></div>
+    </div>
+
+    <button id="btn-download" class="btn primary wide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+      Download annotated PDF
+    </button>
+    <p class="foot-note">Notes are drawn onto your own file — the original PDF is never modified until you download.</p>
+  </section>
+</div>
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

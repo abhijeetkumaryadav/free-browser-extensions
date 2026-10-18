@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Link Preview Hoverbox</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    <div>
+      <h1>Link Hoverbox</h1>
+      <p>See where a link goes before you click</p>
+    </div>
+    <label class="switch" title="Enable or disable hover previews">
+      <input type="checkbox" id="enabled" checked>
+      <span></span>
+    </label>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Hover delay</h2>
+      <div class="row">
+        <input id="delay" type="range" min="200" max="1500" step="50" value="600">
+        <span class="unit"><b id="delayVal">600</b> ms</span>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>What the badges mean</h2>
+      <div class="legend">
+        <div><span class="badge ext">External</span> Points to a different website.</div>
+        <div><span class="badge dl">Download</span> Looks like a file download.</div>
+        <div><span class="badge sus">Suspicious</span> Heuristic flags: IP host, look-alike domain, odd TLD, or very long URL.</div>
+        <div><span class="badge web">Non-web</span> mailto:, tel:, javascript:, etc.</div>
+      </div>
+      <p class="note">Analysis is a local URL-shape heuristic — the link target is never fetched or contacted.</p>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

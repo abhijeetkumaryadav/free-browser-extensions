@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New Tab</title>
+<link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<main class="hero">
+  <div class="clock" id="clock">--:--</div>
+  <div class="date" id="date"></div>
+  <div class="greet" id="greet"></div>
+</main>
+
+<footer class="dock">
+  <div class="themes" id="themes" role="tablist" aria-label="Background themes"></div>
+  <label class="density">Mood
+    <select id="density" aria-label="Particle density">
+      <option value="0.55">Calm</option>
+      <option value="1" selected>Normal</option>
+      <option value="1.7">Lively</option>
+    </select>
+  </label>
+</footer>
+
+<script src="newtab.js"></script>
+</body>
+</html>

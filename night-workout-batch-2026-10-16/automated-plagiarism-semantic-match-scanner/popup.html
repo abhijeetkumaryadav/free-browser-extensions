@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Similarity Scanner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    <div>
+      <h1>Similarity Scanner</h1>
+      <p class="sub">Surface overlap — not a plagiarism verdict</p>
+    </div>
+  </header>
+
+  <div class="notice">Heuristic only. Compares word overlap between the two texts you paste. It cannot prove plagiarism.</div>
+
+  <label class="field-label" for="textA">Text A</label>
+  <textarea id="textA" placeholder="Paste the first text here…"></textarea>
+  <label class="field-label" for="textB">Text B</label>
+  <textarea id="textB" placeholder="Paste the second text here…"></textarea>
+
+  <div class="row">
+    <button id="compareBtn" class="primary">Compare</button>
+    <button id="swapBtn" class="ghost" title="Swap A and B">Swap</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <div id="results" class="results hidden">
+    <div class="score-card">
+      <div class="ring" id="scoreRing"><span id="scorePct">0%</span></div>
+      <div class="score-meta">
+        <div class="score-title" id="scoreVerdict">—</div>
+        <div class="score-sub" id="scoreDetail">—</div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-num" id="statNgrams">—</span><span class="stat-lbl">shared trigrams</span></div>
+      <div class="stat"><span class="stat-num" id="statLcs">—</span><span class="stat-lbl">longest match (words)</span></div>
+      <div class="stat"><span class="stat-num" id="statWords">—</span><span class="stat-lbl">words A / B</span></div>
+    </div>
+    <div class="hl-label">Longest shared passages (highlighted in each text):</div>
+    <div class="hl-grid">
+      <div class="hl-box"><div class="hl-title">Text A</div><div class="hl-text" id="hlA"></div></div>
+      <div class="hl-box"><div class="hl-title">Text B</div><div class="hl-text" id="hlB"></div></div>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

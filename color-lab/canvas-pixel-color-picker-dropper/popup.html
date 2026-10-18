@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DropPix — Pixel Color Picker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.7 6.5 12.2a4.3 4.3 0 1 1-7.6 4L4.5 22 2.7 20.2l3.1-6.4a4.3 4.3 0 1 1 6.2-11.1z"/></svg>
+    <div>
+      <h1>DropPix</h1>
+      <p class="tagline">Pixel color picker</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="swatch-row">
+      <div class="swatch" id="swatch" style="background:#ec4899"></div>
+      <div class="readouts">
+        <button class="val" id="valHex" title="Click to copy">#EC4899</button>
+        <button class="val dim" id="valRgb" title="Click to copy">rgb(236, 72, 153)</button>
+        <button class="val dim" id="valHsl" title="Click to copy">hsl(330, 81%, 60%)</button>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn primary" id="btnPick">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.7 6.5 12.2a4.3 4.3 0 1 1-7.6 4L4.5 22 2.7 20.2l3.1-6.4a4.3 4.3 0 1 1 6.2-11.1z"/></svg>
+        Pick from screen
+      </button>
+      <label class="btn ghost" for="fileInput">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L6 21"/></svg>
+        Sample image
+      </label>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+    <p class="hint" id="eyeHint">EyeDropper API is used where supported (Chrome/Edge). Otherwise sample from an image below.</p>
+  </section>
+
+  <section class="card" id="canvasCard" hidden>
+    <p class="card-title">Click the image to sample a pixel</p>
+    <div class="canvas-wrap"><canvas id="imgCanvas"></canvas><div class="magnifier" id="magnifier" hidden></div></div>
+    <div class="zoom-row"><span>Zoom</span><input type="range" id="zoom" min="2" max="12" value="6"></div>
+  </section>
+
+  <section class="card">
+    <div class="history-head">
+      <p class="card-title">History</p>
+      <button class="link" id="btnClear">Clear</button>
+    </div>
+    <div class="history" id="history"><span class="empty">No colors yet — pick one to start.</span></div>
+  </section>
+
+  <footer class="foot"><span id="status">Ready</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

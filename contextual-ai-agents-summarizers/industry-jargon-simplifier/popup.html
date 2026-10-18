@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industry Jargon Simplifier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+    <div><h1>Jargon Simplifier</h1><p>Plain language, on-device</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <textarea id="input" rows="6" placeholder="Paste business, legal, tech or medical text here…"></textarea>
+      <div class="btnrow">
+        <button id="analyze" class="primary">Find jargon</button>
+        <button id="simplify" class="ghost" disabled>Simplify all</button>
+      </div>
+      <div id="count" class="count" hidden></div>
+    </section>
+    <section class="glass card" id="analyzedCard" hidden>
+      <h2>Analyzed <span class="hint">— click a term for its plain meaning</span></h2>
+      <div id="analyzed" class="analyzed"></div>
+    </section>
+    <section class="glass card" id="simpleCard" hidden>
+      <h2>Simplified text</h2>
+      <div id="simplified" class="simplified"></div>
+      <button id="copy" class="primary wide">Copy simplified text</button>
+    </section>
+    <section class="glass card">
+      <h2>Your glossary</h2>
+      <div class="add-form">
+        <input id="tTerm" placeholder="Jargon term" maxlength="60">
+        <input id="tPlain" placeholder="Plain meaning" maxlength="120">
+        <button id="addTerm" class="ghost">＋ Add term</button>
+      </div>
+      <div id="customTerms"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

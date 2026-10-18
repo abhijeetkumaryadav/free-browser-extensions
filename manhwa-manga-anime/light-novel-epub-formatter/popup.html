@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovelPress — Light Novel EPUB Formatter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    </div>
+    <div class="brand-text">
+      <h1>NovelPress</h1>
+      <p class="tagline">Light novel → EPUB, on-device</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Best-effort formatting: plain text in, valid EPUB out. Complex layouts may need cleanup.</span>
+  </div>
+
+  <div class="meta-grid">
+    <label>Title
+      <input id="book-title" type="text" placeholder="Novel title" maxlength="160" autocomplete="off">
+    </label>
+    <label>Author
+      <input id="book-author" type="text" placeholder="Author name" maxlength="120" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="chapters-head">
+    <h2>Chapters <span id="chapter-count" class="count"></span></h2>
+    <button id="add-chapter" class="btn small">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add
+    </button>
+  </div>
+
+  <div id="chapter-list" class="chapter-list"></div>
+
+  <div class="editor hidden" id="editor">
+    <div class="editor-head">
+      <input id="editor-title" type="text" placeholder="Chapter title" maxlength="160" autocomplete="off">
+      <div class="editor-actions">
+        <button id="move-up" class="icon-btn" title="Move up" aria-label="Move chapter up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+        <button id="move-down" class="icon-btn" title="Move down" aria-label="Move chapter down">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <button id="delete-chapter" class="icon-btn danger" title="Delete chapter" aria-label="Delete chapter">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </button>
+      </div>
+    </div>
+    <textarea id="editor-text" placeholder="Paste or type chapter text here…&#10;&#10;Blank lines separate paragraphs." rows="9"></textarea>
+    <div class="editor-foot">
+      <span id="editor-words" class="words">0 words</span>
+      <button id="done-editing" class="btn ghost small">Done</button>
+    </div>
+  </div>
+
+  <div id="empty" class="empty hidden">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <p>No chapters yet. Click <strong>Add</strong> and paste your first chapter.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="total" id="total-words">0 words total</div>
+    <button id="export-epub" class="btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export EPUB
+    </button>
+  </footer>
+  <div id="status" class="status hidden"></div>
+</div>
+
+<script src="epub.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

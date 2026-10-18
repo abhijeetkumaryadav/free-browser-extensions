@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academic Table Extractor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="10" y1="4" x2="10" y2="20"/></svg>
+    <div><h1>Table Extractor</h1><p id="pageHost">—</p></div>
+    <button id="scan" class="primary">Rescan</button>
+  </header>
+  <main>
+    <div id="status" class="status">Scanning this page for tables…</div>
+    <div id="tables"></div>
+    <div id="exportBar" class="glass export-bar" hidden>
+      <div><b id="selName">—</b><span id="selDims">—</span></div>
+      <button id="exportBtn" class="primary">Export CSV</button>
+    </div>
+    <p class="note">Best-effort extraction of real &lt;table&gt; elements. Complex merged cells are flattened row by row.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* Sky Sighting Journal — deep-dark glassmorphism, single amber accent */
+:root {
+  --bg: #0b0d14;
+  --panel: rgba(20, 22, 32, 0.72);
+  --stroke: rgba(255, 255, 255, 0.08);
+  --text: #f2f4fa;
+  --muted: #9aa3b8;
+  --accent: #fbbf24; /* single accent */
+  --danger: #f87171;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+.app { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.head { display: flex; gap: 12px; align-items: center; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px;
+  background: rgba(251, 191, 36, 0.14);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  display: grid; place-items: center; color: var(--accent);
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 16px; margin: 0; }
+.sub { margin: 0; color: var(--muted); font-size: 12px; }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: var(--radius); padding: 10px 12px; font-size: 12px; color: var(--muted);
+}
+.notice svg { width: 16px; height: 16px; flex: none; color: var(--accent); margin-top: 1px; }
+.notice strong { color: var(--text); }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card h2 {
+  font-size: 13px; margin: 0; display: flex; align-items: center; gap: 8px;
+  color: var(--accent);
+}
+.card h2 svg { width: 16px; height: 16px; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--muted); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+input, select, textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--stroke);
+  border-radius: 10px; color: var(--text);
+  padding: 9px 10px; font: inherit; width: 100%;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+textarea { resize: vertical; }
+select option { background: #151825; }
+button { font: inherit; border-radius: 10px; padding: 10px; cursor: pointer; border: 1px solid transparent; }
+.primary { background: var(--accent); color: #14100a; font-weight: 600; }
+.primary:hover { filter: brightness(1.08); }
+.ghost { background: transparent; border-color: var(--stroke); color: var(--muted); }
+.ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+.danger:hover { color: var(--danger); border-color: rgba(248, 113, 113, 0.4); }
+.err { color: var(--danger); font-size: 12px; margin: 0; }
+.statrow { display: flex; justify-content: space-between; align-items: center; }
+.count { font-size: 12px; color: var(--muted); }
+.stats { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font-size: 11px; background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3); color: var(--accent);
+  border-radius: 999px; padding: 3px 10px;
+}
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; max-height: 260px; overflow-y: auto; }
+.item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--stroke); border-radius: 10px; padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.item .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.shape {
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  border: 1px solid rgba(251, 191, 36, 0.35); border-radius: 999px; padding: 2px 10px;
+}
+.date { font-size: 11px; color: var(--muted); }
+.loc { font-size: 12px; color: var(--muted); }
+.desc { font-size: 13px; }
+.del { align-self: flex-end; background: transparent; border: none; color: var(--muted); font-size: 11px; padding: 2px 6px; }
+.del:hover { color: var(--danger); }
+.empty { color: var(--muted); font-size: 12px; text-align: center; padding: 14px 0; }
+footer { text-align: center; color: var(--muted); font-size: 11px; opacity: 0.7; }

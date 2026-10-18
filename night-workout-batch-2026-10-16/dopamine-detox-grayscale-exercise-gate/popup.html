@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    <div>
+      <h1>Focus Gate</h1>
+      <p class="tag">Self-imposed focus aid</p>
+    </div>
+    <label class="switch"><input type="checkbox" id="enabled"><span></span></label>
+  </header>
+
+  <section class="card">
+    <h2>Gated sites</h2>
+    <div class="row">
+      <input id="site" type="text" placeholder="reddit.com" spellcheck="false">
+      <button id="add" class="btn">Add</button>
+    </div>
+    <ul id="list" class="sites"></ul>
+    <p class="hint">Visiting a gated site shows a grayscale gate asking for a short movement break first. Your list — reversible any time.</p>
+  </section>
+
+  <section class="card">
+    <h2>Movement prompt</h2>
+    <label class="fld">Exercise <input id="exercise" type="text" placeholder="10 squats"></label>
+    <label class="fld">Minutes of movement asked
+      <input id="minutes" type="number" min="1" max="60" value="2">
+    </label>
+  </section>
+
+  <p class="foot">Focus Gate only watches sites <b>you</b> list. Nothing leaves the browser.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

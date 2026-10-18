@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>404 Snapshot Log</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6M9 11h2"/></svg></div>
+  <div>
+    <h1>404 Snapshot Log</h1>
+    <p class="sub">Your broken-link log — not live revival.</p>
+  </div>
+</header>
+
+<main>
+  <form id="addForm">
+    <input id="fUrl" type="text" maxlength="400" placeholder="Broken URL (e.g. https://old-site.com/page)" required>
+    <input id="fTitle" type="text" maxlength="120" placeholder="Title / what it was (optional)">
+    <textarea id="fNote" maxlength="400" rows="2" placeholder="Your note — what was here? why do you care?"></textarea>
+    <button type="submit">Log the broken link</button>
+  </form>
+
+  <input id="search" type="search" placeholder="Search URLs, titles, notes…" aria-label="Search broken links">
+
+  <ul id="list" class="list" aria-live="polite"></ul>
+  <p id="empty" class="empty">No broken links logged yet.</p>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contrast Ratio WCAG Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor" stroke="none" opacity=".35"/></svg>
+    </div>
+    <div class="title">
+      <h1>Contrast Ratio Checker</h1>
+      <p>WCAG AA / AAA for any text on the page</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="panel">
+      <div class="btnrow">
+        <button id="pickBtn" class="primary half">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>
+          Pick text
+        </button>
+        <button id="scanBtn" class="ghost half">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          Scan page
+        </button>
+      </div>
+      <p class="hint">Pick: hover text, click to check, <kbd>Esc</kbd> cancels · Scan: lists worst offenders</p>
+    </div>
+
+    <div id="single" class="panel hidden">
+      <div class="ratio-row">
+        <div id="ratioBig" class="ratio-big">–</div>
+        <div class="swatches">
+          <div class="sw"><span id="fgSw" class="swbox"></span><span>Text</span><code id="fgHex"></code></div>
+          <div class="sw"><span id="bgSw" class="swbox"></span><span>Background</span><code id="bgHex"></code></div>
+        </div>
+      </div>
+      <div id="sample" class="sample">Sample text</div>
+      <div class="grades">
+        <div class="grade">
+          <span class="glabel">Normal text</span>
+          <span id="aaNormal" class="pill">AA –</span>
+          <span id="aaaNormal" class="pill">AAA –</span>
+        </div>
+        <div class="grade">
+          <span class="glabel">Large text</span>
+          <span id="aaLarge" class="pill">AA –</span>
+          <span id="aaaLarge" class="pill">AAA –</span>
+        </div>
+      </div>
+      <p id="elemInfo" class="eleminfo"></p>
+    </div>
+
+    <div id="scanPanel" class="panel hidden">
+      <div class="scan-head">
+        <span class="label">Worst offenders</span>
+        <span id="scanCount" class="count"></span>
+      </div>
+      <ul id="scanList" class="scanlist"></ul>
+    </div>
+
+    <p id="err" class="err hidden"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><circle cx="12" cy="7" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="17" r="2.2"/></svg>
+    </span>
+    <div>
+      <h1>Timeline Journal</h1>
+      <p class="subtitle">Your historical events, your notes</p>
+    </div>
+    <span id="count" class="count"></span>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+    <span><strong>Your timeline — manual.</strong> You add the events; Wikipedia links just open a search for you to read.</span>
+  </div>
+
+  <form id="addForm" class="add-form">
+    <div class="row">
+      <div class="field">
+        <label for="date">Date</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="field grow">
+        <label for="title">Event title</label>
+        <input type="text" id="title" placeholder="e.g. Fall of the Berlin Wall" maxlength="120" required>
+      </div>
+    </div>
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" rows="2" maxlength="500" placeholder="Context, why it matters, sources…"></textarea>
+    <button type="submit" class="primary">Add event</button>
+  </form>
+
+  <input type="text" id="search" class="search" placeholder="Search events…">
+
+  <div id="timeline" class="timeline"></div>
+  <div id="empty" class="empty">No events yet. Add your first one above.</div>
+
+  <button id="clearBtn" class="danger hidden">Clear all events</button>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

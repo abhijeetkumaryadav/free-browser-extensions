@@ -1,0 +1,48 @@
+/* Deep-dark glassmorphism UI system — Battery Drain Estimator (orange accent #f97316) */
+:root{
+  --bg:#0b0e14; --glass:rgba(20,20,26,.72); --line:rgba(255,255,255,.08);
+  --txt:#eef2f7; --dim:#9aa3b2; --accent:#f97316;
+  --ok:#34d399; --warn:#fbbf24; --bad:#f87171;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  width:380px;background:var(--bg);color:var(--txt);
+  font:14px/1.45 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.card{
+  background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:16px;margin:12px;padding:16px;
+}
+.head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.logo{width:32px;height:32px;color:var(--accent);flex:none}
+h1{font-size:16px;margin:0;font-weight:700}
+.sub{margin:2px 0 0;color:var(--dim);font-size:12px}
+.notice{
+  font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:10px;
+  padding:8px 10px;margin-bottom:14px;background:rgba(255,255,255,.02);
+}
+.notice strong{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field span{font-size:12px;color:var(--dim)}
+.field input{
+  background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;
+  color:var(--txt);padding:9px 10px;font-size:14px;outline:none;
+}
+.field input:focus{border-color:var(--accent)}
+.btn{
+  width:100%;background:var(--accent);border:none;border-radius:10px;
+  color:#1a0f04;font-weight:700;font-size:14px;padding:10px;cursor:pointer;margin-bottom:12px;
+}
+.btn:active{transform:translateY(1px)}
+.results{display:flex;flex-direction:column;gap:8px}
+.result{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+}
+.result.wide{flex-direction:column;align-items:flex-start;gap:4px}
+.rlabel{font-size:12px;color:var(--dim)}
+.rvalue{font-size:18px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.rvalue.small{font-size:12.5px;font-weight:400;color:var(--txt)}
+.rvalue.ok{color:var(--ok)} .rvalue.warn{color:var(--warn)} .rvalue.bad{color:var(--bad)}

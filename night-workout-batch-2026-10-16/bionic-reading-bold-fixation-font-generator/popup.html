@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bionic Formatter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7V5h16v2"></path>
+        <path d="M12 5v14"></path>
+        <path d="M9 19h6"></path>
+      </svg>
+    </div>
+    <div class="titles">
+      <h1>Bionic Formatter</h1>
+      <p class="subtitle">Bold-first-half text styling</p>
+    </div>
+  </header>
+
+  <!-- Honest-scope banner -->
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="16" x2="12" y2="12"></line>
+      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+    </svg>
+    <span><strong>Heuristic formatting — not a font.</strong> Bolds the first half of each word with plain HTML. No reading-speed claims.</span>
+  </div>
+
+  <!-- Input -->
+  <section class="card">
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="4 7 4 4 20 4 20 7"></polyline>
+        <line x1="9" y1="20" x2="15" y2="20"></line>
+        <line x1="12" y1="4" x2="12" y2="20"></line>
+      </svg>
+      <span>1 · Your text</span>
+    </div>
+    <textarea id="input" rows="6" placeholder="Paste any text here…&#10;&#10;The quick brown fox jumps over the lazy dog."></textarea>
+    <div class="row">
+      <label class="opt-label" for="fixation">Fixation</label>
+      <select id="fixation" aria-label="Fixation mode">
+        <option value="auto" selected>Auto (by word length)</option>
+        <option value="half">Fixed: first half</option>
+        <option value="third">Fixed: first third</option>
+      </select>
+      <button id="formatBtn" class="primary grow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 4h12v4H6z" opacity="0"></path>
+          <path d="M4 7V5h16v2"></path>
+          <path d="M12 5v14"></path>
+          <path d="M9 19h6"></path>
+        </svg>
+        Format
+      </button>
+      <button id="clearBtn" class="ghost">Clear</button>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <section class="card" id="resultCard" hidden>
+    <div class="card-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+      <span>2 · Formatted preview</span>
+      <span class="stats" id="stats"></span>
+    </div>
+    <div class="preview" id="preview"></div>
+    <div class="row">
+      <button id="copyBtn" class="primary grow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        Copy HTML
+      </button>
+      <button id="downloadBtn" class="ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        .html
+      </button>
+    </div>
+  </section>
+
+  <footer class="footer">All processing happens locally in your browser.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

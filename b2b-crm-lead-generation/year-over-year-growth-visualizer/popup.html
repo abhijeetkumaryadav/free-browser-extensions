@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YoY Growth Visualizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    <div><h1>Growth Visualizer</h1><p>Year-over-year metrics</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="series-row">
+        <select id="seriesSel" aria-label="Active series"></select>
+        <button id="delSeries" class="icon-btn" title="Delete series">×</button>
+      </div>
+      <div class="add-row">
+        <input id="newSeries" placeholder="New series name…" maxlength="40">
+        <button id="addSeries" class="accent-btn">Add</button>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <div class="tabs">
+        <button id="tabValues" class="tab active">Values</button>
+        <button id="tabYoy" class="tab">YoY %</button>
+      </div>
+      <svg id="chart" viewBox="0 0 340 190" role="img" aria-label="Growth chart"></svg>
+      <div id="chartEmpty" class="chart-empty">Add at least two years of data to see the chart.</div>
+      <div class="stats">
+        <div><span>CAGR</span><b id="stCagr">—</b></div>
+        <div><span>Total growth</span><b id="stTotal">—</b></div>
+        <div><span>Best year</span><b id="stBest" class="badge">—</b></div>
+        <div><span>Worst year</span><b id="stWorst" class="badge">—</b></div>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <h2>Data points</h2>
+      <div class="add-row">
+        <input id="inYear" type="number" placeholder="Year" min="1900" max="2100">
+        <input id="inValue" type="number" placeholder="Value" step="any">
+        <button id="addPoint" class="accent-btn">Add</button>
+      </div>
+      <div id="points"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

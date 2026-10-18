@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MashMoji</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    <div>
+      <h1>MashMoji</h1>
+      <p>Mash two emoji into one tile</p>
+    </div>
+  </header>
+
+  <section class="glass panel">
+    <h2>Result</h2>
+    <div class="result-row">
+      <canvas id="mashCanvas" width="256" height="256" aria-label="Mashed emoji preview"></canvas>
+      <div class="result-actions">
+        <button id="copyBtn" class="btn btn-accent" title="Copy composite PNG to clipboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy PNG
+        </button>
+        <button id="downloadBtn" class="btn btn-ghost" title="Download composite PNG">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </button>
+        <button id="favBtn" class="btn btn-ghost" title="Save to favorites">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          Favorite
+        </button>
+      </div>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite">Pick two emoji below</p>
+  </section>
+
+  <section class="glass panel">
+    <h2>Slot A <span class="slot" id="slotA">❓</span></h2>
+    <h2>Slot B <span class="slot" id="slotB">❓</span></h2>
+    <p class="hint">Click an emoji to fill Slot A, then another for Slot B. Click a filled slot to clear it.</p>
+    <input id="search" class="search" type="search" placeholder="Search emoji…" aria-label="Search emoji">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="glass panel" id="favPanel">
+    <h2>Favorites</h2>
+    <div class="grid" id="favGrid"></div>
+    <p class="hint" id="favEmpty">No favorites yet — mash something fun and tap Favorite.</p>
+  </section>
+
+  <footer class="foot">All local · zero network · v1.0.0</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

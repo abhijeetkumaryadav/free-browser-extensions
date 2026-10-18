@@ -1,0 +1,44 @@
+/* PixelRun game page — full-page canvas, deep dark chrome. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #07090d;
+  color: #f1f5f9;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh;
+}
+.wrap { position: relative; }
+canvas {
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(249, 115, 22, 0.12), 0 4px 24px rgba(0, 0, 0, 0.6);
+  max-width: 96vw;
+  height: auto;
+  background: #0b0d12;
+}
+.overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px;
+  background: rgba(7, 9, 13, 0.78);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  text-align: center;
+  padding: 24px;
+}
+.overlay.hidden { display: none; }
+.overlay h2 { font-size: 34px; font-weight: 800; }
+.overlay p { color: #94a3b8; font-size: 15px; max-width: 420px; }
+.overlay .time { font-size: 22px; font-weight: 700; color: #f97316; font-variant-numeric: tabular-nums; }
+.overlay .row { display: flex; gap: 10px; margin-top: 8px; }
+.overlay button {
+  padding: 12px 22px; border-radius: 10px; border: none; cursor: pointer;
+  font-size: 15px; font-weight: 700;
+}
+.overlay button.primary { background: #f97316; color: #fff; }
+.overlay button.ghost {
+  background: rgba(255, 255, 255, 0.06); color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.overlay button:hover { filter: brightness(1.12); }

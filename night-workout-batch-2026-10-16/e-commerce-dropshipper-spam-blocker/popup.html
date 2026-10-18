@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M9.5 12l2 2 3.5-4"/>
+    </svg>
+    <div>
+      <h1>Dropship Spam Blocker</h1>
+      <p class="sub">Heuristic product-card filter</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+    </svg>
+    <span><strong>Heuristic text signals only</strong> — urgency timers, inflated discounts, “free worldwide shipping”. Can miss and misfire. Your choice — fully reversible.</span>
+  </div>
+
+  <section class="card row">
+    <label class="fld-label" for="mode">Flagged cards</label>
+    <select id="mode">
+      <option value="dim">Dim them</option>
+      <option value="hide">Hide them</option>
+    </select>
+  </section>
+
+  <section class="card">
+    <p class="hint">Flags cards scoring <strong>3+ points</strong>: worldwide-shipping claim (2), countdown timer (2), ≥70% discount or was/now drop (2), urgency wording (1 each).</p>
+  </section>
+
+  <div class="actions">
+    <button id="scanBtn" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+      </svg>
+      Scan &amp; flag
+    </button>
+    <button id="restoreBtn" class="ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>
+      </svg>
+      Restore page
+    </button>
+  </div>
+
+  <div id="status" class="status" role="status"></div>
+  <ul id="reasons" class="reasons"></ul>
+
+  <script src="popup.js"></script>
+</body>
+</html>

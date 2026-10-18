@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay Clarity Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <div>
+      <h1>Clarity Checker</h1>
+      <p class="sub">Passive voice · clichés · long sentences</p>
+    </div>
+  </header>
+
+  <!-- Honest scope banner -->
+  <div class="scope" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Heuristic checks only — pattern matching, not grammar understanding. <strong>Review every flag yourself.</strong></span>
+  </div>
+
+  <div class="sources">
+    <button id="from-page" class="btn primary">Analyze this page</button>
+    <button id="from-paste" class="btn ghost">Paste text…</button>
+  </div>
+  <textarea id="paste-box" class="hidden" rows="6" placeholder="Paste your essay text here…"></textarea>
+
+  <div id="results" class="hidden">
+    <div class="stats">
+      <div class="stat"><span class="num" id="st-words">0</span><span class="lbl">words</span></div>
+      <div class="stat"><span class="num" id="st-sents">0</span><span class="lbl">sentences</span></div>
+      <div class="stat"><span class="num" id="st-passive">0</span><span class="lbl">passive</span></div>
+      <div class="stat"><span class="num" id="st-cliche">0</span><span class="lbl">clichés</span></div>
+    </div>
+
+    <details open>
+      <summary><span class="dot passive"></span>Passive-voice constructions <span class="count" id="c-passive">0</span></summary>
+      <p class="tip">Tip: try flipping to active voice — "the team wrote the report" instead of "the report was written by the team".</p>
+      <ul id="list-passive" class="issues"></ul>
+    </details>
+
+    <details open>
+      <summary><span class="dot cliche"></span>Clichés & weak phrases <span class="count" id="c-cliche">0</span></summary>
+      <p class="tip">Tip: replace clichés with plain, specific wording in your own voice.</p>
+      <ul id="list-cliche" class="issues"></ul>
+    </details>
+
+    <details>
+      <summary><span class="dot long"></span>Long sentences <span class="count" id="c-long">0</span></summary>
+      <p class="tip">Tip: sentences ≥ 30 words often read better split in two. Academic style can keep them — your call.</p>
+      <ul id="list-long" class="issues"></ul>
+    </details>
+
+    <details>
+      <summary><span class="dot hedge"></span>Heavy hedging <span class="count" id="c-hedge">0</span></summary>
+      <p class="tip">Tip: stacked hedges ("very quite rather") weaken claims. Keep the ones you mean.</p>
+      <ul id="list-hedge" class="issues"></ul>
+    </details>
+  </div>
+
+  <div id="status" class="status" aria-live="polite"></div>
+</div>
+<script src="analyzer.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

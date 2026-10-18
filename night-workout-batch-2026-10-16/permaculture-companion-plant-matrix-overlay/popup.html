@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 8C12 4 9 2 4 2c0 5 3 8 8 8z"/><path d="M12 12c0-4 3-6 8-6 0 5-3 8-8 8z"/></svg>
+  <div>
+    <h1>Companion Plant Matrix</h1>
+    <p class="sub">Friends, foes &amp; bed planner · 100% local</p>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="matrix">Matrix</button>
+  <button class="tab" data-tab="planner">Bed planner</button>
+</nav>
+
+<section id="tab-matrix" class="tabpane active">
+  <label class="field">
+    <span>Pick a plant</span>
+    <select id="plantSelect"></select>
+  </label>
+  <div id="matrixResult"></div>
+</section>
+
+<section id="tab-planner" class="tabpane">
+  <div class="planner-controls">
+    <label class="field inline">
+      <span>Bed size</span>
+      <select id="bedSize">
+        <option value="3">3 × 3</option>
+        <option value="4" selected>4 × 4</option>
+        <option value="5">5 × 5</option>
+      </select>
+    </label>
+    <label class="field inline">
+      <span>Plant to place</span>
+      <select id="placeSelect"></select>
+    </label>
+    <button id="clearBed" class="btn ghost">Clear</button>
+  </div>
+  <p class="hint">Click a cell to plant (or empty it). Conflicts with neighbours are flagged below.</p>
+  <div id="bedGrid" class="bed"></div>
+  <div id="conflicts"></div>
+</section>
+
+<footer class="foot">Traditional guidelines, not guarantees — soil &amp; climate matter.</footer>
+<script src="data.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

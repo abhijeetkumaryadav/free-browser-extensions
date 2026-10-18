@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow DOM Inspector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="7" cy="13.5" r="1.6"/><circle cx="12" cy="13.5" r="1.6"/><circle cx="17" cy="13.5" r="1.6"/></svg>
+      <span>Shadow DOM Inspector</span>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>Dev analysis only.</strong> Walks <em>open</em> shadow roots on the current tab. Read-only — the page is never modified (highlight uses an overlay box that clears on demand). 100% local, zero network.
+  </div>
+
+  <div class="controls">
+    <button id="scanBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan this page
+    </button>
+    <button id="clearBtn" class="btn ghost">Clear highlight</button>
+  </div>
+
+  <div id="stats" class="stats hidden"></div>
+  <div id="tree" class="tree"></div>
+  <div id="empty" class="empty">Click <strong>Scan this page</strong> to walk shadow DOM trees.</div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

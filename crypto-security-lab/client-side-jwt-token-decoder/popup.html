@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JwtLens — Client-Side JWT Decoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg>
+    <div>
+      <h1>JwtLens</h1>
+      <p class="sub">Client-side JWT decoder</p>
+    </div>
+  </header>
+
+  <div class="notice warn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <span><b>Decode only</b> — signatures are <b>never verified</b>. Avoid pasting production tokens; everything stays on this device.</span>
+  </div>
+
+  <label class="lbl" for="token">JWT</label>
+  <textarea id="token" rows="4" spellcheck="false" placeholder="eyJhbGciOi..."></textarea>
+
+  <div class="row">
+    <button id="decode" class="primary">Decode</button>
+    <button id="clear" class="ghost">Clear</button>
+  </div>
+
+  <div id="error" class="error hidden"></div>
+
+  <section id="results" class="hidden">
+    <div class="card" id="timeCard">
+      <h2>Token lifetime</h2>
+      <div class="kv"><span>Issued at (iat)</span><b id="iat">—</b></div>
+      <div class="kv"><span>Expires (exp)</span><b id="exp">—</b></div>
+      <div class="kv"><span>Not before (nbf)</span><b id="nbf">—</b></div>
+      <div class="kv"><span>Status</span><b id="status">—</b></div>
+    </div>
+
+    <div class="card">
+      <h2>Signature</h2>
+      <div class="kv"><span>Algorithm</span><b id="alg">—</b></div>
+      <div class="kv"><span>Signature part</span><b id="sigstate">—</b></div>
+      <p class="fine">Decoding does not prove authenticity. Always verify signatures server-side.</p>
+    </div>
+
+    <div class="card">
+      <div class="sechead"><h2>Header</h2><button id="copyH" class="ghost sm">Copy</button></div>
+      <pre id="headerPre" class="json"></pre>
+    </div>
+
+    <div class="card">
+      <div class="sechead"><h2>Payload</h2><button id="copyP" class="ghost sm">Copy</button></div>
+      <pre id="payloadPre" class="json"></pre>
+    </div>
+  </section>
+
+  <footer>100% local · no network · MV3</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

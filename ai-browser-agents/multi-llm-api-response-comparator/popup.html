@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M21 3l-7.5 7.5"/><path d="M3 21l7.5-7.5"/></svg>
+    </div>
+    <div>
+      <h1>PromptBench</h1>
+      <p class="tagline">Multi-LLM response comparator</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Manual tool — paste responses yourself. No API keys, no live calls.</span>
+  </div>
+
+  <section class="card">
+    <label class="field-label" for="prompt">Prompt (shared)</label>
+    <textarea id="prompt" rows="3" placeholder="Paste the prompt you sent to each model…"></textarea>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <span class="field-label">Responses</span>
+      <button id="addPanel" class="btn btn-ghost" title="Add a response panel (max 4)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+        Add model
+      </button>
+    </div>
+    <div id="panels"></div>
+  </section>
+
+  <button id="analyze" class="btn btn-primary btn-block">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+    Compare responses
+  </button>
+
+  <section id="results" class="card hidden">
+    <div class="section-head">
+      <span class="field-label">Comparison</span>
+      <label class="toggle"><input type="checkbox" id="highlightToggle" checked><span>Highlight unique words</span></label>
+    </div>
+    <div id="statsGrid"></div>
+    <div class="field-label sub">Pairwise similarity</div>
+    <div id="simMatrix"></div>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <span class="field-label">Saved comparisons</span>
+    </div>
+    <div class="save-row">
+      <input id="saveName" type="text" placeholder="Name this comparison…">
+      <button id="saveBtn" class="btn btn-ghost">Save</button>
+    </div>
+    <div id="savedList" class="saved-list"></div>
+    <button id="exportBtn" class="btn btn-ghost btn-block hidden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      Copy as Markdown
+    </button>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

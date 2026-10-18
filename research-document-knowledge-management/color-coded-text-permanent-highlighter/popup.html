@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChromaMark</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <div>
+        <h1>ChromaMark</h1>
+        <p class="subtitle">Permanent page highlighter</p>
+      </div>
+    </div>
+    <div class="count-badge" id="countBadge">0</div>
+  </header>
+
+  <main>
+    <div class="hint" id="hint">
+      Select text on the page, right-click, then<br>
+      <strong>ChromaMark → Highlight</strong> to mark it.
+    </div>
+
+    <div class="controls">
+      <div class="color-row" id="colorRow" title="Default color for quick highlight"></div>
+      <button class="btn" id="quickBtn" title="Highlight current selection with the default color">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Highlight selection
+      </button>
+    </div>
+
+    <div class="section-title">Highlights on this page</div>
+    <ul class="hl-list" id="hlList"></ul>
+    <div class="empty" id="emptyState">No highlights on this page yet.</div>
+
+    <button class="btn danger" id="clearBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      Clear all on this page
+    </button>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

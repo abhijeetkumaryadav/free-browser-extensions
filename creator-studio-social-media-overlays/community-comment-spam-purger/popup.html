@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Comment Spam Purger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
+    <div>
+      <h1>Comment Spam Scorer</h1>
+      <p class="subtitle">Heuristic analysis only — never auto-moderates</p>
+    </div>
+  </header>
+
+  <!-- Mode tabs -->
+  <div class="tabs">
+    <button class="tab active" data-mode="single">Single comment</button>
+    <button class="tab" data-mode="batch">Batch scoring</button>
+  </div>
+
+  <!-- Single mode -->
+  <section class="card" id="singlePane">
+    <textarea id="singleInput" class="input textarea" rows="4" placeholder="Paste a comment to analyze…"></textarea>
+    <button class="btn btn-accent btn-full" id="analyzeBtn">Analyze comment</button>
+    <div id="singleResult" hidden>
+      <div class="score-wrap">
+        <svg class="ring" width="96" height="96" viewBox="0 0 96 96">
+          <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="9"/>
+          <circle id="ringArc" cx="48" cy="48" r="40" fill="none" stroke="#f97316" stroke-width="9"
+                  stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"
+                  transform="rotate(-90 48 48)"/>
+        </svg>
+        <div class="score-center">
+          <div class="score-num" id="scoreNum">0</div>
+          <div class="score-verdict" id="scoreVerdict">—</div>
+        </div>
+      </div>
+      <div id="signalList" class="signal-list"></div>
+    </div>
+  </section>
+
+  <!-- Batch mode -->
+  <section class="card" id="batchPane" hidden>
+    <textarea id="batchInput" class="input textarea" rows="5" placeholder="Paste comments, one block per comment (separate with a blank line)…"></textarea>
+    <button class="btn btn-accent btn-full" id="batchBtn">Score all</button>
+    <div id="batchSummary" class="batch-summary" hidden></div>
+    <div id="batchList" class="batch-list"></div>
+  </section>
+
+  <p class="disclaimer">Heuristic scoring — may have false positives. You decide what to do with the results. All analysis runs on-device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

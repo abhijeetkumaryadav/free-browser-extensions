@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brainrot Filter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8.5 11h.01"/><path d="M12 11h.01"/><path d="M15.5 11h.01"/></svg>
+      <div>
+        <h1>Brainrot Filter</h1>
+        <p class="tagline">A joke translator · for laughs only · fully reversible</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intensity -->
+  <section class="panel glass">
+    <div class="row">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+      <label for="intensity">Brainrot intensity</label>
+      <span class="val" id="intVal">60%</span>
+    </div>
+    <input type="range" id="intensity" min="0" max="100" value="60" aria-label="Brainrot intensity">
+    <p class="hint">Chance each matching word gets swapped for its silly slang equivalent.</p>
+  </section>
+
+  <!-- Actions -->
+  <section class="panel glass actions">
+    <button class="btn-primary" id="translateBtn">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8.5 11h.01"/><path d="M12 11h.01"/><path d="M15.5 11h.01"/></svg>
+      Brainrot-ify this page
+    </button>
+    <button class="btn-ghost" id="restoreBtn">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      Restore original text
+    </button>
+  </section>
+
+  <!-- Status -->
+  <section class="panel glass">
+    <div class="status" id="status">No swaps yet — hit the button and behold.</div>
+  </section>
+
+  <footer class="footer">
+    <p>Dictionary is bundled and inoffensive · form fields are never touched · nothing leaves your device</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

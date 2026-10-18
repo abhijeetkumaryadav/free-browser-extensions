@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recall</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+          <polyline points="3 4 3 9 8 9"></polyline>
+          <polyline points="12 7 12 12 15.5 13.5"></polyline>
+        </svg>
+        <div>
+          <h1>Recall</h1>
+          <p class="subtitle">Smart history search</p>
+        </div>
+      </div>
+      <span class="honest-badge" title="Ranks by keyword matches in title and URL. No embeddings, no AI, nothing leaves your device.">keyword ranking · not AI</span>
+    </header>
+
+    <!-- Search -->
+    <section class="panel">
+      <div class="search-row">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input id="searchInput" type="text" placeholder="Search titles and URLs…" autocomplete="off">
+        <button id="clearSearch" class="icon-btn hidden" title="Clear search" aria-label="Clear search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="chips" role="group" aria-label="Date range">
+        <button class="chip active" data-range="all">All time</button>
+        <button class="chip" data-range="today">Today</button>
+        <button class="chip" data-range="week">7 days</button>
+        <button class="chip" data-range="month">30 days</button>
+      </div>
+    </section>
+
+    <!-- Status + clear -->
+    <div class="status-row">
+      <p id="statusLine" class="status-line"></p>
+      <button id="clearFiltered" class="mini-btn danger hidden" title="Delete the currently shown entries from history">Clear shown</button>
+    </div>
+
+    <!-- Results -->
+    <section id="results" class="results"></section>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3a3a46" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+        <polyline points="3 4 3 9 8 9"></polyline>
+      </svg>
+      <p id="emptyText">No history found.<br>Browse the web and come back.</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

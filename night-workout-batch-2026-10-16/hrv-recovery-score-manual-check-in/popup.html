@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Recovery Check-In</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="titlebar">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    <div>
+      <h1>Recovery Check-In</h1>
+      <p class="sub">Manual morning check-in → recovery score</p>
+    </div>
+  </header>
+
+  <div class="notice" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Your ratings — <strong>NOT</strong> an HRV measurement. Not medical advice.</span>
+  </div>
+
+  <section class="score-wrap" id="scoreWrap" hidden>
+    <div class="score-ring"><span id="scoreVal">–</span></div>
+    <div class="score-meta">
+      <div class="score-label" id="scoreLabel">No check-in yet</div>
+      <div class="score-date" id="scoreDate"></div>
+    </div>
+  </section>
+
+  <form id="checkinForm">
+    <div class="field">
+      <div class="field-head"><label for="sleep">Sleep quality</label><span class="val" id="sleepVal">3</span></div>
+      <input type="range" id="sleep" min="1" max="5" step="1" value="3" aria-describedby="sleepHint">
+      <div class="ticks"><span>1 Poor</span><span id="sleepHint">5 Great</span></div>
+    </div>
+    <div class="field">
+      <div class="field-head"><label for="energy">Energy level</label><span class="val" id="energyVal">3</span></div>
+      <input type="range" id="energy" min="1" max="5" step="1" value="3">
+      <div class="ticks"><span>1 Drained</span><span>5 Charged</span></div>
+    </div>
+    <div class="field">
+      <div class="field-head"><label for="soreness">Muscle soreness</label><span class="val" id="sorenessVal">3</span></div>
+      <input type="range" id="soreness" min="1" max="5" step="1" value="3">
+      <div class="ticks"><span>1 Very sore</span><span>5 Fresh</span></div>
+    </div>
+    <div class="field">
+      <div class="field-head"><label for="mood">Mood</label><span class="val" id="moodVal">3</span></div>
+      <input type="range" id="mood" min="1" max="5" step="1" value="3">
+      <div class="ticks"><span>1 Low</span><span>5 Great</span></div>
+    </div>
+    <button type="submit" class="primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+      Log today's check-in
+    </button>
+  </form>
+
+  <section class="trend">
+    <h2>7-day trend</h2>
+    <canvas id="trendChart" width="348" height="110" aria-label="Recovery score trend chart"></canvas>
+  </section>
+
+  <section class="history">
+    <div class="history-head">
+      <h2>History</h2>
+      <button class="ghost danger" id="clearBtn">Clear</button>
+    </div>
+    <ul id="historyList" class="list"></ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "description": "Compress local images with canvas downscaling + JPEG quality control. Before/after size comparison. Re-encodes images \u2014 expect some quality loss.",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "manifest_version": 3,
+  "name": "Compress \u2014 Canvas Image Optimizer",
+  "permissions": [
+    "storage"
+  ],
+  "version": "1.0.1"
+}

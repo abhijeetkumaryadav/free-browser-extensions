@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clip Tagger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="panel header">
+    <span class="icon-badge" aria-hidden="true">
+      <!-- Lucide-style bookmark/clock stroke icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </span>
+    <div>
+      <h1>Clip Tagger</h1>
+      <p id="videoTitle" class="sub">Detecting video…</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="captureCard" class="panel hidden">
+      <button id="captureBtn" class="primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/></svg>
+        Capture current time
+      </button>
+      <div class="row">
+        <select id="labelSel" aria-label="Label">
+          <option>Hook</option>
+          <option>Clip-worthy</option>
+          <option>Quote</option>
+          <option>B-roll</option>
+          <option>Outro</option>
+          <option>Custom</option>
+        </select>
+        <input id="noteInput" type="text" placeholder="Add a note (optional)" maxlength="140">
+      </div>
+    </section>
+
+    <section id="emptyState" class="panel empty hidden">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="dim"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <p>No timestamps yet.<br>Play the video and hit <strong>Capture current time</strong>.</p>
+    </section>
+
+    <section id="notYoutube" class="panel empty hidden">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="dim"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+      <p>Open a YouTube watch page to start tagging timestamps.</p>
+    </section>
+
+    <ul id="clipList" class="clip-list"></ul>
+
+    <section id="actionsCard" class="panel row between hidden">
+      <div class="row">
+        <button id="mdBtn" class="ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Markdown
+        </button>
+        <button id="csvBtn" class="ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          CSV
+        </button>
+      </div>
+      <button id="clearBtn" class="danger-ghost">Clear video</button>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

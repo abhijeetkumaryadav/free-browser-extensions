@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalTime</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <div class="header-text">
+      <h1>GlobalTime</h1>
+      <p>World time &amp; weather side-by-side</p>
+    </div>
+    <button id="refresh-btn" class="icon-btn" title="Refresh all cities" aria-label="Refresh">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+  </header>
+
+  <!-- City search -->
+  <section class="search-panel">
+    <div class="search-row">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="city-input" type="text" placeholder="Add a city (up to 4)…" autocomplete="off">
+    </div>
+    <ul id="search-results" class="results-list" hidden></ul>
+  </section>
+
+  <!-- City cards -->
+  <main id="cards" class="cards"></main>
+
+  <div id="empty-state" class="empty-state">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <p>Search a city above to add it.<br>Add 2–4 cities to compare.</p>
+  </div>
+
+  <div id="status-bar" class="status-bar" hidden></div>
+
+  <footer class="footer">
+    <span>Data: Open-Meteo · no API key, no account</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

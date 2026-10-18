@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BubbleTranslate</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+      </span>
+      <div>
+        <h1>BubbleTranslate</h1>
+        <p class="tagline">Selection &amp; paste translator</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="lang-row">
+        <div class="lang-col">
+          <label class="field-label" for="source">From</label>
+          <select id="source" class="control"></select>
+        </div>
+        <button id="swap" class="icon-btn" title="Swap languages" aria-label="Swap languages">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+        </button>
+        <div class="lang-col">
+          <label class="field-label" for="target">To</label>
+          <select id="target" class="control"></select>
+        </div>
+      </div>
+
+      <label class="field-label" for="text">Text to translate</label>
+      <textarea id="text" class="control" rows="5" placeholder="Paste text here, or grab the current page selection…"></textarea>
+      <div class="row-between">
+        <span id="count" class="count">0 chars</span>
+        <div class="row">
+          <button id="grab" class="btn-ghost">Use page selection</button>
+          <button id="clear" class="btn-ghost">Clear</button>
+        </div>
+      </div>
+
+      <button id="translate" class="btn-primary btn-block">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        Translate in new tab
+      </button>
+      <p id="error" class="error hidden"></p>
+      <p class="disclaimer">Opens Google Translate with your text — handy for scanlation bubbles you can select. This is <strong>not</strong> image OCR: text inside images can't be read.</p>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

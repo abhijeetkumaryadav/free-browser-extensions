@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tab Recorder (offscreen)</title>
+</head>
+<body>
+  <!--
+    Offscreen document. It owns the tabCapture MediaStream and the
+    MediaRecorder so recording survives the popup closing (MV3 pattern).
+    Created and torn down by background.js; never opened by the user.
+  -->
+  <script src="offscreen.js"></script>
+</body>
+</html>

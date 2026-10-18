@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Barlow &amp; Focal Reducer Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <!-- Lucide-style telescope/eyepiece outline icon -->
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6.5-6.5"/><path d="M10.5 10.5l3-3"/><path d="M13.5 7.5l3 3"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M2 21l2-2"/></svg>
+  <h1>Barlow &amp; Reducer Calc</h1>
+</header>
+
+<section class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <p>Textbook optics — estimates only. Assumes thin lenses and ideal geometry; real Barlows/reducers shift with spacing.</p>
+</section>
+
+<section class="card">
+  <div class="row2">
+    <label>Telescope focal length (mm)
+      <input id="focal" type="number" step="any" min="1" placeholder="1200">
+    </label>
+    <label>Aperture (mm, optional)
+      <input id="aperture" type="number" step="any" min="1" placeholder="200">
+    </label>
+  </div>
+  <label>Eyepiece focal length (mm)
+    <input id="ep" type="number" step="any" min="1" placeholder="25">
+  </label>
+  <div class="row2">
+    <label>Accessory
+      <select id="acc">
+        <option value="none">None</option>
+        <option value="barlow2">Barlow 2×</option>
+        <option value="barlow3">Barlow 3×</option>
+        <option value="barlow5">Barlow 5×</option>
+        <option value="red063">Focal reducer 0.63×</option>
+        <option value="red05">Focal reducer 0.5×</option>
+        <option value="red08">Focal reducer 0.8×</option>
+        <option value="custom">Custom factor…</option>
+      </select>
+    </label>
+    <label>Custom factor (if chosen)
+      <input id="customFactor" type="number" step="any" min="0.1" max="10" placeholder="e.g. 1.5">
+    </label>
+  </div>
+  <button id="calc" class="primary">Calculate</button>
+</section>
+
+<section id="result" class="card hidden">
+  <div class="hero">
+    <div class="label">Magnification</div>
+    <div id="mag" class="big">—</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="k">Effective focal</span><span class="v" id="rFocal">—</span></div>
+    <div class="stat"><span class="k">F-ratio</span><span class="v" id="rF">—</span></div>
+    <div class="stat"><span class="k">Exit pupil</span><span class="v" id="rPupil">—</span></div>
+    <div class="stat"><span class="k">True field (est.)</span><span class="v" id="rTfov">—</span></div>
+  </div>
+  <p class="hint">True field assumes a 50° apparent-field eyepiece — a rough estimate.</p>
+</section>
+
+<footer>Barlow &amp; Reducer Calc · textbook optics, local only</footer>
+<script src="popup.js"></script>
+</body>
+</html>

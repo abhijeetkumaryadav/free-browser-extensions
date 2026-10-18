@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr glass">
+    <span class="logo" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" stroke-linecap="round">
+        <path d="M4 17a8 8 0 1 1 16 0"/>
+        <path d="M12 17l4-5"/>
+        <circle cx="12" cy="17" r="1.4" fill="currentColor"/>
+        <path d="M4 20.5h16"/>
+      </svg>
+    </span>
+    <div>
+      <h1>PressWatch</h1>
+      <p class="sub">Barometric pressure ticker</p>
+    </div>
+  </header>
+
+  <section class="card glass">
+    <label class="lbl" for="cityInput">City</label>
+    <div id="searchWrap">
+      <input id="cityInput" class="input" type="text" placeholder="Type a city name…" autocomplete="off">
+      <div id="cityResults" class="results hidden"></div>
+    </div>
+    <div id="cityCurrent" class="city-current hidden">
+      <span id="cityName"></span>
+      <button id="changeCity" class="linkbtn" type="button">change</button>
+    </div>
+  </section>
+
+  <section id="wxCard" class="card glass hidden">
+    <div class="wx-top">
+      <div>
+        <div class="lbl">Pressure now</div>
+        <div class="wx-num"><span id="pValue">–</span><span class="unit-big"> hPa</span></div>
+        <div id="pTrend" class="trend"></div>
+      </div>
+      <button id="refreshBtn" class="btn accent" type="button">Refresh</button>
+    </div>
+
+    <div id="alertBox" class="alert hidden" role="status"></div>
+
+    <div class="lbl" style="margin-top:12px">Last 24 hours</div>
+    <canvas id="pChart" width="328" height="96"></canvas>
+    <div class="chart-meta">
+      <span id="pMin"></span>
+      <span id="pMax"></span>
+    </div>
+  </section>
+
+  <div id="errorBox" class="error hidden" role="alert"></div>
+
+  <footer class="foot">
+    <span>Data: Open-Meteo</span>
+    <span class="dot">·</span>
+    <span>Heuristic read — not an official warning.</span>
+  </footer>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

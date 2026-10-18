@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JavaScript Execution Toggler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13 4-2 16"/></svg>
+    </span>
+    <div>
+      <h1>JavaScript Toggler</h1>
+      <p class="subtitle">Per-site script control</p>
+    </div>
+  </header>
+
+  <p class="notice" id="unsupportedNotice" hidden>
+    This browser does not expose the content-settings API, so site rules cannot be managed here. (Chromium-based browsers are fully supported.)
+  </p>
+
+  <section class="panel">
+    <h2>Current site</h2>
+    <p class="site-row"><span class="dot" id="stateDot"></span><span id="originLabel" class="origin">…</span></p>
+    <p class="state-line">JavaScript is <strong id="stateWord">…</strong> here</p>
+    <button id="toggleBtn" class="btn primary">Toggle JavaScript</button>
+    <p class="hint">Takes effect on reload. Applies to this origin (<span class="mono" id="patternLabel"></span>).</p>
+  </section>
+
+  <section class="panel">
+    <h2>Global default</h2>
+    <label class="field-label" for="defaultSelect">Default for all sites</label>
+    <select id="defaultSelect" class="select">
+      <option value="allow">Allow JavaScript</option>
+      <option value="block">Block JavaScript</option>
+    </select>
+    <p class="hint">Last value set here. Site rules above override it.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Site rules <span class="count" id="ruleCount"></span></h2>
+    <div id="ruleList" class="rule-list"></div>
+    <button id="resetAllBtn" class="btn danger full">Reset all rules</button>
+  </section>
+
+  <footer class="footer">Rules are stored on-device and reversible at any time.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Track Isolator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hero">
+    <div class="hero-icon">
+      <!-- Lucide-style "audio-lines" stroke icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"/></svg>
+    </div>
+    <div class="hero-text">
+      <h1>Audio Track Isolator</h1>
+      <p>Switch language tracks on page videos</p>
+    </div>
+  </header>
+
+  <div class="actions">
+    <button id="scanBtn" class="btn primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan videos
+    </button>
+  </div>
+
+  <div id="status" class="status hidden"></div>
+  <div id="results" class="results"></div>
+
+  <footer class="foot">
+    <span>Uses the real <code>audioTracks</code> API — nothing is modified on the page.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

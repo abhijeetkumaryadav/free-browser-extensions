@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bidding Portfolio Assistant</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+    <div><h1>Bidding Portfolio</h1><p>ROAS · reallocation · alerts</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <div class="stats">
+        <div><span>Total budget</span><b id="stBudget">—</b></div>
+        <div><span>Revenue</span><b id="stRev">—</b></div>
+        <div><span>Portfolio ROAS</span><b id="stRoas">—</b></div>
+      </div>
+      <div id="alerts"></div>
+      <div id="campaigns"></div>
+      <div class="add-form">
+        <input id="fName" placeholder="Campaign name" maxlength="50">
+        <input id="fCpc" type="number" min="0" step="0.01" placeholder="Avg CPC">
+        <input id="fBudget" type="number" min="0" step="0.01" placeholder="Daily budget">
+        <input id="fConv" type="number" min="0" step="1" placeholder="Conversions">
+        <input id="fRev" type="number" min="0" step="0.01" placeholder="Revenue">
+        <button id="addBtn" class="primary">＋ Add campaign</button>
+      </div>
+    </section>
+    <section class="glass card" id="reallocCard" hidden>
+      <h2>Suggested reallocation</h2>
+      <p class="note">Shift 10% of each underperformer’s budget to the top ROAS campaign.</p>
+      <div id="realloc"></div>
+    </section>
+    <p class="note">All entries are manual and stored on-device. Spend is tracked against the daily budget you set.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

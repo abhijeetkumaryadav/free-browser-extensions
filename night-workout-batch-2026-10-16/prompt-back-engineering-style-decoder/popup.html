@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Style Analyzer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+    <div>
+      <h1>Prompt Style Analyzer</h1>
+      <p class="sub">Heuristic breakdown — not decoding</p>
+    </div>
+  </header>
+
+  <div class="notice">Heuristic only. It describes <em>surface patterns</em> in a prompt you paste — it cannot decode anyone's intent or reverse-engineer a real system.</div>
+
+  <textarea id="promptInput" placeholder="Paste a prompt here…"></textarea>
+
+  <div class="row">
+    <button id="analyzeBtn" class="primary">Analyze</button>
+    <button id="clearBtn" class="ghost">Clear</button>
+  </div>
+
+  <div id="results" class="results hidden">
+    <div class="score-card">
+      <div class="ring" id="scoreRing"><span id="scorePct">0</span></div>
+      <div class="score-meta">
+        <div class="score-title" id="styleVerdict">—</div>
+        <div class="score-sub" id="styleDetail">—</div>
+      </div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-num" id="statWords">—</span><span class="stat-lbl">words</span></div>
+      <div class="stat"><span class="stat-num" id="statImper">—</span><span class="stat-lbl">instruction verbs</span></div>
+      <div class="stat"><span class="stat-num" id="statConstr">—</span><span class="stat-lbl">constraints</span></div>
+    </div>
+    <div class="flags" id="flags"></div>
+  </div>
+
+  <label class="field-label" for="notesInput">Your notes</label>
+  <textarea id="notesInput" class="notes" placeholder="What did you notice about this prompt?"></textarea>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

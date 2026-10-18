@@ -1,0 +1,91 @@
+/* HypeMeter popup — deep dark glassmorphism, magenta accent */
+:root {
+  --accent: #ec4899;
+  --accent-soft: rgba(236, 72, 153, .14);
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 26, .72);
+  --border: rgba(255, 255, 255, .08);
+  --text: #f4f4f6;
+  --muted: #9a9aa5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.head { display: flex; align-items: center; gap: 12px; }
+.head > div { flex: 1; }
+.logo {
+  width: 40px; height: 40px; border-radius: 12px; flex: none;
+  background: linear-gradient(135deg, var(--accent), #a21caf);
+  display: grid; place-items: center; color: #fff;
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 16px; font-weight: 650; letter-spacing: .2px; }
+.sub { font-size: 11px; color: var(--muted); }
+.sub .ok { color: var(--accent); font-weight: 600; }
+.note {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: var(--accent-soft);
+  border: 1px solid rgba(236, 72, 153, .3);
+  border-radius: 10px; padding: 10px 12px;
+  font-size: 11.5px; color: #c9c9d4;
+}
+.note svg { width: 15px; height: 15px; flex: none; margin-top: 2px; color: var(--accent); }
+.note b { color: var(--text); }
+.note kbd {
+  background: rgba(255,255,255,.1); border: 1px solid var(--border);
+  border-radius: 4px; padding: 0 5px; font-size: 10.5px; font-family: inherit;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.gauge-card { align-items: center; }
+#gauge { width: 220px; height: auto; }
+.gauge-num { fill: var(--text); font-size: 34px; font-weight: 700; font-family: inherit; }
+.gauge-label { fill: var(--muted); font-size: 11px; letter-spacing: 3px; font-family: inherit; }
+#gaugeArc { transition: stroke-dashoffset .3s ease; filter: drop-shadow(0 0 6px rgba(236,72,153,.6)); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1px solid var(--border); background: rgba(255,255,255,.06); color: var(--text);
+  font: 600 13px/1 inherit; padding: 11px 14px; border-radius: 10px; cursor: pointer;
+  transition: transform .08s, background .15s;
+}
+.btn:hover { background: rgba(255,255,255,.1); }
+.btn:active { transform: scale(.97); }
+.btn svg { width: 16px; height: 16px; }
+.btn.primary { background: var(--accent); border-color: transparent; color: #fff; }
+.btn.primary:hover { background: #d63f88; }
+.btn.big { width: 100%; padding: 15px; font-size: 16px; letter-spacing: 1px; border-radius: 12px; }
+.btn.big svg { width: 20px; height: 20px; }
+.btn.small { padding: 7px 10px; font-size: 11.5px; border-radius: 8px; white-space: nowrap; }
+.btn.live { background: #dc2626; border-color: transparent; color: #fff; }
+.btn-row .btn { width: 100%; }
+.row { display: flex; align-items: center; justify-content: space-between; }
+.label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
+.label.dim { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.stats { display: flex; gap: 24px; }
+.stat { display: flex; flex-direction: column; align-items: center; }
+.stat b { font-size: 20px; color: var(--accent); }
+.stat span { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .6px; }
+#spark { width: 100%; height: 64px; border-radius: 8px; background: rgba(255,255,255,.03); }
+.log { list-style: none; display: flex; flex-direction: column; gap: 6px; max-height: 132px; overflow-y: auto; }
+.log li {
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,.04); border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 10px; font-size: 12px;
+}
+.log .t { color: var(--muted); font-variant-numeric: tabular-nums; }
+.log .zap { color: var(--accent); font-weight: 700; }
+.log .empty { color: var(--muted); background: none; border: 0; justify-content: center; padding: 12px; }
+.link { background: none; border: 0; color: var(--accent); font: 600 12px/1 inherit; cursor: pointer; }
+.link:hover { text-decoration: underline; }

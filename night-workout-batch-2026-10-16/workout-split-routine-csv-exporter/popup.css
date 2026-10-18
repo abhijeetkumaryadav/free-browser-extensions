@@ -1,0 +1,97 @@
+/* Workout Split CSV Planner — deep-dark glassmorphism, single orange accent */
+:root {
+  --accent: #fb923c;
+  --bg: rgba(18, 18, 24, .78);
+  --card: rgba(255, 255, 255, .045);
+  --border: rgba(255, 255, 255, .09);
+  --text: #e8e8ee;
+  --muted: #9a9aa8;
+  --danger: #fb7185;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+  background: var(--bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--text);
+  font-size: 13px;
+}
+.app { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+
+.app-head { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 38px; height: 38px; border-radius: 12px;
+  background: rgba(251, 146, 60, .14);
+  border: 1px solid rgba(251, 146, 60, .35);
+  display: flex; align-items: center; justify-content: center;
+}
+.logo svg { width: 22px; height: 22px; stroke: var(--accent); }
+.head-text h1 { font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+.head-text .sub { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card-head .spacer { flex: 1; }
+.card h2 { font-size: 12.5px; font-weight: 700; letter-spacing: .3px; }
+
+.link-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--accent); font-size: 12px; font-weight: 600; padding: 2px 4px;
+}
+.link-btn.danger { color: var(--danger); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  background: rgba(255,255,255,.05); border: 1px solid var(--border);
+  color: var(--text); border-radius: 999px; padding: 6px 12px;
+  font-size: 12px; cursor: pointer;
+}
+.chip.active { background: rgba(251,146,60,.18); border-color: rgba(251,146,60,.6); color: var(--accent); font-weight: 700; }
+
+input[type="text"], input[type="number"] {
+  width: 100%; background: rgba(255,255,255,.05);
+  border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); padding: 8px 10px; font-size: 13px; outline: none;
+}
+input:focus { border-color: rgba(251, 146, 60, .55); }
+
+.ex-form { display: flex; flex-direction: column; gap: 8px; }
+.ex-nums { display: flex; gap: 8px; }
+.ex-nums label { flex: 1; display: flex; flex-direction: column; gap: 4px; font-size: 11px; font-weight: 700; color: var(--muted); }
+
+.primary {
+  background: var(--accent); color: #161006; border: none; border-radius: 9px;
+  padding: 9px 12px; font-weight: 700; font-size: 13px; cursor: pointer;
+}
+.primary:hover { filter: brightness(1.08); }
+.file-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.06); border: 1px solid var(--border);
+  color: var(--text); border-radius: 9px; padding: 9px 12px;
+  font-weight: 600; font-size: 13px; cursor: pointer;
+}
+.btn-row { display: flex; gap: 8px; }
+.btn-row .primary, .btn-row .file-btn { flex: 1; }
+.hint { color: var(--muted); font-size: 11.5px; }
+.hint code { color: var(--accent); font-size: 11px; }
+
+.ex-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ex-item {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  border-radius: 9px; padding: 8px 10px;
+}
+.ex-item .e-name { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ex-item .e-meta { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.ex-item .del { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 15px; line-height: 1; padding: 2px; }
+.ex-item .del:hover { color: var(--danger); }
+.empty { color: var(--muted); font-size: 12px; text-align: center; padding: 4px 0; }
+.foot { text-align: center; color: var(--muted); font-size: 10.5px; padding-bottom: 2px; }

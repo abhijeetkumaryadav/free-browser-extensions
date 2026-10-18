@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BearingPoint — Compass Bearing Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg>
+    </span>
+    <div>
+      <h1>BearingPoint</h1>
+      <p class="sub">Compass bearing between two points · local math</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="grid2">
+      <label class="field">
+        <span class="flabel">From lat</span>
+        <input id="from-lat" type="text" inputmode="decimal" placeholder="28.6139">
+      </label>
+      <label class="field">
+        <span class="flabel">From lng</span>
+        <input id="from-lng" type="text" inputmode="decimal" placeholder="77.2090">
+      </label>
+      <label class="field">
+        <span class="flabel">To lat</span>
+        <input id="to-lat" type="text" inputmode="decimal" placeholder="19.0760">
+      </label>
+      <label class="field">
+        <span class="flabel">To lng</span>
+        <input id="to-lng" type="text" inputmode="decimal" placeholder="72.8777">
+      </label>
+    </div>
+    <div class="btnrow">
+      <button id="btn-calc" class="btn">Calculate</button>
+      <button id="btn-swap" class="btn ghost" title="Swap from/to">⇄</button>
+    </div>
+    <p class="err" id="err" hidden></p>
+  </section>
+
+  <section class="panel dial-panel" id="dial-panel" hidden>
+    <canvas id="dial" width="300" height="300" aria-label="Compass dial"></canvas>
+    <div class="stats">
+      <div class="stat"><span class="slabel">Bearing</span><span class="sval" id="out-bearing">—</span></div>
+      <div class="stat"><span class="slabel">Direction</span><span class="sval" id="out-dir">—</span></div>
+      <div class="stat"><span class="slabel">Distance</span><span class="sval" id="out-dist">—</span></div>
+    </div>
+    <p class="note">Great-circle initial bearing. For short trips the bearing stays roughly constant; over long distances it changes along the route.</p>
+  </section>
+
+  <footer class="ftr">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="scope">Bearing calculator only — not Street View. No network.</span>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

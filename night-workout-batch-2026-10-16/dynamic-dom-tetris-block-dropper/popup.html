@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DOM Tetris</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+      <div>
+        <h1>DOM Tetris</h1>
+        <p class="sub">Harmless page game</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      User-triggered toy — blocks fall on an overlay, the page itself is never modified. Fully reversible.
+    </div>
+
+    <p class="desc">Play Tetris on the current tab. Pieces are styled like DOM nodes. Keyboard: arrows move / rotate, Space hard-drop, P pause, Esc exit.</p>
+
+    <button id="play" class="primary">▶ Play on this tab</button>
+    <button id="remove" class="ghost">✕ Remove game</button>
+
+    <p id="status" class="status" aria-live="polite"></p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

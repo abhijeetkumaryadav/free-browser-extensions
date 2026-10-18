@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyword Density — Heuristic</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 4-8"/></svg>
+  <div>
+    <h1>Keyword Density</h1>
+    <p class="sub">Heuristic term counts — not SEO advice</p>
+  </div>
+</header>
+
+<p class="notice">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  This tool only counts words. It cannot judge ranking, quality, or search intent.
+</p>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-tab="analyze" role="tab">Analyze</button>
+  <button class="tab" data-tab="notes" role="tab">Notes</button>
+</nav>
+
+<section id="tab-analyze" class="panel">
+  <label class="lbl" for="text">Video description</label>
+  <textarea id="text" rows="6" placeholder="Paste your video description here…"></textarea>
+  <div class="row">
+    <button id="run" class="btn primary">Analyze</button>
+    <button id="clear" class="btn ghost">Clear</button>
+  </div>
+  <div id="empty" class="empty">Paste a description and press Analyze to see term stats.</div>
+  <div id="results" class="hidden">
+    <div class="stats">
+      <div class="stat"><span class="num" id="st-words">0</span><span class="cap">words</span></div>
+      <div class="stat"><span class="num" id="st-unique">0</span><span class="cap">unique</span></div>
+      <div class="stat"><span class="num" id="st-chars">0</span><span class="cap">chars</span></div>
+    </div>
+    <h2>Top terms <span class="hint">per 100 words</span></h2>
+    <table class="terms">
+      <thead><tr><th>Term</th><th>Count</th><th>Density</th><th></th></tr></thead>
+      <tbody id="terms-body"></tbody>
+    </table>
+    <h2>Duplicate phrases</h2>
+    <div id="dups" class="dups"></div>
+  </div>
+</section>
+
+<section id="tab-notes" class="panel hidden">
+  <label class="lbl" for="note-title">Notes</label>
+  <input id="note-title" type="text" placeholder="Note title…" maxlength="120">
+  <textarea id="note-body" rows="4" placeholder="Your observation…"></textarea>
+  <div class="row"><button id="note-add" class="btn primary">Save note</button></div>
+  <div id="note-list" class="notes"></div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

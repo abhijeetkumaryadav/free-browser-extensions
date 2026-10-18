@@ -1,0 +1,95 @@
+/* Data Broker Value Estimator — deep-dark glassmorphism, one accent: amber #f59e0b */
+:root {
+  --bg: #0c0c11;
+  --glass: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #f1f1f5;
+  --muted: #9a9aa5;
+  --accent: #f59e0b;
+  --accent-dim: rgba(245, 158, 11, 0.14);
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+}
+.app {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hero { display: flex; gap: 10px; align-items: center; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex-shrink: 0; }
+h1 { font-size: 15px; font-weight: 700; }
+.sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.banner {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 10px; padding: 9px 10px;
+  font-size: 11.5px; color: #e8d9b8; line-height: 1.45;
+}
+.banner svg { width: 15px; height: 15px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px;
+}
+.card h2 { font-size: 12.5px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.hidden { display: none; }
+.q-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.q-row:last-child { border-bottom: none; }
+.q-info { flex: 1; padding-right: 10px; }
+.q-info label { font-weight: 600; font-size: 12.5px; display: block; }
+.q-info .hint { color: var(--muted); font-size: 11px; margin-top: 1px; }
+.q-row input[type="number"] {
+  width: 64px; background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--text); padding: 6px 8px; font-size: 13px; text-align: right;
+}
+.q-row input[type="number"]:focus { outline: none; border-color: var(--accent); }
+/* toggle switch */
+.switch { position: relative; width: 40px; height: 22px; flex-shrink: 0; cursor: pointer; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0; background: rgba(255,255,255,0.12);
+  border-radius: 22px; transition: .2s;
+}
+.slider::before {
+  content: ""; position: absolute; width: 16px; height: 16px; left: 3px; top: 3px;
+  background: #fff; border-radius: 50%; transition: .2s;
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider::before { transform: translateX(18px); }
+.total-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 4px; }
+.total { font-size: 30px; font-weight: 800; color: var(--accent); }
+.total span { font-size: 13px; font-weight: 500; color: var(--muted); }
+.tier { font-size: 12px; font-weight: 700; background: var(--accent-dim); color: var(--accent);
+  padding: 4px 10px; border-radius: 20px; }
+.tier-blurb { color: var(--muted); font-size: 12px; margin-bottom: 10px; line-height: 1.5; }
+.line { margin-bottom: 8px; }
+.line-top { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+.line-top .amt { font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.line-top .lbl { color: var(--muted); }
+.bar { height: 6px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, #b45309, var(--accent)); border-radius: 3px; }
+footer { display: flex; align-items: center; justify-content: space-between; }
+.ghost {
+  background: transparent; border: 1px solid var(--border); color: var(--muted);
+  border-radius: 8px; padding: 6px 14px; font-size: 12px; cursor: pointer;
+}
+.ghost:hover { color: var(--text); border-color: var(--accent); }
+.foot-note { color: var(--muted); font-size: 11px; }

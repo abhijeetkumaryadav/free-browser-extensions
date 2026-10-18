@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step Pace Log</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+    </svg>
+    <div>
+      <h1>Step Pace Log</h1>
+      <p class="sub">Manual step/pace sessions</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>
+    <span>Manual log — not a device sync. You enter the numbers.</span>
+  </div>
+
+  <!-- Log a new session -->
+  <section class="card">
+    <h2>Log session</h2>
+    <div class="grid">
+      <label>Steps
+        <input id="inSteps" type="number" min="1" step="1" placeholder="e.g. 2400">
+      </label>
+      <label>Minutes
+        <input id="inMins" type="number" min="0.1" step="0.1" placeholder="e.g. 20">
+      </label>
+    </div>
+    <button id="btnAdd" class="primary">Add session</button>
+    <p id="err" class="err" hidden></p>
+  </section>
+
+  <!-- Totals -->
+  <section class="card">
+    <h2>Totals</h2>
+    <div class="totals">
+      <div class="total"><span class="v" id="tSteps">0</span><span class="k">steps</span></div>
+      <div class="total"><span class="v" id="tMins">0</span><span class="k">min</span></div>
+      <div class="total"><span class="v" id="tPace">–</span><span class="k">steps/min</span></div>
+      <div class="total"><span class="v" id="tCount">0</span><span class="k">sessions</span></div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="card">
+    <h2>History</h2>
+    <ul id="list" class="list"></ul>
+    <button id="btnClear" class="ghost">Clear all sessions</button>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

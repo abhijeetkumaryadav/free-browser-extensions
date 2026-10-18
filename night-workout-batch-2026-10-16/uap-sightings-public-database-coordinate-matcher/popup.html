@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Sighting Journal</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        <circle cx="16.5" cy="7.5" r="1.2"/>
+      </svg>
+    </div>
+    <div>
+      <h1>Sky Sighting Journal</h1>
+      <p class="sub">Personal logbook · educational</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+    <span><strong>Your logbook only — educational.</strong> No public database is queried; these are the sightings you type.</span>
+  </div>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Log a sighting
+    </h2>
+    <div class="grid2">
+      <label>Date
+        <input type="date" id="date">
+      </label>
+      <label>Shape
+        <select id="shape">
+          <option>Light / orb</option>
+          <option>Disk / saucer</option>
+          <option>Triangle</option>
+          <option>Cigar / cylinder</option>
+          <option>Fireball</option>
+          <option>Chevron</option>
+          <option>Unknown</option>
+        </select>
+      </label>
+    </div>
+    <label>Location
+      <input type="text" id="location" placeholder="City, state or lat/long" maxlength="80">
+    </label>
+    <label>Description
+      <textarea id="description" rows="2" placeholder="What did you see? Movement, color, duration…" maxlength="600"></textarea>
+    </label>
+    <button id="addBtn" class="primary">Add sighting</button>
+    <p class="err" id="err" hidden></p>
+  </section>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Search &amp; filter
+    </h2>
+    <div class="grid2">
+      <input type="text" id="search" placeholder="Search description or location…">
+      <select id="filterShape">
+        <option value="">All shapes</option>
+        <option>Light / orb</option>
+        <option>Disk / saucer</option>
+        <option>Triangle</option>
+        <option>Cigar / cylinder</option>
+        <option>Fireball</option>
+        <option>Chevron</option>
+        <option>Unknown</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="statrow">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Logbook
+      </h2>
+      <span class="count" id="count">0 sightings</span>
+    </div>
+    <div class="stats" id="stats"></div>
+    <ul class="list" id="list"></ul>
+    <button id="clearBtn" class="ghost danger">Clear all</button>
+  </section>
+
+  <footer>Personal records only · educational</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

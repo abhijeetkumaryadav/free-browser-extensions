@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExtSort</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <!-- Lucide-style: arrow-down-to-line (download) glyph -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>ExtSort</h1>
+      <p class="subtitle">Downloads by extension · read-only</p>
+    </div>
+  </header>
+
+  <section class="panel stats-panel">
+    <div class="stat"><span class="stat-num" id="statTotal">–</span><span class="stat-lbl">downloads</span></div>
+    <div class="stat"><span class="stat-num" id="statBytes">–</span><span class="stat-lbl">total size</span></div>
+    <div class="stat"><span class="stat-num" id="statExts">–</span><span class="stat-lbl">extensions</span></div>
+  </section>
+
+  <section class="panel">
+    <input class="search" id="search" type="search" placeholder="Search filename…" autocomplete="off">
+    <div class="toolbar">
+      <select id="sortBy" class="select" aria-label="Sort by">
+        <option value="date-desc">Newest first</option>
+        <option value="date-asc">Oldest first</option>
+        <option value="size-desc">Largest first</option>
+        <option value="name-asc">Name A–Z</option>
+      </select>
+      <button class="btn ghost" id="btnRefresh" title="Refresh list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+        </svg>
+      </button>
+    </div>
+    <div class="ext-chips" id="extChips" role="group" aria-label="Filter by extension"></div>
+    <div class="list" id="list"></div>
+    <div class="empty" id="empty" hidden>No downloads match.</div>
+  </section>
+
+  <p class="note">
+    Read-only viewer — ExtSort never moves, renames, or opens files.
+    Browsers don't allow extensions to move files on disk.
+  </p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

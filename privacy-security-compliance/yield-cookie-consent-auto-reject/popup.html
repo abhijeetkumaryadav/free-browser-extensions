@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="0.6" fill="currentColor"/><circle cx="14.5" cy="9" r="0.6" fill="currentColor"/><circle cx="10.5" cy="14.5" r="0.6" fill="currentColor"/><circle cx="15" cy="14" r="0.6" fill="currentColor"/></svg>
+    </div>
+    <div class="app-title">
+      <h1>Yield</h1>
+      <p class="origin">Cookie banners, auto-rejected</p>
+    </div>
+    <label class="switch" title="Master on/off switch">
+      <input type="checkbox" id="masterToggle" checked>
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="panel">
+    <div class="row">
+      <div>
+        <div class="row-title">Mode</div>
+        <div class="row-sub">Auto handles banners on page load.</div>
+      </div>
+      <div class="segmented" id="modeSeg">
+        <button data-mode="auto" class="active">Auto</button>
+        <button data-mode="manual">Manual</button>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <div class="row-title">Scan delay</div>
+        <div class="row-sub">Wait for banners to render: <span id="delayVal">1.2s</span></div>
+      </div>
+      <input type="range" id="delayRange" min="0" max="5000" step="200" value="1200">
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="row">
+      <div>
+        <div class="row-title">This site</div>
+        <div class="row-sub origin-line" id="siteLabel">…</div>
+      </div>
+      <button id="siteToggle" class="block-btn">Disable here</button>
+    </div>
+    <button id="scanNow" class="primary-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Scan this page now
+    </button>
+    <p class="hint">Only unambiguous "reject" buttons are ever clicked — never "accept".</p>
+  </section>
+
+  <section class="panel">
+    <div class="row">
+      <h2>Activity</h2>
+      <button id="clearLog" class="ghost-btn">Clear</button>
+    </div>
+    <div id="logList" class="log-list">
+      <p class="empty">Nothing handled yet.</p>
+    </div>
+  </section>
+
+  <footer class="footer">All data stays on this device.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>

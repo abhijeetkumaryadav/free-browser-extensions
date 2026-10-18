@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML Tag Memory Match</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2"/><rect x="8" y="8" width="13" height="13" rx="2"/></svg>
+      <h1>Tag Memory Match</h1>
+    </div>
+    <span class="badge">game</span>
+  </header>
+
+  <p class="notice">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    Brain-trainer game, 100% local. Match each HTML tag with its description.
+  </p>
+
+  <div class="controls">
+    <label class="field">
+      <span>Grid</span>
+      <select id="gridSelect">
+        <option value="4x3">4 × 3 (6 pairs)</option>
+        <option value="4x4" selected>4 × 4 (8 pairs)</option>
+        <option value="6x4">6 × 4 (12 pairs)</option>
+      </select>
+    </label>
+    <button id="newGameBtn" class="btn primary">
+      <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      New game
+    </button>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-label">Moves</span><span class="stat-value" id="moves">0</span></div>
+    <div class="stat"><span class="stat-label">Time</span><span class="stat-value" id="time">0:00</span></div>
+    <div class="stat"><span class="stat-label">Matched</span><span class="stat-value" id="matched">0/8</span></div>
+  </div>
+
+  <div id="board" class="board" role="grid" aria-label="Memory match board"></div>
+
+  <div id="winBanner" class="win hidden">
+    <div class="win-title">Solved!</div>
+    <div class="win-sub" id="winSub"></div>
+    <div class="win-best" id="winBest"></div>
+  </div>
+
+  <div class="best">
+    <svg class="icon sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span>Best (this grid): <strong id="bestLine">—</strong></span>
+  </div>
+
+  <script src="pairs.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

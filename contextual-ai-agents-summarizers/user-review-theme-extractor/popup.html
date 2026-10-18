@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Review Theme Extractor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <div><h1>Theme Extractor</h1><p>On-device review mining · heuristic</p></div>
+    <button id="demo" class="ghost small">Sample</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Paste reviews (one per line)
+        <textarea id="reviews" rows="6" placeholder="Battery lasts two days, really impressed…&#10;Shipping took forever, arrived in three weeks…"></textarea>
+      </label>
+      <button id="extract" class="primary">Extract themes</button>
+    </section>
+    <section id="results" class="glass card" hidden>
+      <h2>Themes <span id="rcount" class="rcount"></span></h2>
+      <div id="themes"></div>
+      <p class="note">Keyword-based heuristic clustering — a starting point for reading, not AI sentiment analysis.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

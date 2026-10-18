@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TabGuard — Tower Defense</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 21V10l-2-1 2-1V5h3V3h6v2h3v3l2 1-2 1v11"/>
+        <path d="M4 21h16"/>
+        <circle cx="12" cy="13" r="1.6"/>
+      </svg>
+    </div>
+    <h1>TabGuard</h1>
+    <p class="tag">Tower Defense</p>
+    <p class="desc">Place arrow, cannon and frost towers along the path. Survive escalating waves and protect your lives.</p>
+    <div class="best">
+      <span>Best wave</span>
+      <strong id="bestWave">–</strong>
+    </div>
+    <button id="playBtn" class="play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      Play
+    </button>
+    <div class="how">
+      <div><b>1.</b> Pick a tower, click a free tile to build.</div>
+      <div><b>2.</b> Press <b>Start wave</b> when ready.</div>
+      <div><b>3.</b> Click a tower to upgrade or sell.</div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

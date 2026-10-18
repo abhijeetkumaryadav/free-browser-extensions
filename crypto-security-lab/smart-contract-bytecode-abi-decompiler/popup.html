@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpcodeLens — EVM Bytecode Disassembler</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+      </svg>
+    </div>
+    <div class="titles">
+      <h1>OpcodeLens</h1>
+      <p>EVM bytecode disassembler</p>
+    </div>
+  </header>
+
+  <div class="scope-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+    </svg>
+    <span>Disassembler + selector heuristic only — <strong>not</strong> a full decompiler. Everything stays on your device.</span>
+  </div>
+
+  <label class="field-label" for="bytecode">Runtime / creation bytecode (hex)</label>
+  <textarea id="bytecode" rows="4" spellcheck="false" placeholder="0x6080604052…"></textarea>
+
+  <div class="btn-row">
+    <button id="analyze" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      Disassemble
+    </button>
+    <button id="load-sample" class="btn ghost">Sample</button>
+    <button id="clear" class="btn ghost">Clear</button>
+  </div>
+
+  <div id="error" class="error" hidden></div>
+
+  <section id="results" hidden>
+    <div class="stats">
+      <div class="stat"><span class="stat-num" id="stat-bytes">0</span><span class="stat-lab">bytes</span></div>
+      <div class="stat"><span class="stat-num" id="stat-ops">0</span><span class="stat-lab">opcodes</span></div>
+      <div class="stat"><span class="stat-num" id="stat-sels">0</span><span class="stat-lab">selectors</span></div>
+    </div>
+
+    <div id="verdict" class="verdict"></div>
+
+    <h2 class="sec-title">Function selectors <span class="hint">(PUSH4 heuristic)</span></h2>
+    <div id="selectors" class="sel-list"></div>
+
+    <h2 class="sec-title">Disassembly</h2>
+    <div id="disasm" class="disasm"></div>
+  </section>
+
+  <footer class="foot">Offline · no network · nothing leaves this device</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

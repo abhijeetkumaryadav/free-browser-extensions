@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PawnStorm</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" id="brandMark"></span>
+      <div>
+        <h1>PawnStorm</h1>
+        <p class="sub">play vs computer · own engine</p>
+      </div>
+    </div>
+    <select class="diff-select" id="diffSelect" title="Engine difficulty">
+      <option value="1">Easy</option>
+      <option value="2" selected>Normal</option>
+      <option value="3">Hard</option>
+    </select>
+  </header>
+
+  <section class="status-bar card">
+    <span class="status-dot" id="statusDot"></span>
+    <span class="status-text" id="statusText">Your move</span>
+    <span class="eval" id="evalText" title="Engine evaluation (pawns, + favors you)">+0.0</span>
+  </section>
+
+  <div class="board-wrap">
+    <div class="board" id="board" role="grid" aria-label="Chess board"></div>
+    <div class="thinking" id="thinking" hidden>Engine thinking…</div>
+  </div>
+
+  <div class="controls">
+    <button class="ctl-btn" id="newBtn"><span class="ctl-ico" data-ico="new"></span>New</button>
+    <button class="ctl-btn" id="undoBtn"><span class="ctl-ico" data-ico="undo"></span>Takeback</button>
+    <button class="ctl-btn" id="flipBtn"><span class="ctl-ico" data-ico="flip"></span>Flip</button>
+  </div>
+
+  <section class="moves card">
+    <h2>Moves</h2>
+    <div class="move-list" id="moveList"><span class="empty">No moves yet — you play White.</span></div>
+  </section>
+
+  <p class="engine-note">Casual-strength engine written from scratch (minimax + alpha-beta). No network, no accounts.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

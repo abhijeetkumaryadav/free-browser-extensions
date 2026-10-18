@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugin Conflict Detector</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <line x1="21" y1="21" x2="16.5" y2="16.5" />
+        <path d="M8.5 11h5M11 8.5v5" />
+      </svg>
+    </div>
+    <div>
+      <h1>Plugin Conflict Detector</h1>
+      <p class="subtitle">WordPress guided troubleshooter</p>
+    </div>
+    <button id="resetBtn" class="ghost-btn" title="Start over">Reset</button>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="16" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12.01" y2="8" />
+    </svg>
+    <span>Guided manual process — this extension cannot reach your WP admin. You deactivate plugins yourself; it tracks the binary search.</span>
+  </div>
+
+  <!-- Stepper -->
+  <ol class="steps">
+    <li data-step="1"><span class="dot">1</span><span class="lbl">Symptom</span></li>
+    <li data-step="2"><span class="dot">2</span><span class="lbl">Plugins</span></li>
+    <li data-step="3"><span class="dot">3</span><span class="lbl">Bisect</span></li>
+    <li data-step="4"><span class="dot">4</span><span class="lbl">Report</span></li>
+  </ol>
+
+  <!-- STEP 1: Symptom -->
+  <section class="panel" id="step1">
+    <h2>What is breaking?</h2>
+    <label class="field">
+      <span>Symptom description</span>
+      <textarea id="symptomInput" rows="3" placeholder="e.g. Checkout page shows a blank white screen after updating…"></textarea>
+    </label>
+    <label class="field">
+      <span>When did it start? <em>(optional)</em></span>
+      <input id="startedInput" type="text" placeholder="e.g. After updating Plugin X to 2.4" />
+    </label>
+    <button id="toStep2" class="primary-btn">Continue to plugin list</button>
+  </section>
+
+  <!-- STEP 2: Plugins -->
+  <section class="panel hidden" id="step2">
+    <h2>Active plugins <span class="count" id="pluginCount">0</span></h2>
+    <p class="hint">List every plugin currently active on the site — the more complete, the better.</p>
+    <div class="add-row">
+      <input id="pluginInput" type="text" placeholder="Plugin name, e.g. WooCommerce" />
+      <button id="addPluginBtn" class="primary-btn small">Add</button>
+    </div>
+    <ul id="pluginList" class="plugin-list"></ul>
+    <div class="row">
+      <button id="backTo1" class="ghost-btn">Back</button>
+      <button id="startBisect" class="primary-btn">Start binary search</button>
+    </div>
+  </section>
+
+  <!-- STEP 3: Bisect -->
+  <section class="panel hidden" id="step3">
+    <h2>Round <span id="roundNum">1</span></h2>
+    <p class="hint">In <strong>WP Admin → Plugins</strong>, deactivate exactly the plugins below, then test your site.</p>
+    <h3 class="group-title off">Deactivate these</h3>
+    <ul id="deactivateList" class="chip-list"></ul>
+    <h3 class="group-title on">Keep active</h3>
+    <ul id="keepList" class="chip-list"></ul>
+    <p class="hint">After testing, tell the tracker what happened:</p>
+    <div class="row">
+      <button id="stillBrokenBtn" class="danger-btn">Still broken</button>
+      <button id="fixedBtn" class="primary-btn">Fixed 🎉</button>
+    </div>
+    <button id="backTo2" class="ghost-btn full">Edit plugin list</button>
+  </section>
+
+  <!-- STEP 4: Report -->
+  <section class="panel hidden" id="step4">
+    <div class="verdict">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+      <div>
+        <h2>Likely culprit found</h2>
+        <p class="culprit" id="culpritName">—</p>
+      </div>
+    </div>
+    <p class="hint">Confirm by deactivating only this plugin. Then share the report with your developer.</p>
+    <textarea id="reportBox" rows="9" readonly></textarea>
+    <div class="row">
+      <button id="copyReportBtn" class="primary-btn">Copy report</button>
+      <button id="newSessionBtn" class="ghost-btn">New session</button>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

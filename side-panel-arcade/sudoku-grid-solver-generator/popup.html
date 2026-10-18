@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sudoku Grid — Solver &amp; Generator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="glass header">
+    <div class="title-row">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+      <div>
+        <h1>Sudoku Grid</h1>
+        <p class="subtitle"><span id="timer">00:00</span> · <span id="difficulty-label">Easy</span></p>
+      </div>
+      <button id="solve-tab-btn" class="icon-btn" title="Solver mode" aria-label="Solver mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="glass board-wrap">
+    <div id="board" class="board" role="grid" aria-label="Sudoku board"></div>
+    <div id="numpad" class="numpad"></div>
+  </section>
+
+  <section class="glass controls">
+    <div class="ctrl-row">
+      <label class="ctrl-label" for="difficulty">Difficulty</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="new-btn" class="btn">New</button>
+    </div>
+    <div class="ctrl-row btns">
+      <button id="pencil-btn" class="btn toggle" title="Pencil marks">✎ Pencil</button>
+      <button id="hint-btn" class="btn" title="Fill one correct cell">Hint</button>
+      <button id="mistakes-btn" class="btn toggle active" title="Highlight mistakes">Mistakes</button>
+    </div>
+    <div class="ctrl-row btns">
+      <button id="reset-btn" class="btn">Reset</button>
+      <button id="erase-btn" class="btn">Erase</button>
+    </div>
+  </section>
+
+  <section id="solver-panel" class="glass solver hidden">
+    <h2>Solver</h2>
+    <p class="solver-hint">Type or paste a puzzle — 81 characters, digits 1–9, use 0 or . for empties.</p>
+    <textarea id="solver-input" rows="3" spellcheck="false" placeholder="530070000600195000098000060800060003400803001700020006060000280000419005000080079"></textarea>
+    <div class="ctrl-row btns">
+      <button id="solve-btn" class="btn primary">Solve</button>
+      <button id="load-btn" class="btn" title="Load puzzle into the board">Load to board</button>
+      <button id="clear-solver-btn" class="btn">Clear</button>
+    </div>
+    <p id="solver-output" class="solver-output"></p>
+  </section>
+
+  <footer class="footer"><p>Unique-solution guaranteed. All on-device.</p></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

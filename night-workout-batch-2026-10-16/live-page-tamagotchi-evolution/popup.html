@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="13" rx="7" ry="8.5"/>
+        <path d="M8 5.5c1-2 3-3 4-3s3 1 4 3"/>
+        <circle cx="9.5" cy="12" r="0.7" fill="currentColor"/>
+        <circle cx="14.5" cy="12" r="0.7" fill="currentColor"/>
+        <path d="M10 15.5q2 1.6 4 0"/>
+      </svg>
+    </span>
+    <div class="title-wrap">
+      <h1 id="petName" title="Click to rename">Pixel</h1>
+      <p class="sub"><span id="stageBadge" class="badge">Egg</span> · <span id="ageLine">newborn</span></p>
+    </div>
+    <span id="moodBadge" class="badge mood">happy</span>
+  </header>
+
+  <div class="stage" id="stage" aria-label="Your pet"></div>
+
+  <div class="meters">
+    <div class="meter">
+      <span class="m-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15.4 15.4L7 7l3-3 8.4 8.4a3.5 3.5 0 01-5 5z"/><path d="M5 19l3.5-3.5M17.5 6.5l1-1"/></svg></span>
+      <div class="m-bar"><div class="m-fill hunger" id="mHunger"></div></div>
+    </div>
+    <div class="meter">
+      <span class="m-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5q3.5 2.5 7 0M9 9.5h.01M15 9.5h.01"/></svg></span>
+      <div class="m-bar"><div class="m-fill happy" id="mHappy"></div></div>
+    </div>
+    <div class="meter">
+      <span class="m-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="15" height="9" rx="2.5"/><path d="M21 11v3M7 11v3M11 11v3"/></svg></span>
+      <div class="m-bar"><div class="m-fill energy" id="mEnergy"></div></div>
+    </div>
+  </div>
+
+  <p id="poopLine" class="poop" hidden></p>
+  <p id="evoLine" class="evo"></p>
+
+  <div class="actions">
+    <button class="btn" id="btnFeed">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15.4 15.4L7 7l3-3 8.4 8.4a3.5 3.5 0 01-5 5z"/></svg>
+      Feed
+    </button>
+    <button class="btn" id="btnPlay">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      Play
+    </button>
+    <button class="btn" id="btnClean">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>
+      Clean
+    </button>
+    <button class="btn" id="btnSleep">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 13.5A8 8 0 1110.5 4 6.5 6.5 0 0020 13.5z"/></svg>
+      <span id="sleepLabel">Sleep</span>
+    </button>
+  </div>
+
+  <button id="btnRevive" class="btn revive" hidden>Revive with love</button>
+
+  <div class="row">
+    <span class="bond">Bond <b id="bondPts">0</b></span>
+    <button id="btnWidget" class="link">Show mini-pet on this page</button>
+  </div>
+
+  <p id="status" class="status" role="status"></p>
+  <footer class="foot">100% local · evolves as you browse</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

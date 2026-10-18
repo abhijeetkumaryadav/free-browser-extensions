@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jira Ticket Auto Epics Linker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+        </span>
+        <div>
+          <h1>Ticket Epic Linker</h1>
+          <p class="subtitle">Offline organizer · no Jira API needed</p>
+        </div>
+      </div>
+      <button id="clear-all" class="icon-btn" title="Remove all tickets">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m2 0v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6"/>
+        </svg>
+      </button>
+    </header>
+
+    <section class="panel">
+      <label class="field-label" for="base-url">Jira base URL</label>
+      <input id="base-url" type="url" placeholder="https://your-team.atlassian.net" spellcheck="false">
+      <p class="hint">Used only to build quick links. Never contacted by the extension.</p>
+    </section>
+
+    <section class="panel">
+      <label class="field-label" for="keys-input">Paste ticket keys</label>
+      <textarea id="keys-input" rows="3" placeholder="PROJ-123, API-45&#10;WEB-9"></textarea>
+      <button id="add-keys" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Add tickets
+      </button>
+      <p id="parse-note" class="hint hidden"></p>
+    </section>
+
+    <section class="panel">
+      <div class="row-between">
+        <label class="field-label" for="search">Tickets</label>
+        <input id="search" type="search" placeholder="Filter…" autocomplete="off">
+      </div>
+      <div id="groups"></div>
+      <div id="empty" class="empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/>
+        </svg>
+        <p>No tickets yet.<br>Paste keys above to get started.</p>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <button id="copy-grouped" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        Copy grouped list
+      </button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

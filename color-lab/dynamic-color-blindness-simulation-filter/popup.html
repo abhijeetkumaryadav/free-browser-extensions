@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChromaSim</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18c-1.5 0-2-1-1.2-2.2.7-1.1.2-2.3-1-2.8-1.3-.6-1.3-2.3 0-2.9 1.2-.5 1.7-1.7 1-2.8C10 8.1 10.5 7 12 7V3z"/></svg>
+    </div>
+    <div>
+      <h1>ChromaSim</h1>
+      <p class="sub">Color blindness simulator</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="field-label">Simulation</span>
+      <span id="state" class="state idle">idle</span>
+    </div>
+    <div class="modes">
+      <button class="mode" data-mode="protanopia">
+        <span class="dot p"></span>
+        <span class="mode-name">Protanopia</span>
+        <span class="mode-desc">red-blind</span>
+      </button>
+      <button class="mode" data-mode="deuteranopia">
+        <span class="dot d"></span>
+        <span class="mode-name">Deuteranopia</span>
+        <span class="mode-desc">green-blind</span>
+      </button>
+      <button class="mode" data-mode="tritanopia">
+        <span class="dot t"></span>
+        <span class="mode-name">Tritanopia</span>
+        <span class="mode-desc">blue-blind</span>
+      </button>
+      <button class="mode" data-mode="achromatopsia">
+        <span class="dot a"></span>
+        <span class="mode-name">Achromatopsia</span>
+        <span class="mode-desc">no color</span>
+      </button>
+    </div>
+    <button id="restore" class="btn primary full">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      Restore normal vision
+    </button>
+  </section>
+
+  <p class="note">
+    Applies an SVG <code>feColorMatrix</code> filter to the current tab only, on your click.
+    <strong>Approximation</strong> — useful for design review, not a medical test.
+    Does nothing on restricted pages (chrome://, web store, new-tab).
+  </p>
+  <div id="toast" class="toast" aria-live="polite"></div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* ReplySmith — deep dark glassmorphism, blue accent */
+:root {
+  --accent: #3b82f6;
+  --bg: #0b0c10;
+  --panel: rgba(20, 20, 26, .72);
+  --line: rgba(255, 255, 255, .09);
+  --txt: #e8eaf0;
+  --mut: #9aa0ae;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--txt);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.app { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.hdr { display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+.badge {
+  font-size: 10px; color: var(--accent); border: 1px solid var(--accent);
+  border-radius: 20px; padding: 2px 8px; text-transform: uppercase; letter-spacing: .06em;
+}
+.lbl { font-size: 11px; color: var(--mut); text-transform: uppercase; letter-spacing: .05em; }
+textarea, select {
+  width: 100%; background: var(--panel); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); border-radius: 10px; color: var(--txt);
+  padding: 10px 12px; font: inherit; resize: vertical;
+}
+textarea { min-height: 90px; }
+textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+.row2 { display: flex; gap: 10px; }
+.row2 > div { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+button { cursor: pointer; font: inherit; border-radius: 10px; border: none; }
+.primary {
+  background: var(--accent); color: #fff; font-weight: 600;
+  padding: 11px; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.primary:hover { filter: brightness(1.1); }
+.ghost {
+  background: var(--panel); backdrop-filter: blur(12px); color: var(--txt);
+  border: 1px solid var(--line); padding: 9px; flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.ghost:hover { border-color: var(--accent); }
+.blocks { display: flex; flex-direction: column; gap: 10px; }
+.blk { background: var(--panel); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.blk-h { font-size: 11px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+.blk textarea { min-height: 0; border: none; background: transparent; padding: 0; }
+.blk textarea:focus { border: none; }
+.saved { display: flex; flex-direction: column; gap: 6px; }
+.saved-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px;
+  font-size: 12px; color: var(--mut);
+}
+.saved-item button { background: none; color: var(--accent); font-size: 12px; padding: 2px 6px; }
+.fine { font-size: 11px; color: var(--mut); margin: 0; text-align: center; }

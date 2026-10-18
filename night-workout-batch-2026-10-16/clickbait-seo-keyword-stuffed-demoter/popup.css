@@ -1,0 +1,19 @@
+:root { --accent: #ef4444; --bg: rgba(20,20,26,.72); --ink: #f3f4f6; --muted: #9ca3af; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { width: 380px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #0b0b10; color: var(--ink); }
+.panel { background: var(--bg); backdrop-filter: blur(12px); padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+.hdr { display: flex; gap: 12px; align-items: center; }
+.logo { width: 28px; height: 28px; color: var(--accent); flex: none; }
+h1 { font-size: 16px; font-weight: 700; }
+.sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.banner { font-size: 11px; background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.35); border-radius: 10px; padding: 10px 12px; line-height: 1.5; }
+.actions { display: flex; gap: 10px; }
+.btn { flex: 1; padding: 10px; border-radius: 10px; border: 0; font-size: 13px; font-weight: 600; cursor: pointer; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.ghost { background: rgba(255,255,255,.08); color: var(--ink); border: 1px solid rgba(255,255,255,.12); }
+.btn:disabled { opacity: .5; cursor: default; }
+.stats { display: flex; gap: 10px; }
+.stat { flex: 1; background: rgba(255,255,255,.05); border-radius: 10px; padding: 10px; text-align: center; }
+.num { display: block; font-size: 20px; font-weight: 700; color: var(--accent); }
+.lbl { font-size: 10px; color: var(--muted); }
+.note { font-size: 11px; color: var(--muted); line-height: 1.6; }

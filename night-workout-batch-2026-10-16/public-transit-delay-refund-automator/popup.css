@@ -1,0 +1,135 @@
+/* Public Transit Delay Refund Helper — popup styles
+ * Deep-dark glassmorphism, 380px width, single teal accent. */
+:root {
+  --accent: #2dd4bf;
+  --accent-soft: rgba(45, 212, 191, 0.14);
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
+  padding: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.app-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.app-header h1 { font-size: 16px; font-weight: 700; }
+.subtitle { font-size: 11px; color: var(--muted); }
+.icon-wrap {
+  width: 40px; height: 40px; flex: 0 0 40px; border-radius: 12px;
+  background: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center;
+}
+.icon-wrap svg, .icon svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icon { display: inline-flex; align-items: center; justify-content: center; }
+
+.honesty-banner {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius);
+  padding: 10px 12px; margin-bottom: 14px;
+}
+.honesty-banner .icon svg { stroke: #f59e0b; }
+.honesty-banner p { font-size: 11.5px; color: #fcd34d; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.tab {
+  flex: 1; padding: 9px 4px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--card); color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.tab.active { background: var(--accent-soft); color: var(--accent); border-color: rgba(45, 212, 191, 0.4); }
+.tabpane.hidden { display: none; }
+
+.stats { display: flex; gap: 8px; margin-bottom: 12px; }
+.stat {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 8px; text-align: center;
+}
+.stat b { display: block; font-size: 18px; color: var(--accent); }
+.stat span { font-size: 10.5px; color: var(--muted); }
+
+form label { display: block; font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
+form input, form select, textarea {
+  width: 100%; margin-top: 3px; padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: 13px; font-family: inherit;
+  color-scheme: dark;
+}
+textarea { resize: vertical; margin-bottom: 10px; }
+.row { display: flex; gap: 8px; }
+.row label { flex: 1; }
+
+.primary-btn {
+  width: 100%; padding: 12px; margin-top: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--accent); border: none; border-radius: var(--radius);
+  color: #04211d; font-size: 14px; font-weight: 700; cursor: pointer;
+}
+.primary-btn .icon svg { stroke: #04211d; }
+.primary-btn:active { transform: scale(0.98); }
+
+.btn-row { display: flex; gap: 8px; }
+.secondary-btn {
+  flex: 1; padding: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); font-size: 12.5px; font-weight: 600; cursor: pointer;
+}
+.secondary-btn:hover { border-color: var(--accent); }
+
+.delay-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.delay-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px;
+}
+.delay-card .head { display: flex; justify-content: space-between; align-items: center; }
+.delay-card .route { font-weight: 700; font-size: 12.5px; }
+.delay-card .meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.badge {
+  font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  background: rgba(45, 212, 191, 0.15); color: #5eead4;
+}
+.badge.sent { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; }
+.badge.refunded { background: rgba(52, 211, 153, 0.15); color: #6ee7b7; }
+.badge.denied { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+.card-actions { display: flex; gap: 6px; margin-top: 8px; }
+.card-actions button {
+  padding: 5px 10px; font-size: 11px; border-radius: 8px; cursor: pointer;
+  background: rgba(255,255,255,.06); border: 1px solid var(--border); color: var(--text);
+}
+.card-actions button:hover { border-color: var(--accent); }
+.card-actions .danger { color: #fb7185; }
+
+.checklist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.check-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px; cursor: pointer;
+}
+.check-item input { margin-top: 3px; accent-color: var(--accent); }
+.check-item.done .check-text { text-decoration: line-through; color: var(--muted); }
+.check-text b { display: block; font-size: 12.5px; }
+.check-text span { font-size: 11.5px; color: var(--muted); }
+
+.link-btn {
+  background: none; border: none; color: var(--muted);
+  font-size: 11.5px; cursor: pointer; text-decoration: underline;
+}
+.empty { text-align: center; color: var(--muted); font-size: 12px; padding: 14px; }
+
+.footer { margin-top: 14px; }
+.footer p { font-size: 10.5px; color: var(--muted); }

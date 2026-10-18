@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Split CSV Planner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="app-head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="6" rx="1"/><rect x="18" y="9" width="4" height="6" rx="1"/><rect x="6" y="10.5" width="12" height="3" rx="1"/><line x1="6" y1="12" x2="4" y2="12"/></svg>
+    </div>
+    <div class="head-text">
+      <h1>Split Planner</h1>
+      <p class="sub">Your plan — not coaching advice</p>
+    </div>
+  </header>
+
+  <!-- Days -->
+  <section class="card">
+    <div class="card-head">
+      <h2>Training days</h2>
+      <button id="add-day" class="link-btn">+ Add day</button>
+    </div>
+    <div id="day-chips" class="chips"></div>
+  </section>
+
+  <!-- Active day -->
+  <section class="card">
+    <div class="card-head">
+      <h2 id="day-title">Day</h2>
+      <button id="rename-day" class="link-btn">Rename</button>
+      <button id="delete-day" class="link-btn danger">Delete day</button>
+    </div>
+    <div class="ex-form">
+      <input id="ex-name" type="text" placeholder="Exercise (e.g. Bench press)" maxlength="60">
+      <div class="ex-nums">
+        <label>Sets <input id="ex-sets" type="number" min="1" max="99" placeholder="3"></label>
+        <label>Reps <input id="ex-reps" type="text" placeholder="8–10" maxlength="20"></label>
+        <label>Rest <input id="ex-rest" type="text" placeholder="90s" maxlength="20"></label>
+      </div>
+      <button id="add-ex" class="primary">Add exercise</button>
+    </div>
+    <ul id="ex-list" class="ex-list"></ul>
+    <p id="ex-empty" class="empty">No exercises yet — add one above.</p>
+  </section>
+
+  <!-- CSV -->
+  <section class="card">
+    <h2>CSV export / import</h2>
+    <div class="btn-row">
+      <button id="export-csv" class="primary">Export CSV</button>
+      <label class="file-btn">Import CSV<input id="import-file" type="file" accept=".csv,text/csv" hidden></label>
+    </div>
+    <p class="hint">Format: <code>day,exercise,sets,reps,rest</code> — one row per exercise.</p>
+    <button id="clear-all" class="link-btn danger">Clear whole plan</button>
+  </section>
+
+  <footer class="foot">100% local — nothing leaves your browser.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webhook Payload Sniffer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="2"/>
+      <path d="M7.5 7.5a6.4 6.4 0 0 0 0 9M16.5 7.5a6.4 6.4 0 0 1 0 9M4.9 4.9a10 10 0 0 0 0 14.2M19.1 4.9a10 10 0 0 1 0 14.2"/>
+    </svg>
+    <div>
+      <h1>Webhook Sniffer</h1>
+      <p>Test workbench · pasted payloads only</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card glass">
+      <h2>Payload</h2>
+      <textarea id="payload" rows="7" spellcheck="false" placeholder='Paste JSON here, e.g. {"event":"order.created","id":123}'></textarea>
+      <div id="validation" class="validation" hidden></div>
+      <div class="btn-row">
+        <button id="btnValidate" class="primary">Validate</button>
+        <button id="btnPretty" class="ghost">Pretty-print</button>
+        <button id="btnSave" class="ghost">Save</button>
+        <button id="btnClear" class="ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="card glass">
+      <h2>Test endpoint</h2>
+      <input id="endpoint" type="url" inputmode="url" placeholder="https://your-test-server.example/hook">
+      <div class="row">
+        <select id="method" aria-label="HTTP method">
+          <option>POST</option>
+          <option>PUT</option>
+          <option>PATCH</option>
+        </select>
+        <button id="btnCurl" class="primary grow">Generate curl</button>
+      </div>
+      <div id="curlWrap" hidden>
+        <pre id="curlOut"></pre>
+        <button id="btnCopyCurl" class="ghost">Copy curl</button>
+      </div>
+      <p class="note">Runs only against the URL you type. Nothing is sent automatically.</p>
+    </section>
+
+    <section class="card glass">
+      <h2>History</h2>
+      <div id="history" class="history"></div>
+      <p id="historyEmpty" class="note">No saved payloads yet.</p>
+    </section>
+  </main>
+
+<script src="popup.js"></script>
+</body>
+</html>

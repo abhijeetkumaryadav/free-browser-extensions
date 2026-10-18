@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Activity Audit</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M13 2 4.5 13.5H11L9.5 22 19 9.5h-6.5L13 2z"/>
+      </svg>
+    </div>
+    <div class="head-text">
+      <h1>Page Activity Audit</h1>
+      <p class="sub">Battery &amp; CPU Guard</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/>
+    </svg>
+    <span>Honest scope: measures <b>this visible page</b> only (estimates). It <b>cannot</b> measure per-extension CPU in Manifest V3.</span>
+  </div>
+
+  <button id="scanBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+    </svg>
+    <span>Run 5-second audit</span>
+  </button>
+
+  <div id="progress" class="progress hidden">
+    <div class="bar"><div class="fill" id="progressFill"></div></div>
+    <p>Measuring page activity… keep this tab visible.</p>
+  </div>
+
+  <section id="results" class="hidden">
+    <div class="score-row">
+      <div class="ring" id="scoreRing"><span id="scoreVal">–</span></div>
+      <div class="score-meta">
+        <p class="verdict" id="verdict">–</p>
+        <p class="page" id="pageTitle">–</p>
+      </div>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="t-num" id="tLong">–</span><span class="t-lbl">long tasks</span></div>
+      <div class="tile"><span class="t-num" id="tFps">–</span><span class="t-lbl">avg FPS</span></div>
+      <div class="tile"><span class="t-num" id="tLag">–</span><span class="t-lbl">loop lag p95</span></div>
+      <div class="tile"><span class="t-num" id="tRes">–</span><span class="t-lbl">resources</span></div>
+    </div>
+    <h2 class="sec-title">Findings</h2>
+    <div id="findings" class="findings"></div>
+    <h2 class="sec-title">Heavy tabs — consider closing</h2>
+    <p class="hint">The audit covers the visible tab only. Close other tabs to save battery.</p>
+    <div id="tabList" class="tabs"></div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

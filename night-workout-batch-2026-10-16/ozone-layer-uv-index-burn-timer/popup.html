@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UV Burn Timer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header>
+    <svg viewBox="0 0 24 24" class="ico" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+    <div>
+      <h1>UV Burn Timer</h1>
+      <p class="sub">Ozone &amp; UV safety explainer</p>
+    </div>
+  </header>
+
+  <div class="notice">Estimates — <b>not medical advice</b>. No live UV data; it only computes from the UV index <i>you</i> enter.</div>
+
+  <section>
+    <h2>Burn-time estimator</h2>
+    <label>UV index (check your local forecast)
+      <input id="uv" type="number" min="1" max="20" step="0.5" value="6">
+    </label>
+    <label>Fitzpatrick skin type
+      <select id="skin">
+        <option value="0.5">I — always burns, never tans</option>
+        <option value="0.75">II — usually burns, tans minimally</option>
+        <option value="1" selected>III — sometimes burns, tans gradually</option>
+        <option value="1.5">IV — rarely burns, tans well</option>
+        <option value="2.5">V — very rarely burns, tans easily</option>
+        <option value="4">VI — never burns, deeply pigmented</option>
+      </select>
+    </label>
+    <div id="result" class="result">—</div>
+    <p class="hint" id="spfHint"></p>
+  </section>
+
+  <section>
+    <h2>UV index scale</h2>
+    <div id="scale" class="scale"></div>
+  </section>
+
+  <section>
+    <h2>The ozone layer</h2>
+    <p class="edu">Stratospheric ozone (~15–30 km up) absorbs most of the sun's UV-B and UV-C. When the ozone layer is thinner — e.g. the Antarctic spring hole — more UV-B reaches the surface, so the same weather can carry a higher UV index.</p>
+  </section>
+
+  <section>
+    <h2>Sunscreen notes</h2>
+    <ul class="edu-list">
+      <li><b>SPF 30</b> theoretically multiplies unprotected burn time ×30 — <i>if</i> applied at 2 mg/cm². Most people apply far less.</li>
+      <li>Reapply every 2 hours, and after swimming or sweating.</li>
+      <li>Seek shade at peak UV (roughly 10:00–16:00).</li>
+      <li>No sunscreen blocks 100% of UV — shade and clothing come first.</li>
+    </ul>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

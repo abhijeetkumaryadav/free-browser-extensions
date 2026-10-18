@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyboard Shortcut Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M18 13h.01M9 13h6"/></svg>
+    <div><h1>Shortcut Mapper</h1><p>Keys → URLs &amp; snippets</p></div>
+  </header>
+  <main>
+    <section class="glass card help">
+      <h2>Assign your keys</h2>
+      <ol>
+        <li>Copy the address below and paste it into the address bar.</li>
+        <li>Find <b>Keyboard Shortcut Mapper</b> and set a key per slot.</li>
+      </ol>
+      <div class="help-row">
+        <code>chrome://extensions/shortcuts</code>
+        <button id="copyAddr" class="ghost small">Copy address</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Slots</h2>
+      <div id="slots"></div>
+      <button id="resetBtn" class="ghost">Reset to defaults</button>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

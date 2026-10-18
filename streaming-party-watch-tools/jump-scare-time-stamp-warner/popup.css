@@ -1,0 +1,185 @@
+/* ScareWarn popup — deep dark glassmorphism, single red accent. */
+:root {
+  --accent: #ef4444;
+  --bg: #0b0e14;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8ecf1;
+  --muted: #8b93a3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 16px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.logo-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.08));
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.logo-dot svg { width: 20px; height: 20px; }
+
+.app-header h1 { font-size: 15px; font-weight: 650; letter-spacing: 0.2px; }
+.subtitle { font-size: 11.5px; color: var(--muted); }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.hint { text-transform: none; letter-spacing: 0; font-size: 11px; }
+
+.title-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.title-row:last-child { margin-bottom: 0; }
+
+select, input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  outline: none;
+}
+
+select:focus, input[type="text"]:focus { border-color: rgba(239, 68, 68, 0.55); }
+select option { background: #14161c; }
+.time-input { max-width: 76px; flex: 0 0 76px; }
+
+.accent-btn {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 9px;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.accent-btn:hover { filter: brightness(1.1); }
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 9px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.icon-btn svg { width: 15px; height: 15px; }
+.icon-btn:hover { color: var(--accent); border-color: rgba(239, 68, 68, 0.5); }
+
+.stamp-list { list-style: none; margin-bottom: 10px; max-height: 148px; overflow-y: auto; }
+
+.stamp-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 12.5px;
+}
+
+.stamp-time {
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.stamp-note { flex: 1; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.stamp-del {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 2px 4px;
+}
+.stamp-del:hover { color: var(--accent); }
+
+.empty { color: var(--muted); font-size: 12px; text-align: center; padding: 10px 0; }
+
+.watch-row { display: flex; gap: 8px; }
+
+.watch-btn {
+  flex: 1;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 9px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.watch-btn:hover:not(:disabled) { filter: brightness(1.1); }
+.watch-btn:disabled { opacity: 0.45; cursor: default; }
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ghost-btn:hover:not(:disabled) { border-color: rgba(239, 68, 68, 0.5); }
+.ghost-btn:disabled { opacity: 0.45; cursor: default; }
+
+.fineprint { font-size: 11px; color: var(--muted); text-align: center; margin-bottom: 6px; }
+
+.status { min-height: 18px; font-size: 12px; color: var(--muted); text-align: center; }
+.status.ok { color: var(--accent); }
+.status.err { color: #f87171; }

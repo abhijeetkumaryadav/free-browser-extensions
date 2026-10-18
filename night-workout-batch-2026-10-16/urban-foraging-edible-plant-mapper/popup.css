@@ -1,0 +1,115 @@
+/* Urban Foraging Plant Mapper — deep-dark glassmorphism, single amber accent */
+:root {
+  --bg: #0c0e12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --panel-solid: #14161c;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #eef1f4;
+  --muted: #9aa3ad;
+  --accent: #f59e0b;
+  --accent-dim: rgba(245, 158, 11, 0.14);
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 600px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+}
+
+.app { padding: 14px 14px 16px; }
+
+.hero {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; margin-bottom: 10px;
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 14px;
+}
+.hero-icon {
+  width: 38px; height: 38px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-dim); border-radius: 11px; color: var(--accent);
+}
+.hero-icon svg { width: 22px; height: 22px; }
+.hero h1 { font-size: 15px; font-weight: 700; }
+.hero p { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.disclaimer {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 11px; color: var(--accent); line-height: 1.5;
+  background: var(--accent-dim); border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 10px; padding: 8px 10px; margin-bottom: 10px;
+}
+.disclaimer svg { width: 14px; height: 14px; flex: none; margin-top: 1px; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tab {
+  flex: 1; padding: 8px; font-size: 12.5px; font-weight: 600;
+  background: var(--panel); color: var(--muted);
+  border: 1px solid var(--border); border-radius: 10px; cursor: pointer;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.tab.active { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.search-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+input, textarea {
+  flex: 1; padding: 8px 10px; font-size: 12.5px; color: var(--text);
+  background: var(--panel-solid); border: 1px solid var(--border); border-radius: 10px; outline: none;
+}
+input:focus, textarea:focus { border-color: var(--accent); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 12px; font-size: 12.5px; font-weight: 600;
+  border-radius: 10px; border: 1px solid var(--border); cursor: pointer;
+  background: var(--panel); color: var(--text);
+}
+.btn svg { width: 14px; height: 14px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #140d02; }
+.btn.ghost { background: transparent; }
+
+.list { display: flex; flex-direction: column; gap: 8px; max-height: 330px; overflow-y: auto; }
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 10px 12px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.card h3 { font-size: 13px; font-weight: 700; }
+.card h3 .latin { font-weight: 400; font-style: italic; color: var(--muted); font-size: 11.5px; }
+.detail-row { display: flex; gap: 6px; font-size: 11.5px; margin-top: 6px; line-height: 1.5; }
+.detail-row .k { color: var(--accent); font-weight: 700; flex: none; min-width: 74px; }
+.detail-row .v { color: var(--muted); }
+.detail-row.warn .v { color: #fbbf24; }
+.card-actions { display: flex; gap: 6px; flex: none; }
+.card-actions button {
+  background: transparent; border: 1px solid var(--border); border-radius: 8px;
+  color: var(--muted); padding: 5px; cursor: pointer; display: flex;
+}
+.card-actions button:hover { color: var(--text); border-color: var(--text); }
+.card-actions button.danger:hover { color: var(--danger); border-color: var(--danger); }
+.card-actions svg { width: 13px; height: 13px; }
+.log-date { font-size: 11px; color: var(--accent); font-weight: 600; margin-top: 4px; }
+
+.empty { text-align: center; color: var(--muted); font-size: 12px; padding: 24px 12px; }
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
+  display: flex; align-items: center; justify-content: center; z-index: 10;
+}
+.overlay.hidden { display: none; }
+.sheet {
+  width: 92%; background: var(--panel-solid); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.sheet h2 { font-size: 14px; }
+.sheet label { font-size: 11.5px; color: var(--muted); display: flex; flex-direction: column; gap: 5px; }
+.sheet input, .sheet textarea { width: 100%; }
+.sheet-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }

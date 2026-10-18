@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>StrokeBoost</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="brand">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M4 7V4h16v3"/><path d="M12 4v16"/><path d="M9 20h6"/>
+  </svg>
+  <div>
+    <h1>StrokeBoost</h1>
+    <p>Text contrast enhancer</p>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <div class="row">
+      <label class="switch">
+        <input type="checkbox" id="enabled">
+        <span class="track"><span class="thumb"></span></span>
+      </label>
+      <span class="label">Enhance this tab</span>
+      <span class="host" id="host">—</span>
+    </div>
+
+    <div class="seg-block">
+      <span class="seg-label">Mode</span>
+      <div class="seg" role="radiogroup" aria-label="Enhancement mode">
+        <button type="button" id="modeStroke" class="seg-btn active" aria-pressed="true">Stroke</button>
+        <button type="button" id="modeShadow" class="seg-btn" aria-pressed="false">Shadow</button>
+      </div>
+    </div>
+
+    <div class="slider-block">
+      <div class="slider-head">
+        <label for="intensity">Intensity</label>
+        <output id="intensityVal">0.5 px</output>
+      </div>
+      <input type="range" id="intensity" min="0.2" max="2" step="0.1" value="0.5">
+      <div class="ticks"><span>Subtle</span><span>Strong</span></div>
+    </div>
+
+    <div class="preview panel-inset" id="preview" aria-hidden="true">Contrast</div>
+
+    <div class="btn-row">
+      <button id="restore" class="ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        Restore original
+      </button>
+    </div>
+  </section>
+
+  <p class="hint">Accessibility aid: adds a subtle stroke or shadow to page text. Nothing is permanently changed — restore or reload to revert.</p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

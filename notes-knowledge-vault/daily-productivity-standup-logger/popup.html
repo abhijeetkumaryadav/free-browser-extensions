@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="appbar">
+  <div class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+    <div>
+      <h1>StandLog</h1>
+      <p id="dateLabel" class="subtitle"></p>
+    </div>
+  </div>
+  <div class="streak" title="Consecutive days with an entry">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+    <span id="streakCount">0</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="today">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></svg>
+    Today
+  </button>
+  <button class="tab" data-tab="calendar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Calendar
+  </button>
+  <button class="tab" data-tab="entries">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    Entries
+  </button>
+</nav>
+
+<main>
+  <!-- TODAY -->
+  <section id="tab-today" class="tabpanel active">
+    <div class="field">
+      <label for="fYesterday"><span class="dot dot-green"></span>Yesterday <span class="hint">what you accomplished</span></label>
+      <textarea id="fYesterday" rows="3" placeholder="Shipped the onboarding flow, reviewed 4 PRs…"></textarea>
+    </div>
+    <div class="field">
+      <label for="fToday"><span class="dot dot-amber"></span>Today <span class="hint">what you plan to do</span></label>
+      <textarea id="fToday" rows="3" placeholder="Finish API docs, prep sprint demo…"></textarea>
+    </div>
+    <div class="field">
+      <label for="fBlockers"><span class="dot dot-red"></span>Blockers <span class="hint">anything in your way</span></label>
+      <textarea id="fBlockers" rows="2" placeholder="Waiting on design assets for checkout…"></textarea>
+    </div>
+    <div class="row">
+      <button id="saveBtn" class="primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+        Save entry
+      </button>
+      <button id="exportBtn" class="ghost" title="Export all entries as Markdown">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+        Export
+      </button>
+    </div>
+    <p id="saveStatus" class="status"></p>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="tab-calendar" class="tabpanel">
+    <div class="cal-head">
+      <button id="calPrev" class="icon-btn" aria-label="Previous month">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <h2 id="calTitle"></h2>
+      <button id="calNext" class="icon-btn" aria-label="Next month">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <p class="legend"><span class="dot dot-amber"></span> has an entry — click a day to view / edit it</p>
+  </section>
+
+  <!-- ENTRIES -->
+  <section id="tab-entries" class="tabpanel">
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="searchInput" type="text" placeholder="Search entries…">
+    </div>
+    <div id="entryList" class="entry-list"></div>
+  </section>
+</main>
+
+<!-- Entry detail modal -->
+<div id="detailModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="detailDate"></h3>
+      <button id="detailClose" class="icon-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="field"><label><span class="dot dot-green"></span>Yesterday</label><textarea id="dYesterday" rows="3"></textarea></div>
+    <div class="field"><label><span class="dot dot-amber"></span>Today</label><textarea id="dToday" rows="3"></textarea></div>
+    <div class="field"><label><span class="dot dot-red"></span>Blockers</label><textarea id="dBlockers" rows="2"></textarea></div>
+    <div class="row">
+      <button id="detailSave" class="primary">Save changes</button>
+      <button id="detailDelete" class="danger-ghost">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

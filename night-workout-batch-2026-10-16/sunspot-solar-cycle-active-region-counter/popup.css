@@ -1,0 +1,36 @@
+:root{--bg:rgba(20,20,26,.72);--fg:#f4f4f6;--mut:#a8a8b3;--acc:#fbbf24;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--fg);
+background:#0d0d12;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.card{background:var(--bg);padding:14px 16px}
+header{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.icon{width:30px;height:30px;color:var(--acc);flex:none}
+h1{font-size:17px;font-weight:700}
+.sub{font-size:12px;color:var(--mut)}
+h2{font-size:13px;font-weight:700;margin:12px 0 8px;color:var(--fg)}
+.notice{font-size:11.5px;color:#ffe3b0;background:rgba(251,191,36,.10);
+border:1px solid rgba(251,191,36,.28);border-radius:8px;padding:8px 10px;margin-bottom:10px}
+.guide{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-bottom:6px;background:rgba(255,255,255,.03)}
+.guide summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--acc)}
+.guide ul{margin:8px 0 4px 16px;font-size:12.5px;color:var(--mut)}
+.guide li{margin-bottom:5px}
+.guide b{color:var(--fg)}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+label{font-size:12px;color:var(--mut)}
+input{width:100%;margin-top:4px;background:rgba(255,255,255,.06);border:1px solid var(--line);
+color:var(--fg);border-radius:8px;padding:8px;font-size:13px;color-scheme:dark}
+input:focus{outline:2px solid var(--acc);outline-offset:0;border-color:transparent}
+.btn{background:var(--acc);border:0;color:#1a1206;font-weight:700;border-radius:8px;
+padding:9px 12px;font-size:13px;cursor:pointer;width:100%}
+.preview{margin-top:8px;font-size:13px;color:var(--mut)}
+.preview b{color:var(--acc);font-size:17px}
+#chart{width:100%;height:110px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+.hist{display:flex;flex-direction:column;gap:6px;max-height:170px;overflow-y:auto}
+.row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);
+border-radius:8px;padding:7px 10px;font-size:12.5px;background:rgba(255,255,255,.02)}
+.row .r{font-weight:800;color:var(--acc);font-size:15px}
+.row .d{color:var(--mut);font-size:11.5px}
+.row button{background:none;border:0;color:var(--mut);cursor:pointer;font-size:14px}
+.row button:hover{color:#e27e7e}
+.empty{font-size:13px;color:var(--mut);text-align:center;padding:12px}
+footer{margin-top:12px;font-size:11px;color:var(--mut)}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Warranty Vetter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    <div>
+      <h1>Warranty Vetter</h1>
+      <p class="sub">Compare used &amp; refurbished warranties</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Scores are based on <strong>your entered terms</strong> — not a verification of seller claims. Always read the actual policy.</span>
+  </div>
+
+  <section class="card form-card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      Add seller terms
+    </h2>
+    <div class="grid2">
+      <label>Seller<input id="f-seller" type="text" placeholder="e.g. RenewTech"></label>
+      <label>Item<input id="f-item" type="text" placeholder="e.g. Phone X"></label>
+      <label>Warranty (months)<input id="f-months" type="number" min="0" max="120" value="6"></label>
+      <label>Money-back (days)<input id="f-back" type="number" min="0" max="365" value="14"></label>
+    </div>
+    <fieldset>
+      <legend>Coverage</legend>
+      <label class="chk"><input type="checkbox" id="f-cov-parts" checked> Parts &amp; labor</label>
+      <label class="chk"><input type="checkbox" id="f-cov-battery"> Battery / main component</label>
+      <label class="chk"><input type="checkbox" id="f-cov-accidental"> Accidental damage</label>
+      <label class="chk"><input type="checkbox" id="f-cov-certified"> Certified refurbished</label>
+    </fieldset>
+    <div class="grid2">
+      <label>Return shipping
+        <select id="f-ship">
+          <option value="seller">Paid by seller</option>
+          <option value="buyer">Paid by buyer</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </label>
+      <label>Restocking fee
+        <select id="f-restock">
+          <option value="no">No fee</option>
+          <option value="yes">Has a fee</option>
+          <option value="unknown">Unknown</option>
+        </select>
+      </label>
+    </div>
+    <label class="full">Exclusions / notes<textarea id="f-notes" rows="2" placeholder="e.g. screen not covered…"></textarea></label>
+    <button id="btn-add" class="primary">Add to comparison</button>
+  </section>
+
+  <section class="card">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 4 3 5-8"/></svg>
+      Comparison <span id="count" class="pill">0</span>
+    </h2>
+    <div id="list" class="list"><p class="empty">No sellers added yet.</p></div>
+    <button id="btn-clear" class="ghost">Clear all entries</button>
+  </section>
+
+  <footer>Scores follow the checklist below. 100% local — nothing leaves your browser.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

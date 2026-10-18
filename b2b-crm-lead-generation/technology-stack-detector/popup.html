@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology Stack Detector</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4.9-9 4.9-9-4.9z"/><path d="m3 11.9 9 4.9 9-4.9"/><path d="m3 16.9 9 4.9 9-4.9"/></svg>
+    <div><h1>Stack Detector</h1><p id="pageHost">—</p></div>
+    <button id="analyze" class="primary">Analyze</button>
+  </header>
+  <main>
+    <div id="stats" class="stats" hidden>
+      <div><span>Found</span><b id="stCount">0</b></div>
+      <div><span>High conf.</span><b id="stHigh">0</b></div>
+      <div><span>Categories</span><b id="stCats">0</b></div>
+    </div>
+    <div id="groups"></div>
+    <div id="empty" class="empty">Hit <b>Analyze</b> to fingerprint the libraries, frameworks, analytics and CMS behind this page.</div>
+    <div id="actions" class="actions" hidden>
+      <button id="copyBtn" class="ghost">⧉ Copy report</button>
+    </div>
+    <p class="note">Fingerprint-based, best-effort detection — minified or bundled code may be missed.</p>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormPilot</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="2" width="8" height="4" rx="1"></rect>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <path d="m9 14 2 2 4-4"></path>
+        </svg>
+      </div>
+      <div>
+        <h1>FormPilot</h1>
+        <p class="subtitle">Profile form filler</p>
+      </div>
+    </header>
+
+    <!-- ============ MAIN VIEW ============ -->
+    <section id="mainView">
+      <div class="card">
+        <div class="row">
+          <span class="label">Profile</span>
+          <div class="profile-actions">
+            <button id="newProfileBtn" class="icon-btn" title="New profile" aria-label="New profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <button id="editProfileBtn" class="icon-btn" title="Edit profile" aria-label="Edit profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+            </button>
+            <button id="delProfileBtn" class="icon-btn danger" title="Delete profile" aria-label="Delete profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </button>
+          </div>
+        </div>
+        <select id="profileSelect" class="select" aria-label="Active profile"></select>
+        <p class="hint">Only fills fields you approve below. Passwords are never touched.</p>
+      </div>
+
+      <button id="scanBtn" class="primary" type="button">Scan this page</button>
+
+      <section id="previewCard" class="card hidden">
+        <div class="row">
+          <span class="label">Fields found <span id="fieldCount" class="count"></span></span>
+          <button id="toggleAllBtn" class="link" type="button">Select all</button>
+        </div>
+        <div id="fieldList" class="field-list"></div>
+        <button id="fillBtn" class="primary" type="button">Fill selected</button>
+        <p id="resultMsg" class="result hidden"></p>
+      </section>
+
+      <div class="row tools">
+        <button id="exportBtn" class="ghost" type="button">Export profiles</button>
+        <button id="importBtn" class="ghost" type="button">Import</button>
+        <input id="importFile" type="file" accept="application/json" class="hidden" />
+      </div>
+
+      <p class="foot">
+        Honest scope: fills <strong>web forms</strong> from your saved profiles.
+        Browser PDF viewers can't be scripted by extensions.
+      </p>
+    </section>
+
+    <!-- ============ EDITOR VIEW ============ -->
+    <section id="editorView" class="hidden">
+      <div class="card">
+        <div class="label mb">Profile name</div>
+        <input id="editName" class="text-input" placeholder="e.g. Personal" maxlength="60" />
+        <div id="editFields" class="edit-fields"></div>
+      </div>
+      <div class="row btns">
+        <button id="cancelEditBtn" class="ghost" type="button">Cancel</button>
+        <button id="saveProfileBtn" class="primary flex" type="button">Save profile</button>
+      </div>
+    </section>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

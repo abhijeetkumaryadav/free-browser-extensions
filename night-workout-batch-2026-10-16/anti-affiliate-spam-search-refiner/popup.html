@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anti-Affiliate Spam Search Refiner</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4.4 8.4 9 9 4.6-.6 9-4 9-9V7l-9-5z"/><line x1="4.5" y1="4.5" x2="19.5" y2="19.5"/></svg>
+    </div>
+    <div>
+      <h1>Affiliate Spam Refiner</h1>
+      <p class="sub">Dim affiliate-heavy results on any search page</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Heuristic only — signals can miss or misfire. Nothing runs until you click. Fully reversible.</span>
+  </div>
+
+  <section class="card">
+    <div class="row">
+      <button id="scanBtn" class="primary">Scan &amp; dim affiliate spam</button>
+      <button id="restoreBtn" class="ghost" disabled>Restore page</button>
+    </div>
+    <label class="mode">
+      <span>Matched cards:</span>
+      <div class="seg">
+        <button id="dimMode" class="seg-on">Dim</button>
+        <button id="hideMode">Collapse</button>
+      </div>
+    </label>
+  </section>
+
+  <section class="card" id="resultsCard" hidden>
+    <h2>Last scan <span id="matchCount" class="pill">0</span></h2>
+    <ul id="matchList" class="matches"></ul>
+  </section>
+
+  <section class="card stats">
+    <div class="stat"><span class="num" id="lifetimeDimmed">0</span><span class="lbl">dimmed total</span></div>
+    <div class="stat"><span class="num" id="sessionScans">0</span><span class="lbl">scans this session</span></div>
+  </section>
+
+  <footer>Your choice, reversible — review dimmed cards yourself.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

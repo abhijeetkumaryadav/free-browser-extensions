@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Talent Sourcer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8.5 11h5"/><path d="M11 8.5v5"/></svg>
+    <div><h1>Talent Sourcer</h1><p id="pageInfo">GitHub profile → candidate card</p></div>
+  </header>
+  <main>
+    <section id="notGh" class="glass card" hidden>
+      <p class="note">Open a <b>github.com</b> profile page, then reopen this popup to extract a candidate.</p>
+    </section>
+
+    <section id="extract" class="glass card" hidden>
+      <button id="extractBtn" class="primary">Extract this profile</button>
+    </section>
+
+    <section id="card" class="glass card" hidden>
+      <div class="cand-head">
+        <div class="avatar" id="cAvatar">?</div>
+        <div class="cand-id">
+          <b id="cName">—</b>
+          <a id="cUser" href="#" target="_blank" rel="noopener">—</a>
+        </div>
+        <button id="saveBtn" class="primary sm">＋ Shortlist</button>
+      </div>
+      <p id="cBio" class="bio"></p>
+      <div class="meta" id="cMeta"></div>
+      <h2>Top repositories</h2>
+      <div id="cRepos"></div>
+      <label class="fld">Notes
+        <textarea id="cNotes" rows="2" placeholder="Interview notes, strengths, red flags…"></textarea>
+      </label>
+      <label class="fld">Tags <span class="hint">(comma separated)</span>
+        <input id="cTags" placeholder="react, backend, remote">
+      </label>
+    </section>
+
+    <section class="glass card">
+      <div class="sec-head">
+        <h2>Shortlist <span id="slCount" class="count">0</span></h2>
+        <button id="csvBtn" class="ghost sm">Export CSV</button>
+      </div>
+      <div id="shortlist"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coupon Regional Applier</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 11 3.8A2 2 0 0 0 9.6 3.2H4a1 1 0 0 0-1 1v5.6c0 .5.2 1 .6 1.4l9.6 9.6a2 2 0 0 0 2.8 0l4.6-4.6a2 2 0 0 0 0-2.8Z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+    <div>
+      <h1>Coupon Applier</h1>
+      <p id="pageHost">—</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Try on this page
+      </h2>
+      <div class="try-row">
+        <input id="tryCode" placeholder="Enter code…" maxlength="40">
+        <button id="applyBtn" class="primary">Apply</button>
+      </div>
+      <div id="tryStatus" class="status"></div>
+      <p class="note">Finds the coupon field on the checkout page and applies the code for you.</p>
+    </section>
+
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+        Coupon vault
+      </h2>
+      <div id="regionChips" class="chips"></div>
+      <div id="vault"></div>
+      <div class="add-form">
+        <input id="newCode" placeholder="CODE" maxlength="40">
+        <input id="newMerchant" placeholder="Store (optional)" maxlength="40">
+        <input id="newRegion" placeholder="Region, e.g. IN / US / EU" maxlength="12">
+        <button id="addBtn" class="ghost">＋ Add coupon</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

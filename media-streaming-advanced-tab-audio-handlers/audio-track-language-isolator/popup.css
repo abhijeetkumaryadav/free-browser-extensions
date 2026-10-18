@@ -1,0 +1,161 @@
+/* Audio Track Isolator — deep-dark glassmorphism, single emerald accent */
+:root {
+  --accent: #10b981;
+  --accent-dim: rgba(16, 185, 129, .14);
+  --bg: #0b0d12;
+  --panel: rgba(20, 20, 26, .72);
+  --panel-solid: #141419;
+  --border: rgba(255, 255, 255, .08);
+  --text: #eef1f6;
+  --muted: #9aa3b2;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.shell { padding: 16px; }
+
+/* ---- hero ---- */
+.hero {
+  display: flex; gap: 12px; align-items: center;
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.hero-icon {
+  width: 42px; height: 42px; flex: 0 0 42px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, .25);
+}
+.hero-text h1 { font-size: 15px; font-weight: 650; letter-spacing: .1px; }
+.hero-text p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ---- buttons ---- */
+.actions { margin-bottom: 12px; }
+.btn {
+  width: 100%;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 185, 129, .35);
+  background: var(--accent);
+  color: #04120c;
+  font-size: 13px; font-weight: 650;
+  cursor: pointer;
+  transition: filter .15s ease, transform .1s ease;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:active { transform: scale(.985); }
+.btn:disabled { opacity: .55; cursor: default; transform: none; }
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, .35);
+}
+
+/* ---- status / notice ---- */
+.status {
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.status.hidden { display: none; }
+.status strong { color: var(--text); }
+
+/* ---- results ---- */
+.results { display: flex; flex-direction: column; gap: 12px; }
+
+.video-card {
+  background: var(--panel);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.video-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.video-title {
+  font-size: 13px; font-weight: 600;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  max-width: 220px;
+}
+.badge {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 9px; border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, .25);
+  white-space: nowrap;
+}
+.badge.gray {
+  background: rgba(154, 163, 178, .12);
+  color: var(--muted);
+  border-color: rgba(154, 163, 178, .2);
+}
+
+.track {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .12s ease, border-color .12s ease;
+}
+.track:hover { background: rgba(255, 255, 255, .04); }
+.track.active {
+  background: var(--accent-dim);
+  border-color: rgba(16, 185, 129, .35);
+}
+.track-lang {
+  width: 40px; flex: 0 0 40px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(16, 185, 129, .1);
+  border-radius: 6px;
+  text-align: center;
+  padding: 4px 0;
+}
+.track.active .track-lang { background: var(--accent); color: #04120c; }
+.track-meta { flex: 1; min-width: 0; }
+.track-label { font-size: 12.5px; font-weight: 550; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.track-kind { font-size: 11px; color: var(--muted); }
+.track-check { color: var(--accent); opacity: 0; flex: 0 0 auto; }
+.track.active .track-check { opacity: 1; }
+
+.notice {
+  font-size: 12px; color: var(--muted);
+  padding: 4px 2px 2px;
+}
+
+/* ---- footer ---- */
+.foot {
+  margin-top: 14px;
+  font-size: 11px; color: var(--muted);
+  text-align: center;
+}
+.foot code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--accent);
+}

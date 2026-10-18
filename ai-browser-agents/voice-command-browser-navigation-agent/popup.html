@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoiceNav</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
+      <span>VoiceNav</span>
+    </div>
+    <span class="badge">Chrome-only speech</span>
+  </header>
+
+  <button id="talk" class="talk">
+    <span class="ring"></span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
+    <span id="talkLabel">Press &amp; hold to talk</span>
+  </button>
+
+  <div id="heard" class="heard" hidden></div>
+  <div id="status" class="status">Mic is off. Nothing is recorded unless you hold the button.</div>
+
+  <label class="lbl">Commands</label>
+  <div class="cmds" id="cmds"></div>
+
+  <p class="fine">Mic activates only while you hold the button. Speech recognition uses Chrome's built-in Web Speech API (needs network). Commands run locally.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Network Throttling Profiles</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14v7"/><path d="m5 11 7-7 7 7"/><path d="M5 18v3M12 18v3M19 18v3" opacity=".35"/></svg>
+    <div><h1>Load Profiler</h1><p id="pageHost">Measurement only — no throttling</p></div>
+  </header>
+  <main>
+    <button id="measure" class="primary">Measure this page</button>
+    <section id="results" hidden>
+      <div class="glass card">
+        <h2>Page summary</h2>
+        <div class="stats">
+          <div><span>Requests</span><b id="stReq">—</b></div>
+          <div><span>Transferred</span><b id="stSize">—</b></div>
+          <div><span>DOM ready</span><b id="stDom">—</b></div>
+          <div><span>Full load</span><b id="stLoad">—</b></div>
+        </div>
+      </div>
+      <div class="glass card">
+        <h2>Avg timing breakdown</h2>
+        <div id="breakdown"></div>
+      </div>
+      <div class="glass card">
+        <h2>Slowest resources</h2>
+        <div id="slowest"></div>
+        <p class="note">Sizes of 0 mean the server hides timings (no Timing-Allow-Origin header). This tool only measures — it never slows your network.</p>
+      </div>
+    </section>
+    <div id="empty" class="empty">Open any page and hit <b>Measure</b> to see what actually took time to load.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

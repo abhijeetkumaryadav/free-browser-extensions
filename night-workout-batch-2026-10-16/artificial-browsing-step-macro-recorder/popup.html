@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macro Recorder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+    <div class="titles"><h1>Macro Recorder</h1><p>Replay your browsing steps</p></div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+    <span>Replays <strong>your</strong> recorded actions on the tab you recorded them on. Never use on login pages or CAPTCHAs. Recording starts and stops only when you press the button.</span>
+  </div>
+
+  <div class="recbar">
+    <button id="toggleRec" class="rec">
+      <span class="dot"></span><span id="recLabel">Start recording</span>
+    </button>
+    <span id="recCount" class="count"></span>
+  </div>
+
+  <section class="save">
+    <input id="macroName" type="text" placeholder="Macro name…" maxlength="60">
+    <button id="saveMacro" class="primary" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+      Save macro
+    </button>
+  </section>
+
+  <section class="macros" id="macros" aria-live="polite"></section>
+
+  <footer class="foot"><span id="status" class="status"></span></footer>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

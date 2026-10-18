@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tab City</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l5-3v14M9 21V7l5-3v17M14 21V12l6 2v7"/><path d="M2 21h20"/></svg>
+    </span>
+    <div>
+      <h1>Tab City</h1>
+      <p class="sub">Your open tabs as 3D skyscrapers</p>
+    </div>
+    <button id="refresh" class="iconbtn" title="Re-render">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
+    </button>
+  </header>
+
+  <div class="banner">Playful visualization &mdash; cosmetic only. Nothing about your tabs is changed except when you click a building.</div>
+
+  <div class="canvasWrap"><canvas id="city" width="348" height="300"></canvas></div>
+
+  <div class="status">
+    <span id="tabCount">-- tabs</span>
+    <span class="sep">·</span>
+    <span>Taller = longer title. Click a building to jump to it.</span>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

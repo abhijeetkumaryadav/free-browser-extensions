@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none" opacity=".85"/>
+      </svg>
+    </div>
+    <div class="titles">
+      <h1>ContrastLens</h1>
+      <p>WCAG contrast scan</p>
+    </div>
+  </header>
+
+  <button id="scanBtn" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+    </svg>
+    Scan this page
+  </button>
+
+  <div id="status" class="status hidden"></div>
+
+  <section id="summary" class="summary hidden" aria-live="polite">
+    <div class="card"><b id="pairCount">0</b><span>pairs</span></div>
+    <div class="card bad"><b id="failAA">0</b><span>fail AA</span></div>
+    <div class="card warn"><b id="failAAA">0</b><span>fail AAA</span></div>
+  </section>
+
+  <ul id="results" class="results"></ul>
+
+  <footer class="foot">
+    Heuristic scan of computed text/background colors.
+    Background images &amp; gradients are ignored.
+  </footer>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* Droplet — deep-dark glassmorphism, single sky accent. */
+:root{
+  --bg:rgba(20,20,26,.72);
+  --card:rgba(255,255,255,.05);
+  --line:rgba(255,255,255,.10);
+  --text:#f4f4f6;
+  --muted:#a7a7b3;
+  --accent:#38bdf8;
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:380px}
+body{
+  font-family:"Inter","Segoe UI",system-ui,sans-serif;
+  color:var(--text);background:var(--bg);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  font-size:13px;
+}
+.app{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:30px;height:30px;color:var(--accent);flex:none}
+.brand h1{font-size:16px;font-weight:700}
+.tag{font-size:11px;color:var(--muted)}
+.notice{
+  display:flex;gap:8px;align-items:flex-start;
+  background:rgba(56,189,248,.10);
+  border:1px solid rgba(56,189,248,.28);
+  border-radius:var(--radius);padding:9px 11px;
+  font-size:11.5px;color:#d6eefb;line-height:1.45;
+}
+.notice svg{width:15px;height:15px;flex:none;margin-top:1px;color:var(--accent)}
+.droplet-wrap{display:flex;align-items:center;gap:14px;justify-content:center;padding:4px 0}
+.droplet{width:96px;height:112px}
+.drop-outline{fill:none;stroke:var(--accent);stroke-width:3}
+.drop-fill{fill:var(--accent);opacity:.75;transition:y .45s ease}
+.droplet-stats .big{font-size:30px;font-weight:750;color:var(--text)}
+.droplet-stats .big small{font-size:13px;color:var(--muted);margin-left:3px;font-weight:500}
+.goal{font-size:12px;color:var(--muted);margin:2px 0}
+.pct{font-size:13px;font-weight:700;color:var(--accent)}
+.row{display:flex;gap:8px}
+.stat{
+  flex:1;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:9px 6px;text-align:center;
+  display:flex;flex-direction:column;gap:2px;
+}
+.stat .v{font-size:17px;font-weight:700;color:var(--accent)}
+.stat .k{font-size:10.5px;color:var(--muted)}
+.controls{display:flex;gap:8px;align-items:flex-end}
+.field{flex:1;display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--muted)}
+.field select,.field input{
+  background:var(--card);border:1px solid var(--line);border-radius:8px;
+  color:var(--text);padding:8px;font-size:13px;font-family:inherit;outline:none;
+}
+button{
+  font-family:inherit;cursor:pointer;border:none;border-radius:10px;
+  font-size:13px;font-weight:650;padding:10px 14px;transition:transform .08s ease;
+}
+button:active{transform:scale(.97)}
+.primary{background:var(--accent);color:#06202e;flex:1.2}
+.secondary{background:rgba(56,189,248,.14);color:var(--accent);border:1px solid rgba(56,189,248,.35)}
+.ghost{background:none;color:var(--muted);border:1px solid var(--line);font-weight:500}
+.ghost.danger{color:#fb7185;border-color:rgba(251,113,133,.35)}
+.hidden{display:none}
+.settings{border:1px solid var(--line);border-radius:var(--radius);padding:8px 11px;background:var(--card)}
+.settings summary{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600;list-style:none}
+.settings summary svg{width:15px;height:15px;color:var(--accent)}
+.settings .field{margin:8px 0}
+.settings button{width:100%;margin-top:8px}
+.history h2{font-size:13px;font-weight:650;margin-bottom:6px}
+.history-list{display:flex;flex-direction:column;gap:5px;max-height:150px;overflow-y:auto}
+.hrow{
+  display:flex;align-items:center;gap:8px;font-size:12px;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:8px;padding:6px 10px;
+}
+.hrow .d{color:var(--muted);min-width:64px}
+.hbar{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.hbar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.hrow .ml{font-weight:650;color:var(--text);min-width:52px;text-align:right}
+.hrow .ml.hit{color:var(--accent)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}

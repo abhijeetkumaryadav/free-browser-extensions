@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TabCast — Tab Video Recorder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    </span>
+    <div>
+      <h1>TabCast</h1>
+      <p class="tagline">Tab video recorder</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="row">
+      <label class="field">
+        <span>Max duration</span>
+        <select id="maxdur">
+          <option value="30">30 sec</option>
+          <option value="60" selected>60 sec</option>
+          <option value="120">2 min</option>
+        </select>
+      </label>
+      <label class="field check">
+        <span>Tab audio</span>
+        <input type="checkbox" id="audio" checked>
+      </label>
+    </div>
+    <button id="start" class="primary rec">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+      Start recording
+    </button>
+    <button id="stop" class="primary hidden" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      Stop recording
+    </button>
+    <div class="timer hidden" id="timer">
+      <span class="dot"></span><span id="elapsed">00:00</span><span id="limit"></span>
+    </div>
+  </section>
+
+  <section class="panel result hidden" id="result">
+    <video id="preview" controls></video>
+    <div class="meta" id="meta"></div>
+    <button id="download" class="primary ghost">Download .webm</button>
+  </section>
+
+  <footer class="limits">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p><strong>Video only — no GIF encoding.</strong> Records the visible tab as
+    WebM (VP9/VP8). Keep this popup open while recording; closing it stops the
+    capture. Tab audio only — never microphone. Nothing is uploaded.</p>
+  </footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

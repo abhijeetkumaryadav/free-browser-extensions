@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="22" x2="18" y1="12" y2="12"/>
+        <line x1="6" x2="2" y1="12" y2="12"/>
+        <line x1="12" x2="12" y1="6" y2="2"/>
+        <line x1="12" x2="12" y1="22" y2="18"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Word Killer</h1>
+      <p class="sub">DOM Element Shooter</p>
+    </div>
+  </header>
+
+  <div class="scope-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+    <span>Game overlay only — the page itself is <b>never modified</b>.</span>
+  </div>
+
+  <label class="lbl">Difficulty
+    <select id="diff" class="input">
+      <option value="easy">Easy — slow, short words, 5 lives</option>
+      <option value="normal" selected>Normal — medium speed, 3 lives</option>
+      <option value="hard">Hard — fast, long words, 3 lives</option>
+    </select>
+  </label>
+
+  <div class="best">Best score: <b id="high">0</b></div>
+
+  <button id="start" class="btn-primary">Start game on this tab</button>
+  <p id="msg" class="msg" role="status"></p>
+
+  <div class="how">
+    <b>How to play</b>
+    <ul>
+      <li>Words fall styled as DOM elements.</li>
+      <li>Type a word exactly to shoot it.</li>
+      <li>Don't let words reach the bottom.</li>
+      <li>Esc quits and restores the page.</li>
+    </ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* Forum-Only Filter — deep-dark glassmorphism popup (380px, one accent). */
+:root {
+  --accent: #a78bfa;
+  --bg: rgba(20, 20, 26, 0.72);
+  --card: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.10);
+  --text: #eceaf2;
+  --muted: #a7a3b8;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  padding: 16px;
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hdr { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.hdr .logo { width: 34px; height: 34px; color: var(--accent); flex: none; }
+.hdr h1 { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: 0.2px; }
+.hdr .sub { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(167, 139, 250, 0.10);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 12px; padding: 10px 12px; margin-bottom: 12px;
+  font-size: 12px; color: #d9d4ee;
+}
+.notice svg { width: 18px; height: 18px; color: var(--accent); flex: none; margin-top: 1px; }
+
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px; margin-bottom: 12px;
+}
+.card.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.fld-label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px; }
+
+textarea, select {
+  width: 100%; background: rgba(0, 0, 0, 0.35); color: var(--text);
+  border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+  font: inherit; font-size: 12.5px; resize: vertical;
+}
+.card.row select { width: auto; min-width: 140px; }
+textarea:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.actions { display: flex; gap: 10px; margin-bottom: 12px; }
+button {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 10px; padding: 10px 12px; font: inherit; font-weight: 650; font-size: 13px;
+  cursor: pointer; border: 1px solid transparent; transition: transform 0.06s ease, opacity 0.15s ease;
+}
+button svg { width: 16px; height: 16px; }
+button:active { transform: scale(0.98); }
+button.primary { background: var(--accent); color: #14141b; }
+button.primary:hover { opacity: 0.92; }
+button.ghost { background: transparent; color: var(--text); border-color: var(--line); }
+button.ghost:hover { background: rgba(255, 255, 255, 0.06); }
+
+.status { min-height: 20px; font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.status[data-kind="ok"] { color: #7ee2a8; }
+.status[data-kind="warn"] { color: #f5c66b; }
+
+.foot { font-size: 11px; color: var(--muted); opacity: 0.85; }

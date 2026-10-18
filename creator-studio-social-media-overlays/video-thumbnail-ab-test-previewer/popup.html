@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="12" y1="5" x2="12" y2="19"/><path d="M7 10l-2 2 2 2M17 10l2 2-2 2"/></svg>
+      <div>
+        <h1>Thumbnail A/B Studio</h1>
+        <div class="subtitle">Manual thumbnail comparison — not CTR data</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uploads -->
+  <section class="panel">
+    <div class="field-label">Thumbnails</div>
+    <div class="uploads">
+      <label class="upload" id="uploadA">
+        <span class="tag">A</span>
+        <span class="placeholder" id="placeholderA">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Upload A
+        </span>
+        <img id="imgA" class="hidden" alt="Thumbnail A">
+      </label>
+      <label class="upload" id="uploadB">
+        <span class="tag">B</span>
+        <span class="placeholder" id="placeholderB">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          Upload B
+        </span>
+        <img id="imgB" class="hidden" alt="Thumbnail B">
+      </label>
+    </div>
+    <input type="file" id="fileA" accept="image/*" class="hidden">
+    <input type="file" id="fileB" accept="image/*" class="hidden">
+    <div class="row">
+      <button class="btn btn-ghost" id="swapBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"/><path d="M4 7h16"/><path d="M16 21l4-4-4-4"/><path d="M20 17H4"/></svg>
+        Swap A/B
+      </button>
+      <button class="btn btn-ghost" id="clearBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+        Clear
+      </button>
+    </div>
+  </section>
+
+  <!-- Comparison + checklist -->
+  <section class="panel hidden" id="comparePanel">
+    <div class="field-label">Comparison · YouTube card size</div>
+    <div class="cards">
+      <div class="thumb-card"><span class="tag">A</span><img id="cardA" alt="Thumbnail A"></div>
+      <div class="thumb-card"><span class="tag">B</span><img id="cardB" alt="Thumbnail B"></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-ghost" id="zoomBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+        Zoom view
+      </button>
+    </div>
+    <div class="field-label">Best-practice checklist</div>
+    <div class="check" id="checklist"><!-- built by JS --></div>
+  </section>
+
+  <!-- Test log -->
+  <section class="panel">
+    <div class="field-label">Test log</div>
+    <input class="text-input" id="logTitle" placeholder="Test title (e.g. Ep. 12 thumbnails)" style="width:100%">
+    <div class="row">
+      <select id="logWinner" style="flex:1">
+        <option value="A">Winner: A</option>
+        <option value="B">Winner: B</option>
+        <option value="Tie">Tie / undecided</option>
+      </select>
+      <button class="btn btn-primary" id="saveTestBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+        Save test
+      </button>
+    </div>
+    <input class="notes-input" id="logNotes" placeholder="Notes (optional)" style="width:100%">
+    <div class="log-list" id="logList"></div>
+    <div class="row">
+      <button class="btn btn-ghost" id="copyLogBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy summary
+      </button>
+    </div>
+  </section>
+
+  <div class="footer">All images stay on your device · nothing is uploaded</div>
+</div>
+
+<!-- Zoom overlay -->
+<div class="zoom-overlay hidden" id="zoomOverlay">
+  <div class="zoom-head">
+    <span>Zoomed comparison</span>
+    <button class="btn btn-ghost" id="zoomClose" style="flex:0 0 auto">Close</button>
+  </div>
+  <div class="zoom-tag">Variant A</div>
+  <img class="zoom-img" id="zoomA" alt="Thumbnail A zoomed">
+  <div class="zoom-tag">Variant B</div>
+  <img class="zoom-img" id="zoomB" alt="Thumbnail B zoomed">
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

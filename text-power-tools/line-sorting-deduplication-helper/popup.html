@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LineSorter — Sort &amp; Dedupe Lines</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="14" y2="7"/><line x1="4" y1="12" x2="11" y2="12"/><line x1="4" y1="17" x2="8" y2="17"/><polyline points="17 5 20 8 17 11"/><line x1="20" y1="8" x2="20" y2="19"/></svg>
+    </span>
+    <div class="hdr-text">
+      <h1>LineSorter</h1>
+      <p class="sub">Sort, dedupe &amp; clean lists of lines</p>
+    </div>
+  </header>
+
+  <div class="field">
+    <label for="input">Input lines</label>
+    <textarea id="input" placeholder="Paste or type lines here, one per line…"></textarea>
+  </div>
+
+  <section class="panel">
+    <h2>Transform</h2>
+    <div class="grid2">
+      <div class="field">
+        <label for="sortMode">Sort order</label>
+        <select id="sortMode">
+          <option value="none">No sorting</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+          <option value="natural">Natural (file-1, file-2…)</option>
+          <option value="numeric">Numeric</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="dedupeMode">Dedupe</label>
+        <select id="dedupeMode">
+          <option value="none">Keep duplicates</option>
+          <option value="exact">Exact matches</option>
+          <option value="ignoreCase">Ignore case</option>
+          <option value="trim">Trim, then exact</option>
+        </select>
+      </div>
+    </div>
+    <div class="checks">
+      <label class="check"><input type="checkbox" id="removeBlanks" checked><span>Remove blank lines</span></label>
+      <label class="check"><input type="checkbox" id="trimLines"><span>Trim each line</span></label>
+    </div>
+    <div class="btnrow">
+      <button id="apply" class="primary">Apply transforms</button>
+      <button id="reverse" title="Reverse line order">Reverse</button>
+      <button id="shuffle" title="Random shuffle">Shuffle</button>
+    </div>
+  </section>
+
+  <div class="stats" id="stats" aria-live="polite">
+    <div class="stat"><span class="n" id="statIn">0</span><span class="l">input</span></div>
+    <div class="stat"><span class="n" id="statOut">0</span><span class="l">output</span></div>
+    <div class="stat"><span class="n" id="statDup">0</span><span class="l">removed</span></div>
+  </div>
+
+  <div class="field">
+    <label for="output">Result</label>
+    <textarea id="output" readonly placeholder="Transformed lines appear here…"></textarea>
+  </div>
+
+  <div class="btnrow">
+    <button id="copy" class="primary">Copy result</button>
+    <button id="clear">Clear</button>
+  </div>
+
+  <p class="note">Runs 100% locally — your text never leaves this device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

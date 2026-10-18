@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CsvJson — CSV to JSON Converter</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="14" x2="21" y2="14"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="9" x2="15" y2="20"/></svg>
+    </span>
+    <div class="hdr-text">
+      <h1>CsvJson</h1>
+      <p class="sub">CSV → JSON, locally in your browser</p>
+    </div>
+  </header>
+
+  <div class="field">
+    <label for="csvInput">CSV input</label>
+    <textarea id="csvInput" placeholder="name,age,city&#10;Ada,36,London&#10;&quot;O'Neil, Sam&quot;,29,&quot;New York&quot;"></textarea>
+  </div>
+
+  <section class="panel">
+    <h2>Options</h2>
+    <div class="grid2">
+      <div class="field">
+        <label for="delimiter">Delimiter</label>
+        <select id="delimiter">
+          <option value="auto">Auto-detect</option>
+          <option value=",">Comma (,)</option>
+          <option value=";">Semicolon (;)</option>
+          <option value="tab">Tab</option>
+          <option value="|">Pipe (|)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="outputMode">Output shape</label>
+        <select id="outputMode">
+          <option value="objects">Array of objects (header = keys)</option>
+          <option value="arrays">Array of arrays</option>
+        </select>
+      </div>
+    </div>
+    <div class="checks">
+      <label class="check"><input type="checkbox" id="firstRowHeader" checked><span>First row is header</span></label>
+      <label class="check"><input type="checkbox" id="pretty" checked><span>Pretty-print JSON</span></label>
+    </div>
+    <div class="btnrow">
+      <button id="convert" class="primary">Convert to JSON</button>
+      <button id="previewBtn">Preview table</button>
+    </div>
+  </section>
+
+  <div id="errors" class="errors" hidden></div>
+
+  <div class="field" id="previewWrap" hidden>
+    <label>Preview (first 10 rows)</label>
+    <div class="tablewrap"><table id="previewTable"></table></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="n" id="statRows">0</span><span class="l">rows</span></div>
+    <div class="stat"><span class="n" id="statCols">0</span><span class="l">cols</span></div>
+    <div class="stat"><span class="n" id="statDelim">–</span><span class="l">delimiter</span></div>
+  </div>
+
+  <div class="field">
+    <label for="jsonOutput">JSON output</label>
+    <textarea id="jsonOutput" readonly placeholder="Converted JSON appears here…"></textarea>
+  </div>
+
+  <div class="btnrow">
+    <button id="copy" class="primary">Copy JSON</button>
+    <button id="download">Download .json</button>
+    <button id="clear">Clear</button>
+  </div>
+
+  <p class="note">Runs 100% locally — your data never leaves this device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

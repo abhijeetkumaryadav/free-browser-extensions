@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 9h12"/><path d="M6 13h8"/><path d="M6 17h5"/></svg>
+    <div>
+      <h1>Dual-Language SRT Muxer</h1>
+      <p class="sub">Merge two subtitle tracks into one dual-language SRT</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Your files are merged locally only — nothing is uploaded or translated.</span>
+  </div>
+
+  <section class="files">
+    <label class="filebtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <span id="fileAName">Choose first SRT (e.g. original)</span>
+      <input type="file" id="fileA" accept=".srt,text/plain" hidden>
+    </label>
+    <label class="filebtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <span id="fileBName">Choose second SRT (e.g. translation)</span>
+      <input type="file" id="fileB" accept=".srt,text/plain" hidden>
+    </label>
+  </section>
+
+  <section class="options">
+    <label>Track order
+      <select id="order">
+        <option value="AB">First file on top, second below</option>
+        <option value="BA">Second file on top, first below</option>
+      </select>
+    </label>
+    <label>Separator between tracks
+      <select id="separator">
+        <option value="\n">New line</option>
+        <option value=" ─ "> ─ dash ─ </option>
+        <option value=" • "> • bullet • </option>
+        <option value=" | "> | pipe | </option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="renumber" checked> Renumber cues 1..N in output</label>
+  </section>
+
+  <div class="stats" id="stats" hidden></div>
+
+  <div class="actions">
+    <button id="merge" class="primary" disabled>Merge files</button>
+    <button id="download" class="ghost" disabled>Download merged SRT</button>
+    <button id="reset" class="ghost">Reset</button>
+  </div>
+
+  <pre id="preview" hidden></pre>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

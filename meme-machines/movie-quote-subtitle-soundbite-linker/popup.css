@@ -1,0 +1,89 @@
+/* QuoteVault — deep-dark glassmorphism, single gold accent */
+:root {
+  --accent: #d4af37;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 380px; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg); color: var(--text);
+  padding: 16px; font-size: 13px;
+  max-height: 560px; overflow-y: auto;
+}
+.head { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.logo {
+  width: 38px; height: 38px; border-radius: 12px; flex: 0 0 38px;
+  background: linear-gradient(135deg, var(--accent), #8a6d1c);
+  display: flex; align-items: center; justify-content: center; color: #1a1405;
+}
+.logo svg { width: 22px; height: 22px; }
+h1 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+.sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+.searchbar {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 12px; padding: 9px 12px; margin-bottom: 10px;
+}
+.searchbar svg { width: 16px; height: 16px; color: var(--muted); flex: 0 0 16px; }
+.searchbar input {
+  background: none; border: none; outline: none; color: var(--text);
+  font-size: 13px; width: 100%;
+}
+.searchbar input::placeholder { color: var(--muted); }
+
+.chips { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--panel); border: 1px solid var(--border); color: var(--muted);
+  font-size: 11px; font-weight: 600; border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+.chip svg { width: 12px; height: 12px; }
+.chip.active { color: var(--accent); border-color: var(--accent); }
+
+.list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+.card {
+  background: var(--panel); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  cursor: pointer; position: relative;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+.card:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-1px); }
+.card blockquote { font-size: 13px; line-height: 1.55; font-style: italic; margin-bottom: 8px; }
+.card .meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card .author { color: var(--muted); font-size: 11px; }
+.tag {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+  border-radius: 6px; padding: 2px 7px;
+}
+.tag.original { background: rgba(212, 175, 55, 0.15); color: var(--accent); }
+.tag.classic { background: rgba(96, 165, 250, 0.15); color: #93c5fd; }
+.star {
+  position: absolute; top: 8px; right: 8px;
+  background: none; border: none; cursor: pointer; color: var(--muted); padding: 4px;
+}
+.star svg { width: 16px; height: 16px; }
+.star.faved { color: var(--accent); }
+.star.faved svg { fill: var(--accent); }
+.copy-hint {
+  font-size: 10px; color: var(--muted); margin-top: 6px;
+  display: flex; align-items: center; gap: 4px;
+}
+.copy-hint svg { width: 11px; height: 11px; }
+
+.empty { color: var(--muted); text-align: center; padding: 24px 0; font-size: 12px; }
+.toast {
+  background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #6ee7b7; border-radius: 10px; padding: 8px 12px; font-size: 12px; margin-bottom: 12px;
+}
+.note {
+  display: flex; gap: 8px; align-items: flex-start;
+  color: var(--muted); font-size: 11px; line-height: 1.5;
+}
+.note svg { width: 14px; height: 14px; flex: 0 0 14px; margin-top: 1px; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phonetic Speller</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.4 9.4 0 0 1 0 13"/></svg>
+    </span>
+    <div>
+      <h1>Phonetic Speller</h1>
+      <p class="sub">Local text-to-speech &amp; spelling</p>
+    </div>
+  </header>
+
+  <label class="lbl" for="text">Text to speak</label>
+  <textarea id="text" rows="4" placeholder="Type or paste text, or grab the current page selection…"></textarea>
+
+  <div class="row">
+    <button id="grab" class="btn ghost" title="Copy the selected text from the active tab into the box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      Grab selection
+    </button>
+    <button id="stop" class="btn ghost danger" title="Stop speaking">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      Stop
+    </button>
+  </div>
+
+  <label class="lbl" for="voice">Voice</label>
+  <select id="voice"></select>
+
+  <div class="sliders">
+    <div class="ctl">
+      <label for="rate">Rate <span id="rateVal">1.0</span></label>
+      <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+    </div>
+    <div class="ctl">
+      <label for="pitch">Pitch <span id="pitchVal">1.0</span></label>
+      <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+    </div>
+    <div class="ctl">
+      <label for="volume">Volume <span id="volVal">1.0</span></label>
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="read" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Read aloud
+    </button>
+    <button id="spellNato" class="btn accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+      Spell · NATO
+    </button>
+    <button id="spellLetters" class="btn accent">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14"/><path d="M5 12h14"/><path d="M5 18h9"/></svg>
+      Spell · A-B-C
+    </button>
+  </div>
+
+  <p class="note">100% on-device speech synthesis. Nothing you type ever leaves your browser.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

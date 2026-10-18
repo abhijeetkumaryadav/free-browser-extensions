@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performance Memory Leak Monitor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <div><h1>Leak Monitor</h1><p id="pageHost">—</p></div>
+    <button id="toggle" class="primary">Start</button>
+  </header>
+  <main>
+    <div id="unsupported" class="warnbox" hidden>
+      This browser doesn't expose <b>performance.memory</b> (Chrome/Edge do; Firefox doesn't). No data can be sampled here.
+    </div>
+    <section id="dash" class="glass card" hidden>
+      <div id="leakWarn" class="leak" hidden>⚠ Possible memory leak — heap is climbing steadily</div>
+      <div class="big"><b id="curMb">—</b><span>MB JS heap</span></div>
+      <svg id="chart" viewBox="0 0 340 110" class="chart"></svg>
+      <div class="stats">
+        <div><span>Min</span><b id="stMin">—</b></div>
+        <div><span>Max</span><b id="stMax">—</b></div>
+        <div><span>Growth</span><b id="stGrowth">—</b></div>
+        <div><span>Samples</span><b id="stN">0</b></div>
+      </div>
+      <p class="note">Heuristic only — steady growth suggests a leak but isn't proof. Keep the popup open while sampling (1 sample / 2s, last 120 kept).<br>Tip: reload the tab and compare, or force GC via DevTools → Performance → 🗑 before measuring.</p>
+    </section>
+    <div id="empty" class="empty">Hit <b>Start</b> to sample this tab's JS heap over time and watch for leaks.</div>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

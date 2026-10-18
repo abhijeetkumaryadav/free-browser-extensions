@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="hdr">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    </div>
+    <div class="titles">
+      <h1>IG Grid Planner</h1>
+      <p class="sub">Aspect-ratio check &middot; drag to reorder</p>
+    </div>
+    <span id="count" class="count">0/9</span>
+  </header>
+
+  <label id="dropzone" class="dropzone" for="fileInput">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <span>Drop images or <b>browse</b> (up to 9)</span>
+    <input id="fileInput" type="file" accept="image/*" multiple hidden>
+  </label>
+  <p id="hint" class="hint" hidden></p>
+
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty">Your 3-column preview will appear here.<br>Images stay on this device.</div>
+
+  <div class="actions">
+    <button id="exportBtn" class="btn" disabled>Copy plan</button>
+    <button id="clearBtn" class="btn ghost" disabled>Clear</button>
+  </div>
+
+  <footer>IG recommendations: 1:1 square &middot; 4:5 portrait &middot; 1.91:1 landscape</footer>
+  <div id="toast" class="toast" hidden></div>
+  <script src="popup.js"></script>
+</body>
+</html>

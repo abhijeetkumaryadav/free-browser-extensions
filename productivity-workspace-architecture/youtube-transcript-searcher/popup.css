@@ -1,0 +1,157 @@
+/* YouTube Transcript Searcher — popup styles.
+   Deep dark + glassmorphism, ONE accent (YouTube red #ff4e45). */
+
+:root {
+  --accent: #ff4e45;
+  --bg: #0d0d12;
+  --panel: rgba(20, 20, 26, 0.72);
+  --panel-solid: #16161d;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f2f5;
+  --muted: #9a9aa6;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-icon {
+  width: 36px; height: 36px;
+  flex: 0 0 36px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  color: var(--accent);
+  background: rgba(255, 78, 69, 0.12);
+  border: 1px solid rgba(255, 78, 69, 0.25);
+}
+.brand-icon svg { width: 20px; height: 20px; }
+
+.brand-text h1 { font-size: 14px; font-weight: 650; letter-spacing: 0.2px; }
+.sub {
+  font-size: 11px; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 290px;
+}
+
+main { padding: 12px 16px 8px; overflow: hidden; display: flex; flex-direction: column; }
+
+.notice {
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 78, 69, 0.08);
+  border: 1px solid rgba(255, 78, 69, 0.3);
+  font-size: 12px; color: #ffc9c6;
+}
+.notice.info { background: rgba(120, 140, 180, 0.08); border-color: rgba(120,140,180,.3); color: #c6d2e8; }
+
+.track-row, .search-row { margin-bottom: 10px; }
+
+.track-row label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.track-row select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  background: var(--panel-solid);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.track-row select:focus { border-color: var(--accent); }
+
+.search-row {
+  position: relative;
+  display: flex; align-items: center;
+}
+.search-icon {
+  position: absolute; left: 10px;
+  color: var(--muted);
+  display: grid; place-items: center;
+  pointer-events: none;
+}
+.search-icon svg { width: 15px; height: 15px; }
+.search-row input {
+  width: 100%;
+  padding: 9px 56px 9px 32px;
+  border-radius: var(--radius);
+  background: var(--panel-solid);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.search-row input:focus { border-color: var(--accent); }
+.match-count {
+  position: absolute; right: 10px;
+  font-size: 11px; color: var(--muted);
+}
+
+.lines {
+  overflow-y: auto;
+  max-height: 320px;
+  display: flex; flex-direction: column; gap: 4px;
+  padding-right: 2px;
+}
+.lines::-webkit-scrollbar { width: 6px; }
+.lines::-webkit-scrollbar-thumb { background: rgba(255,255,255,.14); border-radius: 3px; }
+
+.cue {
+  display: flex; gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  color: var(--text);
+  font: inherit;
+}
+.cue:hover { background: rgba(255, 78, 69, 0.07); border-color: rgba(255,78,69,.2); }
+.cue .ts {
+  flex: 0 0 44px;
+  font-size: 11px; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+.cue .txt { font-size: 12.5px; color: #dcdce4; }
+.cue mark {
+  background: rgba(255, 78, 69, 0.35);
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+.empty { text-align: center; padding: 28px 12px; color: var(--muted); }
+.empty .hint { font-size: 11.5px; margin-top: 6px; }
+
+.foot {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 16px 12px;
+  font-size: 11px; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+.foot .dot { opacity: .5; }
+
+.hidden { display: none !important; }

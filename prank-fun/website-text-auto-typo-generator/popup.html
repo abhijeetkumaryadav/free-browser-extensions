@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c2-1 3-3 3-5l7-7 3 3-7 7c-2 0-4 1-6 2z"/><path d="M14 6l2-2 4 4-2 2"/><path d="M4 4l3 3"/></svg>
+      </span>
+      <div>
+        <h1>TypoStorm</h1>
+        <p class="subtitle">Auto typo generator — prank mode</p>
+      </div>
+      <span id="statusDot" class="dot" title="Status"></span>
+    </header>
+
+    <p class="blurb">Harmless prank: rewrites the visible text on this tab with
+      realistic typos — swapped letters, doubles, drops and fat-fingered keys.
+      Form fields and code blocks are left alone, and one click restores every
+      word exactly.</p>
+
+    <label class="slider-label" for="intensity">
+      Typo intensity <span id="intensityVal" class="val">25%</span>
+    </label>
+    <input id="intensity" type="range" min="1" max="100" value="25" step="1">
+
+    <div class="scale">
+      <span>subtle</span><span>chaos</span>
+    </div>
+
+    <button id="toggleBtn" class="btn primary">Typofy this page</button>
+    <button id="restoreBtn" class="btn ghost" disabled>Restore original text</button>
+
+    <p id="statLine" class="hint"></p>
+    <footer class="foot">Joke extension · fully reversible · no network calls</footer>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

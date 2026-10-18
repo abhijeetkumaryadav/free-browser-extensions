@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Jargon Decoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <div>
+        <h1>Jargon Decoder</h1>
+        <p class="subtitle">Insurance terms in plain language</p>
+      </div>
+    </div>
+    <span class="count" id="count">0 terms</span>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    Definitions only — not insurance advice.
+  </div>
+
+  <div class="search-row">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="search" placeholder="Search terms…" autocomplete="off">
+    <button id="clearSearch" class="icon-btn hidden" title="Clear search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="term-list" id="termList"></div>
+  <div class="empty hidden" id="emptyState">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>No terms match your search.</p>
+  </div>
+
+  <div class="divider"><span>Your terms</span></div>
+
+  <form id="termForm" class="term-form">
+    <input type="text" id="termInput" placeholder="Term (e.g. Deductible)" maxlength="60" autocomplete="off">
+    <textarea id="defInput" placeholder="Your plain-language definition…" rows="2" maxlength="500"></textarea>
+    <div class="form-actions">
+      <button type="button" id="cancelEdit" class="btn ghost hidden">Cancel</button>
+      <button type="submit" class="btn primary" id="saveBtn">Add term</button>
+    </div>
+  </form>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

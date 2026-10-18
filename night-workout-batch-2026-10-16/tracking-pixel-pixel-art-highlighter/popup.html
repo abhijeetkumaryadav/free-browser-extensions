@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/>
+      <rect x="8.5" y="8.5" width="2" height="2" fill="currentColor" stroke="none"/>
+      <rect x="12" y="11" width="2" height="2" fill="currentColor" stroke="none"/>
+    </svg>
+    <div>
+      <h1>PixelHunt</h1>
+      <p class="sub">Tracking-pixel highlighter</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="btn-row">
+      <button id="scanBtn" class="primary">Scan this page</button>
+      <button id="clearBtn" class="ghost">Restore images</button>
+    </div>
+    <div id="statusLine" class="status">Not scanned yet. Click “Scan this page”.</div>
+  </section>
+
+  <section class="card hidden" id="resultsCard">
+    <div class="results-head">
+      <h2>Suspects <span id="countBadge" class="badge">0</span></h2>
+    </div>
+    <ul id="pixelList" class="pixel-list"></ul>
+  </section>
+
+  <footer class="footnote">
+    Heuristic detection only: tiny (≤2px), hidden, or suspiciously-named images are
+    flagged. Never AI vision. Everything runs locally — no network calls.
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

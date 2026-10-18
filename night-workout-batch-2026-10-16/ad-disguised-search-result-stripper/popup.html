@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad-Stripper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="brand">
+    <span class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/><path d="M8.5 8.5 13.5 13.5"/></svg>
+    </span>
+    <div class="title-block">
+      <h1>Ad-Stripper</h1>
+      <p class="subtitle">Disguised search-ad collapser</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span><strong>Heuristic, your choice, reversible.</strong> Only runs when you click. No network calls, nothing leaves your browser.</span>
+  </div>
+
+  <div class="row buttons">
+    <button id="scanBtn" class="btn primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      Scan &amp; collapse ads
+    </button>
+    <button id="restoreBtn" class="btn ghost">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      Restore all
+    </button>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="collapsedCount">0</span>
+      <span class="stat-label">Collapsed this tab</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="totalCount">0</span>
+      <span class="stat-label">Collapsed total</span>
+    </div>
+  </div>
+
+  <label class="toggle-row">
+    <input type="checkbox" id="aggressive">
+    <span class="toggle"></span>
+    <span class="toggle-text">Aggressive mode <small>(also flag click-tracking redirects)</small></span>
+  </label>
+
+  <div id="results" class="results" hidden>
+    <h2>Flagged items <span id="flagBadge" class="badge">0</span></h2>
+    <ul id="flagList"></ul>
+  </div>
+
+  <p class="foot">Detects ad signals like "Ad"/"Sponsored" labels and ad-click URLs. Best-effort heuristics — false positives possible; restore anytime.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

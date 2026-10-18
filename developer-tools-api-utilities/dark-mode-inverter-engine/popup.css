@@ -1,0 +1,27 @@
+:root {
+  --bg: #0e0e13; --glass: rgba(20,20,26,.72); --glass-border: rgba(255,255,255,.08);
+  --ink: #f4f6fb; --muted: #9aa3b5; --accent: #94a3b8; --accent-soft: rgba(148,163,184,.14);
+}
+* { box-sizing: border-box; }
+body { width: 380px; max-height: 600px; margin: 0; background: var(--bg); color: var(--ink);
+  font: 13px/1.5 -apple-system,"Segoe UI",Roboto,Inter,sans-serif; display: flex; flex-direction: column; }
+.glass { background: var(--glass); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); }
+header { display: flex; align-items: center; gap: 12px; padding: 16px; border-bottom: 1px solid var(--glass-border); border-left:0; border-right:0; border-top:0; border-radius:0; }
+header .ico { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
+header h1 { font-size: 15px; margin: 0; } header p { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
+.switch { margin-left: auto; cursor: pointer; }
+.switch input { display: none; }
+.switch .track { display: block; width: 48px; height: 27px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid var(--glass-border); position: relative; transition: background .2s; }
+.switch .thumb { position: absolute; top: 2px; left: 2px; width: 21px; height: 21px; border-radius: 50%; background: #fff; transition: left .2s; }
+.switch input:checked + .track { background: var(--accent); }
+.switch input:checked + .track .thumb { left: 23px; }
+main { overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+.card { border-radius: 14px; padding: 16px; }
+.note { font-size: 11px; color: var(--muted); margin: 0 0 14px; }
+.slider-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; font-size: 12px; }
+.slider-row:last-child { margin-bottom: 0; }
+.slider-row span { display: flex; justify-content: space-between; color: var(--muted); }
+.slider-row b { color: var(--accent); }
+input[type=range] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+.ghost { background: transparent; color: var(--muted); border: 1px solid var(--glass-border); border-radius: 10px; padding: 10px; width: 100%; cursor: pointer; }
+.ghost:hover { color: var(--ink); border-color: var(--accent); }

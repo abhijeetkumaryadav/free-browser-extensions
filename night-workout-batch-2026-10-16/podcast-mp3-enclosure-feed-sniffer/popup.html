@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast Enclosure Sniffer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="shell">
+  <header class="brand">
+    <svg class="brand-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v6a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><rect x="5" y="10" width="4" height="10" rx="2"/><rect x="15" y="10" width="4" height="10" rx="2"/><path d="M19 12v6a7 7 0 0 1-14 0v-6"/></svg>
+    <div>
+      <h1>Enclosure Sniffer</h1>
+      <p class="sub">Lists podcast audio &amp; feed links on this page</p>
+    </div>
+  </header>
+
+  <section class="notice">
+    <strong>Lists only.</strong> This extension never downloads anything — it only
+    collects links for you to open or play yourself.
+  </section>
+
+  <button id="scan" class="primary">Scan this page</button>
+  <button id="clear" class="ghost">Clear</button>
+
+  <section id="empty" class="empty">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+    <p>No scan yet. Click <strong>Scan this page</strong> to find audio links and podcast feeds.</p>
+  </section>
+
+  <section id="results" class="results" hidden>
+    <p id="summary" class="summary"></p>
+    <ul id="list" class="list"></ul>
+  </section>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>

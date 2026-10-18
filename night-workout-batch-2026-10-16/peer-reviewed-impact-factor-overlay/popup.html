@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal Metric Logbook</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M9 8h7M9 12h5"/></svg>
+    <div>
+      <h1>Journal Logbook</h1>
+      <p class="sub">Your metrics notebook</p>
+    </div>
+  </header>
+
+  <!-- Honest scope banner -->
+  <div class="scope" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Manual logbook — your own researched numbers only. <strong>NOT live journal data.</strong></span>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="journals">Journals</button>
+    <button class="tab" data-tab="add">Add</button>
+  </nav>
+
+  <!-- Journals list tab -->
+  <section id="tab-journals" class="panel active">
+    <div class="toolbar">
+      <select id="sort-by" aria-label="Sort journals">
+        <option value="if">Sort: Impact factor</option>
+        <option value="sjr">Sort: SJR</option>
+        <option value="name">Sort: Name</option>
+        <option value="recent">Sort: Recently added</option>
+      </select>
+      <button id="export-csv" class="btn ghost">Export CSV</button>
+    </div>
+    <div id="journal-list" class="cards"></div>
+    <div id="empty" class="empty hidden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+      <p>No journals yet.<br>Add one from the <strong>Add</strong> tab.</p>
+    </div>
+  </section>
+
+  <!-- Add / edit tab -->
+  <section id="tab-add" class="panel">
+    <form id="journal-form">
+      <input type="hidden" id="edit-id">
+      <label>Journal name
+        <input id="f-name" type="text" placeholder="e.g. Nature" required maxlength="120">
+      </label>
+      <label>Publisher
+        <input id="f-publisher" type="text" placeholder="e.g. Springer Nature" maxlength="120">
+      </label>
+      <div class="row3">
+        <label>Impact factor
+          <input id="f-if" type="number" step="0.001" min="0" placeholder="—">
+        </label>
+        <label>SJR
+          <input id="f-sjr" type="number" step="0.001" min="0" placeholder="—">
+        </label>
+        <label>Acceptance %
+          <input id="f-acc" type="number" step="0.1" min="0" max="100" placeholder="—">
+        </label>
+      </div>
+      <label>Notes
+        <textarea id="f-notes" rows="2" placeholder="Your notes: fit for your topic, review speed…" maxlength="500"></textarea>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Save journal</button>
+        <button type="button" id="cancel-edit" class="btn ghost hidden">Cancel edit</button>
+      </div>
+    </form>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Key Account Org Mapper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="6" rx="1"/><rect x="2" y="16" width="8" height="6" rx="1"/><rect x="14" y="16" width="8" height="6" rx="1"/><path d="M12 8v4M4 16v-2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg>
+    <div><h1>Org Mapper</h1><p>Key account org charts</p></div>
+    <button id="acctBtn" class="ghost-sm" title="New account">＋</button>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Account
+        <select id="acctSel"></select>
+      </label>
+      <div id="treeWrap" class="tree-wrap"></div>
+      <p id="treeEmpty" class="note">No people yet — add the first person below.</p>
+    </section>
+    <section class="glass card" id="detailCard" hidden>
+      <h2>Person details</h2>
+      <div class="det-row"><span>Name</span><b id="dName">—</b></div>
+      <div class="det-row"><span>Title</span><b id="dTitle">—</b></div>
+      <div class="det-row"><span>Department</span><b id="dDept">—</b></div>
+      <div class="det-row"><span>Reports to</span><b id="dMgr">—</b></div>
+      <div class="det-row"><span>Direct reports</span><b id="dReports">—</b></div>
+      <div class="btn-row">
+        <button id="editBtn" class="ghost">Edit</button>
+        <button id="delBtn" class="danger">Delete</button>
+        <button id="closeDet" class="ghost">Close</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2 id="formTitle">Add person</h2>
+      <div class="add-form">
+        <input id="fName" placeholder="Full name" maxlength="60">
+        <input id="fTitle" placeholder="Title (e.g. VP Sales)" maxlength="60">
+        <input id="fDept" placeholder="Department" maxlength="40">
+        <select id="fMgr"></select>
+        <button id="saveBtn" class="primary">Add person</button>
+        <button id="cancelEdit" class="ghost" hidden>Cancel edit</button>
+      </div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

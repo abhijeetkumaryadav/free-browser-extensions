@@ -1,0 +1,34 @@
+/* Printable invoice sheet. Light paper look for print; dark preview on screen. */
+:root { --teal: #14b8a6; --ink: #1a1d24; --muted: #6b7280; --line: #e5e7eb; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.55 -apple-system,"Segoe UI",Roboto,Inter,sans-serif; background: #141419; color: #f4f6fb; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; background: rgba(20,20,26,.85); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(255,255,255,.08); }
+.t-label { color: #9aa3b5; font-size: 13px; }
+.toolbar button { background: var(--teal); color: #062a27; border: 0; border-radius: 10px; padding: 10px 18px; font-weight: 700; cursor: pointer; }
+.sheet { background: #fff; color: var(--ink); max-width: 800px; margin: 28px auto; padding: 56px 60px; border-radius: 6px; }
+.inv-head { display: flex; justify-content: space-between; gap: 24px; border-bottom: 3px solid var(--teal); padding-bottom: 20px; margin-bottom: 24px; }
+.brand { font-size: 26px; font-weight: 800; }
+.inv-no { text-align: right; }
+.inv-title { font-size: 13px; letter-spacing: 3px; color: var(--teal); font-weight: 800; }
+.inv-num { font-size: 20px; font-weight: 700; margin: 4px 0; }
+.sub { color: var(--muted); font-size: 13px; }
+.parties { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.party.right { text-align: right; }
+.plabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+.pname { font-size: 17px; font-weight: 700; }
+table.lines { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.lines th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); border-bottom: 2px solid var(--line); padding: 10px 8px; }
+.lines td { padding: 11px 8px; border-bottom: 1px solid var(--line); }
+.lines .c { text-align: center; } .lines .r { text-align: right; }
+.totals { width: 280px; margin-left: auto; }
+.trow { display: flex; justify-content: space-between; padding: 6px 0; }
+.trow span { color: var(--muted); }
+.trow.grand { border-top: 2px solid var(--ink); margin-top: 8px; padding-top: 12px; font-size: 18px; font-weight: 800; }
+.trow.grand span { color: var(--ink); }
+.notes { margin-top: 32px; }
+.foot { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; text-align: center; }
+@media print {
+  body { background: #fff; color: var(--ink); }
+  .toolbar { display: none; }
+  .sheet { margin: 0; max-width: none; padding: 0; border-radius: 0; }
+}

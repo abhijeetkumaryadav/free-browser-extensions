@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis Structure Checker</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <span class="logo">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    </span>
+    <div>
+      <h1>Thesis Structure Checker</h1>
+      <p class="sub">Heuristic checks — <strong>not logical analysis</strong></p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+    <span>Word-list heuristics only. Counts patterns, judges nothing. Use your own reasoning.</span>
+  </div>
+
+  <label class="lbl" for="thesis">Paste your thesis statement</label>
+  <textarea id="thesis" rows="5" placeholder="e.g. Because renewable costs have fallen 80% since 2010, cities should mandate solar on new commercial buildings."></textarea>
+
+  <button id="checkBtn" class="primary">Run checks</button>
+
+  <div id="scoreWrap" class="score-wrap hidden">
+    <div class="ring"><span id="scoreNum">0</span></div>
+    <div class="ring-lbl">structure score<br><small id="verdict">—</small></div>
+  </div>
+
+  <div id="results" class="results hidden"></div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="guide">Guide</button>
+    <button class="tab" data-tab="notes">Notes</button>
+  </div>
+  <div id="guidePane" class="pane">
+    <div class="card"><strong>Claim signal</strong><p>A thesis usually stakes one clear claim. We look for a verb phrase carrying a position (argue, should, because) — absence of any may mean the statement reads like a fact list.</p></div>
+    <div class="card"><strong>Evidence markers</strong><p>Words like "studies show", "data", "for example" signal that support is promised. Missing them doesn't mean the thesis is wrong — it may mean the support lives elsewhere.</p></div>
+    <div class="card"><strong>Hedge-word density</strong><p>"Might", "perhaps", "possibly" soften claims. A few are fine; a thesis built mostly of hedges may lack conviction.</p></div>
+    <div class="card"><strong>Length check</strong><p>Very short statements (under ~12 words) rarely carry a full argument; very long ones (over ~60 words) may hide the claim.</p></div>
+  </div>
+  <div id="notesPane" class="pane hidden">
+    <textarea id="notes" rows="6" placeholder="Your private observations…"></textarea>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

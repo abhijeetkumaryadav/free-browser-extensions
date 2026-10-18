@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab Session Saver</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="pin">◈</span> Tab Session Saver</div>
+    <div class="save-row">
+      <input id="name" maxlength="50" placeholder="Session name (optional)">
+      <button id="save">Save</button>
+    </div>
+    <div id="status"></div>
+  </header>
+  <main id="list"></main>
+  <footer>
+    <button id="export">Export JSON</button>
+    <button id="importBtn">Import JSON</button>
+    <input type="file" id="importFile" accept="application/json" hidden>
+  </footer>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashdeck SRS</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+  <h1>Flashdeck SRS</h1>
+</header>
+
+<div class="scope-banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <p>Simplified SM-2 scheduler. Everything is stored locally in your browser — no accounts, no network.</p>
+</div>
+
+<!-- view: deck list -->
+<section id="viewDecks" class="card">
+  <div class="view-head"><h2>Decks</h2><button id="addDeckBtn" class="btn sm">+ Deck</button></div>
+  <div id="deckList" class="deck-list"></div>
+  <p class="empty" id="decksEmpty">No decks yet. Create one to start studying.</p>
+</section>
+
+<!-- view: single deck / cards -->
+<section id="viewDeck" class="card hidden">
+  <div class="view-head">
+    <button id="backBtn" class="btn sm ghost">‹ Back</button>
+    <h2 id="deckTitle">Deck</h2>
+    <button id="reviewBtn" class="btn sm primary">Review</button>
+  </div>
+  <div id="cardList" class="deck-list"></div>
+  <div class="add-card">
+    <input id="frontInput" placeholder="Front (term)" maxlength="200">
+    <input id="backInput" placeholder="Back (definition)" maxlength="500">
+    <button id="addCardBtn" class="btn sm">+ Card</button>
+  </div>
+  <div class="row spaced">
+    <button id="exportBtn" class="btn sm ghost">Export JSON</button>
+    <button id="importBtn" class="btn sm ghost">Import</button>
+    <input id="importFile" type="file" accept="application/json" class="hidden">
+    <button id="deleteDeckBtn" class="btn sm danger">Delete deck</button>
+  </div>
+</section>
+
+<!-- view: review -->
+<section id="viewReview" class="card hidden">
+  <div class="view-head">
+    <button id="quitReviewBtn" class="btn sm ghost">✕ Quit</button>
+    <span id="reviewProgress" class="muted"></span>
+  </div>
+  <div class="flashcard" id="flashcard">
+    <div id="cardFront" class="face"></div>
+    <div id="cardBack" class="face hidden"></div>
+  </div>
+  <button id="revealBtn" class="btn primary full">Show answer</button>
+  <div id="gradeRow" class="row hidden">
+    <button class="btn grade again" data-g="again">Again</button>
+    <button class="btn grade good" data-g="good">Good</button>
+    <button class="btn grade easy" data-g="easy">Easy</button>
+  </div>
+  <p class="empty hidden" id="reviewDone">All caught up! Nothing due in this deck.</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

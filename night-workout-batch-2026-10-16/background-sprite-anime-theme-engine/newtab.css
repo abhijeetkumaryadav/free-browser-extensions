@@ -1,0 +1,58 @@
+/* AnimeTab new-tab page — full-viewport canvas stage, glassmorphism dock. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, "Hiragino Sans", sans-serif;
+  color: #fff;
+  background: #0b0b12;
+}
+#bg { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+.vignette {
+  position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.38) 100%);
+}
+.hero {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 6px; pointer-events: none;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+}
+.clock { font-size: clamp(64px, 9vw, 120px); font-weight: 200; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+.date { font-size: clamp(15px, 1.8vw, 21px); font-weight: 500; opacity: .92; }
+.greet { font-size: clamp(13px, 1.5vw, 17px); opacity: .75; }
+.dock {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(20, 20, 26, .72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  padding: 12px 16px;
+  max-width: min(92vw, 640px);
+}
+.themes { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.theme-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
+  color: #f2f2f5; border-radius: 12px;
+  padding: 8px 12px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: transform .1s ease, border-color .15s ease, background .15s ease;
+}
+.theme-btn:hover { background: rgba(255,255,255,.1); }
+.theme-btn:active { transform: scale(.97); }
+.theme-btn.active { border-color: var(--sw, #ff9ec7); box-shadow: 0 0 0 1px var(--sw, #ff9ec7), 0 4px 18px rgba(0,0,0,.35); }
+.swatch {
+  width: 18px; height: 18px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, var(--s1), var(--s2));
+  border: 1px solid rgba(255,255,255,.25);
+}
+.density { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #c9c9d4; white-space: nowrap; }
+.density select {
+  background: rgba(255,255,255,.07); color: #fff;
+  border: 1px solid rgba(255,255,255,.12); border-radius: 10px;
+  padding: 7px 10px; font-size: 13px; cursor: pointer;
+}
+.density select option { color: #111; }

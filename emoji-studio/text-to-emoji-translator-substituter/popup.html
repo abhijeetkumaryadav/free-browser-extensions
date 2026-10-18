@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordMoji — Text to Emoji Translator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+    <div>
+      <h1>WordMoji</h1>
+      <p>Text → emoji translator · local dictionary</p>
+    </div>
+  </header>
+
+  <section class="glass panel">
+    <h2>Your text</h2>
+    <textarea id="input" class="input" rows="4" placeholder="Type or paste text here… e.g. I love pizza on friday night"></textarea>
+    <div class="controls">
+      <div class="slider-row">
+        <label for="density">Density</label>
+        <input id="density" type="range" min="0" max="100" value="80" aria-label="Substitution density">
+        <span id="densityVal" class="pill">80%</span>
+      </div>
+      <div class="btn-row">
+        <button id="translateBtn" class="btn primary">Translate</button>
+        <button id="undoBtn" class="btn ghost" disabled>Undo</button>
+        <button id="clearBtn" class="btn ghost">Clear</button>
+      </div>
+    </div>
+    <p class="hint">Matched words are replaced by emoji from the built-in local dictionary. Density controls how many eligible words get swapped. No network, nothing leaves your device.</p>
+  </section>
+
+  <section class="glass panel" id="resultPanel">
+    <h2>Result <span id="stat" class="stat"></span></h2>
+    <div id="output" class="output"><span class="placeholder">Translate something to see it here. Click any highlighted word to toggle it back.</span></div>
+    <div class="btn-row">
+      <button id="copyBtn" class="btn primary" disabled>Copy result</button>
+      <button id="swapAllBtn" class="btn ghost" disabled>Show all words</button>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <footer class="foot">Local dictionary · zero network · v1.0.0</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

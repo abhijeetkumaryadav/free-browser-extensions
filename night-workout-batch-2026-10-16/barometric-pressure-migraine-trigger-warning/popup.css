@@ -1,0 +1,24 @@
+/* Pressure & Migraine Journal — deep-dark glassmorphism, single violet accent #a78bfa */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;background:#0b0b10;color:#e8e8ef;font:14px/1.5 system-ui,sans-serif}
+.card{background:rgba(20,20,26,.72);backdrop-filter:blur(12px);padding:16px;display:flex;flex-direction:column;gap:14px;max-height:600px;overflow-y:auto}
+header{display:flex;gap:12px;align-items:center}
+.ico{width:32px;height:32px;stroke:#a78bfa;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+h1{font-size:16px;font-weight:700}
+.sub{font-size:12px;color:#9a9aad}
+.notice{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.35);border-radius:10px;padding:10px 12px;font-size:12px;color:#e6defc}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px}
+section{display:flex;flex-direction:column;gap:8px}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:#b9b9c9}
+input,select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:8px;padding:8px;font-size:14px}
+input:focus,select:focus{outline:none;border-color:#a78bfa}
+button{background:#a78bfa;color:#14141c;border:none;border-radius:8px;padding:9px;font-size:14px;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+button.ghost{background:transparent;color:#a78bfa;border:1px solid rgba(167,139,250,.4)}
+.corr{font-size:13px;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.3);border-radius:10px;padding:10px 12px}
+.history{display:flex;flex-direction:column;gap:6px;max-height:180px;overflow-y:auto}
+.entry{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 10px;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.entry .when{color:#9a9aad}
+.mig{font-weight:700}
+.mig.none{color:#34d399}.mig.mild{color:#fbbf24}.mig.moderate{color:#fb923c}.mig.severe{color:#f87171}
+.del{background:none;color:#f87171;font-size:16px;padding:0 4px}

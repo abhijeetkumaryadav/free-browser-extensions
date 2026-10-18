@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+<title>Company Graveyard</title>
+</head>
+<body>
+<div class="banner">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M5 5l2 2M19 5l-2 2M3 12h3M18 12h3M5 19l2-2M19 19l-2-2"/></svg>
+  <p><strong>Your memorial — manual.</strong> You record the companies; archive links open only when you click them.</p>
+</div>
+<header>
+  <h1>Company Graveyard</h1>
+  <p class="sub">R.I.P. landing pages</p>
+</header>
+<section class="card">
+  <h2>Bury a company</h2>
+  <input id="fName" placeholder="Company name *" maxlength="80">
+  <input id="fUrl" placeholder="Landing page URL (optional)" maxlength="300">
+  <input id="fYear" type="number" placeholder="Year died (e.g. 2015)" min="1970" max="2100">
+  <textarea id="fEulogy" placeholder="Eulogy — your farewell note…" maxlength="1000"></textarea>
+  <button id="btnAdd">Bury it ⚰</button>
+</section>
+<section class="card">
+  <div class="row"><h2>Buried <span id="count">(0)</span></h2></div>
+  <input id="search" placeholder="Search name or eulogy…">
+  <div id="list" class="list"></div>
+  <button id="btnClear" class="ghost">Exhume all</button>
+</section>
+<script src="popup.js"></script>
+</body>
+</html>

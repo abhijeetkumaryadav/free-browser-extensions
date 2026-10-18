@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><circle cx="12" cy="11" r="2.5"/><path d="M9.5 11a2.5 2.5 0 0 1 5 0"/></svg>
+    <div>
+      <h1>Deepfake Warner</h1>
+      <p class="sub">Heuristic signals, not verdicts</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    <strong>Heuristic signals only.</strong> This tool <em>cannot</em> tell you if media is
+    real or fake. No AI analysis is performed. Always verify with trusted sources.
+  </div>
+
+  <button id="btn-scan" class="btn primary full" type="button">🔍 Scan this page's media</button>
+  <p class="hint" id="scan-msg">Scans images, video &amp; audio on the active tab — 100% local.</p>
+
+  <section id="results" hidden>
+    <div class="summary" id="summary"></div>
+    <div id="media-list"></div>
+  </section>
+
+  <section class="checklist">
+    <h2>What to look for 👀</h2>
+    <ul>
+      <li><strong>Lighting &amp; shadows</strong> that don't match the scene's light direction.</li>
+      <li><strong>Skin</strong> looks waxy, airbrushed, or lacks pores; <strong>teeth/hands</strong> look wrong.</li>
+      <li><strong>Blinking</strong> is absent, too rare, or oddly rhythmic in video.</li>
+      <li><strong>Lip-sync mismatch</strong> — mouth movement doesn't match the audio.</li>
+      <li><strong>Warped backgrounds</strong> — straight lines bend near faces.</li>
+      <li><strong>Voice</strong> sounds flat, robotic, or the emotion doesn't fit the words.</li>
+      <li><strong>Source check</strong> — unknown account, no original context, sensational caption.</li>
+      <li><strong>Reverse image search</strong> the frame (links below) to find the original.</li>
+    </ul>
+  </section>
+
+  <p class="honest">Signals are simple local heuristics (sizes, URLs, metadata). They can miss real fakes and flag innocent media. Nothing leaves your device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

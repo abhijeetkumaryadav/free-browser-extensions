@@ -1,0 +1,87 @@
+/* Media Ownership Tree — deep-dark glassmorphism, single amber accent */
+:root {
+  --accent: #fbbf24;
+  --bg: rgba(20, 20, 26, 0.72);
+  --panel: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #eef2f6;
+  --muted: #9aa4b2;
+  --danger: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 380px;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: #0b0d12;
+}
+.card {
+  background: var(--bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 12px;
+}
+.head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.logo { width: 30px; height: 30px; color: var(--accent); flex: none; }
+h1 { font-size: 17px; font-weight: 700; }
+.sub { font-size: 12px; color: var(--muted); }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 12px; color: var(--muted);
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px; margin-bottom: 12px; line-height: 1.45;
+}
+.notice svg { width: 16px; height: 16px; flex: none; color: var(--accent); margin-top: 1px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.tab {
+  flex: 1; padding: 9px; background: var(--panel); color: var(--muted);
+  border: 1px solid var(--border); border-radius: 10px; font-size: 13px; font-weight: 600;
+  font-family: inherit; cursor: pointer;
+}
+.tab.active { color: var(--accent); border-color: var(--accent); }
+.hidden { display: none; }
+.guide { font-size: 12.5px; line-height: 1.55; color: var(--muted); display: flex; flex-direction: column; gap: 8px; }
+.guide h3 { color: var(--text); font-size: 13px; margin-top: 4px; }
+.guide ul { padding-left: 18px; }
+.row { display: flex; gap: 8px; margin-bottom: 8px; }
+input, select {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text);
+  padding: 9px 10px; font-size: 13px; font-family: inherit;
+}
+input:focus, select:focus { outline: none; border-color: var(--accent); }
+#orgName { flex: 1; }
+#orgRole { flex: 0 0 118px; }
+#orgParent, #orgNote { width: 100%; margin-bottom: 8px; }
+button { font-family: inherit; cursor: pointer; border-radius: 10px; font-size: 13px; font-weight: 600; }
+.primary {
+  width: 100%; padding: 10px; margin-bottom: 10px;
+  background: var(--accent); color: #241503; border: none;
+}
+.primary:hover { filter: brightness(1.08); }
+.toolbar { display: flex; gap: 8px; margin-bottom: 10px; }
+#q { flex: 1; }
+.danger { padding: 9px 12px; background: none; color: var(--danger); border: 1px solid #f8717144; }
+.tree { display: flex; flex-direction: column; gap: 8px; max-height: 260px; overflow-y: auto; }
+.node {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 9px 10px; font-size: 12.5px; position: relative;
+}
+.node .nm { font-weight: 700; }
+.node .role {
+  display: inline-block; font-size: 10.5px; font-weight: 700; color: var(--accent);
+  border: 1px solid #fbbf2455; border-radius: 20px; padding: 1px 8px; margin-left: 8px;
+  text-transform: capitalize;
+}
+.node .par { color: var(--muted); font-size: 12px; margin-top: 4px; }
+.node .nt { color: var(--muted); font-size: 12px; margin-top: 2px; line-height: 1.4; }
+.node .del {
+  position: absolute; top: 6px; right: 6px; background: none; border: none;
+  color: var(--muted); font-size: 15px; line-height: 1; padding: 2px 4px;
+}
+.node .del:hover { color: var(--danger); }
+.empty { color: var(--muted); font-size: 12px; text-align: center; padding: 12px; }
+.foot { margin-top: 12px; font-size: 11px; color: var(--muted); text-align: center; }

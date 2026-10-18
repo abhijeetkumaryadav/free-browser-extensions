@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab State Variable Watcher</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+    <div><h1>Variable Watcher</h1><p id="pageHost">—</p></div>
+    <span id="status" class="pill idle">Idle</span>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Watch a variable</h2>
+      <div class="add-row">
+        <input id="varName" placeholder="e.g. cart, appState" maxlength="60" spellcheck="false">
+        <button id="addBtn" class="primary">Watch</button>
+      </div>
+      <p class="note">Reads <code>window[name]</code> on this tab only. Never writes to the page.</p>
+    </section>
+    <section class="glass card">
+      <h2>Watched</h2>
+      <div id="vars"></div>
+      <div id="emptyVars" class="empty">No variables yet — add one above.</div>
+    </section>
+    <section class="glass card">
+      <div class="btn-row">
+        <button id="readBtn" class="ghost">Read now</button>
+        <button id="startBtn" class="primary">Start auto-watch</button>
+        <button id="stopBtn" class="ghost">Stop</button>
+      </div>
+      <p class="note">Auto-watch polls every 2s in the background and logs every change.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

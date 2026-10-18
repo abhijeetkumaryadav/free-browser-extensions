@@ -1,0 +1,1 @@
+{"chrome_url_overrides":{"newtab":"house.html"},"description":"A tiny interactive dollhouse in your new tab. Decorate rooms, drag furniture, toggle lights. Fully local creative toy.","icons":{"128":"icons/icon128.png","16":"icons/icon16.png","48":"icons/icon48.png"},"manifest_version":3,"name":"Canvas Dollhouse","permissions":["storage"],"version":"1.0.0"}

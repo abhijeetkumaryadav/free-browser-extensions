@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      <h1>Flashcard Deck Compiler</h1>
+    </div>
+    <p class="notice">Exports Anki-importable .tsv (File → Import in Anki). No AnkiConnect — this extension never talks to Anki directly.</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="decks">Decks</button>
+    <button class="tab" data-tab="cards">Cards</button>
+    <button class="tab" data-tab="review">Review</button>
+  </nav>
+
+  <section class="tabpage" id="tab-decks">
+    <div class="row">
+      <input id="deck-name" type="text" placeholder="New deck name">
+      <button id="add-deck" class="primary">Add</button>
+    </div>
+    <ul id="deck-list"></ul>
+  </section>
+
+  <section class="tabpage" id="tab-cards" hidden>
+    <p class="hint" id="cards-deck-label"></p>
+    <label>Add card</label>
+    <textarea id="card-front" placeholder="Front"></textarea>
+    <textarea id="card-back" placeholder="Back"></textarea>
+    <button id="add-card" class="primary">Add card</button>
+    <label class="mt">Bulk import (one card per line: front [TAB] back)</label>
+    <textarea id="bulk" placeholder="front&#9;back&#10;front&#9;back"></textarea>
+    <button id="bulk-add" class="secondary">Import bulk</button>
+    <ul id="card-list"></ul>
+  </section>
+
+  <section class="tabpage" id="tab-review" hidden>
+    <div id="review-card" class="review-card">
+      <p id="review-text" class="review-text">Press Start to review</p>
+      <p class="review-side" id="review-side"></p>
+    </div>
+    <div class="row">
+      <button id="flip" class="secondary">Flip</button>
+      <button id="next-card" class="primary">Next</button>
+    </div>
+    <div class="row">
+      <button id="shuffle" class="secondary">Shuffle</button>
+      <button id="export-tsv" class="primary">Export Anki TSV</button>
+    </div>
+  </section>
+
+  <footer>Made for rdx's extension marathon · 100% local</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

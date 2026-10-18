@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paste Clean</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="head">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/></svg>
+    <h1>Paste Clean</h1>
+  </div>
+  <p class="scope">Local only — strips formatting from clipboard text and copies it back.</p>
+</header>
+
+<section class="panel">
+  <div class="modes">
+    <button class="mode active" data-mode="plain">Plain text</button>
+    <button class="mode" data-mode="single">Single line</button>
+    <button class="mode" data-mode="tight">Tight lines</button>
+  </div>
+  <button id="clean" class="primary">Clean clipboard now</button>
+  <p id="status" class="status"></p>
+
+  <h2>Preview</h2>
+  <pre id="preview" class="preview">Nothing cleaned yet — click above.</pre>
+</section>
+
+<section class="panel">
+  <h2>History <button id="clearHist" class="ghost small">Clear</button></h2>
+  <ul id="history" class="history"></ul>
+  <p id="histEmpty" class="empty">No cleaned clips yet.</p>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

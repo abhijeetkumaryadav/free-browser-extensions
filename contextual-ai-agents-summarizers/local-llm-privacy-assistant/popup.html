@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Privacy Shield</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1 1 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+    <div><h1>LLM Privacy Shield</h1><p>Redact PII before pasting into AI chats</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <label class="fld">Text to check
+        <textarea id="src" rows="6" placeholder="Paste the text you'd send to an AI chatbot…"></textarea>
+      </label>
+      <div class="btnrow">
+        <button id="scan" class="primary">Scan for PII</button>
+        <button id="redact" class="accentbtn" disabled>Redact all</button>
+      </div>
+    </section>
+    <section id="res" class="glass card" hidden>
+      <h2>Findings <span id="total" class="count"></span></h2>
+      <div id="chips"></div>
+      <div id="preview" class="preview"></div>
+      <div class="btnrow">
+        <button id="copy" class="primary" disabled>Copy redacted</button>
+      </div>
+    </section>
+    <section class="glass card">
+      <h2>Privacy checklist</h2>
+      <div id="checklist"></div>
+      <p class="note">Detection is heuristic and on-device — always give the redacted text a final look before sending it anywhere.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sun Shadow Angle Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></svg>
+    </span>
+    <div>
+      <h1>Sun Shadow Calculator</h1>
+      <p class="sub">Local solar math &mdash; no network</p>
+    </div>
+  </header>
+
+  <section class="card inputs">
+    <div class="row2">
+      <label>Date <input type="date" id="inDate"></label>
+      <label>Time <input type="time" id="inTime"></label>
+    </div>
+    <div class="row2">
+      <label>Latitude &deg; <input type="number" id="inLat" step="0.0001" min="-90" max="90" placeholder="e.g. 28.6139"></label>
+      <label>Longitude &deg; <input type="number" id="inLon" step="0.0001" min="-180" max="180" placeholder="e.g. 77.2090"></label>
+    </div>
+    <div class="row2">
+      <label>Object height (m) <input type="number" id="inHeight" step="0.1" min="0" value="1.7"></label>
+      <label>UTC offset (h) <input type="number" id="inTz" step="0.5" min="-14" max="14" placeholder="auto"></label>
+    </div>
+    <p class="hint">Leave UTC offset empty to use your browser's local timezone.</p>
+    <button id="calc" class="btn">Calculate</button>
+  </section>
+
+  <section class="card results" id="results" hidden>
+    <div class="dial">
+      <svg id="sunDial" viewBox="0 0 120 120" width="120" height="120" aria-label="Sun position dial"></svg>
+      <div class="dialLabel"><span id="rElev">--</span><small>elevation &deg;</small></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="k">Azimuth</span><span class="v" id="rAz">--</span></div>
+      <div class="stat"><span class="k">Shadow length</span><span class="v" id="rShadow">--</span></div>
+      <div class="stat"><span class="k">Shadow points</span><span class="v" id="rDir">--</span></div>
+      <div class="stat"><span class="k">Day status</span><span class="v" id="rDay">--</span></div>
+      <div class="stat wide"><span class="k">Golden hour hint</span><span class="v" id="rGolden">--</span></div>
+    </div>
+    <p class="formula">Shadow &asymp; height &divide; tan(elevation). Elevation &gt; 0 needed; negative means sun is below horizon.</p>
+  </section>
+
+  <section class="card">
+    <h2>My field notes</h2>
+    <textarea id="notes" rows="3" placeholder="Location scouting notes, saved locally&hellip;"></textarea>
+    <p class="saved" id="notesSaved">Autosaved on this device.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

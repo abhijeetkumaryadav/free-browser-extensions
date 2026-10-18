@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gatekeeper Fee Calculator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+    <div>
+      <h1>Gatekeeper</h1>
+      <p>True take-home on every sale</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>
+        Marketplace
+      </h2>
+      <select id="marketplace" aria-label="Marketplace"></select>
+      <p class="note" id="feeNote"></p>
+      <div id="feeRows"></div>
+      <button id="resetFees" class="ghost slim">Reset fees to defaults</button>
+    </section>
+
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Your numbers
+      </h2>
+      <div class="grid2">
+        <label>Sale price
+          <span class="money"><b id="symPrice">$</b><input id="price" type="number" min="0" step="0.01" inputmode="decimal"></span>
+        </label>
+        <label>Cost of goods
+          <span class="money"><b id="symCogs">$</b><input id="cogs" type="number" min="0" step="0.01" inputmode="decimal"></span>
+        </label>
+        <label>Shipping cost
+          <span class="money"><b id="symShip">$</b><input id="shipping" type="number" min="0" step="0.01" inputmode="decimal"></span>
+        </label>
+        <label>Ad spend / unit
+          <span class="money"><b id="symAds">$</b><input id="ads" type="number" min="0" step="0.01" inputmode="decimal"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="glass card result">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14 9 11"/></svg>
+        Take-home
+      </h2>
+      <div class="hero">
+        <div>
+          <span class="net-label">Net profit</span>
+          <span class="net" id="netProfit">—</span>
+        </div>
+        <span class="badge" id="marginBadge">—</span>
+      </div>
+      <div id="breakdown"></div>
+      <div class="btnrow">
+        <button id="copyBtn" class="ghost">Copy breakdown</button>
+        <button id="saveBtn" class="ghost">Save scenario</button>
+      </div>
+    </section>
+
+    <section class="glass card">
+      <h2>
+        <svg class="ico sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Saved scenarios
+      </h2>
+      <div id="history"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

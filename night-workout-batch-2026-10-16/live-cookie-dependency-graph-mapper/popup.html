@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cookie Dependency Graph</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/><circle cx="5" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/><path d="M6.3 6.3 10 10M17.7 6.3 14 10M6.3 17.7 10 14M17.7 17.7 14 14"/></svg>
+    <div>
+      <h1>Cookie Dependency Graph</h1>
+      <p class="sub" id="page-host">—</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Read-only analysis. Cookie <strong>values are never read</strong> — only names, flags and domains. Script→cookie attribution isn't reliably available to extensions; scripts are shown for context.</span>
+  </div>
+
+  <div class="legend">
+    <span class="lg"><i class="dot first"></i>First-party</span>
+    <span class="lg"><i class="dot third"></i>Third-party</span>
+    <span class="lg"><i class="dot httponly"></i>httpOnly</span>
+  </div>
+
+  <div id="stats" class="stats hidden"></div>
+  <div id="graph-wrap"><svg id="graph" viewBox="0 0 340 300" role="img" aria-label="Cookie dependency graph"></svg></div>
+  <div id="detail" class="card hidden"></div>
+
+  <div id="scripts-card" class="card hidden">
+    <h2>Scripts on this page <span class="muted-note">(context only)</span></h2>
+    <div id="script-list"></div>
+  </div>
+
+  <button id="scan-btn" class="primary">Scan this page</button>
+  <footer><span class="foot-note">100% local · nothing leaves your device</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MemeForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="0.7" fill="currentColor"/><circle cx="15" cy="10" r="0.7" fill="currentColor"/><path d="M8.5 13.5c2 2.5 5 2.5 7 0"/></svg>
+    </div>
+    <div>
+      <h1>MemeForge</h1>
+      <p class="sub">Make memes, keep it fun</p>
+    </div>
+    <button class="icon-btn" id="shuffleBtn" title="Random template">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>
+    </button>
+  </header>
+
+  <section class="panel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      <span>Template</span>
+    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7V5h16v2"/><path d="M12 5v14"/><path d="M9 19h6"/></svg>
+      <span>Captions</span>
+    </div>
+    <label class="field">
+      <span>Top text</span>
+      <input type="text" id="topText" maxlength="90" placeholder="TOP TEXT" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Bottom text</span>
+      <input type="text" id="bottomText" maxlength="90" placeholder="BOTTOM TEXT" autocomplete="off">
+    </label>
+    <div class="row">
+      <label class="field grow">
+        <span>Font size <b id="sizeVal">64</b>px</span>
+        <input type="range" id="fontSize" min="28" max="110" value="64">
+      </label>
+      <label class="check">
+        <input type="checkbox" id="outline" checked>
+        <span>Outline</span>
+      </label>
+    </div>
+  </section>
+
+  <div class="preview-wrap">
+    <canvas id="meme" width="600" height="600"></canvas>
+  </div>
+
+  <button class="btn primary" id="downloadBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+    Download meme PNG
+  </button>
+
+  <p class="foot">Just for fun. Templates are original blanks — add your own captions. Nothing is uploaded.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

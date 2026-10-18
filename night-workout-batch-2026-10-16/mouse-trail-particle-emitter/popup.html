@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="brand">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>
+      </svg>
+    </span>
+    <div>
+      <h1>Mouse Trail</h1>
+      <p class="tag">Visual toy &middot; page untouched</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    Playful visual toy. Particles appear on a separate overlay layer &mdash; the page DOM is never modified. Fully reversible.
+  </div>
+
+  <section class="card">
+    <p class="label">Trail style</p>
+    <div class="segmented" id="styleSeg">
+      <button data-style="sparkle" class="on">Sparkles</button>
+      <button data-style="bubble">Bubbles</button>
+      <button data-style="ember">Embers</button>
+    </div>
+
+    <p class="label">Color</p>
+    <div class="swatches" id="colorSwatches">
+      <button data-color="#e879f9" class="on" style="--c:#e879f9" aria-label="Fuchsia"></button>
+      <button data-color="#22d3ee" style="--c:#22d3ee" aria-label="Cyan"></button>
+      <button data-color="#a3e635" style="--c:#a3e635" aria-label="Lime"></button>
+      <button data-color="#fbbf24" style="--c:#fbbf24" aria-label="Amber"></button>
+    </div>
+
+    <p class="label row"><span>Intensity</span><span id="intensityVal" class="val">Medium</span></p>
+    <input type="range" id="intensity" min="1" max="3" step="1" value="2">
+  </section>
+
+  <button id="toggle" class="cta">Start trail</button>
+  <p class="foot">Press <kbd>Esc</kbd> on the page or click Stop to remove the trail instantly.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

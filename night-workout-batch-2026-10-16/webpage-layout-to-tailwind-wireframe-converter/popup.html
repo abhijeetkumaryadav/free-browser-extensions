@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-head">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    </div>
+    <div>
+      <h1>Wireframe Converter</h1>
+      <p class="sub">Page layout → Tailwind-style wireframe</p>
+    </div>
+  </header>
+
+  <div class="banner">
+    Heuristic DOM → utility-class mapping. The wireframe is a <b>structural sketch</b>
+    with placeholder boxes — not a pixel-perfect replica — and all real content is
+    replaced by grey boxes. 100% local.
+  </div>
+
+  <button id="convert" class="primary">Generate wireframe</button>
+  <div id="status" class="status hidden"></div>
+  <div id="stats" class="stats hidden"></div>
+  <button id="download" class="ghost hidden">Download wireframe (.html)</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

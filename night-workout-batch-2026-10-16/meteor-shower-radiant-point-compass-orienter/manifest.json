@@ -1,0 +1,1 @@
+{"action":{"default_popup":"popup.html","default_title":"Radiant Point"},"description":"Points you at meteor shower radiants: bundled shower data with live altitude, azimuth and compass direction for your location.","manifest_version":3,"name":"Radiant Point — Meteor Shower Compass Orienter","permissions":["storage"],"version":"1.0.0"}

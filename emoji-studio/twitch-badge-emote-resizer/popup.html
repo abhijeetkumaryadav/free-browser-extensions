@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmoteForge</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="brand">
+  <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="10" r="1.2" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.2" fill="currentColor" stroke="none"/><path d="M8.5 14.5c1.5 1.2 5.5 1.2 7 0"/></svg>
+  <div>
+    <h1>EmoteForge</h1>
+    <p>Twitch badge &amp; emote resizer</p>
+  </div>
+</header>
+
+<main>
+  <section class="panel">
+    <label class="drop" id="dropZone" for="fileInput">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <span>Drop images here or <strong>browse</strong></span>
+      <small>PNG / JPG / WebP — processed 100% locally</small>
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple hidden>
+    </label>
+  </section>
+
+  <section class="panel" id="jobsPanel" hidden>
+    <h2>Your emotes</h2>
+    <div id="jobs"></div>
+    <button class="btn secondary" id="clearBtn">Clear all</button>
+  </section>
+
+  <section class="panel">
+    <h2>Submission checklist</h2>
+    <ul class="checklist" id="checklist">
+      <li><label><input type="checkbox" data-key="sizes"><span>Exported all three sizes — <strong>28×28</strong>, <strong>56×56</strong>, <strong>112×112</strong></span></label></li>
+      <li><label><input type="checkbox" data-key="png"><span>Files are <strong>PNG</strong> with a <strong>transparent background</strong></span></label></li>
+      <li><label><input type="checkbox" data-key="size"><span>Each file is <strong>under 25&nbsp;KB</strong></span></label></li>
+      <li><label><input type="checkbox" data-key="code"><span>Emote code is unique in my channel, 4–100 chars (letters, numbers, no spaces)</span></label></li>
+      <li><label><input type="checkbox" data-key="rights"><span>I own the rights / it's original art — no copyrighted material</span></label></li>
+      <li><label><input type="checkbox" data-key="upload"><span>Uploaded manually via <strong>Creator Dashboard → Viewer Rewards → Emotes</strong></span></label></li>
+    </ul>
+    <p class="note">EmoteForge never uploads anything — Twitch requires manual upload through the Creator Dashboard. No OAuth, no API, no network.</p>
+  </section>
+</main>
+
+<script src="popup.js"></script>
+</body>
+</html>

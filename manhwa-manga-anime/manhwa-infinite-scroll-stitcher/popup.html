@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StripFlow</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+      <div>
+        <h1>StripFlow</h1>
+        <p>Auto-scroll reading helper</p>
+      </div>
+    </div>
+    <div class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Idle</span></div>
+  </header>
+
+  <section class="card glass">
+    <button class="btn toggle" id="toggleBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      <span id="toggleLabel">Start auto-scroll</span>
+    </button>
+  </section>
+
+  <section class="card glass">
+    <div class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+      <span>Speed</span>
+      <span class="speed-val" id="speedVal">60 px/s</span>
+    </div>
+    <input type="range" id="speedSlider" min="10" max="400" step="5" value="60" class="slider">
+    <div class="presets">
+      <button class="chip" data-speed="30">Slow</button>
+      <button class="chip" data-speed="60">Casual</button>
+      <button class="chip" data-speed="140">Fast</button>
+      <button class="chip" data-speed="280">Speed-read</button>
+    </div>
+  </section>
+
+  <section class="card glass">
+    <div class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span>Behaviour</span>
+    </div>
+    <label class="switch-row">
+      <div>
+        <div class="switch-label">Pause when I scroll</div>
+        <div class="switch-hint">Auto-scroll yields to your wheel / touch, resumes after 2s idle</div>
+      </div>
+      <span class="switch"><input type="checkbox" id="pauseOnUser" checked><span class="knob"></span></span>
+    </label>
+    <label class="switch-row">
+      <div>
+        <div class="switch-label">Stop at page bottom</div>
+        <div class="switch-hint">Turn off automatically when the end is reached</div>
+      </div>
+      <span class="switch"><input type="checkbox" id="stopAtBottom" checked><span class="knob"></span></span>
+    </label>
+  </section>
+
+  <section class="card glass">
+    <div class="card-title">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+      <span>Jump</span>
+    </div>
+    <div class="jump-row">
+      <button class="btn ghost" id="toTop">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+        Top
+      </button>
+      <button class="btn ghost" id="toBottom">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        Bottom
+      </button>
+    </div>
+  </section>
+
+  <p class="footnote">Non-destructive: it only scrolls the page. Toggle off anytime — nothing is modified or saved on the page.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

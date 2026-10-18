@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- Sandboxed runner page. Loaded inside a sandboxed <iframe> from the
+     popup. It has NO access to the extension, the DOM of any page, or the
+     network (sandbox="allow-scripts" only). Inline script is fine here:
+     sandbox pages have their own CSP, declared in the manifest. -->
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<script>
+/* Runner: executes user code with `new Function` (eval is allowed in
+   sandbox pages), captures console output + errors, reports back to the
+   popup via postMessage. A best-effort watchdog rejects promises that
+   take longer than 5s; a synchronous infinite loop cannot be interrupted
+   (the frame can be reloaded). */
+(function () {
+  'use strict';
+
+  // Serialize values safely for display in the popup console.
+  function fmt(value) {
+    if (typeof value === 'string') return value;
+    try {
+      const seen = new Set();
+      return JSON.stringify(value, function (k, v) {
+        if (typeof v === 'object' && v !== null) {
+          if (seen.has(v)) return '[circular]';
+          seen.add(v);
+        }
+        if (typeof v === 'function') return '[function ' + (v.name || 'anonymous') + ']';
+        if (typeof v === 'bigint') return v.toString() + 'n';
+        return v;
+      }, 2);
+    } catch (e) {
+      try { return String(value); } catch (e2) { return '[unprintable]'; }
+    }
+  }
+
+  // Forward console.* calls to the popup.
+  function hookConsole(runId) {
+    ['log', 'info', 'warn', 'error'].forEach(function (method) {
+      console[method] = function () {
+        var args = Array.prototype.slice.call(arguments).map(fmt);
+        parent.postMessage({ type: 'sandbox-output', runId: runId, kind: method === 'error' ? 'error' : (method === 'warn' ? 'warn' : 'log'), text: args.join(' ') }, '*');
+      };
+    });
+  }
+
+  function run(runId, code) {
+    hookConsole(runId);
+    window.onerror = function (msg) {
+      parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'error', text: 'Uncaught: ' + String(msg) }, '*');
+    };
+    window.onunhandledrejection = function (ev) {
+      var r = ev && ev.reason;
+      parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'error', text: 'Unhandled rejection: ' + (r && r.stack ? r.stack : fmt(r)) }, '*');
+    };
+
+    var result;
+    try {
+      // eslint-disable-next-line no-new-func
+      result = new Function('"use strict";\n' + code)();
+    } catch (e) {
+      parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'error', text: (e && e.stack) || String(e) }, '*');
+      parent.postMessage({ type: 'sandbox-done', runId: runId }, '*');
+      return;
+    }
+
+    // Await promises with a 5s best-effort watchdog.
+    if (result && typeof result.then === 'function') {
+      var settled = false;
+      var timer = setTimeout(function () {
+        if (!settled) {
+          settled = true;
+          parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'warn', text: '[watchdog] promise still pending after 5s — result not awaited further.' }, '*');
+          parent.postMessage({ type: 'sandbox-done', runId: runId }, '*');
+        }
+      }, 5000);
+      result.then(function (v) {
+        if (settled) return;
+        settled = true; clearTimeout(timer);
+        parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'result', text: fmt(v) }, '*');
+        parent.postMessage({ type: 'sandbox-done', runId: runId }, '*');
+      }, function (e) {
+        if (settled) return;
+        settled = true; clearTimeout(timer);
+        parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'error', text: (e && e.stack) || String(e) }, '*');
+        parent.postMessage({ type: 'sandbox-done', runId: runId }, '*');
+      });
+    } else {
+      if (result !== undefined) {
+        parent.postMessage({ type: 'sandbox-output', runId: runId, kind: 'result', text: fmt(result) }, '*');
+      }
+      parent.postMessage({ type: 'sandbox-done', runId: runId }, '*');
+    }
+  }
+
+  window.addEventListener('message', function (ev) {
+    var d = ev.data || {};
+    if (d.type === 'sandbox-run') run(d.runId, String(d.code || ''));
+  });
+
+  // Tell the popup the runner is ready.
+  parent.postMessage({ type: 'sandbox-ready' }, '*');
+})();
+</script>
+</body>
+</html>

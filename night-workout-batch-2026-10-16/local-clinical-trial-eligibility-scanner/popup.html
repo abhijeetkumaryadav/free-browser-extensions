@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial Notes</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="wrap">
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      </span>
+      <div>
+        <h1>Trial Notes</h1>
+        <p class="sub">Your personal logbook — not an eligibility check</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mandatory health banner -->
+  <div class="banner" role="note">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+    <span>Not medical advice — talk to your doctor/pharmacist. This logbook never assesses eligibility.</span>
+  </div>
+
+  <!-- Add form -->
+  <section class="card">
+    <h2>Log a trial</h2>
+    <label class="field">
+      <span>Trial name</span>
+      <input id="name" type="text" placeholder="e.g. Diabetes lifestyle study" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Source / where you heard about it</span>
+      <input id="source" type="text" placeholder="e.g. hospital notice board" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Questions for your doctor</span>
+      <textarea id="questions" rows="2" placeholder="What do you want to ask about this trial?"></textarea>
+    </label>
+    <label class="field">
+      <span>Status</span>
+      <select id="status">
+        <option value="considering">Considering</option>
+        <option value="contacted">Contacted</option>
+        <option value="enrolled">Enrolled</option>
+        <option value="declined">Declined</option>
+      </select>
+    </label>
+    <button id="add" class="btn primary">Add trial</button>
+    <p class="hint">Everything you type stays in this browser. The extension never checks or interprets trial eligibility.</p>
+  </section>
+
+  <!-- Search + list -->
+  <section class="card">
+    <div class="list-head">
+      <h2>Your trials <span id="count" class="pill">0</span></h2>
+      <div class="list-actions">
+        <button id="export" class="btn ghost" title="Download trials as JSON">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          Export
+        </button>
+        <button id="clear" class="btn ghost danger" title="Delete all trials">Clear</button>
+      </div>
+    </div>
+    <input id="search" type="search" placeholder="Search name, source, questions…" autocomplete="off">
+    <ul id="entries" class="entries"></ul>
+    <p id="empty" class="empty">No trials logged yet. Add your first one above.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

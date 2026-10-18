@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<title>RegexLab — Bulk Find &amp; Replace</title>
+</head>
+<body>
+<header>
+  <h1>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+    RegexLab
+  </h1>
+  <p class="tag">Bulk find → replace, all on-device</p>
+</header>
+
+<label class="field">
+  <span>Source text</span>
+  <textarea id="source" rows="6" placeholder="Paste text to transform…" spellcheck="false"></textarea>
+</label>
+
+<div class="rules-head">
+  <span class="label">Rules</span>
+  <button id="addRule" class="mini" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    Add rule</button>
+</div>
+<div id="rules"></div>
+
+<div class="actions">
+  <button id="apply" class="primary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    Apply all rules</button>
+  <button id="clear" class="ghost">Clear</button>
+</div>
+
+<div id="status" class="status" hidden></div>
+
+<label class="field">
+  <span>Result <button id="copy" class="mini" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    <span id="copyLabel">Copy</span></button>
+  </span>
+  <pre id="result" class="output" aria-live="polite">Result appears here.</pre>
+</label>
+
+<div class="sets">
+  <span class="label">Saved rule sets</span>
+  <div class="row">
+    <input id="setName" placeholder="Set name…" maxlength="40">
+    <button id="saveSet" class="mini" type="button">Save</button>
+  </div>
+  <div id="setList"></div>
+</div>
+
+<footer>All processing is local. Nothing leaves this device.</footer>
+<script src="popup.js"></script>
+</body>
+</html>

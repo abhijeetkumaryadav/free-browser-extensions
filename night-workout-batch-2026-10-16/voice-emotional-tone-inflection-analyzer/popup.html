@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice Inflection Visualizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <header class="hdr">
+    <!-- Lucide-style mic outline icon -->
+    <svg class="brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+    <div class="titles">
+      <h1>Voice Inflection Visualizer</h1>
+      <p class="sub">Pitch &amp; energy, live from your mic</p>
+    </div>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span>Measures <strong>pitch &amp; energy only</strong> — NOT emotion analysis. All processing is local.</span>
+  </div>
+
+  <div class="controls">
+    <button id="btnStart" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+      <span>Start mic</span>
+    </button>
+    <button id="btnStop" class="btn ghost" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+      <span>Stop</span>
+    </button>
+    <button id="btnClear" class="btn ghost">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+      <span>Clear stats</span>
+    </button>
+  </div>
+
+  <p id="status" class="status">Microphone idle. Click “Start mic” and allow access.</p>
+
+  <section class="viz">
+    <h2>Waveform</h2>
+    <canvas id="wave" width="348" height="96"></canvas>
+  </section>
+
+  <section class="meters">
+    <div class="meter-card">
+      <h2>Pitch</h2>
+      <p class="big"><span id="pitchVal">–</span> <span class="unit">Hz</span></p>
+      <p class="hint">Autocorrelation estimate</p>
+    </div>
+    <div class="meter-card">
+      <h2>Energy</h2>
+      <p class="big"><span id="energyVal">–</span> <span class="unit">dB</span></p>
+      <div class="energy-bar"><div id="energyFill"></div></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <h2>Session pitch range</h2>
+    <div class="stat-grid">
+      <div class="stat"><span class="lbl">Min</span><span class="val" id="statMin">–</span></div>
+      <div class="stat"><span class="lbl">Max</span><span class="val" id="statMax">–</span></div>
+      <div class="stat"><span class="lbl">Avg</span><span class="val" id="statAvg">–</span></div>
+      <div class="stat"><span class="lbl">Samples</span><span class="val" id="statCount">0</span></div>
+    </div>
+    <p class="hint">Stats persist in local storage until cleared.</p>
+  </section>
+
+  <footer class="foot">No audio leaves your device. Nothing is recorded or uploaded.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

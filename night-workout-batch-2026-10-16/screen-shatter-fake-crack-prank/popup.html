@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Screen Crack Prank</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L13 7 L18 6 L14 10 L19 13 L13 12 L12 18 L11 12 L5 13 L10 10 L6 6 L11 7 Z"/><path d="M4 20 L8 16"/><path d="M20 20 L16 16"/></svg>
+      <div>
+        <h1>Screen Crack Prank</h1>
+        <p class="sub">Harmless visual prank</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      Clearly a prank — it only starts when <b>you</b> click the button. Never activates on its own. One click removes every trace.
+    </div>
+
+    <p class="desc">Draws a realistic fake cracked-screen effect over the current tab. The page and your data are untouched — it's just a transparent drawing layer.</p>
+
+    <button id="crack" class="primary">💥 Crack this tab</button>
+    <button id="remove" class="ghost">✕ Remove cracks</button>
+
+    <p id="status" class="status" aria-live="polite"></p>
+  </div>
+<script src="popup.js"></script>
+</body>
+</html>

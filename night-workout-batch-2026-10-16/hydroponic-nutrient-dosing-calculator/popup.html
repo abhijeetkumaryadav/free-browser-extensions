@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="topbar">
+  <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6.5 7.1 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 9.8 12 2.7 12 2.7z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>
+  <div>
+    <h1>Nutrient Dosing Calculator</h1>
+    <p class="sub">Hydroponic EC / PPM math · estimates, 100% local</p>
+  </div>
+</header>
+
+<section class="card">
+  <div class="grid2">
+    <label class="field"><span>Reservoir (L)</span><input id="volume" type="number" min="0.5" step="0.5" value="20"></label>
+    <label class="field"><span>Current EC (mS/cm)</span><input id="currentEc" type="number" min="0" step="0.1" value="0.4"></label>
+    <label class="field"><span>Target EC (mS/cm)</span><input id="targetEc" type="number" min="0" step="0.1" value="1.6"></label>
+    <label class="field"><span>Nutrient strength<br><small>EC rise per 1 ml/L</small></span><input id="strength" type="number" min="0.05" step="0.05" value="0.4"></label>
+    <label class="field"><span>PPM scale</span>
+      <select id="ppmScale"><option value="500">500 (NaCl)</option><option value="700">700 (KCl)</option></select>
+    </label>
+    <label class="field"><span>Parts</span>
+      <select id="parts"><option value="2">A + B (2-part)</option><option value="1">Single part</option><option value="3">A + B + C (3-part)</option></select>
+    </label>
+  </div>
+  <button id="calc" class="btn">Calculate dose</button>
+</section>
+
+<section id="results" class="card hidden"></section>
+
+<section class="card">
+  <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>Mixing order</h2>
+  <ol class="mix">
+    <li>Silica first (if used) — mix well, wait 10 min</li>
+    <li>Cal-Mag</li>
+    <li>Base nutrient — Part A</li>
+    <li>Base nutrient — Part B (never mix A &amp; B concentrate together)</li>
+    <li>Additives / boosters</li>
+    <li>pH adjust <b>last</b>, after everything is mixed</li>
+  </ol>
+  <p class="note">Stir thoroughly between each addition. Always verify with a calibrated EC/pH meter — this tool gives estimates, not prescriptions. Start low with new plants.</p>
+</section>
+
+<footer class="foot">Estimates only · always confirm with your EC meter</footer>
+<script src="popup.js"></script>
+</body>
+</html>

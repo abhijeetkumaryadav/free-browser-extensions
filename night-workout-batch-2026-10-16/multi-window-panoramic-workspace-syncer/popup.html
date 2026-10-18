@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout Saver</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+  <header>
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="13" height="13" rx="2"/><rect x="8" y="7" width="13" height="13" rx="2"/></svg>
+    <div>
+      <h1>Layout Saver</h1>
+      <p class="sub">Save &amp; restore window layouts</p>
+    </div>
+  </header>
+
+  <div class="scope">Saves YOUR window positions + sizes — not panoramic sync.</div>
+
+  <section class="save-row">
+    <input id="layoutName" type="text" placeholder="Layout name…" maxlength="60" autocomplete="off">
+    <button id="saveBtn" class="btn accent">Save current</button>
+  </section>
+
+  <div id="windowInfo" class="info"></div>
+
+  <section>
+    <h2>Saved layouts</h2>
+    <ul id="layoutList" class="list"></ul>
+    <div id="empty" class="empty">No layouts yet. Arrange your windows, name the layout, save it.</div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

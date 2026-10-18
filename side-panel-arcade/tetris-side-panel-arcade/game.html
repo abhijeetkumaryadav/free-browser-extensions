@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TetraFall — Play</title>
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="side left">
+      <div class="panel">
+        <h2>Hold</h2>
+        <canvas id="holdCanvas" width="96" height="96"></canvas>
+        <p class="key-hint"><kbd>C</kbd> swap</p>
+      </div>
+      <div class="panel stats">
+        <h2>Score</h2>
+        <p class="big" id="score">0</p>
+        <div class="row"><span>Level</span><strong id="level">1</strong></div>
+        <div class="row"><span>Lines</span><strong id="lines">0</strong></div>
+      </div>
+    </aside>
+
+    <main class="board-wrap">
+      <canvas id="board" width="300" height="600"></canvas>
+      <div id="overlay" class="overlay hidden">
+        <div class="card">
+          <h1 id="ovTitle">Paused</h1>
+          <p id="ovText">Press P to resume</p>
+          <button id="ovBtn">New game</button>
+        </div>
+      </div>
+    </main>
+
+    <aside class="side right">
+      <div class="panel">
+        <h2>Next</h2>
+        <canvas id="nextCanvas" width="96" height="220"></canvas>
+      </div>
+      <div class="panel">
+        <h2>How to play</h2>
+        <ul class="keys">
+          <li><kbd>←</kbd><kbd>→</kbd> move</li>
+          <li><kbd>↓</kbd> soft drop</li>
+          <li><kbd>Z</kbd>/<kbd>↑</kbd> rotate</li>
+          <li><kbd>Space</kbd> hard drop</li>
+          <li><kbd>C</kbd> hold</li>
+          <li><kbd>P</kbd> pause</li>
+          <li><kbd>N</kbd> new game</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* Outline Linter — deep-dark glassmorphism popup, single violet accent #a78bfa */
+:root{
+  --accent:#a78bfa; --accent-dim:rgba(167,139,250,.14);
+  --bg:rgba(20,20,26,.72); --card:rgba(255,255,255,.045);
+  --text:#f1f5f9; --muted:#94a3b8; --line:rgba(255,255,255,.09);
+  --red:#f87171; --amber:#fbbf24; --green:#34d399;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:380px;max-height:600px;overflow-y:auto;background:#0b0d14;color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px}
+.app{background:var(--bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:16px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.hdr{display:flex;gap:12px;align-items:center}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--accent-dim);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.logo svg{width:22px;height:22px}
+h1{font-size:16px;font-weight:700;letter-spacing:.2px}
+.sub{font-size:11px;color:var(--muted);margin-top:2px}
+.primary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:var(--accent);color:#1a1033;border:none;border-radius:10px;padding:11px;
+  font-size:13px;font-weight:700;cursor:pointer}
+.primary svg{width:16px;height:16px}
+.primary:disabled{opacity:.45;cursor:default}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 4px;
+  display:flex;flex-direction:column;align-items:center;gap:2px}
+.num{font-size:16px;font-weight:800}
+.lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.tile.good .num{color:var(--green)} .tile.warn .num{color:var(--amber)} .tile.bad .num{color:var(--red)}
+.section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:8px}
+.hint{font-weight:400;text-transform:none;letter-spacing:0}
+.issues{display:flex;flex-direction:column;gap:8px;max-height:200px;overflow-y:auto}
+.issue{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+  display:flex;flex-direction:column;gap:6px}
+.issue .top{display:flex;align-items:center;gap:8px}
+.sev{font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.4px;flex-shrink:0}
+.sev.error{background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.35)}
+.sev.warn{background:rgba(251,191,36,.15);color:var(--amber);border:1px solid rgba(251,191,36,.35)}
+.issue p{font-size:11.5px;color:var(--muted);line-height:1.55}
+.issue p b{color:var(--text)}
+.goto{align-self:flex-start;background:transparent;border:1px solid var(--line);color:var(--accent);
+  border-radius:8px;padding:4px 10px;font-size:11px;cursor:pointer}
+.outline{max-height:240px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:6px;
+  display:flex;flex-direction:column;gap:2px;background:rgba(0,0,0,.2)}
+.node{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;cursor:pointer;border:none;
+  background:transparent;color:var(--text);font-size:12px;text-align:left;width:100%}
+.node:hover{background:rgba(255,255,255,.06)}
+.node .lvl{font-size:10px;font-weight:800;color:var(--accent);background:var(--accent-dim);
+  border-radius:6px;padding:2px 6px;flex-shrink:0;min-width:30px;text-align:center}
+.node .txt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.node.has-issue .txt{color:var(--amber)}
+.all-clear{color:var(--green);font-size:12px;text-align:center;padding:16px 8px}
+.actions{display:flex;gap:8px}
+.ghost{flex:1;background:transparent;border:1px solid var(--line);color:var(--muted);
+  border-radius:10px;padding:8px;font-size:12px;cursor:pointer}
+.ghost:hover{color:var(--text);border-color:var(--accent)}
+.honest{font-size:10.5px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:10px}
+.hidden{display:none!important}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px}

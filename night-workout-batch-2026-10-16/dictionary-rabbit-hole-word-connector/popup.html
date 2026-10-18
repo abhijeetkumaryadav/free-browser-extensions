@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8 7l7.5.8M7 8.2l2 7.3M16.4 10l-4.6 6"/></svg>
+    </div>
+    <div>
+      <h1>Word Rabbit Hole</h1>
+      <p class="sub">Your personal word map — not a real dictionary</p>
+    </div>
+  </header>
+
+  <div class="notice">Honest scope: every word and connection below is one <b>you</b> added. This tool only draws YOUR map — it has no dictionary and defines nothing.</div>
+
+  <nav class="tabs">
+    <button data-tab="map" class="active">Map</button>
+    <button data-tab="words">Words</button>
+    <button data-tab="links">Links</button>
+  </nav>
+
+  <section id="tab-map" class="tab active">
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search words…" autocomplete="off">
+      <button id="center" class="ghost sm" title="Reset layout">Reset</button>
+    </div>
+    <canvas id="graph" width="348" height="300"></canvas>
+    <p class="hint">Drag nodes to rearrange. Click a node to see its connections.</p>
+    <div id="nodeinfo" class="nodeinfo"></div>
+  </section>
+
+  <section id="tab-words" class="tab">
+    <div class="row">
+      <input id="newword" type="text" placeholder="Add a word…" autocomplete="off">
+      <button id="addword" class="primary">Add</button>
+    </div>
+    <div id="wordlist" class="wordlist"></div>
+  </section>
+
+  <section id="tab-links" class="tab">
+    <div class="row">
+      <select id="from"></select>
+      <span class="arrow">→</span>
+      <select id="to"></select>
+    </div>
+    <div class="row">
+      <select id="kind">
+        <option value="association">association</option>
+        <option value="synonym">synonym</option>
+        <option value="rhyme">rhyme</option>
+        <option value="opposite">opposite</option>
+        <option value="personal">personal</option>
+      </select>
+      <input id="note" type="text" placeholder="Connection note (optional)">
+    </div>
+    <div class="row">
+      <button id="addlink" class="primary full">Link them</button>
+    </div>
+    <div id="linklist" class="linklist"></div>
+    <div class="row end">
+      <button id="export" class="ghost sm">Export JSON</button>
+      <button id="wipe" class="ghost sm danger">Delete all</button>
+    </div>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

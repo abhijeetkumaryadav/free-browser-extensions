@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Worker Route Tester</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M7 12h5m0 0-2.5-3.5M12 12l-2.5 3.5M12 12h4.8"/></svg>
+  </div>
+  <div>
+    <h1>Worker Route Tester</h1>
+    <p class="subtitle">Fire requests at routes you enter</p>
+  </div>
+</header>
+
+<section class="card">
+  <label class="field-label" for="baseUrl">Worker base URL</label>
+  <input id="baseUrl" type="url" placeholder="https://my-worker.username.workers.dev" spellcheck="false">
+  <div class="row">
+    <div class="grow">
+      <label class="field-label" for="method">Method</label>
+      <select id="method">
+        <option>GET</option><option>POST</option><option>PUT</option>
+        <option>PATCH</option><option>DELETE</option><option>HEAD</option><option>OPTIONS</option>
+      </select>
+    </div>
+    <div class="grow">
+      <label class="field-label" for="timeout">Timeout (s)</label>
+      <input id="timeout" type="number" min="2" max="60" value="15">
+    </div>
+  </div>
+  <label class="field-label" for="paths">Test paths <span class="hint">— one per line</span></label>
+  <textarea id="paths" rows="4" placeholder="/&#10;/api/users&#10;/api/users/123" spellcheck="false"></textarea>
+  <div class="btn-row">
+    <button id="runBtn" class="btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      Run tests
+    </button>
+    <button id="clearBtn" class="btn ghost">Clear</button>
+  </div>
+  <p class="note">Only URLs you type are ever requested. Nothing is sent anywhere else.</p>
+</section>
+
+<section class="card">
+  <div class="card-head">
+    <h2>Results</h2>
+    <div class="card-actions">
+      <button id="exportBtn" class="btn tiny" disabled>Export CSV</button>
+      <button id="saveSuiteBtn" class="btn tiny" disabled>Save suite</button>
+    </div>
+  </div>
+  <div id="summary" class="summary hidden"></div>
+  <div id="results"><p class="empty">No tests run yet.</p></div>
+</section>
+
+<section class="card">
+  <div class="card-head"><h2>Saved suites</h2></div>
+  <div id="suites"><p class="empty">No saved suites.</p></div>
+</section>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gesture Navigation Engine</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="5"/><path d="M12 6v4"/></svg>
+    <div><h1>Gesture Engine</h1><p>Hold right-click &amp; draw</p></div>
+    <label class="switch"><input type="checkbox" id="master" checked><span></span></label>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Gesture map</h2>
+      <div id="gestures"></div>
+    </section>
+    <section class="glass card">
+      <label class="rowline"><span>Show gesture trail</span>
+        <span class="switch"><input type="checkbox" id="trail" checked><span></span></span>
+      </label>
+      <p class="note">Draw on any web page with the right mouse button held down. Release to run the gesture. Plain right-clicks still open the menu.</p>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

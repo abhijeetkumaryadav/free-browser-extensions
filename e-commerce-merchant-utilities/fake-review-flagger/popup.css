@@ -1,0 +1,135 @@
+/* Fake Review Flagger — deep dark + glassmorphism, one accent (coral red #FF5A36) */
+:root {
+  --bg: #0e0e13;
+  --panel: rgba(20, 20, 27, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --accent: #ff5a36;
+  --accent-soft: rgba(255, 90, 54, 0.14);
+  --text: #f2f2f5;
+  --muted: #9a9aa5;
+  --warn: #ffb020;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  padding: 14px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand-icon {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 90, 54, 0.35);
+  border-radius: 10px;
+  color: var(--accent);
+}
+.brand-icon svg { width: 20px; height: 20px; }
+
+h1 { font-size: 14px; font-weight: 650; letter-spacing: 0.1px; }
+.subtitle { font-size: 11px; color: var(--muted); }
+
+.scan-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent);
+  color: #fff; border: none; border-radius: 10px;
+  padding: 8px 12px; font-size: 12.5px; font-weight: 650;
+  cursor: pointer; transition: transform 0.12s ease, opacity 0.12s ease;
+  white-space: nowrap;
+}
+.scan-btn svg { width: 14px; height: 14px; }
+.scan-btn:hover { opacity: 0.92; }
+.scan-btn:active { transform: scale(0.97); }
+.scan-btn:disabled { opacity: 0.55; cursor: default; }
+
+.card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.hidden { display: none; }
+
+.verdict-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+
+.score-ring {
+  width: 64px; height: 64px; flex-shrink: 0;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  border: 4px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+.score-ring span { font-size: 20px; font-weight: 700; }
+
+.verdict-label { font-size: 15px; font-weight: 700; }
+.verdict-label.trusted { color: #7ee2a8; }
+.verdict-label.caution { color: var(--warn); }
+.verdict-label.suspicious { color: var(--accent); }
+.verdict-host { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+.flags { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.flags:empty { display: none; }
+
+.flag {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px; padding: 10px;
+}
+.flag .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.flag.high .dot { background: var(--accent); }
+.flag.medium .dot { background: var(--warn); }
+.flag.low .dot { background: var(--muted); }
+.flag.ok .dot { background: #7ee2a8; }
+.flag-title { font-weight: 650; font-size: 12.5px; }
+.flag-detail { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+
+.empty { text-align: center; color: var(--muted); padding: 22px 16px; }
+.empty-icon { width: 34px; height: 34px; color: var(--muted); margin-bottom: 8px; }
+.empty strong { color: var(--text); }
+
+.history h2 {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 650; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+.history h2 svg { width: 14px; height: 14px; }
+
+.history-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.history-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 9px;
+}
+.history-list .host { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 220px; }
+.history-list .score { font-weight: 700; }
+.history-list .score.trusted { color: #7ee2a8; }
+.history-list .score.caution { color: var(--warn); }
+.history-list .score.suspicious { color: var(--accent); }
+
+.muted { color: var(--muted); font-size: 12px; }
+
+footer { text-align: center; }
+.privacy { font-size: 10.5px; color: var(--muted); opacity: 0.8; }

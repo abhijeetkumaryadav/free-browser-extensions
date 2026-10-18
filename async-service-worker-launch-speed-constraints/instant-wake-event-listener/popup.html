@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><polyline points="12 9 12 13 15 15"/><line x1="9" y1="2" x2="15" y2"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+    </div>
+    <div>
+      <h1>WakeUp</h1>
+      <p class="subtitle">Scheduled tab waker</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <span class="section-title">New wake</span>
+      <input id="nameInput" type="text" maxlength="60" placeholder="Label (e.g. Standup notes)">
+      <div class="seg" role="tablist" aria-label="Wake target">
+        <button id="modeTab" class="seg-btn active">Existing tab</button>
+        <button id="modeUrl" class="seg-btn">URL</button>
+      </div>
+      <select id="tabSelect" aria-label="Choose a tab"></select>
+      <input id="urlInput" type="url" placeholder="https://example.com" hidden>
+      <label class="field-label" for="whenInput">Wake at</label>
+      <input id="whenInput" type="datetime-local">
+      <button id="addBtn" class="add-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Schedule wake</span>
+      </button>
+      <p class="error" id="formError" hidden></p>
+    </section>
+
+    <section class="card">
+      <span class="section-title">Scheduled wakes</span>
+      <ul id="wakeList" class="wake-list"></ul>
+      <p class="empty" id="wakeEmpty">No wakes scheduled.</p>
+    </section>
+
+    <p class="scope-note">
+      Wakes fire via alarms (about 1-minute granularity) and survive browser restarts.
+      If the tab was closed, the URL opens in a new tab instead.
+    </p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

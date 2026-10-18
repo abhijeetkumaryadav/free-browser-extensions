@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo-Fi Study Room</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="panel">
+  <!-- Animated cozy scene -->
+  <div class="scene-wrap">
+    <canvas id="scene" width="348" height="170"></canvas>
+    <div class="scene-caption">your study corner</div>
+  </div>
+
+  <!-- Pomodoro timer -->
+  <div class="card timer-card">
+    <div class="timer-display" id="timerDisplay">25:00</div>
+    <div class="timer-state" id="timerState">ready to focus</div>
+    <div class="mode-row">
+      <button class="chip" data-mode="focus" data-mins="25">Focus 25</button>
+      <button class="chip" data-mode="short" data-mins="5">Break 5</button>
+      <button class="chip" data-mode="long" data-mins="15">Rest 15</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn primary" id="startPauseBtn">Start</button>
+      <button class="btn ghost" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <!-- Ambient sound (synthesized locally, no audio files) -->
+  <div class="card">
+    <div class="card-title">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      Ambience <span class="hint">synthesized in your browser</span>
+    </div>
+    <div class="sound-row">
+      <button class="chip toggle" id="rainToggle">Rain</button>
+      <button class="chip toggle" id="noiseToggle">Brown noise</button>
+    </div>
+    <label class="slider-row">Volume
+      <input type="range" id="volSlider" min="0" max="100" value="40">
+    </label>
+    <div class="note">Sound plays while this panel is open.</div>
+  </div>
+
+  <!-- Session stats -->
+  <div class="card stats-card">
+    <div class="card-title">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 5-8"/></svg>
+      Today
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><span class="stat-num" id="statFocus">0</span><span class="stat-lbl">focus sessions</span></div>
+      <div class="stat"><span class="stat-num" id="statBreaks">0</span><span class="stat-lbl">breaks taken</span></div>
+      <div class="stat"><span class="stat-num" id="statMinutes">0</span><span class="stat-lbl">focus minutes</span></div>
+    </div>
+  </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

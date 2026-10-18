@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice Preview</title>
+<link rel="stylesheet" href="invoice.css">
+</head>
+<body>
+  <div class="toolbar">
+    <span class="t-label">Invoice preview — press Print to save as PDF</span>
+    <button id="printNow">🖨 Print / Save PDF</button>
+  </div>
+  <div class="sheet">
+    <div class="inv-head">
+      <div>
+        <div class="brand" id="iSeller">—</div>
+        <div class="sub" id="iSellerAddr">—</div>
+        <div class="sub" id="iSellerContact">—</div>
+      </div>
+      <div class="inv-no">
+        <div class="inv-title">TAX INVOICE</div>
+        <div class="inv-num" id="iNum">—</div>
+        <div class="sub">Date: <span id="iDate">—</span></div>
+      </div>
+    </div>
+    <div class="parties">
+      <div class="party">
+        <div class="plabel">Billed to</div>
+        <div class="pname" id="iBuyer">—</div>
+        <div class="sub" id="iBuyerAddr">—</div>
+      </div>
+      <div class="party right">
+        <div class="plabel">Tax details</div>
+        <div class="sub">Seller Tax ID: <b id="iSellerTax">—</b></div>
+        <div class="sub">Buyer Tax ID: <b id="iBuyerTax">—</b></div>
+      </div>
+    </div>
+    <table class="lines">
+      <thead>
+        <tr><th class="c">#</th><th>Description</th><th class="c">Qty</th><th class="r">Unit price</th><th class="c">Tax %</th><th class="r">Amount</th></tr>
+      </thead>
+      <tbody id="iRows"></tbody>
+    </table>
+    <div class="totals">
+      <div class="trow"><span>Subtotal</span><b id="iSub">—</b></div>
+      <div class="trow"><span>Tax</span><b id="iTax">—</b></div>
+      <div class="trow grand"><span>Grand total</span><b id="iGrand">—</b></div>
+    </div>
+    <div class="notes" id="iNotesWrap">
+      <div class="plabel">Notes / payment terms</div>
+      <div class="sub" id="iNotes">—</div>
+    </div>
+    <div class="foot">Generated with Wholesale Invoice Generator · This is a computer-generated invoice</div>
+  </div>
+<script src="invoice.js"></script>
+</body>
+</html>

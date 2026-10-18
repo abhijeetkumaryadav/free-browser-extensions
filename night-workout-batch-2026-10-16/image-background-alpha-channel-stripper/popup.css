@@ -1,0 +1,98 @@
+/* Alpha Channel Stripper — deep-dark glassmorphism, one accent. */
+:root {
+  --bg: #101014;
+  --card: rgba(22, 22, 30, 0.72);
+  --stroke: rgba(255, 255, 255, 0.10);
+  --text: #f2f2f7;
+  --muted: #a7a7b3;
+  --accent: #a78bfa; /* violet — the single accent */
+  --accent-soft: rgba(167, 139, 250, 0.14);
+  --danger: #ff6b6b;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 380px;
+  background: radial-gradient(120% 140% at 20% 0%, #1a1626 0%, var(--bg) 60%);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.card {
+  margin: 12px;
+  padding: 16px;
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+}
+.head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+.icon {
+  width: 38px; height: 38px; flex: 0 0 38px;
+  display: grid; place-items: center;
+  border-radius: 12px; color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+}
+.icon svg { width: 22px; height: 22px; }
+h1 { margin: 0; font-size: 15px; letter-spacing: 0.2px; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+.notice {
+  display: flex; gap: 8px; align-items: flex-start;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--stroke);
+  border-radius: 10px; padding: 8px 10px; font-size: 12px; color: var(--muted);
+}
+.nicon { width: 16px; height: 16px; flex: 0 0 16px; color: var(--accent); margin-top: 1px; }
+.drop {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-top: 12px; padding: 16px; cursor: pointer;
+  border: 1.5px dashed rgba(167, 139, 250, 0.45);
+  border-radius: 12px; background: rgba(167, 139, 250, 0.05);
+  transition: background 0.15s ease;
+}
+.drop:hover { background: rgba(167, 139, 250, 0.10); }
+.drop svg { width: 26px; height: 26px; color: var(--accent); }
+.drop small { color: var(--muted); font-size: 11px; }
+.hidden { display: none !important; }
+.preview-wrap { margin-top: 12px; }
+.compare { display: flex; gap: 10px; }
+.compare figure { margin: 0; flex: 1; text-align: center; }
+.compare canvas {
+  width: 100%; aspect-ratio: 1; border-radius: 10px; border: 1px solid var(--stroke);
+  /* checkerboard shows transparency in the "before" preview */
+  background-image: linear-gradient(45deg, #2a2a33 25%, transparent 25%, transparent 75%, #2a2a33 75%),
+    linear-gradient(45deg, #2a2a33 25%, transparent 25%, transparent 75%, #2a2a33 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+.compare figcaption { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.alpha-info { font-size: 11px; color: var(--muted); margin: 8px 0 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.field label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.field input[type="color"] {
+  width: 100%; height: 36px; padding: 4px; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--stroke); cursor: pointer;
+}
+.field select {
+  width: 100%; padding: 9px 10px; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--stroke); color: var(--text);
+}
+.field select option { background: #1a1a22; }
+.swatches { display: flex; gap: 8px; margin-top: 10px; }
+.swatch {
+  width: 28px; height: 28px; border-radius: 8px; cursor: pointer;
+  border: 2px solid transparent;
+}
+.swatch.active { border-color: var(--accent); }
+.row { display: flex; gap: 10px; margin-top: 12px; }
+.btn {
+  flex: 1; padding: 10px; border-radius: 10px; font-weight: 600; font-size: 13px;
+  border: 1px solid transparent; cursor: pointer; text-align: center; text-decoration: none;
+}
+.btn.primary { background: var(--accent); color: #1b1030; }
+.btn.primary:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn.ghost { background: transparent; border-color: var(--stroke); color: var(--text); }
+#download { display: block; margin-top: 12px; }
+.err { color: var(--danger); font-size: 12px; margin-top: 10px; }
+footer { margin-top: 12px; font-size: 11px; color: var(--muted); }

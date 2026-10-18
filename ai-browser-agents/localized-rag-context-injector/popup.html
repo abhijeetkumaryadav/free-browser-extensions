@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContextVault</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+        <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+        <path d="M3 12a9 3 0 0 0 18 0"/>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>ContextVault</h1>
+      <p class="subtitle">Local context-snippet library</p>
+    </div>
+    <button id="addToggle" class="icon-btn" title="Add snippet" aria-label="Add snippet">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M12 5v14"/><path d="M5 12h14"/>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Honesty notice -->
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+    </svg>
+    <span>Snippet manager — <strong>not real RAG</strong>. No embeddings, no vector database; it pastes your saved context for you.</span>
+  </div>
+
+  <!-- Search + tags -->
+  <section class="panel">
+    <div class="search-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <input id="search" type="text" placeholder="Search snippets…" autocomplete="off">
+    </div>
+    <div id="tagBar" class="tag-bar"></div>
+  </section>
+
+  <!-- Add / edit form -->
+  <section id="formPanel" class="panel hidden">
+    <label class="label" for="fName" id="formTitle">New snippet</label>
+    <input id="fName" type="text" class="field" placeholder="Name (e.g. “Brand voice”)" maxlength="80">
+    <input id="fTags" type="text" class="field" placeholder="Tags, comma-separated (e.g. writing, work)" maxlength="120">
+    <textarea id="fContent" rows="5" class="field mono" placeholder="Snippet content — pasted into your prompt on insert…" spellcheck="false"></textarea>
+    <div class="row">
+      <button id="saveBtn" class="btn primary">Save snippet</button>
+      <button id="cancelBtn" class="btn ghost">Cancel</button>
+    </div>
+  </section>
+
+  <!-- Snippet list -->
+  <section class="panel list-panel">
+    <div class="list-head">
+      <span class="label" style="margin:0">Snippets</span>
+      <span id="countLabel" class="count">0</span>
+      <div class="list-actions">
+        <button id="exportBtn" class="mini-btn" title="Export as JSON">Export</button>
+        <button id="importBtn" class="mini-btn" title="Import from JSON">Import</button>
+        <input id="importFile" type="file" accept="application/json,.json" class="hidden">
+      </div>
+    </div>
+    <div id="list" class="list"></div>
+    <div id="emptyList" class="empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>
+      </svg>
+      <p>No snippets yet. Tap <strong>+</strong> to save your first context block.</p>
+    </div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+  <footer class="footer">100% on-device · nothing leaves your browser</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frame GIF Encoder</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="shell">
+  <!-- Honest-limits banner -->
+  <div class="notice">
+    <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+    <span>Frame extraction only. GIFs are capped at <b>320px wide, 24 frames</b>. Large videos can take a while to encode. Your file never leaves this device.</span>
+  </div>
+
+  <label class="field-label" for="file">1 · Choose a local video file</label>
+  <input id="file" type="file" accept="video/*">
+  <div id="meta" class="meta muted hidden"></div>
+
+  <label class="field-label">2 · Settings</label>
+  <div class="row2">
+    <div><label class="field-label" for="frames">Frames</label><input id="frames" type="number" min="2" max="24" value="12"></div>
+    <div><label class="field-label" for="width">Max width (px)</label><input id="width" type="number" min="80" max="320" value="320" step="20"></div>
+    <div><label class="field-label" for="delay">Delay / frame (cs)</label><input id="delay" type="number" min="2" max="200" value="10"></div>
+  </div>
+
+  <button id="extractBtn" class="primary" disabled>Extract &amp; encode GIF</button>
+
+  <div id="progress" class="progress hidden">
+    <div class="bar"><div class="fill" id="barFill"></div></div>
+    <div class="muted" id="progText">Working…</div>
+  </div>
+
+  <div id="result" class="hidden">
+    <label class="field-label">Preview</label>
+    <div class="preview"><img id="previewImg" alt="Encoded GIF preview"></div>
+    <div class="stat-grid">
+      <div class="stat"><b id="stFrames">–</b><span>frames</span></div>
+      <div class="stat"><b id="stSize">–</b><span>gif size</span></div>
+      <div class="stat"><b id="stDims">–</b><span>dimensions</span></div>
+    </div>
+    <a id="download" class="primary dl" download="clip.gif">Download GIF</a>
+  </div>
+
+  <video id="video" class="hidden" muted playsinline></video>
+  <canvas id="canvas" class="hidden"></canvas>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

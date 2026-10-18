@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LazyLoad Validator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="M21 15l-5-5L5 21"/></svg></div>
+    <div>
+      <h1>LazyLoad Validator</h1>
+      <p class="sub">Image &amp; iframe lazy-loading audit</p>
+    </div>
+  </header>
+
+  <div class="score-row">
+    <div class="score-ring"><span id="scoreNum">–</span></div>
+    <div class="score-meta">
+      <div id="verdict" class="verdict">Not scanned yet</div>
+      <div id="summary" class="summary">Scan this page to audit lazy-loading attributes.</div>
+    </div>
+  </div>
+
+  <div id="tiles" class="tiles"></div>
+
+  <div class="filters">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="error">Issues</button>
+    <button class="chip" data-f="warning">Warnings</button>
+    <button class="chip" data-f="ok">OK</button>
+  </div>
+
+  <div id="findings" class="findings"><div class="empty">No scan results yet.</div></div>
+
+  <button id="scan" class="primary">Scan this page</button>
+  <button id="clear" class="ghost">Clear results</button>
+
+  <p class="honesty">Read-only analysis of this page only. Heuristic checks (fold position, file size estimates) may miss or misfire. Nothing leaves this device.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

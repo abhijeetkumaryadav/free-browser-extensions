@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Del-ish Bookmark Manager</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+  <h1>Del-ish Bookmarks</h1>
+</header>
+<div class="notice">Your own bookmark manager with tags — stored locally, synced by the browser where available. <b>Not</b> the Delicious service.</div>
+
+<div class="searchbar">
+  <input id="search" type="text" placeholder="Search title, URL, tags…" autocomplete="off">
+</div>
+<h2>Tags</h2>
+<div class="tagcloud" id="tagcloud"></div>
+
+<h2>Save current tab</h2>
+<div class="field">
+  <input id="newTags" type="text" placeholder="tags, comma, separated">
+  <button id="saveTab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Save</button>
+</div>
+<div class="field">
+  <input id="newTitle" type="text" placeholder="title">
+  <input id="newUrl" type="url" placeholder="https://…">
+</div>
+<div class="row">
+  <button id="saveManual" class="ghost">Save manual link</button>
+</div>
+
+<h2>Bookmarks <span id="count" style="color:var(--accent)"></span></h2>
+<div class="bm-list" id="list"></div>
+
+<div class="row">
+  <button id="export" class="ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Export HTML</button>
+  <button id="importBtn" class="ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>Import HTML</button>
+  <input id="importFile" type="file" accept=".html,.htm" style="display:none">
+</div>
+<p class="hint">Tags: comma-separated when saving. Click a tag to filter; click again to clear. Sync uses chrome.storage.sync where available, falling back to local.</p>
+<script src="popup.js"></script>
+</body>
+</html>

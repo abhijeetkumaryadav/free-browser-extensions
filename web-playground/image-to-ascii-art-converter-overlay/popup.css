@@ -1,0 +1,147 @@
+/* AsciiArt popup — deep-dark glassmorphism, one accent (#a3e635 lime). */
+:root {
+  --bg: #0b0e14;
+  --panel: rgba(20, 20, 26, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #e8ecf3;
+  --muted: #9aa3b2;
+  --accent: #a3e635;
+  --accent-dim: rgba(163, 230, 53, 0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 380px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.app { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+.header {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.logo { width: 28px; height: 28px; color: var(--accent); flex: none; }
+.title { flex: 1; }
+.title h1 { font-size: 16px; font-weight: 600; letter-spacing: 0.2px; }
+.subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.icon-btn {
+  width: 34px; height: 34px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-dim);
+  border: 1px solid rgba(163, 230, 53, 0.35);
+  border-radius: 10px; color: var(--accent); cursor: pointer;
+}
+.icon-btn svg { width: 17px; height: 17px; }
+.icon-btn:hover { background: rgba(163, 230, 53, 0.22); }
+
+.hidden { display: none !important; }
+
+/* Dropzone */
+.dropzone {
+  border: 1.5px dashed rgba(163, 230, 53, 0.45);
+  border-radius: 14px;
+  padding: 30px 16px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(163, 230, 53, 0.05);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.dropzone:hover, .dropzone.dragover {
+  background: rgba(163, 230, 53, 0.1);
+  border-color: var(--accent);
+}
+.drop-icon { width: 34px; height: 34px; color: var(--accent); margin-bottom: 8px; }
+.drop-text { font-size: 14px; }
+.drop-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* ASCII output */
+.output {
+  background: #06080c;
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 10px;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 6px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  white-space: pre;
+  overflow: auto;
+  max-height: 260px;
+  color: var(--accent);
+  user-select: text;
+}
+
+/* Controls */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; gap: 13px;
+}
+
+.slider-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 13px; margin-bottom: 6px;
+}
+.val { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+input[type="range"] {
+  width: 100%; appearance: none; -webkit-appearance: none;
+  height: 4px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  outline: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-dim);
+  border: none;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); border: none;
+}
+
+.row-2 { display: flex; gap: 10px; align-items: end; }
+
+.field { flex: 1; font-size: 12.5px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--panel-border);
+  border-radius: 9px; color: var(--text);
+  padding: 8px 10px; font-size: 13px; outline: none; cursor: pointer;
+}
+select option { background: #14171e; }
+
+.check { display: flex; align-items: center; gap: 7px; font-size: 13px; cursor: pointer; padding-bottom: 8px; }
+.check input { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
+
+.btn {
+  flex: 1; border: none; border-radius: 10px;
+  padding: 10px 12px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+}
+.btn.primary { background: var(--accent); color: #0b0e14; }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.07); color: var(--text);
+  border: 1px solid var(--panel-border);
+}
+.btn.ghost:hover { background: rgba(255, 255, 255, 0.11); }
+
+.hint { font-size: 12px; color: var(--muted); line-height: 1.5; }

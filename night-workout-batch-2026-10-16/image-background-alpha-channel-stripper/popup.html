@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="popup.css" />
+<title>Alpha Channel Stripper</title>
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7 6.7 8.6a8 8 0 1 0 10.6 0z"/><path d="M9 14a3 3 0 0 0 3 3"/></svg></span>
+    <div>
+      <h1>Alpha Channel Stripper</h1>
+      <p class="sub">Flatten transparency onto a solid background — all on your device.</p>
+    </div>
+  </header>
+
+  <p class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nicon"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span>Local canvas work only — your image never leaves this machine.</span>
+  </p>
+
+  <label class="drop" id="drop">
+    <input type="file" id="file" accept="image/png,image/*" hidden />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+    <span>Drop a PNG here or click to choose</span>
+    <small id="fileName">No image loaded</small>
+  </label>
+
+  <div class="preview-wrap hidden" id="stageWrap">
+    <div class="compare">
+      <figure><canvas id="before" width="160" height="160"></canvas><figcaption>Before</figcaption></figure>
+      <figure><canvas id="after" width="160" height="160"></canvas><figcaption>After</figcaption></figure>
+    </div>
+    <p class="alpha-info" id="alphaInfo"></p>
+  </div>
+
+  <div class="grid">
+    <div class="field">
+      <label for="bgColor">Background color</label>
+      <input type="color" id="bgColor" value="#ffffff" />
+    </div>
+    <div class="field">
+      <label for="format">Output format</label>
+      <select id="format">
+        <option value="image/png">PNG (solid)</option>
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/webp">WebP</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="swatches" id="swatches" aria-label="Quick colors"></div>
+
+  <div class="row">
+    <button class="btn primary" id="flatten" disabled>Flatten alpha</button>
+    <button class="btn ghost" id="reset">Reset</button>
+  </div>
+
+  <a class="btn primary hidden" id="download" download="flattened.png">Download image</a>
+  <p class="err hidden" id="err"></p>
+  <footer>Your original file is never modified — only the download is flattened.</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

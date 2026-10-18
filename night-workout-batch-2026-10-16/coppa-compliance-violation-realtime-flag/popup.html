@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="app-header">
+    <span class="app-icon" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M12 8v4"/>
+        <path d="M12 14h.01"/>
+      </svg>
+    </span>
+    <div class="app-titles">
+      <h1>COPPA Red Flag</h1>
+      <p>Kid-site data-collection scanner</p>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    Heuristic parent aid only — <strong>not</strong> a legal compliance determination.
+  </div>
+
+  <button id="scanBtn" class="primary-btn" type="button">Scan this page</button>
+
+  <div id="status" class="status" role="status"></div>
+  <div id="summary" class="summary" hidden></div>
+  <div id="results" class="results"></div>
+
+  <footer class="app-footer">
+    Patterns are matched locally. Nothing leaves your device.
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

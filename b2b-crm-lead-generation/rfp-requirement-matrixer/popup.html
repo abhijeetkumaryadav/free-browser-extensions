@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFP Requirement Matrixer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h10M7 11h10M7 15h6"/></svg>
+    <div><h1>Matrixer</h1><p>RFP → compliance matrix</p></div>
+    <button id="exportBtn" class="primary" hidden>Export CSV</button>
+  </header>
+  <main>
+    <section class="glass card" id="pasteCard">
+      <label class="fld">Paste RFP text
+        <textarea id="rfpText" rows="6" placeholder="Paste the requirements section of the RFP here…"></textarea>
+      </label>
+      <button id="buildBtn" class="primary wide">Build matrix</button>
+      <p class="note">Best-effort extraction of numbered / bulleted requirements. Always review and edit — it won't catch everything.</p>
+    </section>
+    <section class="glass card" id="matrixCard" hidden>
+      <div class="stats">
+        <div><span>Total</span><b id="stTotal">0</b></div>
+        <div class="ok"><span>Yes</span><b id="stYes">0</b></div>
+        <div class="part"><span>Partial</span><b id="stPartial">0</b></div>
+        <div class="bad"><span>No</span><b id="stNo">0</b></div>
+      </div>
+      <div class="bar"><div id="barFill"></div></div>
+      <div id="rows"></div>
+      <button id="resetBtn" class="ghost">Start over with new text</button>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

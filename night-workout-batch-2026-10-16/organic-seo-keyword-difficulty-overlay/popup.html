@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="hdr">
+      <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <div>
+        <h1>On-Page SEO Checklist</h1>
+        <p class="sub">On-page heuristics — <strong>not</strong> real keyword difficulty data</p>
+      </div>
+    </header>
+
+    <div class="banner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span>No keyword database or search-volume API is used. This checks the current page against the keyword <em>you</em> type — a learning checklist, not a ranking score.</span>
+    </div>
+
+    <div class="kwrow">
+      <input id="kw" type="text" placeholder="Type your target keyword…" maxlength="120" autocomplete="off">
+      <button id="analyze" class="primary">Analyze this page</button>
+    </div>
+
+    <div id="scorebar" class="scorebar hidden">
+      <div class="score-top">
+        <span class="score-num" id="scoreNum">0</span>
+        <div class="score-meta">
+          <span class="score-label">On-page score</span>
+          <span class="verdict" id="verdict">—</span>
+        </div>
+      </div>
+      <div class="track"><div class="fill" id="scoreFill"></div></div>
+    </div>
+
+    <ul id="checks" class="checks"></ul>
+
+    <details class="how">
+      <summary>How scoring works</summary>
+      <p>Nine weighted checks (title 20%, H1 15%, meta 10%, subheads 10%, URL 10%, mentions 10%, length 10%, images 5%, readability 10%). Pattern-matching only — no AI, no network, nothing leaves this popup.</p>
+    </details>
+  </div>
+  <script src="analyzer.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

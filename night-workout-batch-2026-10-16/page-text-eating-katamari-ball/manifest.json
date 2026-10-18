@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Katamari Text Muncher — Page Game",
+  "version": "1.0.0",
+  "description": "A silly page game: roll a katamari ball around and visually munch page text. User-triggered, fully reversible, 100% local.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

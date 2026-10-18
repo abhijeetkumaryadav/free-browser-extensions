@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Word Hover</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <span class="logo">Aa</span>
+    <div>
+      <h1>My Word Hover</h1>
+      <p class="sub">Personal vocabulary dictionary</p>
+    </div>
+    <label class="switch" title="Enable hover lookup">
+      <input type="checkbox" id="enabled" checked>
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <div class="notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <span><b>Your dictionary only.</b> Hover shows translations <b>you</b> saved.
+    This is <b>not</b> machine translation — unknown words show nothing.</span>
+  </div>
+
+  <section class="panel">
+    <h2>Add a word</h2>
+    <div class="row">
+      <input id="word" type="text" placeholder="Word (e.g. bonjour)" autocomplete="off">
+    </div>
+    <div class="row">
+      <input id="translation" type="text" placeholder="Your translation" autocomplete="off">
+    </div>
+    <div class="row">
+      <input id="note" type="text" placeholder="Note (optional, e.g. gender: masculine)" autocomplete="off">
+      <button id="addBtn" class="btn">Add</button>
+    </div>
+    <p id="formMsg" class="formmsg" aria-live="polite"></p>
+  </section>
+
+  <section class="panel">
+    <div class="listhead">
+      <h2>My words <span id="count" class="count">0</span></h2>
+      <input id="search" type="text" placeholder="Search…" autocomplete="off">
+    </div>
+    <div id="wordList" class="wordlist"></div>
+    <div class="row end">
+      <button id="exportBtn" class="btn ghost">Export JSON</button>
+      <button id="importBtn" class="btn ghost">Import JSON</button>
+      <input type="file" id="importFile" accept=".json" class="hidden">
+    </div>
+  </section>
+
+  <p class="foot">Hover any word on a page — your saved translation appears in a tooltip.</p>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

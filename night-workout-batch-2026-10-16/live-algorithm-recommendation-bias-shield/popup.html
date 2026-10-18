@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feed Diversity Companion</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg>
+    </div>
+    <div>
+      <h1>Feed Diversity</h1>
+      <p class="sub">How varied is your information diet?</p>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+    <p><strong>Honest scope:</strong> this tool only knows what <em>you</em> log. It has no access to any platform's algorithm and cannot see or shield you from recommendations. It is an awareness companion, not a shield.</p>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="dash" role="tab">Dashboard</button>
+    <button class="tab" data-tab="log" role="tab">Log sighting</button>
+    <button class="tab" data-tab="reflect" role="tab">Reflect</button>
+  </nav>
+
+  <!-- Dashboard -->
+  <section id="tab-dash" class="panel active">
+    <div class="hero">
+      <div class="ring" id="concentrationRing" title="Concentration score">
+        <span class="ring-num" id="hhiNum">–</span>
+        <span class="ring-lbl">Concentration</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="stSightings">0</span><span class="stat-lbl">Sightings</span></div>
+        <div class="stat"><span class="stat-num" id="stSources">0</span><span class="stat-lbl">Sources</span></div>
+        <div class="stat"><span class="stat-num" id="stTopShare">–</span><span class="stat-lbl">Top source share</span></div>
+      </div>
+    </div>
+    <p class="hint" id="hhiExplain">Concentration is the HHI of source shares (0–100). Higher = your feed sightings come from fewer sources.</p>
+    <div id="nudgeBox" class="nudge" hidden></div>
+    <h2 class="section-title">Top sources</h2>
+    <div id="sourceList" class="rows"><p class="empty">No sightings logged yet. Log what your feed shows you.</p></div>
+    <h2 class="section-title">Category mix</h2>
+    <div id="catMix" class="rows"></div>
+    <div class="row-actions">
+      <button id="exportBtn" class="btn ghost">Export JSON</button>
+      <button id="clearBtn" class="btn danger">Clear all</button>
+    </div>
+  </section>
+
+  <!-- Log -->
+  <section id="tab-log" class="panel">
+    <h2 class="section-title">Log a feed sighting</h2>
+    <label class="field"><span>Source / page name *</span>
+      <input id="fSource" type="text" placeholder="e.g. Morning Brief" maxlength="80">
+    </label>
+    <div class="grid2">
+      <label class="field"><span>Platform</span>
+        <select id="fPlatform">
+          <option>Instagram</option><option>YouTube</option><option>X / Twitter</option>
+          <option>TikTok</option><option>Facebook</option><option>Reddit</option>
+          <option>News app</option><option>Other</option>
+        </select>
+      </label>
+      <label class="field"><span>Category</span>
+        <select id="fCat">
+          <option>News</option><option>Entertainment</option><option>Sports</option>
+          <option>Tech</option><option>Lifestyle</option><option>Politics</option>
+          <option>Finance</option><option>Education</option><option>Other</option>
+        </select>
+      </label>
+    </div>
+    <label class="field"><span>Date</span><input id="fDate" type="date"></label>
+    <button id="addBtn" class="btn primary full">Log sighting</button>
+    <p class="hint">Tip: each time you notice a post in your feed, log who it came from. A week of logging reveals your real diet.</p>
+  </section>
+
+  <!-- Reflect -->
+  <section id="tab-reflect" class="panel">
+    <h2 class="section-title">Weekly reflection</h2>
+    <div id="reflection" class="reflect-card"><p class="empty">Log sightings for a few days, then come back for your weekly reflection.</p></div>
+    <button id="markReflectBtn" class="btn primary full">Mark this week reflected</button>
+    <p class="hint">Reflection is a habit, not a verdict. Nothing here measures a platform's algorithm — only your own logged observations.</p>
+  </section>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

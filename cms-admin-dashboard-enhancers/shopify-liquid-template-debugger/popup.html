@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopify Liquid Template Debugger</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header glass">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <path d="M9 15l2 2 4-4"></path>
+      </svg>
+    </div>
+    <div class="title-block">
+      <h1>Liquid Debugger</h1>
+      <p class="subtitle">Shopify template analyzer</p>
+    </div>
+    <span class="badge">local</span>
+  </header>
+
+  <!-- Input -->
+  <section class="panel glass">
+    <div class="panel-head">
+      <label for="input">Liquid template</label>
+      <button id="sampleBtn" class="ghost-btn" title="Load a sample template">Sample</button>
+    </div>
+    <textarea id="input" spellcheck="false" placeholder="Paste your Liquid template here…"></textarea>
+    <div class="actions">
+      <button id="analyzeBtn" class="primary-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+        Analyze
+      </button>
+      <button id="clearBtn" class="secondary-btn">Clear</button>
+    </div>
+  </section>
+
+  <!-- Issues -->
+  <section class="panel glass" id="issuesPanel" hidden>
+    <div class="panel-head">
+      <label>Tag balance</label>
+      <span id="issueCount" class="count-badge">0</span>
+    </div>
+    <ul id="issues" class="issues"></ul>
+  </section>
+
+  <!-- Highlighted preview -->
+  <section class="panel glass" id="previewPanel" hidden>
+    <div class="panel-head"><label>Highlighted source</label></div>
+    <pre id="highlighted" class="code-view" aria-label="Syntax highlighted source"></pre>
+  </section>
+
+  <!-- Inventory -->
+  <section class="panel glass" id="inventoryPanel" hidden>
+    <div class="panel-head"><label>Inventory</label></div>
+    <div class="inv-grid">
+      <div class="inv-col">
+        <h3>Variables <span id="varCount" class="mini-badge">0</span></h3>
+        <ul id="varList" class="inv-list"></ul>
+      </div>
+      <div class="inv-col">
+        <h3>Filters <span id="filterCount" class="mini-badge">0</span></h3>
+        <ul id="filterList" class="inv-list"></ul>
+      </div>
+    </div>
+    <div class="inv-col" style="margin-top:10px">
+      <h3>Block tags</h3>
+      <ul id="tagList" class="inv-list"></ul>
+    </div>
+  </section>
+
+  <!-- Hints -->
+  <section class="panel glass" id="hintsPanel" hidden>
+    <div class="panel-head"><label>Common-mistake hints</label></div>
+    <ul id="hints" class="issues"></ul>
+  </section>
+
+  <footer class="footer">Heuristic analyzer — never executes your template · 100% on-device</footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

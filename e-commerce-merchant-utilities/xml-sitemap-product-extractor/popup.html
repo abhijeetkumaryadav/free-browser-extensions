@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XML Sitemap Product Extractor</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="glass">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4"/><path d="M12 12H5v4"/><path d="M12 12h7v4"/></svg>
+    <div><h1>Sitemap Extractor</h1><p id="siteHost">Fetch or paste a sitemap</p></div>
+  </header>
+  <main>
+    <section class="glass card">
+      <h2>Source</h2>
+      <button id="fetchBtn" class="primary wide">Fetch this site's sitemap</button>
+      <div class="or">or paste sitemap XML</div>
+      <textarea id="xmlInput" placeholder="&lt;urlset&gt;&#10;  &lt;url&gt;&lt;loc&gt;https://…&lt;/loc&gt;&lt;/url&gt;&#10;&lt;/urlset&gt;" spellcheck="false"></textarea>
+      <button id="parseBtn" class="ghost">Parse pasted XML</button>
+      <div id="status" class="status" hidden></div>
+    </section>
+    <section class="glass card" id="resCard" hidden>
+      <h2 id="resTitle">0 URLs</h2>
+      <label class="check"><input type="checkbox" id="prodOnly" checked> Product-like URLs only</label>
+      <button id="csvBtn" class="ghost wide">Export CSV</button>
+      <div id="list"></div>
+    </section>
+  </main>
+<script src="popup.js"></script>
+</body>
+</html>

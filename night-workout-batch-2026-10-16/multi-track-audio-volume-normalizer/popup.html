@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Peak Normalizer</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header class="app-header">
+  <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14v-4M8 18V6M12 21V3M16 16V8M20 13v-2"/></svg>
+  <div>
+    <h1>Peak Normalizer</h1>
+    <p class="subtitle">Normalize an audio file's peak level and export WAV.</p>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <label class="field-label" for="audioInput">Audio file (one at a time)</label>
+    <input type="file" id="audioInput" accept="audio/*">
+    <div id="fileInfo" class="file-meta hidden"></div>
+  </section>
+
+  <section class="card">
+    <label class="field-label">Analysis</label>
+    <div id="analysis" class="file-meta">No file loaded yet.</div>
+    <div class="meter"><div id="meterFill"></div></div>
+
+    <label class="field-label" for="targetPeak">Target peak (dBFS)</label>
+    <div class="offset-row">
+      <input type="number" id="targetPeak" value="-1" min="-12" max="0" step="0.5">
+      <span class="unit">dB</span>
+    </div>
+
+    <button id="normalizeBtn" class="btn primary" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 14v-4M8 18V6M12 21V3M16 16V8M20 13v-2"/></svg>
+      Normalize &amp; export WAV
+    </button>
+    <div id="status" class="file-meta"></div>
+  </section>
+
+  <p class="honest-note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    Honest scope: peak normalization of one file at a time — not mastering, no
+    multitrack mixing. Everything runs on your machine; nothing is uploaded.
+  </p>
+</main>
+<script src="popup.js"></script>
+</body>
+</html>
